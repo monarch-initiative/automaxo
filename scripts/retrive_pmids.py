@@ -1,12 +1,8 @@
 from Bio import Entrez
 import requests
 import json
-import requests
-import json
 import os
 import time  
-import logging
-
 import logging
 
 
@@ -19,7 +15,7 @@ Entrez.email = "enock.niyonkuru@jax.org"
 
 class RetrivePmids:
 
-    def __init__(self,jason_dir_path, disease_name, max_pmid_retrive, max_articles_to_save ) -> None:
+    def __init__(self,disease_name,jason_dir_path, max_pmid_retrive, max_articles_to_save ) -> None:
 
         self._disease_name = disease_name
         self._jason_dir_path = jason_dir_path
