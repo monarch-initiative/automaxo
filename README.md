@@ -40,3 +40,16 @@ Extract PubMed IDs (PMIDs) related to a specific topic.
 
 - **Location:** `scripts/poet_replacement.py`
 - **Example:** `python poet_replacement.py -i ../dump/mesh_replaced.tsv -o ../dump/poet_replaced.tsv`
+
+I have created sample text for three rare diseases:
+
+- Sickle Cell
+- Morphine
+- Cystic Fibrosis
+
+For each disease, I have saved 50 abstracts and titles. These are stored under the `/data` directory and are used throughout the various steps of the project:
+
+- `.._mesh_replaced.tsv`: Contains text after applying Pubtator3 for Entity Standardization.
+- `.._no_replaced.tsv`: Contains the raw text without any replacements.
+- `.._poet_replaced.tsv`: Contains text after replacing MESH terms with MONDO, HP, and MaXO terms.
+
