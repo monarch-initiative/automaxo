@@ -119,5 +119,9 @@ if __name__ == "__main__":
 
 """
 Sample way of running the code:
-python retrive_pmids.py  -d Anemia  -o ../dump/json_files -m 200 -n 50
+python retrive_pmids.py  -d 'sickle cell'  -o ../dump/json_files -m 200 -n 50
+
+* sickle cell
+* morphine 
+* cystic fibrosis
 """
