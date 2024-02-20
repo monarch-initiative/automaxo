@@ -31,15 +31,18 @@ Extract PubMed IDs (PMIDs) related to a specific topic.
 
 ## Step 2: Entity Standardization & Preprocessing
 
-### Using Pubtator3 for Entity Standardization
+### Using Pubtator3 for Entity Standardization and Relationships 
 
 - **Location:** `scripts/data_preprocessing.py`
 - **Example:** `python data_preprocessing.py -i ../dump/json_files -r ../dump/mesh_replaced.tsv -n ../dump/no_replaced.tsv`
+
 
 ### Using POET to Map MESH to MONDO, HP, and MaXO
 
 - **Location:** `scripts/poet_replacement.py`
 - **Example:** `python poet_replacement.py -i ../dump/mesh_replaced.tsv -o ../dump/poet_replaced.tsv`
+
+
 
 I have created sample text for three rare diseases:
 
@@ -49,7 +52,19 @@ I have created sample text for three rare diseases:
 
 For each disease, I have saved 50 abstracts and titles. These are stored under the `/data` directory and are used throughout the various steps of the project:
 
-- `.._mesh_replaced.tsv`: Contains text after applying Pubtator3 for Entity Standardization.
+The output TSV has 3 columns:
+- Column 1: PubMed ID
+- Column 2: Relationship
+- Column 3: Title & Abstract
+
 - `.._no_replaced.tsv`: Contains the raw text without any replacements.
+
+  Example: `38188902	associate|@DISEASE_Sarcoma|@GENE_CIC	An Unusual Case of Hyperhemolysis Syndrome and Delayed Hemolytic Transfusion Reaction ...`
+
+- `.._mesh_replaced.tsv`: Contains text after applying Pubtator3 for Entity Standardization.
+
+  Example: `38188902	Association|diseaseD012509|ncbi23152	An Unusual Case of diseaseD013577 and Delayed diseaseD006461 Transfusion Reaction ...`
+
 - `.._poet_replaced.tsv`: Contains text after replacing MESH terms with MONDO, HP, and MaXO terms.
 
+  Example: `38188902	Association|MONDO:0005089|ncbi23152	An Unusual Case of MONDO:0002254 and Delayed diseaseD006461 Transfusion Reaction  ....`
