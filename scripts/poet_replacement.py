@@ -98,10 +98,12 @@ class MESHToPOETtReplacement:
                     continue
                 
                 pmc_id = row[0]
-                original_text = row[1]
+                relationships = row[1]
+                original_text = row[2]
+                updated_relationships = self.replace_disease_in_text(relationships)
                 updated_text = self.replace_disease_in_text(original_text)
                 
-                writer.writerow([pmc_id, updated_text])
+                writer.writerow([pmc_id, updated_relationships, updated_text])
             
             print(f"Processed and saved updated texts to: {self._output_tsv_path}")
 
@@ -122,5 +124,12 @@ if __name__ == "__main__":
 # Sample way of running the code:
 python poet_replacement.py  -i ../dump/mesh_replaced.tsv -o ../dump/poet_replaced.tsv 
 
+python poet_replacement.py  -i ../data/sickle_cell_mesh_replaced.tsv -o ../data/sickle_cell_poet_replaced.tsv 
+
+
+
+* sickle cell
+* morphine 
+* cystic fibrosis
 
 """
