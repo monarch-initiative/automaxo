@@ -57,14 +57,24 @@ The output TSV has 3 columns:
 - Column 2: Relationship
 - Column 3: Title & Abstract
 
-- `.._no_replaced.tsv`: Contains the raw text without any replacements.
+- `.._no_replaced.tsv`
+Contains the raw text without any replacements.
 
-  Example: `38188902	associate|@DISEASE_Sarcoma|@GENE_CIC	An Unusual Case of Hyperhemolysis Syndrome and Delayed Hemolytic Transfusion Reaction ...`
+| PubMed ID | Relationship                          | Title & Abstract                                                                 |
+|-----------|----------------------------------------|----------------------------------------------------------------------------------|
+| 38188902  | associate\|@DISEASE_Sarcoma\|@GENE_CIC | An Unusual Case of Hyperhemolysis Syndrome and Delayed Hemolytic Transfusion... |
 
-- `.._mesh_replaced.tsv`: Contains text after applying Pubtator3 for Entity Standardization.
+- `.._mesh_replaced.tsv`
+Contains text after applying Pubtator3 for Entity Standardization.
 
-  Example: `38188902	Association|diseaseD012509|ncbi23152	An Unusual Case of diseaseD013577 and Delayed diseaseD006461 Transfusion Reaction ...`
+| PubMed ID | Relationship                        | Title & Abstract                                                              |
+|-----------|--------------------------------------|-------------------------------------------------------------------------------|
+| 38188902  | Association\|diseaseD012509\|ncbi23152 | An Unusual Case of diseaseD013577 and Delayed diseaseD006461 Transfusion... |
 
-- `.._poet_replaced.tsv`: Contains text after replacing MESH terms with MONDO, HP, and MaXO terms.
+- `.._poet_replaced.tsv`
+Contains text after replacing MESH terms with MONDO, HP, and MaXO terms.
 
-  Example: `38188902	Association|MONDO:0005089|ncbi23152	An Unusual Case of MONDO:0002254 and Delayed diseaseD006461 Transfusion Reaction  ....`
+| PubMed ID | Relationship                         | Title & Abstract                                                             |
+|-----------|---------------------------------------|------------------------------------------------------------------------------|
+| 38188902  | Association\|MONDO:0005089\|ncbi23152 | An Unusual Case of MONDO:0002254 and Delayed diseaseD006461 Transfusion... |
+
