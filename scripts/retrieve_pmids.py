@@ -6,36 +6,14 @@ import time
 import logging
 
 
-logger = logging.basicConfig(filename='retrive_pmids.log',
+logger = logging.basicConfig(filename='retrieve_pmids.log',
                     level=logging.INFO,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
 Entrez.email = "enock.niyonkuru@jax.org"
 
 
-class RetrivePmids:
-
-    def __init__(self, disease_name:str, json_dir_path:str, max_pmid_retrieve:int, max_articles_to_save:int) -> None:
-
-        self._disease_name = disease_name
-        self._jason_dir_path = json_dir_path
-        self._max_pmid_retrive = max_pmid_retrieve
-        self._max_articles_to_save = max_articles_to_save
-
-        self.pmids_list = self.search_articles(self._disease_name,self._max_pmid_retrive)
-
-        logging.info(f'Length of PM IDs: {len(self.pmids_list )}')
-
-        os.makedirs(json_dir_path, exist_ok=True)
-
-        self.fetch_and_save_abst_json(self.pmids_list , self._jason_dir_path)
-
-
-
-
-
-
-def fetch_and_save_abstracts_json(pmids_list, json_dir_path:str, max_articles_to_save:int):
+def fetch_and_save_abstracts_json(pmids_list:str, json_dir_path:str, max_articles_to_save:int):
     """
     Fetches full texts for given PMC IDs in biocjson format and saves them as JSON files in the specified folder.
     Tracks the count of articles not found and successfully retrieved. Stops saving articles once a specified limit is reached.
@@ -91,15 +69,16 @@ def fetch_and_save_abstracts_json(pmids_list, json_dir_path:str, max_articles_to
     logging.info(f'Total articles not found: {not_found_count}')
 
 
-def search_articles(disease_name:str, max_pmid_retrive:int):
+def search_articles(disease_name:str, max_pmid_retrieve:int):
         """
         Search articles related to a disease and return their PubMed IDs.
         """
         search_term = f"{disease_name}[Title/Abstract]"
-        handle = Entrez.esearch(db="pubmed", term=search_term, retmax=max_pmid_retrive)
+        handle = Entrez.esearch(db="pubmed", term=search_term, retmax=max_pmid_retrieve)
         record = Entrez.read(handle)
         handle.close()
         return record["IdList"]
+
 
 if __name__ == "__main__":
     import argparse
@@ -112,17 +91,21 @@ if __name__ == "__main__":
     parser.add_argument("-n", "--max_articles_to_save", type=int, default=50, help="The maximum number of JSON files of articles to save", required=False)
 
     args = parser.parse_args()
-    disease_name = args.d
-    max_pmid_retrieve = args.m
-    pmids_list = search_articles(disease_name, max_pmid_retrieve)
 
-    RetrivePmids(args.d, args.o, args.max_pmid_retrieve, args.max_articles_to_save)
+    disease_name = args.d
+    json_dir_path = args.o
+    max_pmid_retrieve = args.max_pmid_retrieve
+    max_articles_to_save = args.max_articles_to_save
+
+    pmids_list = search_articles(disease_name, max_pmid_retrieve)
+    fetch_and_save_abstracts_json(pmids_list , json_dir_path, max_articles_to_save)
+
 
 
 
 """
 Sample way of running the code:
-python retrive_pmids.py  -d 'sickle cell'  -o ../dump/json_files -m 200 -n 50
+python retrieve_pmids.py  -d 'sickle cell'  -o ../dump/json_files -m 200 -n 50
 
 * sickle cell
 * morphine
