@@ -141,7 +141,11 @@ if __name__ == "__main__":
 Sample way of running the code:
 python retrieve_pmids.py  -d 'sickle cell' -m ../data/mesh_sets.tsv  -o ../dump/json_files -p 200 -n 50
 
+python retrieve_pmids.py  -d 'marfan syndrome' -m ../data/mesh_sets.tsv  -o ../dump/json_files/marfan_syndrome -p 500 -n 100
+
+
+
 * sickle cell
-* morphine
+* marfan syndrome
 * cystic fibrosis
 """
