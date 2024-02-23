@@ -159,9 +159,10 @@ if __name__ == "__main__":
 # Sample way of running the code:
 python data_preprocessing.py  -i ../dump/json_files -r ../dump/mesh_replaced.tsv -n ../dump/no_replaced.tsv
 
-
 * sickle cell
-* morphine 
+* marfan syndrome
 * cystic fibrosis
+
+
 
 """

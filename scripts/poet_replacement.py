@@ -91,7 +91,7 @@ def process_tsv_and_replace_disease(input_tsv_path:str, output_tsv_path:str):
             
             writer.writerow([pmc_id, updated_relationships, updated_text])
         
-        print(f"Processed and saved updated texts to: {output_tsv_path}")
+        logging.info(f"Processed and saved updated texts to: {output_tsv_path}")
 
 
 if __name__ == "__main__":
@@ -117,12 +117,12 @@ if __name__ == "__main__":
 # Sample way of running the code:
 python poet_replacement.py  -i ../dump/mesh_replaced.tsv -o ../dump/poet_replaced.tsv 
 
-python poet_replacement.py  -i ../data/sickle_cell_mesh_replaced.tsv -o ../data/sickle_cell_poet_replaced.tsv 
+python poet_replacement.py  -i ../data/marfan_syndrome_mesh_replaced.tsv -o ../data/marfan_syndrome_poet_replaced.tsv 
 
 
 
-* sickle cell
-* morphine 
-* cystic fibrosis
+* sickle_cell
+* marfan_syndrome
+* cystic_fibrosis
 
 """
