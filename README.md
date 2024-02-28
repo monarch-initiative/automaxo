@@ -78,3 +78,25 @@ Contains text after replacing MESH terms with MONDO, HP, and MaXO terms.
 |-----------|---------------------------------------|------------------------------------------------------------------------------|
 | 38188902  | Association\|MONDO:0005089\|ncbi23152 | An Unusual Case of MONDO:0002254 and Delayed diseaseD006461 Transfusion... |
 
+# OntoGPT Integration 
+
+## How to update our own LinkML Schema with OntoGPT
+
+### Way 1: Using OntoGPT Directory 
+* `Pip install OntoGPT`
+* Create a .yaml file 
+* Generate a python file: ` gen-pydantic --pydantic-version 2 custom_schema.yaml > custom_schema.py`
+* Find the right path for the virtual environment: ` pip show ontogpt `
+* Then move both .yaml and .py to the virtual environment:  ` mv maxo_temp.py  /Users/niyone/Desktop/maxo/maxo_venv/lib/python3.9/site-packages/ontogpt/templates/ `
+* Refer to the issue: https://github.com/monarch-initiative/ontogpt/issues/222
+
+### Way 2: Quick way using maxo_schema in automaxo/notebooks
+
+* Use the existing `notebooks/maxo_template.yaml`
+* After you updated the current one in the repo, copy the version to the virtual environment (maxo_venv): ` cp maxo_template.yaml  /Users/niyone/Desktop/maxo/maxo_venv/lib/python3.9/site-packages/ontogpt/templates/ `
+* Create a python file of the yaml template in Virtual Environment : `gen-pydantic --pydantic-version 2 /Users/niyone/Desktop/maxo/maxo_venv/lib/python3.9/site-packages/ontogpt/templates/maxo_template.yaml > /Users/niyone/Desktop/maxo/maxo_venv/lib/python3.9/site-packages/ontogpt/templates/maxo_template.py`
+* Now call  maxo_template as a normal ontogpt template : `ontogpt -vvv extract -t maxo_template -i input.txt`
+
+
+
+
