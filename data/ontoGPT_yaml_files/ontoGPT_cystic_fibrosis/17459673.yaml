@@ -1,0 +1,71 @@
+---
+input_text: '[Nebulized drugs: the evolution?].The revival of nebulization as a drug
+  delivery route is real. The current delivery systems respond to the new European
+  norms, the new mesh-vibrating nebulizers allow delivering drugs more quickly, other
+  nebulizers, more performant because of less drug losses and of a better lung deposition
+  of the drug, are in progress. Only 12 drugs are commercialized for nebulization.
+  All are available in dispensaries, some requiring a first prescription by a physician
+  working in a hospital (cystic fibrosis drugs), others requiring a prescription from
+  only some specialists as paediatricians or pulmonologists (bronchodilators). Works
+  are in progress concerning the diameter and shape of the drug particles (nanotechnology)
+  and also concerning the use of nebulized drugs for a systemic effect (vaccines,
+  insulin, cyclosporine, anticancerous agents, etc.).'
+raw_completion_output: |-
+  action: <nebulization; prescription of cystic fibrosis drugs; prescription of bronchodilators>
+  disease: <cystic fibrosis>
+  symptom: <>
+  action_to_disease: <nebulization TREATS cystic fibrosis; prescription of cystic fibrosis drugs TREATS cystic fibrosis>
+  action_to_symptom: <>
+  triples: <nebulization TREATS cystic fibrosis; prescription of cystic fibrosis drugs TREATS cystic fibrosis>
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject: <the value for subject>
+  predicate: <the value for predicate>
+  object: <the value for object>
+  qualifier: <A qualifier for the statements, e.g. "NOT" for negation>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  prescription of cystic fibrosis drugs TREATS cystic fibrosis>
+
+  ===
+
+extracted_object:
+  triples:
+    - subject: nebulization
+      predicate: TREATS
+      object: cystic fibrosis
+    - subject: prescription of cystic fibrosis drugs
+      predicate: TREATS
+      object: cystic fibrosis
+  action:
+    - <nebulization
+    - prescription of cystic fibrosis drugs
+    - prescription of bronchodilators>
+  disease:
+    - <cystic fibrosis>
+  symptom:
+    - <>
+  action_to_disease:
+    - subject: nebulization
+      predicate: TREATS
+      object:
+        - MONDO:0009061
+    - subject: prescription of cystic fibrosis drugs
+      predicate: TREATS
+      object:
+        - MONDO:0009061
+named_entities:
+  - id: MONDO:0009061
+    label: cystic fibrosis
+  - id: MAXO:0000004
+    label: Surgery
+  - id: MONDO:0006031
+    label: chronic rhinosinusitis
+  - id: MONDO:0002492
+    label: <acute kidney injury (AKI)
+  - id: MONDO:0005300
+    label: chronic kidney disease (CKD)
