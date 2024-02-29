@@ -1,0 +1,123 @@
+---
+input_text: 'Manufacturing and placing a bespoke support for the Marfan aortic root:
+  description of the method and technical results and status at one year for the first
+  ten patients.Fatal aortic dissection commonly occurs in Marfan syndrome. Prevention
+  currently relies on elective replacement of the aortic root. We are evaluating the
+  placement of a manufactured, bespoke external support derived from a computer aided
+  design in a prospective study. In the first ten patients, measurements were made
+  consistently of the ascending aorta at the level of closure of the aortic valve
+  cusps from magnetic resonance imaging (MRI) studies taken preoperatively and at
+  fixed intervals thereafter. Before and after images were presented for measurement
+  amongst duplicate images of 37 unoperated Marfan patients to permit assessment of
+  intra-observer measurement reproducibility. All images were presented in random
+  sequence to a radiologist unaware of the research question. The largest difference
+  between the preoperative measurement and that made at least one year after surgery
+  was determined. All patients had surgery as planned without complications and were
+  alive at one year. In eight of the ten patients, the largest observed change was
+  a marked reduction in aortic root diameter. The primary objective of this surgery
+  was achieved in each case, reinforcing the ascending aorta whilst leaving the native
+  aortic valve intact and conserving the blood/endothelium interface.'
+raw_completion_output: |-
+  action: <Manufacturing and placing a bespoke support for the Marfan aortic root; Elective replacement of the aortic root; Measurement of the ascending aorta from magnetic resonance imaging (MRI); Surgery>
+  disease: <Marfan syndrome; Fatal aortic dissection>
+  symptom: <Marked reduction in aortic root diameter>
+  action_to_disease: <Manufacturing and placing a bespoke support for the Marfan aortic root PREVENTS Fatal aortic dissection; Elective replacement of the aortic root PREVENTS Fatal aortic dissection; Measurement of the ascending aorta from magnetic resonance imaging (MRI) IS USED TO MONITOR Marfan syndrome; Surgery TREATS Marfan syndrome>
+  action_to_symptom: <Surgery REDUCES Marked reduction in aortic root diameter>
+  triples: <Manufacturing and placing a bespoke support for the Marfan aortic root PREVENTS Fatal aortic dissection; Elective replacement of the aortic root PREVENTS Fatal aortic dissection; Measurement of the ascending aorta from magnetic resonance imaging (MRI) IS USED TO MONITOR Marfan syndrome; Surgery TREATS Marfan syndrome; Surgery REDUCES Marked reduction in aortic root diameter>
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject: <the value for subject>
+  predicate: <the value for predicate>
+  object: <the value for object>
+  qualifier: <A qualifier for the statements, e.g. "NOT" for negation>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Surgery REDUCES Marked reduction in aortic root diameter>
+
+  ===
+
+extracted_object:
+  triples:
+    - subject: Manufacturing and placing a bespoke support for the Marfan aortic root
+      predicate: PREVENTS
+      object: Fatal aortic dissection
+      qualifier: None
+      subject_qualifier: None
+      object_qualifier: None
+    - subject: Elective replacement of the aortic root
+      predicate: PREVENTS
+      object: Fatal aortic dissection
+    - subject: Measurement of the ascending aorta from magnetic resonance imaging
+        (MRI)
+      predicate: IS USED TO MONITOR
+      object: Marfan syndrome
+    - subject: Surgery
+      predicate: TREATS
+      object: Marfan syndrome
+    - subject: Surgery
+      predicate: REDUCES
+      object: Marked reduction in aortic root diameter
+  action:
+    - <Manufacturing and placing a bespoke support for the Marfan aortic root
+    - Elective replacement of the aortic root
+    - Measurement of the ascending aorta from magnetic resonance imaging (MRI)
+    - Surgery>
+  disease:
+    - <Marfan syndrome
+    - Fatal aortic dissection>
+  symptom:
+    - <Marked reduction in aortic root diameter>
+  action_to_disease:
+    - subject: Manufacturing and placing a bespoke support for the Marfan aortic root
+      predicate: PREVENTS
+      object:
+        - Fatal aortic dissection
+    - subject: Elective replacement of the aortic root
+      predicate: PREVENTS
+      object:
+        - Fatal aortic dissection
+    - subject: Measurement of the ascending aorta from magnetic resonance imaging
+        (MRI)
+      predicate: IS USED TO MONITOR
+      object:
+        - MONDO:0007947
+    - subject: MAXO:0000004
+      predicate: TREATS
+      object:
+        - MONDO:0007947
+  action_to_symptom:
+    - subject: MAXO:0000004
+      predicate: REDUCES
+      object:
+        - Marked reduction in aortic root diameter
+named_entities:
+  - id: MONDO:0007947
+    label: Marfan syndrome
+  - id: MONDO:0005648
+    label: Aortic regurgitation
+  - id: HP:0001083
+    label: lens dislocation
+  - id: HP:0001699
+    label: sudden death
+  - id: MAXO:0000144
+    label: Histological examinations
+  - id: MONDO:0005160
+    label: Aortic aneurysms
+  - id: MONDO:0018954
+    label: Loeys-Dietz syndrome
+  - id: HP:0001659
+    label: Aortic regurgitation
+  - id: MONDO:0001297
+    label: cardiac tamponade
+  - id: MONDO:0005252
+    label: heart failure
+  - id: MAXO:0035038
+    label: CT angiography
+  - id: MONDO:0009691
+    label: <Marfan syndrome (MFS)
+  - id: MAXO:0000004
+    label: Surgery

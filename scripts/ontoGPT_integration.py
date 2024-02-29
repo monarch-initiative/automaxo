@@ -7,8 +7,17 @@ from ontogpt.io.template_loader import get_template_details
 from ontogpt.io.yaml_wrapper import dump_minimal_yaml
 from ontogpt.cli import write_extraction
 
-def process_article(pubmed_id, text, ke, output_dir):
-    """Process a single article and save the extracted results to a YAML file in the specified output directory."""
+def process_article(pubmed_id: str, text: str, ke: SPIRESEngine, output_dir: str):
+    """
+    Process a single article and save the extracted results to a YAML file in the specified output directory.
+
+    Args:
+        pubmed_id (str): The PubMed ID of the article.
+        text (str): The text content of the article.
+        ke (SPIRESEngine): The knowledge extraction engine used to extract information from the text.
+        output_dir (str): The directory where the extracted YAML file will be saved.
+
+    """
     # Extract results from the text
     results = ke.extract_from_text(text=text)
 
@@ -30,8 +39,16 @@ def process_article(pubmed_id, text, ke, output_dir):
         output.seek(0)
         output_file.write(output.getvalue())
 
-def process_tsv_file(file_path, ke, output_dir):
-    """Read a .tsv file and process each article, saving the outputs in the specified directory."""
+def process_tsv_file(file_path: str, ke: SPIRESEngine, output_dir: str):
+    """
+    Read a .tsv file and process each article, saving the outputs in the specified directory.
+
+    Args:
+        file_path (str): The path to the .tsv file containing the articles.
+        ke (SPIRESEngine): The knowledge extraction engine used to extract information from the articles.
+        output_dir (str): The directory where the extracted YAML files will be saved.
+
+    """
     with open(file_path, "r") as file:
         reader = csv.reader(file, delimiter="\t")
         for row in reader:
@@ -66,6 +83,13 @@ if __name__ == "__main__":
 
 
 """
-python script.py path/to/input.tsv path/to/output/directory --template your_template
+python ontoGPT_integration.py path/to/input.tsv path/to/output/directory --template your_template
 
+
+python ontoGPT_integration.py ../data/sickle_cell_no_replaced.tsv ../dump/ontoGPT_yaml_files/ontoGPT_sickle_cell
+
+
+/Users/niyone/Desktop/maxo/automaxo/data/sickle_cell_no_replaced.tsv
+
+/Users/niyone/Desktop/maxo/automaxo/dump/ontoGPT_yaml_files/ontoGPT_sickle_cell
 """
