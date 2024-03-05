@@ -86,10 +86,7 @@ if __name__ == "__main__":
 python ontoGPT_integration.py path/to/input.tsv path/to/output/directory --template your_template
 
 
-python ontoGPT_integration.py ../data/sickle_cell_no_replaced.tsv ../dump/ontoGPT_yaml_files/ontoGPT_sickle_cell
+python ontoGPT_integration.py ../data/sickle_cell/sickle_cell_no_replaced.tsv ../dump/ontoGPT_yaml_files/ontoGPT_sickle_cell
 
 
-/Users/niyone/Desktop/maxo/automaxo/data/sickle_cell_no_replaced.tsv
-
-/Users/niyone/Desktop/maxo/automaxo/dump/ontoGPT_yaml_files/ontoGPT_sickle_cell
 """

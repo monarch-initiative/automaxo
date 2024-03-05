@@ -49,7 +49,7 @@ def extract_triplets(data: list):
         for triplet in article.get('extracted_object', {}).get(section, []):
             if 'object' in triplet:  # Check if 'object' key exists in the triplet
                 for obj in triplet['object']:
-                    triplets.append((triplet['subject'], triplet['predicate'], obj, triplet.get('object_qualifier'), pubmed_id))
+                    triplets.append((triplet['subject'], triplet['predicate'], obj, pubmed_id))
 
     for article in data:
         pubmed_id = article['pubmed_id']
@@ -111,6 +111,9 @@ if __name__ == '__main__':
         'ranked_triplets': [{'triplet': triplet, 'count': info['count'], 'pubmed_ids': list(info['pubmed_ids'])} for triplet, info in ranked_triplets],
         'named_entities': named_entities
     }
+    
+
+
     with open(args.json_output_path, 'w') as f:
         json.dump(results, f, indent=4)
 
@@ -119,7 +122,7 @@ if __name__ == '__main__':
 
 python ontoGPT_results_postprocessing.py ../test_case/test_ontogpt_result_non_replaced output.json
 
-python ontoGPT_results_postprocessing.py .../dump/ontoGPT_yaml_files/ontoGPT_cystic_fibrosis  ../data/post_ontoGPT_cystic_fibrosis.json
+python ontoGPT_results_postprocessing.py ../data/sickle_cell/ontoGPT_yaml_sickle_cell  ../data/sickle_cell/post_ontoGPT_sickle_cell.json
 
 
 """

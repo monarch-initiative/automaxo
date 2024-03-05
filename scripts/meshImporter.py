@@ -44,7 +44,7 @@ class MeSHEntry:
         """
         returns the string with mesh label
         """
-        return "meshd" + self._id[1:]
+        return "D" + self._id[1:]
 
     def __str__(self):
         """

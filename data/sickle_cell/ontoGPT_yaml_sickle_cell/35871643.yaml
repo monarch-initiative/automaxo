@@ -1,0 +1,140 @@
+---
+input_text: 'Surgical outcomes associated with sleep apnea syndrome in Stanford A
+  aortic dissection patients.BACKGROUND: Patients suffering from aortic dissection
+  (AD) often experience sleep apnea syndrome (SAS), which aggravates their respiratory
+  function and aortic false lumen expansion. METHODS: We analyzed the peri-operative
+  data of Stanford A AD patients, with or without SAS, between January 2017 and June
+  2019. Subjects were separated into SAS positive (SAS+) and SAS negative (SAS-) cohorts,
+  based on the Apnea-Hypopnea Index (AHI) and the Oxygen Desaturation Index (ODI).
+  We next analyzed variables between the SAS+ and SAS- groups. RESULTS: 155, out of
+  198 AAD patients, were enlisted for this study. SAS+ patients exhibited higher rates
+  of pneumonia (p < 0.001), heart failure (HF, p = 0.038), acute kidney injury (AKI,
+  p = 0.001), ventilation time (p = 0.009), and hospitalization duration (p < 0.001).
+  According to subsequent follow-ups, the unstented aorta false lumen dilatation (FLD)
+  rate increased markedly, with increasing degree of SAS (p < 0.001, according to
+  AHI and ODI). The SAS+ patients exhibited worse cumulative survival rate (p = 0.025).
+  The significant risk factors (RF) for poor survival were: severe (p = 0.002) or
+  moderate SAS (p = 0.008), prolonged ventilation time (p = 0.018), AKI (p = 0.015),
+  HF New York Heart Association (NYHA) IV (p = 0.005) or III (p = 0.015), pneumonia
+  (p = 0.005), Marfan syndrome (p = 0.010), systolic blood pressure (BP) upon arrival
+  (p = 0.009), and BMI >= 30 (p = 0.004). CONCLUSIONS: SAS+ Stanford A AD patients
+  primarily exhibited higher rates of complications and low survival rates in the
+  mid-time follow-up. Hence, the RFs associated with poor survival must be monitored
+  carefully in SAS patients. Moreover, the FLD rate is related to the degree of SAS,
+  thus treating SAS may mitigate FLD.'
+raw_completion_output: |-
+  action: <treat sleep apnea syndrome; monitor risk factors; mitigate aortic false lumen dilatation>
+  disease: <sleep apnea syndrome; aortic dissection; pneumonia; heart failure; acute kidney injury; Marfan syndrome>
+  symptom: <respiratory function aggravation; aortic false lumen expansion>
+  action_to_disease: <treat sleep apnea syndrome TREATS sleep apnea syndrome; treat sleep apnea syndrome MITIGATES aortic dissection; monitor risk factors IS USED TO MANAGE sleep apnea syndrome; monitor risk factors IS USED TO MANAGE aortic dissection; mitigate aortic false lumen dilatation TREATS aortic dissection>
+  action_to_symptom: <monitor risk factors IS USED TO MANAGE respiratory function aggravation>
+  triples: <treat sleep apnea syndrome TREATS sleep apnea syndrome; treat sleep apnea syndrome MITIGATES aortic dissection; monitor risk factors IS USED TO MANAGE sleep apnea syndrome; monitor risk factors IS USED TO MANAGE aortic dissection; mitigate aortic false lumen dilatation TREATS aortic dissection; monitor risk factors IS USED TO MANAGE respiratory function aggravation>
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject: <the value for subject>
+  predicate: <the value for predicate>
+  object: <the value for object>
+  qualifier: <A qualifier for the statements, e.g. "NOT" for negation>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  monitor risk factors IS USED TO MANAGE respiratory function aggravation>
+
+  ===
+
+extracted_object:
+  triples:
+    - subject: treat sleep apnea syndrome
+      predicate: TREATS
+      object: sleep apnea syndrome
+    - subject: sleep apnea syndrome
+      predicate: MITIGATES
+      object: aortic dissection
+    - subject: monitor risk factors
+      predicate: IS USED TO MANAGE
+      object: sleep apnea syndrome
+    - subject: monitor risk factors
+      predicate: IS USED TO MANAGE
+      object: aortic dissection
+    - subject: mitigate aortic false lumen dilatation
+      predicate: TREATS
+      object: aortic dissection
+    - subject: monitor risk factors
+      predicate: IS USED TO MANAGE
+      object: respiratory function aggravation
+  action:
+    - <treat sleep apnea syndrome
+    - monitor risk factors
+    - mitigate aortic false lumen dilatation>
+  disease:
+    - <sleep apnea syndrome
+    - aortic dissection
+    - MONDO:0005249
+    - MONDO:0005252
+    - MONDO:0002492
+    - Marfan syndrome>
+  symptom:
+    - <respiratory function aggravation
+    - aortic false lumen expansion>
+  action_to_disease:
+    - subject: treat sleep apnea syndrome
+      predicate: TREATS
+      object:
+        - MONDO:0005296
+    - subject: treat sleep apnea syndrome
+      predicate: MITIGATES
+      object:
+        - aortic dissection
+    - subject: monitor risk factors
+      predicate: IS USED TO MANAGE
+      object:
+        - MONDO:0005296
+    - subject: monitor risk factors
+      predicate: IS USED TO MANAGE
+      object:
+        - aortic dissection
+    - subject: mitigate aortic false lumen dilatation
+      predicate: TREATS
+      object:
+        - aortic dissection
+  action_to_symptom:
+    - subject: monitor risk factors
+      predicate: IS USED TO MANAGE
+      object:
+        - respiratory function aggravation
+named_entities:
+  - id: MONDO:0007947
+    label: Marfan syndrome
+  - id: MONDO:0001298
+    label: mitral valve insufficiency
+  - id: MONDO:0004994
+    label: Cardiomyopathy
+  - id: HP:0034314
+    label: Abnormal Left Ventricular Ejection Fraction (LVEF)
+  - id: MONDO:0013902
+    label: bicuspid aortic valve
+  - id: MONDO:0001856
+    label: splenic artery aneurysm
+  - id: MONDO:0004992
+    label: cancer
+  - id: MONDO:0005711
+    label: diaphragmatic hernia
+  - id: MONDO:0017388
+    label: Dunbar syndrome
+  - id: MAXO:0000127
+    label: genetic testing
+  - id: MAXO:0009006
+    label: genome sequencing
+  - id: MONDO:0008287
+    label: Greig cephalopolysyndactyly syndrome
+  - id: MONDO:0005249
+    label: pneumonia
+  - id: MONDO:0005252
+    label: heart failure
+  - id: MONDO:0002492
+    label: acute kidney injury
+  - id: MONDO:0005296
+    label: sleep apnea syndrome

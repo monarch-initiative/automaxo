@@ -71,10 +71,46 @@ def fetch_and_save_abstracts_json(pmids_list:str, json_dir_path:str, max_article
     logging.info(f'Total articles not found: {not_found_count}')
 
 
-
-def search_articles(disease_name: str, mesh_list_path: str, max_pmid_retrieve: int):
+def fetch_mesh_ids(pmid, retries=3, delay=2):
     """
-    Search articles related to a disease and treatments using combined MeSH IDs from a .tsv file, and return their PubMed IDs.
+    Fetch MeSH IDs and their descriptor names for a given PubMed ID.
+
+    Parameters:
+    - pmid: PubMed ID.
+    - retries: Number of retries in case of an HTTP error.
+    - delay: Delay in seconds before retrying.
+
+    Returns:
+    - Dictionary with MeSH IDs as keys and descriptor names as values.
+    """
+    for attempt in range(retries):
+        try:
+            handle = Entrez.efetch(db="pubmed", id=pmid, retmode="xml")
+            article = Entrez.read(handle)
+            handle.close()
+
+            # Extract MeSH IDs and descriptor names from the article
+            mesh_info = {}
+            if 'PubmedArticle' in article:
+                mesh_heading_list = article['PubmedArticle'][0].get('MedlineCitation', {}).get('MeshHeadingList', [])
+                for mesh_heading in mesh_heading_list:
+                    descriptor_name = mesh_heading.get('DescriptorName')
+                    if descriptor_name:
+                        mesh_id = descriptor_name.attributes.get('UI')
+                        if mesh_id:
+                            mesh_info[mesh_id] = str(descriptor_name)
+
+            return mesh_info
+        except Exception as e:
+            print(f"Error fetching MeSH IDs for PMID {pmid}: {e}. Attempt {attempt + 1} of {retries}. Retrying in {delay} seconds.")
+            time.sleep(delay)
+    raise Exception(f"Failed to fetch MeSH IDs for PMID {pmid} after {retries} attempts.")
+
+
+def search_articles_with_mesh_info(disease_name: str, mesh_list_path: str, max_pmid_retrieve: int):
+    """
+    Search articles related to a disease and treatments using combined MeSH IDs from a .tsv file, 
+    and return their PubMed IDs along with the MeSH IDs and their descriptor names that contributed to their selection.
     
     Parameters:
     - disease_name: Name of the disease.
@@ -82,24 +118,15 @@ def search_articles(disease_name: str, mesh_list_path: str, max_pmid_retrieve: i
     - max_pmid_retrieve: Maximum number of PubMed IDs to retrieve.
     
     Returns:
-    - List of PubMed IDs.
+    - Dictionary with PubMed IDs as keys and a dictionary of contributing MeSH IDs and descriptor names as values.
     """
-    # Read the .tsv file
+    # Read the .tsv file and create a set of combined MeSH IDs
     df = pd.read_csv(mesh_list_path, sep='\t', header=None)
-
-    # Combine all List_MeSH_IDs from the third column into a single list
-    combined_mesh_ids = []
-    for mesh_ids in df.iloc[:, 2]:  # Using the third column (index 2)
-        combined_mesh_ids.extend(mesh_ids.split(';'))
-
-    # Remove duplicates and format MeSH IDs
-    unique_mesh_ids = set(combined_mesh_ids)
-    formatted_mesh_ids = [mesh_id.split('meshd')[-1] for mesh_id in unique_mesh_ids if 'meshd' in mesh_id]
-
-    # Create a search term for treatments using combined MeSH IDs
-    treatment_search = " OR ".join([f"MeSH:{mesh_id}" for mesh_id in formatted_mesh_ids])
+    
+    combined_mesh_ids = {mesh_id for mesh_ids in df.iloc[:, 2] for mesh_id in mesh_ids.split(';')}
 
     # Combine disease name and treatment search terms
+    treatment_search = "(diagnosis[MeSH Terms] OR therapeutics[MeSH Terms])"
     search_term = f"({disease_name}[Title/Abstract]) AND ({treatment_search})"
 
     # Perform the search
@@ -107,7 +134,14 @@ def search_articles(disease_name: str, mesh_list_path: str, max_pmid_retrieve: i
     record = Entrez.read(handle)
     handle.close()
 
-    return record["IdList"]
+    # Retrieve MeSH IDs and descriptor names for each PubMed ID and filter based on the combined mesh set
+    pmid_mesh_info = {}
+    for pmid in record["IdList"]:
+        mesh_info = fetch_mesh_ids(pmid)
+        filtered_mesh_info = {mesh_id: descriptor_name for mesh_id, descriptor_name in mesh_info.items() if mesh_id in combined_mesh_ids}
+        pmid_mesh_info[pmid] = filtered_mesh_info
+
+    return pmid_mesh_info
 
 
 
@@ -131,7 +165,13 @@ if __name__ == "__main__":
     max_articles_to_save = args.max_articles_to_save
 
 
-    pmids_list = search_articles(disease_name, mesh_list_path, max_pmid_retrieve)
+    selected_pmid_mesh_info = search_articles_with_mesh_info(disease_name, mesh_list_path, max_pmid_retrieve)
+    pmids_list = list(selected_pmid_mesh_info.keys())
+
+    # Save the results to a JSON file
+    with open('selected_pmid_mesh_info.json', 'w') as json_file:
+        json.dump(selected_pmid_mesh_info, json_file, indent=4)
+
     fetch_and_save_abstracts_json(pmids_list , json_dir_path, max_articles_to_save)
 
 
@@ -141,7 +181,7 @@ if __name__ == "__main__":
 Sample way of running the code:
 python retrieve_pmids.py  -d 'sickle cell' -m ../data/mesh_sets.tsv  -o ../dump/json_files -p 200 -n 50
 
-python retrieve_pmids.py  -d 'marfan syndrome' -m ../data/mesh_sets.tsv  -o ../dump/json_files/marfan_syndrome -p 500 -n 100
+python retrieve_pmids.py  -d 'marfan syndrome' -m ../data/mesh_sets.tsv  -o ../data/sickle_cell/pubtator3_json_sickle_cell -p 500 -n 100
 
 
 
