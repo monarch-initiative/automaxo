@@ -163,6 +163,6 @@ python data_preprocessing.py  -i ../dump/json_files -r ../dump/mesh_replaced.tsv
 * marfan syndrome
 * cystic fibrosis
 
-
+python data_preprocessing.py  -i ../data/sickle_cell/pubtator3_json_sickle_cell -r ../data/sickle_cell/sickle_cell_mesh_replaced.tsv -n ../data/sickle_cell/sickle_cell_no_replaced.tsv
 
 """
