@@ -1,11 +1,11 @@
 import csv
 import os
-import argparse
 from io import BytesIO
+import click
 from ontogpt.engines.spires_engine import SPIRESEngine
 from ontogpt.io.template_loader import get_template_details
-from ontogpt.io.yaml_wrapper import dump_minimal_yaml
 from ontogpt.cli import write_extraction
+
 
 def process_article(pubmed_id: str, text: str, ke: SPIRESEngine, output_dir: str):
     """
@@ -56,37 +56,29 @@ def process_tsv_file(file_path: str, ke: SPIRESEngine, output_dir: str):
             process_article(pubmed_id, text, ke, output_dir)
 
 
-def main():
-    # Set up argument parsing
-    parser = argparse.ArgumentParser(description="Process .tsv file and extract results to YAML files.")
-    parser.add_argument("input_file", help="Path to the input .tsv file")
-    parser.add_argument("output_dir", help="Path to the output directory for YAML files")
-    parser.add_argument("--template", default="maxo", help="Template to use for extraction (default: maxo)")
-    args = parser.parse_args()
-
+@click.command()
+@click.argument('input_file', type=click.Path(exists=True)) # help="Path to the input .tsv file"
+@click.argument('output_dir', type=click.Path()) # help="Path to the output directory for YAML files"
+@click.option('--template', default='maxo') # help='Template to use for extraction (default: maxo)'
+def main(input_file, output_dir, template):
     # Initialize the SPIRES engine with the specified template
     ke = SPIRESEngine(
-        template_details=get_template_details(template=args.template),
+        template_details=get_template_details(template=template),
         model="gpt-4-0125-preview",
         model_source="openai",
     )
 
     # Create the output directory if it does not exist
-    os.makedirs(args.output_dir, exist_ok=True)
+    os.makedirs(output_dir, exist_ok=True)
 
     # Process the .tsv file
-    process_tsv_file(args.input_file, ke, args.output_dir)
+    process_tsv_file(input_file, ke, output_dir)
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
 
 
 """
-python ontoGPT_integration.py path/to/input.tsv path/to/output/directory --template your_template
-
-
-python ontoGPT_integration.py ../data/sickle_cell/sickle_cell_no_replaced.tsv ../dump/ontoGPT_yaml_files/ontoGPT_sickle_cell
-
+python ontogpt_article_processor.py path/to/input.tsv path/to/output/directory --template maxo
 
 """

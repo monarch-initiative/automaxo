@@ -1,6 +1,6 @@
-import argparse
-import datetime
+import click
 from SPARQLWrapper import SPARQLWrapper, JSON
+from typing import List
 
 
 class MeSHEntry:
@@ -110,42 +110,35 @@ def get_mesh_entries(meshid: str):
     return mesh_entries
 
 
-def get_target_mesh_ids():
-    fname = "../data/mesh_target_ids.tsv"
-    mesh_entries = []
-    with open(fname) as f:
-        next(f)  # header
+@click.command()
+@click.option('--input-file', default='../../data/mesh_target_ids.tsv', help='Path to the input TSV file containing target MeSH IDs.')
+@click.option('--output-file', default='../../data/mesh_sets.tsv', help='Path to the output TSV file.')
+def main(input_file: str, output_file: str):
+    with open(input_file) as f, open(output_file, "wt") as fh:
+        next(f)  # Skip header
         for line in f:
             fields = line.rstrip().split("\t")
             if len(fields) == 2:
-                meshid = fields[0]
-                label = fields[1]
-                mesh_entries.append(MeSHEntry(id=meshid, label=label))
-    return mesh_entries
+                meshid, label = fields
+                me = MeSHEntry(id=meshid, label=label)
+                entries = get_mesh_entries(meshid)
+                if len(entries) < 3:
+                    continue
+                entry_id_list = [e.meshlabel for e in entries]
+                entry_str = ";".join(entry_id_list)
+                fh.write(f"{label}\t{meshid}\t{entry_str}\n")
+
+def run_in_notebook(input_file: str, output_file: str):
+    main.main(standalone_mode=False, args=['--input-file', input_file, '--output-file', output_file])
+
+if __name__ == '__main__':
+    main()
 
 
-outname = "../data/mesh_sets.tsv"
-
-fh = open(outname, "wt")
-
-mesh_ids = get_target_mesh_ids()
-for me in mesh_ids:
-    target_mesh_id = me.id
-    target_mesh_label = me.label
-    entries = get_mesh_entries(target_mesh_id)
-    if len(entries) < 3:
-        continue
-    entry_id_list = [e.meshlabel for e in entries]
-    entry_str = ";".join(entry_id_list)
-    fh.write(f"{target_mesh_label}\t{target_mesh_id}\t{entry_str}\n")
-
-fh.close()
 
 
-# sample way of running the code using arparse:
+
 """
-locate the file you are running + python + meshImporter.py 
-example: 
-> python meshImporter.py 
+python mesh_importer.py --input-file path/to/mesh_target_ids.tsv --output-file path/to/mesh_sets.tsv
 
 """
