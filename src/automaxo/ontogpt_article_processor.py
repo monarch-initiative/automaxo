@@ -74,6 +74,13 @@ def main(input_file, output_dir, template):
     # Process the .tsv file
     process_tsv_file(input_file, ke, output_dir)
 
+def run_in_notebook(input_file, output_dir, template='maxo'):
+    main.main(standalone_mode=False, args=[
+        input_file,
+        output_dir,
+        '--template', template
+    ])
+
 if __name__ == '__main__':
     main()
 

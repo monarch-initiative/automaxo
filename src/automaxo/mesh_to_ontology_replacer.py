@@ -1,6 +1,7 @@
 
 import subprocess
 import re
+import os
 import requests
 import pandas as pd
 import csv
@@ -72,7 +73,13 @@ def replace_disease_in_text(text:str, mesh_to_mondo_dict, mesh_to_hp_dict, mesh_
     updated_text = pattern.sub(replace_func, text)
     return updated_text
 
+
+
 def process_tsv_and_replace_disease(input_tsv_path:str, output_tsv_path:str, mesh_to_mondo_dict, mesh_to_hp_dict, mesh_to_maxo_dict):
+    # Check if the output file exists and delete it
+    if os.path.exists(output_tsv_path):
+        os.remove(output_tsv_path)
+
     with open(input_tsv_path, mode='r', encoding='utf-8') as infile, \
         open(output_tsv_path, mode='w', encoding='utf-8', newline='') as outfile:
         
@@ -104,6 +111,13 @@ def main(input_tsv_path:str, output_tsv_path:str):
     mesh_to_maxo_dict = map_mesh_to_poet('maxo')
 
     process_tsv_and_replace_disease(input_tsv_path, output_tsv_path, mesh_to_mondo_dict, mesh_to_hp_dict, mesh_to_maxo_dict)
+
+
+def run_in_notebook(input_tsv_path, output_tsv_path):
+    main.main(standalone_mode=False, args=[
+        '--input_tsv_path', input_tsv_path,
+        '--output_tsv_path', output_tsv_path
+    ])
 
 if __name__ == '__main__':
     main()

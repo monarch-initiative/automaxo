@@ -155,7 +155,7 @@ def search_articles_with_mesh_info(disease_name: str, mesh_list_path: str, max_p
 @click.option('-n', '--max-articles-to-save', default=50, type=int)
 @click.option('-j', '--json-file-path', required=True)
 
-def pmid_extractor(disease_name, mesh_list_path, output_dir, max_pmid_retrieve, max_articles_to_save, json_file_path):
+def main(disease_name, mesh_list_path, output_dir, max_pmid_retrieve, max_articles_to_save, json_file_path):
     selected_pmid_mesh_info = search_articles_with_mesh_info(disease_name, mesh_list_path, max_pmid_retrieve)
     pmids_list = list(selected_pmid_mesh_info.keys())
     
@@ -170,8 +170,19 @@ def pmid_extractor(disease_name, mesh_list_path, output_dir, max_pmid_retrieve, 
 
     fetch_and_save_abstracts_json(pmids_list, output_dir, max_articles_to_save)
 
+def run_in_notebook(disease_name, mesh_list_path, output_dir, max_pmid_retrieve, max_articles_to_save, json_file_path):
+    main.main(standalone_mode=False, args=[
+        '--disease-name', disease_name,
+        '--mesh-list-path', mesh_list_path,
+        '--output-dir', output_dir,
+        '--max-pmid-retrieve', str(max_pmid_retrieve),
+        '--max-articles-to-save', str(max_articles_to_save),
+        '--json-file-path', json_file_path
+    ])
+
+
 if __name__ == '__main__':
-    pmid_extractor()
+    main()
    
 
 

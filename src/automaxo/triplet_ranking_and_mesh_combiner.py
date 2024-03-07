@@ -127,6 +127,14 @@ def main(yaml_directory_path: str, mesh_info_file_path: str, output_path: str):
     with open(output_path, 'w') as f:
         json.dump({'ranked_triplets': combined_data}, f, indent=4)
 
+def run_in_notebook(yaml_directory_path, mesh_info_file_path, output_path):
+    main.main(standalone_mode=False, args=[
+        '--yaml_directory_path', yaml_directory_path,
+        '--mesh_info_file_path', mesh_info_file_path,
+        '--output_path', output_path
+    ])
+
+
 if __name__ == '__main__':
     main()
 
