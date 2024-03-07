@@ -20,13 +20,17 @@ classifiers = [
 keywords = ["LLM", "NLP", "MaXO"]
 
 [tool.poetry.dependencies]
-python = "^3.9"
-biopython = "1.79"
+python = ">=3.9,<3.9.7 || >3.9.7,<4.0"
+biopython = ">=1.79"
 sparqlwrapper = "^2.0.0"
-ontogpt = "0.3.8"
+ontogpt = ">=0.3.8"
 
 [tool.poetry.dev-dependencies]
 # Add development dependencies here
 
 [tool.poetry.scripts]
-# Define any entry points for command-line scripts here
+automaxo-import-mesh = "automaxo.mesh_importer:main"
+automaxo-replace-mesh = "automaxo.mesh_to_ontology_replacer:main"
+automaxo-extract = "automaxo.ontogpt_article_processor:main"
+automaxo-get-articles = "automaxo.pubmed_article_fetcher:main"
+automaxo-rank = "automaxo.triplet_ranking_and_mesh_combiner:main"
