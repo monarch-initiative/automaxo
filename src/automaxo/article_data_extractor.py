@@ -137,6 +137,12 @@ def process_article_jsons_to_tsv(json_files_path:str, replaced_tsv_file_path:str
         logging.info(f'Unprocessed and saved all entries to: {no_replaced_tsv_file_path}')
         
 
+def run_in_notebook(json_files_path, replaced_tsv_file_path, no_replaced_tsv_file_path):
+    process_article_jsons_to_tsv.main(standalone_mode=False, args=[
+        '--json_files_path', json_files_path,
+        '--replaced_tsv_file_path', replaced_tsv_file_path,
+        '--no_replaced_tsv_file_path', no_replaced_tsv_file_path
+    ])
 
 
 if __name__ == '__main__':
