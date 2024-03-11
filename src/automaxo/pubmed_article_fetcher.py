@@ -1,3 +1,4 @@
+import click
 from Bio import Entrez
 import requests
 import json
@@ -6,13 +7,16 @@ import time
 import logging
 import pandas as pd
 
-
-
-logger = logging.basicConfig(filename='retrieve_pmids.log',
-                    level=logging.INFO,
-                    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+# Initialize logger
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+handler = logging.FileHandler('retrieve_pmids.log')
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+handler.setFormatter(formatter)
+logger.addHandler(handler)
 
 Entrez.email = "enock.niyonkuru@jax.org"
+
 
 
 def fetch_and_save_abstracts_json(pmids_list:str, json_dir_path:str, max_articles_to_save:int):
@@ -143,49 +147,48 @@ def search_articles_with_mesh_info(disease_name: str, mesh_list_path: str, max_p
 
     return pmid_mesh_info
 
+@click.command()
+@click.option('-d', '--disease-name', required=True)
+@click.option('-m', '--mesh-list-path', required=True)
+@click.option('-o', '--output-dir', required=True)
+@click.option('-p', '--max-pmid-retrieve', default=200, type=int)
+@click.option('-n', '--max-articles-to-save', default=50, type=int)
+@click.option('-j', '--json-file-path', required=True)
 
-
-if __name__ == "__main__":
-    import argparse
-
-    parser = argparse.ArgumentParser()
-
-    parser.add_argument("-d", type=str, help="Disease name", required=True)
-    parser.add_argument("-m", type=str, help="Path to list of selected mesh ids", required=True)
-    parser.add_argument("-o", type=str, help="Address of output directory", required=True)
-    parser.add_argument("-p", "--max_pmid_retrieve", type=int, default=200, help="The maximum number of PMIDs to retrieve for a particular disease", required=False)
-    parser.add_argument("-n", "--max_articles_to_save", type=int, default=50, help="The maximum number of JSON files of articles to save", required=False)
-
-    args = parser.parse_args()
-
-    disease_name = args.d
-    mesh_list_path = args.m
-    json_dir_path = args.o
-    max_pmid_retrieve = args.max_pmid_retrieve
-    max_articles_to_save = args.max_articles_to_save
-
-
+def main(disease_name, mesh_list_path, output_dir, max_pmid_retrieve, max_articles_to_save, json_file_path):
     selected_pmid_mesh_info = search_articles_with_mesh_info(disease_name, mesh_list_path, max_pmid_retrieve)
     pmids_list = list(selected_pmid_mesh_info.keys())
+    
+    # Create the directory if it does not exist
+    json_dir = os.path.dirname(json_file_path)
+    if not os.path.exists(json_dir):
+        os.makedirs(json_dir)
 
-    # Save the results to a JSON file
-    with open('selected_pmid_mesh_info.json', 'w') as json_file:
+    # Save the results to the specified JSON file
+    with open(json_file_path, 'w') as json_file:
         json.dump(selected_pmid_mesh_info, json_file, indent=4)
 
-    fetch_and_save_abstracts_json(pmids_list , json_dir_path, max_articles_to_save)
+    fetch_and_save_abstracts_json(pmids_list, output_dir, max_articles_to_save)
 
+def run_in_notebook(disease_name, mesh_list_path, output_dir, max_pmid_retrieve, max_articles_to_save, json_file_path):
+    main.main(standalone_mode=False, args=[
+        '--disease-name', disease_name,
+        '--mesh-list-path', mesh_list_path,
+        '--output-dir', output_dir,
+        '--max-pmid-retrieve', str(max_pmid_retrieve),
+        '--max-articles-to-save', str(max_articles_to_save),
+        '--json-file-path', json_file_path
+    ])
+
+
+if __name__ == '__main__':
+    main()
+   
 
 
 
 """
-Sample way of running the code:
-python retrieve_pmids.py  -d 'sickle cell' -m ../data/mesh_sets.tsv  -o ../dump/json_files -p 200 -n 50
-
-python retrieve_pmids.py  -d 'marfan syndrome' -m ../data/mesh_sets.tsv  -o ../data/sickle_cell/pubtator3_json_sickle_cell -p 500 -n 100
+python pubmed_article_fetcher.py -d "Disease Name" -m "/path/to/mesh/list.tsv" -o "/path/to/output/dir" -j "/path/to/selected_pmid_mesh_info.json"
 
 
-
-* sickle cell
-* marfan syndrome
-* cystic fibrosis
 """

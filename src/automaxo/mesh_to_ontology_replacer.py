@@ -1,20 +1,21 @@
+
 import subprocess
 import re
+import os
 import requests
 import pandas as pd
 import csv
 import sys
 import logging
-import argparse
-
+import click
 
 # Increase the field size limit
 csv.field_size_limit(sys.maxsize)
 
-
 logger = logging.basicConfig(filename='poet_replacement.log',
                     level=logging.INFO,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
 
 
 def map_mesh_to_poet(ontology_database_name:str):
@@ -41,7 +42,7 @@ def map_mesh_to_poet(ontology_database_name:str):
     
     return mesh_to_poet
 
-def map_mesh(mesh_id:str):
+def map_mesh(mesh_id:str, mesh_to_mondo_dict, mesh_to_hp_dict, mesh_to_maxo_dict):
     if mesh_id in mesh_to_mondo_dict:
         return mesh_to_mondo_dict.get(mesh_id)
     elif mesh_id in mesh_to_hp_dict:
@@ -54,7 +55,7 @@ def map_mesh(mesh_id:str):
     return None
 
 
-def replace_disease_in_text(text:str):
+def replace_disease_in_text(text:str, mesh_to_mondo_dict, mesh_to_hp_dict, mesh_to_maxo_dict):
     # Regular expression to find "diseaseDxxxxxx"
     pattern = re.compile(r'(disease)(D\d{6})')
     
@@ -62,7 +63,7 @@ def replace_disease_in_text(text:str):
     def replace_func(match):
         prefix = match.group(1)  # Extract the "disease" prefix
         mesh_id = match.group(2)  # Extract MESH ID
-        mapped_id = map_mesh(mesh_id)  
+        mapped_id = map_mesh(mesh_id, mesh_to_mondo_dict, mesh_to_hp_dict, mesh_to_maxo_dict)  
         if mapped_id:
             return f"{mapped_id}"  
         else:
@@ -72,7 +73,13 @@ def replace_disease_in_text(text:str):
     updated_text = pattern.sub(replace_func, text)
     return updated_text
 
-def process_tsv_and_replace_disease(input_tsv_path:str, output_tsv_path:str):
+
+
+def process_tsv_and_replace_disease(input_tsv_path:str, output_tsv_path:str, mesh_to_mondo_dict, mesh_to_hp_dict, mesh_to_maxo_dict):
+    # Check if the output file exists and delete it
+    if os.path.exists(output_tsv_path):
+        os.remove(output_tsv_path)
+
     with open(input_tsv_path, mode='r', encoding='utf-8') as infile, \
         open(output_tsv_path, mode='w', encoding='utf-8', newline='') as outfile:
         
@@ -86,43 +93,38 @@ def process_tsv_and_replace_disease(input_tsv_path:str, output_tsv_path:str):
             pmc_id = row[0]
             relationships = row[1]
             original_text = row[2]
-            updated_relationships = replace_disease_in_text(relationships)
-            updated_text = replace_disease_in_text(original_text)
+            updated_relationships = replace_disease_in_text(relationships, mesh_to_mondo_dict, mesh_to_hp_dict, mesh_to_maxo_dict)
+            updated_text = replace_disease_in_text(original_text, mesh_to_mondo_dict, mesh_to_hp_dict, mesh_to_maxo_dict)
             
             writer.writerow([pmc_id, updated_relationships, updated_text])
         
         logging.info(f"Processed and saved updated texts to: {output_tsv_path}")
 
 
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument("-i", "--input_tsv_path", required=True, help="Path to mesh replaced tsv.")
-    parser.add_argument("-o", "--output_tsv_path", required=True, help="Path to where POET Replacemnt will be stored")
-    
-    args = parser.parse_args()
+@click.command()
+@click.option('-i', '--input_tsv_path', required=True, help="Path to mesh replaced tsv.")
+@click.option('-o', '--output_tsv_path', required=True, help="Path to where POET Replacemnt will be stored")
 
+def main(input_tsv_path:str, output_tsv_path:str):
     mesh_to_mondo_dict = map_mesh_to_poet('mondo')
     mesh_to_hp_dict = map_mesh_to_poet('hp')
     mesh_to_maxo_dict = map_mesh_to_poet('maxo')
 
-    process_tsv_and_replace_disease(args.input_tsv_path,args.output_tsv_path)
+    process_tsv_and_replace_disease(input_tsv_path, output_tsv_path, mesh_to_mondo_dict, mesh_to_hp_dict, mesh_to_maxo_dict)
 
 
-    
+def run_in_notebook(input_tsv_path, output_tsv_path):
+    main.main(standalone_mode=False, args=[
+        '--input_tsv_path', input_tsv_path,
+        '--output_tsv_path', output_tsv_path
+    ])
+
+if __name__ == '__main__':
+    main()
 
 
 
 """
-
-# Sample way of running the code:
-python poet_replacement.py  -i ../dump/mesh_replaced.tsv -o ../dump/poet_replaced.tsv 
-
-python poet_replacement.py  -i ../data/marfan_syndrome_mesh_replaced.tsv -o ../data/marfan_syndrome_poet_replaced.tsv 
-
-
-
-* sickle_cell
-* marfan_syndrome
-* cystic_fibrosis
+python mesh_to_ontology_replacer.py -i path/to/input.tsv -o path/to/output.tsv
 
 """

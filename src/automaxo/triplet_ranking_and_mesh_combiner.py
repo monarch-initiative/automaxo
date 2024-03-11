@@ -2,7 +2,7 @@ import os
 import yaml
 import json
 from collections import defaultdict
-import argparse
+import click
 from typing import List, Tuple, DefaultDict
 
 def load_yaml_files(directory_path: str) -> list:
@@ -101,7 +101,10 @@ def combine_triplets_with_mesh(ranked_triplets: List[Tuple], mesh_info: dict) ->
     return combined_data
 
 
-
+@click.command()
+@click.option('-i', '--yaml_directory_path', required=True, help='Path to the directory containing YAML files')
+@click.option('-s', '--mesh_info_file_path', required=True, help='Path to the file with selected PMID and MeSH info')
+@click.option('-o', '--output_path', required=True, help='Path to the output JSON file')
 def main(yaml_directory_path: str, mesh_info_file_path: str, output_path: str):
     """
     Main function to process YAML files, extract triplets, count them, rank them, combine with MeSH info, and save to JSON.
@@ -124,17 +127,19 @@ def main(yaml_directory_path: str, mesh_info_file_path: str, output_path: str):
     with open(output_path, 'w') as f:
         json.dump({'ranked_triplets': combined_data}, f, indent=4)
 
+def run_in_notebook(yaml_directory_path, mesh_info_file_path, output_path):
+    main.main(standalone_mode=False, args=[
+        '--yaml_directory_path', yaml_directory_path,
+        '--mesh_info_file_path', mesh_info_file_path,
+        '--output_path', output_path
+    ])
+
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='Process YAML files and output results in JSON format.')
-    parser.add_argument('-i', '--yaml_directory_path', required=True, help='Path to the directory containing YAML files')
-    parser.add_argument('-s', '--mesh_info_file_path', required=True, help='Path to the file with selected PMID and MeSH info')
-    parser.add_argument('-o', '--output_path', required=True, help='Path to the output JSON file')
-    args = parser.parse_args()
+    main()
 
-    main(args.yaml_directory_path, args.mesh_info_file_path, args.output_path)
 
 """
+python triplet_ranking_and_mesh_combiner.py -i path/to/yaml/directory -s path/to/mesh/info/file -o path/to/output.json
 
-python ontoGPT_results_postprocessing.py -i ../data/sickle_cell/ontoGPT_yaml_sickle_cell -s ../data/sickle_cell/selected_pmid_mesh_info_sickle_cell.json -o ../data/sickle_cell/post_ontoGPT_sickle_cell.json
 """

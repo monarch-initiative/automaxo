@@ -12,10 +12,17 @@ python3 -m venv venv
 source venv/bin/activate
 ```
 
-Then, install the required dependencies:
+Install the required dependencies:
 
 ```bash
-pip install -r requirements.txt
+pip install .
+```
+
+Add your openAI key:
+
+```bash
+runoak set-apikey -e openai <your openai api key>
+
 ```
 
 ## Project Outline
