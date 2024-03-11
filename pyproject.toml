@@ -1,0 +1,40 @@
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "automaxo"
+version = "0.1.0"
+description = "Using LLM to help in curation of Medical Action Ontology (MaXO)"
+authors = [
+    "Enock Niyonkuru <enock.niyonkuru@trincoll.edu>", 
+    "Peter Robinson <peter.robinson@jax.org>"
+    ]
+license = "MIT"
+readme = "README.md"
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+]
+keywords = ["LLM", "NLP", "MaXO"]
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.9.7 || >3.9.7,<3.11"
+biopython = ">=1.79"
+sparqlwrapper = "^2.0.0"
+ontogpt = ">=0.3.8"
+
+[tool.poetry.dev-dependencies]
+# Add development dependencies here
+
+[tool.poetry.scripts]
+automaxo-import-mesh = "automaxo.mesh_importer:main"
+automaxo-replace-mesh = "automaxo.mesh_to_ontology_replacer:main"
+automaxo-extract = "automaxo.ontogpt_article_processor:main"
+automaxo-get-articles = "automaxo.pubmed_article_fetcher:main"
+automaxo-rank = "automaxo.triplet_ranking_and_mesh_combiner:main"
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.29.3"
+

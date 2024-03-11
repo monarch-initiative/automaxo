@@ -1,8 +1,7 @@
+import click
 import json
 import os
-import argparse
 import logging
-
 
 logger = logging.basicConfig(filename='data_preprocessing.log',
                     level=logging.INFO,
@@ -75,8 +74,12 @@ def extract_relationships(relations:str):
     return relationships
 
 
+@click.command()
+@click.option('-i', '--json_files_path', required=True, help="Path to the directory containing JSON files.")
+@click.option('-r', '--replaced_tsv_file_path', required=True, help="Path to the output TSV file where replacement occurred.")
+@click.option('-n', '--no_replaced_tsv_file_path', required=True, help="Path to the output TSV file where no replacement occurred.")
 
-def process_jsons_to_tsv(json_files_path:str, replaced_tsv_file_path:str, no_replaced_tsv_file_path:str):
+def process_article_jsons_to_tsv(json_files_path:str, replaced_tsv_file_path:str, no_replaced_tsv_file_path:str):
     """
     Processes JSON files in the given directory, extracting PMC ID, text content, and relationship,
     and saves them into a single TSV file with three columns: PMC ID, text, and relationship.
@@ -134,35 +137,19 @@ def process_jsons_to_tsv(json_files_path:str, replaced_tsv_file_path:str, no_rep
         logging.info(f'Unprocessed and saved all entries to: {no_replaced_tsv_file_path}')
         
 
+def run_in_notebook(json_files_path, replaced_tsv_file_path, no_replaced_tsv_file_path):
+    process_article_jsons_to_tsv.main(standalone_mode=False, args=[
+        '--json_files_path', json_files_path,
+        '--replaced_tsv_file_path', replaced_tsv_file_path,
+        '--no_replaced_tsv_file_path', no_replaced_tsv_file_path
+    ])
 
 
-
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Process JSON files into TSV format.")
-
-    parser.add_argument("-i", "--json_files_path", required=True, help="Path to the directory containing JSON files.")
-    parser.add_argument("-r", "--replaced_tsv_file_path", required=True, help="Path to the output TSV file where replacement occurred.")
-    parser.add_argument("-n", "--no_replaced_tsv_file_path", required=True, help="Path to the output TSV file where no replacement occurred.")
-    
-    args = parser.parse_args()
-
-    json_files_path = args.json_files_path
-    replaced_tsv_file_path =  args.replaced_tsv_file_path
-    no_replaced_tsv_file_path = args.no_replaced_tsv_file_path
-
-    process_jsons_to_tsv(json_files_path, replaced_tsv_file_path, no_replaced_tsv_file_path)
-
+if __name__ == '__main__':
+    process_article_jsons_to_tsv()
 
 
 """
-
-# Sample way of running the code:
-python data_preprocessing.py  -i ../dump/json_files -r ../dump/mesh_replaced.tsv -n ../dump/no_replaced.tsv
-
-* sickle cell
-* marfan syndrome
-* cystic fibrosis
-
-python data_preprocessing.py  -i ../data/sickle_cell/pubtator3_json_sickle_cell -r ../data/sickle_cell/sickle_cell_mesh_replaced.tsv -n ../data/sickle_cell/sickle_cell_no_replaced.tsv
+python article_data_extractor.py -i "/path/to/json/files" -r "/path/to/replaced.tsv" -n "/path/to/no_replaced.tsv"
 
 """
