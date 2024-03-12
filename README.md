@@ -8,14 +8,8 @@ This project aims to use Large Language Models (LLMs) for the curation of the Me
 First, create and activate a virtual environment:
 
 ```bash
-python3 -m venv venv
-source venv/bin/activate
-```
-
-Install the required dependencies:
-
-```bash
-pip install .
+poetry install
+poetry shell  
 ```
 
 Add your openAI key:
@@ -24,6 +18,12 @@ Add your openAI key:
 runoak set-apikey -e openai <your openai api key>
 
 ```
+
+To run the code for the whole project
+```bash
+python main.py
+```
+
 
 ## Project Outline
 
