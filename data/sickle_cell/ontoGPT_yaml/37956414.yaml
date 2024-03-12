@@ -1,0 +1,98 @@
+---
+input_text: "Digital PCR to Measure SARS-CoV-2 RNA, Variants, and Outcomes in Youth.BACKGROUND:
+  The role of SARS-CoV-2 viral load in predicting contagiousness, disease severity,
+  transmissibility, and clinical decision-making continues to be an area of great
+  interest. However, most studies have been in adults and have evaluated SARS-CoV-2
+  loads using cycle thresholds (Ct) values, which are not standardized preventing
+  consistent interpretation critical to understanding clinical impact and utility.
+  Here, a quantitative SARS-CoV-2 reverse-transcription digital PCR (RT-dPCR) assay
+  normalized to WHO International Units was applied to children at risk of severe
+  disease diagnosed with COVID-19 at St Jude Children's Research Hospital between
+  March 28, 2020, and January 31, 2022. METHODS: Demographic and clinical information
+  from children, adolescents and young adults treated at St Jude Children's Research
+  Hospital were abstracted from medical records. Respiratory samples underwent SARS-CoV-2
+  RNA quantitation by RT-dPCR targeting N1 and N2 genes, with sequencing to determine
+  the genetic lineage of infecting virus. RESULTS: Four hundred and sixty-two patients
+  aged 0-24 years (median 11 years old) were included during the study period. Most
+  patients were infected by the omicron variant (43.72%), followed by ancestral strain
+  (22.29%), delta (13.20%) and alpha (2.16%). Viral load at presentation ranged from
+  2.49 to 9.14 log10 IU/ml, and higher viral RNA loads were associated with symptoms
+  (OR 1.32: CI95% 1.16-1.49) and respiratory disease (OR 1.23: CI95% 1.07-1.41). Viral
+  load did not differ by SARS-CoV-2 variant, vaccination status, age, or baseline
+  diagnosis. CONCLUSION: SARS-CoV-2 RNA loads predict the presence of symptomatic
+  and respiratory diseases. The use of standardized, quantitative methods is feasible,
+  allows for replication, comparisons across institutions, and has the potential to
+  facilitate consensus quantitative thresholds for risk stratification and treatment."
+raw_completion_output: |-
+  action: Digital PCR; Respiratory samples quantitation; Sequencing
+  disease: COVID-19; Respiratory disease
+  symptom: Symptoms
+  action_to_disease: Digital PCR IS USED TO DIAGNOSE COVID-19; Respiratory samples quantitation IS USED TO DIAGNOSE COVID-19; Sequencing IS USED TO IDENTIFY COVID-19 variants
+  action_to_symptom: Digital PCR IS USED TO DIAGNOSE Symptoms
+  triples: Digital PCR IS USED TO DIAGNOSE COVID-19; Respiratory samples quantitation IS USED TO DIAGNOSE COVID-19; Sequencing IS USED TO IDENTIFY COVID-19 variants; Digital PCR IS USED TO DIAGNOSE Symptoms
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject: <the value for subject>
+  predicate: <the value for predicate>
+  object: <the value for object>
+  qualifier: <A qualifier for the statements, e.g. "NOT" for negation>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Digital PCR IS USED TO DIAGNOSE Symptoms
+
+  ===
+
+extracted_object:
+  triples:
+    - subject: Digital PCR
+      predicate: IS USED TO DIAGNOSE
+      object: COVID-19
+    - subject: Respiratory samples quantitation
+      predicate: IS USED TO DIAGNOSE
+      object: COVID-19
+    - subject: Sequencing
+      predicate: IS USED TO IDENTIFY
+      object: COVID-19 variants
+    - subject: Digital PCR
+      predicate: IS USED TO DIAGNOSE
+      object: Symptoms
+  action:
+    - Digital PCR
+    - Respiratory samples quantitation
+    - Sequencing
+  disease:
+    - MONDO:0100096
+    - MONDO:0005087
+  symptom:
+    - Symptoms
+  action_to_disease:
+    - subject: Digital PCR
+      predicate: IS USED TO DIAGNOSE
+      object:
+        - MONDO:0100096
+    - subject: Respiratory samples quantitation
+      predicate: IS USED TO DIAGNOSE
+      object:
+        - MONDO:0100096
+    - subject: Sequencing
+      predicate: IS USED TO IDENTIFY
+      object:
+        - COVID-19 variants
+  action_to_symptom:
+    - subject: Digital PCR
+      predicate: IS USED TO DIAGNOSE
+      object:
+        - Symptoms
+named_entities:
+  - id: MAXO:0001001
+    label: genetic therapies
+  - id: MONDO:0011382
+    label: sickle cell disease
+  - id: MONDO:0100096
+    label: COVID-19
+  - id: MONDO:0005087
+    label: Respiratory disease
