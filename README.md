@@ -3,7 +3,7 @@
 
 This project aims to use Large Language Models (LLMs) for the curation of the Medical Action Ontology (MaXO). The following steps outline the setup and execution of the project.
 
-## Setting Up the Virtual Environment
+## Setting Up the Virtual Environment And Running the whole project 
 
 First, create and activate a virtual environment:
 
