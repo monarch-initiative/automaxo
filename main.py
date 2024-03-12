@@ -45,7 +45,8 @@ class AutoMaxoRunner:
             max_articles_to_save=self.max_articles_to_save,
             json_file_path=self.mesh_info_file_path
         )
-
+ 
+    @TODO: call the functions below in the run function 
     def extract_data_from_json(self):
         process_article_jsons_to_tsv(self.json_files_dir, self.replaced_tsv_file_path, self.no_replaced_tsv_file_path)
 
@@ -60,8 +61,8 @@ class AutoMaxoRunner:
 
 @click.command()
 @click.option('--disease_name', prompt='Disease Name', help='The name of the disease to be processed.')
-@click.option('--max_pmid_retrieve', default=10, help='Maximum number of PubMed IDs to retrieve.')
-@click.option('--max_articles_to_save', default=10, help='Maximum number of articles to save.')
+@click.option('--max_pmid_retrieve', default=500, help='Maximum number of PubMed IDs to retrieve.')
+@click.option('--max_articles_to_save', default=100, help='Maximum number of articles to save.')
 def main(disease_name, max_pmid_retrieve, max_articles_to_save):
     runner = AutoMaxoRunner(disease_name, max_pmid_retrieve, max_articles_to_save)
     runner.run()

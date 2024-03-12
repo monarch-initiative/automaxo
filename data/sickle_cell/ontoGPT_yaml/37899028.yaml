@@ -1,0 +1,218 @@
+---
+input_text: 'Sickle Cell Disease and CKD: An Update.BACKGROUND: Sickle cell disease
+  is an inherited red blood cell disorder that affects approximately 100,000 people
+  in the U.S. and 25 million people worldwide. Vaso-occlusion and chronic hemolysis
+  lead to dysfunction to vital organ systems, with the kidneys being among the most
+  commonly affected organs. SUMMARY: Early renal manifestations include medullary
+  ischemia with loss of urine concentrating ability and hyperfiltration. This can
+  be followed by progressive damage characterized by persistent albuminuria and a
+  decline in the estimated glomerular filtration rate. The risk of sickle nephropathy
+  is greater in those with the APOL1 G1 and G2 kidney risk variants and variants in
+  HMOX1 and lower in those that co-inherit alpha-thalassemia. Therapies to treat sickle
+  cell disease-related kidney damage focus on sickle cell disease modifying therapies
+  (e.g. hydroxyurea) or those adopted from the non-sickle cell disease kidney literature
+  (e.g. renin-angiotensin-aldosterone system inhibitors), although data on their clinical
+  efficacy are limited to small studies with short follow up periods. Kidney transplantation
+  for end-stage kidney disease improves survival compared to hemodialysis but is underutilized
+  in this patient population. KEY MESSAGES: Kidney disease is a major contributor
+  to early mortality and more research is needed to understand the pathophysiology
+  and to develop targeted therapies to improve kidney health in sickle cell disease.'
+raw_completion_output: |-
+  action: hydroxyurea; renin-angiotensin-aldosterone system inhibitors; kidney transplantation; hemodialysis
+  disease: Sickle cell disease; CKD; medullary ischemia; hyperfiltration; persistent albuminuria; end-stage kidney disease
+  symptom: loss of urine concentrating ability; decline in the estimated glomerular filtration rate
+  action_to_disease: hydroxyurea TREATS sickle cell disease; renin-angiotensin-aldosterone system inhibitors TREAT CKD; kidney transplantation TREATS end-stage kidney disease; hemodialysis TREATS end-stage kidney disease
+  action_to_symptom: 
+  triples: hydroxyurea TREATS sickle cell disease; renin-angiotensin-aldosterone system inhibitors TREAT CKD; kidney transplantation TREATS end-stage kidney disease; hemodialysis TREATS end-stage kidney disease
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject: <the value for subject>
+  predicate: <the value for predicate>
+  object: <the value for object>
+  qualifier: <A qualifier for the statements, e.g. "NOT" for negation>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  hemodialysis TREATS end-stage kidney disease
+
+  ===
+
+extracted_object:
+  triples:
+    - subject: hydroxyurea
+      predicate: TREATS
+      object: sickle cell disease
+    - subject: renin-angiotensin-aldosterone system inhibitors
+      predicate: TREAT
+      object: CKD
+    - subject: kidney transplantation
+      predicate: TREATS
+      object: end-stage kidney disease
+    - subject: hemodialysis
+      predicate: TREATS
+      object: end-stage kidney disease
+  action:
+    - hydroxyurea
+    - renin-angiotensin-aldosterone system inhibitors
+    - kidney transplantation
+    - MAXO:0000602
+  disease:
+    - MONDO:0011382
+    - MONDO:0005300
+    - medullary ischemia
+    - hyperfiltration
+    - persistent albuminuria
+    - end-stage kidney disease
+  symptom:
+    - loss of urine concentrating ability
+    - decline in the estimated glomerular filtration rate
+  action_to_disease:
+    - subject: hydroxyurea
+      predicate: TREATS
+      object:
+        - MONDO:0011382
+    - subject: renin-angiotensin-aldosterone system inhibitors
+      predicate: TREAT
+      object:
+        - MONDO:0005300
+    - subject: kidney transplantation
+      predicate: TREATS
+      object:
+        - end-stage kidney disease
+    - subject: MAXO:0000602
+      predicate: TREATS
+      object:
+        - end-stage kidney disease
+named_entities:
+  - id: MAXO:0001001
+    label: genetic therapies
+  - id: MONDO:0011382
+    label: sickle cell disease
+  - id: MONDO:0100096
+    label: COVID-19
+  - id: MONDO:0005087
+    label: Respiratory disease
+  - id: MONDO:0007374
+    label: <Sickle cell disease (SCD)
+  - id: MONDO:0005632
+    label: acute chest syndrome
+  - id: MONDO:0005550
+    label: infections
+  - id: MONDO:0005081
+    label: preeclampsia
+  - id: MONDO:0005030
+    label: intrauterine growth restriction
+  - id: MONDO:0000831
+    label: Thrombosis
+  - id: MONDO:0005080
+    label: Portal hypertension
+  - id: MONDO:0005149
+    label: Pulmonary Hypertension
+  - id: MAXO:0000756
+    label: transfusion
+  - id: MAXO:0000747
+    label: hematopoietic stem cell transplantation
+  - id: MONDO:0005279
+    label: Pulmonary embolism
+  - id: HP:0025179
+    label: Ground glass opacities
+  - id: MAXO:0000118
+    label: immunizations
+  - id: HP:0001297
+    label: stroke
+  - id: MONDO:0002280
+    label: anemia
+  - id: HP:0001511
+    label: intrauterine growth retardation
+  - id: HP:0001518
+    label: low birth weight
+  - id: MAXO:0001006
+    label: full blood count
+  - id: MAXO:0000825
+    label: reticulocyte count
+  - id: MAXO:0000427
+    label: brain MRI
+  - id: HP:0012532
+    label: chronic pain
+  - id: MONDO:0005098
+    label: stroke
+  - id: MONDO:0005192
+    label: Pancreatic cancer
+  - id: MONDO:0018874
+    label: Acute myeloid leukemia
+  - id: MONDO:0009693
+    label: Multiple myeloma
+  - id: MONDO:0800385
+    label: iron overload
+  - id: MONDO:0005300
+    label: Chronic Kidney Disease (CKD)
+  - id: MONDO:0003139
+    label: Mesangioproliferative Glomerulonephritis
+  - id: MONDO:0006835
+    label: Minimal Change Disease
+  - id: MONDO:0100313
+    label: Focal Segmental Glomerulosclerosis
+  - id: MONDO:0001085
+    label: Interstitial Nephritis
+  - id: HP:0000093
+    label: Proteinuria
+  - id: MAXO:0000969
+    label: optical coherence tomography (OCT)
+  - id: HP:0000505
+    label: visual impairment
+  - id: MONDO:0013730
+    label: acute graft-versus-host disease (GVHD)
+  - id: MONDO:0100467
+    label: hypertensive disorder of pregnancy
+  - id: HP:0000822
+    label: high blood pressure
+  - id: MONDO:0005170
+    label: Myeloid malignancies
+  - id: MONDO:0004745
+    label: priapism
+  - id: HP:0012213
+    label: Decreased GFR
+  - id: MONDO:0005570
+    label: hematologic diseases
+  - id: MAXO:0010203
+    label: echocardiography
+  - id: HP:0012531
+    label: Pain
+  - id: MAXO:0000536
+    label: <Chorionic villus sampling (CVS)
+  - id: MONDO:0011399
+    label: Alpha thalassemia
+  - id: MONDO:0019402
+    label: Beta thalassemia
+  - id: MONDO:0000984
+    label: Thalassemia
+  - id: MONDO:0043544
+    label: Nosocomial infections
+  - id: MAXO:0001479
+    label: allogeneic hematopoietic stem cell transplantation
+  - id: MAXO:0000571
+    label: CT
+  - id: MONDO:0007145
+    label: Aplasia cutis congenita
+  - id: MONDO:0005246
+    label: Osteomyelitis
+  - id: MONDO:0020517
+    label: Eosinophilic granuloma
+  - id: MAXO:0000447
+    label: Surgical removal
+  - id: HP:0000989
+    label: Pruritus
+  - id: MAXO:0000149
+    label: myeloablative, matched sibling donor hematopoietic stem cell transplant
+      (HCT)
+  - id: MAXO:0001175
+    label: liver transplantation
+  - id: MONDO:0006955
+    label: Rheumatic heart disease
+  - id: MONDO:0005147
+    label: Type 1 diabetes
+  - id: MAXO:0000602
+    label: hemodialysis
