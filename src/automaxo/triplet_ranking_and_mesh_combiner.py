@@ -4,6 +4,7 @@ import json
 from collections import defaultdict
 import click
 from typing import List, Tuple, DefaultDict
+from tqdm import tqdm
 
 def load_yaml_files(directory_path: str) -> list:
     """
@@ -15,15 +16,17 @@ def load_yaml_files(directory_path: str) -> list:
     Returns:
         list: A list of dictionaries, each containing the contents of a YAML file and its corresponding PubMed ID.
     """
+    yaml_files = [f for f in os.listdir(directory_path) if f.endswith('.yaml')]
     data = []
-    for file_name in os.listdir(directory_path):
-        if file_name.endswith('.yaml'):
-            with open(os.path.join(directory_path, file_name), 'r') as f:
-                content = yaml.safe_load(f)
-                if content:
-                    pubmed_id = os.path.splitext(file_name)[0]
-                    content['pubmed_id'] = pubmed_id
-                    data.append(content)
+
+    for file_name in tqdm(yaml_files, desc="Loading YAML files", total=len(yaml_files)):
+        with open(os.path.join(directory_path, file_name), 'r') as f:
+            content = yaml.safe_load(f)
+            if content:
+                pubmed_id = os.path.splitext(file_name)[0]
+                content['pubmed_id'] = pubmed_id
+                data.append(content)
+
     return data
 
 def extract_triplets(data: list) -> tuple:
@@ -39,7 +42,7 @@ def extract_triplets(data: list) -> tuple:
     triplets = []
     named_entities = {}
 
-    for article in data:
+    for article in tqdm(data, desc="Extracting triplets", total=len(data)):
         pubmed_id = article['pubmed_id']
         named_entities[pubmed_id] = article.get('named_entities', {})
 

@@ -5,6 +5,8 @@ import click
 from ontogpt.engines.spires_engine import SPIRESEngine
 from ontogpt.io.template_loader import get_template_details
 from ontogpt.cli import write_extraction
+from tqdm import tqdm
+
 
 
 def process_article(pubmed_id: str, text: str, ke: SPIRESEngine, output_dir: str):
@@ -50,11 +52,12 @@ def process_tsv_file(file_path: str, ke: SPIRESEngine, output_dir: str):
 
     """
     with open(file_path, "r") as file:
-        reader = csv.reader(file, delimiter="\t")
-        for row in reader:
-            pubmed_id, relationship, text = row
-            process_article(pubmed_id, text, ke, output_dir)
+            reader = csv.reader(file, delimiter="\t")
+            rows = list(reader)  # Convert the reader to a list to get the total length
 
+            for row in tqdm(rows, desc="Processing TSV file", total=len(rows)):
+                pubmed_id, relationship, text = row
+                process_article(pubmed_id, text, ke, output_dir)
 
 @click.command()
 @click.argument('input_file', type=click.Path(exists=True)) # help="Path to the input .tsv file"

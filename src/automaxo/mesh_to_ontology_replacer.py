@@ -1,4 +1,3 @@
-
 import subprocess
 import re
 import os
@@ -8,6 +7,7 @@ import csv
 import sys
 import logging
 import click
+from tqdm import tqdm
 
 # Increase the field size limit
 csv.field_size_limit(sys.maxsize)
@@ -75,19 +75,19 @@ def replace_disease_in_text(text:str, mesh_to_mondo_dict, mesh_to_hp_dict, mesh_
 
 
 
-def process_tsv_and_replace_disease(input_tsv_path:str, output_tsv_path:str, mesh_to_mondo_dict, mesh_to_hp_dict, mesh_to_maxo_dict):
-    # Check if the output file exists and delete it
+def process_tsv_and_replace_disease(input_tsv_path, output_tsv_path, mesh_to_mondo_dict, mesh_to_hp_dict, mesh_to_maxo_dict):
     if os.path.exists(output_tsv_path):
         os.remove(output_tsv_path)
 
     with open(input_tsv_path, mode='r', encoding='utf-8') as infile, \
-        open(output_tsv_path, mode='w', encoding='utf-8', newline='') as outfile:
+         open(output_tsv_path, mode='w', encoding='utf-8', newline='') as outfile:
         
         reader = csv.reader(infile, delimiter='\t')
         writer = csv.writer(outfile, delimiter='\t')
-        
-        for row in reader:
-            if not row or len(row) < 2:
+        rows = list(reader)
+
+        for row in tqdm(rows, desc="Processing TSV rows", total=len(rows)):
+            if not row or len(row) < 3:
                 continue
             
             pmc_id = row[0]
@@ -98,7 +98,7 @@ def process_tsv_and_replace_disease(input_tsv_path:str, output_tsv_path:str, mes
             
             writer.writerow([pmc_id, updated_relationships, updated_text])
         
-        logging.info(f"Processed and saved updated texts to: {output_tsv_path}")
+    logging.info(f"Processed and saved updated texts to: {output_tsv_path}")
 
 
 @click.command()

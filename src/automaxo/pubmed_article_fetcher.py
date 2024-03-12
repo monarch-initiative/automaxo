@@ -6,6 +6,7 @@ import os
 import time
 import logging
 import pandas as pd
+from tqdm import tqdm
 
 # Initialize logger
 logger = logging.getLogger(__name__)
@@ -19,20 +20,24 @@ Entrez.email = "enock.niyonkuru@jax.org"
 
 
 
-def fetch_and_save_abstracts_json(pmids_list:str, json_dir_path:str, max_articles_to_save:int):
+
+def fetch_and_save_abstracts_json(pmids_list, json_dir_path, max_articles_to_save):
     """
     Fetches full texts for given PMC IDs in biocjson format and saves them as JSON files in the specified folder.
     Tracks the count of articles not found and successfully retrieved. Stops saving articles once a specified limit is reached.
 
     Parameters:
     - pmids_list (list of str): List of PMC IDs.
-    - jason_dir_path (str): The base directory path where the files will be saved.
+    - json_dir_path (str): The base directory path where the files will be saved.
     - max_articles_to_save (int): Maximum number of articles to save before ending the function.
     """
     not_found_count = 0
     found_count = 0
 
-    for pmid in pmids_list:
+    # Check if the directory exists, if not, create it
+    os.makedirs(json_dir_path, exist_ok=True)
+
+    for pmid in tqdm(pmids_list, desc="Fetching PMIDs", total=len(pmids_list)):
         if found_count >= max_articles_to_save:
             break  # End the loop if the maximum number of articles to save has been reached
 
@@ -56,24 +61,23 @@ def fetch_and_save_abstracts_json(pmids_list:str, json_dir_path:str, max_article
                         not_found_count += 1
                     try_again = False  # No need to retry
                 except json.JSONDecodeError:
-                    print(f"Failed to decode JSON for PM ID {pmid}.")
+                    logging.info(f"Failed to decode JSON for PM ID {pmid}.")
                     not_found_count += 1
                     try_again = False  # No need to retry
 
             elif response.status_code == 429:
                 # If HTTP status code is 429, wait for 3 seconds and retry once
-                print(f"Rate limit exceeded for PM ID {pmid}. Waiting 3 seconds before retrying...")
+                logging.info(f"Rate limit exceeded for PM ID {pmid}. Waiting 3 seconds before retrying...")
                 time.sleep(3)  # Wait for 3 seconds
                 # After waiting, the loop will try the request again
             else:
-                print(f"Failed to fetch full text for PM ID {pmid}: HTTP {response.status_code}")
+                logging.info(f"Failed to fetch full text for PM ID {pmid}: HTTP {response.status_code}")
                 not_found_count += 1
                 try_again = False  # No need to retry
 
-
     logging.info(f'Total articles found and saved: {found_count}')
     logging.info(f'Total articles not found: {not_found_count}')
-
+    print(f"Total number of articles found and saved: {found_count} / {found_count + not_found_count} ")
 
 def fetch_mesh_ids(pmid, retries=3, delay=2):
     """
