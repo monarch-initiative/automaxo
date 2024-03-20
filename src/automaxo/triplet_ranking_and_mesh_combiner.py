@@ -29,30 +29,25 @@ def load_yaml_files(directory_path: str) -> list:
 
     return data
 
+
 def extract_triplets(data: list) -> tuple:
-    """
-    Extract triplets and named entities from the loaded YAML data.
-    
-    Args:
-        data (list): A list of dictionaries, each containing the contents of a YAML file and its corresponding PubMed ID.
-    
-    Returns:
-        tuple: A tuple containing a list of extracted triplets and a dictionary of named entities.
-    """
     triplets = []
     named_entities = {}
 
     for article in tqdm(data, desc="Extracting triplets", total=len(data)):
         pubmed_id = article['pubmed_id']
-        named_entities[pubmed_id] = article.get('named_entities', {})
+        named_entities_dict = {ne['id']: ne['label'] for ne in article.get('named_entities', [])}
+        named_entities[pubmed_id] = named_entities_dict
 
         for section in ['action_to_disease', 'action_to_symptom']:
             for triplet in article.get('extracted_object', {}).get(section, []):
                 if 'object' in triplet:
                     for obj in triplet['object']:
-                        triplets.append((triplet['subject'], triplet['predicate'], obj, pubmed_id))
+                        subject_label = named_entities_dict.get(triplet['subject'], '')
+                        object_label = named_entities_dict.get(obj, '')
+                        triplets.append(({triplet['subject']: subject_label}, triplet['predicate'], {obj: object_label}, pubmed_id))
+    return triplets
 
-    return triplets, named_entities
 
 def count_triplets(triplets: list) -> defaultdict:
     """
@@ -66,10 +61,12 @@ def count_triplets(triplets: list) -> defaultdict:
     """
     triplet_counts = defaultdict(lambda: {'count': 0, 'pubmed_ids': set()})
     for subject, predicate, obj, pubmed_id in triplets:
-        triplet_counts[(subject, predicate, obj)]['count'] += 1
-        triplet_counts[(subject, predicate, obj)]['pubmed_ids'].add(pubmed_id)
-    return triplet_counts
+        subject_str = f"{list(subject.keys())[0]}: {list(subject.values())[0]}"
+        object_str = f"{list(obj.keys())[0]}: {list(obj.values())[0]}"
+        triplet_counts[(subject_str, predicate, object_str)]['count'] += 1
+        triplet_counts[(subject_str, predicate, object_str)]['pubmed_ids'].add(pubmed_id)
 
+    return triplet_counts
 
 
 def rank_triplets(triplet_counts: DefaultDict) -> List[Tuple]:
@@ -118,7 +115,8 @@ def main(yaml_directory_path: str, mesh_info_file_path: str, output_path: str):
         output_path (str): Path to the output JSON file.
     """
     data = load_yaml_files(yaml_directory_path)
-    triplets, _ = extract_triplets(data)
+    triplets = extract_triplets(data)
+    print(triplets)
     triplet_counts = count_triplets(triplets)
     ranked_triplets = rank_triplets(triplet_counts)
 
