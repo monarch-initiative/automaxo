@@ -19,16 +19,21 @@ class AutoMaxoRunner:
     def run(self):
         print("Starting to get children MeSH IDs for target mesh IDs (Therapeutics and Diagnosis) ...")
         self.get_targeted_mesh_ids()
+        
         print(f"Starting to retrieve mesh IDs related to treatment and diagnosis of {self.disease_name}...")
         self.retrieve_pubmed_ids()
+
         print(f"Starting to extract data from json files and apply PubTator 3 NER to one csv file ...")
-        self.extract_data_from_json()
+        process_article_jsons_to_tsv(self.json_files_dir, self.replaced_tsv_file_path, self.no_replaced_tsv_file_path)
+
         print(f"Starting to replace PubTator3 NER MeSH with MONDO, HP, and MaXO terms ...")
-        self.replace_mesh_with_ontology()
+        replace_mesh_with_ontology(self.replaced_tsv_file_path, self.poet_replaced_tsv_file_path)
+
         print(f"Starting integration of OntoGPT article by article ...")
-        self.integrate_ontogpt_articles()
+        process_ontogpt_articles(self.no_replaced_tsv_file_path, self.ontogpt_yaml_files_dir, template='maxo')
+
         print(f"Starting to Post Process OntoGPT results and saving the triplets found  ...")
-        self.post_process_ontogpt_results()
+        process_triplets_and_mesh(self.ontogpt_yaml_files_dir, self.mesh_info_file_path, self.output_path)
         print(f"The whole process is complete and the results are saved at {self.output_path}")
 
     def get_targeted_mesh_ids(self):
@@ -45,19 +50,6 @@ class AutoMaxoRunner:
             max_articles_to_save=self.max_articles_to_save,
             json_file_path=self.mesh_info_file_path
         )
- 
-    @TODO: call the functions below in the run function 
-    def extract_data_from_json(self):
-        process_article_jsons_to_tsv(self.json_files_dir, self.replaced_tsv_file_path, self.no_replaced_tsv_file_path)
-
-    def replace_mesh_with_ontology(self):
-        replace_mesh_with_ontology(self.replaced_tsv_file_path, self.poet_replaced_tsv_file_path)
-
-    def integrate_ontogpt_articles(self):
-        process_ontogpt_articles(self.no_replaced_tsv_file_path, self.ontogpt_yaml_files_dir, template='maxo')
-
-    def post_process_ontogpt_results(self):
-        process_triplets_and_mesh(self.ontogpt_yaml_files_dir, self.mesh_info_file_path, self.output_path)
 
 @click.command()
 @click.option('--disease_name', prompt='Disease Name', help='The name of the disease to be processed.')
