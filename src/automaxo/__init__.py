@@ -1,6 +1,6 @@
 from .mesh_importer import run_in_notebook as import_mesh_data
 from .pubmed_article_fetcher import run_in_notebook as pmid_extractor
-from .article_data_extractor import run_in_notebook as process_article_jsons_to_tsv
+from .article_data_extractor import run_in_notebook as process_article_jsons_to_mongodb
 from .mesh_to_ontology_replacer import run_in_notebook as replace_mesh_with_ontology
 from .ontogpt_article_processor import run_in_notebook as process_ontogpt_articles
 from .triplet_ranking_and_mesh_combiner import run_in_notebook as process_triplets_and_mesh

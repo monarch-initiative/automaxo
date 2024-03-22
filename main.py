@@ -1,6 +1,6 @@
 import click
 import src.automaxo as automaxo
-from automaxo import import_mesh_data, pmid_extractor, process_article_jsons_to_tsv, replace_mesh_with_ontology, process_ontogpt_articles, process_triplets_and_mesh
+from automaxo import import_mesh_data, pmid_extractor, process_article_jsons_to_mongodb, process_ontogpt_articles, process_triplets_and_mesh
 
 class AutoMaxoRunner:
     def __init__(self, disease_name, max_pmid_retrieve=10, max_articles_to_save=10):
@@ -12,7 +12,6 @@ class AutoMaxoRunner:
         self.mesh_info_file_path = self.base_data_path + "selected_pmid_mesh_info.json"
         self.replaced_tsv_file_path = self.base_data_path + f"{disease_name.replace(' ', '_')}_mesh_replaced.tsv"
         self.no_replaced_tsv_file_path = self.base_data_path + f"{disease_name.replace(' ', '_')}_no_replaced.tsv"
-        self.poet_replaced_tsv_file_path = self.base_data_path + f"{disease_name.replace(' ', '_')}_poet_replaced.tsv"
         self.ontogpt_yaml_files_dir = self.base_data_path + "ontoGPT_yaml/"
         self.output_path = self.base_data_path + "post_ontoGPT.json"
 
@@ -24,10 +23,12 @@ class AutoMaxoRunner:
         self.retrieve_pubmed_ids()
 
         print(f"Starting to extract data from json files and apply PubTator 3 NER to one csv file ...")
-        process_article_jsons_to_tsv(self.json_files_dir, self.replaced_tsv_file_path, self.no_replaced_tsv_file_path)
-
-        print(f"Starting to replace PubTator3 NER MeSH with MONDO, HP, and MaXO terms ...")
-        replace_mesh_with_ontology(self.replaced_tsv_file_path, self.poet_replaced_tsv_file_path)
+        process_article_jsons_to_mongodb(
+            db_name = "sickle_cell_test",
+            input_collection_name = "sickle_cell_raw_data",
+            replaced_collection_name = "replaced_sickle_cell",
+            no_replaced_collection_name = "no_replaced_sickle_cell"          
+            )
 
         print(f"Starting integration of OntoGPT article by article ...")
         process_ontogpt_articles(self.no_replaced_tsv_file_path, self.ontogpt_yaml_files_dir, template='maxo')
@@ -45,10 +46,11 @@ class AutoMaxoRunner:
         pmid_extractor(
             disease_name=self.disease_name,
             mesh_list_path="data/mesh_sets.tsv",
-            output_dir=self.json_files_dir,
             max_pmid_retrieve=self.max_pmid_retrieve,
             max_articles_to_save=self.max_articles_to_save,
-            json_file_path=self.mesh_info_file_path
+            db_name = "sickle_cell_test",
+            collection_name = "sickle_cell_raw_data",
+            info_collection_name = "pmid_mesh_info"
         )
 
 @click.command()
