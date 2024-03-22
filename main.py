@@ -31,13 +31,19 @@ class AutoMaxoRunner:
             )
 
         print(f"Starting integration of OntoGPT article by article ...")
-        process_ontogpt_articles(self.no_replaced_tsv_file_path, self.ontogpt_yaml_files_dir, template='maxo')
+
+        process_ontogpt_articles(
+            db_name = "sickle_cell_test",
+            input_collection_name = "no_replaced_sickle_cell",
+            output_collection_name = "ontoGPT_sickle_cell",
+            )
 
         print(f"Starting to Post Process OntoGPT results and saving the triplets found  ...")
         process_triplets_and_mesh(self.ontogpt_yaml_files_dir, self.mesh_info_file_path, self.output_path)
         print(f"The whole process is complete and the results are saved at {self.output_path}")
 
     def get_targeted_mesh_ids(self):
+        
         input_file = "data/mesh_target_ids.tsv"
         mesh_list_path = "data/mesh_sets.tsv"
         import_mesh_data(input_file, mesh_list_path)
