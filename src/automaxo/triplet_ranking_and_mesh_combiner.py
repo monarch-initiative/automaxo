@@ -5,29 +5,55 @@ from collections import defaultdict
 import click
 from typing import List, Tuple, DefaultDict
 from tqdm import tqdm
+from pymongo import MongoClient
 
-def load_yaml_files(directory_path: str) -> list:
+
+def load_yaml_data_from_collection(db_name: str, collection_name: str) -> list:
     """
-    Load YAML files from a specified directory and return their contents along with PubMed IDs.
+    Load YAML data from a specified MongoDB collection and return their contents along with PubMed IDs.
     
     Args:
-        directory_path (str): Path to the directory containing YAML files.
+        db_name (str): Name of the MongoDB database.
+        collection_name (str): Name of the MongoDB collection containing YAML data.
     
     Returns:
-        list: A list of dictionaries, each containing the contents of a YAML file and its corresponding PubMed ID.
+        list: A list of dictionaries, each containing the contents of a YAML entry and its corresponding PubMed ID.
     """
-    yaml_files = [f for f in os.listdir(directory_path) if f.endswith('.yaml')]
+    client = MongoClient('mongodb://localhost:27017/')
+    db = client[db_name]
+    collection = db[collection_name]
+
     data = []
+    for document in tqdm(collection.find(), desc="Loading YAML data from collection", total=collection.count_documents({})):
+        yaml_content = yaml.safe_load(document["results"])  # Assuming the YAML content is stored as a string in the "results" field
+        yaml_content['pubmed_id'] = document["pubmed_id"]
+        data.append(yaml_content)
 
-    for file_name in tqdm(yaml_files, desc="Loading YAML files", total=len(yaml_files)):
-        with open(os.path.join(directory_path, file_name), 'r') as f:
-            content = yaml.safe_load(f)
-            if content:
-                pubmed_id = os.path.splitext(file_name)[0]
-                content['pubmed_id'] = pubmed_id
-                data.append(content)
-
+    client.close()
     return data
+
+def load_mesh_info_from_collection(db_name: str, collection_name: str) -> dict:
+    """
+    Load mesh info from a specified MongoDB collection.
+
+    Args:
+        db_name (str): Name of the MongoDB database.
+        collection_name (str): Name of the MongoDB collection.
+
+    Returns:
+        dict: A dictionary where keys are PubMed IDs and values are dictionaries of mesh info.
+    """
+    client = MongoClient('mongodb://localhost:27017/')
+    db = client[db_name]
+    collection = db[collection_name]
+
+    mesh_info = {}
+    for document in tqdm(collection.find(), desc="Loading mesh info from collection"):
+        pubmed_id = document["_id"]
+        mesh_info[pubmed_id] = document["mesh_info"]
+
+    client.close()
+    return mesh_info
 
 
 def extract_triplets(data: list) -> tuple:
@@ -101,40 +127,32 @@ def combine_triplets_with_mesh(ranked_triplets: List[Tuple], mesh_info: dict) ->
     return combined_data
 
 
-@click.command()
-@click.option('-i', '--yaml_directory_path', required=True, help='Path to the directory containing YAML files')
-@click.option('-s', '--mesh_info_file_path', required=True, help='Path to the file with selected PMID and MeSH info')
-@click.option('-o', '--output_path', required=True, help='Path to the output JSON file')
-def main(yaml_directory_path: str, mesh_info_file_path: str, output_path: str):
-    """
-    Main function to process YAML files, extract triplets, count them, rank them, combine with MeSH info, and save to JSON.
 
-    Args:
-        yaml_directory_path (str): Path to the directory containing YAML files.
-        mesh_info_file_path (str): Path to the file with selected PMID and MeSH info.
-        output_path (str): Path to the output JSON file.
-    """
-    data = load_yaml_files(yaml_directory_path)
+@click.command()
+@click.option('-b','--db_name', required=True, help="Name of the MongoDB database.")
+@click.option('-i','--input_collection_name', required=True, help="Name of the MongoDB collection for input.")
+@click.option('-c','--info_collection_name', required=True, help="Name of the MongoDB collection for mesh info.")
+@click.option('-o','--output_path', required=True, help='Path to the output JSON file')
+
+def main(db_name, input_collection_name, info_collection_name, output_path):
+    data = load_yaml_data_from_collection(db_name, input_collection_name)
     triplets = extract_triplets(data)
-    print(triplets)
     triplet_counts = count_triplets(triplets)
     ranked_triplets = rank_triplets(triplet_counts)
 
-    with open(mesh_info_file_path, 'r') as f:
-        mesh_info = json.load(f)
-
+    mesh_info = load_mesh_info_from_collection(db_name, info_collection_name)
     combined_data = combine_triplets_with_mesh(ranked_triplets, mesh_info)
 
     with open(output_path, 'w') as f:
         json.dump({'ranked_triplets': combined_data}, f, indent=4)
 
-def run_in_notebook(yaml_directory_path, mesh_info_file_path, output_path):
+def run_in_notebook(db_name, input_collection_name, info_collection_name, output_path):
     main.main(standalone_mode=False, args=[
-        '--yaml_directory_path', yaml_directory_path,
-        '--mesh_info_file_path', mesh_info_file_path,
+        '--db_name', db_name,
+        '--input_collection_name', input_collection_name,
+        '--info_collection_name', info_collection_name,
         '--output_path', output_path
     ])
-
 
 if __name__ == '__main__':
     main()
