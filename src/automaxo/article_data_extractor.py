@@ -3,10 +3,16 @@ import json
 import os
 import logging
 from tqdm import tqdm
+from pymongo import MongoClient
 
-logger = logging.basicConfig(filename='data_preprocessing.log',
-                    level=logging.INFO,
-                    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
+# Initialize logger
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+handler = logging.FileHandler('process_articles.log')
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+handler.setFormatter(formatter)
+logger.addHandler(handler)
 
 
 # Updated function based on the provided structure and logic for building new text with replacements
@@ -76,82 +82,56 @@ def extract_relationships(relations:str):
 
 
 @click.command()
-@click.option('-i', '--json_files_path', required=True, help="Path to the directory containing JSON files.")
-@click.option('-r', '--replaced_tsv_file_path', required=True, help="Path to the output TSV file where replacement occurred.")
-@click.option('-n', '--no_replaced_tsv_file_path', required=True, help="Path to the output TSV file where no replacement occurred.")
+@click.option('-i', '--db_name', required=True, help="Name of the MongoDB database.")
+@click.option('-c', '--input_collection_name', required=True, help="Name of the MongoDB collection for input.")
+@click.option('-r', '--replaced_collection_name', required=True, help="Name of the MongoDB collection for replaced data output.")
+@click.option('-n', '--no_replaced_collection_name', required=True, help="Name of the MongoDB collection for non-replaced data output.")
 
-def process_article_jsons_to_tsv(json_files_path:str, replaced_tsv_file_path:str, no_replaced_tsv_file_path:str):
-    """
-    Processes JSON files in the given directory, extracting PMC ID, text content, and relationship,
-    and saves them into a single TSV file with three columns: PMC ID, text, and relationship.
+def process_article_jsons_to_mongodb(db_name, input_collection_name, replaced_collection_name, no_replaced_collection_name):
+    client = MongoClient('mongodb://localhost:27017/')
+    db = client[db_name]
+    input_collection = db[input_collection_name]
+    replaced_collection = db[replaced_collection_name]
+    no_replaced_collection = db[no_replaced_collection_name]
 
-    Parameters:
-    - json_files_path (str): The path to the directory containing JSON files.
-    - replaced_tsv_file_path (str): The path to the output TSV file where replacement occurred.
-    - no_replaced_tsv_file_path (str): The path to the output TSV file where no replacement occurred.
-    """
+    for document in tqdm(input_collection.find(), desc="Processing documents"):
+        # Assume 'passages' and 'relations_display' fields exist in the document
+        text_content_no_replaced = "".join([passage["text"] for passage in document["passages"]])
+        corrected_passages = extract_passages(document["passages"])
+        text_content_replaced = "".join([passage["text"] for passage in corrected_passages])
+        relationship_no_replaced = "; ".join([relation['name'] for relation in document['relations_display']])
+        relationship_replaced = "; ".join(extract_relationships(document.get('relations', [])))
 
-    # Ensure the output directory exists
-    output_directory = os.path.dirname(replaced_tsv_file_path)
-    if output_directory:
-        os.makedirs(output_directory, exist_ok=True)
+        # Insert processed data into the output collections
+        replaced_collection.insert_one({
+            'pmc_id': document['_id'],
+            'relationships': relationship_replaced,
+            'text': text_content_replaced
+        })
 
-    json_files = [f for f in os.listdir(json_files_path) if f.endswith(".json")]
-     # Open the TSV files for writing
-    with open(replaced_tsv_file_path, 'w', encoding='utf-8') as replaced_tsv_file, \
-         open(no_replaced_tsv_file_path, 'w', encoding='utf-8') as no_replaced_tsv_file:
-        
-        # Iterate over all files in the given directory
-        for filename in tqdm(json_files, desc="Processing JSON files", total=len(json_files)):
-            json_file_path = os.path.join(json_files_path, filename)
+        no_replaced_collection.insert_one({
+            'pmc_id': document['_id'],
+            'relationships': relationship_no_replaced,
+            'text': text_content_no_replaced
+        })
 
-            with open(json_file_path, 'r', encoding='utf-8') as file:
-                data = json.load(file)
+    logger.info(f'Processed and saved all entries to replaced collection: {replaced_collection_name}')
+    logger.info(f'Processed and saved all entries to no replaced collection: {no_replaced_collection_name}')
 
-                # Concatenate all passage no replacement texts into one string
-                text_content_no_replaced = "".join([passage["text"] for passage in data["passages"]])
+    client.close()
 
-                # Apply Replacement
-                corrected_passages = extract_passages(data["passages"])
-
-                # Concatenate all passage replaced texts into one string
-                text_content_replaced = "".join([passage["text"] for passage in corrected_passages])
-
-                # Extract relationships
-                relationship_no_replaced = [relation['name'] for relation in data['relations_display']]
-                relationship_no_replaced = ' ;'.join(relationship_no_replaced)
-
-                relationship_replaced = extract_relationships(data.get('relations', []))
-                relationships_replaced = "; ".join(relationship_replaced)
-
-
-                # Extract PMC ID from the filename (assuming PMC ID is the filename without extension)
-                pmc_id = os.path.splitext(filename)[0]
-
-                # Write the PMC ID, text content, and relationships to the TSV file
-                replaced_tsv_file.write(f"{pmc_id}\t{relationships_replaced}\t{text_content_replaced}\n")
-
-                # Write the PMC ID, text content, and relationships to the TSV file
-                no_replaced_tsv_file.write(f"{pmc_id}\t{relationship_no_replaced}\t{text_content_no_replaced}\n")
-
-        logging.info(f'Processed and saved all entries to: {replaced_tsv_file_path}')
-        logging.info(f'Unprocessed and saved all entries to: {no_replaced_tsv_file_path}')
-        
-
-
-def run_in_notebook(json_files_path, replaced_tsv_file_path, no_replaced_tsv_file_path):
-    process_article_jsons_to_tsv.main(standalone_mode=False, args=[
-        '--json_files_path', json_files_path,
-        '--replaced_tsv_file_path', replaced_tsv_file_path,
-        '--no_replaced_tsv_file_path', no_replaced_tsv_file_path
+def run_in_notebook(db_name, input_collection_name, replaced_collection_name, no_replaced_collection_name):
+    process_article_jsons_to_mongodb.main(standalone_mode=False, args=[
+        '--db_name', db_name,
+        '--input_collection_name', input_collection_name,
+        '--replaced_collection_name', replaced_collection_name,
+        '--no_replaced_collection_name', no_replaced_collection_name
     ])
 
-
 if __name__ == '__main__':
-    process_article_jsons_to_tsv()
+    process_article_jsons_to_mongodb()
 
 
 """
-python article_data_extractor.py -i "/path/to/json/files" -r "/path/to/replaced.tsv" -n "/path/to/no_replaced.tsv"
-
+python article_data_extractor.py -i sickle_cell -c sickle_cell_raw_data -r replaced_sickle_cell -n no_replaced_sickle_cell
 """
