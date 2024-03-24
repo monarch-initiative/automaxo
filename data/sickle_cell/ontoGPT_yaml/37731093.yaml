@@ -1,0 +1,117 @@
+---
+input_text: 'A Comparison of the effect of patient-specific vs. weight-based protocols
+  to treat vaso-occlusive episodes (VOE) in the emergency department.BACKGROUND: Vaso-occlusive
+  episodes (VOC) cause debilitating pain and are a common cause of emergency department
+  (ED) visits, for people with sickle cell disease (SCD). Strategies for achieving
+  optimal pain control vary widely despite evidence-based guidelines. We tested existing
+  guidelines and hypothesized a patient-specific protocol (PSP) written by their SCD
+  provider, may be more effective than weight-based (WB) dosing of parenteral opiate
+  medication, in relieving pain. METHODS: Prospective, randomized controlled trial
+  comparing a PSP versus WB protocol for patients presenting with VOC to six EDs.
+  Patients were randomized to a PSP or WB protocol prior to an ED visit. SCD provider
+  wrote their protocol and placed in the electronic health record for future ED visits
+  with a VOC Exclusion criteria included: pre-existing PSP excluding parenteral opioid
+  analgesia or out-patient use of buprenorphine or methadone, or highly suspected
+  for COVID-19. Pain intensity scores, side effects and safety were obtained every
+  30 minutes for up to 6 hours post-ED bed placement. The primary outcome was change
+  in pain intensity score from placement in an ED space to disposition or six hours.
+  RESULTS: 328 subjects were randomized, 104 participants enrolled (ED visit, target
+  n=230) with complete data for 96 visits. The study was unable to reach the target
+  sample size and stopped early due to the impact of COVID-19. We found no significant
+  differences between groups in the primary outcome; patients randomized to a PSP
+  had a shorter ED length of stay (p=.008); the prevalence of side effects was low
+  in both groups. Subjects in both groups experienced both a clinically meaningful
+  and statistically significant decrease in pain (27 mm on a 0-100 mm scale) CONCLUSIONS:
+  We found a shorter ED length of stay for patients assigned to a PSP. Patients in
+  both groups experienced good pain relief without significant side effects.'
+raw_completion_output: |-
+  action: patient-specific protocol;weight-based protocol;parenteral opiate medication
+  disease: vaso-occlusive episodes;vaso-occlusive crisis;sickle cell disease
+  symptom: debilitating pain
+  action_to_disease: patient-specific protocol TREATS vaso-occlusive episodes;weight-based protocol TREATS vaso-occlusive episodes;parenteral opiate medication TREATS vaso-occlusive episodes
+  action_to_symptom: parenteral opiate medication RELIEVES debilitating pain
+  triples: patient-specific protocol TREATS vaso-occlusive episodes;weight-based protocol TREATS vaso-occlusive episodes;parenteral opiate medication TREATS vaso-occlusive episodes;parenteral opiate medication RELIEVES debilitating pain
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject: <the value for subject>
+  predicate: <the value for predicate>
+  object: <the value for object>
+  qualifier: <A qualifier for the statements, e.g. "NOT" for negation>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  parenteral opiate medication RELIEVES debilitating pain
+
+  ===
+
+extracted_object:
+  triples:
+    - subject: patient-specific protocol
+      predicate: TREATS
+      object: vaso-occlusive episodes
+    - subject: weight-based protocol
+      predicate: TREATS
+      object: vaso-occlusive episodes
+    - subject: parenteral opiate medication
+      predicate: TREATS
+      object: vaso-occlusive episodes
+    - subject: parenteral opiate medication
+      predicate: RELIEVES
+      object: pain
+      object_qualifier: debilitating
+  action:
+    - patient-specific protocol
+    - weight-based protocol
+    - parenteral opiate medication
+  disease:
+    - vaso-occlusive episodes
+    - vaso-occlusive crisis
+    - MONDO:0011382
+  symptom:
+    - debilitating pain
+  action_to_disease:
+    - subject: patient-specific protocol
+      predicate: TREATS
+      object:
+        - vaso-occlusive episodes
+    - subject: weight-based protocol
+      predicate: TREATS
+      object:
+        - vaso-occlusive episodes
+    - subject: parenteral opiate medication
+      predicate: TREATS
+      object:
+        - vaso-occlusive episodes
+  action_to_symptom:
+    - subject: parenteral opiate medication
+      predicate: RELIEVES
+      object:
+        - debilitating pain
+named_entities:
+  - id: MONDO:0011382
+    label: Sickle cell disease
+  - id: HP:0012531
+    label: Pain
+  - id: MONDO:0007374
+    label: <Sickle Cell Disease (SCD)
+  - id: MONDO:0005154
+    label: Liver disease
+  - id: MONDO:0007345
+    label: Coarctation of the Aorta
+  - id: MONDO:0005300
+    label: Chronic Kidney Disease
+  - id: MAXO:0000149
+    label: <Hematopoietic stem cell transplantation (HCT)
+  - id: MONDO:0005044
+    label: Hypertension
+  - id: MAXO:0000759
+    label: HPV vaccination
+  - id: MONDO:0006517
+    label: Childhood cancer
+  - id: MONDO:0021681
+    label: STI
+  - id: MONDO:0010094
+    label: Sickle Cell Trait (SCT)>

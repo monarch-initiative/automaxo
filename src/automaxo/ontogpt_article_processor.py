@@ -1,10 +1,20 @@
 import csv
 import os
 from io import BytesIO
+import logging
 import click
 from ontogpt.engines.spires_engine import SPIRESEngine
 from ontogpt.io.template_loader import get_template_details
 from ontogpt.cli import write_extraction
+from tqdm import tqdm
+
+# Initialize logger
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+handler = logging.FileHandler('ontogpt_article_processor.log')
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+handler.setFormatter(formatter)
+logger.addHandler(handler)
 
 
 def process_article(pubmed_id: str, text: str, ke: SPIRESEngine, output_dir: str):
@@ -39,7 +49,9 @@ def process_article(pubmed_id: str, text: str, ke: SPIRESEngine, output_dir: str
         output.seek(0)
         output_file.write(output.getvalue())
 
-def process_tsv_file(file_path: str, ke: SPIRESEngine, output_dir: str):
+
+
+def process_tsv_file(file_path: str, ke: SPIRESEngine, output_dir: str, existing_pmids: set):
     """
     Read a .tsv file and process each article, saving the outputs in the specified directory.
 
@@ -47,19 +59,23 @@ def process_tsv_file(file_path: str, ke: SPIRESEngine, output_dir: str):
         file_path (str): The path to the .tsv file containing the articles.
         ke (SPIRESEngine): The knowledge extraction engine used to extract information from the articles.
         output_dir (str): The directory where the extracted YAML files will be saved.
+        existing_pmids (set): A set of PubMed IDs that have already been processed.
 
     """
     with open(file_path, "r") as file:
         reader = csv.reader(file, delimiter="\t")
-        for row in reader:
+        rows = list(reader)  # Convert the reader to a list to get the total length
+
+        for row in tqdm(rows, desc="Processing TSV file", total=len(rows)):
             pubmed_id, relationship, text = row
-            process_article(pubmed_id, text, ke, output_dir)
+            if pubmed_id not in existing_pmids:
+                process_article(pubmed_id, text, ke, output_dir)
 
 
 @click.command()
-@click.argument('input_file', type=click.Path(exists=True)) # help="Path to the input .tsv file"
-@click.argument('output_dir', type=click.Path()) # help="Path to the output directory for YAML files"
-@click.option('--template', default='maxo') # help='Template to use for extraction (default: maxo)'
+@click.option('-i','--input_file', required=True) # help="Path to the input .tsv file"
+@click.option('-o','--output_dir', required=True) # help="Path to the output directory for YAML files"
+@click.option('-t','--template', default='maxo') # help='Template to use for extraction (default: maxo)'
 def main(input_file, output_dir, template):
     # Initialize the SPIRES engine with the specified template
     ke = SPIRESEngine(
@@ -71,13 +87,24 @@ def main(input_file, output_dir, template):
     # Create the output directory if it does not exist
     os.makedirs(output_dir, exist_ok=True)
 
+    # Check the output directory and create a set of existing PubMed IDs
+    existing_pmids = set()
+    if os.path.exists(output_dir):
+        for filename in os.listdir(output_dir):
+            if filename.endswith('.yaml'):
+                pmid = filename.split('.')[0]
+                existing_pmids.add(pmid)
+    
+    logger.info(f" The directory {output_dir} had already {len(existing_pmids)} extracted articles.")
+
+
     # Process the .tsv file
-    process_tsv_file(input_file, ke, output_dir)
+    process_tsv_file(input_file, ke, output_dir,existing_pmids )
 
 def run_in_notebook(input_file, output_dir, template='maxo'):
     main.main(standalone_mode=False, args=[
-        input_file,
-        output_dir,
+        '--input_file',input_file,
+        '--output_dir', output_dir,
         '--template', template
     ])
 
@@ -87,5 +114,5 @@ if __name__ == '__main__':
 
 """
 python ontogpt_article_processor.py path/to/input.tsv path/to/output/directory --template maxo
-
+python ontogpt_article_processor.py -i ../../data/sickle_cell/sickle_cell_no_replaced.tsv -o ../../data/sickle_cell/ontoGPT_yaml/
 """

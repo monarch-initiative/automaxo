@@ -1,0 +1,91 @@
+---
+input_text: Erythrocytapheresis in a Patient of Sickle Cell Disease Presenting in
+  Crisis.As per American Society of Apheresis (ASFA) guidelines, the indication for
+  Erythrocytapheresis for sickle cell patients is category III for preoperative management
+  and vaso-occlusive crisis. Erythrocytapheresis, with the help of automated cell
+  separators, has the benefit of reducing the Sickle hemoglobin (HbS) levels to <30.0%
+  with a reduced risk of increasing blood viscosity and single procedure achieving
+  target hemoglobin levels. A 17-year-oldfemale patient who was a known case of sickle
+  cell disease presented to our institution with a vascular necrosis of the right
+  femoral head. Due to the pain and limitations of her day-to-day activities, she
+  was advised for total hip arthroplasty. This patient underwent a successful Erythrocytapheresis
+  using an automated cell separator and was operated on. In a sickle cell patient
+  planned for surgical intervention, the procedure of Erythrocytapheresis can help
+  in decreasing the chances of the patient developing any vaso-occlusive crisis during
+  surgery and in the immediate post-operative period. This technique can help in improving
+  the chances of a successful surgical procedure for such patients.
+raw_completion_output: |-
+  action: <Erythrocytapheresis;Total hip arthroplasty>
+  disease: <Sickle Cell Disease;Vascular necrosis of the right femoral head>
+  symptom: <Vaso-occlusive crisis>
+  action_to_disease: <Erythrocytapheresis TREATS Sickle Cell Disease;Total hip arthroplasty TREATS Vascular necrosis of the right femoral head>
+  action_to_symptom: <Erythrocytapheresis IS USED TO PREVENT Vaso-occlusive crisis>
+  triples: <Erythrocytapheresis TREATS Sickle Cell Disease;Total hip arthroplasty TREATS Vascular necrosis of the right femoral head;Erythrocytapheresis IS USED TO PREVENT Vaso-occlusive crisis>
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject: <the value for subject>
+  predicate: <the value for predicate>
+  object: <the value for object>
+  qualifier: <A qualifier for the statements, e.g. "NOT" for negation>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Erythrocytapheresis IS USED TO PREVENT Vaso-occlusive crisis>
+
+  ===
+
+extracted_object:
+  triples:
+    - subject: Erythrocytapheresis
+      predicate: TREATS
+      object: Sickle Cell Disease
+    - subject: Total hip arthroplasty
+      predicate: TREATS
+      object: Vascular necrosis of the right femoral head
+    - subject: Erythrocytapheresis
+      predicate: IS USED TO PREVENT
+      object: Vaso-occlusive crisis
+  action:
+    - <Erythrocytapheresis
+    - Total hip arthroplasty>
+  disease:
+    - <Sickle Cell Disease
+    - Vascular necrosis of the right femoral head>
+  symptom:
+    - <Vaso-occlusive crisis>
+  action_to_disease:
+    - subject: Erythrocytapheresis
+      predicate: TREATS
+      object:
+        - MONDO:0011382
+    - subject: Total hip arthroplasty
+      predicate: TREATS
+      object:
+        - Vascular necrosis of the right femoral head
+  action_to_symptom:
+    - subject: Erythrocytapheresis
+      predicate: IS USED TO PREVENT
+      object:
+        - Vaso-occlusive crisis
+named_entities:
+  - id: MAXO:0001001
+    label: Gene Therapies
+  - id: MONDO:0011382
+    label: Sickle Cell Disease
+  - id: MAXO:0009047
+    label: Total hip replacement (THR)
+  - id: MONDO:0007374
+    label: Sickle cell disease (SCD)
+  - id: MONDO:0018373
+    label: Femoral head avascular necrosis (AVN)
+  - id: HP:0030838
+    label: Hip pain
+  - id: HP:0011902
+    label: abnormal hemoglobin
+  - id: MAXO:0000747
+    label: <hematopoietic stem cell transplantation (HSCT)
+  - id: MAXO:0000756
+    label: blood transfusion
