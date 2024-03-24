@@ -1,0 +1,93 @@
+---
+input_text: 'Absent right superior vena cava and persistent left superior vena cava:
+  An incidental finding.A patient with Marfan syndrome undergoing Bentall operation
+  was found to have an absent right superior vena cava and persistent left superior
+  vena cava. The dilation of coronary sinus raised the suspicion of persistent left
+  superior vena cava. The diagnosis was confirmed by agitated saline contrast echocardiography
+  and computed tomography of the chest.'
+raw_completion_output: |-
+  action: Bentall operation; Agitated saline contrast echocardiography; Computed tomography of the chest
+  disease: Marfan syndrome; Absent right superior vena cava; Persistent left superior vena cava
+  symptom: Dilation of coronary sinus
+  action_to_disease: Bentall operation TREATS Marfan syndrome; Agitated saline contrast echocardiography IS USED TO DIAGNOSE Persistent left superior vena cava; Computed tomography of the chest IS USED TO DIAGNOSE Persistent left superior vena cava
+  action_to_symptom: 
+  triples: Bentall operation TREATS Marfan syndrome; Agitated saline contrast echocardiography IS USED TO DIAGNOSE Persistent left superior vena cava; Computed tomography of the chest IS USED TO DIAGNOSE Persistent left superior vena cava
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject: <the value for subject>
+  predicate: <the value for predicate>
+  object: <the value for object>
+  qualifier: <A qualifier for the statements, e.g. "NOT" for negation>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Computed tomography of the chest IS USED TO DIAGNOSE Persistent left superior vena cava
+
+  ===
+
+extracted_object:
+  triples:
+    - subject: Bentall operation
+      predicate: TREATS
+      object: Marfan syndrome
+    - subject: Agitated saline contrast echocardiography
+      predicate: IS USED TO DIAGNOSE
+      object: Persistent left superior vena cava
+    - subject: Computed tomography of the chest
+      predicate: IS USED TO DIAGNOSE
+      object: Persistent left superior vena cava
+  action:
+    - Bentall operation
+    - Agitated saline contrast echocardiography
+    - Computed tomography of the chest
+  disease:
+    - MONDO:0007947
+    - Absent right superior vena cava
+    - Persistent left superior vena cava
+  symptom:
+    - Dilation of coronary sinus
+  action_to_disease:
+    - subject: Bentall operation
+      predicate: TREATS
+      object:
+        - MONDO:0007947
+    - subject: Agitated saline contrast echocardiography
+      predicate: IS USED TO DIAGNOSE
+      object:
+        - Persistent left superior vena cava
+    - subject: Computed tomography of the chest
+      predicate: IS USED TO DIAGNOSE
+      object:
+        - Persistent left superior vena cava
+named_entities:
+  - id: MONDO:0007947
+    label: Marfan syndrome
+  - id: MONDO:0005648
+    label: aortic valve insufficiency
+  - id: MONDO:0003847
+    label: genetic diseases
+  - id: MONDO:0005311
+    label: atherosclerosis
+  - id: MONDO:0042981
+    label: aortic valve stenosis
+  - id: MAXO:0000004
+    label: Surgery
+  - id: HP:0010550
+    label: paraplegia
+  - id: HP:0002385
+    label: paraparesis
+  - id: MONDO:0020236
+    label: ectopia lentis
+  - id: HP:0000766
+    label: pectus deformity
+  - id: MONDO:0009691
+    label: Marfan syndrome (MFS)
+  - id: MONDO:0004995
+    label: cardiovascular diseases
+  - id: MAXO:0000600
+    label: renal replacement therapy
+  - id: MAXO:0000503
+    label: mechanical ventilation
