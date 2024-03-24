@@ -25,6 +25,18 @@ python main.py
 ```
 
 
+To visualize the results in HTML:
+
+```bash
+python -m http.server
+```
+
+Open in your browser and type 
+
+```bash
+http://localhost:8000/index.html
+
+```bash
 ## Project Outline
 
 For a detailed outline of the project, please refer to the [guideline document](https://docs.google.com/document/d/14KhrKmsPSCVISvcsCo_3I6n0FI5wjsgteeTe2nCVLGc/edit).
