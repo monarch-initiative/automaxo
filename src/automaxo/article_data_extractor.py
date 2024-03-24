@@ -154,4 +154,6 @@ if __name__ == '__main__':
 """
 python article_data_extractor.py -i "/path/to/json/files" -r "/path/to/replaced.tsv" -n "/path/to/no_replaced.tsv"
 
+python article_data_extractor.py -i ../../data/sickle_cell/pubtator3_json/ -r ../../data/sickle_cell/sickle_cell_mesh_replaced.tsv -n ../../data/sickle_cell/sickle_cell_no_replaced.tsv 
+
 """

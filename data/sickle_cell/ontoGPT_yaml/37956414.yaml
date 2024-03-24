@@ -24,12 +24,12 @@ input_text: "Digital PCR to Measure SARS-CoV-2 RNA, Variants, and Outcomes in Yo
   allows for replication, comparisons across institutions, and has the potential to
   facilitate consensus quantitative thresholds for risk stratification and treatment."
 raw_completion_output: |-
-  action: Digital PCR; Respiratory samples quantitation; Sequencing
-  disease: COVID-19; Respiratory disease
-  symptom: Symptoms
-  action_to_disease: Digital PCR IS USED TO DIAGNOSE COVID-19; Respiratory samples quantitation IS USED TO DIAGNOSE COVID-19; Sequencing IS USED TO IDENTIFY COVID-19 variants
-  action_to_symptom: Digital PCR IS USED TO DIAGNOSE Symptoms
-  triples: Digital PCR IS USED TO DIAGNOSE COVID-19; Respiratory samples quantitation IS USED TO DIAGNOSE COVID-19; Sequencing IS USED TO IDENTIFY COVID-19 variants; Digital PCR IS USED TO DIAGNOSE Symptoms
+  action: Digital PCR to Measure SARS-CoV-2 RNA; RT-dPCR targeting N1 and N2 genes with sequencing
+  disease: COVID-19; respiratory diseases
+  symptom: symptoms
+  action_to_disease: Digital PCR to Measure SARS-CoV-2 RNA IS USED TO DIAGNOSE COVID-19; RT-dPCR targeting N1 and N2 genes with sequencing IS USED TO DIAGNOSE COVID-19
+  action_to_symptom: Digital PCR to Measure SARS-CoV-2 RNA PREDICTS symptoms
+  triples: Digital PCR to Measure SARS-CoV-2 RNA IS USED TO DIAGNOSE COVID-19; RT-dPCR targeting N1 and N2 genes with sequencing IS USED TO DIAGNOSE COVID-19; Digital PCR to Measure SARS-CoV-2 RNA PREDICTS symptoms
 prompt: |+
   Split the following piece of text into fields in the following format:
 
@@ -42,51 +42,44 @@ prompt: |+
 
 
   Text:
-  Digital PCR IS USED TO DIAGNOSE Symptoms
+  Digital PCR to Measure SARS-CoV-2 RNA PREDICTS symptoms
 
   ===
 
 extracted_object:
   triples:
     - subject: Digital PCR
-      predicate: IS USED TO DIAGNOSE
+      predicate: is used to diagnose
       object: COVID-19
-    - subject: Respiratory samples quantitation
-      predicate: IS USED TO DIAGNOSE
-      object: COVID-19
-    - subject: Sequencing
-      predicate: IS USED TO IDENTIFY
-      object: COVID-19 variants
-    - subject: Digital PCR
-      predicate: IS USED TO DIAGNOSE
-      object: Symptoms
+      subject_qualifier: to measure SARS-CoV-2 RNA
+    - subject: RT-dPCR targeting N1 and N2 genes with sequencing
+      predicate: IS USED TO
+      object: DIAGNOSE COVID-19
+    - subject: Digital PCR to Measure SARS-CoV-2 RNA
+      predicate: PREDICTS
+      object: symptoms
   action:
-    - Digital PCR
-    - Respiratory samples quantitation
-    - Sequencing
+    - Digital PCR to Measure SARS-CoV-2 RNA
+    - RT-dPCR targeting N1 and N2 genes with sequencing
   disease:
     - MONDO:0100096
     - MONDO:0005087
   symptom:
-    - Symptoms
+    - symptoms
   action_to_disease:
-    - subject: Digital PCR
+    - subject: Digital PCR to Measure SARS-CoV-2 RNA
       predicate: IS USED TO DIAGNOSE
       object:
         - MONDO:0100096
-    - subject: Respiratory samples quantitation
+    - subject: RT-dPCR targeting N1 and N2 genes with sequencing
       predicate: IS USED TO DIAGNOSE
       object:
         - MONDO:0100096
-    - subject: Sequencing
-      predicate: IS USED TO IDENTIFY
-      object:
-        - COVID-19 variants
   action_to_symptom:
-    - subject: Digital PCR
-      predicate: IS USED TO DIAGNOSE
+    - subject: Digital PCR to Measure SARS-CoV-2 RNA
+      predicate: PREDICTS
       object:
-        - Symptoms
+        - symptoms
 named_entities:
   - id: MAXO:0001001
     label: genetic therapies
@@ -95,4 +88,4 @@ named_entities:
   - id: MONDO:0100096
     label: COVID-19
   - id: MONDO:0005087
-    label: Respiratory disease
+    label: respiratory diseases
