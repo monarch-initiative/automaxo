@@ -1,0 +1,44 @@
+---
+input_text: First Gene Therapies Approved for Sickle Cell Disease.
+raw_completion_output: |-
+  action: Gene Therapies
+  disease: Sickle Cell Disease
+  symptom: 
+  action_to_disease: Gene Therapies TREATS Sickle Cell Disease
+  action_to_symptom: 
+  triples: Gene Therapies TREATS Sickle Cell Disease
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject: <the value for subject>
+  predicate: <the value for predicate>
+  object: <the value for object>
+  qualifier: <A qualifier for the statements, e.g. "NOT" for negation>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Gene Therapies TREATS Sickle Cell Disease
+
+  ===
+
+extracted_object:
+  triples:
+    - subject: Gene Therapies
+      predicate: TREATS
+      object: Sickle Cell Disease
+  action:
+    - MAXO:0001001
+  disease:
+    - MONDO:0011382
+  action_to_disease:
+    - subject: MAXO:0001001
+      predicate: TREATS
+      object:
+        - MONDO:0011382
+named_entities:
+  - id: MAXO:0001001
+    label: Gene Therapies
+  - id: MONDO:0011382
+    label: Sickle Cell Disease

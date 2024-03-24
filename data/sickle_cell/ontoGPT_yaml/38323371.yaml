@@ -1,0 +1,91 @@
+---
+input_text: Transcranial doppler velocity in iron-deficient Nigerian children with
+  sickle cell anemia.Oral iron supplementation in iron deficient children with sickle
+  cell anemia and normal transcranial Doppler ultrasound (TCD) velocities does not
+  reduce arterial flow in the middle cerebral artery.
+raw_completion_output: |-
+  action: Oral iron supplementation;Transcranial Doppler ultrasound
+  disease: Iron deficiency;Sickle cell anemia
+  symptom: 
+  action_to_disease: Oral iron supplementation TREATS Iron deficiency;Oral iron supplementation TREATS Sickle cell anemia;Transcranial Doppler ultrasound IS USED TO DIAGNOSE Sickle cell anemia
+  action_to_symptom: 
+  triples: Oral iron supplementation TREATS Iron deficiency;Oral iron supplementation TREATS Sickle cell anemia;Transcranial Doppler ultrasound IS USED TO DIAGNOSE Sickle cell anemia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject: <the value for subject>
+  predicate: <the value for predicate>
+  object: <the value for object>
+  qualifier: <A qualifier for the statements, e.g. "NOT" for negation>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Transcranial Doppler ultrasound IS USED TO DIAGNOSE Sickle cell anemia
+
+  ===
+
+extracted_object:
+  triples:
+    - subject: Oral iron supplementation
+      predicate: TREATS
+      object: Iron deficiency
+    - subject: Oral iron supplementation
+      predicate: TREATS
+      object: Sickle cell anemia
+    - subject: Transcranial Doppler ultrasound
+      predicate: IS USED TO DIAGNOSE
+      object: Sickle cell anemia
+  action:
+    - MAXO:0000108
+    - Transcranial Doppler ultrasound
+  disease:
+    - Iron deficiency
+    - MONDO:0011382
+  action_to_disease:
+    - subject: MAXO:0000108
+      predicate: TREATS
+      object:
+        - Iron deficiency
+    - subject: MAXO:0000108
+      predicate: TREATS
+      object:
+        - MONDO:0011382
+    - subject: Transcranial Doppler ultrasound
+      predicate: IS USED TO DIAGNOSE
+      object:
+        - MONDO:0011382
+named_entities:
+  - id: MAXO:0001001
+    label: Gene Therapies
+  - id: MONDO:0011382
+    label: Sickle Cell Disease
+  - id: MAXO:0009047
+    label: Total hip replacement (THR)
+  - id: MONDO:0007374
+    label: Sickle cell disease (SCD)
+  - id: MONDO:0018373
+    label: Femoral head avascular necrosis (AVN)
+  - id: HP:0030838
+    label: Hip pain
+  - id: HP:0011902
+    label: abnormal hemoglobin
+  - id: MAXO:0000747
+    label: <hematopoietic stem cell transplantation (HSCT)
+  - id: MAXO:0000756
+    label: blood transfusion
+  - id: MAXO:0000058
+    label: Pharmacotherapies
+  - id: MONDO:0011122
+    label: Obesity
+  - id: MONDO:0004979
+    label: Asthma
+  - id: MONDO:0100096
+    label: COVID-19
+  - id: MONDO:0010094
+    label: sickle cell trait (SCT)>
+  - id: HP:0002878
+    label: respiratory failure
+  - id: MAXO:0000108
+    label: Oral iron supplementation

@@ -1,0 +1,104 @@
+---
+input_text: 'Ambulatory blood pressure monitoring in pediatric patients with sickle
+  cell anemia.INTRODUCTION: Sickle cell anemia (SCA) is a hemoglobinopathy presenting
+  severe endothelial damage associated with increased prevalence of hypertension (HTN).
+  Few studies have used ambulatory blood pressure monitoring (ABPM) in pediatric patients
+  with SCA. The aim of this study was to characterize the ABPM profile in children
+  with SCA. METHODS: A retrospective cross-sectional study was conducted on all subjects
+  <18 years of age with SCA who presented at a medical reference center in the city
+  of Cartagena, Colombia. Anthropometric, clinical laboratory, treatment, and ABPM
+  parameters, including ambulatory arterial stiffness index (AASI) were registered.
+  RESULTS: The study included 79 patients, of these, 23 (29%) children had normal
+  BP, 49 (62%) had abnormal BP and 7 (9%) had HTN. Mean age was 10.5 +- 3.6 years
+  and 44 (56%) cases were male. Forty-eight (60%) patients had pre-HTN. Masked HTN
+  was present in 6 (8%) patients. One (1%) had ambulatory HTN, and another one (1%)
+  had white coat HTN. The HTA group exhibited significantly higher systolic BP and
+  diastolic BP compared to the other groups in 24-hour BP readings, daytime BP, and
+  night-time BP ABPM parameters (P < 0.05), except for daytime DBP (P = 0.08). Mean
+  AASI was 0.4 +- 0.2. The HTN group had the highest AASI value compared to the other
+  groups (P = 0.006). CONCLUSION: Significant alterations in ABPM parameters are frequently
+  observed in pediatric patients with SCA. The incorporation of ABPM, along with the
+  assessment of AASI, is recommended for a comprehensive evaluation of cardiovascular
+  and renal risk in SCA patients.'
+raw_completion_output: |-
+  action: <Ambulatory blood pressure monitoring;Assessment of ambulatory arterial stiffness index>
+  disease: <Sickle cell anemia;Hypertension;Pre-hypertension;Masked hypertension;Ambulatory hypertension;White coat hypertension>
+  symptom: <Increased prevalence of hypertension;Severe endothelial damage;Abnormal blood pressure>
+  action_to_disease: <Ambulatory blood pressure monitoring IS USED TO DIAGNOSE hypertension;Assessment of ambulatory arterial stiffness index IS USED TO ASSESS cardiovascular and renal risk in Sickle cell anemia>
+  action_to_symptom: <Ambulatory blood pressure monitoring IS USED TO DIAGNOSE abnormal blood pressure>
+  triples: <Ambulatory blood pressure monitoring IS USED TO DIAGNOSE hypertension;Assessment of ambulatory arterial stiffness index IS USED TO ASSESS cardiovascular and renal risk in Sickle cell anemia;Ambulatory blood pressure monitoring IS USED TO DIAGNOSE abnormal blood pressure>
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject: <the value for subject>
+  predicate: <the value for predicate>
+  object: <the value for object>
+  qualifier: <A qualifier for the statements, e.g. "NOT" for negation>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Ambulatory blood pressure monitoring IS USED TO DIAGNOSE abnormal blood pressure>
+
+  ===
+
+extracted_object:
+  triples:
+    - subject: Ambulatory blood pressure monitoring
+      predicate: IS USED TO DIAGNOSE
+      object: hypertension
+    - subject: Assessment of ambulatory arterial stiffness index
+      predicate: IS USED TO ASSESS
+      object: cardiovascular and renal risk
+      object_qualifier: in Sickle cell anemia
+    - subject: Ambulatory blood pressure monitoring
+      predicate: IS USED TO DIAGNOSE
+      object: abnormal blood pressure
+  action:
+    - <Ambulatory blood pressure monitoring
+    - Assessment of ambulatory arterial stiffness index>
+  disease:
+    - <Sickle cell anemia
+    - MONDO:0005044
+    - Pre-hypertension
+    - Masked hypertension
+    - Ambulatory hypertension
+    - White coat hypertension>
+  symptom:
+    - <Increased prevalence of hypertension
+    - Severe endothelial damage
+    - Abnormal blood pressure>
+  action_to_disease:
+    - subject: Ambulatory blood pressure monitoring
+      predicate: IS USED TO DIAGNOSE
+      object:
+        - MONDO:0005044
+    - subject: Assessment of ambulatory arterial stiffness index
+      predicate: IS USED TO ASSESS
+      object:
+        - cardiovascular risk
+        - renal risk
+      object_qualifier: in Sickle cell anemia
+  action_to_symptom:
+    - subject: Ambulatory blood pressure monitoring
+      predicate: IS USED TO DIAGNOSE
+      object:
+        - abnormal blood pressure
+named_entities:
+  - id: MONDO:0011382
+    label: Sickle cell disease
+  - id: HP:0012531
+    label: Pain
+  - id: MONDO:0007374
+    label: <Sickle Cell Disease (SCD)
+  - id: MONDO:0005154
+    label: Liver disease
+  - id: MONDO:0007345
+    label: Coarctation of the Aorta
+  - id: MONDO:0005300
+    label: Chronic Kidney Disease
+  - id: MAXO:0000149
+    label: <Hematopoietic stem cell transplantation (HCT)
+  - id: MONDO:0005044
+    label: Hypertension

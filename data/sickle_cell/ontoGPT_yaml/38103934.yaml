@@ -1,0 +1,44 @@
+---
+input_text: The promise of genetic therapies in sickle cell disease.
+raw_completion_output: |-
+  action: genetic therapies
+  disease: sickle cell disease
+  symptom: 
+  action_to_disease: genetic therapies TREATS sickle cell disease
+  action_to_symptom: 
+  triples: genetic therapies TREATS sickle cell disease
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject: <the value for subject>
+  predicate: <the value for predicate>
+  object: <the value for object>
+  qualifier: <A qualifier for the statements, e.g. "NOT" for negation>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  genetic therapies TREATS sickle cell disease
+
+  ===
+
+extracted_object:
+  triples:
+    - subject: genetic therapies
+      predicate: TREATS
+      object: sickle cell disease
+  action:
+    - MAXO:0001001
+  disease:
+    - MONDO:0011382
+  action_to_disease:
+    - subject: MAXO:0001001
+      predicate: TREATS
+      object:
+        - MONDO:0011382
+named_entities:
+  - id: MAXO:0001001
+    label: genetic therapies
+  - id: MONDO:0011382
+    label: sickle cell disease

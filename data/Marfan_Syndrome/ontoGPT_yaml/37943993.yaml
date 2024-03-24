@@ -1,0 +1,121 @@
+---
+input_text: 'Acute Aortic Dissection Type A in Younger Patients (< 60 Years Old) -
+  Does Full Arch Replacement Provide Benefits Compared to Limited Approach?INTRODUCTION:
+  Acute aortic dissection Stanford type A (AADA) is a surgical emergency associated
+  with high morbidity and mortality. Although surgical management has improved, the
+  optimal therapy is a matter of debate. Different surgical strategies have been proposed
+  for patients under 60 years old. This paper evaluates the postoperative outcome
+  and the need for secondary aortic operation after a limited surgical approach (proximal
+  arch replacement) vs. extended arch repair. METHODS: Between January 2000 and January
+  2018, 530 patients received surgical treatment for AADA at our hospital; 182 were
+  under 60 years old and were enrolled in this study - Group A (n=68), limited arch
+  repair (proximal arch replacement), and group B (n=114), extended arch repair (>
+  proximal arch replacement). RESULTS: More pericardial tamponade (P=0.005) and preoperative
+  mechanical resuscitation (P=0.014) were seen in Group A. More need for renal replacement
+  therapy (P=0.047) was seen in the full arch group. Mechanical ventilation time (P=0.022)
+  and intensive care unit stay (P<0.001) were shorter in the limited repair group.
+  Thirty-day mortality was comparable (P=0.117). New onset of postoperative stroke
+  was comparable (Group A four patients [5.9%] vs. Group B 15 patients [13.2%]; P=0.120).
+  Long-term follow-up did not differ significantly for secondary aortic surgery. CONCLUSION:
+  Even though young patients received only limited arch repair, the outcome was comparable.
+  Full-arch replacement was not beneficial in the long-time follow-up. A limited approach
+  is justified in the cohort of young AADA patients. Exemptions, like known Marfan
+  syndrome and the presence of an intimal tear in the arch, should be considered.'
+raw_completion_output: |-
+  action: <surgical treatment; proximal arch replacement; extended arch repair; renal replacement therapy; mechanical ventilation; intensive care unit stay>
+  disease: <Acute aortic dissection Stanford type A; Marfan syndrome>
+  symptom: <pericardial tamponade; preoperative mechanical resuscitation; new onset of postoperative stroke>
+  action_to_disease: <surgical treatment TREATS Acute aortic dissection Stanford type A; proximal arch replacement IS A TREATMENT FOR Acute aortic dissection Stanford type A; extended arch repair IS A TREATMENT FOR Acute aortic dissection Stanford type A>
+  action_to_symptom: <mechanical ventilation IS USED TO MANAGE preoperative mechanical resuscitation>
+  triples: <surgical treatment TREATS Acute aortic dissection Stanford type A; proximal arch replacement IS A TREATMENT FOR Acute aortic dissection Stanford type A; extended arch repair IS A TREATMENT FOR Acute aortic dissection Stanford type A; mechanical ventilation IS USED TO MANAGE preoperative mechanical resuscitation>
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject: <the value for subject>
+  predicate: <the value for predicate>
+  object: <the value for object>
+  qualifier: <A qualifier for the statements, e.g. "NOT" for negation>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  mechanical ventilation IS USED TO MANAGE preoperative mechanical resuscitation>
+
+  ===
+
+extracted_object:
+  triples:
+    - subject: surgical treatment
+      predicate: TREATS
+      object: Acute aortic dissection Stanford type A
+    - subject: proximal arch replacement
+      predicate: IS A TREATMENT FOR
+      object: Acute aortic dissection Stanford type A
+    - subject: extended arch repair
+      predicate: IS A TREATMENT FOR
+      object: Acute aortic dissection Stanford type A
+    - subject: mechanical ventilation
+      predicate: IS USED TO MANAGE
+      object: preoperative mechanical resuscitation
+  action:
+    - <surgical treatment
+    - proximal arch replacement
+    - extended arch repair
+    - MAXO:0000600
+    - MAXO:0000503
+    - intensive care unit stay>
+  disease:
+    - <Acute aortic dissection Stanford type A
+    - Marfan syndrome>
+  symptom:
+    - <pericardial tamponade
+    - preoperative mechanical resuscitation
+    - new onset of postoperative stroke>
+  action_to_disease:
+    - subject: surgical treatment
+      predicate: TREATS
+      object:
+        - Acute aortic dissection Stanford type A
+    - subject: proximal arch replacement
+      predicate: IS A TREATMENT FOR
+      object:
+        - Acute aortic dissection Stanford type A
+    - subject: extended arch repair
+      predicate: IS A TREATMENT FOR
+      object:
+        - Acute aortic dissection Stanford type A
+  action_to_symptom:
+    - subject: MAXO:0000503
+      predicate: IS USED TO MANAGE
+      object:
+        - preoperative mechanical resuscitation
+named_entities:
+  - id: MONDO:0007947
+    label: Marfan syndrome
+  - id: MONDO:0005648
+    label: aortic valve insufficiency
+  - id: MONDO:0003847
+    label: genetic diseases
+  - id: MONDO:0005311
+    label: atherosclerosis
+  - id: MONDO:0042981
+    label: aortic valve stenosis
+  - id: MAXO:0000004
+    label: Surgery
+  - id: HP:0010550
+    label: paraplegia
+  - id: HP:0002385
+    label: paraparesis
+  - id: MONDO:0020236
+    label: ectopia lentis
+  - id: HP:0000766
+    label: pectus deformity
+  - id: MONDO:0009691
+    label: Marfan syndrome (MFS)
+  - id: MONDO:0004995
+    label: cardiovascular diseases
+  - id: MAXO:0000600
+    label: renal replacement therapy
+  - id: MAXO:0000503
+    label: mechanical ventilation

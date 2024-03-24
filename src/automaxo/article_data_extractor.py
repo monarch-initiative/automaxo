@@ -2,6 +2,7 @@ import click
 import json
 import os
 import logging
+from tqdm import tqdm
 
 logger = logging.basicConfig(filename='data_preprocessing.log',
                     level=logging.INFO,
@@ -89,23 +90,23 @@ def process_article_jsons_to_tsv(json_files_path:str, replaced_tsv_file_path:str
     - replaced_tsv_file_path (str): The path to the output TSV file where replacement occurred.
     - no_replaced_tsv_file_path (str): The path to the output TSV file where no replacement occurred.
     """
+
     # Ensure the output directory exists
     output_directory = os.path.dirname(replaced_tsv_file_path)
     if output_directory:
         os.makedirs(output_directory, exist_ok=True)
 
-    # Open the TSV files for writing
+    json_files = [f for f in os.listdir(json_files_path) if f.endswith(".json")]
+     # Open the TSV files for writing
     with open(replaced_tsv_file_path, 'w', encoding='utf-8') as replaced_tsv_file, \
-        open(no_replaced_tsv_file_path, 'w', encoding='utf-8') as no_replaced_tsv_file:
-
+         open(no_replaced_tsv_file_path, 'w', encoding='utf-8') as no_replaced_tsv_file:
+        
         # Iterate over all files in the given directory
-        for filename in os.listdir(json_files_path):
-            if filename.endswith(".json"):
-                json_file_path = os.path.join(json_files_path, filename)
+        for filename in tqdm(json_files, desc="Processing JSON files", total=len(json_files)):
+            json_file_path = os.path.join(json_files_path, filename)
 
-                # Read the JSON file
-                with open(json_file_path, 'r', encoding='utf-8') as file:
-                    data = json.load(file)
+            with open(json_file_path, 'r', encoding='utf-8') as file:
+                data = json.load(file)
 
                 # Concatenate all passage no replacement texts into one string
                 text_content_no_replaced = "".join([passage["text"] for passage in data["passages"]])
@@ -137,6 +138,7 @@ def process_article_jsons_to_tsv(json_files_path:str, replaced_tsv_file_path:str
         logging.info(f'Unprocessed and saved all entries to: {no_replaced_tsv_file_path}')
         
 
+
 def run_in_notebook(json_files_path, replaced_tsv_file_path, no_replaced_tsv_file_path):
     process_article_jsons_to_tsv.main(standalone_mode=False, args=[
         '--json_files_path', json_files_path,
@@ -151,5 +153,7 @@ if __name__ == '__main__':
 
 """
 python article_data_extractor.py -i "/path/to/json/files" -r "/path/to/replaced.tsv" -n "/path/to/no_replaced.tsv"
+
+python article_data_extractor.py -i ../../data/sickle_cell/pubtator3_json/ -r ../../data/sickle_cell/sickle_cell_mesh_replaced.tsv -n ../../data/sickle_cell/sickle_cell_no_replaced.tsv 
 
 """
