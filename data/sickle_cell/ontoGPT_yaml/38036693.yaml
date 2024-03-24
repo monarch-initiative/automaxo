@@ -1,0 +1,107 @@
+---
+input_text: "Total hip replacement among sickle cell patients in a low-income country-Yemen.PURPOSE:
+  Sickle cell patients presented with progressive hip pain and limitation of daily
+  activities, as evidenced by low preoperative hip scores and failed conservative
+  therapy. Management of femoral head avascular necrosis (AVN) using total hip replacement
+  (THR) in sickle cell disease (SCD) is widespread in developed countries, but it
+  is still in its initiation stage in developing countries. The outcome of using cementless
+  THR among SCD patients is still unknown with lack of published studies from regional
+  countries. This study aimed to evaluate the outcome of using cementless primary
+  THR among patients with sickle cell disease with end-stage hip avascular necrosis
+  in Yemen. METHODS: Thirty cementless primary total hip arthroplasty (THA) were performed
+  for AVN of the femoral head in 27 sickle cell patients, at Al.-Thawra Modern General
+  Hospital-Sana'a, Yemen, from January 2018 to December 2022. RESULTS: The mean age
+  of the patients was 27 +- five years (ranged 18-37 years) with a male to female
+  ratio was 3:1. Steinberg staging for hip AVN was stage IV, one patient (3%); stage
+  VI, thirteen patients (45%); and stage V, sixteen patients (51%). THR was on right
+  side 14 (52%), left side 10 (37%), and bilateral 3 (11%). The implant used was ceramic
+  on polyethylene acetabular liner. All patients showed improvement in Harris hip
+  score from preoperative mean hip score was 25 +- 8 points to postoperative mean
+  hip score was 88 +- 6 points at the last follow-up. Mean of the length of stay in
+  hospital was 12.7 +- eight days (ranged from 4 to 32 days); the mean operating time
+  was 107 +- 23 min. Three cases had superficial wound infection; four patients had
+  five intraoperative fractures; two cases had pulmonary complications; one case had
+  abdominal crisis. All patients had postoperative leg length discrepancy less than
+  2 cm. None had deep infection, nerve injury, wound hematoma, aseptic loosing, dislocation,
+  DVT, heterotopic ossification, or death. CONCLUSION: THR in SCD has a good outcome
+  using cementless THA with a low rate of complication in Yemen, a developing country."
+raw_completion_output: |-
+  action: Total hip replacement (THR); Conservative therapy
+  disease: Sickle cell disease (SCD); Femoral head avascular necrosis (AVN); Superficial wound infection; Intraoperative fractures; Pulmonary complications; Abdominal crisis
+  symptom: Hip pain; Limitation of daily activities
+  action_to_disease: Total hip replacement (THR) TREATS Femoral head avascular necrosis (AVN) in Sickle cell disease (SCD); Conservative therapy FAILED IN Sickle cell disease (SCD)
+  action_to_symptom: Total hip replacement (THR) IS USED TO TREAT Hip pain; Limitation of daily activities
+  triples: Total hip replacement (THR) TREATS Femoral head avascular necrosis (AVN) in Sickle cell disease (SCD); Conservative therapy FAILED IN Sickle cell disease (SCD); Total hip replacement (THR) IS USED TO TREAT Hip pain; Limitation of daily activities
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject: <the value for subject>
+  predicate: <the value for predicate>
+  object: <the value for object>
+  qualifier: <A qualifier for the statements, e.g. "NOT" for negation>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Limitation of daily activities
+
+  ===
+
+extracted_object:
+  triples:
+    - subject: Total hip replacement (THR)
+      predicate: TREATS
+      object: Femoral head avascular necrosis (AVN)
+      object_qualifier: in Sickle cell disease (SCD)
+    - subject: Conservative therapy
+      predicate: FAILED IN
+      object: Sickle cell disease (SCD)
+    - subject: Total hip replacement (THR)
+      predicate: IS USED TO TREAT
+      object: Hip pain
+    - subject: Limitation
+      predicate: affects
+      object: daily activities
+  action:
+    - MAXO:0009047
+    - Conservative therapy
+  disease:
+    - MONDO:0007374
+    - MONDO:0018373
+    - Superficial wound infection
+    - Intraoperative fractures
+    - Pulmonary complications
+    - Abdominal crisis
+  symptom:
+    - HP:0030838
+    - Limitation of daily activities
+  action_to_disease:
+    - subject: MAXO:0009047
+      predicate: TREATS
+      object:
+        - MONDO:0018373
+      object_qualifier: in Sickle cell disease (SCD)
+    - subject: Conservative therapy
+      predicate: FAILED IN
+      object:
+        - MONDO:0007374
+  action_to_symptom:
+    - subject: MAXO:0009047
+      predicate: IS USED TO TREAT
+      object:
+        - HP:0030838
+    - subject: Limitation of daily activities
+named_entities:
+  - id: MAXO:0001001
+    label: Gene Therapies
+  - id: MONDO:0011382
+    label: Sickle Cell Disease
+  - id: MAXO:0009047
+    label: Total hip replacement (THR)
+  - id: MONDO:0007374
+    label: Sickle cell disease (SCD)
+  - id: MONDO:0018373
+    label: Femoral head avascular necrosis (AVN)
+  - id: HP:0030838
+    label: Hip pain

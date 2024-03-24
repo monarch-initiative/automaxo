@@ -83,6 +83,8 @@ def rank_triplets(triplet_counts: DefaultDict) -> List[Tuple]:
     ranked_triplets = sorted(triplet_counts.items(), key=lambda x: x[1]['count'], reverse=True)
     return ranked_triplets
 
+
+
 def combine_triplets_with_mesh(ranked_triplets: List[Tuple], mesh_info: dict) -> list:
     """
     Combine ranked triplets with their corresponding MeSH information.
@@ -96,11 +98,12 @@ def combine_triplets_with_mesh(ranked_triplets: List[Tuple], mesh_info: dict) ->
     """
     combined_data = []
     for triplet, info in ranked_triplets:
+        # Extract MeSH information for each PubMed ID in the ranked triplet
         mesh_data = {pmid: mesh_info.get(pmid, {}) for pmid in info['pubmed_ids']}
-        combined_data.append({'triplet': triplet, 'count': info['count'], 'pubmed_ids': mesh_data})
+        combined_data.append({'triplet': triplet, 'count': info['count'], 'pubmed_ids_mesh_info': mesh_data})
     return combined_data
 
-
+        
 @click.command()
 @click.option('-i', '--yaml_directory_path', required=True, help='Path to the directory containing YAML files')
 @click.option('-s', '--mesh_info_file_path', required=True, help='Path to the file with selected PMID and MeSH info')
@@ -116,14 +119,14 @@ def main(yaml_directory_path: str, mesh_info_file_path: str, output_path: str):
     """
     data = load_yaml_files(yaml_directory_path)
     triplets = extract_triplets(data)
-    print(triplets)
     triplet_counts = count_triplets(triplets)
     ranked_triplets = rank_triplets(triplet_counts)
 
     with open(mesh_info_file_path, 'r') as f:
         mesh_info = json.load(f)
-
+    
     combined_data = combine_triplets_with_mesh(ranked_triplets, mesh_info)
+
 
     with open(output_path, 'w') as f:
         json.dump({'ranked_triplets': combined_data}, f, indent=4)
@@ -142,5 +145,7 @@ if __name__ == '__main__':
 
 """
 python triplet_ranking_and_mesh_combiner.py -i path/to/yaml/directory -s path/to/mesh/info/file -o path/to/output.json
+
+python triplet_ranking_and_mesh_combiner.py -i ../../data/sickle_cell/ontoGPT_yaml/ -s ../../data/sickle_cell/selected_pmid_mesh_info.json  -o ../../data/sickle_cell/post_ontoGPT.json 
 
 """

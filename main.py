@@ -1,6 +1,6 @@
 import click
 import src.automaxo as automaxo
-from automaxo import import_mesh_data, pmid_extractor, process_article_jsons_to_tsv, replace_mesh_with_ontology, process_ontogpt_articles, process_triplets_and_mesh
+from automaxo import import_mesh_data, pmid_extractor, process_article_jsons_to_tsv, process_ontogpt_articles, process_triplets_and_mesh
 
 class AutoMaxoRunner:
     def __init__(self, disease_name, max_pmid_retrieve=10, max_articles_to_save=10):
@@ -26,8 +26,6 @@ class AutoMaxoRunner:
         print(f"Starting to extract data from json files and apply PubTator 3 NER to one csv file ...")
         process_article_jsons_to_tsv(self.json_files_dir, self.replaced_tsv_file_path, self.no_replaced_tsv_file_path)
 
-        print(f"Starting to replace PubTator3 NER MeSH with MONDO, HP, and MaXO terms ...")
-        replace_mesh_with_ontology(self.replaced_tsv_file_path, self.poet_replaced_tsv_file_path)
 
         print(f"Starting integration of OntoGPT article by article ...")
         process_ontogpt_articles(self.no_replaced_tsv_file_path, self.ontogpt_yaml_files_dir, template='maxo')
@@ -53,8 +51,8 @@ class AutoMaxoRunner:
 
 @click.command()
 @click.option('--disease_name', prompt='Disease Name', help='The name of the disease to be processed.')
-@click.option('--max_pmid_retrieve', default=500, help='Maximum number of PubMed IDs to retrieve.')
-@click.option('--max_articles_to_save', default=100, help='Maximum number of articles to save.')
+@click.option('--max_pmid_retrieve', default=20, help='Maximum number of PubMed IDs to retrieve.')
+@click.option('--max_articles_to_save', default=5, help='Maximum number of articles to save.')
 def main(disease_name, max_pmid_retrieve, max_articles_to_save):
     runner = AutoMaxoRunner(disease_name, max_pmid_retrieve, max_articles_to_save)
     runner.run()
