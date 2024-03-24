@@ -31,7 +31,7 @@ class AutoMaxoRunner:
         process_ontogpt_articles(self.no_replaced_tsv_file_path, self.ontogpt_yaml_files_dir, template='maxo')
 
         print(f"Starting to Post Process OntoGPT results and saving the triplets found  ...")
-        process_triplets_and_mesh(self.ontogpt_yaml_files_dir, self.mesh_info_file_path, self.output_path)
+        process_triplets_and_mesh(self.ontogpt_yaml_files_dir, self.mesh_info_file_path, self.output_path, self.no_replaced_tsv_file_path)
         print(f"The whole process is complete and the results are saved at {self.output_path}")
 
     def get_targeted_mesh_ids(self):

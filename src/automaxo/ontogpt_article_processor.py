@@ -103,8 +103,8 @@ def main(input_file, output_dir, template):
 
 def run_in_notebook(input_file, output_dir, template='maxo'):
     main.main(standalone_mode=False, args=[
-        input_file,
-        output_dir,
+        '--input_file',input_file,
+        '--output_dir', output_dir,
         '--template', template
     ])
 
