@@ -20,7 +20,6 @@ Entrez.email = "enock.niyonkuru@jax.org"
 
 
 
-
 def fetch_and_save_abstracts_json(pmids_list, json_dir_path, max_articles_to_save):
     """
     Fetches full texts for given PMC IDs in biocjson format and saves them as JSON files in the specified folder.
@@ -115,9 +114,27 @@ def fetch_mesh_ids(pmid, retries=3, delay=2):
     raise Exception(f"Failed to fetch MeSH IDs for PMID {pmid} after {retries} attempts.")
 
 
+def search_mesh_info_existing_pmids(mesh_list_path: str, existing_pmids: set):
+    df = pd.read_csv(mesh_list_path, sep='\t', header=None)
+    combined_mesh_ids = {mesh_id for mesh_ids in df.iloc[:, 2] for mesh_id in mesh_ids.split(';')}
+
+    # Retrieve MeSH information for existing PubMed IDs
+    existing_pmid_mesh_info = {pmid: fetch_mesh_ids(pmid) for pmid in tqdm(existing_pmids, desc="Retrieving MeSH info for existing PMIDs")}
+
+    # Filter the MeSH information based on the combined mesh IDs
+    filtered_existing_pmid_mesh_info = {}
+    for pmid, mesh_info in existing_pmid_mesh_info.items():
+        filtered_mesh_info = {mesh_id: descriptor_name for mesh_id, descriptor_name in mesh_info.items() if mesh_id in combined_mesh_ids}
+        if filtered_mesh_info:  # Only add PMIDs with relevant MeSH info
+            filtered_existing_pmid_mesh_info[pmid] = filtered_mesh_info
+
+    return filtered_existing_pmid_mesh_info
+
+
 def search_articles_with_mesh_info(disease_name: str, mesh_list_path: str, max_pmid_retrieve: int, existing_pmids: set):
     df = pd.read_csv(mesh_list_path, sep='\t', header=None)
     combined_mesh_ids = {mesh_id for mesh_ids in df.iloc[:, 2] for mesh_id in mesh_ids.split(';')}
+
 
     treatment_search = "(diagnosis[MeSH Terms] OR therapeutics[MeSH Terms])"
     search_term = f"({disease_name}[Title/Abstract]) AND ({treatment_search})"
@@ -174,15 +191,27 @@ def main(disease_name, mesh_list_path, output_dir, max_pmid_retrieve, max_articl
     
     logger.info(f" The directory {output_dir} had already {len(existing_pmids)} extracted articles.")
 
-    selected_pmid_mesh_info = search_articles_with_mesh_info(disease_name, mesh_list_path, max_pmid_retrieve, existing_pmids)
-    pmids_list = list(selected_pmid_mesh_info.keys())
+    # Retrieve MeSH information for existing PubMed IDs
+    existing_pmid_mesh_info = search_mesh_info_existing_pmids(mesh_list_path, existing_pmids)
 
-    # Save the results to the specified JSON file
+
+    # Retrieve MeSH information for new PubMed IDs
+    new_pmid_mesh_info = search_articles_with_mesh_info(disease_name, mesh_list_path, max_pmid_retrieve, existing_pmids)
+    
+
+    # Combine existing and new PubMed ID MeSH information
+    selected_pmid_mesh_info = {**existing_pmid_mesh_info, **new_pmid_mesh_info}
+
+    # Save the combined results to the specified JSON file
     with open(json_file_path, 'w') as json_file:
         json.dump(selected_pmid_mesh_info, json_file, indent=4)
 
+    # Generate a list of all PubMed IDs (existing and new)
+    pmids_list = list(new_pmid_mesh_info.keys())
 
+    # Fetch and save abstracts for all PubMed IDs
     fetch_and_save_abstracts_json(pmids_list, output_dir, max_articles_to_save)
+  
 
 def run_in_notebook(disease_name, mesh_list_path, output_dir, max_pmid_retrieve, max_articles_to_save, json_file_path):
     main.main(standalone_mode=False, args=[
@@ -201,5 +230,7 @@ if __name__ == '__main__':
 
 """
 python pubmed_article_fetcher.py -d "sickle cell" -m ../../data/mesh_sets.tsv -o ../../data/sickle_cell/pubtator3_json/ -p 50 -n 10 -j ../../data/sickle_cell/selected_pmid_mesh_info.json 
+
+
 
 """

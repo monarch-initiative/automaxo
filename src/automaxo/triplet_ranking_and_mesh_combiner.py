@@ -1,6 +1,7 @@
 import os
 import yaml
 import json
+import csv
 from collections import defaultdict
 import click
 from typing import List, Tuple, DefaultDict
@@ -84,31 +85,63 @@ def rank_triplets(triplet_counts: DefaultDict) -> List[Tuple]:
     return ranked_triplets
 
 
-
-def combine_triplets_with_mesh(ranked_triplets: List[Tuple], mesh_info: dict) -> list:
+def create_pmid_info_dict(tsv_file_path: str, json_file_path: str) -> dict:
     """
-    Combine ranked triplets with their corresponding MeSH information.
+    Create a dictionary with PubMed ID as the key, and a dictionary containing text and MeSH information as the value.
 
     Args:
-        ranked_triplets: A list of tuples, each representing a ranked triplet.
-        mesh_info: A dictionary with PubMed IDs as keys and their associated MeSH information as values.
+        tsv_file_path (str): The path to the TSV file.
+        json_file_path (str): The path to the JSON file containing MeSH information.
 
     Returns:
-        A list of dictionaries, each containing a ranked triplet and its associated MeSH information.
+        dict: A dictionary with PubMed IDs as keys and a dictionary containing text and MeSH information as values.
+    """
+    # Read the JSON file containing MeSH information
+    with open(json_file_path, 'r') as json_file:
+        mesh_info = json.load(json_file)
+
+    # Read the TSV file and create the dictionary
+    pmid_info_dict = {}
+    with open(tsv_file_path, 'r') as tsv_file:
+        reader = csv.reader(tsv_file, delimiter='\t')
+        for row in reader:
+            pmid, _, text = row  # Unpack the row, ignoring the second column (relationships)
+            pmid_info_dict[pmid] = {
+                'text': text,
+                'mesh_info': mesh_info.get(pmid, {})  # Get MeSH info for the PMID if it exists
+            }
+
+    return pmid_info_dict
+
+def combine_triplets_with_pmid_info(ranked_triplets: List[dict], pmid_info_dictionary: dict, output_json_path: str):
+    """
+    Combine ranked triplets with their corresponding text and MeSH information from pmid_info_dictionary.
+
+    Args:
+        ranked_triplets: A list of dictionaries, each representing a ranked triplet.
+        pmid_info_dictionary: A dictionary with PubMed IDs as keys and a dictionary containing text and MeSH information as values.
+        output_json_path: Path to the output JSON file.
+
     """
     combined_data = []
     for triplet, info in ranked_triplets:
-        # Extract MeSH information for each PubMed ID in the ranked triplet
-        mesh_data = {pmid: mesh_info.get(pmid, {}) for pmid in info['pubmed_ids']}
-        combined_data.append({'triplet': triplet, 'count': info['count'], 'pubmed_ids_mesh_info': mesh_data})
-    return combined_data
+        # Extract text and MeSH information for each PubMed ID in the ranked triplet
+        pubmed_ids_mesh_info = {pmid: pmid_info_dictionary.get(pmid, {}) for pmid in info['pubmed_ids']}
+        combined_data.append({'triplet': triplet, 'count': info['count'], 'pubmed_ids_mesh_info': pubmed_ids_mesh_info})
+
+    # Save the combined data to a JSON file
+    with open(output_json_path, 'w') as f:
+        json.dump({'ranked_triplets': combined_data}, f, indent=4)
+
 
         
 @click.command()
 @click.option('-i', '--yaml_directory_path', required=True, help='Path to the directory containing YAML files')
 @click.option('-s', '--mesh_info_file_path', required=True, help='Path to the file with selected PMID and MeSH info')
 @click.option('-o', '--output_path', required=True, help='Path to the output JSON file')
-def main(yaml_directory_path: str, mesh_info_file_path: str, output_path: str):
+@click.option('-n', '--no_replaced_file_path', required=True, help='Path to no_replaced tsv file with raw text')
+
+def main(yaml_directory_path: str, mesh_info_file_path: str, output_path: str, no_replaced_file_path:str ):
     """
     Main function to process YAML files, extract triplets, count them, rank them, combine with MeSH info, and save to JSON.
 
@@ -122,20 +155,18 @@ def main(yaml_directory_path: str, mesh_info_file_path: str, output_path: str):
     triplet_counts = count_triplets(triplets)
     ranked_triplets = rank_triplets(triplet_counts)
 
-    with open(mesh_info_file_path, 'r') as f:
-        mesh_info = json.load(f)
-    
-    combined_data = combine_triplets_with_mesh(ranked_triplets, mesh_info)
+    pmid_info_dictionary = create_pmid_info_dict(no_replaced_file_path, mesh_info_file_path)
+
+    combine_triplets_with_pmid_info(ranked_triplets, pmid_info_dictionary, output_path)
 
 
-    with open(output_path, 'w') as f:
-        json.dump({'ranked_triplets': combined_data}, f, indent=4)
 
-def run_in_notebook(yaml_directory_path, mesh_info_file_path, output_path):
+def run_in_notebook(yaml_directory_path, mesh_info_file_path, output_path, no_replaced_file_path):
     main.main(standalone_mode=False, args=[
         '--yaml_directory_path', yaml_directory_path,
         '--mesh_info_file_path', mesh_info_file_path,
-        '--output_path', output_path
+        '--output_path', output_path,
+        '--no_replaced_file_path', no_replaced_file_path,
     ])
 
 
@@ -146,6 +177,5 @@ if __name__ == '__main__':
 """
 python triplet_ranking_and_mesh_combiner.py -i path/to/yaml/directory -s path/to/mesh/info/file -o path/to/output.json
 
-python triplet_ranking_and_mesh_combiner.py -i ../../data/sickle_cell/ontoGPT_yaml/ -s ../../data/sickle_cell/selected_pmid_mesh_info.json  -o ../../data/sickle_cell/post_ontoGPT.json 
-
+python triplet_ranking_and_mesh_combiner.py -i ../../data/sickle_cell/ontoGPT_yaml/ -s ../../data/sickle_cell/selected_pmid_mesh_info.json  -o ../../data/sickle_cell/post_ontoGPT.json -n ../../data/sickle_cell/sickle_cell_no_replaced.tsv 
 """
