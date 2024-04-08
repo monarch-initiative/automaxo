@@ -1,0 +1,133 @@
+---
+input_text: 'The cost of simplifying treatments for cystic fibrosis: Implications
+  of the SIMPLIFY trial.BACKGROUND: Dornase alfa and hypertonic saline are mucoactive
+  therapies that can improve respiratory symptoms in people with cystic fibrosis (CF).
+  A recent randomized control trial showed that participants with well-preserved pulmonary
+  function taking elexacaftor + tezacaftor + ivacaftor (ETI) who discontinued dornase
+  alfa or hypertonic saline for 6 weeks had no clinically meaningful decline in lung
+  function. This may prompt discussions with care providers regarding ongoing use
+  of these medications. OBJECTIVE: To compare the costs of outpatient medications
+  between people taking ETI who continued or discontinued (1) dornase alfa or (2)
+  hypertonic saline from 2 clinical trials and project cost differences in the US
+  CF population if these 2 medications were used only intermittently for symptom relief
+  instead of chronically. METHODS: The SIMPLIFY study was 2 parallel multicenter trials
+  that randomized participants 1:1 to either continue or discontinue therapy. To estimate
+  costs, we used data from the Merative MarketScan Databases to identify people with
+  CF from 2020 to 2021. Our primary outcomes were differences in costs of outpatient
+  prescription drugs among those who continued vs discontinued dornase alfa and, separately,
+  hypertonic saline. We obtained adjusted differences in median costs. To estimate
+  the annual cost savings if the population of people with CF taking ETI used these
+  medications only intermittently, we multiplied the proportion of people in MarketScan
+  with CF diagnoses who were taking each of these medications by the median cost savings
+  per year and subtracted the cost of "rescue" use. RESULTS: A total of 392 participants
+  from the dornase alfa trial and 273 from the hypertonic saline trial were included
+  in analyses. The adjusted difference in median medication costs was not significant
+  for the hypertonic saline trial, but we observed a significantly decreased 6-week
+  cost of medications in the dornase alfa trial (adjusted median difference in costs
+  between discontinue and continue of $5,860 (95% CI = $4,870-$6,850); P < 0.0001).
+  We estimated that two-thirds of people with CF use ETI and dornase alfa in the United
+  States; if they discontinued dornase alfa except for intermittent use, the resulting
+  annual savings would be $1.21 billion. CONCLUSIONS: Although the costs of dornase
+  alfa and hypertonic saline are smaller compared with ETI, reduction in use would
+  lead to substantial prescription drug cost savings and reduce the treatment burden.
+  However, individual benefits of these therapies should be considered, and decisions
+  regarding changes in therapy remain an important discussion between people with
+  CF and their providers. Study registration number: NCT04378153.'
+raw_completion_output: |-
+  primary_disease: Cystic fibrosis
+
+  medical_actions: Discontinuation of dornase alfa;Discontinuation of hypertonic saline;Use of elexacaftor + tezacaftor + ivacaftor (ETI);Intermittent use of dornase alfa for symptom relief;Intermittent use of hypertonic saline for symptom relief
+
+  symptoms: respiratory symptoms;decline in lung function
+
+  chemicals: Dornase alfa;Hypertonic saline;Elexacaftor;Tezacaftor;Ivacaftor
+
+  action_annotation_relationships: Use of elexacaftor + tezacaftor + ivacaftor (ETI) PREVENTS decline in lung function IN Cystic fibrosis;Discontinuation of dornase alfa TREATS respiratory symptoms IN Cystic fibrosis;Discontinuation of hypertonic saline TREATS respiratory symptoms IN Cystic fibrosis;Intermittent use of dornase alfa for symptom relief TREATS respiratory symptoms IN Cystic fibrosis;Intermittent use of hypertonic saline for symptom relief TREATS respiratory symptoms IN Cystic fibrosis
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Intermittent use of hypertonic saline for symptom relief TREATS respiratory symptoms IN Cystic fibrosis
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009061
+  medical_actions:
+    - Discontinuation of dornase alfa
+    - Discontinuation of hypertonic saline
+    - Use of elexacaftor + tezacaftor + ivacaftor (ETI)
+    - Intermittent use of dornase alfa for symptom relief
+    - Intermittent use of hypertonic saline for symptom relief
+  symptoms:
+    - respiratory symptoms
+    - decline in lung function
+  chemicals:
+    - Dornase alfa
+    - Hypertonic saline
+    - Elexacaftor
+    - Tezacaftor
+    - CHEBI:66901
+  action_annotation_relationships:
+    - subject: Use of elexacaftor + tezacaftor + ivacaftor (ETI)
+      predicate: PREVENTS
+      object: decline in lung function
+      qualifier: MONDO:0009061
+      subject_extension: CHEBI:53454
+    - subject: Discontinuation
+      predicate: TREATS
+      object: respiratory symptoms
+      qualifier: MONDO:0009061
+      subject_extension: dornase alfa
+    - subject: <Discontinuation of hypertonic saline>
+      predicate: <TREATS>
+      object: <respiratory symptoms>
+      qualifier: <Cystic fibrosis>
+      subject_extension: <hypertonic saline>
+    - subject: Intermittent use of dornase alfa for symptom relief
+      predicate: TREATS
+      object: respiratory symptoms
+      qualifier: MONDO:0009061
+      subject_qualifier: Intermittent
+      subject_extension: dornase alfa
+    - subject: Intermittent use of hypertonic saline for symptom relief
+      predicate: TREATS
+      object: respiratory symptoms
+      qualifier: MONDO:0009061
+      subject_qualifier: Intermittent
+      subject_extension: hypertonic saline
+named_entities:
+  - id: MONDO:0009061
+    label: Cystic fibrosis
+  - id: CHEBI:90951
+    label: lumacaftor
+  - id: CHEBI:66901
+    label: ivacaftor
+  - id: CHEBI:15356
+    label: Cysteines
+  - id: CHEBI:35621
+    label: alpha-amino-n-butyric acid (Abu)
+  - id: CHEBI:37943
+    label: Colistin
+  - id: CHEBI:28864
+    label: Tobramycin
+  - id: CHEBI:62220
+    label: Pyocyanin (PYO)
+  - id: CHEBI:28487
+    label: Reserpine
+  - id: MONDO:0005545
+    label: Staphylococcus aureus
+  - id: MONDO:0004822
+    label: bronchiectasis
+  - id: CHEBI:53454
+    label: elexacaftor + tezacaftor + ivacaftor (ETI)
