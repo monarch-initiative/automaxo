@@ -1,0 +1,112 @@
+---
+input_text: Non-infectious lung disease in patients with adenosine deaminase deficient
+  severe combined immunodeficiency.Adenosine deaminase deficiency is a disorder of
+  purine metabolism manifesting severe combined immunodeficiency (ADA-SCID) and systemic
+  abnormalities. Increased levels of the substrate deoxyadenosine triphosphate (dATP)
+  lead to immunodeficiency and are associated in a murine model with pulmonary insufficiency.
+  We compared a cohort of patients with ADA-SCID and X-linked SCID and found that
+  despite similar radiological and respiratory findings, positive microbiology is
+  significantly less frequent in ADA-SCID patients (p < 0.0005), suggesting a metabolic
+  pathogenesis for the lung disease. Clinicians should be aware of this possibility
+  and correct metabolic abnormalities either through enzyme replacement or haematopoietic
+  stem cell transplant, in addition to treating infectious complications.
+raw_completion_output: |-
+  primary_disease: Non-infectious lung disease in patients with adenosine deaminase deficient severe combined immunodeficiency (ADA-SCID)
+
+  medical_actions: enzyme replacement; haematopoietic stem cell transplant; treating infectious complications
+
+  symptoms: pulmonary insufficiency; radiological and respiratory findings
+
+  chemicals: deoxyadenosine triphosphate (dATP)
+
+  action_annotation_relationships: enzyme replacement TREATS metabolic abnormalities IN Non-infectious lung disease in ADA-SCID; haematopoietic stem cell transplant TREATS metabolic abnormalities IN Non-infectious lung disease in ADA-SCID; treating infectious complications PREVENTS worsening of Non-infectious lung disease in ADA-SCID
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  treating infectious complications PREVENTS worsening of Non-infectious lung disease in ADA-SCID
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0007064
+  medical_actions:
+    - enzyme replacement
+    - haematopoietic stem cell transplant
+    - treating infectious complications
+  symptoms:
+    - HP:0010444
+    - radiological and respiratory findings
+  chemicals:
+    - CHEBI:16284
+  action_annotation_relationships:
+    - subject: enzyme replacement
+      predicate: TREATS
+      object: metabolic abnormalities
+      qualifier: Non-infectious lung disease in ADA-SCID
+      subject_extension: enzyme replacement
+    - subject: <haematopoietic stem cell transplant>
+      predicate: <TREATS>
+      object: <metabolic abnormalities>
+      qualifier: <Non-infectious lung disease in ADA-SCID>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <haematopoietic stem cell transplant>
+      object_extension: <metabolic abnormalities>
+    - subject: treating infectious complications
+      predicate: PREVENTS
+      object: worsening of Non-infectious lung disease
+      qualifier: MONDO:0007064
+named_entities:
+  - id: MONDO:0015974
+    label: Severe combined immunodeficiency (SCID)
+  - id: MAXO:0001479
+    label: Allogeneic hematopoietic stem cell transplantation
+  - id: MAXO:0000747
+    label: Hematopoietic stem cell transplantation
+  - id: HP:0002721
+    label: Immune deficiency
+  - id: HP:0004430
+    label: Severe combined immunodeficiency
+  - id: HP:0000822
+    label: Hypertension
+  - id: CHEBI:28901
+    label: Busulfan
+  - id: MAXO:0001001
+    label: gene therapy
+  - id: HP:0001508
+    label: failure to thrive
+  - id: HP:0001945
+    label: fever
+  - id: HP:0000988
+    label: rash
+  - id: MAXO:0000068
+    label: transplantation
+  - id: MONDO:0007064
+    label: Adenosine deaminase (ADA) deficiency
+  - id: MONDO:0008558
+    label: Immune Thrombocytopenia (ITP)
+  - id: HP:0001873
+    label: thrombocytopenia
+  - id: CHEBI:50858
+    label: corticosteroids
+  - id: MONDO:0002048
+    label: Immune Thrombocytopenia
+  - id: MAXO:0010030
+    label: bone marrow transplantation
+  - id: MONDO:0009237
+    label: Heck's disease
+  - id: HP:0010444
+    label: pulmonary insufficiency
+  - id: CHEBI:16284
+    label: deoxyadenosine triphosphate (dATP)

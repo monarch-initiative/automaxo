@@ -20,156 +20,145 @@ input_text: Silent Cerebral Infarcts in Iraqi Patients with Sickle Cell Disease.
   from other populations. Further studies to screen for genetic polymorphisms that
   may explain this lower rate may be informative.
 raw_completion_output: |-
-  action: <clinical evaluation; full blood count; reticulocyte count; hemoglobin F estimation; serum lactic dehydrogenase assay; serum bilirubin assay; brain MRI>
-  disease: <Sickle Cell Disease; Silent Cerebral Infarcts>
-  symptom: <lower median hemoglobin; higher reticulocytes; lower pain frequencies>
-  action_to_disease: <clinical evaluation IS USED TO DIAGNOSE Sickle Cell Disease; full blood count IS USED TO DIAGNOSE Sickle Cell Disease; reticulocyte count IS USED TO DIAGNOSE Sickle Cell Disease; hemoglobin F estimation IS USED TO DIAGNOSE Sickle Cell Disease; serum lactic dehydrogenase assay IS USED TO DIAGNOSE Sickle Cell Disease; serum bilirubin assay IS USED TO DIAGNOSE Sickle Cell Disease; brain MRI IS USED TO DIAGNOSE Silent Cerebral Infarcts>
-  action_to_symptom: <full blood count IS USED TO DIAGNOSE lower median hemoglobin; reticulocyte count IS USED TO DIAGNOSE higher reticulocytes>
-  triples: <clinical evaluation IS USED TO DIAGNOSE Sickle Cell Disease; full blood count IS USED TO DIAGNOSE Sickle Cell Disease; reticulocyte count IS USED TO DIAGNOSE Sickle Cell Disease; hemoglobin F estimation IS USED TO DIAGNOSE Sickle Cell Disease; serum lactic dehydrogenase assay IS USED TO DIAGNOSE Sickle Cell Disease; serum bilirubin assay IS USED TO DIAGNOSE Sickle Cell Disease; brain MRI IS USED TO DIAGNOSE Silent Cerebral Infarcts; full blood count IS USED TO DIAGNOSE lower median hemoglobin; reticulocyte count IS USED TO DIAGNOSE higher reticulocytes>
-prompt: |+
-  Split the following piece of text into fields in the following format:
+  primary_disease: Sickle Cell Disease
 
-  subject: <the value for subject>
-  predicate: <the value for predicate>
-  object: <the value for object>
-  qualifier: <A qualifier for the statements, e.g. "NOT" for negation>
+  medical_actions: Clinical evaluation;Review of patient records;Full blood count;Reticulocyte count;Hemoglobin F estimation;Serum lactic dehydrogenase assay;Serum bilirubin assay;Brain magnetic resonance imaging (MRI)
+
+  symptoms: Silent cerebral infarcts
+
+  chemicals: 
+
+  action_annotation_relationships: Clinical evaluation TREATS Silent cerebral infarcts IN Sickle Cell Disease;Review of patient records TREATS Silent cerebral infarcts IN Sickle Cell Disease;Full blood count TREATS Silent cerebral infarcts IN Sickle Cell Disease;Reticulocyte count TREATS Silent cerebral infarcts IN Sickle Cell Disease;Hemoglobin F estimation TREATS Silent cerebral infarcts IN Sickle Cell Disease;Serum lactic dehydrogenase assay TREATS Silent cerebral infarcts IN Sickle Cell Disease;Serum bilirubin assay TREATS Silent cerebral infarcts IN Sickle Cell Disease;Brain magnetic resonance imaging (MRI) TREATS Silent cerebral infarcts IN Sickle Cell Disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
   subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
   object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
 
 
   Text:
-  reticulocyte count IS USED TO DIAGNOSE higher reticulocytes>
+  Brain magnetic resonance imaging (MRI) TREATS Silent cerebral infarcts IN Sickle Cell Disease
 
   ===
 
 extracted_object:
-  triples:
-    - subject: clinical evaluation
-      predicate: IS USED TO DIAGNOSE
-      object: Sickle Cell Disease
-    - subject: full blood count
-      predicate: IS USED TO DIAGNOSE
-      object: Sickle Cell Disease
-    - subject: reticulocyte count
-      predicate: IS USED TO DIAGNOSE
-      object: Sickle Cell Disease
-    - subject: hemoglobin F estimation
-      predicate: IS USED TO DIAGNOSE
-      object: Sickle Cell Disease
-    - subject: serum lactic dehydrogenase assay
-      predicate: IS USED TO DIAGNOSE
-      object: Sickle Cell Disease
-    - subject: serum bilirubin assay
-      predicate: IS USED TO DIAGNOSE
-      object: Sickle Cell Disease
-    - subject: brain MRI
-      predicate: IS USED TO DIAGNOSE
-      object: Silent Cerebral Infarcts
-    - subject: full blood count
-      predicate: IS USED TO DIAGNOSE
-      object: lower median hemoglobin
-    - subject: reticulocyte count
-      predicate: IS USED TO DIAGNOSE
-      object: higher reticulocytes
-  action:
-    - <clinical evaluation
+  primary_disease: MONDO:0011382
+  medical_actions:
+    - Clinical evaluation
+    - Review of patient records
     - MAXO:0001006
     - MAXO:0000825
-    - hemoglobin F estimation
-    - serum lactic dehydrogenase assay
-    - serum bilirubin assay
-    - brain MRI>
-  disease:
-    - <Sickle Cell Disease
-    - Silent Cerebral Infarcts>
-  symptom:
-    - <lower median hemoglobin
-    - higher reticulocytes
-    - lower pain frequencies>
-  action_to_disease:
-    - subject: clinical evaluation
-      predicate: IS USED TO DIAGNOSE
-      object:
-        - MONDO:0011382
+    - Hemoglobin F estimation
+    - Serum lactic dehydrogenase assay
+    - Serum bilirubin assay
+    - MAXO:0000427
+  symptoms:
+    - Silent cerebral infarcts
+  action_annotation_relationships:
+    - subject: <Clinical evaluation>
+      predicate: <TREATS>
+      object: <Silent cerebral infarcts>
+      qualifier: <Sickle Cell Disease>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: Review of patient records
+      predicate: TREATS
+      object: Silent cerebral infarcts
+      qualifier: MONDO:0011382
     - subject: MAXO:0001006
-      predicate: IS USED TO DIAGNOSE
-      object:
-        - MONDO:0011382
+      predicate: TREATS
+      object: Silent cerebral infarcts
+      qualifier: MONDO:0011382
     - subject: MAXO:0000825
-      predicate: IS USED TO DIAGNOSE
-      object:
-        - MONDO:0011382
-    - subject: hemoglobin F estimation
-      predicate: IS USED TO DIAGNOSE
-      object:
-        - MONDO:0011382
-    - subject: serum lactic dehydrogenase assay
-      predicate: IS USED TO DIAGNOSE
-      object:
-        - MONDO:0011382
-    - subject: serum bilirubin assay
-      predicate: IS USED TO DIAGNOSE
-      object:
-        - MONDO:0011382
+      predicate: TREATS
+      object: Silent cerebral infarcts
+      qualifier: MONDO:0011382
+    - subject: <Hemoglobin F estimation>
+      predicate: <TREATS>
+      object: <Silent cerebral infarcts>
+      qualifier: <Sickle Cell Disease>
+      subject_extension: <Hemoglobin F>
+    - subject: <Serum lactic dehydrogenase assay>
+      predicate: <TREATS>
+      object: <Silent cerebral infarcts>
+      qualifier: <Sickle Cell Disease>
+      subject_extension: <Serum lactic dehydrogenase assay>
+    - subject: Serum bilirubin assay
+      predicate: TREATS
+      object: Silent cerebral infarcts
+      qualifier: MONDO:0011382
     - subject: MAXO:0000427
-      predicate: IS USED TO DIAGNOSE
-      object:
-        - Silent Cerebral Infarcts
-  action_to_symptom:
-    - subject: MAXO:0001006
-      predicate: IS USED TO DIAGNOSE
-      object:
-        - lower median hemoglobin
-    - subject: MAXO:0000825
-      predicate: IS USED TO DIAGNOSE
-      object:
-        - higher reticulocytes
+      predicate: TREATS
+      object: Silent cerebral infarcts
+      qualifier: MONDO:0011382
 named_entities:
-  - id: MAXO:0001001
-    label: genetic therapies
   - id: MONDO:0011382
     label: sickle cell disease
   - id: MONDO:0100096
-    label: COVID-19
-  - id: MONDO:0005087
-    label: Respiratory disease
+    label: SARS-CoV-2
   - id: MONDO:0007374
-    label: <Sickle cell disease (SCD)
-  - id: MONDO:0005632
-    label: acute chest syndrome
-  - id: MONDO:0005550
-    label: infections
-  - id: MONDO:0005081
-    label: preeclampsia
-  - id: MONDO:0005030
-    label: intrauterine growth restriction
-  - id: MONDO:0000831
-    label: Thrombosis
-  - id: MONDO:0005080
+    label: Sickle cell disease (SCD)
+  - id: HP:0100602
+    label: Preeclampsia
+  - id: HP:0001511
+    label: Intrauterine growth restriction
+  - id: CHEBI:44423
+    label: Hydroxyurea (HU)
+  - id: CHEBI:35143
+    label: Haemoglobin (Hb)
+  - id: HP:0001622
+    label: Preterm delivery
+  - id: CHEBI:50858
+    label: corticosteroids
+  - id: HP:0032654
+    label: Endothelial dysfunction
+  - id: HP:0012418
+    label: Hypoxia
+  - id: HP:0001409
     label: Portal hypertension
-  - id: MONDO:0005149
-    label: Pulmonary Hypertension
+  - id: MAXO:0001001
+    label: Gene therapies
   - id: MAXO:0000756
-    label: transfusion
+    label: Transfusion
   - id: MAXO:0000747
-    label: hematopoietic stem cell transplantation
-  - id: MONDO:0005279
-    label: Pulmonary embolism
-  - id: HP:0025179
-    label: Ground glass opacities
+    label: Hematopoietic stem cell transplantation
+  - id: MAXO:0001298
+    label: therapy
+  - id: MAXO:0009047
+    label: Total hip replacement (THR)
+  - id: CHEBI:22720
+    label: Benzodiazepines
+  - id: MONDO:0006079
+    label: Acute chest syndrome (ACS)
+  - id: CHEBI:24859
+    label: Iodine
+  - id: MONDO:0005632
+    label: Acute chest syndrome
+  - id: CHEBI:17334
+    label: penicillin
   - id: MAXO:0000118
     label: immunizations
+  - id: HP:0001903
+    label: anemia
   - id: HP:0001297
     label: stroke
-  - id: MONDO:0002280
-    label: anemia
-  - id: HP:0001511
-    label: intrauterine growth retardation
+  - id: HP:0012532
+    label: Chronic pain
+  - id: CHEBI:3216
+    label: Buprenorphine
   - id: HP:0001518
-    label: low birth weight
+    label: Low birth weight
   - id: MAXO:0001006
-    label: full blood count
+    label: Full blood count
   - id: MAXO:0000825
-    label: reticulocyte count
+    label: Reticulocyte count
   - id: MAXO:0000427
-    label: brain MRI
+    label: Brain magnetic resonance imaging (MRI)

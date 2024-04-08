@@ -51,8 +51,8 @@ class AutoMaxoRunner:
 
 @click.command()
 @click.option('--disease_name', prompt='Disease Name', help='The name of the disease to be processed.')
-@click.option('--max_pmid_retrieve', default=50, help='Maximum number of PubMed IDs to retrieve.')
-@click.option('--max_articles_to_save', default=10, help='Maximum number of articles to save.')
+@click.option('--max_pmid_retrieve', prompt='Max PMID To Retrive', help='Maximum number of PubMed IDs to retrieve.')
+@click.option('--max_articles_to_save', prompt='Max Articles To Save', help='Maximum number of articles to save.')
 def main(disease_name, max_pmid_retrieve, max_articles_to_save):
     runner = AutoMaxoRunner(disease_name, max_pmid_retrieve, max_articles_to_save)
     runner.run()

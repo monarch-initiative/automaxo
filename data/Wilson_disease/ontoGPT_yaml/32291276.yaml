@@ -1,0 +1,124 @@
+---
+input_text: 'Wilson Disease With Novel Compound Heterozygote Mutations in the ATP7B
+  Gene Presenting With Severe Diabetes.OBJECTIVE: To determine the relationship between
+  ATP7B mutations and diabetes in Wilson disease (WD). RESEARCH DESIGN AND METHODS:
+  A total of 21 exons and exon-intron boundaries of ATP7B were identified by Sanger
+  sequencing. RESULTS: Two novel compound heterozygous mutations (c.525 dupA/ Val176Serfs*28
+  and c.2930 C>T/ p.Thr977Met) were detected in ATP7B. After d-penicillamine (D-PCA)
+  therapy, serum aminotransferase and ceruloplasmin levels in this patient were normalized
+  and levels of HbA1c decreased. However, when the patient ceased to use D-PCA due
+  to an itchy skin, serum levels of fasting blood glucose increased. Dimercaptosuccinic
+  acid capsules were prescribed and memory recovered to some extent, which was accompanied
+  by decreased insulin dosage for glucose control by 5 units. CONCLUSIONS: This is
+  the first report of diabetes caused by WD.'
+raw_completion_output: |-
+  primary_disease: Wilson Disease
+  medical_actions: d-penicillamine (D-PCA) therapy; prescribed dimercaptosuccinic acid capsules; decreased insulin dosage
+  symptoms: severe diabetes; itchy skin; increased levels of fasting blood glucose; memory issues
+  chemicals: d-penicillamine; dimercaptosuccinic acid
+  action_annotation_relationships: d-penicillamine (D-PCA) therapy TREATS severe diabetes IN Wilson Disease; prescribed dimercaptosuccinic acid capsules TREATS memory issues IN Wilson Disease; decreased insulin dosage PREVENTS increased levels of fasting blood glucose IN Wilson Disease; d-penicillamine (D-PCA) therapy PREVENTS increased levels of fasting blood glucose IN Wilson Disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  d-penicillamine (D-PCA) therapy PREVENTS increased levels of fasting blood glucose IN Wilson Disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010200
+  medical_actions:
+    - d-penicillamine (D-PCA) therapy
+    - prescribed dimercaptosuccinic acid capsules
+    - decreased insulin dosage
+  symptoms:
+    - severe diabetes
+    - HP:0000989
+    - increased levels of fasting blood glucose
+    - memory issues
+  chemicals:
+    - CHEBI:7959
+    - CHEBI:63623
+  action_annotation_relationships:
+    - subject: MAXO:0001298
+      predicate: TREATS
+      object: HP:0000819
+      qualifier: MONDO:0010200
+      object_qualifier: severe
+      subject_extension: CHEBI:7959
+      object_extension: severe
+    - subject: prescribed
+      predicate: TREATS
+      object: memory issues
+      qualifier: MONDO:0010200
+      subject_qualifier: capsules
+      subject_extension: CHEBI:63623
+    - subject: decreased insulin dosage
+      predicate: PREVENTS
+      object: increased levels of fasting blood glucose
+      qualifier: MONDO:0010200
+      subject_extension: CHEBI:145810
+    - subject: MAXO:0001298
+      predicate: PREVENTS
+      object: increased levels of fasting blood glucose
+      qualifier: MONDO:0010200
+      subject_extension: CHEBI:7959
+named_entities:
+  - id: MONDO:0009835
+    label: Subacute sclerosing panencephalitis
+  - id: MONDO:0010200
+    label: Wilson disease
+  - id: HP:0100785
+    label: insomnia
+  - id: HP:0001262
+    label: excessive daytime sleepiness (EDS)
+  - id: HP:0010535
+    label: sleep-disordered breathing (SDB)
+  - id: HP:0012452
+    label: restless legs syndrome (RLS)
+  - id: HP:0100580
+    label: cataplexy-like episodes (CLEs)
+  - id: HP:0025233
+    label: sleep paralysis
+  - id: HP:0100022
+    label: Movement disorders
+  - id: HP:0001337
+    label: Tremor
+  - id: HP:0001332
+    label: Dystonia
+  - id: MONDO:0005154
+    label: Liver Disease
+  - id: HP:0008282
+    label: Indirect hyperbilirubinemia
+  - id: HP:0002088
+    label: Lung disease
+  - id: HP:0001396
+    label: Cholestasis
+  - id: HP:0010836
+    label: Abnormal copper levels
+  - id: CHEBI:34936
+    label: D-penicillamine (DPA)
+  - id: CHEBI:888
+    label: Dimercaptopropane Sulfonate (DMPS)
+  - id: CHEBI:63623
+    label: Dimercaptosuccinic Acid (DMSA)
+  - id: HP:0000989
+    label: itchy skin
+  - id: CHEBI:7959
+    label: d-penicillamine
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0000819
+    label: diabetes
+  - id: CHEBI:145810
+    label: insulin

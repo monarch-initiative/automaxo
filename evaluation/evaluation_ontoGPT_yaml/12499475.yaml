@@ -14,108 +14,175 @@ input_text: 'Mutations in GDAP1: autosomal recessive CMT with demyelination and 
   have severely slowed NCV compatible with demyelination. The peripheral nerve biopsy
   findings are equally variable and show features of demyelination and axonal degeneration.'
 raw_completion_output: |-
-  action: <screening for mutations in GDAP1>
-  disease: <autosomal recessive demyelinating Charcot-Marie-Tooth disease type 4A; AR axonal CMT with vocal cord paralysis; axonal neuropathy; demyelination>
-  symptom: <vocal cord paralysis; variable nerve conduction velocities; demyelination; axonal degeneration>
-  action_to_disease: <screening for mutations in GDAP1 IS USED TO DIAGNOSE autosomal recessive demyelinating Charcot-Marie-Tooth disease type 4A; screening for mutations in GDAP1 IS USED TO DIAGNOSE AR axonal CMT with vocal cord paralysis>
-  action_to_symptom: <NA>
-  triples: <screening for mutations in GDAP1 IS USED TO DIAGNOSE autosomal recessive demyelinating Charcot-Marie-Tooth disease type 4A; screening for mutations in GDAP1 IS USED TO DIAGNOSE AR axonal CMT with vocal cord paralysis>
+  primary_disease: Charcot-Marie-Tooth disease (CMT)
+
+  medical_actions: screening for GDAP1 mutations; nerve conduction velocity (NCV) tests; peripheral nerve biopsy
+
+  symptoms: demyelination; axonopathy; vocal cord paralysis
+
+  chemicals: 
+
+  action_annotation_relationships: screening for GDAP1 mutations TREATS demyelination IN Charcot-Marie-Tooth disease (CMT); screening for GDAP1 mutations TREATS axonopathy IN Charcot-Marie-Tooth disease (CMT); nerve conduction velocity (NCV) tests TREATS demyelination IN Charcot-Marie-Tooth disease (CMT); nerve conduction velocity (NCV) tests TREATS axonopathy IN Charcot-Marie-Tooth disease (CMT); peripheral nerve biopsy TREATS demyelination IN Charcot-Marie-Tooth disease (CMT); peripheral nerve biopsy TREATS axonopathy IN Charcot-Marie-Tooth disease (CMT)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
-  subject: <the value for subject>
-  predicate: <the value for predicate>
-  object: <the value for object>
-  qualifier: <A qualifier for the statements, e.g. "NOT" for negation>
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
   subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
   object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
 
 
   Text:
-  screening for mutations in GDAP1 IS USED TO DIAGNOSE AR axonal CMT with vocal cord paralysis>
+  peripheral nerve biopsy TREATS axonopathy IN Charcot-Marie-Tooth disease (CMT)
 
   ===
 
 extracted_object:
-  triples:
-    - subject: screening for mutations in GDAP1
-      predicate: IS USED TO DIAGNOSE
-      object: autosomal recessive demyelinating Charcot-Marie-Tooth disease type 4A
-    - subject: screening for mutations in GDAP1
-      predicate: IS USED TO DIAGNOSE
-      object: AR axonal CMT
-      object_qualifier: with vocal cord paralysis
-  action:
-    - <screening for mutations in GDAP1>
-  disease:
-    - <autosomal recessive demyelinating Charcot-Marie-Tooth disease type 4A
-    - AR axonal CMT with vocal cord paralysis
-    - MONDO:0004183
-    - demyelination>
-  symptom:
-    - <vocal cord paralysis
-    - variable nerve conduction velocities
+  primary_disease: MONDO:0015626
+  medical_actions:
+    - screening for GDAP1 mutations
+    - nerve conduction velocity (NCV) tests
+    - MAXO:0035087
+  symptoms:
     - HP:0011096
-    - axonal degeneration>
-  action_to_disease:
-    - subject: screening for mutations in GDAP1
-      predicate: IS USED TO DIAGNOSE
-      object:
-        - MONDO:0008961
-    - subject: screening for mutations in GDAP1
-      predicate: IS USED TO DIAGNOSE
-      object:
-        - AR axonal CMT
-        - vocal cord paralysis
-      object_qualifier: with
+    - axonopathy
+    - HP:0001605
+  action_annotation_relationships:
+    - subject: screening for GDAP1 mutations
+      predicate: TREATS
+      object: HP:0011096
+      qualifier: MONDO:0015626
+      subject_extension: GDAP1 mutations
+    - subject: screening
+      predicate: TREATS
+      object: axonopathy
+      qualifier: MONDO:0015626
+      subject_extension: GDAP1 mutations
+    - subject: nerve conduction velocity tests
+      predicate: TREATS
+      object: HP:0011096
+      qualifier: MONDO:0015626
+    - subject: nerve conduction velocity (NCV) tests
+      predicate: TREATS
+      object: axonopathy
+      qualifier: MONDO:0015626
+    - subject: MAXO:0035087
+      predicate: TREATS
+      object: HP:0011096
+      qualifier: MONDO:0015626
+    - subject: MAXO:0035087
+      predicate: TREATS
+      object: axonopathy
+      qualifier: MONDO:0015626
 named_entities:
-  - id: MONDO:0005365
-    label: hearing loss
   - id: MONDO:0008891
     label: Brown-Vialetto-Van Laere syndrome
-  - id: MONDO:0003608
+  - id: MAXO:0009004
+    label: exome sequencing
+  - id: HP:0000407
+    label: sensorineural hearing loss
+  - id: HP:0002093
+    label: respiratory insufficiency
+  - id: HP:0010871
+    label: sensory ataxia
+  - id: HP:0000648
     label: optic atrophy
-  - id: MONDO:0100062
+  - id: CHEBI:17015
+    label: riboflavin
+  - id: HP:0012469
     label: infantile spasms
-  - id: MONDO:0005027
-    label: seizures
-  - id: MONDO:0005047
+  - id: HP:0000789
     label: infertility
-  - id: MAXO:0010030
-    label: bone marrow transplantation
+  - id: HP:0005268
+    label: miscarriage
+  - id: CHEBI:16709
+    label: pyridoxine
+  - id: CHEBI:18405
+    label: pyridoxal 5'-phosphate
+  - id: CHEBI:27306
+    label: vitamin B6
+  - id: CHEBI:24041
+    label: flavin mononucleotide
+  - id: HP:0001250
+    label: seizures
   - id: MONDO:0009974
-    label: familial hemophagocytic lymphohistiocytosis
-  - id: MONDO:0011382
-    label: sickle cell disease
-  - id: MONDO:0013517
-    label: beta-thalassemia
-  - id: MONDO:0000440
-    label: Metabolic acidosis
+    label: Familial hemophagocytic lymphohistiocytosis
+  - id: MAXO:0010030
+    label: bone marrow transplantation (BMT)
+  - id: CHEBI:28901
+    label: busulfan
+  - id: CHEBI:4027
+    label: cyclophosphamide
+  - id: CHEBI:4911
+    label: etoposide
+  - id: MAXO:0000757
+    label: infusion
+  - id: CHEBI:41264
+    label: busulfan (BU), cyclophosphamide (CP), etoposide (VP16), antithymocyte globulin
+      (ATG)
+  - id: MAXO:0000750
+    label: conditioning regimen
+  - id: CHEBI:73896
+    label: gene therapy (GT)
   - id: MONDO:0009666
     label: Holocarboxylase synthetase deficiency
-  - id: MONDO:0015454
-    label: Multiple carboxylase deficiency
-  - id: MONDO:0001531
+  - id: MAXO:0000603
+    label: Peritoneal dialysis
+  - id: HP:0001942
+    label: Metabolic acidosis
+  - id: CHEBI:15956
+    label: Biotin
+  - id: HP:0003256
     label: Coagulopathy
+  - id: CHEBI:48669
+    label: Tranexamic acid
+  - id: CHEBI:48675
+    label: antifibrinolytic agents
   - id: MONDO:0020300
     label: Autosomal dominant nocturnal frontal lobe epilepsy
+  - id: CHEBI:3387
+    label: Carbamazepine
   - id: MONDO:0000903
-    label: myoclonus-dystonia
+    label: Myoclonus-dystonia
   - id: MAXO:0000943
-    label: Deep brain stimulation
+    label: Deep Brain Stimulation
   - id: HP:0001252
     label: Hypotonia
+  - id: MONDO:0005338
+    label: Primary open-angle glaucoma (POAG)
   - id: MAXO:0001082
     label: Trabeculectomy
-  - id: MONDO:0005129
-    label: Cataract
+  - id: MAXO:0000960
+    label: Viscocanalostomy
+  - id: HP:0007906
+    label: Elevated intraocular pressure (IOP)
   - id: HP:0000253
     label: Progressive microcephaly
   - id: HP:0001263
     label: Global developmental delay
-  - id: MONDO:0004183
-    label: axonal neuropathy
+  - id: HP:0000365
+    label: Hearing loss
+  - id: HP:0100785
+    label: Insomnia
+  - id: CHEBI:15681
+    label: GM3
+  - id: CHEBI:28892
+    label: Ganglioside
+  - id: MAXO:0001298
+    label: therapies
+  - id: MAXO:0000950
+    label: Supportive care
+  - id: CHEBI:8378
+    label: Prednisolone
+  - id: MONDO:0015626
+    label: Charcot-Marie-Tooth disease (CMT)
+  - id: MAXO:0035087
+    label: peripheral nerve biopsy
   - id: HP:0011096
     label: demyelination
-  - id: MONDO:0008961
-    label: autosomal recessive demyelinating Charcot-Marie-Tooth disease type 4A
+  - id: HP:0001605
+    label: vocal cord paralysis

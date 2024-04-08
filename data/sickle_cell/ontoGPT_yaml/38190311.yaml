@@ -37,95 +37,85 @@ input_text: "An Updated Equitable Model of Readiness for Transition to Adult Car
   should be evaluated in other populations of adolescents and young adults with chronic
   disease."
 raw_completion_output: |-
-  action: <Content validation of SMART-E; Assessing content validity; Including health equity factors; Evaluating SMART-E in other populations>
-  disease: <Sickle Cell Disease>
-  symptom: <
-  action_to_disease: <Content validation of SMART-E SUPPORTS Sickle Cell Disease; Assessing content validity SUPPORTS Sickle Cell Disease; Including health equity factors SUPPORTS Sickle Cell Disease; Evaluating SMART-E in other populations SUPPORTS Sickle Cell Disease>
-  action_to_symptom: <
-  triples: <Content validation of SMART-E SUPPORTS Sickle Cell Disease; Assessing content validity SUPPORTS Sickle Cell Disease; Including health equity factors SUPPORTS Sickle Cell Disease; Evaluating SMART-E in other populations SUPPORTS Sickle Cell Disease>
+  primary_disease: Sickle Cell Disease (SCD)
+
+  medical_actions: Validation of the Social-Ecological Model of Adolescent and Young Adult Readiness for Transition (SMART-E); Content validation; Qualitative content analysis
+
+  symptoms: 
+
+  chemicals: 
+
+  action_annotation_relationships: Validation of the Social-Ecological Model of Adolescent and Young Adult Readiness for Transition (SMART-E) TREATS barriers IN Sickle Cell Disease (SCD); Content validation TREATS barriers IN Sickle Cell Disease (SCD); Qualitative content analysis TREATS barriers IN Sickle Cell Disease (SCD)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
-  subject: <the value for subject>
-  predicate: <the value for predicate>
-  object: <the value for object>
-  qualifier: <A qualifier for the statements, e.g. "NOT" for negation>
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
   subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
   object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
 
 
   Text:
-  Evaluating SMART-E in other populations SUPPORTS Sickle Cell Disease>
+  Qualitative content analysis TREATS barriers IN Sickle Cell Disease (SCD)
 
   ===
 
 extracted_object:
-  triples:
+  primary_disease: MONDO:0007374
+  medical_actions:
+    - Validation of the Social-Ecological Model of Adolescent and Young Adult Readiness
+      for Transition (SMART-E)
+    - Content validation
+    - Qualitative content analysis
+  action_annotation_relationships:
+    - subject: <Validation>
+      predicate: <TREATS>
+      object: <barriers>
+      qualifier: MONDO:0007374
+      subject_extension: <Social-Ecological Model of Adolescent and Young Adult Readiness
+        for Transition (SMART-E)>
     - subject: Content validation
-      predicate: supports
-      object: Sickle Cell Disease
-    - subject: Assessing content validity
-      predicate: SUPPORTS
-      object: Sickle Cell Disease
-    - subject: Including health equity factors
-      predicate: SUPPORTS
-      object: Sickle Cell Disease
-    - subject: Evaluating SMART-E in other populations
-      predicate: SUPPORTS
-      object: Sickle Cell Disease
-  action:
-    - <Content validation of SMART-E
-    - Assessing content validity
-    - Including health equity factors
-    - Evaluating SMART-E in other populations>
-  disease:
-    - <Sickle Cell Disease>
-  symptom:
-    - <
-  action_to_disease:
-    - subject: SMART-E
-      predicate: SUPPORTS
-      object:
-        - MONDO:0011382
-      subject_qualifier: Content validation of
-    - subject: Assessing content validity
-      predicate: SUPPORTS
-      object:
-        - MONDO:0011382
-    - subject: Including health equity factors
-      predicate: SUPPORTS
-      object:
-        - MONDO:0011382
-    - subject: Evaluating SMART-E in other populations
-      predicate: SUPPORTS
-      object:
-        - MONDO:0011382
+      predicate: TREATS
+      object: barriers
+      qualifier: MONDO:0007374
+    - subject: Qualitative content analysis
+      predicate: TREATS
+      object: barriers
+      qualifier: MONDO:0007374
 named_entities:
-  - id: MAXO:0001001
-    label: genetic therapies
   - id: MONDO:0011382
     label: sickle cell disease
   - id: MONDO:0100096
-    label: COVID-19
-  - id: MONDO:0005087
-    label: Respiratory disease
+    label: SARS-CoV-2
   - id: MONDO:0007374
-    label: <Sickle cell disease (SCD)
-  - id: MONDO:0005632
-    label: acute chest syndrome
-  - id: MONDO:0005550
-    label: infections
-  - id: MONDO:0005081
-    label: preeclampsia
-  - id: MONDO:0005030
-    label: intrauterine growth restriction
-  - id: MONDO:0000831
-    label: Thrombosis
-  - id: MONDO:0005080
+    label: Sickle cell disease (SCD)
+  - id: HP:0100602
+    label: Preeclampsia
+  - id: HP:0001511
+    label: Intrauterine growth restriction
+  - id: CHEBI:44423
+    label: Hydroxyurea (HU)
+  - id: CHEBI:35143
+    label: Haemoglobin (Hb)
+  - id: HP:0001622
+    label: Preterm delivery
+  - id: CHEBI:50858
+    label: corticosteroids
+  - id: HP:0032654
+    label: Endothelial dysfunction
+  - id: HP:0012418
+    label: Hypoxia
+  - id: HP:0001409
     label: Portal hypertension
-  - id: MONDO:0005149
-    label: Pulmonary Hypertension
+  - id: MAXO:0001001
+    label: Gene therapies
   - id: MAXO:0000756
-    label: transfusion
+    label: Transfusion
   - id: MAXO:0000747
-    label: hematopoietic stem cell transplantation
+    label: Hematopoietic stem cell transplantation
+  - id: MAXO:0001298
+    label: therapy

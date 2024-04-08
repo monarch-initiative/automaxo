@@ -1,0 +1,127 @@
+---
+input_text: Hepatic Steatosis in the Mouse Model of Wilson Disease Coincides with
+  a Muted Inflammatory Response.Wilson disease (WND) is caused by inactivation of
+  the copper transporter ATP7B and copper accumulation in tissues. WND presentations
+  vary from liver steatosis to inflammation, fibrosis, and liver failure. Diets influence
+  the liver phenotype in WND, but findings are inconsistent. To better understand
+  the impact of excess calories on liver phenotype in WND, the study compared C57BL/6J
+  Atp7b-/- and C57BL/6J mice fed for 12 weeks with Western diet or normal chow. Serum
+  and liver metabolites, body fat content, liver histology, hepatic proteome, and
+  copper content were analyzed. Wild-type and Atp7b-/- livers showed striking similarities
+  in their responses to Western diet, most notably down-regulation of cholesterol
+  biosynthesis, altered nuclear receptor signaling, and changes in cytoskeleton. Western
+  diet increased body fat content and induced liver steatosis in males and females
+  regardless of genotype; however, the effects were less pronounced in Atp7b-/- mice
+  compared with those in the wild type mice. Although hepatic copper remained elevated
+  in Atp7b-/- mice, liver inflammation was reduced. The diet diminished signaling
+  by Rho GTPases, integrin, IL8, and reversed changes in cell cycle machinery and
+  cytoskeleton. Overall, high calories decreased inflammatory response in favor of
+  steatosis without improving markers of cell viability. Similar changes of cellular
+  pathways during steatosis development in wild-type and Atp7b-/- mice explain histologic
+  overlap between WND and non-alcoholic fatty liver disease despite opposite copper
+  changes in these disorders.
+raw_completion_output: |-
+  primary_disease: Wilson Disease (WND)
+
+  medical_actions: Diet modification; Serum and liver metabolite analysis; Body fat content analysis; Liver histology examination; Hepatic proteome analysis; Copper content analysis
+
+  symptoms: Liver steatosis; Inflammation; Fibrosis; Liver failure
+
+  chemicals: ATP7B; Copper
+
+  action_annotation_relationships: Diet modification PREVENTS Liver steatosis IN Wilson Disease; Diet modification TREATS Inflammation IN Wilson Disease; Serum and liver metabolite analysis TREATS Liver steatosis IN Wilson Disease; Body fat content analysis TREATS Liver steatosis IN Wilson Disease; Liver histology examination TREATS Liver steatosis IN Wilson Disease; Hepatic proteome analysis TREATS Liver steatosis IN Wilson Disease; Copper content analysis TREATS Copper accumulation IN Wilson Disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Copper content analysis TREATS Copper accumulation IN Wilson Disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010200
+  medical_actions:
+    - Diet modification
+    - Serum and liver metabolite analysis
+    - Body fat content analysis
+    - Liver histology examination
+    - Hepatic proteome analysis
+    - Copper content analysis
+  symptoms:
+    - HP:0001397
+    - Inflammation
+    - Fibrosis
+    - HP:0001399
+  chemicals:
+    - ATP7B
+    - CHEBI:28694
+  action_annotation_relationships:
+    - subject: Diet modification
+      predicate: PREVENTS
+      object: HP:0001397
+      qualifier: MONDO:0010200
+    - subject: Diet modification
+      predicate: TREATS
+      object: Inflammation
+      qualifier: MONDO:0010200
+    - subject: Serum and liver metabolite analysis
+      predicate: TREATS
+      object: HP:0001397
+      qualifier: MONDO:0010200
+    - subject: Body fat content analysis
+      predicate: TREATS
+      object: HP:0001397
+      qualifier: MONDO:0010200
+    - subject: Liver histology examination
+      predicate: TREATS
+      object: HP:0001397
+      qualifier: MONDO:0010200
+    - subject: Hepatic proteome analysis
+      predicate: TREATS
+      object: HP:0001397
+      qualifier: MONDO:0010200
+    - subject: <Copper content analysis>
+      predicate: <TREATS>
+      object: <Copper accumulation>
+      qualifier: <Wilson Disease>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <Copper content analysis>
+      object_extension: <Copper accumulation>
+named_entities:
+  - id: MONDO:0010200
+    label: Wilson disease
+  - id: HP:0025464
+    label: oxidative stress
+  - id: CHEBI:28694
+    label: copper
+  - id: CHEBI:18248
+    label: iron
+  - id: CHEBI:149681
+    label: catalase (CAT)
+  - id: CHEBI:566274
+    label: malondialdehyde (MDA)
+  - id: CHEBI:16480
+    label: nitric oxide (NO)
+  - id: MAXO:0001175
+    label: liver transplantation
+  - id: HP:0006554
+    label: acute liver failure
+  - id: HP:0003256
+    label: coagulopathy
+  - id: HP:0002480
+    label: hepatic encephalopathy
+  - id: HP:0001397
+    label: Liver steatosis
+  - id: HP:0001399
+    label: Liver failure

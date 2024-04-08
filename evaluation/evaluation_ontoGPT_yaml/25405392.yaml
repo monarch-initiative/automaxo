@@ -26,166 +26,183 @@ input_text: "Atenolol versus losartan in children and young adults with Marfan's
   over a 3-year period. (Funded by the National Heart, Lung, and Blood Institute and
   others; ClinicalTrials.gov number, NCT00429364.)."
 raw_completion_output: |-
-  action: <Atenolol treatment; Losartan treatment; Randomized trial; Measure aortic-root diameter; Measure body-surface area; Assess somatic growth; Evaluate incidence of adverse events>
-  disease: <Marfan's syndrome; Aortic-root dissection; Aortic regurgitation>
-  symptom: <Aortic-root enlargement>
-  action_to_disease: <Losartan treatment TREATS Marfan's syndrome; Atenolol treatment TREATS Marfan's syndrome; Randomized trial CONDUCTED FOR Marfan's syndrome; Measure aortic-root diameter IS USED TO ASSESS Marfan's syndrome; Assess somatic growth IS USED TO MONITOR Marfan's syndrome; Evaluate incidence of adverse events IS USED TO MONITOR Marfan's syndrome; Losartan treatment USED FOR Aortic-root dissection; Atenolol treatment USED FOR Aortic-root dissection; Measure body-surface area IS USED TO ASSESS Aortic-root dissection>
-  action_to_symptom: <Measure aortic-root diameter IS USED TO DIAGNOSE Aortic-root enlargement>
-  triples: <Losartan treatment TREATS Marfan's syndrome; Atenolol treatment TREATS Marfan's syndrome; Randomized trial CONDUCTED FOR Marfan's syndrome; Measure aortic-root diameter IS USED TO ASSESS Marfan's syndrome; Assess somatic growth IS USED TO MONITOR Marfan's syndrome; Evaluate incidence of adverse events IS USED TO MONITOR Marfan's syndrome; Losartan treatment USED FOR Aortic-root dissection; Atenolol treatment USED FOR Aortic-root dissection; Measure body-surface area IS USED TO ASSESS Aortic-root dissection; Measure aortic-root diameter IS USED TO DIAGNOSE Aortic-root enlargement>
-prompt: |+
-  From the text below, extract the following entities in the following format:
+  primary_disease: Marfan's syndrome
 
-  subject: <the value for subject>
-  predicate: <the value for predicate>
-  object: <the value for object>
-  qualifier: <A qualifier for the statements, e.g. "NOT" for negation>
+  medical_actions: randomized trial comparing losartan with atenolol; slowing aortic-root enlargement
+
+  symptoms: aortic-root dissection; aortic-root enlargement; aortic regurgitation
+
+  chemicals: atenolol; losartan
+
+  action_annotation_relationships: randomized trial comparing losartan with atenolol TREATS aortic-root enlargement IN Marfan's syndrome; losartan TREATS aortic-root dissection IN Marfan's syndrome; losartan TREATS aortic regurgitation IN Marfan's syndrome; atenolol TREATS aortic-root dissection IN Marfan's syndrome; atenolol TREATS aortic regurgitation IN Marfan's syndrome
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
   subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
   object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
 
 
   Text:
-  Measure aortic-root diameter IS USED TO DIAGNOSE Aortic-root enlargement>
+  atenolol TREATS aortic regurgitation IN Marfan's syndrome
 
   ===
 
 extracted_object:
-  triples:
-    - subject: Losartan treatment
+  primary_disease: MONDO:0007947
+  medical_actions:
+    - randomized trial comparing losartan with atenolol
+    - slowing aortic-root enlargement
+  symptoms:
+    - aortic-root dissection
+    - aortic-root enlargement
+    - HP:0001659
+  chemicals:
+    - CHEBI:2904
+    - CHEBI:6541
+  action_annotation_relationships:
+    - subject: randomized trial
       predicate: TREATS
-      object: Marfan's syndrome
-    - subject: Atenolol treatment
+      object: aortic-root enlargement
+      qualifier: MONDO:0007947
+      subject_qualifier: comparing losartan with atenolol
+      object_qualifier: <None>
+      subject_extension: losartan, atenolol
+      object_extension: <None>
+    - predicate: TREATS
+      object: aortic-root dissection
+      qualifier: MONDO:0007947
+      subject_extension: CHEBI:6541
+    - subject: losartan
       predicate: TREATS
-      object: Marfan's syndrome
-    - subject: Randomized trial
-      predicate: CONDUCTED FOR
-      object: Marfan's syndrome
-    - subject: Measuring aortic-root diameter
-      predicate: IS USED TO ASSESS
-      object: Marfan's syndrome
-    - subject: Assess somatic growth
-      predicate: IS USED TO MONITOR
-      object: Marfan's syndrome
-    - subject: incidence of adverse events
-      predicate: IS USED TO MONITOR
-      object: Marfan's syndrome
-    - subject: Losartan treatment
-      predicate: USED FOR
-      object: Aortic-root dissection
-    - subject: Atenolol treatment
-      predicate: USED FOR
-      object: Aortic-root dissection
-    - subject: Measure body-surface area
-      predicate: IS USED TO ASSESS
-      object: Aortic-root dissection
-    - subject: Measure aortic-root diameter
-      predicate: IS USED TO DIAGNOSE
-      object: Aortic-root enlargement
-  action:
-    - <Atenolol treatment
-    - Losartan treatment
-    - Randomized trial
-    - Measure aortic-root diameter
-    - Measure body-surface area
-    - Assess somatic growth
-    - Evaluate incidence of adverse events>
-  disease:
-    - <Marfan's syndrome
-    - Aortic-root dissection
-    - Aortic regurgitation>
-  symptom:
-    - <Aortic-root enlargement>
-  action_to_disease:
-    - subject: Losartan treatment
-      predicate: TREATS
-      object:
-        - MONDO:0007947
-    - subject: Atenolol treatment
-      predicate: TREATS
-      object:
-        - MONDO:0007947
-    - subject: Randomized trial
-      predicate: CONDUCTED FOR
-      object:
-        - MONDO:0007947
-    - subject: Measure aortic-root diameter
-      predicate: IS USED TO ASSESS
-      object:
-        - MONDO:0007947
-    - subject: Assess somatic growth
-      predicate: IS USED TO MONITOR
-      object:
-        - MONDO:0007947
-    - subject: Evaluate incidence of adverse events
-      predicate: IS USED TO MONITOR
-      object:
-        - MONDO:0007947
-    - subject: Losartan treatment
-      predicate: USED FOR
-      object:
-        - Aortic-root dissection
-    - subject: Atenolol treatment
-      predicate: USED FOR
-      object:
-        - Aortic-root dissection
-    - subject: Measure body-surface area
-      predicate: IS USED TO ASSESS
-      object:
-        - Aortic-root dissection
-  action_to_symptom:
-    - subject: Measure aortic-root diameter
-      predicate: IS USED TO DIAGNOSE
-      object:
-        - Aortic-root enlargement
+      object: HP:0001659
+      qualifier: MONDO:0007947
+    - predicate: TREATS
+      object: aortic-root dissection
+      qualifier: MONDO:0007947
+      subject_extension: CHEBI:2904
+    - predicate: TREATS
+      object: HP:0001659
+      qualifier: MONDO:0007947
+      subject_extension: CHEBI:2904
 named_entities:
-  - id: MONDO:0005365
-    label: hearing loss
   - id: MONDO:0008891
     label: Brown-Vialetto-Van Laere syndrome
-  - id: MONDO:0003608
+  - id: MAXO:0009004
+    label: exome sequencing
+  - id: HP:0000407
+    label: sensorineural hearing loss
+  - id: HP:0002093
+    label: respiratory insufficiency
+  - id: HP:0010871
+    label: sensory ataxia
+  - id: HP:0000648
     label: optic atrophy
-  - id: MONDO:0100062
+  - id: CHEBI:17015
+    label: riboflavin
+  - id: HP:0012469
     label: infantile spasms
-  - id: MONDO:0005027
-    label: seizures
-  - id: MONDO:0005047
+  - id: HP:0000789
     label: infertility
-  - id: MAXO:0010030
-    label: bone marrow transplantation
+  - id: HP:0005268
+    label: miscarriage
+  - id: CHEBI:16709
+    label: pyridoxine
+  - id: CHEBI:18405
+    label: pyridoxal 5'-phosphate
+  - id: CHEBI:27306
+    label: vitamin B6
+  - id: CHEBI:24041
+    label: flavin mononucleotide
+  - id: HP:0001250
+    label: seizures
   - id: MONDO:0009974
-    label: familial hemophagocytic lymphohistiocytosis
-  - id: MONDO:0011382
-    label: sickle cell disease
-  - id: MONDO:0013517
-    label: beta-thalassemia
-  - id: MONDO:0000440
-    label: Metabolic acidosis
+    label: Familial hemophagocytic lymphohistiocytosis
+  - id: MAXO:0010030
+    label: bone marrow transplantation (BMT)
+  - id: CHEBI:28901
+    label: busulfan
+  - id: CHEBI:4027
+    label: cyclophosphamide
+  - id: CHEBI:4911
+    label: etoposide
+  - id: MAXO:0000757
+    label: infusion
+  - id: CHEBI:41264
+    label: busulfan (BU), cyclophosphamide (CP), etoposide (VP16), antithymocyte globulin
+      (ATG)
+  - id: MAXO:0000750
+    label: conditioning regimen
+  - id: CHEBI:73896
+    label: gene therapy (GT)
   - id: MONDO:0009666
     label: Holocarboxylase synthetase deficiency
-  - id: MONDO:0015454
-    label: Multiple carboxylase deficiency
-  - id: MONDO:0001531
+  - id: MAXO:0000603
+    label: Peritoneal dialysis
+  - id: HP:0001942
+    label: Metabolic acidosis
+  - id: CHEBI:15956
+    label: Biotin
+  - id: HP:0003256
     label: Coagulopathy
+  - id: CHEBI:48669
+    label: Tranexamic acid
+  - id: CHEBI:48675
+    label: antifibrinolytic agents
   - id: MONDO:0020300
     label: Autosomal dominant nocturnal frontal lobe epilepsy
+  - id: CHEBI:3387
+    label: Carbamazepine
   - id: MONDO:0000903
-    label: myoclonus-dystonia
+    label: Myoclonus-dystonia
   - id: MAXO:0000943
-    label: Deep brain stimulation
+    label: Deep Brain Stimulation
   - id: HP:0001252
     label: Hypotonia
+  - id: MONDO:0005338
+    label: Primary open-angle glaucoma (POAG)
   - id: MAXO:0001082
     label: Trabeculectomy
-  - id: MONDO:0005129
-    label: Cataract
+  - id: MAXO:0000960
+    label: Viscocanalostomy
+  - id: HP:0007906
+    label: Elevated intraocular pressure (IOP)
   - id: HP:0000253
     label: Progressive microcephaly
   - id: HP:0001263
     label: Global developmental delay
-  - id: MONDO:0004183
-    label: axonal neuropathy
+  - id: HP:0000365
+    label: Hearing loss
+  - id: HP:0100785
+    label: Insomnia
+  - id: CHEBI:15681
+    label: GM3
+  - id: CHEBI:28892
+    label: Ganglioside
+  - id: MAXO:0001298
+    label: therapies
+  - id: MAXO:0000950
+    label: Supportive care
+  - id: CHEBI:8378
+    label: Prednisolone
+  - id: MONDO:0015626
+    label: Charcot-Marie-Tooth disease (CMT)
+  - id: MAXO:0035087
+    label: peripheral nerve biopsy
   - id: HP:0011096
     label: demyelination
-  - id: MONDO:0008961
-    label: autosomal recessive demyelinating Charcot-Marie-Tooth disease type 4A
+  - id: HP:0001605
+    label: vocal cord paralysis
   - id: MONDO:0007947
     label: Marfan's syndrome
+  - id: HP:0001659
+    label: aortic regurgitation
+  - id: CHEBI:2904
+    label: atenolol
+  - id: CHEBI:6541
+    label: losartan

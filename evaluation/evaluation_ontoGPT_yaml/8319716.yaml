@@ -22,119 +22,165 @@ input_text: "Holocarboxylase synthetase deficiency: early diagnosis and manageme
   the required individual dose of biotin has to be carefully evaluated biochemically
   for the individual patient."
 raw_completion_output: |-
-  action: <Peritoneal dialysis; Oral supplementation of biotin; Biochemical evaluation of biotin dose>
-  disease: <Holocarboxylase synthetase deficiency; Metabolic acidosis; Lactic acidaemia; Hyperammonaemia; Multiple carboxylase deficiency>
-  symptom: <Refusal of oral feeding; Tachydyspnoea; Excessive weight loss; Increased urinary excretion of 3-hydroxyisovaleric acid, 3-methylcrotonylglycine, 3-hydroxpropionic acid, and methylcitric acid>
-  action_to_disease: <Peritoneal dialysis COMBINED WITH Oral supplementation of biotin TREATS Holocarboxylase synthetase deficiency; Oral supplementation of biotin TREATS Metabolic acidosis; Oral supplementation of biotin TREATS Lactic acidaemia; Oral supplementation of biotin TREATS Hyperammonaemia; Oral supplementation of biotin TREATS Multiple carboxylase deficiency>
-  action_to_symptom: <Biochemical evaluation of biotin dose IS USED TO TREAT Increased urinary excretion of 3-hydroxyisovaleric acid, 3-methylcrotonylglycine, 3-hydroxpropionic acid, and methylcitric acid>
-  triples: <Peritoneal dialysis COMBINED WITH Oral supplementation of biotin TREATS Holocarboxylase synthetase deficiency; Oral supplementation of biotin TREATS Metabolic acidosis; Oral supplementation of biotin TREATS Lactic acidaemia; Oral supplementation of biotin TREATS Hyperammonaemia; Oral supplementation of biotin TREATS Multiple carboxylase deficiency; Biochemical evaluation of biotin dose IS USED TO TREAT Increased urinary excretion of 3-hydroxyisovaleric acid, 3-methylcrotonylglycine, 3-hydroxpropionic acid, and methylcitric acid>
+  primary_disease: Holocarboxylase synthetase deficiency
+
+  medical_actions: Peritoneal dialysis; Oral supplementation of biotin
+
+  symptoms: Refused oral feeding; Tachydyspnoeic; Excessive weight loss; Metabolic acidosis; Lactic acidaemia; Hyperammonaemia; Increased urinary excretion of 3-hydroxyisovaleric acid, 3-methylcrotonylglycine, 3-hydroxpropionic acid, and methylcitric acid
+
+  chemicals: Biotin
+
+  action_annotation_relationships: Oral supplementation of biotin (10 mg/day) TREATS metabolic acidosis IN Holocarboxylase synthetase deficiency; Oral supplementation of biotin (10 mg/day) TREATS lactic acidaemia IN Holocarboxylase synthetase deficiency; Oral supplementation of biotin (10 mg/day) TREATS hyperammonaemia IN Holocarboxylase synthetase deficiency; Oral supplementation of biotin (10 mg/day) TREATS increased urinary excretion of 3-hydroxyisovaleric acid IN Holocarboxylase synthetase deficiency; Oral supplementation of biotin (10 mg/day) TREATS increased urinary excretion of 3-methylcrotonylglycine IN Holocarboxylase synthetase deficiency; Oral supplementation of biotin (10 mg/day) TREATS increased urinary excretion of 3-hydroxpropionic acid IN Holocarboxylase synthetase deficiency; Oral supplementation of biotin (10 mg/day) TREATS increased urinary excretion of methylcitric acid IN Holocarboxylase synthetase deficiency; Peritoneal dialysis COMBINED WITH Oral supplementation of biotin (10 mg/day) TREATS metabolic acidosis IN Holocarboxylase synthetase deficiency; Peritoneal dialysis COMBINED WITH Oral supplementation of biotin (10 mg/day) TREATS lactic acidaemia IN Holocarboxylase synthetase deficiency; Peritoneal dialysis COMBINED WITH Oral supplementation of biotin (10 mg/day) TREATS hyperammonaemia IN Holocarboxylase synthetase deficiency
 prompt: |+
   From the text below, extract the following entities in the following format:
 
-  subject: <the value for subject>
-  predicate: <the value for predicate>
-  object: <the value for object>
-  qualifier: <A qualifier for the statements, e.g. "NOT" for negation>
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
   subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
   object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
 
 
   Text:
-  Biochemical evaluation of biotin dose IS USED TO TREAT Increased urinary excretion of 3-hydroxyisovaleric acid, 3-methylcrotonylglycine, 3-hydroxpropionic acid, and methylcitric acid>
+  Peritoneal dialysis COMBINED WITH Oral supplementation of biotin (10 mg/day) TREATS hyperammonaemia IN Holocarboxylase synthetase deficiency
 
   ===
 
 extracted_object:
-  triples:
-    - subject: Peritoneal dialysis COMBINED WITH Oral supplementation of biotin
-      predicate: TREATS
-      object: Holocarboxylase synthetase deficiency
-    - subject: Oral supplementation of biotin
-      predicate: TREATS
-      object: Metabolic acidosis
-    - subject: Oral supplementation of biotin
-      predicate: TREATS
-      object: Lactic acidaemia
-    - subject: Oral supplementation of biotin
-      predicate: TREATS
-      object: Hyperammonaemia
-    - subject: Oral supplementation of biotin
-      predicate: TREATS
-      object: Multiple carboxylase deficiency
-    - subject: Biochemical evaluation of biotin dose
-      predicate: IS USED TO TREAT
-      object: Increased urinary excretion of 3-hydroxyisovaleric acid, 3-methylcrotonylglycine,
-        3-hydroxpropionic acid, and methylcitric acid
-  action:
-    - <Peritoneal dialysis
+  primary_disease: MONDO:0009666
+  medical_actions:
+    - MAXO:0000603
     - Oral supplementation of biotin
-    - Biochemical evaluation of biotin dose>
-  disease:
-    - <Holocarboxylase synthetase deficiency
-    - MONDO:0000440
+  symptoms:
+    - Refused oral feeding
+    - Tachydyspnoeic
+    - Excessive weight loss
+    - HP:0001942
     - Lactic acidaemia
     - Hyperammonaemia
-    - Multiple carboxylase deficiency>
-  symptom:
-    - <Refusal of oral feeding
-    - Tachydyspnoea
-    - Excessive weight loss
     - Increased urinary excretion of 3-hydroxyisovaleric acid, 3-methylcrotonylglycine,
-      3-hydroxpropionic acid, and methylcitric acid>
-  action_to_disease:
-    - subject: Peritoneal dialysis COMBINED WITH Oral supplementation of biotin
+      3-hydroxpropionic acid, and methylcitric acid
+  chemicals:
+    - CHEBI:15956
+  action_annotation_relationships:
+    - subject: Oral supplementation
       predicate: TREATS
-      object:
-        - MONDO:0009666
-      subject_qualifier: COMBINED WITH
-    - subject: Oral supplementation of biotin
+      object: HP:0001942
+      qualifier: MONDO:0009666
+      subject_extension: CHEBI:15956
+    - subject: Oral supplementation
       predicate: TREATS
-      object:
-        - MONDO:0000440
-    - subject: Oral supplementation of biotin
+      object: lactic acidaemia
+      qualifier: MONDO:0009666
+      subject_extension: CHEBI:15956
+    - subject: Oral supplementation
       predicate: TREATS
-      object:
-        - Lactic acidaemia
-    - subject: Oral supplementation of biotin
+      object: hyperammonaemia
+      qualifier: MONDO:0009666
+      subject_qualifier: 10 mg/day
+      subject_extension: CHEBI:15956
+    - subject: Oral supplementation
       predicate: TREATS
-      object:
-        - Hyperammonaemia
-    - subject: Oral supplementation of biotin
+      object: increased urinary excretion of 3-hydroxyisovaleric acid
+      qualifier: MONDO:0009666
+      subject_qualifier: 10 mg/day
+      subject_extension: CHEBI:15956
+    - subject: Oral supplementation
       predicate: TREATS
-      object:
-        - MONDO:0015454
-  action_to_symptom:
-    - subject: Biochemical evaluation of biotin dose
-      predicate: IS USED TO TREAT
-      object:
-        - Increased urinary excretion of 3-hydroxyisovaleric acid
-        - 3-methylcrotonylglycine
-        - 3-hydroxpropionic acid
-        - methylcitric acid
+      object: increased urinary excretion of 3-methylcrotonylglycine
+      qualifier: MONDO:0009666
+      subject_qualifier: 10 mg/day
+      subject_extension: CHEBI:15956
+    - subject: <Oral supplementation>
+      predicate: <TREATS>
+      object: <increased urinary excretion>
+      qualifier: <Holocarboxylase synthetase deficiency>
+      subject_qualifier: <10 mg/day>
+      object_qualifier: <NA>
+      subject_extension: <biotin>
+      object_extension: <3-hydroxpropionic acid>
+    - subject: Oral supplementation
+      predicate: TREATS
+      object: increased urinary excretion of methylcitric acid
+      qualifier: MONDO:0009666
+      subject_qualifier: 10 mg/day
+      subject_extension: CHEBI:15956
+    - subject: Peritoneal dialysis COMBINED WITH Oral supplementation of biotin (10
+        mg/day)
+      predicate: TREATS
+      object: HP:0001942
+      qualifier: MONDO:0009666
+      subject_extension: Oral supplementation of biotin
+    - subject: Peritoneal dialysis COMBINED WITH Oral supplementation of biotin (10
+        mg/day)
+      predicate: TREATS
+      object: lactic acidaemia
+      qualifier: MONDO:0009666
+      subject_extension: Oral supplementation of biotin
+    - subject: Peritoneal dialysis COMBINED WITH Oral supplementation
+      predicate: TREATS
+      object: hyperammonaemia
+      qualifier: MONDO:0009666
+      subject_qualifier: 10 mg/day
+      subject_extension: CHEBI:15956
 named_entities:
-  - id: MONDO:0005365
-    label: hearing loss
   - id: MONDO:0008891
     label: Brown-Vialetto-Van Laere syndrome
-  - id: MONDO:0003608
+  - id: MAXO:0009004
+    label: exome sequencing
+  - id: HP:0000407
+    label: sensorineural hearing loss
+  - id: HP:0002093
+    label: respiratory insufficiency
+  - id: HP:0010871
+    label: sensory ataxia
+  - id: HP:0000648
     label: optic atrophy
-  - id: MONDO:0100062
+  - id: CHEBI:17015
+    label: riboflavin
+  - id: HP:0012469
     label: infantile spasms
-  - id: MONDO:0005027
-    label: seizures
-  - id: MONDO:0005047
+  - id: HP:0000789
     label: infertility
-  - id: MAXO:0010030
-    label: bone marrow transplantation
+  - id: HP:0005268
+    label: miscarriage
+  - id: CHEBI:16709
+    label: pyridoxine
+  - id: CHEBI:18405
+    label: pyridoxal 5'-phosphate
+  - id: CHEBI:27306
+    label: vitamin B6
+  - id: CHEBI:24041
+    label: flavin mononucleotide
+  - id: HP:0001250
+    label: seizures
   - id: MONDO:0009974
-    label: familial hemophagocytic lymphohistiocytosis
-  - id: MONDO:0011382
-    label: sickle cell disease
-  - id: MONDO:0013517
-    label: beta-thalassemia
-  - id: MONDO:0000440
-    label: Metabolic acidosis
+    label: Familial hemophagocytic lymphohistiocytosis
+  - id: MAXO:0010030
+    label: bone marrow transplantation (BMT)
+  - id: CHEBI:28901
+    label: busulfan
+  - id: CHEBI:4027
+    label: cyclophosphamide
+  - id: CHEBI:4911
+    label: etoposide
+  - id: MAXO:0000757
+    label: infusion
+  - id: CHEBI:41264
+    label: busulfan (BU), cyclophosphamide (CP), etoposide (VP16), antithymocyte globulin
+      (ATG)
+  - id: MAXO:0000750
+    label: conditioning regimen
+  - id: CHEBI:73896
+    label: gene therapy (GT)
   - id: MONDO:0009666
     label: Holocarboxylase synthetase deficiency
-  - id: MONDO:0015454
-    label: Multiple carboxylase deficiency
+  - id: MAXO:0000603
+    label: Peritoneal dialysis
+  - id: HP:0001942
+    label: Metabolic acidosis
+  - id: CHEBI:15956
+    label: Biotin

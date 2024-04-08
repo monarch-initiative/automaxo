@@ -1,0 +1,186 @@
+---
+input_text: "Symptom aggravation after withdrawal of metal chelating agent therapy
+  in patients with Wilson's disease.OBJECTIVE: To study the aggravation of clinical
+  symptoms after discontinuation of metal chelating agent therapy in Wilson's disease
+  (WD) patients, analyze the causes of aggravation, and observe the prognosis. METHODS:
+  40 WD patients (cerebral type 30 cases and hepatic type 10 cases) who stopped using
+  metal chelating agent were selected, 40 WD patients with normal therapy, and 10
+  normal control cases were selected. All patients underwent neurological symptom
+  evaluation using modified Young scale, Child-Pugh liver function grading, metal
+  metabolism, and disease typing. Magnetic sensitivity imaging (SWI), diffusion tensor
+  imaging (DTI), and magnetic resonance spectroscopy imaging (MRS) were performed.
+  According to the imaging results, WD patients were divided into metal deposition
+  stage, fiber damage stage, and neuron necrosis stage. All patients were treated
+  with metal chelating agent for 6 months. RESULTS: The score of modified Young scale
+  in drug withdrawal group was lower than that in normal treatment group before drug
+  withdrawal (p = .032). The score of modified Young scale was higher after drug withdrawal
+  than before (p = .011). The number of Child-Pugh B-grade patients after drug withdrawal
+  was more than that before drug withdrawal and in normal treatment group. The proportion
+  of patients in the stage of neuronal necrosis after drug withdrawal (25%) was higher
+  than that before drug withdrawal (10%) (p = .025). After drug withdrawal, urine
+  copper was significantly higher than that before drug withdrawal and in the normal
+  treatment group (p = .032, .039). After the withdrawal group resumed metal chelating
+  agent treatment, 34.2% of neurological symptoms worsened. CONCLUSIONS: WD patients
+  showed neurological symptoms aggravation and increased liver injury after metal
+  chelating agent withdrawal. Increased metal deposition and new nerve injury occurred
+  in the brain. After re-treatment, the aggravated neurological symptoms of WD patients
+  are difficult to reverse."
+raw_completion_output: |-
+  primary_disease: Wilson's disease
+
+  medical_actions: Withdrawal of metal chelating agent therapy; Treatment with metal chelating agent; Neurological symptom evaluation; Child-Pugh liver function grading; Metal metabolism analysis; SWI; DTI; MRS
+
+  symptoms: Aggravation of clinical symptoms; Neurological symptoms aggravation; Increased liver injury; Increased metal deposition; New nerve injury
+
+  chemicals: Metal chelating agent
+
+  action_annotation_relationships: Withdrawal of metal chelating agent therapy TREATS Aggravation of clinical symptoms IN Wilson's disease; Treatment with metal chelating agent TREATS Neurological symptoms aggravation IN Wilson's disease; Treatment with metal chelating agent TREATS Increased liver injury IN Wilson's disease; Treatment with metal chelating agent (with Metal chelating agent) TREATS Increased metal deposition IN Wilson's disease; Treatment with metal chelating agent (with Metal chelating agent) TREATS New nerve injury IN Wilson's disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Treatment with metal chelating agent (with Metal chelating agent) TREATS New nerve injury IN Wilson's disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010200
+  medical_actions:
+    - Withdrawal of metal chelating agent therapy
+    - Treatment with metal chelating agent
+    - Neurological symptom evaluation
+    - Child-Pugh liver function grading
+    - Metal metabolism analysis
+    - SWI
+    - DTI
+    - MRS
+  symptoms:
+    - Aggravation of clinical symptoms
+    - Neurological symptoms aggravation
+    - Increased liver injury
+    - Increased metal deposition
+    - New nerve injury
+  chemicals:
+    - Metal chelating agent
+  action_annotation_relationships:
+    - subject: Withdrawal of metal chelating agent therapy
+      predicate: TREATS
+      object: Aggravation of clinical symptoms
+      qualifier: MONDO:0010200
+      subject_extension: metal chelating agent
+    - subject: Treatment
+      predicate: TREATS
+      object: Neurological symptoms aggravation
+      qualifier: MONDO:0010200
+      subject_extension: metal chelating agent
+    - subject: Treatment
+      predicate: TREATS
+      object: Increased liver injury
+      qualifier: MONDO:0010200
+      subject_extension: metal chelating agent
+    - subject: Treatment
+      predicate: TREATS
+      object: Increased metal deposition
+      qualifier: MONDO:0010200
+      subject_qualifier: with Metal chelating agent
+      subject_extension: Metal chelating agent
+    - subject: Treatment with metal chelating agent
+      predicate: TREATS
+      object: New nerve injury
+      qualifier: MONDO:0010200
+      subject_extension: Metal chelating agent
+named_entities:
+  - id: MONDO:0010200
+    label: Wilson disease
+  - id: HP:0025464
+    label: oxidative stress
+  - id: CHEBI:28694
+    label: copper
+  - id: CHEBI:18248
+    label: iron
+  - id: CHEBI:149681
+    label: catalase (CAT)
+  - id: CHEBI:566274
+    label: malondialdehyde (MDA)
+  - id: CHEBI:16480
+    label: nitric oxide (NO)
+  - id: MAXO:0001175
+    label: liver transplantation
+  - id: HP:0006554
+    label: acute liver failure
+  - id: HP:0003256
+    label: coagulopathy
+  - id: HP:0002480
+    label: hepatic encephalopathy
+  - id: HP:0001397
+    label: Liver steatosis
+  - id: HP:0001399
+    label: Liver failure
+  - id: MAXO:0000127
+    label: Genetic testing
+  - id: CHEBI:137245
+    label: d-penicillamine (DP)
+  - id: CHEBI:39501
+    label: Trientine
+  - id: HP:0001878
+    label: hemolytic anemia
+  - id: HP:0002148
+    label: hypophosphatemia
+  - id: MAXO:0000376
+    label: Liver biopsy
+  - id: HP:0001404
+    label: Hepatocellular necrosis
+  - id: CHEBI:61049
+    label: Tacrolimus
+  - id: CHEBI:50868
+    label: Penicillamine
+  - id: HP:0001332
+    label: Dystonia
+  - id: HP:0002072
+    label: Chorea
+  - id: HP:0001337
+    label: Tremor
+  - id: HP:0001300
+    label: Parkinsonism
+  - id: HP:0002305
+    label: Athetosis
+  - id: HP:0001336
+    label: Myoclonus
+  - id: CHEBI:29987
+    label: Glutamate
+  - id: CHEBI:16856
+    label: Glutathione
+  - id: CHEBI:53498
+    label: Total antioxidant capacity (TAC)
+  - id: CHEBI:8830
+    label: rhodanine
+  - id: MONDO:0013209
+    label: Non alcoholic fatty liver disease (NAFLD)
+  - id: HP:0001395
+    label: Liver fibrosis
+  - id: CHEBI:60654
+    label: Valproate
+  - id: CHEBI:50858
+    label: Corticosteroids
+  - id: CHEBI:22587
+    label: Antivirals
+  - id: HP:0030890
+    label: White matter hyperintensity
+  - id: CHEBI:7959
+    label: D-penicillamine
+  - id: HP:0100754
+    label: Mania
+  - id: HP:0100022
+    label: movement disorders
+  - id: CHEBI:34936
+    label: D-penicillamine (DPA)

@@ -31,22 +31,43 @@ def load_yaml_files(directory_path: str) -> list:
     return data
 
 
-def extract_triplets(data: list) -> tuple:
+def extract_triplets(data: list) -> list:
     triplets = []
     named_entities = {}
 
-    for article in tqdm(data, desc="Extracting triplets", total=len(data)):
+    for article in data:
         pubmed_id = article['pubmed_id']
         named_entities_dict = {ne['id']: ne['label'] for ne in article.get('named_entities', [])}
         named_entities[pubmed_id] = named_entities_dict
 
-        for section in ['action_to_disease', 'action_to_symptom']:
-            for triplet in article.get('extracted_object', {}).get(section, []):
-                if 'object' in triplet:
-                    for obj in triplet['object']:
-                        subject_label = named_entities_dict.get(triplet['subject'], '')
-                        object_label = named_entities_dict.get(obj, '')
-                        triplets.append(({triplet['subject']: subject_label}, triplet['predicate'], {obj: object_label}, pubmed_id))
+        for triplet in article.get('extracted_object', {}).get('action_annotation_relationships', []):
+            subject = triplet.get('subject', '').strip('<>')
+            predicate = triplet.get('predicate', '').strip('<>')
+            object_ = triplet.get('object', '').strip('<>')
+            qualifier = triplet.get('qualifier', '').strip('<>').replace('None', '').replace('Not applicable', '')
+            subject_qualifier = triplet.get('subject_qualifier', '').strip('<>').replace('None', '').replace('Not applicable', '')
+            object_qualifier = triplet.get('object_qualifier', '').strip('<>').replace('None', '').replace('Not applicable', '')
+            subject_extension = triplet.get('subject_extension', '').strip('<>').replace('None', '').replace('Not applicable', '')
+            object_extension = triplet.get('object_extension', '').strip('<>').replace('None', '').replace('Not applicable', '')
+
+            if not (subject and predicate and object_):
+                continue  # Skip if any of subject, predicate, or object is missing
+
+            subject_label = named_entities_dict.get(subject, '')
+            object_label = named_entities_dict.get(object_, '')
+
+            triplets.append({
+                'subject': {subject: subject_label},
+                'predicate': predicate,
+                'object': {object_: object_label},
+                'qualifier': qualifier,
+                'subject_qualifier': subject_qualifier,
+                'object_qualifier': object_qualifier,
+                'subject_extension': subject_extension,
+                'object_extension': object_extension,
+                'pubmed_id': pubmed_id
+            })
+
     return triplets
 
 
@@ -61,11 +82,21 @@ def count_triplets(triplets: list) -> defaultdict:
         defaultdict: A dictionary with triplets as keys and their count and associated PubMed IDs as values.
     """
     triplet_counts = defaultdict(lambda: {'count': 0, 'pubmed_ids': set()})
-    for subject, predicate, obj, pubmed_id in triplets:
-        subject_str = f"{list(subject.keys())[0]}: {list(subject.values())[0]}"
-        object_str = f"{list(obj.keys())[0]}: {list(obj.values())[0]}"
-        triplet_counts[(subject_str, predicate, object_str)]['count'] += 1
-        triplet_counts[(subject_str, predicate, object_str)]['pubmed_ids'].add(pubmed_id)
+    for triplet in triplets:
+        subject_str = f"{list(triplet['subject'].keys())[0]}: {list(triplet['subject'].values())[0]}"
+        object_str = f"{list(triplet['object'].keys())[0]}: {list(triplet['object'].values())[0]}"
+        predicate = triplet['predicate']
+        qualifier = triplet['qualifier']
+        subject_qualifier = triplet['subject_qualifier']
+        object_qualifier = triplet['object_qualifier']
+        subject_extension = triplet['subject_extension']
+        object_extension = triplet['object_extension']
+        pubmed_id = triplet['pubmed_id']
+
+        key = (subject_str, predicate, object_str, qualifier, subject_qualifier, object_qualifier, subject_extension, object_extension)
+
+        triplet_counts[key]['count'] += 1
+        triplet_counts[key]['pubmed_ids'].add(pubmed_id)
 
     return triplet_counts
 
@@ -138,8 +169,8 @@ def combine_triplets_with_pmid_info(ranked_triplets: List[dict], pmid_info_dicti
 @click.command()
 @click.option('-i', '--yaml_directory_path', required=True, help='Path to the directory containing YAML files')
 @click.option('-s', '--mesh_info_file_path', required=True, help='Path to the file with selected PMID and MeSH info')
-@click.option('-o', '--output_path', required=True, help='Path to the output JSON file')
 @click.option('-n', '--no_replaced_file_path', required=True, help='Path to no_replaced tsv file with raw text')
+@click.option('-o', '--output_path', required=True, help='Path to the output JSON file')
 
 def main(yaml_directory_path: str, mesh_info_file_path: str, output_path: str, no_replaced_file_path:str ):
     """

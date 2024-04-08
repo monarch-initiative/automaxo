@@ -30,80 +30,159 @@ input_text: 'Genetic Variants and Effect Modifiers of QT Interval Prolongation i
   in cardiac repolarization in SCD. Larger replication studies are needed to confirm
   these findings and elucidate the underlying mechanisms.'
 raw_completion_output: |-
-  action: <Genotyping of candidate genetic variants; Construction of an unweighted polygenic risk score (PRS); Linear regression analysis; Stratification analysis; Evaluation of the PRS effect on QTc interval; Evaluation of serum alanine transaminase (ALT) as a modifying factor>
-  disease: <Sickle cell disease; Liver disease>
-  symptom: <Prolongation of the QTc interval>
-  action_to_disease: <Genotyping of candidate genetic variants IS USED TO DIAGNOSE Sickle cell disease; Construction of an unweighted polygenic risk score (PRS) IS USED TO EXPLORE Sickle cell disease; Evaluation of serum alanine transaminase (ALT) as a modifying factor IS USED TO EXPLORE Liver disease>
-  action_to_symptom: <Evaluation of the PRS effect on QTc interval IS USED TO DIAGNOSE Prolongation of the QTc interval>
-  triples: <Genotyping of candidate genetic variants IS USED TO DIAGNOSE Sickle cell disease; Construction of an unweighted polygenic risk score (PRS) IS USED TO EXPLORE Sickle cell disease; Evaluation of serum alanine transaminase (ALT) as a modifying factor IS USED TO EXPLORE Liver disease; Evaluation of the PRS effect on QTc interval IS USED TO DIAGNOSE Prolongation of the QTc interval>
+  primary_disease: Sickle cell disease (SCD)
+
+  medical_actions: Genotyping of candidate genetic variants; Use of unweighted polygenic risk score (PRS); Linear regression analysis; Stratification analysis
+
+  symptoms: Prolongation of the heart rate-corrected QT interval (QTc)
+
+  chemicals: 
+
+  action_annotation_relationships: Genotyping of candidate genetic variants TREATS prolongation of the heart rate-corrected QT interval (QTc) IN Sickle cell disease (SCD); Use of unweighted polygenic risk score (PRS) TREATS prolongation of the heart rate-corrected QT interval (QTc) IN Sickle cell disease (SCD); Linear regression analysis TREATS prolongation of the heart rate-corrected QT interval (QTc) IN Sickle cell disease (SCD); Stratification analysis TREATS prolongation of the heart rate-corrected QT interval (QTc) IN Sickle cell disease (SCD)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
-  subject: <the value for subject>
-  predicate: <the value for predicate>
-  object: <the value for object>
-  qualifier: <A qualifier for the statements, e.g. "NOT" for negation>
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
   subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
   object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
 
 
   Text:
-  Evaluation of the PRS effect on QTc interval IS USED TO DIAGNOSE Prolongation of the QTc interval>
+  Stratification analysis TREATS prolongation of the heart rate-corrected QT interval (QTc) IN Sickle cell disease (SCD)
 
   ===
 
 extracted_object:
-  triples:
-    - subject: Genotyping of candidate genetic variants
-      predicate: IS USED TO DIAGNOSE
-      object: Sickle cell disease
-    - subject: Construction of an unweighted polygenic risk score (PRS)
-      predicate: IS USED TO EXPLORE
-      object: Sickle cell disease
-    - subject: Evaluation of serum alanine transaminase (ALT)
-      predicate: IS USED TO EXPLORE
-      object: Liver disease
-      subject_qualifier: as a modifying factor
-    - subject: Evaluation of the PRS effect on QTc interval
-      predicate: IS USED TO DIAGNOSE
-      object: Prolongation of the QTc interval
-  action:
-    - <Genotyping of candidate genetic variants
-    - Construction of an unweighted polygenic risk score (PRS)
+  primary_disease: MONDO:0007374
+  medical_actions:
+    - Genotyping of candidate genetic variants
+    - Use of unweighted polygenic risk score (PRS)
     - Linear regression analysis
     - Stratification analysis
-    - Evaluation of the PRS effect on QTc interval
-    - Evaluation of serum alanine transaminase (ALT) as a modifying factor>
-  disease:
-    - <Sickle cell disease
-    - Liver disease>
-  symptom:
-    - <Prolongation of the QTc interval>
-  action_to_disease:
-    - subject: Genotyping of candidate genetic variants
-      predicate: IS USED TO DIAGNOSE
-      object:
-        - MONDO:0011382
-    - subject: Construction of an unweighted polygenic risk score (PRS)
-      predicate: IS USED TO EXPLORE
-      object:
-        - MONDO:0011382
-    - subject: Evaluation of serum alanine transaminase (ALT)
-      predicate: IS USED TO EXPLORE
-      object:
-        - MONDO:0005154
-      subject_qualifier: as a modifying factor
-  action_to_symptom:
-    - subject: Evaluation of the PRS effect on QTc interval
-      predicate: IS USED TO DIAGNOSE
-      object:
-        - Prolongation of the QTc interval
+  symptoms:
+    - Prolongation of the heart rate-corrected QT interval (QTc)
+  action_annotation_relationships:
+    - subject: <Genotyping>
+      predicate: <TREATS>
+      object: <prolongation of the heart rate-corrected QT interval (QTc)>
+      qualifier: MONDO:0007374
+      subject_extension: <candidate genetic variants>
+    - subject: Use
+      predicate: TREATS
+      object: prolongation of the heart rate-corrected QT interval (QTc)
+      qualifier: MONDO:0007374
+      subject_extension: CHEBI:26308
+    - subject: Linear regression analysis
+      predicate: TREATS
+      object: prolongation of the heart rate-corrected QT interval (QTc)
+      qualifier: MONDO:0007374
+      subject_extension: Linear regression analysis
+    - subject: <Stratification analysis>
+      predicate: <TREATS>
+      object: <prolongation of the heart rate-corrected QT interval (QTc)>
+      qualifier: MONDO:0007374
+      subject_extension: <Stratification analysis>
 named_entities:
   - id: MONDO:0011382
-    label: Sickle cell disease
-  - id: HP:0012531
-    label: Pain
+    label: sickle cell disease
+  - id: MONDO:0100096
+    label: SARS-CoV-2
   - id: MONDO:0007374
-    label: <Sickle Cell Disease (SCD)
-  - id: MONDO:0005154
-    label: Liver disease
+    label: Sickle cell disease (SCD)
+  - id: HP:0100602
+    label: Preeclampsia
+  - id: HP:0001511
+    label: Intrauterine growth restriction
+  - id: CHEBI:44423
+    label: Hydroxyurea (HU)
+  - id: CHEBI:35143
+    label: Haemoglobin (Hb)
+  - id: HP:0001622
+    label: Preterm delivery
+  - id: CHEBI:50858
+    label: corticosteroids
+  - id: HP:0032654
+    label: Endothelial dysfunction
+  - id: HP:0012418
+    label: Hypoxia
+  - id: HP:0001409
+    label: Portal hypertension
+  - id: MAXO:0001001
+    label: Gene therapies
+  - id: MAXO:0000756
+    label: Transfusion
+  - id: MAXO:0000747
+    label: Hematopoietic stem cell transplantation
+  - id: MAXO:0001298
+    label: therapy
+  - id: MAXO:0009047
+    label: Total hip replacement (THR)
+  - id: CHEBI:22720
+    label: Benzodiazepines
+  - id: MONDO:0006079
+    label: Acute chest syndrome (ACS)
+  - id: CHEBI:24859
+    label: Iodine
+  - id: MONDO:0005632
+    label: Acute chest syndrome
+  - id: CHEBI:17334
+    label: penicillin
+  - id: MAXO:0000118
+    label: immunizations
+  - id: HP:0001903
+    label: anemia
+  - id: HP:0001297
+    label: stroke
+  - id: HP:0012532
+    label: Chronic pain
+  - id: CHEBI:3216
+    label: Buprenorphine
+  - id: HP:0001518
+    label: Low birth weight
+  - id: MAXO:0001006
+    label: Full blood count
+  - id: MAXO:0000825
+    label: Reticulocyte count
+  - id: MAXO:0000427
+    label: Brain magnetic resonance imaging (MRI)
+  - id: HP:0012592
+    label: albuminuria
+  - id: HP:0100543
+    label: cognitive dysfunction
+  - id: HP:0000739
+    label: anxiety
+  - id: HP:0010783
+    label: Redness
+  - id: CHEBI:33281
+    label: antibiotics
+  - id: MONDO:0009693
+    label: Multiple Myeloma
+  - id: CHEBI:145536
+    label: Motixafortide
+  - id: CHEBI:114786
+    label: sodium metabisulfite
+  - id: CHEBI:15365
+    label: aspirin
+  - id: HP:0000093
+    label: Proteinuria
+  - id: HP:0012622
+    label: CKD
+  - id: MAXO:0000969
+    label: optical coherence tomography (OCT)
+  - id: HP:0000505
+    label: visual impairment
+  - id: CHEBI:28901
+    label: busulfan
+  - id: CHEBI:82557
+    label: treosulfan
+  - id: CHEBI:9570
+    label: thiotepa
+  - id: HP:0100603
+    label: Hypertensive disorder of pregnancy (HDP)
+  - id: CHEBI:26308
+    label: unweighted polygenic risk score (PRS)

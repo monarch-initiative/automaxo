@@ -1,0 +1,178 @@
+---
+input_text: 'Activation of Autophagy, Observed in Liver Tissues From Patients With
+  Wilson Disease and From ATP7B-Deficient Animals, Protects Hepatocytes From Copper-Induced
+  Apoptosis.BACKGROUND & AIMS: Wilson disease (WD) is an inherited disorder of copper
+  metabolism that leads to copper accumulation and toxicity in the liver and brain.
+  It is caused by mutations in the adenosine triphosphatase copper transporting beta
+  gene (ATP7B), which encodes a protein that transports copper from hepatocytes into
+  the bile. We studied ATP7B-deficient cells and animals to identify strategies to
+  decrease copper toxicity in patients with WD. METHODS: We used RNA-seq to compare
+  gene expression patterns between wild-type and ATP7B-knockout HepG2 cells exposed
+  to copper. We collected blood and liver tissues from Atp7b-/- and Atp7b+/- (control)
+  rats (LPP) and mice; some mice were given 5 daily injections of an autophagy inhibitor
+  (spautin-1) or vehicle. We obtained liver biopsies from 2 patients with WD in Italy
+  and liver tissues from patients without WD (control). Liver tissues were analyzed
+  by immunohistochemistry, immunofluorescence, cell viability, apoptosis assays, and
+  electron and confocal microscopy. Proteins were knocked down in cell lines using
+  small interfering RNAs. Levels of copper were measured in cell lysates, blood samples,
+  liver homogenates, and subcellular fractions by spectroscopy. RESULTS: After exposure
+  to copper, ATP7B-knockout cells had significant increases in the expression of 103
+  genes that regulate autophagy (including MAP1LC3A, known as LC3) compared with wild-type
+  cells. Electron and confocal microscopy visualized more autophagic structures in
+  the cytoplasm of ATP7B-knockout cells than wild-type cells after copper exposure.
+  Hepatocytes in liver tissues from patients with WD and from Atp7b-/- mice and rats
+  (but not controls) had multiple autophagosomes. In ATP7B-knockout cells, mammalian
+  target of rapamycin (mTOR) had decreased activity and was dissociated from lysosomes;
+  this resulted in translocation of the mTOR substrate transcription factor EB to
+  the nucleus and activation of autophagy-related genes. In wild-type HepG2 cells
+  (but not ATP7B-knockout cells), exposure to copper and amino acids induced recruitment
+  of mTOR to lysosomes. Pharmacologic inhibitors of autophagy or knockdown of autophagy
+  proteins ATG7 and ATG13 induced and accelerated the death of ATP7B-knockout HepG2
+  cells compared with wild-type cells. Autophagy protected ATP7B-knockout cells from
+  copper-induced death. CONCLUSION: ATP7B-deficient hepatocytes, such as in those
+  in patients with WD, activate autophagy in response to copper overload to prevent
+  copper-induced apoptosis. Agents designed to activate this autophagic pathway might
+  decrease copper toxicity in patients with WD.'
+raw_completion_output: |-
+  primary_disease: Wilson Disease (WD)
+
+  medical_actions: RNA-seq to compare gene expression; collected blood and liver tissues; liver biopsies; immunohistochemistry; immunofluorescence; cell viability assays; apoptosis assays; electron and confocal microscopy; proteins knocked down using small interfering RNAs; spectroscopy to measure levels of copper; pharmacologic inhibitors of autophagy; knockdown of autophagy proteins ATG7 and ATG13
+
+  symptoms: copper accumulation and toxicity in the liver and brain; copper-induced apoptosis
+
+  chemicals: spautin-1; copper; amino acids
+
+  action_annotation_relationships: activation of autophagy TREATS copper-induced apoptosis IN Wilson Disease (with spautin-1); pharmacologic inhibitors of autophagy PREVENT autophagy activation IN Wilson Disease; knockdown of autophagy proteins ATG7 and ATG13 PREVENT autophagy activation IN Wilson Disease; RNA-seq to compare gene expression DETECTS gene expression changes IN Wilson Disease; spectroscopy to measure levels of copper DETECTS copper accumulation IN Wilson Disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  spectroscopy to measure levels of copper DETECTS copper accumulation IN Wilson Disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010200
+  medical_actions:
+    - RNA-seq to compare gene expression
+    - collected blood and liver tissues
+    - MAXO:0000376
+    - immunohistochemistry
+    - immunofluorescence
+    - cell viability assays
+    - MAXO:0035080
+    - electron and confocal microscopy
+    - proteins knocked down using small interfering RNAs
+    - spectroscopy to measure levels of copper
+    - pharmacologic inhibitors of autophagy
+    - knockdown of autophagy proteins ATG7 and ATG13
+  symptoms:
+    - copper accumulation and toxicity in the liver and brain
+    - copper-induced apoptosis
+  chemicals:
+    - spautin-1
+    - CHEBI:28694
+    - CHEBI:33709
+  action_annotation_relationships:
+    - subject: activation of autophagy
+      predicate: TREATS
+      object: apoptosis
+      qualifier: MONDO:0010200
+      subject_extension: spautin-1
+      object_extension: copper-induced
+    - subject: pharmacologic inhibitors
+      predicate: PREVENTS
+      object: autophagy activation
+      qualifier: MONDO:0010200
+      subject_extension: pharmacologic inhibitors of autophagy
+      object_extension: autophagy activation
+    - subject: knockdown
+      predicate: PREVENTS
+      object: autophagy activation
+      qualifier: MONDO:0010200
+      subject_qualifier: autophagy proteins
+      subject_extension: ATG7 and ATG13
+      object_extension: autophagy activation
+    - subject: RNA-seq
+      predicate: DETECTS
+      object: gene expression changes
+      qualifier: MONDO:0010200
+    - subject: spectroscopy
+      predicate: DETECTS
+      object: copper accumulation
+      qualifier: MONDO:0010200
+named_entities:
+  - id: MONDO:0010200
+    label: Wilson's disease
+  - id: HP:0001695
+    label: cardiac arrest
+  - id: HP:0001685
+    label: myocardial fibrosis
+  - id: HP:0001663
+    label: ventricular fibrillation
+  - id: CHEBI:38161
+    label: Chelating agents
+  - id: MAXO:0000016
+    label: Cell therapy
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: HP:0001392
+    label: Hepatic disease
+  - id: CHEBI:30703
+    label: Tetrathiomolybdate (TTM)
+  - id: CHEBI:28694
+    label: Copper (Cu)
+  - id: CHEBI:18248
+    label: Iron (Fe)
+  - id: CHEBI:27363
+    label: Zinc (Zn)
+  - id: CHEBI:82594
+    label: Ferritin (SFr)
+  - id: HP:0001744
+    label: Splenomegaly
+  - id: HP:0001541
+    label: Ascites
+  - id: HP:0001394
+    label: Cirrhosis
+  - id: CHEBI:46195
+    label: Paracetamol
+  - id: HP:0006554
+    label: Acute Liver Failure
+  - id: CHEBI:21547
+    label: N-acetyl aspartate (NAA)
+  - id: CHEBI:15354
+    label: Choline (Cho)
+  - id: CHEBI:157802
+    label: Creatine (Cr)
+  - id: MAXO:0009095
+    label: Treatment with zinc
+  - id: HP:0001399
+    label: Liver failure
+  - id: CHEBI:7959
+    label: d-penicillamine
+  - id: CHEBI:39501
+    label: Trientine
+  - id: MAXO:0001175
+    label: liver transplantation
+  - id: MAXO:0000376
+    label: liver biopsy
+  - id: HP:0033771
+    label: pleuritic chest pain
+  - id: HP:0000952
+    label: jaundice
+  - id: HP:0001919
+    label: acute kidney injury
+  - id: MAXO:0035080
+    label: apoptosis assays
+  - id: CHEBI:33709
+    label: amino acids

@@ -19,203 +19,207 @@ input_text: 'SCULP study: The benefits of skin graft pellets on the pain of sick
   effect in the management of patients with SCLU, and significantly notice reduction
   of wound surface area within one month.'
 raw_completion_output: |-
-  action: <autologous skin graft; visual analog scale; cumulative analgesic consumption; assessment of wound healing; pinch grafts>
-  disease: <major sickle cell disease (SCLU); sickle cell leg ulcers (SCLU)>
-  symptom: <pain>
-  action_to_disease: <autologous skin graft TREATS major sickle cell disease (SCLU); autologous skin graft TREATS sickle cell leg ulcers (SCLU); pinch grafts TREAT sickle cell leg ulcers (SCLU)>
-  action_to_symptom: <autologous skin graft IS USED TO TREAT pain; visual analog scale IS USED TO MEASURE pain; pinch grafts ARE USED TO TREAT pain>
-  triples: <autologous skin graft TREATS major sickle cell disease (SCLU); autologous skin graft TREATS sickle cell leg ulcers (SCLU); pinch grafts TREAT sickle cell leg ulcers (SCLU); autologous skin graft IS USED TO TREAT pain; visual analog scale IS USED TO MEASURE pain; pinch grafts ARE USED TO TREAT pain>
+  primary_disease: sickle cell leg ulcers (SCLU)
+
+  medical_actions: skin grafting; autologous skin graft; visual analog scale (VAS) measurement; analgesic consumption measurement; wound healing assessment
+
+  symptoms: pain; wound surface area
+
+  chemicals: analgesics; mild opioids
+
+  action_annotation_relationships: skin grafting TREATS pain IN sickle cell leg ulcers (SCLU); skin grafting REDUCES wound surface area IN sickle cell leg ulcers (SCLU); analgesics TREATS pain IN sickle cell leg ulcers (SCLU); mild opioids TREATS pain IN sickle cell leg ulcers (SCLU)
 prompt: |+
   Split the following piece of text into fields in the following format:
 
-  subject: <the value for subject>
-  predicate: <the value for predicate>
-  object: <the value for object>
-  qualifier: <A qualifier for the statements, e.g. "NOT" for negation>
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
   subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
   object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
 
 
   Text:
-  pinch grafts ARE USED TO TREAT pain>
+  mild opioids TREATS pain IN sickle cell leg ulcers (SCLU)
 
   ===
 
 extracted_object:
-  triples:
-    - subject: autologous skin graft
+  primary_disease: sickle cell leg ulcers (SCLU)
+  medical_actions:
+    - MAXO:0010041
+    - autologous skin graft
+    - visual analog scale (VAS) measurement
+    - analgesic consumption measurement
+    - wound healing assessment
+  symptoms:
+    - HP:0012531
+    - wound surface area
+  chemicals:
+    - CHEBI:35480
+    - mild opioids
+  action_annotation_relationships:
+    - subject: MAXO:0010041
       predicate: TREATS
-      object: major sickle cell disease
-    - subject: autologous skin graft
+      object: HP:0012531
+      qualifier: sickle cell leg ulcers
+    - subject: MAXO:0010041
+      predicate: REDUCES
+      object: wound surface area
+      qualifier: sickle cell leg ulcers
+    - subject: analgesics
       predicate: TREATS
-      object: sickle cell leg ulcers
-      object_qualifier: SCLU
-    - subject: pinch grafts
-      predicate: TREAT
-      object: sickle cell leg ulcers
-      object_qualifier: SCLU
-    - subject: autologous skin graft
-      predicate: IS USED TO TREAT
-      object: pain
-    - subject: visual analog scale
-      predicate: IS USED TO MEASURE
-      object: pain
-    - subject: pinch grafts
-      predicate: ARE USED TO TREAT
-      object: pain
-  action:
-    - <autologous skin graft
-    - visual analog scale
-    - cumulative analgesic consumption
-    - assessment of wound healing
-    - pinch grafts>
-  disease:
-    - <major sickle cell disease (SCLU)
-    - sickle cell leg ulcers (SCLU)>
-  symptom:
-    - <pain>
-  action_to_disease:
-    - subject: autologous skin graft
+      object: HP:0012531
+      qualifier: sickle cell leg ulcers (SCLU)
+      subject_extension: CHEBI:35480
+    - subject: mild opioids
       predicate: TREATS
-      object:
-        - major sickle cell disease (SCLU)
-    - subject: autologous skin graft
-      predicate: TREATS
-      object:
-        - sickle cell leg ulcers (SCLU)
-    - subject: pinch grafts
-      predicate: TREAT
-      object:
-        - sickle cell leg ulcers (SCLU)
-  action_to_symptom:
-    - subject: autologous skin graft
-      predicate: IS USED TO TREAT
-      object:
-        - HP:0012531
-    - subject: visual analog scale
-      predicate: IS USED TO MEASURE
-      object:
-        - HP:0012531
-    - subject: pinch grafts
-      predicate: ARE USED TO TREAT
-      object:
-        - HP:0012531
+      object: HP:0012531
+      qualifier: sickle cell leg ulcers (SCLU)
+      subject_qualifier: mild
+      subject_extension: opioids
 named_entities:
-  - id: MAXO:0001001
-    label: genetic therapies
   - id: MONDO:0011382
     label: sickle cell disease
   - id: MONDO:0100096
-    label: COVID-19
-  - id: MONDO:0005087
-    label: Respiratory disease
+    label: SARS-CoV-2
   - id: MONDO:0007374
-    label: <Sickle cell disease (SCD)
-  - id: MONDO:0005632
-    label: acute chest syndrome
-  - id: MONDO:0005550
-    label: infections
-  - id: MONDO:0005081
-    label: preeclampsia
-  - id: MONDO:0005030
-    label: intrauterine growth restriction
-  - id: MONDO:0000831
-    label: Thrombosis
-  - id: MONDO:0005080
+    label: Sickle cell disease (SCD)
+  - id: HP:0100602
+    label: Preeclampsia
+  - id: HP:0001511
+    label: Intrauterine growth restriction
+  - id: CHEBI:44423
+    label: Hydroxyurea (HU)
+  - id: CHEBI:35143
+    label: Haemoglobin (Hb)
+  - id: HP:0001622
+    label: Preterm delivery
+  - id: CHEBI:50858
+    label: corticosteroids
+  - id: HP:0032654
+    label: Endothelial dysfunction
+  - id: HP:0012418
+    label: Hypoxia
+  - id: HP:0001409
     label: Portal hypertension
-  - id: MONDO:0005149
-    label: Pulmonary Hypertension
+  - id: MAXO:0001001
+    label: Gene therapies
   - id: MAXO:0000756
-    label: transfusion
+    label: Transfusion
   - id: MAXO:0000747
-    label: hematopoietic stem cell transplantation
-  - id: MONDO:0005279
-    label: Pulmonary embolism
-  - id: HP:0025179
-    label: Ground glass opacities
+    label: Hematopoietic stem cell transplantation
+  - id: MAXO:0001298
+    label: therapy
+  - id: MAXO:0009047
+    label: Total hip replacement (THR)
+  - id: CHEBI:22720
+    label: Benzodiazepines
+  - id: MONDO:0006079
+    label: Acute chest syndrome (ACS)
+  - id: CHEBI:24859
+    label: Iodine
+  - id: MONDO:0005632
+    label: Acute chest syndrome
+  - id: CHEBI:17334
+    label: penicillin
   - id: MAXO:0000118
     label: immunizations
+  - id: HP:0001903
+    label: anemia
   - id: HP:0001297
     label: stroke
-  - id: MONDO:0002280
-    label: anemia
-  - id: HP:0001511
-    label: intrauterine growth retardation
-  - id: HP:0001518
-    label: low birth weight
-  - id: MAXO:0001006
-    label: full blood count
-  - id: MAXO:0000825
-    label: reticulocyte count
-  - id: MAXO:0000427
-    label: brain MRI
   - id: HP:0012532
-    label: chronic pain
-  - id: MONDO:0005098
-    label: stroke
-  - id: MONDO:0005192
-    label: Pancreatic cancer
-  - id: MONDO:0018874
-    label: Acute myeloid leukemia
+    label: Chronic pain
+  - id: CHEBI:3216
+    label: Buprenorphine
+  - id: HP:0001518
+    label: Low birth weight
+  - id: MAXO:0001006
+    label: Full blood count
+  - id: MAXO:0000825
+    label: Reticulocyte count
+  - id: MAXO:0000427
+    label: Brain magnetic resonance imaging (MRI)
+  - id: HP:0012592
+    label: albuminuria
+  - id: HP:0100543
+    label: cognitive dysfunction
+  - id: HP:0000739
+    label: anxiety
+  - id: HP:0010783
+    label: Redness
+  - id: CHEBI:33281
+    label: antibiotics
   - id: MONDO:0009693
-    label: Multiple myeloma
-  - id: MONDO:0800385
-    label: iron overload
-  - id: MONDO:0005300
-    label: Chronic Kidney Disease (CKD)
-  - id: MONDO:0003139
-    label: Mesangioproliferative Glomerulonephritis
-  - id: MONDO:0006835
-    label: Minimal Change Disease
-  - id: MONDO:0100313
-    label: Focal Segmental Glomerulosclerosis
-  - id: MONDO:0001085
-    label: Interstitial Nephritis
+    label: Multiple Myeloma
+  - id: CHEBI:145536
+    label: Motixafortide
+  - id: CHEBI:114786
+    label: sodium metabisulfite
+  - id: CHEBI:15365
+    label: aspirin
   - id: HP:0000093
     label: Proteinuria
+  - id: HP:0012622
+    label: CKD
   - id: MAXO:0000969
     label: optical coherence tomography (OCT)
   - id: HP:0000505
     label: visual impairment
-  - id: MONDO:0013730
-    label: acute graft-versus-host disease (GVHD)
-  - id: MONDO:0100467
-    label: hypertensive disorder of pregnancy
-  - id: HP:0000822
-    label: high blood pressure
-  - id: MONDO:0005170
-    label: Myeloid malignancies
-  - id: MONDO:0004745
-    label: priapism
+  - id: CHEBI:28901
+    label: busulfan
+  - id: CHEBI:82557
+    label: treosulfan
+  - id: CHEBI:9570
+    label: thiotepa
+  - id: HP:0100603
+    label: Hypertensive disorder of pregnancy (HDP)
+  - id: CHEBI:26308
+    label: unweighted polygenic risk score (PRS)
+  - id: CHEBI:35480
+    label: Analgesics
   - id: HP:0012213
-    label: Decreased GFR
+    label: Decreased glomerular filtration rate
+  - id: HP:0012398
+    label: Peripheral oedema
+  - id: HP:0001685
+    label: Cardiac fibrosis
   - id: MONDO:0005570
     label: hematologic diseases
+  - id: HP:0001871
+    label: hematologic diseases
+  - id: HP:0001712
+    label: Left ventricular hypertrophy
+  - id: HP:0007760
+    label: SCD
+  - id: MAXO:0000149
+    label: Hematopoietic cell transplant (HCT)
   - id: MAXO:0010203
-    label: echocardiography
+    label: Echocardiography
   - id: HP:0012531
     label: Pain
-  - id: MAXO:0000536
-    label: <Chorionic villus sampling (CVS)
-  - id: MONDO:0011399
-    label: Alpha thalassemia
+  - id: CHEBI:51371
+    label: muscle relaxants
+  - id: HP:0002140
+    label: Arterial ischemic stroke
   - id: MONDO:0019402
-    label: Beta thalassemia
-  - id: MONDO:0000984
-    label: Thalassemia
-  - id: MONDO:0043544
-    label: Nosocomial infections
-  - id: MAXO:0001479
-    label: allogeneic hematopoietic stem cell transplantation
-  - id: MAXO:0000571
-    label: CT
-  - id: MONDO:0007145
-    label: Aplasia cutis congenita
-  - id: MONDO:0005246
-    label: Osteomyelitis
-  - id: MONDO:0020517
-    label: Eosinophilic granuloma
+    label: Thalassemia major
+  - id: MAXO:0000536
+    label: Chorionic villus sampling (CVS)
+  - id: MONDO:0020380
+    label: Sickle cell anemia (SCA)
+  - id: MONDO:0005161
+    label: Human papillomavirus (HPV) infection
+  - id: MAXO:0000759
+    label: HPV vaccination
   - id: MAXO:0000447
     label: Surgical removal
+  - id: HP:0033138
+    label: Right atrial thrombus
   - id: HP:0000989
-    label: Pruritus
+    label: pruritus
+  - id: MAXO:0010041
+    label: skin grafting

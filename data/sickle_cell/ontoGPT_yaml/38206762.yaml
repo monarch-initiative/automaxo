@@ -25,138 +25,153 @@ input_text: 'Managing sickle cell disease and related complications in pregnancy
   trials involving this population; the identified knowledge gaps can orient future
   research.'
 raw_completion_output: |-
-  action: <multidisciplinary antenatal follow-up;prophylactic aspirin administration;prophylactic transfusion therapy;automated red blood cell exchange>
-  disease: <sickle cell disease;sickle cell disease complications;preeclampsia;iron overload;severe acute chest syndrome>
-  symptom: <>
-  action_to_disease: <multidisciplinary antenatal follow-up MANAGES sickle cell disease;prophylactic aspirin administration PREVENTS preeclampsia;prophylactic transfusion therapy IS USED FOR sickle cell disease;automated red blood cell exchange TREATS iron overload;automated red blood cell exchange TREATS severe acute chest syndrome>
-  action_to_symptom: <>
-  triples: <multidisciplinary antenatal follow-up MANAGES sickle cell disease;prophylactic aspirin administration PREVENTS preeclampsia;prophylactic transfusion therapy IS USED FOR sickle cell disease;automated red blood cell exchange TREATS iron overload;automated red blood cell exchange TREATS severe acute chest syndrome>
+  primary_disease: sickle cell disease (SCD)
+
+  medical_actions: performing at least monthly multidisciplinary antenatal follow-up; administering prophylactic aspirin; initiating prophylactic transfusion therapy; choosing automated red blood cell exchange
+
+  symptoms: complications in pregnancy; preeclampsia; iron overload; severe acute chest syndrome
+
+  chemicals: aspirin
+
+  action_annotation_relationships: performing at least monthly multidisciplinary antenatal follow-up TREATS complications in pregnancy IN sickle cell disease (SCD); administering prophylactic aspirin (with aspirin) PREVENTS preeclampsia IN sickle cell disease (SCD); initiating prophylactic transfusion therapy TREATS complications in pregnancy IN sickle cell disease (SCD); choosing automated red blood cell exchange TREATS iron overload IN sickle cell disease (SCD); choosing automated red blood cell exchange TREATS severe acute chest syndrome IN sickle cell disease (SCD)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
-  subject: <the value for subject>
-  predicate: <the value for predicate>
-  object: <the value for object>
-  qualifier: <A qualifier for the statements, e.g. "NOT" for negation>
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
   subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
   object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
 
 
   Text:
-  automated red blood cell exchange TREATS severe acute chest syndrome>
+  choosing automated red blood cell exchange TREATS severe acute chest syndrome IN sickle cell disease (SCD)
 
   ===
 
 extracted_object:
-  triples:
+  primary_disease: MONDO:0007374
+  medical_actions:
+    - performing at least monthly multidisciplinary antenatal follow-up
+    - administering prophylactic aspirin
+    - initiating prophylactic transfusion therapy
+    - choosing automated red blood cell exchange
+  symptoms:
+    - complications in pregnancy
+    - HP:0100602
+    - iron overload
+    - severe acute chest syndrome
+  chemicals:
+    - CHEBI:15365
+  action_annotation_relationships:
     - subject: multidisciplinary antenatal follow-up
-      predicate: MANAGES
-      object: sickle cell disease
-    - subject: prophylactic aspirin administration
+      predicate: TREATS
+      object: complications in pregnancy
+      qualifier: MONDO:0007374
+      subject_qualifier: at least monthly
+      subject_extension: multidisciplinary antenatal follow-up
+    - subject: administering prophylactic aspirin
       predicate: PREVENTS
-      object: preeclampsia
-    - subject: prophylactic transfusion therapy
-      predicate: IS USED FOR
-      object: sickle cell disease
+      object: HP:0100602
+      qualifier: MONDO:0007374
+      subject_qualifier: with aspirin
+      subject_extension: CHEBI:15365
+    - subject: <transfusion therapy>
+      predicate: <TREATS>
+      object: <complications in pregnancy>
+      qualifier: MONDO:0007374
+      subject_qualifier: <prophylactic>
+      subject_extension: <prophylactic transfusion therapy>
     - subject: automated red blood cell exchange
       predicate: TREATS
       object: iron overload
+      qualifier: MONDO:0007374
     - subject: automated red blood cell exchange
       predicate: TREATS
       object: severe acute chest syndrome
+      qualifier: MONDO:0007374
       object_qualifier: severe
-  action:
-    - <multidisciplinary antenatal follow-up
-    - prophylactic aspirin administration
-    - prophylactic transfusion therapy
-    - automated red blood cell exchange>
-  disease:
-    - <sickle cell disease
-    - sickle cell disease complications
-    - MONDO:0005081
-    - MONDO:0800385
-    - severe acute chest syndrome>
-  symptom:
-    - <>
-  action_to_disease:
-    - subject: multidisciplinary antenatal follow-up
-      predicate: MANAGES
-      object:
-        - MONDO:0011382
-    - subject: prophylactic aspirin administration
-      predicate: PREVENTS
-      object:
-        - MONDO:0005081
-    - subject: prophylactic transfusion therapy
-      predicate: IS USED TO TREAT
-      object:
-        - MONDO:0011382
-    - subject: automated red blood cell exchange
-      predicate: TREATS
-      object:
-        - MONDO:0800385
-    - subject: automated red blood cell exchange
-      predicate: TREATS
-      object:
-        - severe acute chest syndrome
 named_entities:
-  - id: MAXO:0001001
-    label: genetic therapies
   - id: MONDO:0011382
     label: sickle cell disease
   - id: MONDO:0100096
-    label: COVID-19
-  - id: MONDO:0005087
-    label: Respiratory disease
+    label: SARS-CoV-2
   - id: MONDO:0007374
-    label: <Sickle cell disease (SCD)
-  - id: MONDO:0005632
-    label: acute chest syndrome
-  - id: MONDO:0005550
-    label: infections
-  - id: MONDO:0005081
-    label: preeclampsia
-  - id: MONDO:0005030
-    label: intrauterine growth restriction
-  - id: MONDO:0000831
-    label: Thrombosis
-  - id: MONDO:0005080
+    label: Sickle cell disease (SCD)
+  - id: HP:0100602
+    label: Preeclampsia
+  - id: HP:0001511
+    label: Intrauterine growth restriction
+  - id: CHEBI:44423
+    label: Hydroxyurea (HU)
+  - id: CHEBI:35143
+    label: Haemoglobin (Hb)
+  - id: HP:0001622
+    label: Preterm delivery
+  - id: CHEBI:50858
+    label: corticosteroids
+  - id: HP:0032654
+    label: Endothelial dysfunction
+  - id: HP:0012418
+    label: Hypoxia
+  - id: HP:0001409
     label: Portal hypertension
-  - id: MONDO:0005149
-    label: Pulmonary Hypertension
+  - id: MAXO:0001001
+    label: Gene therapies
   - id: MAXO:0000756
-    label: transfusion
+    label: Transfusion
   - id: MAXO:0000747
-    label: hematopoietic stem cell transplantation
-  - id: MONDO:0005279
-    label: Pulmonary embolism
-  - id: HP:0025179
-    label: Ground glass opacities
+    label: Hematopoietic stem cell transplantation
+  - id: MAXO:0001298
+    label: therapy
+  - id: MAXO:0009047
+    label: Total hip replacement (THR)
+  - id: CHEBI:22720
+    label: Benzodiazepines
+  - id: MONDO:0006079
+    label: Acute chest syndrome (ACS)
+  - id: CHEBI:24859
+    label: Iodine
+  - id: MONDO:0005632
+    label: Acute chest syndrome
+  - id: CHEBI:17334
+    label: penicillin
   - id: MAXO:0000118
     label: immunizations
+  - id: HP:0001903
+    label: anemia
   - id: HP:0001297
     label: stroke
-  - id: MONDO:0002280
-    label: anemia
-  - id: HP:0001511
-    label: intrauterine growth retardation
-  - id: HP:0001518
-    label: low birth weight
-  - id: MAXO:0001006
-    label: full blood count
-  - id: MAXO:0000825
-    label: reticulocyte count
-  - id: MAXO:0000427
-    label: brain MRI
   - id: HP:0012532
-    label: chronic pain
-  - id: MONDO:0005098
-    label: stroke
-  - id: MONDO:0005192
-    label: Pancreatic cancer
-  - id: MONDO:0018874
-    label: Acute myeloid leukemia
+    label: Chronic pain
+  - id: CHEBI:3216
+    label: Buprenorphine
+  - id: HP:0001518
+    label: Low birth weight
+  - id: MAXO:0001006
+    label: Full blood count
+  - id: MAXO:0000825
+    label: Reticulocyte count
+  - id: MAXO:0000427
+    label: Brain magnetic resonance imaging (MRI)
+  - id: HP:0012592
+    label: albuminuria
+  - id: HP:0100543
+    label: cognitive dysfunction
+  - id: HP:0000739
+    label: anxiety
+  - id: HP:0010783
+    label: Redness
+  - id: CHEBI:33281
+    label: antibiotics
   - id: MONDO:0009693
-    label: Multiple myeloma
-  - id: MONDO:0800385
-    label: iron overload
+    label: Multiple Myeloma
+  - id: CHEBI:145536
+    label: Motixafortide
+  - id: CHEBI:114786
+    label: sodium metabisulfite
+  - id: CHEBI:15365
+    label: aspirin

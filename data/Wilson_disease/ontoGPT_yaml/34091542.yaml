@@ -1,0 +1,148 @@
+---
+input_text: "Pediatric Wilson's Disease: Phenotypic, Genetic Characterization and
+  Outcome of 182 Children in France.OBJECTIVES: To describe a cohort of Wilson disease
+  (WD) pediatric cases, and to point out the diagnostic particularities of this age
+  group and the long-term outcome. METHODS: Clinical data of 182 pediatric patients
+  included in the French WD national registry from 01/03/1995 to 01/06/2019 were gathered.
+  RESULTS: Diagnosis of WD was made at a mean age of 10.7 +- 4.2 years (range 1-18
+  years). At diagnosis, 154 patients (84.6%) had hepatic manifestations, 19 (10.4%)
+  had neurological manifestations, and 9 patients (4.9%) were asymptomatic. The p.His1069Gln
+  mutation was the most frequently encountered (14% of patients).Neurological patients
+  were diagnosed at least 1 year after they presented their first symptoms. At diagnosis,
+  the median urinary copper excretion (UCE) was 4.2 mumol/24 hours (0.2-253). The
+  first-line treatment was d-penicillamine (DP) for 131 (72%) patients, zinc salts
+  for 24 (13%) patients, and Trientine for 17 (9%) patients. Liver transplantation
+  was performed in 39 (21.4%) patients, for hepatic indications in 33 of 39 patients
+  or for neurological deterioration in 6 of 39 patients, mean Unified Wilson's Disease
+  Rating Scale of the latter went from 90 +- 23.1 before liver transplantation (LT)
+  to 26.8 +- 14.1 (P < 0.01) after a mean follow-up of 4.3 +- 2.5 years. Overall survival
+  rate at 20 years of follow-up was 98%, patient and transplant-free combined survival
+  was 84% at 20 years. CONCLUSION: Diagnosis of WD can be challenging in children,
+  particularly at the early stages of liver disease and in case of neurological presentation;
+  hence the support of clinical scores and genetic testing is essential. Diagnosis
+  at early stages and proper treatment ensure excellent outcomes, subject to good
+  long-term treatment compliance. LT is a valid option for end-stage liver disease
+  not responding to treatment and can be discussed for selected cases of neurological
+  deterioration."
+raw_completion_output: |-
+  primary_disease: Wilson's Disease
+
+  medical_actions: Diagnosis; Genetic testing; Treatment with d-penicillamine (DP); Treatment with zinc salts; Treatment with Trientine; Liver transplantation
+
+  symptoms: Hepatic manifestations; Neurological manifestations; High urinary copper excretion
+
+  chemicals: d-penicillamine (DP); zinc salts; Trientine
+
+  action_annotation_relationships: Diagnosis TREATS hepatic manifestations IN Wilson's Disease; Diagnosis TREATS neurological manifestations IN Wilson's Disease; Genetic testing TREATS hepatic manifestations IN Wilson's Disease; Genetic testing TREATS neurological manifestations IN Wilson's Disease; Treatment with d-penicillamine (DP) TREATS hepatic manifestations IN Wilson's Disease; Treatment with zinc salts TREATS hepatic manifestations IN Wilson's Disease; Treatment with Trientine TREATS hepatic manifestations IN Wilson's Disease; Liver transplantation TREATS hepatic manifestations IN Wilson's Disease; Liver transplantation TREATS neurological manifestations IN Wilson's Disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Liver transplantation TREATS neurological manifestations IN Wilson's Disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010200
+  medical_actions:
+    - Diagnosis
+    - MAXO:0000127
+    - Treatment with d-penicillamine (DP)
+    - Treatment with zinc salts
+    - Treatment with Trientine
+    - MAXO:0001175
+  symptoms:
+    - Hepatic manifestations
+    - Neurological manifestations
+    - High urinary copper excretion
+  chemicals:
+    - CHEBI:137245
+    - zinc salts
+    - CHEBI:39501
+  action_annotation_relationships:
+    - subject: Diagnosis
+      predicate: TREATS
+      object: hepatic manifestations
+      qualifier: MONDO:0010200
+    - subject: Diagnosis
+      predicate: TREATS
+      object: neurological manifestations
+      qualifier: MONDO:0010200
+    - subject: MAXO:0000127
+      predicate: TREATS
+      object: hepatic manifestations
+      qualifier: MONDO:0010200
+    - subject: MAXO:0000127
+      predicate: TREATS
+      object: neurological manifestations
+      qualifier: MONDO:0010200
+      subject_qualifier: <Not applicable>
+      object_qualifier: <Not applicable>
+      subject_extension: <Not applicable>
+      object_extension: <Not applicable>
+    - subject: Treatment
+      predicate: TREATS
+      object: hepatic manifestations
+      qualifier: MONDO:0010200
+      subject_extension: CHEBI:137245
+    - subject: Treatment
+      predicate: TREATS
+      object: hepatic manifestations
+      qualifier: MONDO:0010200
+      subject_extension: zinc salts
+    - subject: Treatment
+      predicate: TREATS
+      object: hepatic manifestations
+      qualifier: MONDO:0010200
+      subject_extension: CHEBI:39501
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: hepatic manifestations
+      qualifier: MONDO:0010200
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: neurological manifestations
+      qualifier: MONDO:0010200
+named_entities:
+  - id: MONDO:0010200
+    label: Wilson disease
+  - id: HP:0025464
+    label: oxidative stress
+  - id: CHEBI:28694
+    label: copper
+  - id: CHEBI:18248
+    label: iron
+  - id: CHEBI:149681
+    label: catalase (CAT)
+  - id: CHEBI:566274
+    label: malondialdehyde (MDA)
+  - id: CHEBI:16480
+    label: nitric oxide (NO)
+  - id: MAXO:0001175
+    label: liver transplantation
+  - id: HP:0006554
+    label: acute liver failure
+  - id: HP:0003256
+    label: coagulopathy
+  - id: HP:0002480
+    label: hepatic encephalopathy
+  - id: HP:0001397
+    label: Liver steatosis
+  - id: HP:0001399
+    label: Liver failure
+  - id: MAXO:0000127
+    label: Genetic testing
+  - id: CHEBI:137245
+    label: d-penicillamine (DP)
+  - id: CHEBI:39501
+    label: Trientine

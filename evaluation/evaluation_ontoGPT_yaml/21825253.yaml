@@ -2,82 +2,115 @@
 input_text: Effect of pallidal deep brain stimulation on psychiatric symptoms in myoclonus-dystonia
   due to epsilon-sarcoglycan mutations.
 raw_completion_output: |-
-  action: pallidal deep brain stimulation
-  disease: myoclonus-dystonia
-  symptom: psychiatric symptoms
-  action_to_disease: pallidal deep brain stimulation TREATS myoclonus-dystonia
-  action_to_symptom: pallidal deep brain stimulation REDUCES psychiatric symptoms
-  triples: pallidal deep brain stimulation TREATS myoclonus-dystonia;pallidal deep brain stimulation REDUCES psychiatric symptoms
-prompt: |+
-  Split the following piece of text into fields in the following format:
+  primary_disease: Myoclonus-dystonia
 
-  subject: <the value for subject>
-  predicate: <the value for predicate>
-  object: <the value for object>
-  qualifier: <A qualifier for the statements, e.g. "NOT" for negation>
+  medical_actions: Pallidal deep brain stimulation
+
+  symptoms: Psychiatric symptoms
+
+  chemicals: 
+
+  action_annotation_relationships: Pallidal deep brain stimulation TREATS Psychiatric symptoms IN Myoclonus-dystonia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
   subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
   object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
 
 
   Text:
-  pallidal deep brain stimulation REDUCES psychiatric symptoms
+  Pallidal deep brain stimulation TREATS Psychiatric symptoms IN Myoclonus-dystonia
 
   ===
 
 extracted_object:
-  triples:
-    - subject: pallidal deep brain stimulation
-      predicate: TREATS
-      object: myoclonus-dystonia
-    - subject: pallidal deep brain stimulation
-      predicate: REDUCES
-      object: psychiatric symptoms
-  action:
-    - pallidal deep brain stimulation
-  disease:
-    - MONDO:0000903
-  symptom:
-    - psychiatric symptoms
-  action_to_disease:
-    - subject: pallidal deep brain stimulation
-      predicate: TREATS
-      object:
-        - MONDO:0000903
-  action_to_symptom:
-    - subject: pallidal deep brain stimulation
-      predicate: REDUCES
-      object:
-        - psychiatric symptoms
+  primary_disease: MONDO:0000903
+  medical_actions:
+    - Pallidal deep brain stimulation
+  symptoms:
+    - Psychiatric symptoms
+  action_annotation_relationships:
+    - subject: <Pallidal deep brain stimulation>
+      predicate: <TREATS>
+      object: <Psychiatric symptoms>
+      qualifier: <Myoclonus-dystonia>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
 named_entities:
-  - id: MONDO:0005365
-    label: hearing loss
   - id: MONDO:0008891
     label: Brown-Vialetto-Van Laere syndrome
-  - id: MONDO:0003608
+  - id: MAXO:0009004
+    label: exome sequencing
+  - id: HP:0000407
+    label: sensorineural hearing loss
+  - id: HP:0002093
+    label: respiratory insufficiency
+  - id: HP:0010871
+    label: sensory ataxia
+  - id: HP:0000648
     label: optic atrophy
-  - id: MONDO:0100062
+  - id: CHEBI:17015
+    label: riboflavin
+  - id: HP:0012469
     label: infantile spasms
-  - id: MONDO:0005027
-    label: seizures
-  - id: MONDO:0005047
+  - id: HP:0000789
     label: infertility
-  - id: MAXO:0010030
-    label: bone marrow transplantation
+  - id: HP:0005268
+    label: miscarriage
+  - id: CHEBI:16709
+    label: pyridoxine
+  - id: CHEBI:18405
+    label: pyridoxal 5'-phosphate
+  - id: CHEBI:27306
+    label: vitamin B6
+  - id: CHEBI:24041
+    label: flavin mononucleotide
+  - id: HP:0001250
+    label: seizures
   - id: MONDO:0009974
-    label: familial hemophagocytic lymphohistiocytosis
-  - id: MONDO:0011382
-    label: sickle cell disease
-  - id: MONDO:0013517
-    label: beta-thalassemia
-  - id: MONDO:0000440
-    label: Metabolic acidosis
+    label: Familial hemophagocytic lymphohistiocytosis
+  - id: MAXO:0010030
+    label: bone marrow transplantation (BMT)
+  - id: CHEBI:28901
+    label: busulfan
+  - id: CHEBI:4027
+    label: cyclophosphamide
+  - id: CHEBI:4911
+    label: etoposide
+  - id: MAXO:0000757
+    label: infusion
+  - id: CHEBI:41264
+    label: busulfan (BU), cyclophosphamide (CP), etoposide (VP16), antithymocyte globulin
+      (ATG)
+  - id: MAXO:0000750
+    label: conditioning regimen
+  - id: CHEBI:73896
+    label: gene therapy (GT)
   - id: MONDO:0009666
     label: Holocarboxylase synthetase deficiency
-  - id: MONDO:0015454
-    label: Multiple carboxylase deficiency
-  - id: MONDO:0001531
+  - id: MAXO:0000603
+    label: Peritoneal dialysis
+  - id: HP:0001942
+    label: Metabolic acidosis
+  - id: CHEBI:15956
+    label: Biotin
+  - id: HP:0003256
     label: Coagulopathy
+  - id: CHEBI:48669
+    label: Tranexamic acid
+  - id: CHEBI:48675
+    label: antifibrinolytic agents
   - id: MONDO:0020300
     label: Autosomal dominant nocturnal frontal lobe epilepsy
+  - id: CHEBI:3387
+    label: Carbamazepine
   - id: MONDO:0000903
-    label: myoclonus-dystonia
+    label: Myoclonus-dystonia

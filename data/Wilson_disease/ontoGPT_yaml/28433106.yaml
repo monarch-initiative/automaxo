@@ -1,0 +1,101 @@
+---
+input_text: Novel perspectives on Wilson disease treatment.Wilson disease is an autosomal-recessive
+  copper overload disorder causing hepatic and neurologic symptoms. Commonly used
+  medical therapy shows satisfactory results with regard to hepatic disease but only
+  limited effects in neurologically affected patients. In recent years several new
+  therapy options have been developed, showing promising results that might improve
+  the management of Wilson disease in the near future. Optimization of treatment regimens
+  depending on biochemical response pattern seems worthwhile, especially in the decoppering
+  phase of therapy. The chelator tetrathiomolybdate (TTM) is a promising therapy option,
+  currently under clinical investigation. TTM is a fast-acting and very potent chelator
+  and appears to be associated with early neurologic deterioration after initiation
+  of therapy to a lower extent than the drugs currently used. Treatment with nonchelating
+  drugs characterized by alternative modes of action is under investigation, but restricted
+  to animal or in vitro studies to date. This includes basic research studies demonstrating
+  proof of principle for successful cell or gene therapy in Wilson disease in order
+  to restore sufficient biliary copper excretion, even before the onset of disease.
+raw_completion_output: |-
+  primary_disease: Wilson disease
+
+  medical_actions: Optimization of treatment regimens; Chelation with tetrathiomolybdate (TTM); Use of nonchelating drugs; Cell therapy; Gene therapy
+
+  symptoms: Hepatic disease; Neurologic symptoms
+
+  chemicals: Tetrathiomolybdate (TTM)
+
+  action_annotation_relationships: Optimization of treatment regimens PREVENTS hepatic disease IN Wilson disease; Chelation with tetrathiomolybdate (TTM) TREATS neurologic symptoms IN Wilson disease; Use of nonchelating drugs PREVENTS symptoms IN Wilson disease (animal/in vitro); Cell therapy TREATS hepatic disease IN Wilson disease (research); Gene therapy TREATS hepatic disease IN Wilson disease (research)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Gene therapy TREATS hepatic disease IN Wilson disease (research)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010200
+  medical_actions:
+    - Optimization of treatment regimens
+    - Chelation with tetrathiomolybdate (TTM)
+    - Use of nonchelating drugs
+    - MAXO:0000016
+    - MAXO:0001001
+  symptoms:
+    - HP:0001392
+    - Neurologic symptoms
+  chemicals:
+    - CHEBI:30703
+  action_annotation_relationships:
+    - subject: Optimization of treatment regimens
+      predicate: PREVENTS
+      object: HP:0001392
+      qualifier: MONDO:0010200
+    - subject: Chelation
+      predicate: TREATS
+      object: neurologic symptoms
+      qualifier: MONDO:0010200
+      subject_extension: CHEBI:30703
+    - subject: Use of nonchelating drugs
+      predicate: PREVENTS
+      object: symptoms
+      qualifier: MONDO:0010200
+      subject_extension: nonchelating drugs
+    - subject: MAXO:0000016
+      predicate: TREATS
+      object: HP:0001392
+      qualifier: MONDO:0010200
+      subject_qualifier: research
+    - subject: MAXO:0001001
+      predicate: TREATS
+      object: HP:0001392
+      qualifier: MONDO:0010200
+      subject_extension: Gene therapy
+named_entities:
+  - id: MONDO:0010200
+    label: Wilson's disease
+  - id: HP:0001695
+    label: cardiac arrest
+  - id: HP:0001685
+    label: myocardial fibrosis
+  - id: HP:0001663
+    label: ventricular fibrillation
+  - id: CHEBI:38161
+    label: Chelating agents
+  - id: MAXO:0000016
+    label: Cell therapy
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: HP:0001392
+    label: Hepatic disease
+  - id: CHEBI:30703
+    label: Tetrathiomolybdate (TTM)

@@ -1,0 +1,219 @@
+---
+input_text: 'Severe Combined Immunodeficiency: A Review for Neonatal Clinicians.The
+  proper development and function of T cells is imperative in the creation of adequate
+  cell-mediated and humoral immunity. Healthy term newborns have baseline immune immaturity,
+  increasing their risk of infections, but significant immunologic consequences can
+  occur, because of abnormal T-cell maturation. Combined immunodeficiencies can result,
+  because B cells and natural killer cells rely on successful interactions with T
+  cells to ensure their proper performance and survival. Severe combined immunodeficiency
+  (SCID) is the most noteworthy of these conditions, leading to considerable early
+  morbidity and often death by the age of 1 year if left untreated. Newborn screening
+  for SCID is effective and allows for early implementation of lifesaving supportive
+  measures, including protective isolation, initiation of prophylactic antimicrobials,
+  caution with blood product transfusions, and avoidance of live vaccinations. Once
+  a definitive diagnosis of SCID has been established, treatment frequently involves
+  bone marrow or stem cell transplantation; however, enzyme replacement and gene therapy
+  are also becoming options in those with SCID due to adenosine deaminase deficiency
+  and other forms of SCID. Neonatal clinicians should understand the screening and
+  diagnostic approach to SCID along with the initial management approaches for these
+  extremely high-risk patients.'
+raw_completion_output: |-
+  primary_disease: Severe Combined Immunodeficiency (SCID)
+
+  medical_actions: Newborn screening; Protective isolation; Initiation of prophylactic antimicrobials; Caution with blood product transfusions; Avoidance of live vaccinations; Bone marrow transplantation; Stem cell transplantation; Enzyme replacement; Gene therapy
+
+  symptoms: Increased risk of infections; Abnormal T-cell maturation; Early morbidity; Death by the age of 1 year
+
+  chemicals: 
+
+  action_annotation_relationships: Newborn screening PREVENTS increased risk of infections IN Severe Combined Immunodeficiency; Protective isolation PREVENTS increased risk of infections IN Severe Combined Immunodeficiency; Initiation of prophylactic antimicrobials PREVENTS increased risk of infections IN Severe Combined Immunodeficiency; Caution with blood product transfusions PREVENTS increased risk of infections IN Severe Combined Immunodeficiency; Avoidance of live vaccinations PREVENTS increased risk of infections IN Severe Combined Immunodeficiency; Bone marrow transplantation TREATS abnormal T-cell maturation IN Severe Combined Immunodeficiency; Stem cell transplantation TREATS abnormal T-cell maturation IN Severe Combined Immunodeficiency; Enzyme replacement TREATS abnormal T-cell maturation IN Severe Combined Immunodeficiency; Gene therapy TREATS abnormal T-cell maturation IN Severe Combined Immunodeficiency
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Gene therapy TREATS abnormal T-cell maturation IN Severe Combined Immunodeficiency
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0015974
+  medical_actions:
+    - Newborn screening
+    - Protective isolation
+    - Initiation of prophylactic antimicrobials
+    - Caution with blood product transfusions
+    - Avoidance of live vaccinations
+    - MAXO:0010030
+    - Stem cell transplantation
+    - Enzyme replacement
+    - MAXO:0001001
+  symptoms:
+    - Increased risk of infections
+    - Abnormal T-cell maturation
+    - Early morbidity
+    - Death by the age of 1 year
+  action_annotation_relationships:
+    - subject: Newborn screening
+      predicate: PREVENTS
+      object: increased risk of infections
+      qualifier: MONDO:0015974
+    - subject: Protective isolation
+      predicate: PREVENTS
+      object: increased risk of infections
+      qualifier: MONDO:0015974
+    - subject: Initiation of prophylactic antimicrobials
+      predicate: PREVENTS
+      object: increased risk of infections
+      qualifier: MONDO:0015974
+      subject_qualifier: prophylactic
+      subject_extension: CHEBI:33281
+    - subject: <blood product transfusions>
+      predicate: <PREVENTS>
+      object: <increased risk of infections>
+      qualifier: <Severe Combined Immunodeficiency>
+      subject_qualifier: <Caution with>
+      subject_extension: <blood product>
+    - subject: <Avoidance of live vaccinations>
+      predicate: <PREVENTS>
+      object: <increased risk of infections>
+      qualifier: <Severe Combined Immunodeficiency>
+      subject_extension: <live vaccinations>
+    - subject: MAXO:0010030
+      predicate: TREATS
+      object: abnormal T-cell maturation
+      qualifier: MONDO:0015974
+    - subject: MAXO:0000068
+      predicate: TREATS
+      object: abnormal T-cell maturation
+      qualifier: MONDO:0015974
+      subject_extension: Stem cell
+    - subject: <Enzyme replacement>
+      predicate: <TREATS>
+      object: <abnormal T-cell maturation>
+      qualifier: <Severe Combined Immunodeficiency>
+      subject_extension: <Enzyme>
+    - subject: MAXO:0001001
+      predicate: TREATS
+      object: abnormal T-cell maturation
+      qualifier: MONDO:0015974
+      subject_extension: Gene therapy
+named_entities:
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: MONDO:0003847
+    label: Genetic diseases
+  - id: HP:0002664
+    label: cancer
+  - id: MONDO:0004992
+    label: Cancer
+  - id: MONDO:0007064
+    label: Adenosine deaminase deficiency
+  - id: MONDO:0002602
+    label: Central Nervous System Disorders
+  - id: HP:0005387
+    label: combined immunodeficiency
+  - id: HP:0004430
+    label: severe combined immunodeficiency
+  - id: MONDO:0009061
+    label: cystic fibrosis
+  - id: MONDO:0005109
+    label: HIV infection
+  - id: HP:0012384
+    label: Rhinitis
+  - id: HP:0012387
+    label: Bronchitis
+  - id: HP:0012735
+    label: Cough
+  - id: HP:0001875
+    label: Neutropenia
+  - id: HP:0002014
+    label: Diarrhea
+  - id: HP:0001945
+    label: Pyrexia
+  - id: HP:0000872
+    label: Autoimmune thyroiditis
+  - id: HP:0000832
+    label: Acquired hypothyroidism
+  - id: MONDO:0015974
+    label: Severe combined immunodeficiency (SCID)
+  - id: CHEBI:16335
+    label: Adenosine
+  - id: HP:0034368
+    label: Urolithiasis
+  - id: CHEBI:26394
+    label: Purine nucleoside
+  - id: MAXO:0000747
+    label: allogenic or autologous hematopoietic stem cell transplantation (HSCT)
+      with gene therapy
+  - id: CHEBI:4027
+    label: cyclophosphamide
+  - id: CHEBI:28876
+    label: melphalan
+  - id: CHEBI:4031
+    label: cyclosporine
+  - id: CHEBI:44185
+    label: methotrexate
+  - id: MAXO:0000750
+    label: conditioning regimen
+  - id: HP:0002837
+    label: recurrent bronchitis
+  - id: HP:0001888
+    label: lymphopenia
+  - id: CHEBI:28901
+    label: busulfan
+  - id: HP:0031690
+    label: opportunistic infection
+  - id: HP:0001909
+    label: leukemia
+  - id: MAXO:0010030
+    label: bone marrow transplantation
+  - id: HP:0002904
+    label: Hyperbilirubinemia
+  - id: CHEBI:17256
+    label: 2'-deoxyadenosine
+  - id: HP:0005435
+    label: impaired T cell function
+  - id: MONDO:0000922
+    label: Primary Immunodeficiencies (PID)
+  - id: HP:0100646
+    label: Thyroiditis
+  - id: CHEBI:50858
+    label: Corticosteroids
+  - id: MONDO:0019383
+    label: Acute disseminated encephalomyelitis
+  - id: HP:0001252
+    label: Hypotonia
+  - id: HP:0032988
+    label: Head lag
+  - id: HP:0000639
+    label: Nystagmus
+  - id: HP:0001250
+    label: Seizure disorder
+  - id: HP:0000707
+    label: Neurologic abnormalities
+  - id: MAXO:0000757
+    label: Infusion
+  - id: HP:0001249
+    label: Mental retardation
+  - id: HP:0002721
+    label: immunodeficiency
+  - id: MAXO:0001006
+    label: CBC (Complete Blood Count)
+  - id: MAXO:0001479
+    label: Allogeneic hematopoietic stem cell transplantation
+  - id: MONDO:0003778
+    label: primary immunodeficiencies
+  - id: CHEBI:33281
+    label: antimicrobials
+  - id: MAXO:0000068
+    label: transplantation
