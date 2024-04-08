@@ -1,0 +1,79 @@
+---
+input_text: 'Lumacaftor/Ivacaftor Population Pharmacokinetics in Pediatric Patients
+  with Cystic Fibrosis: A First Step Toward Personalized Therapy.BACKGROUND: A major
+  breakthrough in cystic fibrosis (CF) therapy was achievedAQ1 with CFTR modulators.
+  The lumacaftor/ivacaftor combination is indicated for the treatment of CF in pediatric
+  patients above 6 years old. Pharmacokinetic (PK) studies of lumacaftor/ivacaftor
+  in these vulnerable pediatric populations are AQ2crucial to optimize treatment protocols.
+  OBJECTIVES AND METHODS: The objectives of this study were to describe the population
+  PK (PPK) of lumacaftor and ivacaftor in children with CF, and to identify factors
+  associated with interindividual variability. The association between drug exposure
+  and clinical response was also investigated. RESULTS: A total of 75 children were
+  included in this PPK study, with 191 concentrations available for each compound
+  and known metabolites (lumacaftor, ivacaftor, ivacaftor-M1, and ivacaftor-M6). PPK
+  analysis was performed using Monolix software. A large interindividual variability
+  was observed. The main sources of interpatient variability identified were patient
+  bodyweight and hepatic function (aspartate aminotransferase). Forced expiratory
+  volume in the first second (FEV1) was statistically associated with the level of
+  exposure to ivacaftor after 48 weeks of treatment. CONCLUSIONS: This study is the
+  first analysis of lumacaftor/ivacaftor PPK in children with CF. These data suggest
+  that dose adjustment is required after identifying variability factors to optimize
+  efficacy. The use of therapeutic drug monitoring as a basis for dose adjustment
+  in children with CF may be useful.'
+raw_completion_output: |-
+  primary_disease: Cystic Fibrosis
+  medical_actions: Pharmacokinetic studies; dose adjustment; therapeutic drug monitoring
+  symptoms: Forced expiratory volume in the first second (FEV1) decrease
+  chemicals: lumacaftor; ivacaftor; ivacaftor-M1; ivacaftor-M6
+  action_annotation_relationships: dose adjustment TREATS Forced expiratory volume in the first second (FEV1) decrease IN Cystic Fibrosis; therapeutic drug monitoring TREATS Forced expiratory volume in the first second (FEV1) decrease IN Cystic Fibrosis
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  therapeutic drug monitoring TREATS Forced expiratory volume in the first second (FEV1) decrease IN Cystic Fibrosis
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009061
+  medical_actions:
+    - Pharmacokinetic studies
+    - dose adjustment
+    - therapeutic drug monitoring
+  symptoms:
+    - Forced expiratory volume in the first second (FEV1) decrease
+  chemicals:
+    - CHEBI:90951
+    - CHEBI:66901
+    - ivacaftor-M1
+    - ivacaftor-M6
+  action_annotation_relationships:
+    - subject: dose adjustment
+      predicate: TREATS
+      object: Forced expiratory volume in the first second (FEV1) decrease
+      qualifier: MONDO:0009061
+    - subject: <therapeutic drug monitoring>
+      predicate: <TREATS>
+      object: <Forced expiratory volume in the first second (FEV1) decrease>
+      qualifier: <Cystic Fibrosis>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <therapeutic drug monitoring>
+      object_extension: <>
+named_entities:
+  - id: MONDO:0009061
+    label: Cystic fibrosis
+  - id: CHEBI:90951
+    label: lumacaftor
+  - id: CHEBI:66901
+    label: ivacaftor

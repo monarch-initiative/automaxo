@@ -1,0 +1,83 @@
+---
+input_text: 'High-sensitivity C-reactive protein level in stable-state bronchiectasis
+  predicts exacerbation risk.BACKGROUND: Elevation of systemic inflammatory markers
+  were found to correlate with increased disease extent, reduced lung function and
+  higher risk of future severe exacerbations in patients with bronchiectasis. Although
+  a significant correlation of circulating hs-CRP levels with HRCT scores and resting
+  oxygen saturation in patients with stable-state non-cystic fibrosis (CF) bronchiectasis
+  was suggested, there is little data on the relationship between hs-CRP and the prognosis
+  of bronchiectasis and a lack of data on the role of hs-CRP in predicting bronchiectasis
+  exacerbation. METHODS: A prospective study was conducted on Chinese patients with
+  non- CF bronchiectasis from 1st October to 31st December 2021. Baseline serum hs-CRP
+  were obtained at stable-state. The follow-up period lasted for one year. Co-primary
+  endpoints were the development of any bronchiectasis exacerbation and hospitalized
+  bronchiectasis exacerbation. RESULTS: Totally 123 patients were included. Higher
+  hs-CRP was associated with increased risk to develop any bronchiectasis exacerbation,
+  adjusted odds ratio (aOR) of 2.254 (95% CI = 1.040-4.885, p = 0.039), and borderline
+  significantly increased hospitalized bronchiectasis exacerbation with aOR of 1.985
+  (95% CI = 0.922-4.277, p = 0.080). CONCLUSION: Baseline serum hs-CRP level at stable-state
+  can predict risk of bronchiectasis exacerbation, which is reflecting chronic low-grade
+  inflammation in bronchiectasis.'
+raw_completion_output: |-
+  primary_disease: Bronchiectasis
+
+  medical_actions: Prospective study; Obtained baseline serum hs-CRP; Follow-up
+
+  symptoms: Increased risk of future severe exacerbations; Reduced lung function
+
+  chemicals: hs-CRP
+
+  action_annotation_relationships: Prospective study PREVENTS Increased risk of future severe exacerbations IN Bronchiectasis; Obtained baseline serum hs-CRP (with hs-CRP) TREATS Reduced lung function IN Bronchiectasis; Follow-up PREVENTS Increased risk of future severe exacerbations IN Bronchiectasis
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Follow-up PREVENTS Increased risk of future severe exacerbations IN Bronchiectasis
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0004822
+  medical_actions:
+    - Prospective study
+    - Obtained baseline serum hs-CRP
+    - Follow-up
+  symptoms:
+    - Increased risk of future severe exacerbations
+    - Reduced lung function
+  chemicals:
+    - hs-CRP
+  action_annotation_relationships:
+    - subject: Prospective study
+      predicate: PREVENTS
+      object: Increased risk of future severe exacerbations
+      qualifier: MONDO:0004822
+    - subject: Obtained baseline serum hs-CRP
+      predicate: TREATS
+      object: Reduced lung function
+      qualifier: MONDO:0004822
+      subject_qualifier: with hs-CRP
+      subject_extension: hs-CRP
+    - subject: Follow-up
+      predicate: PREVENTS
+      object: Increased risk of future severe exacerbations
+      qualifier: MONDO:0004822
+named_entities:
+  - id: MONDO:0009061
+    label: Asthma; COPD; Asthma-COPD overlap; Cystic Fibrosis (CF)
+  - id: MONDO:0004979
+    label: Asthma
+  - id: MONDO:0011751
+    label: COPD
+  - id: MONDO:0004822
+    label: Bronchiectasis
