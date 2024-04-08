@@ -1,0 +1,84 @@
+---
+input_text: 'Host natural killer immunity is a key indicator of permissiveness for
+  donor cell engraftment in patients with severe combined immunodeficiency.BACKGROUND:
+  Severe combined immunodeficiency (SCID) can be cured by using allogeneic hematopoietic
+  stem cell transplantation, and the absence of host immunity often obviates the need
+  for preconditioning. Depending on the underlying genetic defect and when blocks
+  in differentiation occur during lymphocyte ontogeny, infants with SCID have absent
+  or greatly reduced numbers of functional T cells. Natural killer (NK) cell populations
+  are usually absent in the SCID-X1 and Janus kinase 3 forms of SCID and greatly reduced
+  in adenosine deaminase deficiency SCID but often present in other forms of the disorder.
+  OBJECTIVE: To determine if SCID phenotypes indicate host permissiveness to donor
+  cell engraftment. METHODS: A retrospective data analysis considered whether host
+  NK cells influenced donor T-cell engraftment, immune reconstitution, and long-term
+  outcomes in children who had undergone nonconditioned allogeneic stem cell transplantation
+  between 1990 and 2011 in the United Kingdom. Detailed analysis of T- and B-cell
+  immune reconstitution and donor chimerism was compared between the NK(+) (n = 24)
+  and NK(-) (n = 53) forms of SCID. RESULTS: Overall, 77 children underwent transplantation,
+  with survival of 90% in matched sibling donor/matched family donor transplants compared
+  with 60% when alternative donors were used. Infants with NK(-)SCID were more likely
+  to survive than NK(+) recipients (87% vs 62%, P < .01) and had high-level donor
+  T-cell chimerism with superior long-term recovery of CD4 T-cell immunity. Notably,
+  33% of children with NK(+)SCID required additional transplantation procedures compared
+  with only 8% of children with NK(-)SCID (P < .005). CONCLUSIONS: NK(-)SCID disorders
+  are highly permissive for donor T-cell engraftment without preconditioning, whereas
+  the presence of NK cells is a strong indicator that preparative conditioning is
+  required for engraftment of T-cell precursors capable of supporting robust T-cell
+  reconstitution.'
+raw_completion_output: |-
+  primary_disease: Severe combined immunodeficiency (SCID)
+
+  medical_actions: Allogeneic hematopoietic stem cell transplantation; Preparative conditioning; Additional transplantation procedures
+
+  symptoms: Absent or greatly reduced numbers of functional T cells; Natural killer (NK) cell populations usually absent or greatly reduced
+
+  chemicals: 
+
+  action_annotation_relationships: Allogeneic hematopoietic stem cell transplantation TREATS absent or greatly reduced numbers of functional T cells IN Severe combined immunodeficiency (SCID); Preparative conditioning PREVENTS complications IN Severe combined immunodeficiency (SCID) with NK(+) phenotype; Additional transplantation procedures TREATS complications IN Severe combined immunodeficiency (SCID)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Additional transplantation procedures TREATS complications IN Severe combined immunodeficiency (SCID)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0015974
+  medical_actions:
+    - MAXO:0001479
+    - Preparative conditioning
+    - Additional transplantation procedures
+  symptoms:
+    - Absent or greatly reduced numbers of functional T cells
+    - Natural killer (NK) cell populations usually absent or greatly reduced
+  action_annotation_relationships:
+    - subject: MAXO:0001479
+      predicate: TREATS
+      object: absent or greatly reduced numbers of functional T cells
+      qualifier: MONDO:0015974
+    - subject: Preparative conditioning
+      predicate: PREVENTS
+      object: complications
+      qualifier: MONDO:0015974
+    - subject: <Additional transplantation procedures>
+      predicate: <TREATS>
+      object: <complications>
+      qualifier: MONDO:0015974
+      subject_qualifier: <Additional>
+      subject_extension: <transplantation procedures>
+named_entities:
+  - id: MONDO:0015974
+    label: Severe combined immunodeficiency (SCID)
+  - id: MAXO:0001479
+    label: Allogeneic hematopoietic stem cell transplantation

@@ -26,82 +26,93 @@ input_text: "Total hip replacement among sickle cell patients in a low-income co
   DVT, heterotopic ossification, or death. CONCLUSION: THR in SCD has a good outcome
   using cementless THA with a low rate of complication in Yemen, a developing country."
 raw_completion_output: |-
-  action: Total hip replacement (THR); Conservative therapy
-  disease: Sickle cell disease (SCD); Femoral head avascular necrosis (AVN); Superficial wound infection; Intraoperative fractures; Pulmonary complications; Abdominal crisis
-  symptom: Hip pain; Limitation of daily activities
-  action_to_disease: Total hip replacement (THR) TREATS Femoral head avascular necrosis (AVN) in Sickle cell disease (SCD); Conservative therapy FAILED IN Sickle cell disease (SCD)
-  action_to_symptom: Total hip replacement (THR) IS USED TO TREAT Hip pain; Limitation of daily activities
-  triples: Total hip replacement (THR) TREATS Femoral head avascular necrosis (AVN) in Sickle cell disease (SCD); Conservative therapy FAILED IN Sickle cell disease (SCD); Total hip replacement (THR) IS USED TO TREAT Hip pain; Limitation of daily activities
-prompt: |+
-  Split the following piece of text into fields in the following format:
+  primary_disease: Sickle cell disease
 
-  subject: <the value for subject>
-  predicate: <the value for predicate>
-  object: <the value for object>
-  qualifier: <A qualifier for the statements, e.g. "NOT" for negation>
+  medical_actions: Total hip replacement (THR); Conservative therapy; Cementless primary total hip arthroplasty (THA)
+
+  symptoms: Progressive hip pain; Limitation of daily activities; Femoral head avascular necrosis (AVN)
+
+  chemicals: 
+
+  action_annotation_relationships: Total hip replacement (THR) TREATS progressive hip pain IN Sickle cell disease; Total hip replacement (THR) TREATS limitation of daily activities IN Sickle cell disease; Total hip replacement (THR) TREATS femoral head avascular necrosis (AVN) IN Sickle cell disease; Conservative therapy PREVENTS progressive hip pain IN Sickle cell disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
   subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
   object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
 
 
   Text:
-  Limitation of daily activities
+  Conservative therapy PREVENTS progressive hip pain IN Sickle cell disease
 
   ===
 
 extracted_object:
-  triples:
-    - subject: Total hip replacement (THR)
-      predicate: TREATS
-      object: Femoral head avascular necrosis (AVN)
-      object_qualifier: in Sickle cell disease (SCD)
-    - subject: Conservative therapy
-      predicate: FAILED IN
-      object: Sickle cell disease (SCD)
-    - subject: Total hip replacement (THR)
-      predicate: IS USED TO TREAT
-      object: Hip pain
-    - subject: Limitation
-      predicate: affects
-      object: daily activities
-  action:
+  primary_disease: MONDO:0011382
+  medical_actions:
     - MAXO:0009047
     - Conservative therapy
-  disease:
-    - MONDO:0007374
-    - MONDO:0018373
-    - Superficial wound infection
-    - Intraoperative fractures
-    - Pulmonary complications
-    - Abdominal crisis
-  symptom:
-    - HP:0030838
+    - Cementless primary total hip arthroplasty (THA)
+  symptoms:
+    - Progressive hip pain
     - Limitation of daily activities
-  action_to_disease:
+    - Femoral head avascular necrosis (AVN)
+  action_annotation_relationships:
     - subject: MAXO:0009047
       predicate: TREATS
-      object:
-        - MONDO:0018373
-      object_qualifier: in Sickle cell disease (SCD)
-    - subject: Conservative therapy
-      predicate: FAILED IN
-      object:
-        - MONDO:0007374
-  action_to_symptom:
+      object: progressive hip pain
+      qualifier: MONDO:0011382
     - subject: MAXO:0009047
-      predicate: IS USED TO TREAT
-      object:
-        - HP:0030838
-    - subject: Limitation of daily activities
+      predicate: TREATS
+      object: limitation of daily activities
+      qualifier: MONDO:0011382
+    - subject: MAXO:0009047
+      predicate: TREATS
+      object: femoral head avascular necrosis (AVN)
+      qualifier: MONDO:0011382
+    - subject: <Conservative therapy>
+      predicate: <PREVENTS>
+      object: <progressive hip pain>
+      qualifier: <Sickle cell disease>
+      subject_extension: <Conservative therapy>
 named_entities:
-  - id: MAXO:0001001
-    label: Gene Therapies
   - id: MONDO:0011382
-    label: Sickle Cell Disease
-  - id: MAXO:0009047
-    label: Total hip replacement (THR)
+    label: sickle cell disease
+  - id: MONDO:0100096
+    label: SARS-CoV-2
   - id: MONDO:0007374
     label: Sickle cell disease (SCD)
-  - id: MONDO:0018373
-    label: Femoral head avascular necrosis (AVN)
-  - id: HP:0030838
-    label: Hip pain
+  - id: HP:0100602
+    label: Preeclampsia
+  - id: HP:0001511
+    label: Intrauterine growth restriction
+  - id: CHEBI:44423
+    label: Hydroxyurea (HU)
+  - id: CHEBI:35143
+    label: Haemoglobin (Hb)
+  - id: HP:0001622
+    label: Preterm delivery
+  - id: CHEBI:50858
+    label: corticosteroids
+  - id: HP:0032654
+    label: Endothelial dysfunction
+  - id: HP:0012418
+    label: Hypoxia
+  - id: HP:0001409
+    label: Portal hypertension
+  - id: MAXO:0001001
+    label: Gene therapies
+  - id: MAXO:0000756
+    label: Transfusion
+  - id: MAXO:0000747
+    label: Hematopoietic stem cell transplantation
+  - id: MAXO:0001298
+    label: therapy
+  - id: MAXO:0009047
+    label: Total hip replacement (THR)

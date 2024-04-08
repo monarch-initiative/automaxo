@@ -22,74 +22,196 @@ input_text: 'Prevalence of bone complications in young patients with sickle cell
   of fragility fracture was low. Low BMD - specifically at the spine - may not be
   tantamount to bone fragility.'
 raw_completion_output: |-
-  action: <Bone mineral densitometry; Vertebral Fracture Assessment>
-  disease: <Sickle cell disease; Bone complications; Low bone mineral density; Vertebral deformities; Fragility fractures>
-  symptom: <Low BMI; Lower osteonecrosis history; Lower hemoglobin levels>
-  action_to_disease: <Bone mineral densitometry IS USED TO DIAGNOSE Low bone mineral density; Vertebral Fracture Assessment IS USED TO DIAGNOSE Vertebral deformities>
-  action_to_symptom: <None>
-  triples: <Bone mineral densitometry IS USED TO DIAGNOSE Low bone mineral density; Vertebral Fracture Assessment IS USED TO DIAGNOSE Vertebral deformities>
+  primary_disease: Sickle cell disease
+  medical_actions: Bone mineral densitometry; Vertebral Fracture Assessment; Biological measurements
+  symptoms: Low bone mineral density; Vertebral deformities; Fragility fractures
+  chemicals: 
+  action_annotation_relationships: Bone mineral densitometry TREATS Low bone mineral density IN Sickle cell disease; Vertebral Fracture Assessment TREATS Vertebral deformities IN Sickle cell disease; Biological measurements TREATS Fragility fractures IN Sickle cell disease
 prompt: |+
   From the text below, extract the following entities in the following format:
 
-  subject: <the value for subject>
-  predicate: <the value for predicate>
-  object: <the value for object>
-  qualifier: <A qualifier for the statements, e.g. "NOT" for negation>
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
   subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
   object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
 
 
   Text:
-  Vertebral Fracture Assessment IS USED TO DIAGNOSE Vertebral deformities>
+  Biological measurements TREATS Fragility fractures IN Sickle cell disease
 
   ===
 
 extracted_object:
-  triples:
-    - subject: Bone mineral densitometry
-      predicate: IS USED TO DIAGNOSE
-      object: Low bone mineral density
-    - subject: Vertebral Fracture Assessment
-      predicate: IS USED TO DIAGNOSE
-      object: Vertebral deformities
-  action:
-    - <Bone mineral densitometry
-    - Vertebral Fracture Assessment>
-  disease:
-    - <Sickle cell disease
-    - Bone complications
+  primary_disease: MONDO:0011382
+  medical_actions:
+    - Bone mineral densitometry
+    - Vertebral Fracture Assessment
+    - Biological measurements
+  symptoms:
     - Low bone mineral density
     - Vertebral deformities
-    - Fragility fractures>
-  symptom:
-    - <Low BMI
-    - Lower osteonecrosis history
-    - Lower hemoglobin levels>
-  action_to_disease:
-    - subject: Bone mineral densitometry
-      predicate: IS USED TO DIAGNOSE
-      object:
-        - Low bone mineral density
+    - Fragility fractures
+  action_annotation_relationships:
+    - subject: <Bone mineral densitometry>
+      predicate: <TREATS>
+      object: <Low bone mineral density>
+      qualifier: <Sickle cell disease>
+      subject_qualifier: <null>
+      object_qualifier: <null>
+      subject_extension: <null>
+      object_extension: <null>
     - subject: Vertebral Fracture Assessment
-      predicate: IS USED TO DIAGNOSE
-      object:
-        - Vertebral deformities
+      predicate: TREATS
+      object: Vertebral deformities
+      qualifier: MONDO:0011382
+    - subject: Biological measurements
+      predicate: TREATS
+      object: Fragility fractures
+      qualifier: MONDO:0011382
 named_entities:
-  - id: MAXO:0001001
-    label: Gene Therapies
   - id: MONDO:0011382
-    label: Sickle Cell Disease
-  - id: MAXO:0009047
-    label: Total hip replacement (THR)
+    label: sickle cell disease
+  - id: MONDO:0100096
+    label: SARS-CoV-2
   - id: MONDO:0007374
     label: Sickle cell disease (SCD)
-  - id: MONDO:0018373
-    label: Femoral head avascular necrosis (AVN)
-  - id: HP:0030838
-    label: Hip pain
-  - id: HP:0011902
-    label: abnormal hemoglobin
-  - id: MAXO:0000747
-    label: <hematopoietic stem cell transplantation (HSCT)
+  - id: HP:0100602
+    label: Preeclampsia
+  - id: HP:0001511
+    label: Intrauterine growth restriction
+  - id: CHEBI:44423
+    label: Hydroxyurea (HU)
+  - id: CHEBI:35143
+    label: Haemoglobin (Hb)
+  - id: HP:0001622
+    label: Preterm delivery
+  - id: CHEBI:50858
+    label: corticosteroids
+  - id: HP:0032654
+    label: Endothelial dysfunction
+  - id: HP:0012418
+    label: Hypoxia
+  - id: HP:0001409
+    label: Portal hypertension
+  - id: MAXO:0001001
+    label: Gene therapies
   - id: MAXO:0000756
-    label: blood transfusion
+    label: Transfusion
+  - id: MAXO:0000747
+    label: Hematopoietic stem cell transplantation
+  - id: MAXO:0001298
+    label: therapy
+  - id: MAXO:0009047
+    label: Total hip replacement (THR)
+  - id: CHEBI:22720
+    label: Benzodiazepines
+  - id: MONDO:0006079
+    label: Acute chest syndrome (ACS)
+  - id: CHEBI:24859
+    label: Iodine
+  - id: MONDO:0005632
+    label: Acute chest syndrome
+  - id: CHEBI:17334
+    label: penicillin
+  - id: MAXO:0000118
+    label: immunizations
+  - id: HP:0001903
+    label: anemia
+  - id: HP:0001297
+    label: stroke
+  - id: HP:0012532
+    label: Chronic pain
+  - id: CHEBI:3216
+    label: Buprenorphine
+  - id: HP:0001518
+    label: Low birth weight
+  - id: MAXO:0001006
+    label: Full blood count
+  - id: MAXO:0000825
+    label: Reticulocyte count
+  - id: MAXO:0000427
+    label: Brain magnetic resonance imaging (MRI)
+  - id: HP:0012592
+    label: albuminuria
+  - id: HP:0100543
+    label: cognitive dysfunction
+  - id: HP:0000739
+    label: anxiety
+  - id: HP:0010783
+    label: Redness
+  - id: CHEBI:33281
+    label: antibiotics
+  - id: MONDO:0009693
+    label: Multiple Myeloma
+  - id: CHEBI:145536
+    label: Motixafortide
+  - id: CHEBI:114786
+    label: sodium metabisulfite
+  - id: CHEBI:15365
+    label: aspirin
+  - id: HP:0000093
+    label: Proteinuria
+  - id: HP:0012622
+    label: CKD
+  - id: MAXO:0000969
+    label: optical coherence tomography (OCT)
+  - id: HP:0000505
+    label: visual impairment
+  - id: CHEBI:28901
+    label: busulfan
+  - id: CHEBI:82557
+    label: treosulfan
+  - id: CHEBI:9570
+    label: thiotepa
+  - id: HP:0100603
+    label: Hypertensive disorder of pregnancy (HDP)
+  - id: CHEBI:26308
+    label: unweighted polygenic risk score (PRS)
+  - id: CHEBI:35480
+    label: Analgesics
+  - id: HP:0012213
+    label: Decreased glomerular filtration rate
+  - id: HP:0012398
+    label: Peripheral oedema
+  - id: HP:0001685
+    label: Cardiac fibrosis
+  - id: MONDO:0005570
+    label: hematologic diseases
+  - id: HP:0001871
+    label: hematologic diseases
+  - id: HP:0001712
+    label: Left ventricular hypertrophy
+  - id: HP:0007760
+    label: SCD
+  - id: MAXO:0000149
+    label: Hematopoietic cell transplant (HCT)
+  - id: MAXO:0010203
+    label: Echocardiography
+  - id: HP:0012531
+    label: Pain
+  - id: CHEBI:51371
+    label: muscle relaxants
+  - id: HP:0002140
+    label: Arterial ischemic stroke
+  - id: MONDO:0019402
+    label: Thalassemia major
+  - id: MAXO:0000536
+    label: Chorionic villus sampling (CVS)
+  - id: MONDO:0020380
+    label: Sickle cell anemia (SCA)
+  - id: MONDO:0005161
+    label: Human papillomavirus (HPV) infection
+  - id: MAXO:0000759
+    label: HPV vaccination
+  - id: MAXO:0000447
+    label: Surgical removal
+  - id: HP:0033138
+    label: Right atrial thrombus
+  - id: HP:0000989
+    label: pruritus
+  - id: MAXO:0010041
+    label: skin grafting

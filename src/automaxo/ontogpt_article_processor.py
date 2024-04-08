@@ -17,7 +17,7 @@ handler.setFormatter(formatter)
 logger.addHandler(handler)
 
 
-def process_article(pubmed_id: str, text: str, ke: SPIRESEngine, output_dir: str):
+def process_article(pubmed_id: str, text: str, ke: SPIRESEngine, output_dir: str, template:str):
     """
     Process a single article and save the extracted results to a YAML file in the specified output directory.
 
@@ -38,6 +38,7 @@ def process_article(pubmed_id: str, text: str, ke: SPIRESEngine, output_dir: str
     # Call the write_extraction function
     write_extraction(
         results=results,
+        template=template,
         output=output,
         output_format=output_format,
         knowledge_engine=ke
@@ -51,7 +52,7 @@ def process_article(pubmed_id: str, text: str, ke: SPIRESEngine, output_dir: str
 
 
 
-def process_tsv_file(file_path: str, ke: SPIRESEngine, output_dir: str, existing_pmids: set):
+def process_tsv_file(file_path: str, ke: SPIRESEngine, output_dir: str, existing_pmids: set, template:str):
     """
     Read a .tsv file and process each article, saving the outputs in the specified directory.
 
@@ -69,7 +70,7 @@ def process_tsv_file(file_path: str, ke: SPIRESEngine, output_dir: str, existing
         for row in tqdm(rows, desc="Processing TSV file", total=len(rows)):
             pubmed_id, relationship, text = row
             if pubmed_id not in existing_pmids:
-                process_article(pubmed_id, text, ke, output_dir)
+                process_article(pubmed_id, text, ke, output_dir,template )
 
 
 @click.command()
@@ -99,7 +100,7 @@ def main(input_file, output_dir, template):
 
 
     # Process the .tsv file
-    process_tsv_file(input_file, ke, output_dir,existing_pmids )
+    process_tsv_file(input_file, ke, output_dir,existing_pmids, template )
 
 def run_in_notebook(input_file, output_dir, template='maxo'):
     main.main(standalone_mode=False, args=[
@@ -115,4 +116,7 @@ if __name__ == '__main__':
 """
 python ontogpt_article_processor.py path/to/input.tsv path/to/output/directory --template maxo
 python ontogpt_article_processor.py -i ../../data/sickle_cell/sickle_cell_no_replaced.tsv -o ../../data/sickle_cell/ontoGPT_yaml/
+
+
+
 """

@@ -1,0 +1,318 @@
+---
+input_text: 'Non-invasive diagnosis of cirrhosis and long-term disease monitoring
+  by transient elastography in patients with Wilson disease.BACKGROUND & AIMS: The
+  value of liver stiffness measurement (LSM) by transient elastography (TE) for non-invasive
+  fibrosis staging and disease monitoring has not been established in patients with
+  Wilson disease (WD). METHODS: Liver stiffness measurement by TE and non-invasive
+  fibrosis scores (APRI, FIB-4) were analysed from 188 WD patients with liver biopsy
+  (LBX). Longitudinal LSM was performed in 128 (68.1%) patients. RESULTS: One hundred
+  and eighty-eight patients (mean age: 35 +- 14 years, 54.8% women; 27.1% with histological
+  cirrhosis) were studied. Forty-four[23.4%] patients were recently diagnosed with
+  WD, while 144[76.6%] were previously diagnosed (>1 year between LBX and LSM). Overall,
+  LSM (11.3 vs 6.1 kPa, P < .001), APRI (0.72 vs 0.38, P < .001) and FIB-4 (1.54 vs
+  0.89, P < .001) were higher in cirrhotic than in non-cirrhotic patients. This was
+  even more pronounced in recently diagnosed patients (35.2 kPa vs 6.4 kPa, P < .001).
+  Accuracy for diagnosing cirrhosis at an LSM cut-off >=9.9 kPa was better in recently
+  diagnosed (PPV: 74%, NPV: 100%) vs previously diagnosed (PPV: 53%, NPV: 82%) patients.
+  Recently diagnosed patients had higher Area Under the Curve (AUC) for APRI (0.79
+  vs 0.61) and FIB-4 (0.84 vs 0.65) than previously diagnosed patients. At APRI <1.5
+  and FIB-4 <3.25 cirrhosis was ruled out with a specificity of 93% and 95% respectively.
+  During a median follow-up of 46 (24-66) months, only 5.9% (5/85) of non-cirrhotic
+  WD patients showed progression to cirrhotic LSM values, while 30.8% (4/13) of cirrhotic
+  WD patients showed LSM suggestive of cirrhosis regression. CONCLUSION: TE-based
+  LSM >=9.9 kPa accurately identifies cirrhosis in WD patients. Next to TE-LSM <9.9
+  kPa, APRI <1.5 and FIB-4 <3.25 values assist to non-invasively rule out cirrhosis.
+  LSM remains stable in most non-cirrhotic patients on WD therapy, while one-third
+  of cirrhotic patients present clinically relevant decreases in LSM.'
+raw_completion_output: |-
+  primary_disease: Wilson disease
+
+  medical_actions: transient elastography (TE); liver biopsy (LBX); APRI score evaluation; FIB-4 score evaluation; long-term disease monitoring
+
+  symptoms: liver stiffness; cirrhosis
+
+  chemicals: 
+
+  action_annotation_relationships: transient elastography (TE) TREATS liver stiffness IN Wilson disease; liver biopsy (LBX) TREATS liver stiffness IN Wilson disease; APRI score evaluation TREATS liver stiffness IN Wilson disease; FIB-4 score evaluation TREATS liver stiffness IN Wilson disease; transient elastography (TE) TREATS cirrhosis IN Wilson disease; APRI score evaluation (with cut-off <1.5) PREVENTS cirrhosis IN Wilson disease; FIB-4 score evaluation (with cut-off <3.25) PREVENTS cirrhosis IN Wilson disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  FIB-4 score evaluation (with cut-off <3.25) PREVENTS cirrhosis IN Wilson disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010200
+  medical_actions:
+    - transient elastography (TE)
+    - MAXO:0000376
+    - APRI score evaluation
+    - FIB-4 score evaluation
+    - long-term disease monitoring
+  symptoms:
+    - liver stiffness
+    - HP:0001394
+  action_annotation_relationships:
+    - subject: <transient elastography>
+      predicate: <TREATS>
+      object: <liver stiffness>
+      qualifier: <Wilson disease>
+      subject_extension: <transient elastography>
+    - subject: MAXO:0000376
+      predicate: TREATS
+      object: liver stiffness
+      qualifier: MONDO:0010200
+    - subject: <APRI score evaluation>
+      predicate: <TREATS>
+      object: <liver stiffness>
+      qualifier: <Wilson disease>
+      subject_extension: <APRI score evaluation>
+    - subject: FIB-4 score evaluation
+      predicate: TREATS
+      object: liver stiffness
+      qualifier: MONDO:0010200
+      subject_extension: FIB-4 score evaluation
+    - subject: transient elastography (TE)
+      predicate: TREATS
+      object: HP:0001394
+      qualifier: MONDO:0010200
+    - subject: APRI score evaluation
+      predicate: PREVENTS
+      object: HP:0001394
+      qualifier: MONDO:0010200
+      subject_qualifier: with cut-off <1.5
+    - subject: FIB-4 score evaluation
+      predicate: PREVENTS
+      object: HP:0001394
+      qualifier: MONDO:0010200
+      subject_qualifier: with cut-off <3.25
+named_entities:
+  - id: MONDO:0009835
+    label: Subacute sclerosing panencephalitis
+  - id: MONDO:0010200
+    label: Wilson disease
+  - id: HP:0100785
+    label: insomnia
+  - id: HP:0001262
+    label: excessive daytime sleepiness (EDS)
+  - id: HP:0010535
+    label: sleep-disordered breathing (SDB)
+  - id: HP:0012452
+    label: restless legs syndrome (RLS)
+  - id: HP:0100580
+    label: cataplexy-like episodes (CLEs)
+  - id: HP:0025233
+    label: sleep paralysis
+  - id: HP:0100022
+    label: Movement disorders
+  - id: HP:0001337
+    label: Tremor
+  - id: HP:0001332
+    label: Dystonia
+  - id: MONDO:0005154
+    label: Liver Disease
+  - id: HP:0008282
+    label: Indirect hyperbilirubinemia
+  - id: HP:0002088
+    label: Lung disease
+  - id: HP:0001396
+    label: Cholestasis
+  - id: HP:0010836
+    label: Abnormal copper levels
+  - id: CHEBI:34936
+    label: D-penicillamine (DPA)
+  - id: CHEBI:888
+    label: Dimercaptopropane Sulfonate (DMPS)
+  - id: CHEBI:63623
+    label: Dimercaptosuccinic Acid (DMSA)
+  - id: HP:0000989
+    label: itchy skin
+  - id: CHEBI:7959
+    label: d-penicillamine
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0000819
+    label: diabetes
+  - id: CHEBI:145810
+    label: insulin
+  - id: CHEBI:28694
+    label: copper
+  - id: HP:0005268
+    label: spontaneous abortions
+  - id: MONDO:0016264
+    label: Autoimmune Hepatitis (AIH)
+  - id: HP:0001399
+    label: Hepatic failure
+  - id: HP:0001394
+    label: Cirrhosis
+  - id: HP:0006554
+    label: acute liver failure
+  - id: MONDO:0018982
+    label: Niemann-Pick disease type C (NPC)
+  - id: HP:0002878
+    label: acute respiratory failure
+  - id: HP:0001919
+    label: acute renal failure
+  - id: HP:0200032
+    label: Kayser-Fleischer ring
+  - id: MAXO:0009004
+    label: Exome sequencing
+  - id: MONDO:0100288
+    label: Enhanced S-cone syndrome
+  - id: MONDO:0012669
+    label: Legius syndrome
+  - id: HP:0002615
+    label: Hypotension
+  - id: HP:0001649
+    label: Tachycardia
+  - id: MAXO:0009095
+    label: treatment with zinc
+  - id: MAXO:0001175
+    label: liver transplantation
+  - id: MAXO:0001001
+    label: gene therapy
+  - id: CHEBI:50868
+    label: penicillamine
+  - id: CHEBI:27363
+    label: zinc
+  - id: HP:0002063
+    label: rigidity
+  - id: HP:0001260
+    label: dysarthria
+  - id: HP:0002307
+    label: drooling
+  - id: CHEBI:16796
+    label: Melatonin
+  - id: CHEBI:16737
+    label: creatinine
+  - id: MONDO:0010421
+    label: X-linked agammaglobulinemia
+  - id: HP:0002204
+    label: Pulmonary embolism
+  - id: HP:0100806
+    label: Sepsis
+  - id: HP:0002107
+    label: pneumothorax
+  - id: HP:0025322
+    label: veno-occlusive disease
+  - id: CHEBI:30703
+    label: Tetrathiomolybdate (TTM)
+  - id: MAXO:0000127
+    label: genetic testing
+  - id: CHEBI:27899
+    label: cisplatin
+  - id: HP:0007366
+    label: brainstem atrophy
+  - id: HP:0012444
+    label: brain atrophy
+  - id: HP:0001081
+    label: Cholelithiasis
+  - id: HP:0001744
+    label: Splenomegaly
+  - id: HP:0002716
+    label: Lymphadenopathy
+  - id: HP:0001395
+    label: liver fibrosis
+  - id: CHEBI:39501
+    label: triethylenetetramine
+  - id: MAXO:0009016
+    label: Botulinum toxin type A injection
+  - id: CHEBI:3160
+    label: Botulinum toxin type A
+  - id: MAXO:0001193
+    label: upper endoscopy
+  - id: CHEBI:62984
+    label: zinc acetate
+  - id: MONDO:0100192
+    label: Liver failure
+  - id: HP:0001342
+    label: intracerebral hemorrhage
+  - id: HP:0000952
+    label: Jaundice
+  - id: HP:0003256
+    label: Coagulopathy
+  - id: HP:0001541
+    label: Ascites
+  - id: HP:0002480
+    label: Hepatic encephalopathy
+  - id: MONDO:0013209
+    label: NAFLD
+  - id: MAXO:0000376
+    label: Liver biopsy
+  - id: HP:0001397
+    label: Hepatic steatosis
+  - id: HP:0100543
+    label: cognitive impairment
+  - id: HP:0000713
+    label: agitation
+  - id: HP:0000737
+    label: irritability
+  - id: HP:0000739
+    label: anxiety
+  - id: HP:0000716
+    label: depression
+  - id: HP:0000741
+    label: apathy
+  - id: HP:0000746
+    label: delusions
+  - id: HP:0000738
+    label: hallucination
+  - id: CHEBI:29987
+    label: glutamate
+  - id: HP:0004324
+    label: weight gain
+  - id: CHEBI:16610
+    label: spermidine
+  - id: CHEBI:27881
+    label: resveratrol
+  - id: CHEBI:15351
+    label: AcCoA
+  - id: HP:0001298
+    label: Encephalopathy
+  - id: MONDO:0005071
+    label: Neurological diseases
+  - id: MONDO:0006711
+    label: Constrictive Pericarditis
+  - id: MAXO:0010203
+    label: Echocardiography
+  - id: MAXO:0010317
+    label: Chest computed tomography
+  - id: HP:0003270
+    label: Abdominal distension
+  - id: HP:0002563
+    label: Constrictive Pericarditis
+  - id: HP:0001300
+    label: parkinsonism
+  - id: CHEBI:38161
+    label: chelators
+  - id: HP:0002018
+    label: Nausea
+  - id: HP:0002013
+    label: Vomiting
+  - id: HP:0001272
+    label: cerebellar atrophy
+  - id: HP:0004448
+    label: fulminant hepatic failure
+  - id: HP:0003674
+    label: Onset
+  - id: CHEBI:22653
+    label: Asparagine
+  - id: CHEBI:15891
+    label: Taurine
+  - id: HP:0001410
+    label: hepatic dysfunction
+  - id: HP:0005110
+    label: atrial fibrillation
+  - id: HP:0001685
+    label: myocardial fibrosis

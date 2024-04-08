@@ -1,0 +1,133 @@
+---
+input_text: 'Transplant-free Survival in Chronic Liver Disease Presenting as Acute
+  Liver Failure in Childhood.BACKGROUND: In adults, the absence of a preexisting chronic
+  liver disease (CLD) is required to diagnose acute liver failure (ALF). The pediatric
+  classification does not consider this aspect, thus previous studies pooled together
+  children with ALF and children with unknown CLD presenting with acute hepatic decompensation
+  (ALF-CLD). We aimed to compare prevalence, features, and outcome of children with
+  ALF-CLD to those with a proper ALF. METHODS: Patients admitted between 1996 and
+  2017 because of ALF defined by Pediatric Acute Liver Failure criteria (raised transaminases,
+  International Normal Ratio >=2.0, no history of liver disease) were classified as
+  ALF-CLD if diagnosed with autoimmune hepatitis, Wilson disease, Budd-Chiari syndrome,
+  hepatitis B virus reactivation, inborn errors of metabolism. The others were classified
+  as ALF. RESULTS: Seventy-four children (median age, 4 years; 1.0-8.8; male/female,
+  36/38] with ALF were found; 18 of <1 year of age were excluded. Fifty-six (median
+  age, 6.6 years; 2.7-11.7; male/female, 23/33], 22 with ALF-CLD (autoimmune hepatitis,
+  n = 14; Wilson disease, n = 6; inborn errors of metabolism, n = 2) and 34 with ALF
+  (paracetamol overdose, n = 6; viral infections, n = 3; mushroom poisoning, n = 5;
+  indeterminate, n = 20) were compared. In ALF-CLD, the median age at onset was higher,
+  alanine aminotransferase, albumin, and International Normal Ratio levels were lower,
+  splenomegaly, ascites, and cirrhosis were more common (all P < 0.01). On multivariate
+  analysis, the diagnosis of ALF-CLD was an independent predictor of transplant-free
+  survival (P = 0.006). CONCLUSIONS: In children, ALF-CLD is common, has peculiar
+  features, and is associated with a favorable outcome. This study suggests the need
+  to distinguish this entity from other forms of ALF in children.'
+raw_completion_output: |-
+  primary_disease: Chronic Liver Disease presenting as Acute Liver Failure in Childhood
+
+  medical_actions: Diagnosis of ALF-CLD; Multivariate analysis
+
+  symptoms: Raised transaminases; International Normal Ratio >=2.0; Splenomegaly; Ascites; Cirrhosis
+
+  chemicals: Paracetamol
+
+  action_annotation_relationships: Diagnosis of ALF-CLD TREATS Raised transaminases IN Chronic Liver Disease presenting as Acute Liver Failure in Childhood; Diagnosis of ALF-CLD TREATS International Normal Ratio >=2.0 IN Chronic Liver Disease presenting as Acute Liver Failure in Childhood; Diagnosis of ALF-CLD TREATS Splenomegaly IN Chronic Liver Disease presenting as Acute Liver Failure in Childhood; Diagnosis of ALF-CLD TREATS Ascites IN Chronic Liver Disease presenting as Acute Liver Failure in Childhood; Diagnosis of ALF-CLD TREATS Cirrhosis IN Chronic Liver Disease presenting as Acute Liver Failure in Childhood; Paracetamol OVERDOSE TREATS Chronic Liver Disease presenting as Acute Liver Failure in Childhood (implied negative relationship)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Paracetamol OVERDOSE TREATS Chronic Liver Disease presenting as Acute Liver Failure in Childhood (implied negative relationship)
+
+  ===
+
+extracted_object:
+  primary_disease: Chronic Liver Disease presenting as Acute Liver Failure in Childhood
+  medical_actions:
+    - Diagnosis of ALF-CLD
+    - Multivariate analysis
+  symptoms:
+    - Raised transaminases
+    - International Normal Ratio >=2.0
+    - HP:0001744
+    - HP:0001541
+    - HP:0001394
+  chemicals:
+    - CHEBI:46195
+  action_annotation_relationships:
+    - subject: Diagnosis of ALF-CLD
+      predicate: TREATS
+      object: Raised transaminases
+      qualifier: Chronic Liver Disease presenting as Acute Liver Failure in Childhood
+    - subject: Diagnosis of ALF-CLD
+      predicate: TREATS
+      object: International Normal Ratio >=2.0
+      qualifier: Chronic Liver Disease presenting as Acute Liver Failure in Childhood
+    - subject: Diagnosis of ALF-CLD
+      predicate: TREATS
+      object: HP:0001744
+      qualifier: Chronic Liver Disease presenting as Acute Liver Failure in Childhood
+    - subject: Diagnosis of ALF-CLD
+      predicate: TREATS
+      object: HP:0001541
+      qualifier: Chronic Liver Disease presenting as Acute Liver Failure in Childhood
+    - subject: <Diagnosis of ALF-CLD>
+      predicate: <TREATS>
+      object: <Cirrhosis>
+      qualifier: <Chronic Liver Disease>
+      subject_qualifier: <Not applicable>
+      object_qualifier: <presenting as Acute Liver Failure in Childhood>
+      subject_extension: <Not applicable>
+      object_extension: <Not applicable>
+    - subject: OVERDOSE
+      predicate: TREATS
+      object: HP:0006554
+      qualifier: Chronic Liver Disease
+      object_qualifier: presenting as in Childhood
+      subject_extension: CHEBI:46195
+named_entities:
+  - id: MONDO:0010200
+    label: Wilson's disease
+  - id: HP:0001695
+    label: cardiac arrest
+  - id: HP:0001685
+    label: myocardial fibrosis
+  - id: HP:0001663
+    label: ventricular fibrillation
+  - id: CHEBI:38161
+    label: Chelating agents
+  - id: MAXO:0000016
+    label: Cell therapy
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: HP:0001392
+    label: Hepatic disease
+  - id: CHEBI:30703
+    label: Tetrathiomolybdate (TTM)
+  - id: CHEBI:28694
+    label: Copper (Cu)
+  - id: CHEBI:18248
+    label: Iron (Fe)
+  - id: CHEBI:27363
+    label: Zinc (Zn)
+  - id: CHEBI:82594
+    label: Ferritin (SFr)
+  - id: HP:0001744
+    label: Splenomegaly
+  - id: HP:0001541
+    label: Ascites
+  - id: HP:0001394
+    label: Cirrhosis
+  - id: CHEBI:46195
+    label: Paracetamol
+  - id: HP:0006554
+    label: Acute Liver Failure

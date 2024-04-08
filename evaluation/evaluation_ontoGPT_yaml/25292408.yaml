@@ -23,115 +23,186 @@ input_text: 'Peritoneal Dialysis Can Be an Option for Dominant Polycystic Kidney
   - 6.69] vs 5.57 [4.95 - 6.18] years, p = 0.024). CONCLUSION: Peritoneal dialysis
   is a suitable renal replacement therapy option for ADPKD patients.'
 raw_completion_output: |-
-  action: <Peritoneal Dialysis; Inclusion in the transplant waiting list>
-  disease: <Autosomal dominant polycystic kidney disease (ADPKD); Diabetes mellitus; Cardiovascular events; Cyst infections; Peritonitis; Abdominal wall leaks>
-  symptom: <N/A>
-  action_to_disease: <Peritoneal Dialysis TREATS Autosomal dominant polycystic kidney disease (ADPKD); Inclusion in the transplant waiting list IS USED FOR Autosomal dominant polycystic kidney disease (ADPKD)>
-  action_to_symptom: <N/A>
-  triples: <Peritoneal Dialysis TREATS Autosomal dominant polycystic kidney disease (ADPKD); Inclusion in the transplant waiting list IS USED FOR Autosomal dominant polycystic kidney disease (ADPKD)>
+  primary_disease: Autosomal dominant polycystic kidney disease (ADPKD)
+
+  medical_actions: Peritoneal dialysis; transient transfer to hemodialysis; surgery; inclusion in the transplant waiting list
+
+  symptoms: Mortality; PD-technique failure; peritonitis; abdominal wall leaks; cyst infections
+
+  chemicals: 
+
+  action_annotation_relationships: Peritoneal dialysis TREATS Autosomal dominant polycystic kidney disease (ADPKD) IN Autosomal dominant polycystic kidney disease (ADPKD); transient transfer to hemodialysis PREVENTS PD-technique failure IN Autosomal dominant polycystic kidney disease (ADPKD); surgery TREATS abdominal wall leaks IN Autosomal dominant polycystic kidney disease (ADPKD); inclusion in the transplant waiting list TREATS Autosomal dominant polycystic kidney disease (ADPKD) IN Autosomal dominant polycystic kidney disease (ADPKD)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
-  subject: <the value for subject>
-  predicate: <the value for predicate>
-  object: <the value for object>
-  qualifier: <A qualifier for the statements, e.g. "NOT" for negation>
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
   subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
   object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
 
 
   Text:
-  Inclusion in the transplant waiting list IS USED FOR Autosomal dominant polycystic kidney disease (ADPKD)>
+  inclusion in the transplant waiting list TREATS Autosomal dominant polycystic kidney disease (ADPKD) IN Autosomal dominant polycystic kidney disease (ADPKD)
 
   ===
 
 extracted_object:
-  triples:
-    - subject: Peritoneal Dialysis
-      predicate: TREATS
-      object: Autosomal dominant polycystic kidney disease (ADPKD)
-    - subject: Inclusion in the transplant waiting list
-      predicate: IS USED FOR
-      object: Autosomal dominant polycystic kidney disease (ADPKD)
-  action:
-    - <Peritoneal Dialysis
-    - Inclusion in the transplant waiting list>
-  disease:
-    - MONDO:0004691
-    - MONDO:0005015
-    - Cardiovascular events
-    - Cyst infections
-    - MONDO:0004522
-    - Abdominal wall leaks>
-  symptom:
-    - <N/A>
-  action_to_disease:
+  primary_disease: MONDO:0004691
+  medical_actions:
+    - MAXO:0000603
+    - transient transfer to hemodialysis
+    - MAXO:0000004
+    - inclusion in the transplant waiting list
+  symptoms:
+    - Mortality
+    - PD-technique failure
+    - HP:0002586
+    - abdominal wall leaks
+    - cyst infections
+  action_annotation_relationships:
     - subject: MAXO:0000603
       predicate: TREATS
-      object:
-        - MONDO:0004691
-    - subject: Inclusion in the transplant waiting list
-      predicate: IS USED FOR
-      object:
-        - MONDO:0004691
+      object: Autosomal dominant polycystic kidney disease (ADPKD)
+      qualifier: MONDO:0004691
+    - subject: <transient transfer to hemodialysis>
+      predicate: <PREVENTS>
+      object: <PD-technique failure>
+      qualifier: MONDO:0004691
+      subject_qualifier: <transient>
+      object_qualifier: <N/A>
+      subject_extension: <hemodialysis>
+      object_extension: <PD-technique failure>
+    - subject: MAXO:0000004
+      predicate: TREATS
+      object: abdominal wall leaks
+      qualifier: MONDO:0004691
+    - subject: inclusion in the transplant waiting list
+      predicate: TREATS
+      object: Autosomal dominant polycystic kidney disease (ADPKD)
+      qualifier: MONDO:0004691
 named_entities:
-  - id: MONDO:0005365
-    label: hearing loss
   - id: MONDO:0008891
     label: Brown-Vialetto-Van Laere syndrome
-  - id: MONDO:0003608
+  - id: MAXO:0009004
+    label: exome sequencing
+  - id: HP:0000407
+    label: sensorineural hearing loss
+  - id: HP:0002093
+    label: respiratory insufficiency
+  - id: HP:0010871
+    label: sensory ataxia
+  - id: HP:0000648
     label: optic atrophy
-  - id: MONDO:0100062
+  - id: CHEBI:17015
+    label: riboflavin
+  - id: HP:0012469
     label: infantile spasms
-  - id: MONDO:0005027
-    label: seizures
-  - id: MONDO:0005047
+  - id: HP:0000789
     label: infertility
-  - id: MAXO:0010030
-    label: bone marrow transplantation
+  - id: HP:0005268
+    label: miscarriage
+  - id: CHEBI:16709
+    label: pyridoxine
+  - id: CHEBI:18405
+    label: pyridoxal 5'-phosphate
+  - id: CHEBI:27306
+    label: vitamin B6
+  - id: CHEBI:24041
+    label: flavin mononucleotide
+  - id: HP:0001250
+    label: seizures
   - id: MONDO:0009974
-    label: familial hemophagocytic lymphohistiocytosis
-  - id: MONDO:0011382
-    label: sickle cell disease
-  - id: MONDO:0013517
-    label: beta-thalassemia
-  - id: MONDO:0000440
-    label: Metabolic acidosis
+    label: Familial hemophagocytic lymphohistiocytosis
+  - id: MAXO:0010030
+    label: bone marrow transplantation (BMT)
+  - id: CHEBI:28901
+    label: busulfan
+  - id: CHEBI:4027
+    label: cyclophosphamide
+  - id: CHEBI:4911
+    label: etoposide
+  - id: MAXO:0000757
+    label: infusion
+  - id: CHEBI:41264
+    label: busulfan (BU), cyclophosphamide (CP), etoposide (VP16), antithymocyte globulin
+      (ATG)
+  - id: MAXO:0000750
+    label: conditioning regimen
+  - id: CHEBI:73896
+    label: gene therapy (GT)
   - id: MONDO:0009666
     label: Holocarboxylase synthetase deficiency
-  - id: MONDO:0015454
-    label: Multiple carboxylase deficiency
-  - id: MONDO:0001531
+  - id: MAXO:0000603
+    label: Peritoneal dialysis
+  - id: HP:0001942
+    label: Metabolic acidosis
+  - id: CHEBI:15956
+    label: Biotin
+  - id: HP:0003256
     label: Coagulopathy
+  - id: CHEBI:48669
+    label: Tranexamic acid
+  - id: CHEBI:48675
+    label: antifibrinolytic agents
   - id: MONDO:0020300
     label: Autosomal dominant nocturnal frontal lobe epilepsy
+  - id: CHEBI:3387
+    label: Carbamazepine
   - id: MONDO:0000903
-    label: myoclonus-dystonia
+    label: Myoclonus-dystonia
   - id: MAXO:0000943
-    label: Deep brain stimulation
+    label: Deep Brain Stimulation
   - id: HP:0001252
     label: Hypotonia
+  - id: MONDO:0005338
+    label: Primary open-angle glaucoma (POAG)
   - id: MAXO:0001082
     label: Trabeculectomy
-  - id: MONDO:0005129
-    label: Cataract
+  - id: MAXO:0000960
+    label: Viscocanalostomy
+  - id: HP:0007906
+    label: Elevated intraocular pressure (IOP)
   - id: HP:0000253
     label: Progressive microcephaly
   - id: HP:0001263
     label: Global developmental delay
-  - id: MONDO:0004183
-    label: axonal neuropathy
+  - id: HP:0000365
+    label: Hearing loss
+  - id: HP:0100785
+    label: Insomnia
+  - id: CHEBI:15681
+    label: GM3
+  - id: CHEBI:28892
+    label: Ganglioside
+  - id: MAXO:0001298
+    label: therapies
+  - id: MAXO:0000950
+    label: Supportive care
+  - id: CHEBI:8378
+    label: Prednisolone
+  - id: MONDO:0015626
+    label: Charcot-Marie-Tooth disease (CMT)
+  - id: MAXO:0035087
+    label: peripheral nerve biopsy
   - id: HP:0011096
     label: demyelination
-  - id: MONDO:0008961
-    label: autosomal recessive demyelinating Charcot-Marie-Tooth disease type 4A
+  - id: HP:0001605
+    label: vocal cord paralysis
   - id: MONDO:0007947
     label: Marfan's syndrome
+  - id: HP:0001659
+    label: aortic regurgitation
+  - id: CHEBI:2904
+    label: atenolol
+  - id: CHEBI:6541
+    label: losartan
   - id: MONDO:0004691
-    label: <Autosomal dominant polycystic kidney disease (ADPKD)
-  - id: MONDO:0005015
-    label: Diabetes mellitus
-  - id: MONDO:0004522
-    label: Peritonitis
-  - id: MAXO:0000603
-    label: Peritoneal Dialysis
+    label: Autosomal dominant polycystic kidney disease (ADPKD)
+  - id: MAXO:0000004
+    label: surgery
+  - id: HP:0002586
+    label: peritonitis

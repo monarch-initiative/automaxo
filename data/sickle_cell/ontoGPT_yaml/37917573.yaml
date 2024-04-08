@@ -19,109 +19,125 @@ input_text: 'Painless Orbital Bone Infarction in a Child with Sickle Cell Anemia
   appropriate management. Thus, we report the case of a 4-year-old child with painless
   sickle cell orbitopathy masquerading as pre-septal cellulitis.'
 raw_completion_output: |-
-  action: <systemic antibiotics; supportive treatment for vaso-occlusive crisis>
-  disease: <Sickle cell anemia; Sickle cell orbitopathy; Periorbital cellulitis; Vaso-occlusive crisis>
-  symptom: <bilateral lower limb pain; painless left orbital swelling; swelling of the left upper eyelid; redness; mild ptosis>
-  action_to_disease: <systemic antibiotics TREATS Sickle cell orbitopathy; supportive treatment for vaso-occlusive crisis TREATS Vaso-occlusive crisis>
-  action_to_symptom: <>
-  triples: <systemic antibiotics TREATS Sickle cell orbitopathy; supportive treatment for vaso-occlusive crisis TREATS Vaso-occlusive crisis>
+  primary_disease: Sickle Cell Orbitopathy
+
+  medical_actions: Systemic antibiotics treatment; Supportive treatment for vaso-occlusive crisis
+
+  symptoms: Bilateral lower limb pain; Painless left orbital swelling; Swelling of the left upper eyelid; Redness; Mild ptosis without proptosis; Bilateral sub-periosteal heterogeneous collections
+
+  chemicals: 
+
+  action_annotation_relationships: Systemic antibiotics treatment TREATS painless left orbital swelling IN Sickle Cell Orbitopathy; Supportive treatment for vaso-occlusive crisis TREATS bilateral lower limb pain IN Sickle Cell Orbitopathy
 prompt: |+
   From the text below, extract the following entities in the following format:
 
-  subject: <the value for subject>
-  predicate: <the value for predicate>
-  object: <the value for object>
-  qualifier: <A qualifier for the statements, e.g. "NOT" for negation>
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
   subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
   object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
 
 
   Text:
-  supportive treatment for vaso-occlusive crisis TREATS Vaso-occlusive crisis>
+  Supportive treatment for vaso-occlusive crisis TREATS bilateral lower limb pain IN Sickle Cell Orbitopathy
 
   ===
 
 extracted_object:
-  triples:
-    - subject: systemic antibiotics
+  primary_disease: Sickle Cell Orbitopathy
+  medical_actions:
+    - Systemic antibiotics treatment
+    - Supportive treatment for vaso-occlusive crisis
+  symptoms:
+    - Bilateral lower limb pain
+    - Painless left orbital swelling
+    - Swelling of the left upper eyelid
+    - HP:0010783
+    - Mild ptosis without proptosis
+    - Bilateral sub-periosteal heterogeneous collections
+  action_annotation_relationships:
+    - subject: Systemic antibiotics treatment
       predicate: TREATS
-      object: Sickle cell orbitopathy
-    - subject: supportive treatment for vaso-occlusive crisis
+      object: painless left orbital swelling
+      qualifier: Sickle Cell Orbitopathy
+      subject_extension: CHEBI:33281
+    - subject: Supportive treatment for vaso-occlusive crisis
       predicate: TREATS
-      object: Vaso-occlusive crisis
-  action:
-    - <systemic antibiotics
-    - supportive treatment for vaso-occlusive crisis>
-  disease:
-    - <Sickle cell anemia
-    - Sickle cell orbitopathy
-    - Periorbital cellulitis
-    - Vaso-occlusive crisis>
-  symptom:
-    - <bilateral lower limb pain
-    - painless left orbital swelling
-    - swelling of the left upper eyelid
-    - redness
-    - mild ptosis>
-  action_to_disease:
-    - subject: systemic antibiotics
-      predicate: TREATS
-      object:
-        - Sickle cell orbitopathy
-    - subject: supportive treatment for vaso-occlusive crisis
-      predicate: TREATS
-      object:
-        - Vaso-occlusive crisis
+      object: bilateral lower limb pain
+      qualifier: Sickle Cell Orbitopathy
 named_entities:
-  - id: MAXO:0001001
-    label: genetic therapies
   - id: MONDO:0011382
     label: sickle cell disease
   - id: MONDO:0100096
-    label: COVID-19
-  - id: MONDO:0005087
-    label: Respiratory disease
+    label: SARS-CoV-2
   - id: MONDO:0007374
-    label: <Sickle cell disease (SCD)
-  - id: MONDO:0005632
-    label: acute chest syndrome
-  - id: MONDO:0005550
-    label: infections
-  - id: MONDO:0005081
-    label: preeclampsia
-  - id: MONDO:0005030
-    label: intrauterine growth restriction
-  - id: MONDO:0000831
-    label: Thrombosis
-  - id: MONDO:0005080
+    label: Sickle cell disease (SCD)
+  - id: HP:0100602
+    label: Preeclampsia
+  - id: HP:0001511
+    label: Intrauterine growth restriction
+  - id: CHEBI:44423
+    label: Hydroxyurea (HU)
+  - id: CHEBI:35143
+    label: Haemoglobin (Hb)
+  - id: HP:0001622
+    label: Preterm delivery
+  - id: CHEBI:50858
+    label: corticosteroids
+  - id: HP:0032654
+    label: Endothelial dysfunction
+  - id: HP:0012418
+    label: Hypoxia
+  - id: HP:0001409
     label: Portal hypertension
-  - id: MONDO:0005149
-    label: Pulmonary Hypertension
+  - id: MAXO:0001001
+    label: Gene therapies
   - id: MAXO:0000756
-    label: transfusion
+    label: Transfusion
   - id: MAXO:0000747
-    label: hematopoietic stem cell transplantation
-  - id: MONDO:0005279
-    label: Pulmonary embolism
-  - id: HP:0025179
-    label: Ground glass opacities
+    label: Hematopoietic stem cell transplantation
+  - id: MAXO:0001298
+    label: therapy
+  - id: MAXO:0009047
+    label: Total hip replacement (THR)
+  - id: CHEBI:22720
+    label: Benzodiazepines
+  - id: MONDO:0006079
+    label: Acute chest syndrome (ACS)
+  - id: CHEBI:24859
+    label: Iodine
+  - id: MONDO:0005632
+    label: Acute chest syndrome
+  - id: CHEBI:17334
+    label: penicillin
   - id: MAXO:0000118
     label: immunizations
+  - id: HP:0001903
+    label: anemia
   - id: HP:0001297
     label: stroke
-  - id: MONDO:0002280
-    label: anemia
-  - id: HP:0001511
-    label: intrauterine growth retardation
-  - id: HP:0001518
-    label: low birth weight
-  - id: MAXO:0001006
-    label: full blood count
-  - id: MAXO:0000825
-    label: reticulocyte count
-  - id: MAXO:0000427
-    label: brain MRI
   - id: HP:0012532
-    label: chronic pain
-  - id: MONDO:0005098
-    label: stroke
+    label: Chronic pain
+  - id: CHEBI:3216
+    label: Buprenorphine
+  - id: HP:0001518
+    label: Low birth weight
+  - id: MAXO:0001006
+    label: Full blood count
+  - id: MAXO:0000825
+    label: Reticulocyte count
+  - id: MAXO:0000427
+    label: Brain magnetic resonance imaging (MRI)
+  - id: HP:0012592
+    label: albuminuria
+  - id: HP:0100543
+    label: cognitive dysfunction
+  - id: HP:0000739
+    label: anxiety
+  - id: HP:0010783
+    label: Redness
+  - id: CHEBI:33281
+    label: antibiotics

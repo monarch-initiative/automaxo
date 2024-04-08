@@ -1,0 +1,106 @@
+---
+input_text: "Pediatric Wilson Disease Presenting as Acute Liver Failure: An Individual
+  Patient Data Meta-analysis.OBJECTIVES: Wilson disease (WD) presenting as acute liver
+  failure (ALF) is rare and typically fatal without liver transplantation (LT). Its
+  rarity has hindered comprehensive studies. We undertook an individual patient data
+  meta-analysis to characterize a cohort of pediatric patients presenting with ALF
+  whose final diagnosis was WD to examine outcomes and identify predictors of poor
+  outcomes. METHODS: Database searches were conducted in PubMed, ScienceDirect, and
+  Google Scholar, restricted to English-language articles published between January
+  1984 and May 2018. Articles were excluded if pediatric (<18 years old) data were
+  not extractable or if LT was not readily available at reporting institutions. Extracted
+  data included clinical and biochemical characteristics, genotype, treatment, and
+  outcome. RESULTS: Data were available on 249 subjects from 52 articles, plus 7 additional
+  subjects identified from our institution's WD database (N = 256). Females represented
+  69% (n = 170/245). Median age at presentation was 13.4 years (n = 204, range 4.0-17.9).
+  Of the total 256 subjects, 87% underwent LT, 11% achieved spontaneous recovery and
+  2% died before LT. International normalized ratio >2.0 at presentation was a predictor
+  of LT/death (odds ratio 7.6, 95% confidence interval 1.5-28), with a trend observed
+  for hepatic encephalopathy (HE) (odds ratio 4.18, 95% confidence interval 0.99-18).
+  Arithmetic diagnostic scores proved inferior in the pediatric age-bracket compared
+  to adults. CONCLUSIONS: This large international pediatric cohort has permitted
+  an individual patient data analysis of WD presenting as ALF. Notably, 11% of subjects
+  achieved spontaneous survival; the rest required LT. Coagulopathy (international
+  normalized ratio >2:0) and HE at presentation heralded poor outcomes. Further prospective
+  studies may identify additional early predictors of outcomes."
+raw_completion_output: |-
+  primary_disease: Wilson Disease
+
+  medical_actions: liver transplantation; spontaneous recovery
+
+  symptoms: acute liver failure; coagulopathy; hepatic encephalopathy
+
+  chemicals: 
+
+  action_annotation_relationships: liver transplantation TREATS acute liver failure IN Wilson Disease; spontaneous recovery TREATS acute liver failure IN Wilson Disease; liver transplantation TREATS coagulopathy IN Wilson Disease; liver transplantation TREATS hepatic encephalopathy IN Wilson Disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  liver transplantation TREATS hepatic encephalopathy IN Wilson Disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010200
+  medical_actions:
+    - MAXO:0001175
+    - spontaneous recovery
+  symptoms:
+    - HP:0006554
+    - HP:0003256
+    - HP:0002480
+  action_annotation_relationships:
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: HP:0006554
+      qualifier: MONDO:0010200
+    - subject: <spontaneous recovery>
+      predicate: <TREATS>
+      object: <acute liver failure>
+      qualifier: <Wilson Disease>
+      subject_qualifier: <Not applicable>
+      object_qualifier: <Not applicable>
+      subject_extension: <Not applicable>
+      object_extension: <Not applicable>
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: HP:0003256
+      qualifier: MONDO:0010200
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: HP:0002480
+      qualifier: MONDO:0010200
+named_entities:
+  - id: MONDO:0010200
+    label: Wilson disease
+  - id: HP:0025464
+    label: oxidative stress
+  - id: CHEBI:28694
+    label: copper
+  - id: CHEBI:18248
+    label: iron
+  - id: CHEBI:149681
+    label: catalase (CAT)
+  - id: CHEBI:566274
+    label: malondialdehyde (MDA)
+  - id: CHEBI:16480
+    label: nitric oxide (NO)
+  - id: MAXO:0001175
+    label: liver transplantation
+  - id: HP:0006554
+    label: acute liver failure
+  - id: HP:0003256
+    label: coagulopathy
+  - id: HP:0002480
+    label: hepatic encephalopathy

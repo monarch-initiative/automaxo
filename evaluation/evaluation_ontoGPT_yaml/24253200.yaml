@@ -27,96 +27,113 @@ input_text: 'Treatable childhood neuronopathy caused by mutations in riboflavin 
   this neurodegenerative condition, particularly when initiated soon after the onset
   of symptoms. '
 raw_completion_output: |-
-  action: <exome and Sanger sequencing;clinical, neurophysiological and biochemical characterization;high-dose oral riboflavin therapy>
-  disease: <Brown-Vialetto-Van Laere syndrome;rapidly progressive axonal sensorimotor neuropathy;respiratory insufficiency;hearing loss;optic atrophy>
-  symptom: <sensory ataxia;severe weakness of the upper limbs;axial muscles distinctly preserved strength of the lower limbs>
-  action_to_disease: <exome and Sanger sequencing IS USED TO DIAGNOSE Brown-Vialetto-Van Laere syndrome;high-dose oral riboflavin therapy TREATS Brown-Vialetto-Van Laere syndrome;high-dose oral riboflavin therapy AMELIORATES rapidly progressive axonal sensorimotor neuropathy;high-dose oral riboflavin therapy AMELIORATES respiratory insufficiency;high-dose oral riboflavin therapy AMELIORATES hearing loss;high-dose oral riboflavin therapy AMELIORATES optic atrophy>
-  action_to_symptom: <not specified explicitly in the text>
-  triples: <exome and Sanger sequencing IS USED TO DIAGNOSE Brown-Vialetto-Van Laere syndrome;high-dose oral riboflavin therapy TREATS Brown-Vialetto-Van Laere syndrome;high-dose oral riboflavin therapy AMELIORATES rapidly progressive axonal sensorimotor neuropathy;high-dose oral riboflavin therapy AMELIORATES respiratory insufficiency;high-dose oral riboflavin therapy AMELIORATES hearing loss;high-dose oral riboflavin therapy AMELIORATES optic atrophy>
-prompt: |+
-  Split the following piece of text into fields in the following format:
+  primary_disease: Brown-Vialetto-Van Laere syndrome
 
-  subject: <the value for subject>
-  predicate: <the value for predicate>
-  object: <the value for object>
-  qualifier: <A qualifier for the statements, e.g. "NOT" for negation>
+  medical_actions: high-dose oral riboflavin therapy; clinical characterization; neurophysiological characterization; biochemical characterization; exome sequencing; Sanger sequencing; functional analysis of mutations
+
+  symptoms: progressive pontobulbar palsy; sensorineural hearing loss; respiratory insufficiency; rapid progression of axonal sensorimotor neuropathy; sensory ataxia; severe weakness of the upper limbs; severe weakness of axial muscles; preserved strength of lower limbs; optic atrophy
+
+  chemicals: riboflavin
+
+  action_annotation_relationships: high-dose oral riboflavin therapy (with riboflavin) TREATS progressive pontobulbar palsy IN Brown-Vialetto-Van Laere syndrome; high-dose oral riboflavin therapy (with riboflavin) TREATS sensorineural hearing loss IN Brown-Vialetto-Van Laere syndrome; high-dose oral riboflavin therapy (with riboflavin) TREATS respiratory insufficiency IN Brown-Vialetto-Van Laere syndrome; high-dose oral riboflavin therapy (with riboflavin) TREATS sensory ataxia IN Brown-Vialetto-Van Laere syndrome; high-dose oral riboflavin therapy (with riboflavin) TREATS severe weakness of the upper limbs IN Brown-Vialetto-Van Laere syndrome; high-dose oral riboflavin therapy (with riboflavin) TREATS severe weakness of axial muscles IN Brown-Vialetto-Van Laere syndrome; high-dose oral riboflavin therapy (with riboflavin) TREATS optic atrophy IN Brown-Vialetto-Van Laere syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
   subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
   object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
 
 
   Text:
-  high-dose oral riboflavin therapy AMELIORATES optic atrophy>
+  high-dose oral riboflavin therapy (with riboflavin) TREATS optic atrophy IN Brown-Vialetto-Van Laere syndrome
 
   ===
 
 extracted_object:
-  triples:
-    - subject: exome and Sanger sequencing
-      predicate: IS USED TO DIAGNOSE
-      object: Brown-Vialetto-Van Laere syndrome
-    - subject: high-dose oral riboflavin therapy
-      predicate: TREATS
-      object: Brown-Vialetto-Van Laere syndrome
-      subject_qualifier: high-dose
-    - subject: high-dose oral riboflavin therapy
-      predicate: AMELIORATES
-      object: rapidly progressive axonal sensorimotor neuropathy
-      subject_qualifier: high-dose
-      object_qualifier: rapidly progressive
-    - subject: high-dose oral riboflavin therapy
-      predicate: AMELIORATES
-      object: respiratory insufficiency
-      subject_qualifier: high dose
-    - subject: high-dose oral riboflavin therapy
-      predicate: AMELIORATES
-      object: hearing loss
-    - subject: high-dose oral riboflavin therapy
-      predicate: AMELIORATES
-      object: optic atrophy
-      subject_qualifier: high-dose
-  action:
-    - <exome and Sanger sequencing
-    - clinical, neurophysiological and biochemical characterization
-    - high-dose oral riboflavin therapy>
-  disease:
-    - <Brown-Vialetto-Van Laere syndrome
-    - rapidly progressive axonal sensorimotor neuropathy
-    - respiratory insufficiency
-    - MONDO:0005365
-    - optic atrophy>
-  symptom:
-    - <sensory ataxia
+  primary_disease: MONDO:0008891
+  medical_actions:
+    - high-dose oral riboflavin therapy
+    - clinical characterization
+    - neurophysiological characterization
+    - biochemical characterization
+    - MAXO:0009004
+    - Sanger sequencing
+    - functional analysis of mutations
+  symptoms:
+    - progressive pontobulbar palsy
+    - HP:0000407
+    - HP:0002093
+    - rapid progression of axonal sensorimotor neuropathy
+    - HP:0010871
     - severe weakness of the upper limbs
-    - axial muscles distinctly preserved strength of the lower limbs>
-  action_to_disease:
-    - subject: exome and Sanger sequencing
-      predicate: IS USED TO DIAGNOSE
-      object:
-        - MONDO:0008891
+    - severe weakness of axial muscles
+    - preserved strength of lower limbs
+    - HP:0000648
+  chemicals:
+    - CHEBI:17015
+  action_annotation_relationships:
+    - subject: oral riboflavin therapy
+      predicate: TREATS
+      object: progressive pontobulbar palsy
+      qualifier: MONDO:0008891
+      subject_qualifier: high-dose
+      subject_extension: CHEBI:17015
     - subject: high-dose oral riboflavin therapy
       predicate: TREATS
-      object:
-        - MONDO:0008891
+      object: HP:0000407
+      qualifier: MONDO:0008891
+      subject_qualifier: high-dose
+      subject_extension: CHEBI:17015
     - subject: high-dose oral riboflavin therapy
-      predicate: AMELIORATES
-      object:
-        - rapidly progressive axonal sensorimotor neuropathy
+      predicate: TREATS
+      object: HP:0002093
+      qualifier: MONDO:0008891
+      subject_qualifier: high-dose
+      subject_extension: CHEBI:17015
+    - subject: oral riboflavin therapy
+      predicate: TREATS
+      object: HP:0010871
+      qualifier: MONDO:0008891
+      subject_qualifier: high-dose
+      subject_extension: CHEBI:17015
+    - subject: oral riboflavin therapy
+      predicate: TREATS
+      object: weakness of the upper limbs
+      qualifier: MONDO:0008891
+      subject_qualifier: high-dose
+      object_qualifier: severe
+      subject_extension: CHEBI:17015
     - subject: high-dose oral riboflavin therapy
-      predicate: AMELIORATES
-      object:
-        - respiratory insufficiency
+      predicate: TREATS
+      object: severe weakness of axial muscles
+      qualifier: MONDO:0008891
+      subject_qualifier: high-dose
+      object_qualifier: severe
+      subject_extension: CHEBI:17015
+      object_extension: <None>
     - subject: high-dose oral riboflavin therapy
-      predicate: AMELIORATES
-      object:
-        - MONDO:0005365
-    - subject: high-dose oral riboflavin therapy
-      predicate: AMELIORATES
-      object:
-        - MONDO:0003608
+      predicate: TREATS
+      object: HP:0000648
+      qualifier: MONDO:0008891
+      subject_qualifier: high-dose oral
+      subject_extension: CHEBI:17015
 named_entities:
-  - id: MONDO:0005365
-    label: hearing loss
   - id: MONDO:0008891
     label: Brown-Vialetto-Van Laere syndrome
-  - id: MONDO:0003608
+  - id: MAXO:0009004
+    label: exome sequencing
+  - id: HP:0000407
+    label: sensorineural hearing loss
+  - id: HP:0002093
+    label: respiratory insufficiency
+  - id: HP:0010871
+    label: sensory ataxia
+  - id: HP:0000648
     label: optic atrophy
+  - id: CHEBI:17015
+    label: riboflavin

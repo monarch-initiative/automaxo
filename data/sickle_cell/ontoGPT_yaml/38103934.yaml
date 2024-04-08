@@ -1,44 +1,28 @@
 ---
 input_text: The promise of genetic therapies in sickle cell disease.
 raw_completion_output: |-
-  action: genetic therapies
-  disease: sickle cell disease
-  symptom: 
-  action_to_disease: genetic therapies TREATS sickle cell disease
-  action_to_symptom: 
-  triples: genetic therapies TREATS sickle cell disease
+  primary_disease: sickle cell disease
+  medical_actions: 
+  symptoms: 
+  chemicals: 
+  action_annotation_relationships: 
 prompt: |+
   Split the following piece of text into fields in the following format:
 
-  subject: <the value for subject>
-  predicate: <the value for predicate>
-  object: <the value for object>
-  qualifier: <A qualifier for the statements, e.g. "NOT" for negation>
-  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
-  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+  primary_disease: <The main disease the text is about, or its central disease topic. This is often the disease mentioned in an article's title or in its first few sentences.>
+  medical_actions: <Semicolon-separated list of medical actions, where each is a clinically prescribed procedure, therapy, intervention, or recommendation.>
+  symptoms: <Semicolon-separated list of signs or symptoms.>
+  chemicals: <Semicolon-separated list of chemicals or drugs>
+  action_annotation_relationships: <Semicolon-separated list of relationships between a disease, the mentioned signs and symptoms associated with that disease, the medical actions relating to each symptom, and the type of relationship between each action and symptom (usually TREATS or PREVENTS). The disease name must be included in the relationship, for example, "treatment TREATS symptom IN disease". If the medical action includes a specific chemical or drug, include the chemical or drug name in the relationship, for example, "treatment (with chemical) TREATS symptom IN disease".>
 
 
   Text:
-  genetic therapies TREATS sickle cell disease
+  The promise of genetic therapies in sickle cell disease.
 
   ===
 
 extracted_object:
-  triples:
-    - subject: genetic therapies
-      predicate: TREATS
-      object: sickle cell disease
-  action:
-    - MAXO:0001001
-  disease:
-    - MONDO:0011382
-  action_to_disease:
-    - subject: MAXO:0001001
-      predicate: TREATS
-      object:
-        - MONDO:0011382
+  primary_disease: MONDO:0011382
 named_entities:
-  - id: MAXO:0001001
-    label: genetic therapies
   - id: MONDO:0011382
     label: sickle cell disease

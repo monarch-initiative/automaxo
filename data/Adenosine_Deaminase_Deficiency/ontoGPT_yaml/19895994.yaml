@@ -1,0 +1,91 @@
+---
+input_text: 'Outcomes of patients with severe combined immunodeficiency treated with
+  hematopoietic stem cell transplantation with and without preconditioning.BACKGROUND:
+  The effect of pretransplantation conditioning on the long-term outcomes of patients
+  receiving hematopoietic stem cell transplantation for severe combined immunodeficiency
+  (SCID) has not been completely determined. OBJECTIVE: We sought to assess the outcomes
+  of 23 mostly conditioned patients with SCID and compare their outcomes with those
+  of 25 previously reported nonconditioned patients with SCID who underwent transplantation.
+  METHODS: In the present study we reviewed the medical records of these 23 consecutive,
+  mostly conditioned patients with SCID who underwent transplantation between 1998
+  and 2007. RESULTS: Eighteen patients (median age at transplantation, 10 months;
+  range, 0.8-108 months) received haploidentical mismatched related donor, matched
+  unrelated donor, or mismatched unrelated donor transplants, 17 of whom received
+  pretransplantation conditioning (with 1 not conditioned); 13 (72%) patients engrafted
+  with donor cells and survive at a median of 3.8 years (range, 1.8-9.8 year); 5 (38%)
+  of 13 patients require intravenous immunoglobulin; and 6 of 6 age-eligible children
+  attend school. Of 5 recipients (median age at transplantation, 7 months; range,
+  2-23 months) of matched related donor transplants, all 5 engrafted and survive at
+  a median of 7.5 years (range, 1.5-9.5 year), 1 recipient requires intravenous immunoglobulin,
+  and 3 of 3 age-eligible children attend school. Gene mutations were known in 16
+  cases: mutation in the common gamma chain of the IL-2 receptor (IL2RG) in 7 patients,
+  mutation in the alpha chain of the IL-7 receptor (IL7RA) in 4 patients, mutation
+  in the recombinase-activating gene (RAG1) in 2 patients, adenosine deaminase deficiency
+  (ADA) in 2 patients, and adenylate kinase 2 (AK2) in 1 patient. Early outcomes and
+  quality of life of the previous nonconditioned versus the present conditioned cohorts
+  were not statistically different, but longer-term follow-up is necessary for confirmation.
+  CONCLUSIONS: Hematopoietic stem cell transplantation in patients with SCID results
+  in engraftment, long-term survival, and a good quality of life for the majority
+  of patients with or without pretransplantation conditioning.'
+raw_completion_output: |-
+  primary_disease: Severe combined immunodeficiency (SCID)
+
+  medical_actions: Hematopoietic stem cell transplantation; Pretransplantation conditioning; Intravenous immunoglobulin
+
+  symptoms: Engraftment failure; Immune deficiency
+
+  chemicals: 
+
+  action_annotation_relationships: Hematopoietic stem cell transplantation TREATS immune deficiency IN Severe combined immunodeficiency (SCID); Pretransplantation conditioning TREATS engraftment failure IN Severe combined immunodeficiency (SCID); Intravenous immunoglobulin TREATS immune deficiency IN Severe combined immunodeficiency (SCID)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Intravenous immunoglobulin TREATS immune deficiency IN Severe combined immunodeficiency (SCID)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0015974
+  medical_actions:
+    - MAXO:0000747
+    - Pretransplantation conditioning
+    - Intravenous immunoglobulin
+  symptoms:
+    - Engraftment failure
+    - HP:0002721
+  action_annotation_relationships:
+    - subject: <Hematopoietic stem cell transplantation>
+      predicate: <TREATS>
+      object: <immune deficiency>
+      qualifier: MONDO:0015974
+      subject_extension: <Hematopoietic stem cell>
+    - subject: Pretransplantation conditioning
+      predicate: TREATS
+      object: engraftment failure
+      qualifier: MONDO:0015974
+    - subject: Intravenous immunoglobulin
+      predicate: TREATS
+      object: HP:0002721
+      qualifier: MONDO:0015974
+      subject_qualifier: intravenously administered
+      subject_extension: immunoglobulin
+named_entities:
+  - id: MONDO:0015974
+    label: Severe combined immunodeficiency (SCID)
+  - id: MAXO:0001479
+    label: Allogeneic hematopoietic stem cell transplantation
+  - id: MAXO:0000747
+    label: Hematopoietic stem cell transplantation
+  - id: HP:0002721
+    label: Immune deficiency

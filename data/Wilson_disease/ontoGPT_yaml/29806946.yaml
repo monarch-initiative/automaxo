@@ -1,0 +1,425 @@
+---
+input_text: 'WTX101 - an investigational drug for the treatment of Wilson disease.INTRODUCTION:
+  Wilson disease (WD) is a genetic disorder in which excess toxic copper accumulates
+  in the liver, brain, and other tissues leading to severe and life-threatening symptoms.
+  Copper overload can be assessed as non-ceruloplasmin-bound copper non-ceruloplasmin-bound
+  copper (NCC) in blood. Current therapies are limited by efficacy, safety concerns,
+  and multiple-daily dosing. Areas covered: This article reviews the literature on
+  WTX101 (bis-choline tetrathiomolybdate), an oral first-in-class copper-protein-binding
+  agent in development for the treatment of WD. Expert opinion: In a proof-of-concept
+  phase II trial, once-daily WTX101 over 24 weeks rapidly lowered NCC levels and this
+  was accompanied by improved neurological status without apparent initial drug-induced
+  paradoxical worsening, reduced disability, stable liver function, with a favorable
+  safety profile. WTX101 directly removes excess copper from intracellular hepatic
+  copper stores and also forms an inert tripartite complex with copper and albumin
+  in the circulation and promotes biliary copper excretion. These mechanisms may explain
+  the rapid biochemical and clinical improvements observed. A phase III trial of WTX101
+  is ongoing and results are eagerly awaited to confirm if WTX101 can improve the
+  treatment of this devastating disease.'
+raw_completion_output: |-
+  primary_disease: Wilson disease
+
+  medical_actions: Assessment of non-ceruloplasmin-bound copper (NCC) levels in blood; Oral administration of WTX101; Lowering NCC levels; Improved neurological status; Reduced disability; Stable liver function; Biliary copper excretion
+
+  symptoms: Excess toxic copper accumulation in the liver, brain, and other tissues; Severe and life-threatening symptoms
+
+  chemicals: WTX101 (bis-choline tetrathiomolybdate); Copper
+
+  action_annotation_relationships: Assessment of non-ceruloplasmin-bound copper (NCC) levels in blood TREATS Excess toxic copper accumulation IN Wilson disease; Oral administration of WTX101 (with WTX101) TREATS Excess toxic copper accumulation IN Wilson disease; Lowering NCC levels (with WTX101) TREATS Excess toxic copper accumulation IN Wilson disease; Improved neurological status (with WTX101) TREATS Severe and life-threatening symptoms IN Wilson disease; Reduced disability (with WTX101) TREATS Severe and life-threatening symptoms IN Wilson disease; Stable liver function (with WTX101) PREVENTS Severe and life-threatening symptoms IN Wilson disease; Biliary copper excretion (with WTX101) TREATS Excess toxic copper accumulation IN Wilson disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Biliary copper excretion (with WTX101) TREATS Excess toxic copper accumulation IN Wilson disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010200
+  medical_actions:
+    - Assessment of non-ceruloplasmin-bound copper (NCC) levels in blood
+    - Oral administration of WTX101
+    - Lowering NCC levels
+    - Improved neurological status
+    - Reduced disability
+    - Stable liver function
+    - Biliary copper excretion
+  symptoms:
+    - Excess toxic copper accumulation in the liver, brain, and other tissues
+    - Severe and life-threatening symptoms
+  chemicals:
+    - WTX101 (bis-choline tetrathiomolybdate)
+    - CHEBI:28694
+  action_annotation_relationships:
+    - subject: Assessment of non-ceruloplasmin-bound copper (NCC) levels in blood
+      predicate: TREATS
+      object: Excess toxic copper accumulation
+      qualifier: MONDO:0010200
+      subject_extension: non-ceruloplasmin-bound copper (NCC)
+    - subject: Oral administration
+      predicate: TREATS
+      object: Excess toxic copper accumulation
+      qualifier: MONDO:0010200
+      subject_qualifier: with WTX101
+      subject_extension: WTX101
+    - subject: Lowering NCC levels
+      predicate: TREATS
+      object: Excess toxic copper accumulation
+      qualifier: MONDO:0010200
+      subject_extension: WTX101
+    - subject: Improved neurological status
+      predicate: TREATS
+      object: Severe and life-threatening symptoms
+      qualifier: MONDO:0010200
+      subject_qualifier: with WTX101
+      object_qualifier: Severe and life-threatening
+      subject_extension: WTX101
+    - subject: Reduced disability
+      predicate: TREATS
+      object: symptoms
+      qualifier: MONDO:0010200
+      subject_extension: WTX101
+      object_extension: Severe and life-threatening
+    - subject: Stable liver function
+      predicate: PREVENTS
+      object: Severe and life-threatening symptoms
+      qualifier: MONDO:0010200
+      subject_qualifier: with WTX101
+      subject_extension: WTX101
+    - subject: Biliary copper excretion
+      predicate: TREATS
+      object: Excess toxic copper accumulation
+      qualifier: MONDO:0010200
+      subject_qualifier: with WTX101
+      subject_extension: WTX101
+named_entities:
+  - id: MONDO:0010200
+    label: Wilson's disease
+  - id: HP:0001695
+    label: cardiac arrest
+  - id: HP:0001685
+    label: myocardial fibrosis
+  - id: HP:0001663
+    label: ventricular fibrillation
+  - id: CHEBI:38161
+    label: Chelating agents
+  - id: MAXO:0000016
+    label: Cell therapy
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: HP:0001392
+    label: Hepatic disease
+  - id: CHEBI:30703
+    label: Tetrathiomolybdate (TTM)
+  - id: CHEBI:28694
+    label: Copper (Cu)
+  - id: CHEBI:18248
+    label: Iron (Fe)
+  - id: CHEBI:27363
+    label: Zinc (Zn)
+  - id: CHEBI:82594
+    label: Ferritin (SFr)
+  - id: HP:0001744
+    label: Splenomegaly
+  - id: HP:0001541
+    label: Ascites
+  - id: HP:0001394
+    label: Cirrhosis
+  - id: CHEBI:46195
+    label: Paracetamol
+  - id: HP:0006554
+    label: Acute Liver Failure
+  - id: CHEBI:21547
+    label: N-acetyl aspartate (NAA)
+  - id: CHEBI:15354
+    label: Choline (Cho)
+  - id: CHEBI:157802
+    label: Creatine (Cr)
+  - id: MAXO:0009095
+    label: Treatment with zinc
+  - id: HP:0001399
+    label: Liver failure
+  - id: CHEBI:7959
+    label: d-penicillamine
+  - id: CHEBI:39501
+    label: Trientine
+  - id: MAXO:0001175
+    label: liver transplantation
+  - id: MAXO:0000376
+    label: liver biopsy
+  - id: HP:0033771
+    label: pleuritic chest pain
+  - id: HP:0000952
+    label: jaundice
+  - id: HP:0001919
+    label: acute kidney injury
+  - id: MAXO:0035080
+    label: apoptosis assays
+  - id: CHEBI:33709
+    label: amino acids
+  - id: MONDO:0013792
+    label: Intracerebral Hemorrhage
+  - id: HP:0001342
+    label: Intracerebral hemorrhage
+  - id: MONDO:0014789
+    label: CCDC115-CDG
+  - id: HP:0003124
+    label: hypercholesterolemia
+  - id: HP:0003155
+    label: elevated alkaline phosphatases
+  - id: MAXO:0000533
+    label: Molecular genetic testing
+  - id: MAXO:0001181
+    label: Serum alkaline phosphatase measurement
+  - id: HP:0032199
+    label: Abnormal prothrombin time
+  - id: HP:0200032
+    label: Kayser-Fleischer rings
+  - id: CHEBI:50868
+    label: Penicillamine
+  - id: HP:0001878
+    label: hemolytic anemia
+  - id: MAXO:0010203
+    label: echocardiography
+  - id: HP:0005135
+    label: T wave abnormality
+  - id: HP:0011703
+    label: sinus tachycardia
+  - id: HP:0001688
+    label: sinus bradycardia
+  - id: HP:0006682
+    label: premature ventricular contraction
+  - id: CHEBI:35623
+    label: antiepileptics
+  - id: HP:0001410
+    label: Hepatic dysfunction
+  - id: CHEBI:62984
+    label: Zinc acetate
+  - id: MONDO:0018874
+    label: Acute Myeloid Leukemia (AML)
+  - id: HP:0001873
+    label: Thrombocytopenia
+  - id: CHEBI:41977
+    label: Daunorubicin
+  - id: CHEBI:28680
+    label: Cytarabine
+  - id: HP:0004808
+    label: Acute Myeloid Leukemia
+  - id: HP:0001336
+    label: Myoclonus
+  - id: HP:0001250
+    label: Epileptic seizures
+  - id: HP:0001298
+    label: Encephalopathy
+  - id: HP:0001337
+    label: Tremor
+  - id: HP:0002315
+    label: Headache
+  - id: CHEBI:6437
+    label: Levetiracetam
+  - id: HP:0002480
+    label: hepatic encephalopathy
+  - id: HP:0001882
+    label: leukopenia
+  - id: MONDO:0007329
+    label: Indian childhood cirrhosis
+  - id: HP:0001945
+    label: fever
+  - id: HP:0002908
+    label: direct hyperbilirubinemia
+  - id: HP:0002910
+    label: elevated transaminases
+  - id: HP:0001903
+    label: anemia
+  - id: HP:0001409
+    label: portal hypertension
+  - id: MONDO:0004789
+    label: Cholangitis
+  - id: MAXO:0000127
+    label: Genetic analysis
+  - id: MONDO:0007256
+    label: Hepatocellular carcinoma (HCC)
+  - id: CHEBI:26708
+    label: NA
+  - id: HP:0001402
+    label: Hepatocellular carcinoma (HCC)
+  - id: MAXO:0001298
+    label: therapy
+  - id: MONDO:0019542
+    label: Acute Liver Failure
+  - id: HP:0002359
+    label: Frequent Falls
+  - id: MONDO:0015143
+    label: Rare movement disorders
+  - id: HP:0100022
+    label: Movement disorders
+  - id: HP:0033329
+    label: Abnormal postural reflex
+  - id: MONDO:0002492
+    label: acute kidney injury
+  - id: MAXO:0000973
+    label: slit-lamp examination
+  - id: HP:0033429
+    label: Neuroinflammation
+  - id: CHEBI:18291
+    label: manganese
+  - id: CHEBI:28938
+    label: ammonia
+  - id: HP:0001433
+    label: hepatosplenomegaly
+  - id: HP:0002904
+    label: hyperbilirubinemia
+  - id: HP:0003256
+    label: coagulopathy
+  - id: MONDO:0012105
+    label: ANCA-associated Vasculitis
+  - id: HP:0002105
+    label: Hemoptysis
+  - id: HP:0002094
+    label: Dyspnea
+  - id: HP:0002907
+    label: Microscopic hematuria
+  - id: HP:0000093
+    label: Proteinuria
+  - id: CHEBI:24261
+    label: Glucocorticoid
+  - id: CHEBI:4027
+    label: Cyclophosphamide
+  - id: CHEBI:8764
+    label: Mycophenolate mofetil
+  - id: HP:0040223
+    label: pulmonary hemorrhage
+  - id: HP:0000790
+    label: hematuria
+  - id: MONDO:0100193
+    label: End-stage liver diseases
+  - id: HP:0002040
+    label: Esophageal varices
+  - id: HP:0100626
+    label: End-stage liver diseases
+  - id: MONDO:0017014
+    label: children
+  - id: HP:0200123
+    label: chronic hepatitis
+  - id: HP:0001397
+    label: steatosis
+  - id: CHEBI:28787
+    label: targeted next-generation sequencing (NGS)
+  - id: MAXO:0000527
+    label: Physical examination
+  - id: MAXO:0010200
+    label: Abdominal ultrasonography (Abdl Ur)
+  - id: HP:0010837
+    label: Decreased serum ceruloplasmin
+  - id: CHEBI:37708
+    label: Alanine transaminase (ALT)
+  - id: CHEBI:76649
+    label: Aspartate transaminase (AST)
+  - id: HP:0200120
+    label: chronic active hepatitis
+  - id: HP:0002896
+    label: liver cancer
+  - id: HP:0002354
+    label: memory dysfunction
+  - id: HP:0100543
+    label: cognitive impairment
+  - id: CHEBI:23414
+    label: CuSO4
+  - id: CHEBI:16856
+    label: glutathione (GSH)
+  - id: CHEBI:566274
+    label: malondialdehyde (MDA)
+  - id: CHEBI:31882
+    label: N-methyl-D-aspartate
+  - id: HP:0002885
+    label: Mallory-Denk body (MDB) formation
+  - id: CHEBI:16990
+    label: Bilirubin
+  - id: HP:0001266
+    label: choreoathetosis
+  - id: MAXO:0009101
+    label: early intervention
+  - id: HP:0012594
+    label: microalbuminuria
+  - id: HP:0002150
+    label: hypercalciuria
+  - id: CHEBI:888
+    label: Sodium dimercaptopropanesulfonate (DMPS)
+  - id: CHEBI:35176
+    label: zinc sulfate
+  - id: MAXO:0000137
+    label: PET scans
+  - id: CHEBI:17234
+    label: Glucose
+  - id: MONDO:0005556
+    label: Lupus Nephritis
+  - id: MAXO:0000165
+    label: Treatment with diuretics
+  - id: CHEBI:35498
+    label: Diuretics
+  - id: CHEBI:33281
+    label: Antibiotics
+  - id: CHEBI:50503
+    label: Laxatives
+  - id: CHEBI:74067
+    label: Copper(II)
+  - id: CHEBI:6801
+    label: 2-N, N-dimethylcarbamimidoyl (metformin)
+  - id: HP:0004787
+    label: Fulminant hepatitis
+  - id: MAXO:0010026
+    label: Zinc supplementation
+  - id: HP:0011967
+    label: Copper deficiency
+  - id: CHEBI:38127
+    label: Thiocarbamate
+  - id: CHEBI:25548
+    label: Nitrilotriacetate
+  - id: CHEBI:16494
+    label: Lipoic acid
+  - id: CHEBI:30313
+    label: Lipoate
+  - id: MONDO:0010651
+    label: Menkes disease
+  - id: MAXO:0000647
+    label: chemotherapy (with epirubicin, cyclophosphamide, docetaxel, paclitaxel)
+  - id: HP:0032408
+    label: lump in breast
+  - id: CHEBI:47898
+    label: epirubicin
+  - id: CHEBI:4672
+    label: docetaxel
+  - id: CHEBI:45863
+    label: paclitaxel
+  - id: CHEBI:64357
+    label: Rituximab
+  - id: CHEBI:18132
+    label: CHOP
+  - id: HP:0002665
+    label: Lymphoma
+  - id: HP:0001947
+    label: renal tubular acidosis
+  - id: HP:0003355
+    label: aminoaciduria
+  - id: HP:0000787
+    label: nephrolithiasis
+  - id: HP:0011675
+    label: arrhythmia
+  - id: HP:0001638
+    label: cardiomyopathy
+  - id: HP:0012332
+    label: autonomic dysfunction
+  - id: HP:0000789
+    label: infertility
+  - id: HP:0000829
+    label: hypoparathyroidism

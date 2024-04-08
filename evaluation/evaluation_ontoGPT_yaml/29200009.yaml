@@ -10,95 +10,126 @@ input_text: Antifibrinolytic Therapy and Perioperative Considerations.Fibrinolys
   role of tranexamic acid as a therapeutic agent to reduce bleeding in patients after
   surgery and trauma.
 raw_completion_output: |-
-  action: <Antifibrinolytic Therapy; Tranexamic acid administration>
-  disease: <Excessive fibrinolysis; Coagulopathy; Bleeding>
-  symptom: <Bleeding>
-  action_to_disease: <Antifibrinolytic Therapy TREATS Excessive fibrinolysis; Tranexamic acid administration TREATS Bleeding; Antifibrinolytic Therapy TREATS Coagulopathy>
-  action_to_symptom: <Tranexamic acid administration IS USED TO REDUCE Bleeding>
-  triples: <Antifibrinolytic Therapy TREATS Excessive fibrinolysis; Tranexamic acid administration TREATS Bleeding; Antifibrinolytic Therapy TREATS Coagulopathy; Tranexamic acid administration IS USED TO REDUCE Bleeding>
+  primary_disease: Excessive fibrinolysis
+  medical_actions: Use of antifibrinolytic agents; Administration of tranexamic acid
+  symptoms: Coagulopathy; Bleeding; Inflammatory responses
+  chemicals: Tranexamic acid
+  action_annotation_relationships: Use of antifibrinolytic agents PREVENTS coagulopathy IN Excessive fibrinolysis; Use of antifibrinolytic agents PREVENTS bleeding IN Excessive fibrinolysis; Use of antifibrinolytic agents PREVENTS inflammatory responses IN Excessive fibrinolysis; Administration of tranexamic acid (with Tranexamic acid) PREVENTS bleeding IN Excessive fibrinolysis
 prompt: |+
-  Split the following piece of text into fields in the following format:
+  From the text below, extract the following entities in the following format:
 
-  subject: <the value for subject>
-  predicate: <the value for predicate>
-  object: <the value for object>
-  qualifier: <A qualifier for the statements, e.g. "NOT" for negation>
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
   subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
   object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
 
 
   Text:
-  Tranexamic acid administration IS USED TO REDUCE Bleeding>
+  Administration of tranexamic acid (with Tranexamic acid) PREVENTS bleeding IN Excessive fibrinolysis
 
   ===
 
 extracted_object:
-  triples:
-    - subject: Antifibrinolytic Therapy
-      predicate: TREATS
-      object: Excessive fibrinolysis
-    - subject: Tranexamic acid administration
-      predicate: TREATS
-      object: Bleeding
-    - subject: Antifibrinolytic Therapy
-      predicate: TREATS
-      object: Coagulopathy
-    - subject: Tranexamic acid administration
-      predicate: IS USED TO REDUCE
-      object: Bleeding
-  action:
-    - <Antifibrinolytic Therapy
-    - Tranexamic acid administration>
-  disease:
-    - <Excessive fibrinolysis
-    - MONDO:0001531
-    - Bleeding>
-  symptom:
-    - <Bleeding>
-  action_to_disease:
-    - subject: Antifibrinolytic Therapy
-      predicate: TREATS
-      object:
-        - Excessive fibrinolysis
-    - subject: Tranexamic acid administration
-      predicate: TREATS
-      object:
-        - Bleeding
-    - subject: Antifibrinolytic Therapy
-      predicate: TREATS
-      object:
-        - MONDO:0001531
-  action_to_symptom:
-    - subject: Tranexamic acid administration
-      predicate: IS USED TO REDUCE
-      object:
-        - Bleeding
+  primary_disease: Excessive fibrinolysis
+  medical_actions:
+    - Use of antifibrinolytic agents
+    - Administration of tranexamic acid
+  symptoms:
+    - HP:0003256
+    - Bleeding
+    - Inflammatory responses
+  chemicals:
+    - CHEBI:48669
+  action_annotation_relationships:
+    - subject: Use of antifibrinolytic agents
+      predicate: PREVENTS
+      object: HP:0003256
+      qualifier: Excessive fibrinolysis
+      subject_extension: CHEBI:48675
+    - subject: <Use of antifibrinolytic agents>
+      predicate: <PREVENTS>
+      object: <bleeding>
+      qualifier: <Excessive fibrinolysis>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <antifibrinolytic agents>
+      object_extension: <>
+    - subject: Use of antifibrinolytic agents
+      predicate: PREVENTS
+      object: inflammatory responses
+      qualifier: Excessive fibrinolysis
+      subject_extension: CHEBI:48675
+    - subject: Administration of tranexamic acid
+      predicate: PREVENTS
+      object: bleeding
+      qualifier: Excessive fibrinolysis
+      subject_qualifier: with Tranexamic acid
+      subject_extension: CHEBI:48669
 named_entities:
-  - id: MONDO:0005365
-    label: hearing loss
   - id: MONDO:0008891
     label: Brown-Vialetto-Van Laere syndrome
-  - id: MONDO:0003608
+  - id: MAXO:0009004
+    label: exome sequencing
+  - id: HP:0000407
+    label: sensorineural hearing loss
+  - id: HP:0002093
+    label: respiratory insufficiency
+  - id: HP:0010871
+    label: sensory ataxia
+  - id: HP:0000648
     label: optic atrophy
-  - id: MONDO:0100062
+  - id: CHEBI:17015
+    label: riboflavin
+  - id: HP:0012469
     label: infantile spasms
-  - id: MONDO:0005027
-    label: seizures
-  - id: MONDO:0005047
+  - id: HP:0000789
     label: infertility
-  - id: MAXO:0010030
-    label: bone marrow transplantation
+  - id: HP:0005268
+    label: miscarriage
+  - id: CHEBI:16709
+    label: pyridoxine
+  - id: CHEBI:18405
+    label: pyridoxal 5'-phosphate
+  - id: CHEBI:27306
+    label: vitamin B6
+  - id: CHEBI:24041
+    label: flavin mononucleotide
+  - id: HP:0001250
+    label: seizures
   - id: MONDO:0009974
-    label: familial hemophagocytic lymphohistiocytosis
-  - id: MONDO:0011382
-    label: sickle cell disease
-  - id: MONDO:0013517
-    label: beta-thalassemia
-  - id: MONDO:0000440
-    label: Metabolic acidosis
+    label: Familial hemophagocytic lymphohistiocytosis
+  - id: MAXO:0010030
+    label: bone marrow transplantation (BMT)
+  - id: CHEBI:28901
+    label: busulfan
+  - id: CHEBI:4027
+    label: cyclophosphamide
+  - id: CHEBI:4911
+    label: etoposide
+  - id: MAXO:0000757
+    label: infusion
+  - id: CHEBI:41264
+    label: busulfan (BU), cyclophosphamide (CP), etoposide (VP16), antithymocyte globulin
+      (ATG)
+  - id: MAXO:0000750
+    label: conditioning regimen
+  - id: CHEBI:73896
+    label: gene therapy (GT)
   - id: MONDO:0009666
     label: Holocarboxylase synthetase deficiency
-  - id: MONDO:0015454
-    label: Multiple carboxylase deficiency
-  - id: MONDO:0001531
+  - id: MAXO:0000603
+    label: Peritoneal dialysis
+  - id: HP:0001942
+    label: Metabolic acidosis
+  - id: CHEBI:15956
+    label: Biotin
+  - id: HP:0003256
     label: Coagulopathy
+  - id: CHEBI:48669
+    label: Tranexamic acid
+  - id: CHEBI:48675
+    label: antifibrinolytic agents

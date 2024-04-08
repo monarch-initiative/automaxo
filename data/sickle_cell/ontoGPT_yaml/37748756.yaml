@@ -1,21 +1,19 @@
 ---
 input_text: Retinal ischemic perivascular lesions and sickle cell maculopathy.
 raw_completion_output: |-
-  action: 
-  disease: Retinal ischemic perivascular lesions;Sickle cell maculopathy
-  symptom: 
-  action_to_disease: 
-  action_to_symptom: 
-  triples: 
+  primary_disease: Retinal ischemic perivascular lesions and sickle cell maculopathy
+  medical_actions: 
+  symptoms: 
+  chemicals: 
+  action_annotation_relationships:
 prompt: |+
   From the text below, extract the following entities in the following format:
 
-  action: <Semicolon-separated list of medical actions, where each is a clinically prescribed procedure, therapy, intervention, or recommendation.>
-  disease: <Semicolon-separated list of diseases.>
-  symptom: <Semicolon-separated list of symptoms.>
-  action_to_disease: <Semicolon-separated list of medical action to disease relationships, where each is a triple representing a relationship between a medical action and a disease, for example, radiation therapy TREATS cancer, or PET scan IS USED TO DIAGNOSE myocarditis.>
-  action_to_symptom: <A triple representing a relationship between a medical action (A clinically prescribed procedure, therapy, intervention, or recommendation) and a symptom, for example, a chest X-ray IS USED TO DIAGNOSE pleural effusion.>
-  triples: <semicolon-separated list of tripless>
+  primary_disease: <The main disease the text is about, or its central disease topic. This is often the disease mentioned in an article's title or in its first few sentences.>
+  medical_actions: <Semicolon-separated list of medical actions, where each is a clinically prescribed procedure, therapy, intervention, or recommendation.>
+  symptoms: <Semicolon-separated list of signs or symptoms.>
+  chemicals: <Semicolon-separated list of chemicals or drugs>
+  action_annotation_relationships: <Semicolon-separated list of relationships between a disease, the mentioned signs and symptoms associated with that disease, the medical actions relating to each symptom, and the type of relationship between each action and symptom (usually TREATS or PREVENTS). The disease name must be included in the relationship, for example, "treatment TREATS symptom IN disease". If the medical action includes a specific chemical or drug, include the chemical or drug name in the relationship, for example, "treatment (with chemical) TREATS symptom IN disease".>
 
 
   Text:
@@ -24,15 +22,9 @@ prompt: |+
   ===
 
 extracted_object:
-  disease:
-    - Retinal ischemic perivascular lesions
-    - Sickle cell maculopathy
+  primary_disease: Retinal ischemic perivascular lesions and sickle cell maculopathy
 named_entities:
-  - id: MAXO:0001001
-    label: genetic therapies
   - id: MONDO:0011382
     label: sickle cell disease
   - id: MONDO:0100096
-    label: COVID-19
-  - id: MONDO:0005087
-    label: respiratory diseases
+    label: SARS-CoV-2

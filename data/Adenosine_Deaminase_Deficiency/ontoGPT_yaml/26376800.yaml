@@ -1,0 +1,141 @@
+---
+input_text: 'Diagnosis, Treatment and Long-Term Follow Up of Patients with ADA Deficiency:
+  a Single-Center Experience.PURPOSE: We carried out a retrospective analysis of 27
+  patients with Adenosine Deaminase (ADA) deficiency diagnosed in a single center
+  from 1997 to the 2013, for evaluating whether data regarding types of disease-inducing
+  mutations, biochemical and immunological features as well as clinical outcomes of
+  patients treated with enzyme replacement or transplantation, were comparable to
+  those obtained in multicenter studies. METHODS: The ADA deficiency diagnosis was
+  performed with biochemical, immunological and molecular techniques. Ten patients
+  treated with hematopoietic stem cell transplantation and three in treatment with
+  enzyme replacement were followed up in our center. RESULTS: Twenty-four different
+  mutations were identified and five were not previously reported. Identical mutations
+  were found among patients from the same Romani ethnic group or from the same geographical
+  region. A more rapid recovery was observed in enzyme replacement treated patients
+  in comparison with those transplanted that, however, showed a continuous and long-lasting
+  improvement both in terms of immune and metabolic recovery. CONCLUSION: The data
+  obtained in our single center are comparable with those that have been reported
+  in multicenter surveys.'
+raw_completion_output: |-
+  primary_disease: ADA Deficiency
+
+  medical_actions: biochemical diagnosis; immunological diagnosis; molecular diagnosis; hematopoietic stem cell transplantation; enzyme replacement
+
+  symptoms: immune deficiency; metabolic deficiency
+
+  chemicals: 
+
+  action_annotation_relationships: biochemical diagnosis TREATS immune deficiency IN ADA Deficiency; immunological diagnosis TREATS immune deficiency IN ADA Deficiency; molecular diagnosis TREATS immune deficiency IN ADA Deficiency; hematopoietic stem cell transplantation TREATS immune deficiency IN ADA Deficiency; enzyme replacement TREATS immune deficiency IN ADA Deficiency; biochemical diagnosis TREATS metabolic deficiency IN ADA Deficiency; immunological diagnosis TREATS metabolic deficiency IN ADA Deficiency; molecular diagnosis TREATS metabolic deficiency IN ADA Deficiency; hematopoietic stem cell transplantation TREATS metabolic deficiency IN ADA Deficiency; enzyme replacement TREATS metabolic deficiency IN ADA Deficiency
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  enzyme replacement TREATS metabolic deficiency IN ADA Deficiency
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0007064
+  medical_actions:
+    - biochemical diagnosis
+    - immunological diagnosis
+    - molecular diagnosis
+    - MAXO:0000747
+    - enzyme replacement
+  symptoms:
+    - HP:0002721
+    - metabolic deficiency
+  action_annotation_relationships:
+    - subject: biochemical diagnosis
+      predicate: TREATS
+      object: HP:0002721
+      qualifier: MONDO:0007064
+    - subject: immunological diagnosis
+      predicate: TREATS
+      object: HP:0002721
+      qualifier: MONDO:0007064
+    - subject: molecular diagnosis
+      predicate: TREATS
+      object: HP:0002721
+      qualifier: MONDO:0007064
+    - subject: MAXO:0000747
+      predicate: TREATS
+      object: HP:0002721
+      qualifier: MONDO:0007064
+      subject_extension: hematopoietic stem cells
+    - subject: enzyme replacement
+      predicate: TREATS
+      object: HP:0002721
+      qualifier: MONDO:0007064
+      subject_extension: enzyme replacement
+    - subject: biochemical diagnosis
+      predicate: TREATS
+      object: metabolic deficiency
+      qualifier: MONDO:0007064
+    - subject: immunological diagnosis
+      predicate: TREATS
+      object: metabolic deficiency
+      qualifier: MONDO:0007064
+    - subject: molecular diagnosis
+      predicate: TREATS
+      object: metabolic deficiency
+      qualifier: MONDO:0007064
+    - subject: MAXO:0000068
+      predicate: TREATS
+      object: metabolic deficiency
+      qualifier: MONDO:0007064
+      subject_extension: hematopoietic stem cell
+    - subject: enzyme replacement
+      predicate: TREATS
+      object: metabolic deficiency
+      qualifier: MONDO:0007064
+      subject_extension: enzyme replacement
+named_entities:
+  - id: MONDO:0015974
+    label: Severe combined immunodeficiency (SCID)
+  - id: MAXO:0001479
+    label: Allogeneic hematopoietic stem cell transplantation
+  - id: MAXO:0000747
+    label: Hematopoietic stem cell transplantation
+  - id: HP:0002721
+    label: Immune deficiency
+  - id: HP:0004430
+    label: Severe combined immunodeficiency
+  - id: HP:0000822
+    label: Hypertension
+  - id: CHEBI:28901
+    label: Busulfan
+  - id: MAXO:0001001
+    label: gene therapy
+  - id: HP:0001508
+    label: failure to thrive
+  - id: HP:0001945
+    label: fever
+  - id: HP:0000988
+    label: rash
+  - id: MAXO:0000068
+    label: transplantation
+  - id: MONDO:0007064
+    label: Adenosine deaminase (ADA) deficiency
+  - id: MONDO:0008558
+    label: Immune Thrombocytopenia (ITP)
+  - id: HP:0001873
+    label: thrombocytopenia
+  - id: CHEBI:50858
+    label: corticosteroids
+  - id: MONDO:0002048
+    label: Immune Thrombocytopenia
+  - id: MAXO:0010030
+    label: bone marrow transplantation
+  - id: MONDO:0009237
+    label: Heck's disease

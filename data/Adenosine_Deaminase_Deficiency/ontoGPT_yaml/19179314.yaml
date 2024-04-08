@@ -1,0 +1,108 @@
+---
+input_text: 'Gene therapy for immunodeficiency due to adenosine deaminase deficiency.BACKGROUND:
+  We investigated the long-term outcome of gene therapy for severe combined immunodeficiency
+  (SCID) due to the lack of adenosine deaminase (ADA), a fatal disorder of purine
+  metabolism and immunodeficiency. METHODS: We infused autologous CD34+ bone marrow
+  cells transduced with a retroviral vector containing the ADA gene into 10 children
+  with SCID due to ADA deficiency who lacked an HLA-identical sibling donor, after
+  nonmyeloablative conditioning with busulfan. Enzyme-replacement therapy was not
+  given after infusion of the cells. RESULTS: All patients are alive after a median
+  follow-up of 4.0 years (range, 1.8 to 8.0). Transduced hematopoietic stem cells
+  have stably engrafted and differentiated into myeloid cells containing ADA (mean
+  range at 1 year in bone marrow lineages, 3.5 to 8.9%) and lymphoid cells (mean range
+  in peripheral blood, 52.4 to 88.0%). Eight patients do not require enzyme-replacement
+  therapy, their blood cells continue to express ADA, and they have no signs of defective
+  detoxification of purine metabolites. Nine patients had immune reconstitution with
+  increases in T-cell counts (median count at 3 years, 1.07x10(9) per liter) and normalization
+  of T-cell function. In the five patients in whom intravenous immune globulin replacement
+  was discontinued, antigen-specific antibody responses were elicited after exposure
+  to vaccines or viral antigens. Effective protection against infections and improvement
+  in physical development made a normal lifestyle possible. Serious adverse events
+  included prolonged neutropenia (in two patients), hypertension (in one), central-venous-catheter-related
+  infections (in two), Epstein-Barr virus reactivation (in one), and autoimmune hepatitis
+  (in one). CONCLUSIONS: Gene therapy, combined with reduced-intensity conditioning,
+  is a safe and effective treatment for SCID in patients with ADA deficiency. (ClinicalTrials.gov
+  numbers, NCT00598481 and NCT00599781.)'
+raw_completion_output: |-
+  primary_disease: Immunodeficiency due to adenosine deaminase deficiency
+
+  medical_actions: Gene therapy with autologous CD34+ bone marrow cells transduced with a retroviral vector containing the ADA gene; Nonmyeloablative conditioning with busulfan; Infusion of the cells
+
+  symptoms: Severe combined immunodeficiency; Lack of adenosine deaminase; Fatal disorder of purine metabolism and immunodeficiency; Defective detoxification of purine metabolites; Prolonged neutropenia; Hypertension; Central-venous-catheter-related infections; Epstein-Barr virus reactivation; Autoimmune hepatitis
+
+  chemicals: Busulfan
+
+  action_annotation_relationships: Gene therapy with autologous CD34+ bone marrow cells transduced with a retroviral vector containing the ADA gene TREATS severe combined immunodeficiency IN Immunodeficiency due to adenosine deaminase deficiency; Nonmyeloablative conditioning with busulfan (with busulfan) TREATS lack of adenosine deaminase IN Immunodeficiency due to adenosine deaminase deficiency; Infusion of the cells TREATS fatal disorder of purine metabolism and immunodeficiency IN Immunodeficiency due to adenosine deaminase deficiency
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Infusion of the cells TREATS fatal disorder of purine metabolism and immunodeficiency IN Immunodeficiency due to adenosine deaminase deficiency
+
+  ===
+
+extracted_object:
+  primary_disease: Immunodeficiency due to adenosine deaminase deficiency
+  medical_actions:
+    - Gene therapy with autologous CD34+ bone marrow cells transduced with a retroviral
+      vector containing the ADA gene
+    - Nonmyeloablative conditioning with busulfan
+    - Infusion of the cells
+  symptoms:
+    - HP:0004430
+    - Lack of adenosine deaminase
+    - Fatal disorder of purine metabolism and immunodeficiency
+    - Defective detoxification of purine metabolites
+    - Prolonged neutropenia
+    - HP:0000822
+    - Central-venous-catheter-related infections
+    - Epstein-Barr virus reactivation
+    - Autoimmune hepatitis
+  chemicals:
+    - CHEBI:28901
+  action_annotation_relationships:
+    - subject: <Gene therapy>
+      predicate: <TREATS>
+      object: <severe combined immunodeficiency>
+      qualifier: <Immunodeficiency due to adenosine deaminase deficiency>
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: <autologous CD34+ bone marrow cells transduced with a retroviral
+        vector containing the ADA gene>
+      object_extension: None
+    - subject: Nonmyeloablative conditioning
+      predicate: TREATS
+      object: lack of adenosine deaminase
+      qualifier: Immunodeficiency due to adenosine deaminase deficiency
+      subject_qualifier: with busulfan
+      subject_extension: CHEBI:28901
+    - subject: Infusion of the cells
+      predicate: TREATS
+      object: fatal disorder of purine metabolism and immunodeficiency
+      qualifier: Immunodeficiency due to adenosine deaminase deficiency
+      subject_extension: cells
+named_entities:
+  - id: MONDO:0015974
+    label: Severe combined immunodeficiency (SCID)
+  - id: MAXO:0001479
+    label: Allogeneic hematopoietic stem cell transplantation
+  - id: MAXO:0000747
+    label: Hematopoietic stem cell transplantation
+  - id: HP:0002721
+    label: Immune deficiency
+  - id: HP:0004430
+    label: Severe combined immunodeficiency
+  - id: HP:0000822
+    label: Hypertension
+  - id: CHEBI:28901
+    label: Busulfan

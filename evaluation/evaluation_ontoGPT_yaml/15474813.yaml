@@ -20,116 +20,142 @@ input_text: 'Primary viscocanalostomy versus trabeculectomy for primary open-ang
   Primary trabeculectomy lowered IOP more than viscocanalostomy in POAG patients.
   However, the complication rate was lower in the viscocanalostomy group.'
 raw_completion_output: |-
-  action: <Primary viscocanalostomy; Trabeculectomy>
-  disease: <Primary open-angle glaucoma; Postoperative hypotony; Cataract>
-  symptom: <Medically uncontrolled POAG; High intraocular pressure>
-  action_to_disease: <Primary viscocanalostomy TREATS Primary open-angle glaucoma; Trabeculectomy TREATS Primary open-angle glaucoma; Trabeculectomy CAUSES Postoperative hypotony; Trabeculectomy CAUSES Cataract>
-  action_to_symptom: <Trabeculectomy REDUCES High intraocular pressure>
-  triples: <Primary viscocanalostomy TREATS Primary open-angle glaucoma; Trabeculectomy TREATS Primary open-angle glaucoma; Trabeculectomy CAUSES Postoperative hypotony; Trabeculectomy CAUSES Cataract; Trabeculectomy REDUCES High intraocular pressure>
+  primary_disease: Primary open-angle glaucoma (POAG)
+  medical_actions: Trabeculectomy; Viscocanalostomy
+  symptoms: Elevated intraocular pressure (IOP); Postoperative hypotony; Cataract formation
+  chemicals: 
+  action_annotation_relationships: Trabeculectomy TREATS elevated intraocular pressure (IOP) IN Primary open-angle glaucoma (POAG); Viscocanalostomy TREATS elevated intraocular pressure (IOP) IN Primary open-angle glaucoma (POAG); Trabeculectomy PREVENTS elevated intraocular pressure (IOP) IN Primary open-angle glaucoma (POAG); Viscocanalostomy PREVENTS elevated intraocular pressure (IOP) IN Primary open-angle glaucoma (POAG); Trabeculectomy LEADS TO postoperative hypotony IN Primary open-angle glaucoma (POAG); Trabeculectomy LEADS TO cataract formation IN Primary open-angle glaucoma (POAG)
 prompt: |+
-  Split the following piece of text into fields in the following format:
+  From the text below, extract the following entities in the following format:
 
-  subject: <the value for subject>
-  predicate: <the value for predicate>
-  object: <the value for object>
-  qualifier: <A qualifier for the statements, e.g. "NOT" for negation>
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
   subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
   object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
 
 
   Text:
-  Trabeculectomy REDUCES High intraocular pressure>
+  Trabeculectomy LEADS TO cataract formation IN Primary open-angle glaucoma (POAG)
 
   ===
 
 extracted_object:
-  triples:
-    - subject: Primary viscocanalostomy
-      predicate: TREATS
-      object: Primary open-angle glaucoma
-    - subject: Trabeculectomy
-      predicate: TREATS
-      object: Primary open-angle glaucoma
-    - subject: Trabeculectomy
-      predicate: CAUSES
-      object: Postoperative hypotony
-    - subject: Trabeculectomy
-      predicate: CAUSES
-      object: Cataract
-    - subject: Trabeculectomy
-      predicate: REDUCES
-      object: High intraocular pressure
-      object_qualifier: High
-  action:
-    - <Primary viscocanalostomy
-    - Trabeculectomy>
-  disease:
-    - <Primary open-angle glaucoma
+  primary_disease: MONDO:0005338
+  medical_actions:
+    - MAXO:0001082
+    - MAXO:0000960
+  symptoms:
+    - HP:0007906
     - Postoperative hypotony
-    - Cataract>
-  symptom:
-    - <Medically uncontrolled POAG
-    - High intraocular pressure>
-  action_to_disease:
-    - subject: Primary viscocanalostomy
-      predicate: TREATS
-      object:
-        - Primary open-angle glaucoma
+    - Cataract formation
+  action_annotation_relationships:
     - subject: MAXO:0001082
       predicate: TREATS
-      object:
-        - Primary open-angle glaucoma
+      object: HP:0007906
+      qualifier: MONDO:0005338
+    - subject: MAXO:0000960
+      predicate: TREATS
+      object: HP:0007906
+      qualifier: MONDO:0005338
     - subject: MAXO:0001082
-      predicate: CAUSES
-      object:
-        - Postoperative hypotony
+      predicate: PREVENTS
+      object: HP:0007906
+      qualifier: MONDO:0005338
+    - subject: MAXO:0000960
+      predicate: PREVENTS
+      object: HP:0007906
+      qualifier: MONDO:0005338
     - subject: MAXO:0001082
-      predicate: CAUSES
-      object:
-        - MONDO:0005129
-  action_to_symptom:
+      predicate: LEADS TO
+      object: postoperative hypotony
+      qualifier: MONDO:0005338
     - subject: MAXO:0001082
-      predicate: REDUCES
-      object:
-        - High intraocular pressure
+      predicate: LEADS TO
+      object: cataract formation
+      qualifier: Primary open-angle glaucoma
 named_entities:
-  - id: MONDO:0005365
-    label: hearing loss
   - id: MONDO:0008891
     label: Brown-Vialetto-Van Laere syndrome
-  - id: MONDO:0003608
+  - id: MAXO:0009004
+    label: exome sequencing
+  - id: HP:0000407
+    label: sensorineural hearing loss
+  - id: HP:0002093
+    label: respiratory insufficiency
+  - id: HP:0010871
+    label: sensory ataxia
+  - id: HP:0000648
     label: optic atrophy
-  - id: MONDO:0100062
+  - id: CHEBI:17015
+    label: riboflavin
+  - id: HP:0012469
     label: infantile spasms
-  - id: MONDO:0005027
-    label: seizures
-  - id: MONDO:0005047
+  - id: HP:0000789
     label: infertility
-  - id: MAXO:0010030
-    label: bone marrow transplantation
+  - id: HP:0005268
+    label: miscarriage
+  - id: CHEBI:16709
+    label: pyridoxine
+  - id: CHEBI:18405
+    label: pyridoxal 5'-phosphate
+  - id: CHEBI:27306
+    label: vitamin B6
+  - id: CHEBI:24041
+    label: flavin mononucleotide
+  - id: HP:0001250
+    label: seizures
   - id: MONDO:0009974
-    label: familial hemophagocytic lymphohistiocytosis
-  - id: MONDO:0011382
-    label: sickle cell disease
-  - id: MONDO:0013517
-    label: beta-thalassemia
-  - id: MONDO:0000440
-    label: Metabolic acidosis
+    label: Familial hemophagocytic lymphohistiocytosis
+  - id: MAXO:0010030
+    label: bone marrow transplantation (BMT)
+  - id: CHEBI:28901
+    label: busulfan
+  - id: CHEBI:4027
+    label: cyclophosphamide
+  - id: CHEBI:4911
+    label: etoposide
+  - id: MAXO:0000757
+    label: infusion
+  - id: CHEBI:41264
+    label: busulfan (BU), cyclophosphamide (CP), etoposide (VP16), antithymocyte globulin
+      (ATG)
+  - id: MAXO:0000750
+    label: conditioning regimen
+  - id: CHEBI:73896
+    label: gene therapy (GT)
   - id: MONDO:0009666
     label: Holocarboxylase synthetase deficiency
-  - id: MONDO:0015454
-    label: Multiple carboxylase deficiency
-  - id: MONDO:0001531
+  - id: MAXO:0000603
+    label: Peritoneal dialysis
+  - id: HP:0001942
+    label: Metabolic acidosis
+  - id: CHEBI:15956
+    label: Biotin
+  - id: HP:0003256
     label: Coagulopathy
+  - id: CHEBI:48669
+    label: Tranexamic acid
+  - id: CHEBI:48675
+    label: antifibrinolytic agents
   - id: MONDO:0020300
     label: Autosomal dominant nocturnal frontal lobe epilepsy
+  - id: CHEBI:3387
+    label: Carbamazepine
   - id: MONDO:0000903
-    label: myoclonus-dystonia
+    label: Myoclonus-dystonia
   - id: MAXO:0000943
-    label: Deep brain stimulation
+    label: Deep Brain Stimulation
   - id: HP:0001252
     label: Hypotonia
+  - id: MONDO:0005338
+    label: Primary open-angle glaucoma (POAG)
   - id: MAXO:0001082
     label: Trabeculectomy
-  - id: MONDO:0005129
-    label: Cataract
+  - id: MAXO:0000960
+    label: Viscocanalostomy
+  - id: HP:0007906
+    label: Elevated intraocular pressure (IOP)

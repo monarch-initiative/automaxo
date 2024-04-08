@@ -1,0 +1,169 @@
+---
+input_text: "Commentary on \"A New Onset of Mania in a 49-Year-Old Man: An Interesting
+  Case of Wilson Disease\".Wilson disease is a rare copper metabolism disorder that
+  generally occurs in individuals between 5 and 35 years of age. Common clinical manifestations
+  are hepatic, neurological, and psychiatric symptoms. Roughly, 4% of all cases occur
+  in patients over 40 years of age and, among these patients, the presenting symptoms
+  are generally neuropsychiatric, which often leads to misdiagnosis as a primary psychiatric
+  disorder and a delay in correct diagnosis. This report presents the case of a 49-year-old
+  man with no formal psychiatric history who presented with a new onset of mania.
+  We outline the distinctive characteristics that appeared inconsistent with a primary
+  psychiatric disorder and pointed toward secondary mania. Despite low serum ceruloplasmin,
+  the absence of brain abnormalities more typical of Wilson disease on magnetic resonance
+  imaging led a neurology consultant to advise that the diagnosis was likely primarily
+  psychiatric. Due to atypical components of the patient's presentation, such as his
+  late age of onset for bipolar disorder and acute cognitive decline, the psychiatric
+  team advocated for further diagnostic workup. The subsequent evaluation confirmed
+  Wilson disease based on specific ophthalmological and hepatic abnormalities and
+  further copper studies. In addition, once diagnosed, the management of Wilson disease
+  involves distinct clinical considerations given patients' presumed vulnerability
+  to neurological side effects. This case illustrates the role psychiatric providers
+  play in advocating for diagnostic workup in patients with atypical presentations
+  of primary psychiatric disorders and the distinct diagnostic and treatment considerations
+  associated with Wilson disease."
+raw_completion_output: |-
+  primary_disease: Wilson disease
+
+  medical_actions: Diagnostic workup; Management of Wilson disease
+
+  symptoms: Mania; Acute cognitive decline; Hepatic abnormalities; Neurological symptoms; Psychiatric symptoms
+
+  chemicals: Ceruloplasmin
+
+  action_annotation_relationships: Diagnostic workup TREATS Mania IN Wilson disease; Diagnostic workup PREVENTS misdiagnosis IN Wilson disease; Management of Wilson disease (with Ceruloplasmin) TREATS Hepatic abnormalities IN Wilson disease; Management of Wilson disease TREATS Neurological symptoms IN Wilson disease; Management of Wilson disease TREATS Psychiatric symptoms IN Wilson disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Management of Wilson disease TREATS Psychiatric symptoms IN Wilson disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010200
+  medical_actions:
+    - Diagnostic workup
+    - Management of Wilson disease
+  symptoms:
+    - HP:0100754
+    - Acute cognitive decline
+    - Hepatic abnormalities
+    - Neurological symptoms
+    - Psychiatric symptoms
+  chemicals:
+    - Ceruloplasmin
+  action_annotation_relationships:
+    - subject: Diagnostic workup
+      predicate: TREATS
+      object: HP:0100754
+      qualifier: MONDO:0010200
+    - subject: Diagnostic workup
+      predicate: PREVENTS
+      object: misdiagnosis
+      qualifier: MONDO:0010200
+    - subject: Management of Wilson disease
+      predicate: TREATS
+      object: Hepatic abnormalities
+      qualifier: MONDO:0010200
+      subject_qualifier: with Ceruloplasmin
+      subject_extension: Ceruloplasmin
+    - subject: <Management of Wilson disease>
+      predicate: <TREATS>
+      object: <Neurological symptoms>
+      qualifier: <Wilson disease>
+      subject_extension: <Wilson disease>
+    - subject: Management of Wilson disease
+      predicate: TREATS
+      object: Psychiatric symptoms
+      qualifier: MONDO:0010200
+named_entities:
+  - id: MONDO:0010200
+    label: Wilson disease
+  - id: HP:0025464
+    label: oxidative stress
+  - id: CHEBI:28694
+    label: copper
+  - id: CHEBI:18248
+    label: iron
+  - id: CHEBI:149681
+    label: catalase (CAT)
+  - id: CHEBI:566274
+    label: malondialdehyde (MDA)
+  - id: CHEBI:16480
+    label: nitric oxide (NO)
+  - id: MAXO:0001175
+    label: liver transplantation
+  - id: HP:0006554
+    label: acute liver failure
+  - id: HP:0003256
+    label: coagulopathy
+  - id: HP:0002480
+    label: hepatic encephalopathy
+  - id: HP:0001397
+    label: Liver steatosis
+  - id: HP:0001399
+    label: Liver failure
+  - id: MAXO:0000127
+    label: Genetic testing
+  - id: CHEBI:137245
+    label: d-penicillamine (DP)
+  - id: CHEBI:39501
+    label: Trientine
+  - id: HP:0001878
+    label: hemolytic anemia
+  - id: HP:0002148
+    label: hypophosphatemia
+  - id: MAXO:0000376
+    label: Liver biopsy
+  - id: HP:0001404
+    label: Hepatocellular necrosis
+  - id: CHEBI:61049
+    label: Tacrolimus
+  - id: CHEBI:50868
+    label: Penicillamine
+  - id: HP:0001332
+    label: Dystonia
+  - id: HP:0002072
+    label: Chorea
+  - id: HP:0001337
+    label: Tremor
+  - id: HP:0001300
+    label: Parkinsonism
+  - id: HP:0002305
+    label: Athetosis
+  - id: HP:0001336
+    label: Myoclonus
+  - id: CHEBI:29987
+    label: Glutamate
+  - id: CHEBI:16856
+    label: Glutathione
+  - id: CHEBI:53498
+    label: Total antioxidant capacity (TAC)
+  - id: CHEBI:8830
+    label: rhodanine
+  - id: MONDO:0013209
+    label: Non alcoholic fatty liver disease (NAFLD)
+  - id: HP:0001395
+    label: Liver fibrosis
+  - id: CHEBI:60654
+    label: Valproate
+  - id: CHEBI:50858
+    label: Corticosteroids
+  - id: CHEBI:22587
+    label: Antivirals
+  - id: HP:0030890
+    label: White matter hyperintensity
+  - id: CHEBI:7959
+    label: D-penicillamine
+  - id: HP:0100754
+    label: Mania

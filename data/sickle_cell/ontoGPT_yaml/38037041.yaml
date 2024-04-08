@@ -27,113 +27,122 @@ input_text: "Opioid prescriptions among the World Trade Center Health Program po
   opioid prescribing coincided with improvements in outcomes, ongoing surveillance
   is needed."
 raw_completion_output: |-
-  action: <improve opioid prescribing; expand access to non-opioid pain management; ongoing surveillance>
-  disease: <cancer; physical/mental trauma>
-  symptom: <cancer-related pain; surgery pain; acute/chronic pain>
-  action_to_disease: <improve opioid prescribing TREATS physical/mental trauma; expand access to non-opioid pain management TREATS physical/mental trauma; ongoing surveillance IS USED TO MONITOR physical/mental trauma>
-  action_to_symptom: <improve opioid prescribing IS USED TO TREAT cancer-related pain; expand access to non-opioid pain management IS USED TO TREAT surgery pain; ongoing surveillance IS USED TO MONITOR acute/chronic pain>
-  triples: <improve opioid prescribing TREATS physical/mental trauma; expand access to non-opioid pain management TREATS physical/mental trauma; ongoing surveillance IS USED TO MONITOR physical/mental trauma; improve opioid prescribing IS USED TO TREAT cancer-related pain; expand access to non-opioid pain management IS USED TO TREAT surgery pain; ongoing surveillance IS USED TO MONITOR acute/chronic pain>
+  primary_disease: Opioid use
+
+  medical_actions: Improve opioid prescribing; Expand access to non-opioid pain management; Administrative and claims data analysis; Ongoing surveillance
+
+  symptoms: Cancer-related pain; Hospice/end of life care pain; Surgery pain; Acute/chronic pain
+
+  chemicals: Opioids; Benzodiazepines
+
+  action_annotation_relationships: Improve opioid prescribing PREVENTS Opioid overuse IN Opioid use; Expand access to non-opioid pain management PREVENTS Opioid overuse IN Opioid use; Administrative and claims data analysis TREATS Lack of data ON opioid prescriptions IN Opioid use; Ongoing surveillance TREATS Opioid use; Opioids (with benzodiazepines) TREATS Cancer-related pain IN Opioid use; Opioids TREATS Hospice/end of life care pain IN Opioid use; Opioids TREATS Surgery pain IN Opioid use; Opioids TREATS Acute/chronic pain IN Opioid use
 prompt: |+
   Split the following piece of text into fields in the following format:
 
-  subject: <the value for subject>
-  predicate: <the value for predicate>
-  object: <the value for object>
-  qualifier: <A qualifier for the statements, e.g. "NOT" for negation>
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
   subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
   object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
 
 
   Text:
-  ongoing surveillance IS USED TO MONITOR acute/chronic pain>
+  Opioids TREATS Acute/chronic pain IN Opioid use
 
   ===
 
 extracted_object:
-  triples:
-    - subject: improve opioid prescribing
+  primary_disease: Opioid use
+  medical_actions:
+    - Improve opioid prescribing
+    - Expand access to non-opioid pain management
+    - Administrative and claims data analysis
+    - Ongoing surveillance
+  symptoms:
+    - Cancer-related pain
+    - Hospice/end of life care pain
+    - Surgery pain
+    - Acute/chronic pain
+  chemicals:
+    - Opioids
+    - CHEBI:22720
+  action_annotation_relationships:
+    - subject: <Improve opioid prescribing>
+      predicate: <PREVENTS>
+      object: <Opioid overuse>
+      qualifier: <Opioid use>
+      subject_qualifier: <null>
+      object_qualifier: <null>
+      subject_extension: <opioid>
+      object_extension: <overuse>
+    - subject: Expand access to non-opioid pain management
+      predicate: PREVENTS
+      object: Opioid overuse
+      qualifier: Opioid use
+      subject_extension: non-opioid pain management
+    - subject: Administrative and claims data analysis
       predicate: TREATS
-      object: physical/mental trauma
-    - subject: access to non-opioid pain management
+      object: Lack of data
+      qualifier: Opioid use
+      object_extension: opioid
+    - subject: Ongoing surveillance
       predicate: TREATS
-      object: physical/mental trauma
-      subject_qualifier: expand
-    - subject: ongoing surveillance
-      predicate: IS USED TO MONITOR
-      object: physical/mental trauma
-    - subject: improve opioid prescribing
-      predicate: IS USED TO TREAT
-      object: cancer-related pain
-    - subject: expand access to non-opioid pain management
-      predicate: IS USED TO TREAT
-      object: surgery pain
-    - subject: ongoing surveillance
-      predicate: IS USED TO MONITOR
-      object: pain
-      object_qualifier: acute/chronic
-  action:
-    - <improve opioid prescribing
-    - expand access to non-opioid pain management
-    - ongoing surveillance>
-  disease:
-    - <cancer
-    - physical/mental trauma>
-  symptom:
-    - <cancer-related pain
-    - surgery pain
-    - acute/chronic pain>
-  action_to_disease:
-    - subject: improve opioid prescribing
+      object: Opioid use
+    - subject: Opioids (with benzodiazepines)
       predicate: TREATS
-      object:
-        - physical/mental trauma
-    - subject: expand access to non-opioid pain management
+      object: Cancer-related pain
+      qualifier: Opioid use
+      subject_extension: Opioids
+    - predicate: TREATS
+      object: Hospice/end of life care pain
+      qualifier: Opioid use
+      subject_extension: Opioids
+    - predicate: TREATS
+      object: Surgery pain
+      qualifier: Opioid use
+      subject_extension: Opioids
+    - subject: Opioids
       predicate: TREATS
-      object:
-        - physical/mental trauma
-    - subject: ongoing surveillance
-      predicate: IS USED TO MONITOR
-      object:
-        - physical/mental trauma
-  action_to_symptom:
-    - subject: improve opioid prescribing
-      predicate: IS USED TO TREAT
-      object:
-        - cancer-related pain
-    - subject: expand access to non-opioid pain management
-      predicate: IS USED TO TREAT
-      object:
-        - surgery pain
-    - subject: ongoing surveillance
-      predicate: IS USED TO MONITOR
-      object:
-        - acute/chronic pain
+      object: Acute/chronic pain
+      qualifier: Opioid use
+      subject_extension: opioids
 named_entities:
-  - id: MAXO:0001001
-    label: genetic therapies
   - id: MONDO:0011382
     label: sickle cell disease
   - id: MONDO:0100096
-    label: COVID-19
-  - id: MONDO:0005087
-    label: Respiratory disease
+    label: SARS-CoV-2
   - id: MONDO:0007374
-    label: <Sickle cell disease (SCD)
-  - id: MONDO:0005632
-    label: acute chest syndrome
-  - id: MONDO:0005550
-    label: infections
-  - id: MONDO:0005081
-    label: preeclampsia
-  - id: MONDO:0005030
-    label: intrauterine growth restriction
-  - id: MONDO:0000831
-    label: Thrombosis
-  - id: MONDO:0005080
+    label: Sickle cell disease (SCD)
+  - id: HP:0100602
+    label: Preeclampsia
+  - id: HP:0001511
+    label: Intrauterine growth restriction
+  - id: CHEBI:44423
+    label: Hydroxyurea (HU)
+  - id: CHEBI:35143
+    label: Haemoglobin (Hb)
+  - id: HP:0001622
+    label: Preterm delivery
+  - id: CHEBI:50858
+    label: corticosteroids
+  - id: HP:0032654
+    label: Endothelial dysfunction
+  - id: HP:0012418
+    label: Hypoxia
+  - id: HP:0001409
     label: Portal hypertension
-  - id: MONDO:0005149
-    label: Pulmonary Hypertension
+  - id: MAXO:0001001
+    label: Gene therapies
   - id: MAXO:0000756
-    label: transfusion
+    label: Transfusion
   - id: MAXO:0000747
-    label: hematopoietic stem cell transplantation
+    label: Hematopoietic stem cell transplantation
+  - id: MAXO:0001298
+    label: therapy
+  - id: MAXO:0009047
+    label: Total hip replacement (THR)
+  - id: CHEBI:22720
+    label: Benzodiazepines

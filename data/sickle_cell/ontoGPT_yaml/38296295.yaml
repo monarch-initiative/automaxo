@@ -26,255 +26,272 @@ input_text: "Protocol for an evaluation of the initiation of an integrated longi
   of progress, quarterly newsletters, regular feedback loops with national stakeholders
   and publication in peer-reviewed journals."
 raw_completion_output: |-
-  action: <Training mid-level clinicians; Establishing PEN-Plus clinics; Supporting clinics to mature into training sites; Working with stakeholders for operational plan development>
-  disease: <Type 1 diabetes; Rheumatic heart disease; Sickle cell disease>
-  symptom: <>
-  action_to_disease: <Training mid-level clinicians TREATS Type 1 diabetes; Training mid-level clinicians TREATS Rheumatic heart disease; Training mid-level clinicians TREATS Sickle cell disease; Establishing PEN-Plus clinics TREATS Type 1 diabetes; Establishing PEN-Plus clinics TREATS Rheumatic heart disease; Establishing PEN-Plus clinics TREATS Sickle cell disease; Supporting clinics to mature into training sites TREATS Type 1 diabetes; Supporting clinics to mature into training sites TREATS Rheumatic heart disease; Supporting clinics to mature into training sites TREATS Sickle cell disease; Working with stakeholders for operational plan development TREATS Type 1 diabetes; Working with stakeholders for operational plan development TREATS Rheumatic heart disease; Working with stakeholders for operational plan development TREATS Sickle cell disease>
-  action_to_symptom: <>
-  triples: <Training mid-level clinicians TREATS Type 1 diabetes; Training mid-level clinicians TREATS Rheumatic heart disease; Training mid-level clinicians TREATS Sickle cell disease; Establishing PEN-Plus clinics TREATS Type 1 diabetes; Establishing PEN-Plus clinics TREATS Rheumatic heart disease; Establishing PEN-Plus clinics TREATS Sickle cell disease; Supporting clinics to mature into training sites TREATS Type 1 diabetes; Supporting clinics to mature into training sites TREATS Rheumatic heart disease; Supporting clinics to mature into training sites TREATS Sickle cell disease; Working with stakeholders for operational plan development TREATS Type 1 diabetes; Working with stakeholders for operational plan development TREATS Rheumatic heart disease; Working with stakeholders for operational plan development TREATS Sickle cell disease>
+  primary_disease: Severe chronic non-communicable diseases (NCDs)
+
+  medical_actions: initiation of an integrated longitudinal outpatient care model; training of mid-level clinicians; establishment of PEN-Plus clinics; support of clinics to mature into training sites; advocacy for PEN-Plus; conducting a mixed-method evaluation; collection of data through quantitative surveys; collection of data through routine reporting; collection of data through qualitative interviews
+
+  symptoms: N/A
+
+  chemicals: N/A
+
+  action_annotation_relationships: initiation of an integrated longitudinal outpatient care model PREVENTS Severe chronic non-communicable diseases (NCDs) IN patients; training of mid-level clinicians PREVENTS Severe chronic non-communicable diseases (NCDs) IN patients; establishment of PEN-Plus clinics TREATS Severe chronic non-communicable diseases (NCDs) IN patients; support of clinics to mature into training sites PREVENTS Severe chronic non-communicable diseases (NCDs) IN patients; advocacy for PEN-Plus TREATS Severe chronic non-communicable diseases (NCDs) IN patients; conducting a mixed-method evaluation TREATS Severe chronic non-communicable diseases (NCDs) IN patients; collection of data through quantitative surveys TREATS Severe chronic non-communicable diseases (NCDs) IN patients; collection of data through routine reporting TREATS Severe chronic non-communicable diseases (NCDs) IN patients; collection of data through qualitative interviews TREATS Severe chronic non-communicable diseases (NCDs) IN patients
 prompt: |+
   From the text below, extract the following entities in the following format:
 
-  subject: <the value for subject>
-  predicate: <the value for predicate>
-  object: <the value for object>
-  qualifier: <A qualifier for the statements, e.g. "NOT" for negation>
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
   subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
   object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
 
 
   Text:
-  Working with stakeholders for operational plan development TREATS Sickle cell disease>
+  collection of data through qualitative interviews TREATS Severe chronic non-communicable diseases (NCDs) IN patients
 
   ===
 
 extracted_object:
-  triples:
-    - subject: Training mid-level clinicians
+  primary_disease: Severe chronic non-communicable diseases (NCDs)
+  medical_actions:
+    - initiation of an integrated longitudinal outpatient care model
+    - training of mid-level clinicians
+    - establishment of PEN-Plus clinics
+    - support of clinics to mature into training sites
+    - advocacy for PEN-Plus
+    - conducting a mixed-method evaluation
+    - collection of data through quantitative surveys
+    - collection of data through routine reporting
+    - collection of data through qualitative interviews
+  symptoms:
+    - N/A
+  chemicals:
+    - N/A
+  action_annotation_relationships:
+    - subject: initiation of an integrated longitudinal outpatient care model
+      predicate: PREVENTS
+      object: Severe chronic non-communicable diseases (NCDs)
+      qualifier: patients
+      object_qualifier: Severe
+    - subject: training of mid-level clinicians
+      predicate: PREVENTS
+      object: Severe chronic non-communicable diseases (NCDs)
+      qualifier: patients
+      object_qualifier: Severe
+    - subject: establishment of clinics
       predicate: TREATS
-      object: Type 1 diabetes
-    - subject: Training mid-level clinicians
+      object: Severe chronic non-communicable diseases (NCDs)
+      qualifier: patients
+      subject_qualifier: <None>
+      object_qualifier: Severe
+      subject_extension: PEN-Plus
+      object_extension: <None>
+    - subject: support of clinics to mature into training sites
+      predicate: PREVENTS
+      object: Severe chronic non-communicable diseases (NCDs)
+      qualifier: patients
+      object_qualifier: Severe
+    - subject: advocacy
       predicate: TREATS
-      object: Rheumatic heart disease
-    - subject: Training mid-level clinicians
+      object: Severe chronic non-communicable diseases (NCDs)
+      qualifier: patients
+      object_qualifier: severe
+      subject_extension: PEN-Plus
+    - subject: <mixed-method evaluation>
+      predicate: <TREATS>
+      object: <Severe chronic non-communicable diseases (NCDs)>
+      qualifier: <patients>
+      subject_qualifier: <Not applicable>
+      object_qualifier: <Severe>
+      subject_extension: <Not applicable>
+      object_extension: <Not applicable>
+    - subject: collection of data through quantitative surveys
       predicate: TREATS
-      object: Sickle cell disease
-    - subject: Establishing PEN-Plus clinics
-      predicate: TREATS
-      object: Type 1 diabetes
-    - subject: Establishing PEN-Plus clinics
-      predicate: TREATS
-      object: Rheumatic heart disease
-    - subject: Establishing PEN-Plus clinics
-      predicate: TREATS
-      object: Sickle cell disease
-    - subject: Supporting clinics
-      predicate: mature into
-      object: training sites
-      object_qualifier: TREATS Type 1 diabetes
-    - subject: Supporting clinics
-      predicate: mature into
-      object: training sites
-      object_qualifier: TREATS Rheumatic heart disease
-    - subject: Supporting clinics
-      predicate: TREATS
-      object: Sickle cell disease
-      subject_qualifier: to mature into training sites
-    - subject: Working with stakeholders for operational plan development
-      predicate: TREATS
-      object: Type 1 diabetes
-    - subject: Working with stakeholders
-      predicate: TREATS
-      object: Rheumatic heart disease
-      subject_qualifier: for operational plan development
-    - subject: Working with stakeholders for operational plan development
-      predicate: TREATS
-      object: Sickle cell disease
-  action:
-    - <Training mid-level clinicians
-    - Establishing PEN-Plus clinics
-    - Supporting clinics to mature into training sites
-    - Working with stakeholders for operational plan development>
-  disease:
-    - <Type 1 diabetes
-    - MONDO:0006955
-    - Sickle cell disease>
-  symptom:
-    - <>
-  action_to_disease:
-    - subject: Training mid-level clinicians
-      predicate: TREATS
-      object:
-        - MONDO:0005147
-    - subject: Training mid-level clinicians
-      predicate: TREATS
-      object:
-        - MONDO:0006955
-    - subject: Training mid-level clinicians
-      predicate: TREATS
-      object:
-        - MONDO:0011382
-    - subject: Establishing PEN-Plus clinics
-      predicate: TREATS
-      object:
-        - MONDO:0005147
-    - subject: Establishing PEN-Plus clinics
-      predicate: TREATS
-      object:
-        - MONDO:0006955
-    - subject: Establishing PEN-Plus clinics
-      predicate: TREATS
-      object:
-        - MONDO:0011382
-    - subject: Supporting clinics to mature into training sites
-      predicate: TREATS
-      object:
-        - MONDO:0005147
-    - subject: Supporting clinics to mature into training sites
-      predicate: TREATS
-      object:
-        - MONDO:0006955
-    - subject: Supporting clinics to mature into training sites
-      predicate: TREATS
-      object:
-        - MONDO:0011382
-    - subject: Working with stakeholders for operational plan development
-      predicate: TREATS
-      object:
-        - MONDO:0005147
-    - subject: Working with stakeholders for operational plan development
-      predicate: TREATS
-      object:
-        - MONDO:0006955
-    - subject: Working with stakeholders for operational plan development
-      predicate: TREATS
-      object:
-        - MONDO:0011382
+      object: Severe chronic non-communicable diseases (NCDs)
+      qualifier: patients
+      object_qualifier: severe
+    - subject: <collection of data through routine reporting>
+      predicate: <TREATS>
+      object: <Severe chronic non-communicable diseases (NCDs)>
+      qualifier: <patients>
+      subject_qualifier: <Not applicable>
+      object_qualifier: <Severe>
+      subject_extension: <Not applicable>
+      object_extension: <Not applicable>
+    - subject: <collection of data through qualitative interviews>
+      predicate: <TREATS>
+      object: <Severe chronic non-communicable diseases (NCDs)>
+      qualifier: <patients>
+      subject_qualifier: <NA>
+      object_qualifier: <NA>
+      subject_extension: <NA>
+      object_extension: <NA>
 named_entities:
-  - id: MAXO:0001001
-    label: genetic therapies
   - id: MONDO:0011382
     label: sickle cell disease
   - id: MONDO:0100096
-    label: COVID-19
-  - id: MONDO:0005087
-    label: Respiratory disease
+    label: SARS-CoV-2
   - id: MONDO:0007374
-    label: <Sickle cell disease (SCD)
-  - id: MONDO:0005632
-    label: acute chest syndrome
-  - id: MONDO:0005550
-    label: infections
-  - id: MONDO:0005081
-    label: preeclampsia
-  - id: MONDO:0005030
-    label: intrauterine growth restriction
-  - id: MONDO:0000831
-    label: Thrombosis
-  - id: MONDO:0005080
+    label: Sickle cell disease (SCD)
+  - id: HP:0100602
+    label: Preeclampsia
+  - id: HP:0001511
+    label: Intrauterine growth restriction
+  - id: CHEBI:44423
+    label: Hydroxyurea (HU)
+  - id: CHEBI:35143
+    label: Haemoglobin (Hb)
+  - id: HP:0001622
+    label: Preterm delivery
+  - id: CHEBI:50858
+    label: corticosteroids
+  - id: HP:0032654
+    label: Endothelial dysfunction
+  - id: HP:0012418
+    label: Hypoxia
+  - id: HP:0001409
     label: Portal hypertension
-  - id: MONDO:0005149
-    label: Pulmonary Hypertension
+  - id: MAXO:0001001
+    label: Gene therapies
   - id: MAXO:0000756
-    label: transfusion
+    label: Transfusion
   - id: MAXO:0000747
-    label: hematopoietic stem cell transplantation
-  - id: MONDO:0005279
-    label: Pulmonary embolism
-  - id: HP:0025179
-    label: Ground glass opacities
+    label: Hematopoietic stem cell transplantation
+  - id: MAXO:0001298
+    label: therapy
+  - id: MAXO:0009047
+    label: Total hip replacement (THR)
+  - id: CHEBI:22720
+    label: Benzodiazepines
+  - id: MONDO:0006079
+    label: Acute chest syndrome (ACS)
+  - id: CHEBI:24859
+    label: Iodine
+  - id: MONDO:0005632
+    label: Acute chest syndrome
+  - id: CHEBI:17334
+    label: penicillin
   - id: MAXO:0000118
     label: immunizations
+  - id: HP:0001903
+    label: anemia
   - id: HP:0001297
     label: stroke
-  - id: MONDO:0002280
-    label: anemia
-  - id: HP:0001511
-    label: intrauterine growth retardation
-  - id: HP:0001518
-    label: low birth weight
-  - id: MAXO:0001006
-    label: full blood count
-  - id: MAXO:0000825
-    label: reticulocyte count
-  - id: MAXO:0000427
-    label: brain MRI
   - id: HP:0012532
-    label: chronic pain
-  - id: MONDO:0005098
-    label: stroke
-  - id: MONDO:0005192
-    label: Pancreatic cancer
-  - id: MONDO:0018874
-    label: Acute myeloid leukemia
+    label: Chronic pain
+  - id: CHEBI:3216
+    label: Buprenorphine
+  - id: HP:0001518
+    label: Low birth weight
+  - id: MAXO:0001006
+    label: Full blood count
+  - id: MAXO:0000825
+    label: Reticulocyte count
+  - id: MAXO:0000427
+    label: Brain magnetic resonance imaging (MRI)
+  - id: HP:0012592
+    label: albuminuria
+  - id: HP:0100543
+    label: cognitive dysfunction
+  - id: HP:0000739
+    label: anxiety
+  - id: HP:0010783
+    label: Redness
+  - id: CHEBI:33281
+    label: antibiotics
   - id: MONDO:0009693
-    label: Multiple myeloma
-  - id: MONDO:0800385
-    label: iron overload
-  - id: MONDO:0005300
-    label: Chronic Kidney Disease (CKD)
-  - id: MONDO:0003139
-    label: Mesangioproliferative Glomerulonephritis
-  - id: MONDO:0006835
-    label: Minimal Change Disease
-  - id: MONDO:0100313
-    label: Focal Segmental Glomerulosclerosis
-  - id: MONDO:0001085
-    label: Interstitial Nephritis
+    label: Multiple Myeloma
+  - id: CHEBI:145536
+    label: Motixafortide
+  - id: CHEBI:114786
+    label: sodium metabisulfite
+  - id: CHEBI:15365
+    label: aspirin
   - id: HP:0000093
     label: Proteinuria
+  - id: HP:0012622
+    label: CKD
   - id: MAXO:0000969
     label: optical coherence tomography (OCT)
   - id: HP:0000505
     label: visual impairment
-  - id: MONDO:0013730
-    label: acute graft-versus-host disease (GVHD)
-  - id: MONDO:0100467
-    label: hypertensive disorder of pregnancy
-  - id: HP:0000822
-    label: high blood pressure
-  - id: MONDO:0005170
-    label: Myeloid malignancies
-  - id: MONDO:0004745
-    label: priapism
+  - id: CHEBI:28901
+    label: busulfan
+  - id: CHEBI:82557
+    label: treosulfan
+  - id: CHEBI:9570
+    label: thiotepa
+  - id: HP:0100603
+    label: Hypertensive disorder of pregnancy (HDP)
+  - id: CHEBI:26308
+    label: unweighted polygenic risk score (PRS)
+  - id: CHEBI:35480
+    label: Analgesics
   - id: HP:0012213
-    label: Decreased GFR
+    label: Decreased glomerular filtration rate
+  - id: HP:0012398
+    label: Peripheral oedema
+  - id: HP:0001685
+    label: Cardiac fibrosis
   - id: MONDO:0005570
     label: hematologic diseases
+  - id: HP:0001871
+    label: hematologic diseases
+  - id: HP:0001712
+    label: Left ventricular hypertrophy
+  - id: HP:0007760
+    label: SCD
+  - id: MAXO:0000149
+    label: Hematopoietic cell transplant (HCT)
   - id: MAXO:0010203
-    label: echocardiography
+    label: Echocardiography
   - id: HP:0012531
     label: Pain
-  - id: MAXO:0000536
-    label: <Chorionic villus sampling (CVS)
-  - id: MONDO:0011399
-    label: Alpha thalassemia
+  - id: CHEBI:51371
+    label: muscle relaxants
+  - id: HP:0002140
+    label: Arterial ischemic stroke
   - id: MONDO:0019402
-    label: Beta thalassemia
-  - id: MONDO:0000984
-    label: Thalassemia
-  - id: MONDO:0043544
-    label: Nosocomial infections
-  - id: MAXO:0001479
-    label: allogeneic hematopoietic stem cell transplantation
-  - id: MAXO:0000571
-    label: CT
-  - id: MONDO:0007145
-    label: Aplasia cutis congenita
-  - id: MONDO:0005246
-    label: Osteomyelitis
-  - id: MONDO:0020517
-    label: Eosinophilic granuloma
+    label: Thalassemia major
+  - id: MAXO:0000536
+    label: Chorionic villus sampling (CVS)
+  - id: MONDO:0020380
+    label: Sickle cell anemia (SCA)
+  - id: MONDO:0005161
+    label: Human papillomavirus (HPV) infection
+  - id: MAXO:0000759
+    label: HPV vaccination
   - id: MAXO:0000447
     label: Surgical removal
+  - id: HP:0033138
+    label: Right atrial thrombus
   - id: HP:0000989
-    label: Pruritus
-  - id: MAXO:0000149
-    label: myeloablative, matched sibling donor hematopoietic stem cell transplant
-      (HCT)
+    label: pruritus
+  - id: MAXO:0010041
+    label: skin grafting
+  - id: MAXO:0000058
+    label: Pharmacotherapies
+  - id: HP:0001513
+    label: obesity
+  - id: CHEBI:4027
+    label: Cyclophosphamide
+  - id: HP:0002617
+    label: vasculopathy
+  - id: MAXO:0000068
+    label: Transplantation
+  - id: HP:0004870
+    label: chronic hemolytic anemia
+  - id: CHEBI:27690
+    label: acetazolamide
+  - id: CHEBI:22984
+    label: Calcium
+  - id: MAXO:0001479
+    label: allogeneic hematopoietic stem cell transplantation
+  - id: CHEBI:18050
+    label: L-glutamine
   - id: MAXO:0001175
     label: liver transplantation
-  - id: MONDO:0006955
-    label: Rheumatic heart disease
-  - id: MONDO:0005147
-    label: Type 1 diabetes
+  - id: HP:0000952
+    label: jaundice

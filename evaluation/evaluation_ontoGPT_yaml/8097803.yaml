@@ -22,180 +22,280 @@ input_text: Clinical improvement and amyloid regression after liver transplantat
   amyloid deposits can be mobilised. The best timing and long-term results of the
   procedure must now be established.
 raw_completion_output: |-
-  action: <Liver transplantation;Quantitative scintigraphy with radiolabelled serum amyloid P component>
-  disease: <Hereditary transthyretin amyloidosis;Familial amyloid polyneuropathy (FAP)>
-  symptom: <Progressive peripheral and autonomic neuropathy;Inexorable progression of neuropathy;Increased visceral amyloid deposition>
-  action_to_disease: <Liver transplantation TREATS Hereditary transthyretin amyloidosis;Liver transplantation TREATS Familial amyloid polyneuropathy (FAP);Quantitative scintigraphy with radiolabelled serum amyloid P component IS USED TO DIAGNOSE Familial amyloid polyneuropathy (FAP)>
-  action_to_symptom: <Liver transplantation STOPS Inexorable progression of neuropathy>
-  triples: <Liver transplantation TREATS Hereditary transthyretin amyloidosis;Liver transplantation TREATS Familial amyloid polyneuropathy (FAP);Quantitative scintigraphy with radiolabelled serum amyloid P component IS USED TO DIAGNOSE Familial amyloid polyneuropathy (FAP);Liver transplantation STOPS Inexorable progression of neuropathy>
+  primary_disease: Familial amyloid polyneuropathy (FAP)
+  medical_actions: liver transplantation;quantitative scintigraphy
+  symptoms: progressive peripheral and autonomic neuropathy;neural and visceral deposition of amyloid;worsening general wellbeing;decreased walking ability;impaired bowel function;abnormal bladder function;severe neurological deficits
+  chemicals: radiolabelled serum amyloid P component
+  action_annotation_relationships: liver transplantation TREATS progressive peripheral and autonomic neuropathy IN Familial amyloid polyneuropathy (FAP);liver transplantation PREVENTS neural and visceral deposition of amyloid IN Familial amyloid polyneuropathy (FAP);liver transplantation IMPROVES worsening general wellbeing IN Familial amyloid polyneuropathy (FAP);liver transplantation IMPROVES decreased walking ability IN Familial amyloid polyneuropathy (FAP);liver transplantation IMPROVES impaired bowel function IN Familial amyloid polyneuropathy (FAP);liver transplantation IMPROVES abnormal bladder function IN Familial amyloid polyneuropathy (FAP);liver transplantation PREVENTS further deterioration of severe neurological deficits IN Familial amyloid polyneuropathy (FAP);quantitative scintigraphy (with radiolabelled serum amyloid P component) DETECTS neural and visceral deposition of amyloid IN Familial amyloid polyneuropathy (FAP);liver transplantation PREVENTS worsening of progressive peripheral and autonomic neuropathy IN Familial amyloid polyneuropathy (FAP)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
-  subject: <the value for subject>
-  predicate: <the value for predicate>
-  object: <the value for object>
-  qualifier: <A qualifier for the statements, e.g. "NOT" for negation>
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
   subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
   object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
 
 
   Text:
-  Liver transplantation STOPS Inexorable progression of neuropathy>
+  liver transplantation PREVENTS worsening of progressive peripheral and autonomic neuropathy IN Familial amyloid polyneuropathy (FAP)
 
   ===
 
 extracted_object:
-  triples:
-    - subject: Liver transplantation
-      predicate: TREATS
-      object: Hereditary transthyretin amyloidosis
-    - subject: Liver transplantation
-      predicate: TREATS
-      object: Familial amyloid polyneuropathy (FAP)
-    - subject: Quantitative scintigraphy with radiolabelled serum amyloid P component
-      predicate: IS USED TO DIAGNOSE
-      object: Familial amyloid polyneuropathy (FAP)
-    - subject: Liver transplantation
-      predicate: STOPS
-      object: progression of neuropathy
-      object_qualifier: Inexorable
-  action:
-    - <Liver transplantation
-    - Quantitative scintigraphy with radiolabelled serum amyloid P component>
-  disease:
-    - <Hereditary transthyretin amyloidosis
-    - MONDO:0021055
-  symptom:
-    - <Progressive peripheral and autonomic neuropathy
-    - Inexorable progression of neuropathy
-    - Increased visceral amyloid deposition>
-  action_to_disease:
+  primary_disease: MONDO:0021055
+  medical_actions:
+    - MAXO:0001175
+    - quantitative scintigraphy
+  symptoms:
+    - progressive peripheral and autonomic neuropathy
+    - neural and visceral deposition of amyloid
+    - worsening general wellbeing
+    - decreased walking ability
+    - impaired bowel function
+    - abnormal bladder function
+    - severe neurological deficits
+  chemicals:
+    - radiolabelled serum amyloid P component
+  action_annotation_relationships:
     - subject: MAXO:0001175
       predicate: TREATS
-      object:
-        - Hereditary transthyretin amyloidosis
+      object: progressive peripheral and autonomic neuropathy
+      qualifier: MONDO:0021055
     - subject: MAXO:0001175
-      predicate: TREATS
-      object:
-        - MONDO:0021055
-    - subject: Quantitative scintigraphy with radiolabelled serum amyloid P component
-      predicate: IS USED TO DIAGNOSE
-      object:
-        - MONDO:0021055
-  action_to_symptom:
+      predicate: PREVENTS
+      object: neural and visceral deposition of amyloid
+      qualifier: MONDO:0021055
     - subject: MAXO:0001175
-      predicate: STOPS
-      object:
-        - Inexorable progression of neuropathy
+      predicate: IMPROVES
+      object: worsening general wellbeing
+      qualifier: MONDO:0021055
+    - subject: MAXO:0001175
+      predicate: IMPROVES
+      object: decreased walking ability
+      qualifier: MONDO:0021055
+    - subject: MAXO:0001175
+      predicate: IMPROVES
+      object: impaired bowel function
+      qualifier: MONDO:0021055
+    - subject: MAXO:0001175
+      predicate: IMPROVES
+      object: abnormal bladder function
+      qualifier: MONDO:0021055
+    - subject: MAXO:0001175
+      predicate: PREVENTS
+      object: further deterioration of severe neurological deficits
+      qualifier: MONDO:0021055
+      object_qualifier: severe
+    - subject: <quantitative scintigraphy>
+      predicate: <DETECTS>
+      object: <neural and visceral deposition of amyloid>
+      qualifier: MONDO:0021055
+      subject_qualifier: <with radiolabelled serum amyloid P component>
+      subject_extension: <radiolabelled serum amyloid P component>
+    - subject: MAXO:0001175
+      predicate: PREVENTS
+      object: worsening of progressive peripheral and autonomic neuropathy
+      qualifier: MONDO:0021055
 named_entities:
-  - id: MONDO:0005365
-    label: hearing loss
   - id: MONDO:0008891
     label: Brown-Vialetto-Van Laere syndrome
-  - id: MONDO:0003608
+  - id: MAXO:0009004
+    label: exome sequencing
+  - id: HP:0000407
+    label: sensorineural hearing loss
+  - id: HP:0002093
+    label: respiratory insufficiency
+  - id: HP:0010871
+    label: sensory ataxia
+  - id: HP:0000648
     label: optic atrophy
-  - id: MONDO:0100062
+  - id: CHEBI:17015
+    label: riboflavin
+  - id: HP:0012469
     label: infantile spasms
-  - id: MONDO:0005027
-    label: seizures
-  - id: MONDO:0005047
+  - id: HP:0000789
     label: infertility
-  - id: MAXO:0010030
-    label: bone marrow transplantation
+  - id: HP:0005268
+    label: miscarriage
+  - id: CHEBI:16709
+    label: pyridoxine
+  - id: CHEBI:18405
+    label: pyridoxal 5'-phosphate
+  - id: CHEBI:27306
+    label: vitamin B6
+  - id: CHEBI:24041
+    label: flavin mononucleotide
+  - id: HP:0001250
+    label: seizures
   - id: MONDO:0009974
-    label: familial hemophagocytic lymphohistiocytosis
-  - id: MONDO:0011382
-    label: sickle cell disease
-  - id: MONDO:0013517
-    label: beta-thalassemia
-  - id: MONDO:0000440
-    label: Metabolic acidosis
+    label: Familial hemophagocytic lymphohistiocytosis
+  - id: MAXO:0010030
+    label: bone marrow transplantation (BMT)
+  - id: CHEBI:28901
+    label: busulfan
+  - id: CHEBI:4027
+    label: cyclophosphamide
+  - id: CHEBI:4911
+    label: etoposide
+  - id: MAXO:0000757
+    label: infusion
+  - id: CHEBI:41264
+    label: busulfan (BU), cyclophosphamide (CP), etoposide (VP16), antithymocyte globulin
+      (ATG)
+  - id: MAXO:0000750
+    label: conditioning regimen
+  - id: CHEBI:73896
+    label: gene therapy (GT)
   - id: MONDO:0009666
     label: Holocarboxylase synthetase deficiency
-  - id: MONDO:0015454
-    label: Multiple carboxylase deficiency
-  - id: MONDO:0001531
+  - id: MAXO:0000603
+    label: Peritoneal dialysis
+  - id: HP:0001942
+    label: Metabolic acidosis
+  - id: CHEBI:15956
+    label: Biotin
+  - id: HP:0003256
     label: Coagulopathy
+  - id: CHEBI:48669
+    label: Tranexamic acid
+  - id: CHEBI:48675
+    label: antifibrinolytic agents
   - id: MONDO:0020300
     label: Autosomal dominant nocturnal frontal lobe epilepsy
+  - id: CHEBI:3387
+    label: Carbamazepine
   - id: MONDO:0000903
-    label: myoclonus-dystonia
+    label: Myoclonus-dystonia
   - id: MAXO:0000943
-    label: Deep brain stimulation
+    label: Deep Brain Stimulation
   - id: HP:0001252
     label: Hypotonia
+  - id: MONDO:0005338
+    label: Primary open-angle glaucoma (POAG)
   - id: MAXO:0001082
     label: Trabeculectomy
-  - id: MONDO:0005129
-    label: Cataract
+  - id: MAXO:0000960
+    label: Viscocanalostomy
+  - id: HP:0007906
+    label: Elevated intraocular pressure (IOP)
   - id: HP:0000253
     label: Progressive microcephaly
   - id: HP:0001263
     label: Global developmental delay
-  - id: MONDO:0004183
-    label: axonal neuropathy
+  - id: HP:0000365
+    label: Hearing loss
+  - id: HP:0100785
+    label: Insomnia
+  - id: CHEBI:15681
+    label: GM3
+  - id: CHEBI:28892
+    label: Ganglioside
+  - id: MAXO:0001298
+    label: therapies
+  - id: MAXO:0000950
+    label: Supportive care
+  - id: CHEBI:8378
+    label: Prednisolone
+  - id: MONDO:0015626
+    label: Charcot-Marie-Tooth disease (CMT)
+  - id: MAXO:0035087
+    label: peripheral nerve biopsy
   - id: HP:0011096
     label: demyelination
-  - id: MONDO:0008961
-    label: autosomal recessive demyelinating Charcot-Marie-Tooth disease type 4A
+  - id: HP:0001605
+    label: vocal cord paralysis
   - id: MONDO:0007947
     label: Marfan's syndrome
+  - id: HP:0001659
+    label: aortic regurgitation
+  - id: CHEBI:2904
+    label: atenolol
+  - id: CHEBI:6541
+    label: losartan
   - id: MONDO:0004691
-    label: <Autosomal dominant polycystic kidney disease (ADPKD)
-  - id: MONDO:0005015
-    label: Diabetes mellitus
-  - id: MONDO:0004522
-    label: Peritonitis
-  - id: MAXO:0000603
-    label: Peritoneal Dialysis
-  - id: MONDO:0003441
+    label: Autosomal dominant polycystic kidney disease (ADPKD)
+  - id: MAXO:0000004
+    label: surgery
+  - id: HP:0002586
+    label: peritonitis
+  - id: HP:0100543
+    label: cognitive impairment
+  - id: HP:0003546
+    label: exercise intolerance
+  - id: HP:0001332
     label: dystonia
-  - id: MONDO:0001341
-    label: IgA deficiency
+  - id: HP:0001336
+    label: myoclonus
+  - id: HP:0001272
+    label: cerebellar atrophy
+  - id: HP:0002059
+    label: cerebral atrophy
+  - id: CHEBI:46245
+    label: coenzyme Q10 (CoQ10)
   - id: MONDO:0009693
+    label: multiple myeloma
+  - id: HP:0002720
+    label: IgA deficiency
+  - id: HP:0006775
     label: multiple myeloma
   - id: MONDO:0011787
     label: Limb-girdle muscular dystrophy type 2I (LGMD2I)
   - id: MONDO:0009662
-    label: <MPS VII (Sly disease)
-  - id: MONDO:0020546
-    label: acute GVHD
-  - id: MONDO:0005155
+    label: Sly disease (mucopolysaccharidosis VII)
+  - id: HP:0002321
+    label: vertigo
+  - id: HP:0040268
+    label: recurrent infections of the middle ears
+  - id: MONDO:0100137
+    label: Telomere Diseases
+  - id: HP:0005528
+    label: Bone marrow failure
+  - id: HP:0001394
     label: Liver cirrhosis
-  - id: MONDO:0002771
+  - id: HP:0002206
     label: Pulmonary fibrosis
-  - id: MONDO:0004992
-    label: Cancer
   - id: HP:0003394
     label: Muscle cramps
+  - id: CHEBI:4315
+    label: Danazol
   - id: MONDO:0015286
-    label: <Complete DiGeorge syndrome (cDGS)
-  - id: MONDO:0019098
-    label: Autoimmune thrombocytopenia
-  - id: MONDO:0004126
-    label: Thyroiditis
-  - id: MONDO:0002049
-    label: Thrombocytopenia
+    label: complete DiGeorge syndrome (cDGS)
   - id: MAXO:0010042
     label: Thymus transplantation
+  - id: HP:0001973
+    label: Autoimmune thrombocytopenia
+  - id: HP:0100646
+    label: Thyroiditis
+  - id: HP:0001875
+    label: Neutropenia
+  - id: HP:0012378
+    label: fatigue
   - id: MONDO:0010421
     label: X-linked Agammaglobulinemia
+  - id: MONDO:0005180
+    label: Parkinson disease
   - id: MONDO:0007765
     label: Hyperostosis cranialis interna
-  - id: MAXO:0000780
-    label: growth hormone therapy
   - id: MONDO:0018997
     label: Noonan syndrome
   - id: HP:0004322
     label: short stature
   - id: MONDO:0015168
-    label: Arthrogryposis multiplex congenita
-  - id: MONDO:0018940
-    label: Congenital myasthenic syndromes
+    label: arthrogryposis multiplex congenita
+  - id: HP:0002828
+    label: multiple joint contractures
+  - id: HP:0034392
+    label: joint contractures
+  - id: MONDO:0010518
+    label: Wiskott-Aldrich syndrome (WAS)
   - id: MAXO:0001077
     label: splenectomy
-  - id: MONDO:0010518
-    label: Wiskott-Aldrich syndrome
+  - id: HP:0001873
+    label: thrombocytopenia
   - id: MONDO:0011724
     label: Glut-1 deficiency syndrome
   - id: HP:0005484
@@ -206,95 +306,113 @@ named_entities:
     label: ataxia
   - id: HP:0011972
     label: hypoglycorrhachia
-  - id: MAXO:0000098
-    label: Fasting
-  - id: MONDO:0019169
-    label: Pyruvate dehydrogenase complex deficiency
   - id: MONDO:0000188
     label: GLUT1 deficiency syndrome
-  - id: HP:0001250
-    label: Seizures
-  - id: HP:0001946
-    label: Ketosis
+  - id: HP:0001508
+    label: Failure to thrive
+  - id: HP:0000787
+    label: Renal stones
+  - id: CHEBI:37054
+    label: 3-hydroxybutyrate
   - id: MONDO:0019353
     label: Stargardt disease
   - id: MONDO:0015974
-    label: Severe Combined Immune Deficiency (SCID)
-  - id: MONDO:0004980
-    label: eczema
-  - id: MONDO:0007179
-    label: autoimmunity
-  - id: HP:0001892
-    label: hemorrhagic diathesis
+    label: Severe combined immunodeficiency (SCID)
   - id: HP:0000964
     label: eczema
   - id: HP:0002960
     label: autoimmunity
+  - id: HP:0001892
+    label: hemorrhagic diathesis
+  - id: MAXO:0000756
+    label: transfusion
   - id: MONDO:0009561
     label: alpha-mannosidosis
+  - id: HP:0003812
+    label: clinical heterogeneity
+  - id: MONDO:0007374
+    label: Sickle cell disease (SCD)
   - id: MAXO:0000011
-    label: physical therapy
-  - id: MAXO:0010203
-    label: echocardiography
-  - id: MONDO:0005380
-    label: avascular necrosis
-  - id: MONDO:0005149
-    label: pulmonary hypertension
-  - id: MONDO:0005632
-    label: acute chest syndrome
+    label: Physical therapy
   - id: MAXO:0000652
-    label: angiotensin-converting enzyme inhibitor therapy
-  - id: MONDO:0800385
-    label: iron overload
-  - id: MAXO:0035078
-    label: pulmonary function testing
+    label: Angiotensin-converting enzyme inhibitor therapy
+  - id: MAXO:0010203
+    label: Echocardiography
+  - id: HP:0010885
+    label: Avascular necrosis
+  - id: HP:0012594
+    label: Microalbuminuria
+  - id: HP:0002092
+    label: Pulmonary hypertension
+  - id: CHEBI:44423
+    label: Hydroxyurea
+  - id: CHEBI:17334
+    label: Penicillin
+  - id: CHEBI:35457
+    label: Angiotensin-converting enzyme inhibitors
+  - id: HP:0001297
+    label: stroke
+  - id: CHEBI:35480
+    label: analgesics
   - id: MONDO:0009061
-    label: cystic fibrosis
+    label: Cystic fibrosis
   - id: MONDO:0010926
-    label: familial hypocalciuric hypercalcemia type 3 (FHH3)
-  - id: MONDO:0001566
-    label: hypercalcemia
-  - id: HP:0001508
-    label: poor weight gain
-  - id: MAXO:0035059
-    label: Nerve conduction studies
+    label: Familial Hypocalciuric Hypercalcemia type 3 (FHH3)
+  - id: HP:0003072
+    label: Hypercalcemia
+  - id: HP:0002150
+    label: Hypercalciuria
+  - id: CHEBI:22984
+    label: Calcium
+  - id: MONDO:0018868
+    label: Metachromatic leukodystrophy
   - id: MAXO:0010033
     label: Umbilical cord blood transplantation
-  - id: MONDO:0018868
-    label: metachromatic leukodystrophy
+  - id: MAXO:0035059
+    label: Nerve conduction studies
+  - id: CHEBI:71418
+    label: Triamcinolone acetonide
   - id: MONDO:0009216
     label: Fanconi-Bickel syndrome
-  - id: MONDO:0019499
-    label: Turner syndrome
+  - id: MAXO:0000780
+    label: Growth hormone therapy
+  - id: CHEBI:37845
+    label: Growth hormone (GH)
+  - id: MAXO:0000088
+    label: Dietary intervention
+  - id: HP:0200134
+    label: Epileptic encephalopathy
+  - id: CHEBI:16704
+    label: Uridine
   - id: MONDO:0005041
-    label: glaucoma
+    label: Glaucoma
+  - id: HP:0000618
+    label: blindness
+  - id: MONDO:0019234
+    label: Peroxisome biogenesis disorder
   - id: HP:0001260
     label: Dysarthric speech
   - id: HP:0000958
     label: Dry skin
-  - id: MONDO:0019234
-    label: Peroxisome biogenesis disorder
-  - id: MONDO:0020236
+  - id: HP:0001284
+    label: Absent reflexes
+  - id: HP:0001083
     label: ectopia lentis
-  - id: HP:0001336
-    label: Myoclonus
-  - id: HP:0001332
-    label: Dystonia
   - id: MONDO:0010626
     label: X-linked hyper-IgM syndrome
+  - id: MONDO:0018875
+    label: Li-Fraumeni syndrome
+  - id: MAXO:0000527
+    label: physical examination
   - id: MAXO:0000427
     label: brain MRI
   - id: MAXO:0000431
     label: breast MRI
   - id: MAXO:0010363
     label: mammography
-  - id: MAXO:0000527
-    label: physical examination
   - id: MAXO:0001184
     label: colonoscopy
-  - id: MONDO:0018875
-    label: Li-Fraumeni syndrome
   - id: MONDO:0021055
-    label: Familial amyloid polyneuropathy (FAP)>
+    label: Familial amyloid polyneuropathy (FAP)
   - id: MAXO:0001175
-    label: Liver transplantation
+    label: liver transplantation
