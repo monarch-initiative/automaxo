@@ -1,6 +1,7 @@
 import os
 import yaml
 import json
+import pandas as pd
 import csv
 from collections import defaultdict
 import click
@@ -30,7 +31,6 @@ def load_yaml_files(directory_path: str) -> list:
 
     return data
 
-
 def extract_triplets(data: list) -> list:
     triplets = []
     named_entities = {}
@@ -55,12 +55,13 @@ def extract_triplets(data: list) -> list:
 
             subject_label = named_entities_dict.get(subject, '')
             object_label = named_entities_dict.get(object_, '')
+            qualifier_label = named_entities_dict.get(qualifier, '')  # Extract the label for the qualifier
 
             triplets.append({
                 'subject': {subject: subject_label},
                 'predicate': predicate,
                 'object': {object_: object_label},
-                'qualifier': qualifier,
+                'qualifier': {qualifier: qualifier_label},  # Include the qualifier label
                 'subject_qualifier': subject_qualifier,
                 'object_qualifier': object_qualifier,
                 'subject_extension': subject_extension,
@@ -83,22 +84,23 @@ def count_triplets(triplets: list) -> defaultdict:
     """
     triplet_counts = defaultdict(lambda: {'count': 0, 'pubmed_ids': set()})
     for triplet in triplets:
-        subject_str = f"{list(triplet['subject'].keys())[0]}: {list(triplet['subject'].values())[0]}"
-        object_str = f"{list(triplet['object'].keys())[0]}: {list(triplet['object'].values())[0]}"
-        predicate = triplet['predicate']
-        qualifier = triplet['qualifier']
-        subject_qualifier = triplet['subject_qualifier']
-        object_qualifier = triplet['object_qualifier']
-        subject_extension = triplet['subject_extension']
-        object_extension = triplet['object_extension']
+        subject_str = f"{list(triplet['subject'].keys())[0]}: {list(triplet['subject'].values())[0]}".lower()
+        object_str = f"{list(triplet['object'].keys())[0]}: {list(triplet['object'].values())[0]}".lower()
+        predicate = triplet['predicate'].lower()
+        qualifier_str = f"{list(triplet['qualifier'].keys())[0]}: {list(triplet['qualifier'].values())[0]}".lower() if triplet['qualifier'] else ''
+        subject_qualifier = triplet['subject_qualifier'].lower()
+        object_qualifier = triplet['object_qualifier'].lower()
+        subject_extension = triplet['subject_extension'].lower()
+        object_extension = triplet['object_extension'].lower()
         pubmed_id = triplet['pubmed_id']
 
-        key = (subject_str, predicate, object_str, qualifier, subject_qualifier, object_qualifier, subject_extension, object_extension)
+        key = (subject_str, predicate, object_str, qualifier_str, subject_qualifier, object_qualifier, subject_extension, object_extension)
 
         triplet_counts[key]['count'] += 1
         triplet_counts[key]['pubmed_ids'].add(pubmed_id)
 
     return triplet_counts
+
 
 
 def rank_triplets(triplet_counts: DefaultDict) -> List[Tuple]:
@@ -144,19 +146,21 @@ def create_pmid_info_dict(tsv_file_path: str, json_file_path: str) -> dict:
 
     return pmid_info_dict
 
-def combine_triplets_with_pmid_info(ranked_triplets: List[dict], pmid_info_dictionary: dict, output_json_path: str):
+
+def combine_triplets_with_pmid_info_and_save_df(ranked_triplets: List[dict], pmid_info_dictionary: dict, output_json_path: str, output_tsv_path: str):
     """
-    Combine ranked triplets with their corresponding text and MeSH information from pmid_info_dictionary.
+    Combine ranked triplets with their corresponding text and MeSH information from pmid_info_dictionary,
+    and save the resulting DataFrame to a TSV file.
 
     Args:
         ranked_triplets: A list of dictionaries, each representing a ranked triplet.
         pmid_info_dictionary: A dictionary with PubMed IDs as keys and a dictionary containing text and MeSH information as values.
         output_json_path: Path to the output JSON file.
-
+        output_tsv_path: Path to the output TSV file.
     """
+    # Combine the triplets with the PubMed info
     combined_data = []
     for triplet, info in ranked_triplets:
-        # Extract text and MeSH information for each PubMed ID in the ranked triplet
         pubmed_ids_mesh_info = {pmid: pmid_info_dictionary.get(pmid, {}) for pmid in info['pubmed_ids']}
         combined_data.append({'triplet': triplet, 'count': info['count'], 'pubmed_ids_mesh_info': pubmed_ids_mesh_info})
 
@@ -164,22 +168,57 @@ def combine_triplets_with_pmid_info(ranked_triplets: List[dict], pmid_info_dicti
     with open(output_json_path, 'w') as f:
         json.dump({'ranked_triplets': combined_data}, f, indent=4)
 
+    # Create a DataFrame from the combined data
+    rows = []
+    for entry in combined_data:
+        triplet = entry['triplet']
+        count = entry['count']
+        if len(triplet) >= 3:
+            subject_with_label, predicate, object_with_label = triplet[:3]
+            qualifier = triplet[3] if len(triplet) > 3 else ''
+            subject_qualifier = triplet[4] if len(triplet) > 4 else ''
+            subject_extension = triplet[6] if len(triplet) > 6 else ''
+            object_extension = triplet[7] if len(triplet) > 7 else ''
 
-        
+            subject, subject_label = subject_with_label.split(': ', 1) if ': ' in subject_with_label else (subject_with_label, '')
+            object_, object_label = object_with_label.split(': ', 1) if ': ' in object_with_label else (object_with_label, '')
+            qualifier, qualifier_label = qualifier.split(': ', 1) if ': ' in qualifier else (qualifier, '')
+
+            for pubmed_id in entry['pubmed_ids_mesh_info'].keys():
+                rows.append([
+                    pubmed_id,
+                    subject, subject_label, predicate, object_, object_label,
+                    qualifier, qualifier_label, subject_qualifier, subject_extension, object_extension,
+                    count
+                ])
+
+    df = pd.DataFrame(rows, columns=[
+        'Citation',
+        'Subject', 'Subject Label', 'Predicate', 'Object', 'Object Label',
+        'Qualifier', 'Qualifier Label', 'Subject Qualifier', 'Subject Extension', 'Object Extension',
+        'Count'
+    ])
+
+    # Save the DataFrame to a TSV file
+    df.to_csv(output_tsv_path, sep='\t', index=False)
+
+
 @click.command()
 @click.option('-i', '--yaml_directory_path', required=True, help='Path to the directory containing YAML files')
 @click.option('-s', '--mesh_info_file_path', required=True, help='Path to the file with selected PMID and MeSH info')
 @click.option('-n', '--no_replaced_file_path', required=True, help='Path to no_replaced tsv file with raw text')
-@click.option('-o', '--output_path', required=True, help='Path to the output JSON file')
-
-def main(yaml_directory_path: str, mesh_info_file_path: str, output_path: str, no_replaced_file_path:str ):
+@click.option('-o', '--output_json_path', required=True, help='Path to the output JSON file')
+@click.option('-t', '--output_tsv_path', required=True, help='Path to the output TSV file')
+def main(yaml_directory_path: str, mesh_info_file_path: str, no_replaced_file_path: str, output_json_path: str, output_tsv_path: str):
     """
-    Main function to process YAML files, extract triplets, count them, rank them, combine with MeSH info, and save to JSON.
+    Main function to process YAML files, extract triplets, count them, rank them, combine with MeSH info, and save to JSON and TSV.
 
     Args:
         yaml_directory_path (str): Path to the directory containing YAML files.
         mesh_info_file_path (str): Path to the file with selected PMID and MeSH info.
-        output_path (str): Path to the output JSON file.
+        no_replaced_file_path (str): Path to no_replaced tsv file with raw text.
+        output_json_path (str): Path to the output JSON file.
+        output_tsv_path (str): Path to the output TSV file.
     """
     data = load_yaml_files(yaml_directory_path)
     triplets = extract_triplets(data)
@@ -188,18 +227,16 @@ def main(yaml_directory_path: str, mesh_info_file_path: str, output_path: str, n
 
     pmid_info_dictionary = create_pmid_info_dict(no_replaced_file_path, mesh_info_file_path)
 
-    combine_triplets_with_pmid_info(ranked_triplets, pmid_info_dictionary, output_path)
+    combine_triplets_with_pmid_info_and_save_df(ranked_triplets, pmid_info_dictionary, output_json_path, output_tsv_path)
 
-
-
-def run_in_notebook(yaml_directory_path, mesh_info_file_path, output_path, no_replaced_file_path):
+def run_in_notebook(yaml_directory_path, mesh_info_file_path, no_replaced_file_path, output_json_path, output_tsv_path):
     main.main(standalone_mode=False, args=[
         '--yaml_directory_path', yaml_directory_path,
         '--mesh_info_file_path', mesh_info_file_path,
-        '--output_path', output_path,
         '--no_replaced_file_path', no_replaced_file_path,
+        '--output_json_path', output_json_path,
+        '--output_tsv_path', output_tsv_path,
     ])
-
 
 if __name__ == '__main__':
     main()
@@ -208,5 +245,6 @@ if __name__ == '__main__':
 """
 python triplet_ranking_and_mesh_combiner.py -i path/to/yaml/directory -s path/to/mesh/info/file -o path/to/output.json
 
-python triplet_ranking_and_mesh_combiner.py -i ../../data/sickle_cell/ontoGPT_yaml/ -s ../../data/sickle_cell/selected_pmid_mesh_info.json  -o ../../data/sickle_cell/post_ontoGPT.json -n ../../data/sickle_cell/sickle_cell_no_replaced.tsv 
+python triplet_ranking_and_mesh_combiner.py -i ../../data/sickle_cell/ontoGPT_yaml/ -s ../../data/sickle_cell/selected_pmid_mesh_info.json -o ../../data/sickle_cell/post_ontoGPT.json -n ../../data/sickle_cell/sickle_cell_no_replaced.tsv -t ../../data/sickle_cell/post_ontoGPT.tsv
+
 """

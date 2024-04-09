@@ -1,0 +1,75 @@
+---
+input_text: Brucellosis in a Sickle Cell Patient with Hyposplenia.Sickle cell disease
+  patients are prone to infection and overwhelming sepsis because an immunedeficient
+  state arises from asplenia (autosplenectomy/surgical splenectomy) and functional
+  hyposplenism. The common pathogen encountered in sepsis with asplenic/hyposplenism
+  patients is encapsulated organism, gram-negative bacilli, but in developing countries
+  like India, there are many possibilities of infection by an uncommon organism that
+  make it difficult to diagnose. Here, we have described a case of sickle cell disease
+  presented with persistent fever and later, found to have an atrophic spleen with
+  involvement of respiratory system and osteoarticular system. After extensive workup,
+  he was diagnosed to be brucellosis. So, unusual infectious causes be kept as a differential
+  diagnosis in a susceptible host while dealing with persistent symptoms. Uncommon
+  infections like Brucella need to be studied in hyposplenism patients as data are
+  lacking.
+raw_completion_output: |-
+  primary_disease: Brucellosis
+
+  medical_actions: Extensive workup
+
+  symptoms: Persistent fever; Atrophic spleen; Involvement of respiratory system; Involvement of osteoarticular system
+
+  chemicals: 
+
+  action_annotation_relationships: Extensive workup TREATS Persistent fever IN Brucellosis; Extensive workup TREATS Atrophic spleen IN Brucellosis; Extensive workup TREATS Involvement of respiratory system IN Brucellosis; Extensive workup TREATS Involvement of osteoarticular system IN Brucellosis
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Extensive workup TREATS Involvement of osteoarticular system IN Brucellosis
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005683
+  medical_actions:
+    - Extensive workup
+  symptoms:
+    - HP:0033399
+    - Atrophic spleen
+    - Involvement of respiratory system
+    - Involvement of osteoarticular system
+  action_annotation_relationships:
+    - subject: Extensive workup
+      predicate: TREATS
+      object: HP:0033399
+      qualifier: MONDO:0005683
+    - subject: Extensive workup
+      predicate: TREATS
+      object: Atrophic spleen
+      qualifier: MONDO:0005683
+    - subject: Extensive workup
+      predicate: TREATS
+      object: Involvement of respiratory system
+      qualifier: MONDO:0005683
+    - subject: Extensive workup
+      predicate: TREATS
+      object: Involvement of osteoarticular system
+      qualifier: MONDO:0005683
+named_entities:
+  - id: HP:0001139
+    label: Elevated transcranial Doppler (TCD) arterial velocity
+  - id: MONDO:0005683
+    label: Brucellosis
+  - id: HP:0033399
+    label: Persistent fever

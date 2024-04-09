@@ -1,0 +1,133 @@
+---
+input_text: 'Newborn screening for sickle cell disease in Butembo and Beni: a pilot
+  experience in a highland region of the Democratic Republic of Congo.Introduction:
+  sickle cell disease is an inherited autosomal recessive hemoglobin disorder resulting
+  in acute and chronic systemic complications. Despite the high burden of sickle cell
+  disease in the Democratic Republic of the Congo, limited data on disease prevalence
+  is available and systematic screening is not offered to newborns. This study aimed
+  to provide neonatal prevalence and associated factors to the phenotypic manifestation
+  of sickle cell disease in an eastern region of the Democratic Republic of the Congo.
+  Methods: the study was conducted from 20th April 2021 to 20th January 2022 in the
+  cities of Beni and Butembo, involving live full-term newborns whose parents consented
+  to participate. Blood was taken with heel pricks and analyzed using the point-of-care
+  diagnostic tool HemoTypeSC . We used Fisher s exact test to compare frequencies
+  between groups. P-value <0.05 was considered statistically significant. Results:
+  of the 1195 newborns screened, 1122 (93.9%) were tested as having hemoglobin AA,
+  71 (5.9%) hemoglobin AS, 2 (0.2%) hemoglobin SS and none hemoglobin C. The mother
+  s ethnicity was significantly associated with the phenotypic expression of sickle
+  cell disease. Conclusion: sickle cell disease prevalence is lower in Butembo and
+  Beni than in other regions of the Democratic Republic of the Congo. However, it
+  remains an alarming public health issue. Systematic newborn screening, parent/patient
+  education and early management programs constitute an urgent need to be addressed
+  by decision-makers.'
+raw_completion_output: |-
+  primary_disease: sickle cell disease
+
+  medical_actions: newborn screening; blood analysis; parent/patient education; early management programs
+
+  symptoms: acute systemic complications; chronic systemic complications
+
+  chemicals: 
+
+  action_annotation_relationships: newborn screening PREVENTS acute systemic complications IN sickle cell disease; newborn screening PREVENTS chronic systemic complications IN sickle cell disease; blood analysis (with HemoTypeSC) TREATS acute systemic complications IN sickle cell disease; blood analysis (with HemoTypeSC) TREATS chronic systemic complications IN sickle cell disease; parent/patient education PREVENTS acute systemic complications IN sickle cell disease; parent/patient education PREVENTS chronic systemic complications IN sickle cell disease; early management programs PREVENTS acute systemic complications IN sickle cell disease; early management programs PREVENTS chronic systemic complications IN sickle cell disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  early management programs PREVENTS chronic systemic complications IN sickle cell disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0011382
+  medical_actions:
+    - newborn screening
+    - blood analysis
+    - parent/patient education
+    - early management programs
+  symptoms:
+    - acute systemic complications
+    - chronic systemic complications
+  action_annotation_relationships:
+    - subject: newborn screening
+      predicate: PREVENTS
+      object: acute systemic complications
+      qualifier: MONDO:0011382
+    - subject: newborn screening
+      predicate: PREVENTS
+      object: chronic systemic complications
+      qualifier: MONDO:0011382
+    - subject: blood analysis
+      predicate: TREATS
+      object: acute systemic complications
+      qualifier: MONDO:0011382
+      subject_qualifier: with HemoTypeSC
+      subject_extension: HemoTypeSC
+    - subject: blood analysis
+      predicate: TREATS
+      object: chronic systemic complications
+      qualifier: MONDO:0011382
+      subject_qualifier: with HemoTypeSC
+      subject_extension: HemoTypeSC
+    - subject: <parent/patient education>
+      predicate: <PREVENTS>
+      object: <acute systemic complications>
+      qualifier: <sickle cell disease>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: parent/patient education
+      predicate: PREVENTS
+      object: chronic systemic complications
+      qualifier: MONDO:0011382
+    - subject: <early management programs>
+      predicate: <PREVENTS>
+      object: <acute systemic complications>
+      qualifier: <sickle cell disease>
+      subject_qualifier: <Not applicable>
+      object_qualifier: <Not applicable>
+      subject_extension: <Not applicable>
+      object_extension: <Not applicable>
+    - subject: early management programs
+      predicate: PREVENTS
+      object: chronic systemic complications
+      qualifier: MONDO:0011382
+named_entities:
+  - id: HP:0001139
+    label: Elevated transcranial Doppler (TCD) arterial velocity
+  - id: MONDO:0005683
+    label: Brucellosis
+  - id: HP:0033399
+    label: Persistent fever
+  - id: MAXO:0000747
+    label: Hematopoietic stem cell transplantation (HSCT)
+  - id: HP:0025322
+    label: VOD
+  - id: CHEBI:82557
+    label: Treosulfan
+  - id: MAXO:0000750
+    label: conditioning regimen
+  - id: MONDO:0006079
+    label: Acute chest syndrome (ACS) in children with sickle cell disease (SCD)
+  - id: MAXO:0000457
+    label: Pain management
+  - id: MONDO:0007147
+    label: obstructive sleep apnea (OSA) in children with sickle cell disease (SCD)
+      and asthma
+  - id: MAXO:0000915
+    label: polysomnography (PSG) screening
+  - id: HP:0002870
+    label: obstructive sleep apnea
+  - id: MONDO:0011382
+    label: sickle cell disease

@@ -1,0 +1,102 @@
+---
+input_text: '[Difference in imaging and metal metabolism between hepatic and cerebral
+  type Wilson disease].Objective: To evaluate the difference of metal metabolism,
+  damage to structure and functional activity in brains between hepatic and cerebral
+  type Wilson disease (WD). Methods: Forty patients with WD, including 20 with cerebral
+  type and 20 with hepatic type, and 20 age-matched healthy controls in the First
+  Affiliated Hospital, Sun Yat-sen University between Jul 2013 and May 2016 were enrolled.All
+  study subjects underwent diffusion tensor imaging (DTI), resting state functional
+  MRI (rs-fMRI) and susceptibility weighted imaging (SWI) of the brain.Six regions
+  of interest (ROIs) were chosen.The values of fractional anisotropy (FA), lambda
+  in ROIs were determined on DTI, FA and fiber volumes between ROIs were also determined
+  on DTI.The values of amplitude of low frequency fluctuation (ALFF) and regional
+  homogeneity (REHO) in ROIs were determined on rs-fMRI.The values of corrected phase
+  (CP) were calculated on SWI.The copper and iron content were measured.The difference
+  of imaging and metal metrics between cerebral type and hepatic type WD were evaluated.
+  Results: DTI metrics differed between patients with the cerebral and hepatic types
+  of WD.ALFF values in the caudate nucleus, and thalamus were lower (P=0.037, 0.040),
+  and REHO values in the caudate nucleus were lower (P=0.029), in patients of cerebral
+  type than in hepatic type patients.CP values of the right caudate nucleus and left
+  putamen in cerebral type WD patients were lower than in hepatic type patients (P=0.020,
+  0.23). The serum iron content of hepatic type WD patients was higher than the normal
+  (P=0.013), and the urine copper content was higher than the cerebral type patients
+  (P=0.021). Conclusions: Metal deposition and damage to the structure and functional
+  activity in the brain may occur in hepatic type WD patients.The structural and functional
+  activity damage of the brain in hepatic type is less severe than that in cerebral
+  type patients, while the metal deposition is not significant different between hepatic
+  and cerebral type.'
+raw_completion_output: |-
+  primary_disease: Wilson disease
+
+  medical_actions: diffusion tensor imaging (DTI); resting state functional MRI (rs-fMRI); susceptibility weighted imaging (SWI); measurement of copper and iron content
+
+  symptoms: damage to structure and functional activity in brains; lower fractional anisotropy (FA) values; lower amplitude of low frequency fluctuation (ALFF) values; lower regional homogeneity (REHO) values; lower corrected phase (CP) values; higher serum iron content; higher urine copper content
+
+  chemicals: copper; iron
+
+  action_annotation_relationships: diffusion tensor imaging (DTI) PREVENTS damage to structure and functional activity in brains IN Wilson disease; resting state functional MRI (rs-fMRI) PREVENTS damage to structure and functional activity in brains IN Wilson disease; susceptibility weighted imaging (SWI) PREVENTS damage to structure and functional activity in brains IN Wilson disease; measurement of copper and iron content PREVENTS metal deposition IN Wilson disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  measurement of copper and iron content PREVENTS metal deposition IN Wilson disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010200
+  medical_actions:
+    - diffusion tensor imaging (DTI)
+    - resting state functional MRI (rs-fMRI)
+    - susceptibility weighted imaging (SWI)
+    - measurement of copper and iron content
+  symptoms:
+    - damage to structure and functional activity in brains
+    - HP:0010619
+    - lower amplitude of low frequency fluctuation (ALFF) values
+    - lower regional homogeneity (REHO) values
+    - HP:0100021
+    - higher serum iron content
+    - higher urine copper content
+  chemicals:
+    - CHEBI:28694
+    - CHEBI:18248
+  action_annotation_relationships:
+    - subject: diffusion tensor imaging (DTI)
+      predicate: PREVENTS
+      object: damage to structure and functional activity in brains
+      qualifier: MONDO:0010200
+    - subject: <resting state functional MRI>
+      predicate: <PREVENTS>
+      object: <damage to structure and functional activity in brains>
+      qualifier: <Wilson disease>
+      subject_extension: <rs-fMRI>
+    - subject: susceptibility weighted imaging (SWI)
+      predicate: PREVENTS
+      object: damage to structure and functional activity in brains
+      qualifier: MONDO:0010200
+    - subject: measurement of copper and iron content
+      predicate: PREVENTS
+      object: metal deposition
+      qualifier: MONDO:0010200
+named_entities:
+  - id: MONDO:0010200
+    label: Wilson disease
+  - id: HP:0010619
+    label: lower fractional anisotropy (FA) values
+  - id: HP:0100021
+    label: lower corrected phase (CP) values
+  - id: CHEBI:28694
+    label: copper
+  - id: CHEBI:18248
+    label: iron

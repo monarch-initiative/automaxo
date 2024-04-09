@@ -1,0 +1,84 @@
+---
+input_text: 'Differentiation of Reversible Hemichorea Due to Vitamin B12 Deficiency
+  From Huntington Disease Via FDG PET.ABSTRACT: Vitamin B12 deficiency may present
+  with diverse symptoms, complicating the differential diagnosis. Extrapyramidal movement
+  disorders, for instance, are a rare manifestation of vitamin B12 deficiency. MRI
+  of the brain frequently remains without conclusive findings. However, 18 F-FDG PET/CT
+  may reveal characteristic changes in the metabolism of the basal ganglia and thus
+  contribute to an accurate diagnosis. We demonstrate the case of a woman with left-sided
+  hemichoreatic movements due to vitamin B12 deficiency showing a contralateral putaminal
+  hypermetabolism, which normalized after vitamin B12 supplementation, ruling out
+  other deviating causes, particularly Huntington disease.'
+raw_completion_output: |-
+  primary_disease: Vitamin B12 deficiency
+
+  medical_actions: Vitamin B12 supplementation; 18 F-FDG PET/CT; MRI of the brain
+
+  symptoms: left-sided hemichoreatic movements
+
+  chemicals: Vitamin B12; 18 F-FDG
+
+  action_annotation_relationships: Vitamin B12 supplementation TREATS left-sided hemichoreatic movements IN Vitamin B12 deficiency; 18 F-FDG PET/CT TREATS (by diagnostic means) left-sided hemichoreatic movements IN Vitamin B12 deficiency; MRI of the brain TREATS (by diagnostic means) left-sided hemichoreatic movements IN Vitamin B12 deficiency
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  MRI of the brain TREATS (by diagnostic means) left-sided hemichoreatic movements IN Vitamin B12 deficiency
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0020696
+  medical_actions:
+    - MAXO:0000760
+    - 18 F-FDG PET/CT
+    - MAXO:0000427
+  symptoms:
+    - left-sided hemichoreatic movements
+  chemicals:
+    - CHEBI:176843
+    - 18 F-FDG
+  action_annotation_relationships:
+    - subject: MAXO:0000760
+      predicate: TREATS
+      object: left-sided hemichoreatic movements
+      qualifier: MONDO:0020696
+      subject_extension: CHEBI:176843
+    - subject: 18 F-FDG PET/CT
+      predicate: TREATS
+      object: hemichoreatic movements
+      qualifier: MONDO:0020696
+      subject_qualifier: by diagnostic means
+      object_qualifier: left-sided
+      subject_extension: 18 F-FDG PET/CT
+      object_extension: left-sided
+    - subject: MAXO:0000427
+      predicate: TREATS
+      object: left-sided hemichoreatic movements
+      qualifier: MONDO:0020696
+      subject_qualifier: by diagnostic means
+named_entities:
+  - id: MONDO:0007739
+    label: Huntington's disease
+  - id: HP:0002180
+    label: neurodegeneration
+  - id: HP:0002354
+    label: Memory impairment
+  - id: MONDO:0020696
+    label: Vitamin B12 deficiency
+  - id: MAXO:0000760
+    label: Vitamin B12 supplementation
+  - id: MAXO:0000427
+    label: MRI of the brain
+  - id: CHEBI:176843
+    label: Vitamin B12

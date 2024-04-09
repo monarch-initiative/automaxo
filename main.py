@@ -14,7 +14,8 @@ class AutoMaxoRunner:
         self.no_replaced_tsv_file_path = self.base_data_path + f"{disease_name.replace(' ', '_')}_no_replaced.tsv"
         self.poet_replaced_tsv_file_path = self.base_data_path + f"{disease_name.replace(' ', '_')}_poet_replaced.tsv"
         self.ontogpt_yaml_files_dir = self.base_data_path + "ontoGPT_yaml/"
-        self.output_path = self.base_data_path + "post_ontoGPT.json"
+        self.output_json_path = self.base_data_path + "detailed_post_ontoGPT.json"
+        self.output_tsv_path = self.base_data_path + "summary_post_ontoGPT.tsv"
 
     def run(self):
         print("Starting to get children MeSH IDs for target mesh IDs (Therapeutics and Diagnosis) ...")
@@ -31,8 +32,10 @@ class AutoMaxoRunner:
         process_ontogpt_articles(self.no_replaced_tsv_file_path, self.ontogpt_yaml_files_dir, template='maxo')
 
         print(f"Starting to Post Process OntoGPT results and saving the triplets found  ...")
-        process_triplets_and_mesh(self.ontogpt_yaml_files_dir, self.mesh_info_file_path, self.output_path, self.no_replaced_tsv_file_path)
-        print(f"The whole process is complete and the results are saved at {self.output_path}")
+
+        process_triplets_and_mesh(self.ontogpt_yaml_files_dir, self.mesh_info_file_path, self.no_replaced_tsv_file_path, self.output_json_path, self.output_tsv_path )
+
+        print(f"The whole process is complete and the summarised results are saved at {self.output_tsv_path} as a TSV file, and the detailed results are saved in a JSON file at {self.output_json_path} ")
 
     def get_targeted_mesh_ids(self):
         input_file = "data/mesh_target_ids.tsv"
@@ -54,6 +57,7 @@ class AutoMaxoRunner:
 @click.option('--max_pmid_retrieve', prompt='Max PMID To Retrive', help='Maximum number of PubMed IDs to retrieve.')
 @click.option('--max_articles_to_save', prompt='Max Articles To Save', help='Maximum number of articles to save.')
 def main(disease_name, max_pmid_retrieve, max_articles_to_save):
+    disease_name = disease_name.lower()  # Convert the disease name to lowercase
     runner = AutoMaxoRunner(disease_name, max_pmid_retrieve, max_articles_to_save)
     runner.run()
 
