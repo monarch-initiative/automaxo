@@ -1,0 +1,97 @@
+---
+input_text: 'The impact of obstructive sleep apnea in children with sickle cell disease
+  and asthma.INTRODUCTION: Asthma and obstructive sleep apnea (OSA) are chronic diseases
+  that disproportionately affect children with sickle cell disease (SCD). The literature
+  describes the negative impact that both conditions have on children with SCD separately;
+  however, the effect of OSA on asthmatic children with OSA is less specific. We hypothesized
+  that the presence of OSA in children with SCD and asthma is associated with specific
+  hematologic markers, worse clinical outcomes, and greater healthcare utilization.
+  METHODS: We retrospectively evaluated children with both SCD and asthma who underwent
+  polysomnography (PSG). We assessed their demographic information, PSG data, hematologic
+  indices, and healthcare utilization based on the concurrent presence of OSA. RESULTS:
+  Fifty-nine percent of the cohort had OSA with a lower oxygen saturation (SpO2 )
+  nadir (87% vs. 93%, p < 0.001) and a lower median daytime SpO2 (96.5% vs. 98.5%,
+  p < 0.05); those with OSA were more likely to have the hemoglobin SS genotype (86%
+  vs. 46.5%, p = 0.03). Additionally, those with OSA had a higher mean corpuscular
+  volume (87 vs. 77.2 fL, p = 0.03) and reticulocyte count (10.1% vs. 5.5%, p < 0.01).
+  There was no difference in asthma severity or healthcare utilization between those
+  with OSA and those without OSA. DISCUSSION: Overall, children with SCD and asthma
+  might be at increased risk for developing OSA, and screening for sleep-disordered
+  breathing should be incorporated as part of their routine care.'
+raw_completion_output: |-
+  primary_disease: obstructive sleep apnea (OSA) in children with sickle cell disease (SCD) and asthma
+
+  medical_actions: polysomnography (PSG) screening; routine care incorporation of screening for sleep-disordered breathing
+
+  symptoms: lower oxygen saturation (SpO2) nadir; lower median daytime SpO2; higher mean corpuscular volume; higher reticulocyte count
+
+  chemicals: 
+
+  action_annotation_relationships: polysomnography (PSG) screening TREATS obstructive sleep apnea IN children with sickle cell disease and asthma; routine care incorporation of screening for sleep-disordered breathing TREATS obstructive sleep apnea IN children with sickle cell disease and asthma
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  routine care incorporation of screening for sleep-disordered breathing TREATS obstructive sleep apnea IN children with sickle cell disease and asthma
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0007147
+  medical_actions:
+    - MAXO:0000915
+    - routine care incorporation of screening for sleep-disordered breathing
+  symptoms:
+    - lower oxygen saturation (SpO2) nadir
+    - lower median daytime SpO2
+    - higher mean corpuscular volume
+    - higher reticulocyte count
+  action_annotation_relationships:
+    - subject: MAXO:0000915
+      predicate: <TREATS>
+      object: <obstructive sleep apnea>
+      qualifier: <sickle cell disease and asthma>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <polysomnography>
+      object_extension: <>
+    - subject: routine care incorporation of screening for sleep-disordered breathing
+      predicate: TREATS
+      object: HP:0002870
+      qualifier: children with sickle cell disease and asthma
+named_entities:
+  - id: HP:0001139
+    label: Elevated transcranial Doppler (TCD) arterial velocity
+  - id: MONDO:0005683
+    label: Brucellosis
+  - id: HP:0033399
+    label: Persistent fever
+  - id: MAXO:0000747
+    label: Hematopoietic stem cell transplantation (HSCT)
+  - id: HP:0025322
+    label: VOD
+  - id: CHEBI:82557
+    label: Treosulfan
+  - id: MAXO:0000750
+    label: conditioning regimen
+  - id: MONDO:0006079
+    label: Acute chest syndrome (ACS) in children with sickle cell disease (SCD)
+  - id: MAXO:0000457
+    label: Pain management
+  - id: MONDO:0007147
+    label: obstructive sleep apnea (OSA) in children with sickle cell disease (SCD)
+      and asthma
+  - id: MAXO:0000915
+    label: polysomnography (PSG) screening
+  - id: HP:0002870
+    label: obstructive sleep apnea
