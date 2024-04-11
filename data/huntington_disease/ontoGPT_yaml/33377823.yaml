@@ -1,0 +1,88 @@
+---
+input_text: "Huntington's disease in Turkey: genetic counseling, clinical features,
+  and outcome.Objective: This study aims to report the data of genetic counseling
+  and to identify the clinical features of Turkish Huntington's disease (HD) patients
+  and to investigate its possible relationship with genetic data.Method: A regular
+  weekly outpatient clinic has been held routinely since January 2018. Patients and
+  their referred relatives have been evaluated regarding clinical features and genetic
+  counseling. The database of our collaborative team was used for the study.Results:
+  Total 141 individuals have been evaluated. Among 84 subjects genetic counseling
+  was given, diagnosis of HD was confirmed genetically in 34 (42.0%) of individuals
+  (25 were symptomatic-HD, 9 were presymptomatic-HD). Fifty-seven patients were previously
+  diagnosed with HD. The mean age of onset was 42.4 (11.9) years. Chorea was mostly
+  reported initial symptom. The mean CAG repeat number of the expanded allele was
+  44.1 (5.1) and correlated inversely with the age of onset (p < 0.001). During a
+  4.8 (3.1) year follow-up, 10% of the patients were deceased. At the last visit,
+  over half of patients had all of the movement, behavioral and cognitive problems,
+  and 41.6% of them had required 24-hr supervision appropriate (UHDRS-independence
+  score 64.6 (24.4)). Paternal inheritance was related to higher CAG repeats, younger
+  age of disease onset, and higher UHDRS-motor scores.Conclusion: HD in Turkey is
+  a severe disabling disease affecting a younger adult population. Over half of patients
+  had all of the movement, behavioral and cognitive problems. Genetic counseling gives
+  the opportunity to diagnose subjects at the pre-symptomatic phase. A collaborative
+  approach is rational in the management of HD."
+raw_completion_output: |-
+  primary_disease: Huntington's disease
+
+  medical_actions: genetic counseling
+
+  symptoms: Chorea; movement problems; behavioral problems; cognitive problems
+
+  chemicals: 
+
+  action_annotation_relationships: genetic counseling PREVENTS cognitive problems IN Huntington's disease; genetic counseling PREVENTS behavioral problems IN Huntington's disease; genetic counseling PREVENTS movement problems IN Huntington's disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  genetic counseling PREVENTS movement problems IN Huntington's disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0007739
+  medical_actions:
+    - MAXO:0000079
+  symptoms:
+    - HP:0002072
+    - movement problems
+    - HP:0000708
+    - cognitive problems
+  action_annotation_relationships:
+    - subject: MAXO:0000079
+      predicate: PREVENTS
+      object: cognitive problems
+      qualifier: MONDO:0007739
+    - subject: MAXO:0000079
+      predicate: PREVENTS
+      object: HP:0000708
+      qualifier: MONDO:0007739
+    - subject: MAXO:0000079
+      predicate: PREVENTS
+      object: movement problems
+      qualifier: MONDO:0007739
+named_entities:
+  - id: MONDO:0007739
+    label: Huntington Disease (HD)
+  - id: CHEBI:16908
+    label: NADH
+  - id: MAXO:0000065
+    label: aerobic exercises
+  - id: CHEBI:53444
+    label: Potassium dichromate
+  - id: MAXO:0000079
+    label: genetic counseling
+  - id: HP:0002072
+    label: Chorea
+  - id: HP:0000708
+    label: behavioral problems

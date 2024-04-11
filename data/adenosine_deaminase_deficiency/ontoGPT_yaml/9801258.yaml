@@ -1,0 +1,75 @@
+---
+input_text: 'Adenosine deaminase deficiency: clinical expression, molecular basis,
+  and therapy.Adenosine deaminase (ADA) deficiency is the first known cause of severe
+  combined immunodeficiency disease (SCID). Over the past 25 years, the metabolic
+  basis for immune deficiency has largely been established. The clinical spectrum
+  associated with ADA deficiency is now quite broad, including older children and
+  adults. The ADA gene has been sequenced, the structure of the enzyme has been determined,
+  and over 50 ADA gene mutations have been identified. There appears to be a quantitative
+  relationship between residual ADA activity, determined by genotype, and both metabolic
+  and clinical phenotype. ADA deficiency has become a focus for novel approaches to
+  enzyme replacement and gene therapy. Enzyme replacement with polyethylene glycol
+  (PEG)-modified ADA, used to treat patients who lack a human leukocyte antigen (HLA)-matched
+  bone marrow donor, is safe and effective, but expensive. Several approaches to gene
+  therapy have been investigated in patients receiving PEG-ADA. Persistent expression
+  of transduced ADA cDNA in T lymphocytes and myeloid cells has occurred in a few
+  patients, but significant improvement in immune function because of the transduced
+  cells has not been shown. The major barrier to effective gene therapy remains the
+  low efficiency of stem cell transduction with retroviral vectors.'
+raw_completion_output: |-
+  primary_disease: Adenosine deaminase deficiency
+
+  medical_actions: Enzyme replacement with polyethylene glycol (PEG)-modified ADA; Gene therapy
+
+  symptoms: Severe combined immunodeficiency disease (SCID)
+
+  chemicals: Polyethylene glycol (PEG)-modified ADA
+
+  action_annotation_relationships: Enzyme replacement with polyethylene glycol (PEG)-modified ADA TREATS Severe combined immunodeficiency disease (SCID) IN Adenosine deaminase deficiency; Gene therapy TREATS Severe combined immunodeficiency disease (SCID) IN Adenosine deaminase deficiency
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Gene therapy TREATS Severe combined immunodeficiency disease (SCID) IN Adenosine deaminase deficiency
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0007064
+  medical_actions:
+    - Enzyme replacement with polyethylene glycol (PEG)-modified ADA
+    - MAXO:0001001
+  symptoms:
+    - HP:0004430
+  chemicals:
+    - CHEBI:46793
+  action_annotation_relationships:
+    - subject: Enzyme replacement
+      predicate: TREATS
+      object: HP:0004430
+      qualifier: MONDO:0007064
+      subject_extension: CHEBI:46793
+    - subject: MAXO:0001001
+      predicate: TREATS
+      object: HP:0004430
+      qualifier: MONDO:0007064
+      subject_extension: Gene therapy
+named_entities:
+  - id: MONDO:0007064
+    label: Adenosine deaminase deficiency
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: HP:0004430
+    label: Severe combined immunodeficiency disease (SCID)
+  - id: CHEBI:46793
+    label: Polyethylene glycol (PEG)-modified ADA
