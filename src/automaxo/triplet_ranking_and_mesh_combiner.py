@@ -6,7 +6,11 @@ import csv
 from collections import defaultdict
 import click
 from typing import List, Tuple, DefaultDict
+from oaklib import get_adapter
+from fuzzywuzzy import process
+
 from tqdm import tqdm
+tqdm.pandas()
 
 def load_yaml_files(directory_path: str) -> list:
     """
@@ -146,19 +150,19 @@ def create_pmid_info_dict(tsv_file_path: str, json_file_path: str) -> dict:
 
     return pmid_info_dict
 
-
-def combine_triplets_with_pmid_info_and_save_df(ranked_triplets: List[dict], pmid_info_dictionary: dict, output_json_path: str, output_tsv_path: str):
+def combine_triplets_with_pmid_info_and_create_df(ranked_triplets: List[dict], pmid_info_dictionary: dict, output_json_path: str):
     """
     Combine ranked triplets with their corresponding text and MeSH information from pmid_info_dictionary,
-    and save the resulting DataFrame to a TSV file.
+    create a DataFrame, and save the combined data as a JSON file.
 
     Args:
         ranked_triplets: A list of dictionaries, each representing a ranked triplet.
         pmid_info_dictionary: A dictionary with PubMed IDs as keys and a dictionary containing text and MeSH information as values.
         output_json_path: Path to the output JSON file.
-        output_tsv_path: Path to the output TSV file.
+    
+    Returns:
+        DataFrame: A DataFrame containing combined triplet and PubMed information.
     """
-    # Combine the triplets with the PubMed info
     combined_data = []
     for triplet, info in ranked_triplets:
         pubmed_ids_mesh_info = {pmid: pmid_info_dictionary.get(pmid, {}) for pmid in info['pubmed_ids']}
@@ -168,7 +172,6 @@ def combine_triplets_with_pmid_info_and_save_df(ranked_triplets: List[dict], pmi
     with open(output_json_path, 'w') as f:
         json.dump({'ranked_triplets': combined_data}, f, indent=4)
 
-    # Create a DataFrame from the combined data
     rows = []
     for entry in combined_data:
         triplet = entry['triplet']
@@ -192,15 +195,86 @@ def combine_triplets_with_pmid_info_and_save_df(ranked_triplets: List[dict], pmi
                     count
                 ])
 
-    df = pd.DataFrame(rows, columns=[
+    return pd.DataFrame(rows, columns=[
         'Citation',
         'Subject', 'Subject Label', 'Predicate', 'Object', 'Object Label',
         'Qualifier', 'Qualifier Label', 'Subject Qualifier', 'Subject Extension', 'Object Extension',
         'Count'
     ])
 
-    # Save the DataFrame to a TSV file
-    df.to_csv(output_tsv_path, sep='\t', index=False)
+def move_and_clean_columns(df, columns):
+    """
+    Moves non-grounded terms to separate columns and cleans original columns.
+
+    Parameters:
+    - df: DataFrame to modify.
+    - columns: A list of tuples where each tuple contains the column to be cleaned
+      and the corresponding label column.
+
+    Returns:
+    - DataFrame with updated columns.
+    """
+    for col, label_col in columns:
+        non_grounded_col = f'Non grounded {col}'
+        df[non_grounded_col] = df.apply(lambda row: row[col] if pd.isna(row[label_col]) or row[label_col] == '' else None, axis=1)
+        df[col] = df.apply(lambda row: None if pd.isna(row[label_col]) or row[label_col] == '' else row[col], axis=1)
+    return df
+
+def annotate_text_with_ontology(df, adapter, ontology_prefix, text_column, new_column):
+    """
+    Annotates text in a DataFrame column with ontology information.
+    
+    Parameters:
+    - df: DataFrame containing the text to be annotated.
+    - adapter: Adapter object to use for annotation.
+    - ontology_prefix: Prefix of the ontology IDs to filter annotations.
+    - text_column: The name of the column containing text to be annotated.
+    - new_column: The name of the column to store the annotation results.
+    
+    Returns:
+    - DataFrame with a new column containing the annotation results.
+    """
+    def get_potential_annotations(text):
+        annotation_results = []
+        if isinstance(text, str):
+            annotations = adapter.annotate_text(text)
+            choices = [(annotation.object_id, annotation.object_label) for annotation in annotations if annotation.object_id.startswith(ontology_prefix)]
+            choices_results = process.extract(text, [label for _, label in choices])
+            combined_results = [(choices[i][0], label, score) for i, (label, score) in enumerate(choices_results)]
+            sorted_results = sorted(combined_results, key=lambda x: x[2], reverse=True)
+            top_two_choices = [(mondo_id, label) for mondo_id, label, _ in sorted_results[:2]]
+            annotation_results.extend(top_two_choices)
+        return annotation_results
+
+    df[new_column] = df[text_column].progress_apply(get_potential_annotations)
+    return df
+
+
+
+def process_dataframe(initial_df):
+    """
+    Processes a DataFrame to clean and annotate data using specified ontologies.
+    
+    Parameters:
+    - initial_df: The DataFrame to process.
+    
+    Returns:
+    - A new, processed DataFrame.
+    """
+    columns_to_check = [('Subject', 'Subject Label'), ('Object', 'Object Label'), ('Qualifier', 'Qualifier Label')]
+    annotated_df = move_and_clean_columns(initial_df.copy(), columns_to_check)
+
+    # Annotate with different ontologies
+    annotated_df = annotate_text_with_ontology(annotated_df, get_adapter("sqlite:obo:maxo"), "MAXO", 'Non grounded Subject', 'Potential MAXO')
+    annotated_df = annotate_text_with_ontology(annotated_df, get_adapter("sqlite:obo:hp"), "HP", 'Non grounded Object', 'Potential HP')
+    annotated_df = annotate_text_with_ontology(annotated_df, get_adapter("sqlite:obo:mondo"), "MONDO", 'Non grounded Qualifier', 'Potential MONDO')
+
+    # Reorder columns
+    annotated_df = annotated_df[['Citation', 'Subject', 'Subject Label', 'Non grounded Subject', 'Potential MAXO', 'Predicate', 'Object',
+                     'Object Label', 'Non grounded Object', 'Potential HP', 'Qualifier', 'Qualifier Label', 'Non grounded Qualifier',
+                     'Potential MONDO', 'Subject Qualifier', 'Subject Extension', 'Object Extension', 'Count']]
+    
+    return annotated_df
 
 
 @click.command()
@@ -209,6 +283,7 @@ def combine_triplets_with_pmid_info_and_save_df(ranked_triplets: List[dict], pmi
 @click.option('-n', '--no_replaced_file_path', required=True, help='Path to no_replaced tsv file with raw text')
 @click.option('-o', '--output_json_path', required=True, help='Path to the output JSON file')
 @click.option('-t', '--output_tsv_path', required=True, help='Path to the output TSV file')
+
 def main(yaml_directory_path: str, mesh_info_file_path: str, no_replaced_file_path: str, output_json_path: str, output_tsv_path: str):
     """
     Main function to process YAML files, extract triplets, count them, rank them, combine with MeSH info, and save to JSON and TSV.
@@ -226,8 +301,17 @@ def main(yaml_directory_path: str, mesh_info_file_path: str, no_replaced_file_pa
     ranked_triplets = rank_triplets(triplet_counts)
 
     pmid_info_dictionary = create_pmid_info_dict(no_replaced_file_path, mesh_info_file_path)
+    
+    # Create the initial DataFrame and save the combined data as a JSON file
+    initial_df = combine_triplets_with_pmid_info_and_create_df(ranked_triplets, pmid_info_dictionary, output_json_path)
 
-    combine_triplets_with_pmid_info_and_save_df(ranked_triplets, pmid_info_dictionary, output_json_path, output_tsv_path)
+    # Process the DataFrame
+    annotated_df = process_dataframe(initial_df)
+
+    # Save the annotated DataFrame to a TSV file
+    annotated_df.to_csv(output_tsv_path, sep='\t', index=False)
+
+
 
 def run_in_notebook(yaml_directory_path, mesh_info_file_path, no_replaced_file_path, output_json_path, output_tsv_path):
     main.main(standalone_mode=False, args=[
@@ -244,7 +328,8 @@ if __name__ == '__main__':
 
 """
 python triplet_ranking_and_mesh_combiner.py -i path/to/yaml/directory -s path/to/mesh/info/file -o path/to/output.json
+python triplet_ranking_and_mesh_combiner.py -i ../../data/melas/ontoGPT_yaml/ -s ../../data/melas/selected_pmid_mesh_info.json -n ../../data/melas/melas_no_replaced.tsv -o ../../data/melas/detailed_post_ontoGPT.json -t ../../data/melas/summary_post_ontoGPT.tsv 
 
-python triplet_ranking_and_mesh_combiner.py -i ../../data/sickle_cell/ontoGPT_yaml/ -s ../../data/sickle_cell/selected_pmid_mesh_info.json -o ../../data/sickle_cell/post_ontoGPT.json -n ../../data/sickle_cell/sickle_cell_no_replaced.tsv -t ../../data/sickle_cell/post_ontoGPT.tsv
+python triplet_ranking_and_mesh_combiner.py -i ../../evaluation/evaluation_ontoGPT_yaml/ -s ../../evaluation/evaluation_selected_pmid_mesh_info.json -n ../../evaluation/evaluation_no_replaced.tsv -o ../../evaluation/results/evaluation_detailed_post_ontoGPT.json -t ../../evaluation/results/evaluation_summary_post_ontoGPT.tsv 
 
 """
