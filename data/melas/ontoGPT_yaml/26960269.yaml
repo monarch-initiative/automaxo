@@ -1,0 +1,113 @@
+---
+input_text: '[A case of MELAS associated with histochemical findings of muscles characteristic
+  of MERRF].We here report a 39-year-old woman of short stature with sensorineural
+  deafness, who suddenly developed status epilepticus. T2-weighed image of brain magnetic
+  resonance imaging (MRI) revealed a high signal lesion in the left temporal area,
+  the distribution of which was not compatible with any particular arterial supply.
+  Lactate and pyruvate were elevated in the serum and cerebrospinal fluid. As the
+  mitochondrial gene analysis revealed the m.3243A>G mutation, diagnosis of mitochondrial
+  myopathy, encephalopathy, lactic acidosis, and stroke-like episode (MELAS) was made.
+  In the histochemical study of a biopsied muscle, the intramuscular blood vessels
+  reacted strongly with SDH (SSV), but the SSV was negative for cytochrome c oxidase
+  (COX), the findings characteristic of myoclonic epilepsy with ragged-red fibers
+  (MERRF). This is the first case of MELAS in which the muscle histochemistry showed
+  positive SSV unassociated with increased COX. '
+raw_completion_output: |-
+  primary_disease: MELAS
+
+  medical_actions: mitochondrial gene analysis; histochemical study of a biopsied muscle
+
+  symptoms: short stature; sensorineural deafness; status epilepticus; high signal lesion in the left temporal area; elevated serum lactate; elevated cerebrospinal fluid lactate
+
+  chemicals: lactate; pyruvate
+
+  action_annotation_relationships: mitochondrial gene analysis TREATS high signal lesion IN MELAS; histochemical study of a biopsied muscle (with SDH) TREATS elevated serum lactate IN MELAS; histochemical study of a biopsied muscle TREATS sensorineural deafness IN MELAS
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  histochemical study of a biopsied muscle TREATS sensorineural deafness IN MELAS
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010789
+  medical_actions:
+    - mitochondrial gene analysis
+    - histochemical study of a biopsied muscle
+  symptoms:
+    - HP:0004322
+    - HP:0000407
+    - HP:0002133
+    - high signal lesion in the left temporal area
+    - elevated serum lactate
+    - elevated cerebrospinal fluid lactate
+  chemicals:
+    - CHEBI:24996
+    - CHEBI:15361
+  action_annotation_relationships:
+    - subject: <mitochondrial gene analysis>
+      predicate: <TREATS>
+      object: <high signal lesion>
+      qualifier: <MELAS>
+      subject_extension: <mitochondrial gene analysis>
+    - subject: <histochemical study of a biopsied muscle>
+      predicate: <TREATS>
+      object: <elevated serum lactate>
+      qualifier: <MELAS>
+      subject_qualifier: <with SDH>
+      subject_extension: <SDH>
+    - subject: histochemical study of a biopsied muscle
+      predicate: TREATS
+      object: HP:0000407
+      qualifier: MONDO:0010789
+named_entities:
+  - id: MONDO:0010789
+    label: MELAS (mitochondrial myopathy, encephalopathy, lactic acidosis and stroke-like
+      episodes)
+  - id: MAXO:0000259
+    label: Insulin therapy
+  - id: HP:0001953
+    label: Diabetic ketoacidosis
+  - id: HP:0001250
+    label: Epileptic seizures
+  - id: HP:0007185
+    label: Loss of consciousness
+  - id: CHEBI:145810
+    label: Insulin
+  - id: CHEBI:17544
+    label: Bicarbonate
+  - id: CHEBI:17234
+    label: Glucose
+  - id: CHEBI:24996
+    label: Lactate
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0007359
+    label: focal seizures
+  - id: MAXO:0009070
+    label: SPECT
+  - id: HP:0010545
+    label: Downbeat nystagmus
+  - id: HP:0003128
+    label: Lactic acidosis
+  - id: HP:0002401
+    label: Stroke-like episodes
+  - id: HP:0004322
+    label: short stature
+  - id: HP:0000407
+    label: sensorineural deafness
+  - id: HP:0002133
+    label: status epilepticus
+  - id: CHEBI:15361
+    label: pyruvate
