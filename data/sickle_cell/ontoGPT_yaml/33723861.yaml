@@ -1,0 +1,157 @@
+---
+input_text: Vasculo-toxic and pro-inflammatory action of unbound haemoglobin, haem
+  and iron in transfusion-dependent patients with haemolytic anaemias.Increasing evidence
+  suggests that free haem and iron exert vasculo-toxic and pro-inflammatory effects
+  by activating endothelial and immune cells. In the present retrospective study,
+  we compared serum samples from transfusion-dependent patients with beta-thalassaemia
+  major and intermedia, hereditary spherocytosis and sickle cell disease (SCD). Haemolysis,
+  transfusions and ineffective erythropoiesis contribute to haem and iron overload
+  in haemolytic patients. In all cohorts we observed increased systemic haem and iron
+  levels associated with scavenger depletion and toxic 'free' species formation. Endothelial
+  dysfunction, oxidative stress and inflammation markers were significantly increased
+  compared to healthy donors. In multivariable logistic regression analysis, oxidative
+  stress markers remained significantly associated with both haem- and iron-related
+  parameters, while soluble vascular cell adhesion molecule 1 (sVCAM-1), soluble endothelial
+  selectin (sE-selectin) and tumour necrosis factor alpha (TNFalpha) showed the strongest
+  association with haem-related parameters and soluble intercellular adhesion molecule
+  1 (sICAM-1), sVCAM-1, interleukin 6 (IL-6) and vascular endothelial growth factor
+  (VEGF) with iron-related parameters. While hereditary spherocytosis was associated
+  with the highest IL-6 and TNFalpha levels, beta-thalassaemia major showed limited
+  inflammation compared to SCD. The sVCAM1 increase was significantly lower in patients
+  with SCD receiving exchange compared to simple transfusions. The present results
+  support the involvement of free haem/iron species in the pathogenesis of vascular
+  dysfunction and sterile inflammation in haemolytic diseases, irrespective of the
+  underlying haemolytic mechanism, and highlight the potential therapeutic benefit
+  of iron/haem scavenging therapies in these conditions.
+raw_completion_output: |-
+  primary_disease: Haemolytic anaemias
+  medical_actions: Iron/haem scavenging therapies; Exchange transfusions; Simple transfusions
+  symptoms: Endothelial dysfunction; Oxidative stress; Inflammation; Increased systemic haem and iron levels; Scavenger depletion; Toxic 'free' species formation
+  chemicals: Haem; Iron; sVCAM-1; sE-selectin; TNFalpha; sICAM-1; IL-6; VEGF
+  action_annotation_relationships: Iron/haem scavenging therapies TREATS endothelial dysfunction IN Haemolytic anaemias; Iron/haem scavenging therapies TREATS oxidative stress IN Haemolytic anaemias; Iron/haem scavenging therapies TREATS inflammation IN Haemolytic anaemias; Exchange transfusions TREATS increased systemic haem and iron levels IN SCD; Simple transfusions TREATS increased systemic haem and iron levels IN Haemolytic anaemias
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Simple transfusions TREATS increased systemic haem and iron levels IN Haemolytic anaemias
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0003664
+  medical_actions:
+    - Iron/haem scavenging therapies
+    - Exchange transfusions
+    - Simple transfusions
+  symptoms:
+    - HP:0032654
+    - HP:0025464
+    - Inflammation
+    - Increased systemic haem and iron levels
+    - Scavenger depletion
+    - Toxic 'free' species formation
+  chemicals:
+    - CHEBI:17627
+    - CHEBI:18248
+    - sVCAM-1
+    - sE-selectin
+    - CHEBI:197439
+    - sICAM-1
+    - IL-6
+    - VEGF
+  action_annotation_relationships:
+    - subject: Iron/haem scavenging therapies
+      predicate: TREATS
+      object: HP:0032654
+      qualifier: MONDO:0003664
+      subject_extension: Iron/haem scavenging therapies
+    - subject: Iron/haem scavenging therapies
+      predicate: TREATS
+      object: HP:0025464
+      qualifier: MONDO:0003664
+      subject_extension: Iron/haem scavenging therapies
+    - subject: Iron/haem scavenging therapies
+      predicate: TREATS
+      object: inflammation
+      qualifier: MONDO:0003664
+      subject_qualifier: N/A
+      object_qualifier: N/A
+      subject_extension: Iron/haem scavenging therapies
+      object_extension: N/A
+    - subject: Exchange transfusions
+      predicate: TREATS
+      object: increased systemic haem and iron levels
+      qualifier: MONDO:0007374
+    - subject: Simple transfusions
+      predicate: TREATS
+      object: increased systemic haem and iron levels
+      qualifier: MONDO:0003664
+named_entities:
+  - id: MONDO:0011382
+    label: Sickle Cell Anemia
+  - id: MONDO:0007374
+    label: Sickle cell disease (SCD)
+  - id: MAXO:0000747
+    label: Allogeneic hematopoietic stem cell transplantation (HSCT)
+  - id: MAXO:0000756
+    label: blood transfusion
+  - id: CHEBI:33281
+    label: antibiotics
+  - id: HP:0001944
+    label: dehydration
+  - id: HP:0007760
+    label: Sickle Cell Disease (SCD) symptoms
+  - id: HP:0012592
+    label: Albuminuria
+  - id: HP:0012622
+    label: Chronic kidney disease
+  - id: HP:0100543
+    label: cognitive deficits
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: HP:0002863
+    label: myelodysplastic syndrome
+  - id: HP:0004808
+    label: acute myeloid leukemia
+  - id: CHEBI:28901
+    label: busulfan
+  - id: HP:0010972
+    label: Ineffective erythropoiesis
+  - id: HP:0001878
+    label: Hemolytic anemia
+  - id: HP:0001903
+    label: Anemia
+  - id: CHEBI:35143
+    label: Hemoglobin (HbS)
+  - id: CHEBI:44423
+    label: hydroxycarbamide
+  - id: MONDO:0020380
+    label: Sickle cell anemia (SCA)
+  - id: MONDO:0002120
+    label: Nasopharyngeal neuroendocrine carcinoma (NEC)
+  - id: HP:0030828
+    label: wheeze
+  - id: HP:0012735
+    label: cough
+  - id: MONDO:0003664
+    label: Haemolytic anaemias
+  - id: HP:0032654
+    label: Endothelial dysfunction
+  - id: HP:0025464
+    label: Oxidative stress
+  - id: CHEBI:17627
+    label: Haem
+  - id: CHEBI:18248
+    label: Iron
+  - id: CHEBI:197439
+    label: TNFalpha

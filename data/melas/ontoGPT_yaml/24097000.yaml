@@ -1,0 +1,89 @@
+---
+input_text: 'Findings of 123I-iomazenil SPECT during and after stroke-like episodes
+  in a patient with MELAS.Reduced cortical benzodiazepine receptor binding potential
+  in late images of I-iomazenil SPECT indicates neuronal damage in the cortex. We
+  present the case of a 31-year-old woman with mitochondrial myopathy, encephalopathy,
+  lactic acidosis, and stroke-like episodes (MELAS) who had focal seizures in the
+  right hand. FLAIR imaging in the ictal state revealed a high-intensity lesion in
+  the left post-central gyrus, while I-iomazenil SPECT showed decreased tracer uptake
+  in this lesion. The lesion completely disappeared on FLAIR imaging performed 1 month
+  after the focal seizures; in contrast, I-iomazenil SPECT still revealed a significant
+  decrease in tracer uptake in this lesion. '
+raw_completion_output: |-
+  primary_disease: MELAS
+  medical_actions: FLAIR imaging; I-iomazenil SPECT
+  symptoms: focal seizures; high-intensity lesion in the left post-central gyrus; decreased tracer uptake; neuronal damage in the cortex
+  chemicals: 123I-iomazenil
+  action_annotation_relationships: FLAIR imaging PREVENTS high-intensity lesion IN MELAS; I-iomazenil SPECT TREATS decreased tracer uptake IN MELAS; I-iomazenil SPECT (with 123I-iomazenil) TREATS neuronal damage in the cortex IN MELAS
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  I-iomazenil SPECT (with 123I-iomazenil) TREATS neuronal damage in the cortex IN MELAS
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010789
+  medical_actions:
+    - FLAIR imaging
+    - I-iomazenil SPECT
+  symptoms:
+    - HP:0007359
+    - high-intensity lesion in the left post-central gyrus
+    - decreased tracer uptake
+    - neuronal damage in the cortex
+  chemicals:
+    - 123I-iomazenil
+  action_annotation_relationships:
+    - subject: FLAIR imaging
+      predicate: PREVENTS
+      object: high-intensity lesion
+      qualifier: MONDO:0010789
+    - subject: MAXO:0009070
+      predicate: TREATS
+      object: decreased tracer uptake
+      qualifier: MONDO:0010789
+      subject_extension: I-iomazenil
+    - subject: <I-iomazenil SPECT>
+      predicate: <TREATS>
+      object: <neuronal damage in the cortex>
+      qualifier: <MELAS>
+      subject_qualifier: <with 123I-iomazenil>
+      subject_extension: <123I-iomazenil>
+named_entities:
+  - id: MONDO:0010789
+    label: MELAS (mitochondrial myopathy, encephalopathy, lactic acidosis and stroke-like
+      episodes)
+  - id: MAXO:0000259
+    label: Insulin therapy
+  - id: HP:0001953
+    label: Diabetic ketoacidosis
+  - id: HP:0001250
+    label: Epileptic seizures
+  - id: HP:0007185
+    label: Loss of consciousness
+  - id: CHEBI:145810
+    label: Insulin
+  - id: CHEBI:17544
+    label: Bicarbonate
+  - id: CHEBI:17234
+    label: Glucose
+  - id: CHEBI:24996
+    label: Lactate
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0007359
+    label: focal seizures
+  - id: MAXO:0009070
+    label: SPECT
