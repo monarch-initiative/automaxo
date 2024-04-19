@@ -1,0 +1,87 @@
+---
+input_text: FLT4 Mutations Are Associated with Segmental Lymphatic Dysfunction and
+  Initial Lymphatic Aplasia in Patients with Milroy Disease.This study explored mutations
+  in the Fms-related tyrosine kinase 4/vascular endothelial growth factor receptor
+  3 gene (FLT4) and lymphatic defects in patients with Milroy disease (MD). Twenty-nine
+  patients with lower limb lymphedema were enrolled. Sixteen patients had a familial
+  history of MD, while 13 patients exhibited sporadic MD. Clinical signs, FLT4 mutations,
+  indocyanine green (ICG) lymphography findings, and skin tissue immunohistochemical
+  staining results were evaluated. Twenty-eight variants in FLT4 were identified.
+  Twelve of these have previously been reported, while 16 are novel. Of the 28 variants,
+  26 are missense mutations, and the remaining two comprise a splicing mutation and
+  a non-frame shift mutation. Twenty-five variants are located in the intracellular
+  protein tyrosine kinase domain; three are located in the extracellular immunoglobulin
+  domain. Substantially delayed contrast-enhanced tortuous lymphatic vessels were
+  visualized to the ankle or knee level in 15 of 23 patients who underwent ICG lymphography.
+  No initial lymphatic vessels were visualized in skin specimens from four patients
+  who did not exhibit lymphatic vessels during imaging analyses. No specific variant
+  was identified in relation to the unique clinical phenotype. Segmental dysfunction
+  of lymphatic vessels and initial lymphatic aplasia are present in MD patients with
+  FLT4 mutations.
+raw_completion_output: |-
+  primary_disease: Milroy Disease
+  medical_actions: ICG lymphography; Skin tissue immunohistochemical staining
+  symptoms: Lower limb lymphedema; Delayed contrast-enhanced tortuous lymphatic vessels; Initial lymphatic aplasia
+  chemicals: Indocyanine green
+  action_annotation_relationships: ICG lymphography TREATS Lower limb lymphedema IN Milroy Disease; Skin tissue immunohistochemical staining TREATS Initial lymphatic aplasia IN Milroy Disease; ICG lymphography (with Indocyanine green) TREATS Delayed contrast-enhanced tortuous lymphatic vessels IN Milroy Disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  ICG lymphography (with Indocyanine green) TREATS Delayed contrast-enhanced tortuous lymphatic vessels IN Milroy Disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0007919
+  medical_actions:
+    - ICG lymphography
+    - Skin tissue immunohistochemical staining
+  symptoms:
+    - Lower limb lymphedema
+    - Delayed contrast-enhanced tortuous lymphatic vessels
+    - Initial lymphatic aplasia
+  chemicals:
+    - CHEBI:31696
+  action_annotation_relationships:
+    - subject: ICG lymphography
+      predicate: TREATS
+      object: Lower limb lymphedema
+      qualifier: MONDO:0007919
+    - subject: Skin tissue immunohistochemical staining
+      predicate: TREATS
+      object: Initial lymphatic aplasia
+      qualifier: MONDO:0007919
+    - subject: ICG lymphography
+      predicate: TREATS
+      object: Delayed contrast-enhanced tortuous lymphatic vessels
+      qualifier: MONDO:0007919
+      subject_qualifier: with Indocyanine green
+      subject_extension: CHEBI:31696
+named_entities:
+  - id: MAXO:0009004
+    label: Exome sequencing
+  - id: MAXO:0000079
+    label: Genetic counseling
+  - id: HP:0001789
+    label: Hydrops fetalis
+  - id: HP:0010880
+    label: Increased nuchal translucency
+  - id: HP:0011920
+    label: Hydrothorax
+  - id: MONDO:0006282
+    label: Stewart-Treves Syndrome
+  - id: MONDO:0007919
+    label: Milroy Disease
+  - id: CHEBI:31696
+    label: Indocyanine green

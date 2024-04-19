@@ -8,7 +8,8 @@ import logging
 import pandas as pd
 from tqdm import tqdm
 
-# Initialize logger
+
+# Set up your logging as per the provided configuration
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 handler = logging.FileHandler('retrieve_pmids.log')
@@ -16,7 +17,12 @@ formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(messag
 handler.setFormatter(formatter)
 logger.addHandler(handler)
 
-Entrez.email = "enock.niyonkuru@jax.org"
+# Optional Global Variables
+NCBI_KEY = "7c7bd2e8c94b474559a8993a626f9ea64008"  # Set this if you have an API key
+ENTREZ_EMAIL = "enockniyonkuru250@gmail.com"	# Set this if you have a registered email
+
+RETRY_MAX = 3
+BATCH_SIZE = 500
 
 
 
@@ -78,40 +84,42 @@ def fetch_and_save_abstracts_json(pmids_list, json_dir_path, max_articles_to_sav
     logger.info(f'Total articles not found: {not_found_count}')
     print(f"Total number of articles found and saved: {found_count} / {found_count + not_found_count} ")
 
-def fetch_mesh_ids(pmid, retries=3, delay=2):
-    """
-    Fetch MeSH IDs and their descriptor names for a given PubMed ID.
+def fetch_mesh_ids(pmid: str) -> dict:
+    """Fetch MeSH IDs and their descriptor names for a given PubMed ID."""
+    if ENTREZ_EMAIL:
+        Entrez.email = ENTREZ_EMAIL  # Only set if email is provided
 
-    Parameters:
-    - pmid: PubMed ID.
-    - retries: Number of retries in case of an HTTP error.
-    - delay: Delay in seconds before retrying.
+    retries = 0
+    params = {
+        'db': 'pubmed',
+        'id': pmid,
+        'retmode': 'xml'
+    }
+    if NCBI_KEY:
+        params['api_key'] = NCBI_KEY  # Only add API key to params if it's provided
 
-    Returns:
-    - Dictionary with MeSH IDs as keys and descriptor names as values.
-    """
-    for attempt in range(retries):
+    while retries < RETRY_MAX:
         try:
-            handle = Entrez.efetch(db="pubmed", id=pmid, retmode="xml")
+            handle = Entrez.efetch(**params)
             article = Entrez.read(handle)
             handle.close()
 
-            # Extract MeSH IDs and descriptor names from the article
             mesh_info = {}
             if 'PubmedArticle' in article:
                 mesh_heading_list = article['PubmedArticle'][0].get('MedlineCitation', {}).get('MeshHeadingList', [])
                 for mesh_heading in mesh_heading_list:
-                    descriptor_name = mesh_heading.get('DescriptorName')
-                    if descriptor_name:
-                        mesh_id = descriptor_name.attributes.get('UI')
+                    descriptor = mesh_heading.get('DescriptorName')
+                    if descriptor:
+                        mesh_id = descriptor.attributes.get('UI')
                         if mesh_id:
-                            mesh_info[mesh_id] = str(descriptor_name)
-
+                            mesh_info[mesh_id] = str(descriptor)
             return mesh_info
         except Exception as e:
-            print(f"Error fetching MeSH IDs for PMID {pmid}: {e}. Attempt {attempt + 1} of {retries}. Retrying in {delay} seconds.")
-            time.sleep(delay)
-    raise Exception(f"Failed to fetch MeSH IDs for PMID {pmid} after {retries} attempts.")
+            logger.error(f"Error fetching MeSH IDs for PMID {pmid}: {e}")
+            time.sleep(1)
+            retries += 1
+    raise Exception(f"Failed to fetch MeSH IDs for PMID {pmid} after {RETRY_MAX} attempts.")
+
 
 
 def search_mesh_info_existing_pmids(mesh_list_path: str, existing_pmids: set):
@@ -130,51 +138,59 @@ def search_mesh_info_existing_pmids(mesh_list_path: str, existing_pmids: set):
 
     return filtered_existing_pmid_mesh_info
 
-
-def search_articles_with_mesh_info(disease_name: str, mesh_list_path: str, max_pmid_retrieve: int, existing_pmids: set):
+def search_articles_with_mesh_info(disease_name: str, mesh_list_path: str, max_articles_to_save: int, existing_pmids: set):
     df = pd.read_csv(mesh_list_path, sep='\t', header=None)
     combined_mesh_ids = {mesh_id for mesh_ids in df.iloc[:, 2] for mesh_id in mesh_ids.split(';')}
-
 
     treatment_search = "(diagnosis[MeSH Terms] OR therapeutics[MeSH Terms])"
     search_term = f"({disease_name}[Title/Abstract]) AND ({treatment_search})"
 
     pmid_mesh_info = {}
     retrieved_count = 0
-    retstart = 0  # Starting index for PubMed search results
+    retstart = 0
 
-    while retrieved_count < max_pmid_retrieve:
-        handle = Entrez.esearch(db="pubmed", term=search_term, retmax=max_pmid_retrieve, retstart=retstart)
-        record = Entrez.read(handle)
-        handle.close()
+    while retrieved_count < max_articles_to_save:
+        try:
+            params = {
+                'db': 'pubmed',
+                'term': search_term,
+                'retmax': max_articles_to_save,
+                'retstart': retstart,
+                'email': ENTREZ_EMAIL if ENTREZ_EMAIL else None,
+                'api_key': NCBI_KEY if NCBI_KEY else None
+            }
+            handle = Entrez.esearch(**params)
+            record = Entrez.read(handle)
+            handle.close()
 
-        for pmid in record["IdList"]:
-            if pmid in existing_pmids:
-                continue  # Skip if PMID already exists in the existing_pmids list
+            for pmid in record["IdList"]:
+                if pmid in existing_pmids:
+                    continue
 
-            mesh_info = fetch_mesh_ids(pmid)
-            filtered_mesh_info = {mesh_id: descriptor_name for mesh_id, descriptor_name in mesh_info.items() if mesh_id in combined_mesh_ids}
+                mesh_info = fetch_mesh_ids(pmid)
+                filtered_mesh_info = {mesh_id: descriptor_name for mesh_id, descriptor_name in mesh_info.items() if mesh_id in combined_mesh_ids}
 
-            if filtered_mesh_info:  # Only add PMIDs with relevant MeSH info
-                pmid_mesh_info[pmid] = filtered_mesh_info
-                retrieved_count += 1
+                if filtered_mesh_info:
+                    pmid_mesh_info[pmid] = filtered_mesh_info
+                    retrieved_count += 1
+                    if retrieved_count >= max_articles_to_save:
+                        break
 
-            if retrieved_count >= max_pmid_retrieve:
-                break  # Stop if the maximum number of new PMIDs is reached
-
-        retstart += max_pmid_retrieve  # Update the starting index for the next batch of search results
+            retstart += max_articles_to_save
+        except Exception as e:
+            logger.error(f"Error processing batch starting at {retstart}: {e}")
+            break
 
     return pmid_mesh_info
-
 
 @click.command()
 @click.option('-d', '--disease-name', required=True)
 @click.option('-m', '--mesh-list-path', required=True)
 @click.option('-o', '--output-dir', required=True)
-@click.option('-p', '--max-pmid-retrieve', default=200, type=int)
-@click.option('-n', '--max-articles-to-save', default=50, type=int)
 @click.option('-j', '--json-file-path', required=True)
-def main(disease_name, mesh_list_path, output_dir, max_pmid_retrieve, max_articles_to_save, json_file_path):
+@click.option('-n', '--max-articles-to-save', default=50, type=int)
+
+def main(disease_name, mesh_list_path, output_dir, json_file_path, max_articles_to_save):
 
     # Create the directory if it does not exist
     json_dir = os.path.dirname(json_file_path)
@@ -196,7 +212,8 @@ def main(disease_name, mesh_list_path, output_dir, max_pmid_retrieve, max_articl
 
 
     # Retrieve MeSH information for new PubMed IDs
-    new_pmid_mesh_info = search_articles_with_mesh_info(disease_name, mesh_list_path, max_pmid_retrieve, existing_pmids)
+    print((f"Starting to search for {max_articles_to_save} pmids that were not previously saved ...."))
+    new_pmid_mesh_info = search_articles_with_mesh_info(disease_name, mesh_list_path, max_articles_to_save, existing_pmids)
     
 
     # Combine existing and new PubMed ID MeSH information
@@ -213,14 +230,13 @@ def main(disease_name, mesh_list_path, output_dir, max_pmid_retrieve, max_articl
     fetch_and_save_abstracts_json(pmids_list, output_dir, max_articles_to_save)
   
 
-def run_in_notebook(disease_name, mesh_list_path, output_dir, max_pmid_retrieve, max_articles_to_save, json_file_path):
+def run_in_notebook(disease_name, mesh_list_path, output_dir, json_file_path, max_articles_to_save):
     main.main(standalone_mode=False, args=[
         '--disease-name', disease_name,
         '--mesh-list-path', mesh_list_path,
         '--output-dir', output_dir,
-        '--max-pmid-retrieve', max_pmid_retrieve,
-        '--max-articles-to-save', max_articles_to_save,
         '--json-file-path', json_file_path,
+        '--max-articles-to-save', max_articles_to_save
 
     ])
 
@@ -229,7 +245,7 @@ if __name__ == '__main__':
 
 
 """
-python pubmed_article_fetcher.py -d "sickle cell" -m ../../data/mesh_sets.tsv -o ../../data/sickle_cell/pubtator3_json/ -p 50 -n 10 -j ../../data/sickle_cell/selected_pmid_mesh_info.json 
+python pubmed_article_fetcher.py -d "sickle cell" -m ../../data/mesh_sets.tsv -o ../../data/sickle_cell/pubtator3_json/  -j ../../data/sickle_cell/selected_pmid_mesh_info.json -n 10
 
 
 
