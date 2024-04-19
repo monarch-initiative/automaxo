@@ -1,0 +1,180 @@
+---
+input_text: 'Dual diagnosis of autosomal dominant polycystic kidney disease and sickle
+  cell disease in a teenage male.BACKGROUND: Sickle cell disease (SCD) and autosomal
+  dominant polycystic kidney disease (ADPKD) are relatively common genetic conditions
+  with considerable overlap in clinical presentation. In addition to similarities
+  between the signs and symptoms in sickle cell nephropathy and ADPKD, more than half
+  of SCD patients have kidney cysts. The co-occurrence of these two diseases has not
+  been previously reported in the literature. CASE DIAGNOSIS/TREATMENT: A 16-year-old
+  Black male with SCD had bilateral kidney enlargement and multiple simple cysts on
+  ultrasound. Although kidney cysts are significantly more common in individuals affected
+  with SCD, genetic testing with a broad kidney gene panel was performed to explore
+  the possible presence of another underlying genetic cause of his cysts, in addition
+  to SCD. A dual diagnosis of SCD and ADPKD was made following the identification
+  of two copies of the common pathogenic sickle cell HBB variant (c.20A > T, p.Glu7Val)
+  and a pathogenic missense variant in PKD1 (c.8311G > A, p.Glu2771Lys). CONCLUSIONS:
+  SCD and ADPKD differ in pathophysiological mechanisms and treatment regimens. As
+  such, it will be paramount for this teenager to be closely monitored for signs of
+  diminished kidney function and to be co-managed as he transitions to adult care
+  to ensure proper treatment and management. Early identification of individuals with
+  both SCD and a co-occurring condition is crucial to ensuring proper clinical management.
+  Furthermore, identifying and reporting additional patients with SCD and ADPKD dual
+  diagnoses will help us to understand the co-occurring disease course and optimal
+  treatments.'
+raw_completion_output: |-
+  primary_disease: Sickle cell disease and autosomal dominant polycystic kidney disease
+  medical_actions: Genetic testing with a broad kidney gene panel; Close monitoring for signs of diminished kidney function; Co-management as transition to adult care
+  symptoms: Bilateral kidney enlargement; Multiple simple cysts on ultrasound
+  chemicals: HBB variant (c.20A > T, p.Glu7Val); PKD1 variant (c.8311G > A, p.Glu2771Lys)
+  action_annotation_relationships: Genetic testing with a broad kidney gene panel TREATS bilateral kidney enlargement IN autosomal dominant polycystic kidney disease; Genetic testing with a broad kidney gene panel TREATS multiple simple cysts on ultrasound IN autosomal dominant polycystic kidney disease; Close monitoring for signs of diminished kidney function PREVENTS diminished kidney function IN sickle cell disease; Close monitoring for signs of diminished kidney function PREVENTS diminished kidney function IN autosomal dominant polycystic kidney disease; Co-management as transition to adult care PREVENTS diminished kidney function IN sickle cell disease; Co-management as transition to adult care PREVENTS diminished kidney function IN autosomal dominant polycystic kidney disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Co-management as transition to adult care PREVENTS diminished kidney function IN autosomal dominant polycystic kidney disease
+
+  ===
+
+extracted_object:
+  primary_disease: Sickle cell disease and autosomal dominant polycystic kidney disease
+  medical_actions:
+    - Genetic testing with a broad kidney gene panel
+    - Close monitoring for signs of diminished kidney function
+    - Co-management as transition to adult care
+  symptoms:
+    - Bilateral kidney enlargement
+    - Multiple simple cysts on ultrasound
+  chemicals:
+    - HBB variant (c.20A > T, p.Glu7Val)
+    - PKD1 variant (c.8311G > A, p.Glu2771Lys)
+  action_annotation_relationships:
+    - subject: <Genetic testing>
+      predicate: <TREATS>
+      object: <bilateral kidney enlargement>
+      qualifier: <autosomal dominant polycystic kidney disease>
+      subject_qualifier: <with a>
+      subject_extension: <broad kidney gene panel>
+    - subject: <Genetic testing>
+      predicate: <TREATS>
+      object: <cysts on ultrasound>
+      qualifier: <autosomal dominant polycystic kidney disease>
+      object_qualifier: <simple>
+      subject_extension: <broad kidney gene panel>
+      object_extension: <multiple simple>
+    - subject: Close monitoring for signs of diminished kidney function
+      predicate: PREVENTS
+      object: diminished kidney function
+      qualifier: MONDO:0011382
+    - subject: Close monitoring for signs of diminished kidney function
+      predicate: PREVENTS
+      object: diminished kidney function
+      qualifier: MONDO:0004691
+    - subject: Co-management as transition to adult care
+      predicate: PREVENTS
+      object: diminished kidney function
+      qualifier: MONDO:0011382
+    - subject: Co-management as transition to adult care
+      predicate: PREVENTS
+      object: diminished kidney function
+      qualifier: MONDO:0004691
+named_entities:
+  - id: MONDO:0011382
+    label: Sickle cell disease
+  - id: MONDO:0009665
+    label: Biotinidase deficiency
+  - id: CHEBI:44423
+    label: Hydroxyurea
+  - id: MONDO:0007374
+    label: Sickle Cell Disease (SCD)
+  - id: HP:0002617
+    label: vasculopathy
+  - id: HP:0100543
+    label: cognitive dysfunction
+  - id: HP:0001297
+    label: stroke
+  - id: HP:0005268
+    label: miscarriage
+  - id: HP:0003826
+    label: stillbirth
+  - id: HP:0001518
+    label: low birth weight
+  - id: HP:0010885
+    label: Avascular necrosis (AVN)
+  - id: MAXO:0000827
+    label: serum ferritin measurement
+  - id: MAXO:0010203
+    label: echocardiography
+  - id: HP:0000112
+    label: nephropathy
+  - id: HP:0025169
+    label: left ventricular systolic dysfunction
+  - id: HP:0002092
+    label: pulmonary hypertension
+  - id: CHEBI:28304
+    label: heparin
+  - id: HP:0002788
+    label: upper respiratory tract infections
+  - id: HP:0012735
+    label: cough
+  - id: HP:0002099
+    label: asthma
+  - id: CHEBI:6715
+    label: Medroxyprogesterone
+  - id: MAXO:0001008
+    label: platelet counts
+  - id: MONDO:0015974
+    label: cancer; COVID-19; severe combined immunodeficiency (SCID); muscular dystrophy;
+      hemophilia; beta-thalassemia; sickle cell disease (SCD); non-small-cell lung
+      cancer; ovarian cancer; melanoma; Ebola virus disease
+  - id: MONDO:0004992
+    label: cancer
+  - id: MONDO:0100096
+    label: COVID-19
+  - id: MONDO:0008170
+    label: ovarian cancer
+  - id: MONDO:0005105
+    label: melanoma
+  - id: MONDO:0005737
+    label: Ebola virus disease
+  - id: CHEBI:82721
+    label: Dalbavancin
+  - id: MAXO:0009065
+    label: Intravenous push (IVP) hydromorphone
+  - id: CHEBI:5790
+    label: Hydromorphone
+  - id: HP:0012531
+    label: Pain
+  - id: MAXO:0000756
+    label: Transfusions
+  - id: HP:0001878
+    label: Hemolytic anemia
+  - id: HP:0025464
+    label: Oxidative stress
+  - id: MAXO:0001001
+    label: gene therapy
+  - id: HP:0004808
+    label: acute myeloid leukemia (AML)
+  - id: HP:0002863
+    label: myelodysplastic syndrome (MDS)
+  - id: CHEBI:28901
+    label: busulfan
+  - id: CHEBI:4027
+    label: cyclophosphamide
+  - id: HP:0007760
+    label: Sickle cell disease (SCD)
+  - id: MAXO:0000969
+    label: Optical coherence tomography (OCT) of the macula
+  - id: CHEBI:17334
+    label: Penicillin
+  - id: MONDO:0004691
+    label: autosomal dominant polycystic kidney disease

@@ -1,0 +1,152 @@
+---
+input_text: 'Improving the diagnosis of severe malaria in African children using platelet
+  counts and plasma PfHRP2 concentrations.Severe malaria caused by Plasmodium falciparum
+  is difficult to diagnose accurately in children in high-transmission settings. Using
+  data from 2649 pediatric and adult patients enrolled in four studies of severe illness
+  in three countries (Bangladesh, Kenya, and Uganda), we fitted Bayesian latent class
+  models using two diagnostic markers: the platelet count and the plasma concentration
+  of P. falciparum histidine-rich protein 2 (PfHRP2). In severely ill patients with
+  clinical features consistent with severe malaria, the combination of a platelet
+  count of <=150,000/mul and a plasma PfHRP2 concentration of >=1000 ng/ml had an
+  estimated sensitivity of 74% and specificity of 93% in identifying severe falciparum
+  malaria. Compared with misdiagnosed children, pediatric patients with true severe
+  malaria had higher parasite densities, lower hematocrits, lower rates of invasive
+  bacterial disease, and a lower prevalence of both sickle cell trait and sickle cell
+  anemia. We estimate that one-third of the children enrolled into clinical studies
+  of severe malaria in high-transmission settings in Africa had another cause of their
+  severe illness.'
+raw_completion_output: |-
+  primary_disease: Severe malaria
+
+  medical_actions: Using platelet counts; Using plasma PfHRP2 concentrations
+
+  symptoms: High parasite densities; Lower hematocrits; Lower rates of invasive bacterial disease; Lower prevalence of sickle cell trait; Lower prevalence of sickle cell anemia
+
+  chemicals: 
+
+  action_annotation_relationships: Using platelet counts TREATS High parasite densities IN Severe malaria; Using plasma PfHRP2 concentrations TREATS High parasite densities IN Severe malaria; Using platelet counts TREATS Lower hematocrits IN Severe malaria; Using plasma PfHRP2 concentrations TREATS Lower hematocrits IN Severe malaria; Using platelet counts TREATS Lower rates of invasive bacterial disease IN Severe malaria; Using plasma PfHRP2 concentrations TREATS Lower rates of invasive bacterial disease IN Severe malaria; Using platelet counts TREATS Lower prevalence of sickle cell trait IN Severe malaria; Using plasma PfHRP2 concentrations TREATS Lower prevalence of sickle cell trait IN Severe malaria; Using platelet counts TREATS Lower prevalence of sickle cell anemia IN Severe malaria; Using plasma PfHRP2 concentrations TREATS Lower prevalence of sickle cell anemia IN Severe malaria
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Using plasma PfHRP2 concentrations TREATS Lower prevalence of sickle cell anemia IN Severe malaria
+
+  ===
+
+extracted_object:
+  primary_disease: Severe malaria
+  medical_actions:
+    - Using platelet counts
+    - Using plasma PfHRP2 concentrations
+  symptoms:
+    - High parasite densities
+    - Lower hematocrits
+    - Lower rates of invasive bacterial disease
+    - Lower prevalence of sickle cell trait
+    - Lower prevalence of sickle cell anemia
+  action_annotation_relationships:
+    - subject: MAXO:0001008
+      predicate: TREATS
+      object: High parasite densities
+      qualifier: Severe malaria
+    - subject: <plasma>
+      predicate: <TREATS>
+      object: <High parasite densities>
+      qualifier: <Severe malaria>
+      subject_extension: <PfHRP2 concentrations>
+    - subject: MAXO:0001008
+      predicate: TREATS
+      object: Lower hematocrits
+      qualifier: Severe malaria
+    - subject: plasma concentrations
+      predicate: TREATS
+      object: Lower hematocrits
+      qualifier: Severe malaria
+      subject_extension: PfHRP2
+    - subject: <Using platelet counts>
+      predicate: <TREATS>
+      object: <Lower rates of invasive bacterial disease>
+      qualifier: <Severe malaria>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <platelet counts>
+      object_extension: <>
+    - subject: Using plasma
+      predicate: TREATS
+      object: Lower rates of invasive bacterial disease
+      qualifier: Severe malaria
+      subject_extension: PfHRP2 concentrations
+    - subject: <Using platelet counts>
+      predicate: <TREATS>
+      object: <Lower prevalence of sickle cell trait>
+      qualifier: <Severe malaria>
+      subject_extension: <platelet counts>
+    - subject: <Using plasma>
+      predicate: <TREATS>
+      object: <Lower prevalence of sickle cell trait>
+      qualifier: <Severe malaria>
+      subject_extension: <PfHRP2 concentrations>
+    - subject: Using platelet counts
+      predicate: TREATS
+      object: Lower prevalence of sickle cell anemia
+      qualifier: Severe malaria
+    - subject: <Using plasma PfHRP2 concentrations>
+      predicate: <TREATS>
+      object: <Lower prevalence of sickle cell anemia>
+      qualifier: <Severe malaria>
+      subject_extension: <plasma PfHRP2 concentrations>
+named_entities:
+  - id: MONDO:0011382
+    label: Sickle cell disease
+  - id: MONDO:0009665
+    label: Biotinidase deficiency
+  - id: CHEBI:44423
+    label: Hydroxyurea
+  - id: MONDO:0007374
+    label: Sickle Cell Disease (SCD)
+  - id: HP:0002617
+    label: vasculopathy
+  - id: HP:0100543
+    label: cognitive dysfunction
+  - id: HP:0001297
+    label: stroke
+  - id: HP:0005268
+    label: miscarriage
+  - id: HP:0003826
+    label: stillbirth
+  - id: HP:0001518
+    label: low birth weight
+  - id: HP:0010885
+    label: Avascular necrosis (AVN)
+  - id: MAXO:0000827
+    label: serum ferritin measurement
+  - id: MAXO:0010203
+    label: echocardiography
+  - id: HP:0000112
+    label: nephropathy
+  - id: HP:0025169
+    label: left ventricular systolic dysfunction
+  - id: HP:0002092
+    label: pulmonary hypertension
+  - id: CHEBI:28304
+    label: heparin
+  - id: HP:0002788
+    label: upper respiratory tract infections
+  - id: HP:0012735
+    label: cough
+  - id: HP:0002099
+    label: asthma
+  - id: CHEBI:6715
+    label: Medroxyprogesterone
+  - id: MAXO:0001008
+    label: platelet counts

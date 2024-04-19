@@ -1,0 +1,115 @@
+---
+input_text: Pregnancy outcomes with hydroxyurea use in women with sickle cell disease.Hydroxyurea
+  reduces pain crises, acute chest syndrome, and blood transfusions in sickle cell
+  disease (SCD), but potential detrimental effects on fertility and birth outcomes
+  impede its use. Data on the effects of hydroxyurea taken for SCD during conception
+  and pregnancy are scarce. The Sickle Cell Disease Implementation Consortium collected
+  self-reported pregnancy history, corresponding hydroxyurea use, and pregnancy outcomes
+  in women with SCD in the clinical setting. Among 1285 women 18-45 years of age,
+  737 (57.4%) reported 1788 pregnancies (1079 live births, 394 miscarriages, 40 stillbirths,
+  207 abortions, 48 current pregnancies, and 20 missing outcomes) of which 241 (15.9%)
+  live births, miscarriages or stillbirths were conceived while on hydroxyurea. In
+  univariate analyses, pregnancy number more than three, severe sickle genotype, history
+  of stillbirth or miscarriage, and chronic kidney disease at enrollment were covariates
+  significantly associated with a pregnancy ending in miscarriage or stillbirth. After
+  adjustment for covariates and additional SCD severity markers in multivariate analyses,
+  hydroxyurea use during conception and pregnancy, but not during conception only,
+  was associated with an increase in the odds ratio (OR) of miscarriage or stillbirth
+  (OR 2.21, 95% confidence interval [CI] 1.40-3.47). In analyses of live birth outcomes,
+  hydroxyurea use during conception and pregnancy was associated with birth weight
+  < 5.5 pounds in full-term infants (OR 2.98, 95% CI 1.09-7.38) but not with prematurity
+  or serious medical problems at birth. These findings suggest that hydroxyurea use
+  may be safe up to the time of conception, but that clinicians should continue to
+  advise caution regarding use during pregnancy.
+raw_completion_output: |-
+  primary_disease: sickle cell disease
+
+  medical_actions: use of hydroxyurea; univariate analyses; multivariate analyses
+
+  symptoms: pain crises; acute chest syndrome; miscarriage; stillbirth; low birth weight
+
+  chemicals: hydroxyurea
+
+  action_annotation_relationships: use of hydroxyurea TREATS pain crises IN sickle cell disease; use of hydroxyurea TREATS acute chest syndrome IN sickle cell disease; use of hydroxyurea (with hydroxyurea) PREVENTS blood transfusions IN sickle cell disease; use of hydroxyurea (with hydroxyurea) INCREASES miscarriage IN sickle cell disease; use of hydroxyurea (with hydroxyurea) INCREASES stillbirth IN sickle cell disease; use of hydroxyurea (with hydroxyurea) INCREASES low birth weight IN sickle cell disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  use of hydroxyurea (with hydroxyurea) INCREASES low birth weight IN sickle cell disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0011382
+  medical_actions:
+    - use of hydroxyurea
+    - univariate analyses
+    - multivariate analyses
+  symptoms:
+    - pain crises
+    - acute chest syndrome
+    - HP:0005268
+    - HP:0003826
+    - HP:0001518
+  chemicals:
+    - CHEBI:44423
+  action_annotation_relationships:
+    - subject: use of hydroxyurea
+      predicate: TREATS
+      object: pain crises
+      qualifier: MONDO:0011382
+      subject_extension: CHEBI:44423
+    - subject: use of hydroxyurea
+      predicate: TREATS
+      object: acute chest syndrome
+      qualifier: MONDO:0011382
+      subject_extension: CHEBI:44423
+    - subject: use of hydroxyurea
+      predicate: INCREASES
+      object: HP:0005268
+      qualifier: MONDO:0011382
+      subject_qualifier: with hydroxyurea
+      subject_extension: CHEBI:44423
+    - subject: use of hydroxyurea
+      predicate: INCREASES
+      object: HP:0003826
+      qualifier: MONDO:0011382
+      subject_qualifier: with hydroxyurea
+      subject_extension: CHEBI:44423
+    - subject: use of hydroxyurea
+      predicate: INCREASES
+      object: HP:0001518
+      qualifier: MONDO:0011382
+      subject_qualifier: with hydroxyurea
+      subject_extension: CHEBI:44423
+named_entities:
+  - id: MONDO:0011382
+    label: Sickle cell disease
+  - id: MONDO:0009665
+    label: Biotinidase deficiency
+  - id: CHEBI:44423
+    label: Hydroxyurea
+  - id: MONDO:0007374
+    label: Sickle Cell Disease (SCD)
+  - id: HP:0002617
+    label: vasculopathy
+  - id: HP:0100543
+    label: cognitive dysfunction
+  - id: HP:0001297
+    label: stroke
+  - id: HP:0005268
+    label: miscarriage
+  - id: HP:0003826
+    label: stillbirth
+  - id: HP:0001518
+    label: low birth weight
