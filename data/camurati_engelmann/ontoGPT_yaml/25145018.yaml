@@ -1,0 +1,116 @@
+---
+input_text: 'Camurati-Engelmann disease in a family from Croatian Island: an old bone
+  scan confirmed pattern of inheritance.34-year old patient had history of muscular
+  wasting, easy fatigability, pain in extremities and waddling gait since age of four.
+  During the time, neuromuscular disease was suspected, but not confirmed. Elevated
+  bone alkaline phosphatase as well as other bone turnover markers (osteocalcin, procollagen,
+  telopeptide) indicated further skeletal evaluation. Symmetrical enhanced uptake
+  on technetium methylene diphosphonate [99mTc]MPD bone scintigraphy at diaphyses
+  of longitudinal bones and scull matched cortical thickening of long bones and sclerosis
+  of the scull seen at radiograms. Those findings pointed to Camurati-Engelmann disease
+  misdiagnosed for the long time. This rare genetic autosomal dominant disorder was
+  retrospectively diagnosed in asymptomatic father too on the basis of bone scans
+  done long time ago. Old family member scans confirmed heredity pattern of the disease.'
+raw_completion_output: |-
+  primary_disease: Camurati-Engelmann disease
+  medical_actions: Skeletal evaluation; Bone scintigraphy with technetium methylene diphosphonate [99mTc]MPD
+  symptoms: Muscular wasting; Easy fatigability; Pain in extremities; Waddling gait; Elevated bone alkaline phosphatase; Enhanced uptake on bone scintigraphy
+  chemicals: Technetium methylene diphosphonate [99mTc]MPD
+  action_annotation_relationships: Skeletal evaluation TREATS Elevated bone alkaline phosphatase IN Camurati-Engelmann disease; Bone scintigraphy with technetium methylene diphosphonate [99mTc]MPD TREATS Enhanced uptake on bone scintigraphy IN Camurati-Engelmann disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Bone scintigraphy with technetium methylene diphosphonate [99mTc]MPD TREATS Enhanced uptake on bone scintigraphy IN Camurati-Engelmann disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0007542
+  medical_actions:
+    - Skeletal evaluation
+    - Bone scintigraphy with technetium methylene diphosphonate [99mTc]MPD
+  symptoms:
+    - Muscular wasting
+    - HP:0003388
+    - HP:0009763
+    - HP:0002515
+    - Elevated bone alkaline phosphatase
+    - Enhanced uptake on bone scintigraphy
+  chemicals:
+    - Technetium methylene diphosphonate [99mTc]MPD
+  action_annotation_relationships:
+    - subject: Skeletal evaluation
+      predicate: TREATS
+      object: Elevated bone alkaline phosphatase
+      qualifier: MONDO:0007542
+    - subject: Bone scintigraphy
+      predicate: TREATS
+      object: Enhanced uptake on bone scintigraphy
+      qualifier: MONDO:0007542
+      subject_extension: technetium methylene diphosphonate [99mTc]MPD
+named_entities:
+  - id: MAXO:0001298
+    label: Therapy
+  - id: HP:0010628
+    label: Facial palsy
+  - id: MONDO:0007542
+    label: Camurati-Engelmann disease
+  - id: HP:0000520
+    label: Exophthalmos
+  - id: HP:0100774
+    label: Hyperostosis
+  - id: MONDO:0007179
+    label: Autoimmunity
+  - id: HP:0002960
+    label: Autoimmunity
+  - id: HP:0001954
+    label: recurrent fever
+  - id: HP:0001974
+    label: leukocytosis
+  - id: HP:0002516
+    label: Raised intracranial pressure
+  - id: CHEBI:27690
+    label: Acetazolamide
+  - id: MONDO:0009032
+    label: Camurati-Engelmann disease (CED)
+  - id: HP:0000939
+    label: Osteoporosis
+  - id: HP:0100512
+    label: Vitamin D deficiency
+  - id: HP:0000823
+    label: Delayed puberty
+  - id: HP:0000044
+    label: Hypogonadotrophic hypogonadism
+  - id: HP:0000870
+    label: Hyperprolactinaemia
+  - id: HP:0000858
+    label: Menstrual irregularity
+  - id: CHEBI:8382
+    label: Prednisone
+  - id: CHEBI:22984
+    label: Calcium
+  - id: CHEBI:27300
+    label: Vitamin D
+  - id: MAXO:0000127
+    label: Genetic analysis
+  - id: HP:0025406
+    label: Weakness
+  - id: HP:0002515
+    label: Waddling gait
+  - id: HP:0002694
+    label: Sclerosis of the skull base
+  - id: HP:0003388
+    label: Easy fatigability
+  - id: HP:0009763
+    label: Pain in extremities

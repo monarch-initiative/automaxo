@@ -1,0 +1,95 @@
+---
+input_text: "Orthopedic Manifestations of Type I Camurati-Engelmann Disease.BACKGROUND:
+  Camurati-Engelmann disease (CED) is a rare genetic skeletal disorder characterized
+  by limb pain, muscle emaciation and weakness, and cortical thickening of the diaphysis
+  of long bones. It is caused by mutations in the transforming growth factor beta
+  1 (TGFB1) (type I) or other unknown gene(s) (type II). We present 8 consecutive
+  patients with type I CED. METHODS: We retrospectively reviewed medical records and
+  radiographs of type I CED patients with special reference to the mode of presentation,
+  process of diagnostic work-up, and disease course. They were 4 sporadic patients,
+  and two pairs of mother and son. RESULTS: We categorized the mode of presentation
+  into three groups. Group I had 4 patients who mainly presented with motor disturbances
+  in young age. They drew medical attention for waddling gait, awkward ambulation
+  or running, difficulty in going upstairs, or a positive Gower's sign at age 4 to
+  6 years. Subsequent development of limb pain and radiographic abnormality led to
+  the diagnosis of CED at age 6 to 29 years. Group II had 3 patients who mainly presented
+  with limb pain at age 15, 20, and 54 years, respectively. Radiographic evaluation
+  and molecular genetic test led to the diagnosis of CED. The remaining 1 patient
+  (group III) was asymptomatic until age 9 years when bony lesions at the tibiae were
+  found incidentally. For the last 10 years, he intermittently complained of leg pain
+  in the morning or after sports activities, which did not interfere with daily life.
+  All the patients in group I showed a body mass index in the underweight range (<
+  18.4 kg/m2). At the latest follow-up, 4 patients in groups I and II required medication
+  for the limb pain. CONCLUSIONS: CED presents with a wide range of severity. Awareness
+  of this rare disease entity may be the key to timely correct diagnosis. This disease
+  entity should be considered in the differential diagnosis of limb pain or motor
+  disturbance in children to avoid unnecessary diagnostic work-up."
+raw_completion_output: |-
+  primary_disease: Camurati-Engelmann disease
+
+  medical_actions: retrospective reviewing of medical records and radiographs; molecular genetic test; medication for limb pain
+
+  symptoms: limb pain; muscle emaciation and weakness; waddling gait; awkward ambulation or running; difficulty in going upstairs; positive Gower's sign; cortical thickening of the diaphysis of long bones; bony lesions at the tibiae
+
+  chemicals: 
+
+  action_annotation_relationships: retrospective reviewing of medical records and radiographs TREATS limb pain IN Camurati-Engelmann disease; molecular genetic test TREATS limb pain IN Camurati-Engelmann disease; medication for limb pain TREATS limb pain IN Camurati-Engelmann disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  medication for limb pain TREATS limb pain IN Camurati-Engelmann disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0007542
+  medical_actions:
+    - retrospective reviewing of medical records and radiographs
+    - molecular genetic test
+    - medication for limb pain
+  symptoms:
+    - HP:0009763
+    - muscle emaciation and weakness
+    - HP:0002515
+    - awkward ambulation or running
+    - difficulty in going upstairs
+    - positive Gower's sign
+    - cortical thickening of the diaphysis of long bones
+    - bony lesions at the tibiae
+  action_annotation_relationships:
+    - subject: retrospective reviewing of medical records and radiographs
+      predicate: TREATS
+      object: HP:0009763
+      qualifier: MONDO:0007542
+    - subject: <molecular genetic test>
+      predicate: <TREATS>
+      object: <limb pain>
+      qualifier: <Camurati-Engelmann disease>
+      subject_extension: <molecular genetic test>
+    - subject: medication for limb pain
+      predicate: TREATS
+      object: HP:0009763
+      qualifier: MONDO:0007542
+      subject_extension: medication
+named_entities:
+  - id: MONDO:0009032
+    label: Camurati-Engelmann disease (CED)
+  - id: HP:0002516
+    label: increased intracranial pressure
+  - id: MONDO:0007542
+    label: Camurati-Engelmann disease
+  - id: HP:0009763
+    label: limb pain
+  - id: HP:0002515
+    label: waddling gait
