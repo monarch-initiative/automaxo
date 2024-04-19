@@ -1,0 +1,120 @@
+---
+input_text: 'Donors with repeated blood product discards for filtration problems,
+  clots or hemolysis: Causes and follow-up.INTRODUCTION: Sanquin donor medicine department
+  is informed when donations or their components are rejected. This can occur isolated
+  or frequently. It is undesirable because the donations cannot be used and there
+  may be an underlying medical cause. Based on regional approaches, a uniform procedure
+  was developed. METHODS: Information about whole blood, plasma- plateletpheresis
+  donations from which one or more components were rejected for filtration time (>2
+  h), hemolysis or clots were extracted from blood bank information system. After
+  rejection of two successive components or donations or total >=3 the donor is contacted.
+  Depending on the medical history and investigation by the family doctor, the donor
+  carrier is re-evaluated. We looked for the causes of the discarded products and
+  performed a survey among blood services regarding polices with discarded products.
+  RESULTS: One or more components from 1742 of about 2.2 million successful donations
+  (0.08%) were rejected. The highest percentage of rejection was seen in plateletpheresis
+  (1.5%), all for clots. No underlying medical causes were found. 24 whole blood donors
+  were found to have sickle cell trait (SCT) and were permanently deferred. The policies
+  for follow-up after discarded products or acceptance of SCT donors vary between
+  the 16 blood banks. Six organizations do not follow-up donors and seven accept SCT
+  for blood or plasma donation. CONCLUSION: Informing donors with repeated discarded
+  products avoids the non-use of donations. Causes of repeated discarded products
+  can be found by follow-up of donors. The results of the survey indicate a large
+  discrepancy in policies applied worldwide.'
+raw_completion_output: |-
+  primary_disease: Blood donation complications
+
+  medical_actions: Blood bank information system screening; Contacting donors; Medical history investigation; Donor carrier re-evaluation; Survey among blood services
+
+  symptoms: Filtration problems; Clots; Hemolysis
+
+  chemicals: 
+
+  action_annotation_relationships: Blood bank information system screening PREVENTS Filtration problems IN Blood donation complications; Blood bank information system screening PREVENTS Clots IN Blood donation complications; Blood bank information system screening PREVENTS Hemolysis IN Blood donation complications; Contacting donors TREATS Filtration problems IN Blood donation complications; Contacting donors TREATS Clots IN Blood donation complications; Contacting donors TREATS Hemolysis IN Blood donation complications; Medical history investigation TREATS Filtration problems IN Blood donation complications; Medical history investigation TREATS Clots IN Blood donation complications; Medical history investigation TREATS Hemolysis IN Blood donation complications; Donor carrier re-evaluation TREATS Filtration problems IN Blood donation complications; Donor carrier re-evaluation TREATS Clots IN Blood donation complications; Donor carrier re-evaluation TREATS Hemolysis IN Blood donation complications
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Donor carrier re-evaluation TREATS Hemolysis IN Blood donation complications
+
+  ===
+
+extracted_object:
+  primary_disease: Blood donation complications
+  medical_actions:
+    - Blood bank information system screening
+    - Contacting donors
+    - Medical history investigation
+    - Donor carrier re-evaluation
+    - Survey among blood services
+  symptoms:
+    - Filtration problems
+    - Clots
+    - Hemolysis
+  action_annotation_relationships:
+    - subject: <Blood bank information system screening>
+      predicate: <PREVENTS>
+      object: <Filtration problems>
+      qualifier: <Blood donation complications>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <Blood bank information system>
+      object_extension: <>
+    - subject: Blood bank information system screening
+      predicate: PREVENTS
+      object: Clots
+      qualifier: Blood donation complications
+    - subject: Blood bank information system screening
+      predicate: PREVENTS
+      object: Hemolysis
+      qualifier: Blood donation complications
+    - subject: Contacting donors
+      predicate: TREATS
+      object: Filtration problems
+      qualifier: Blood donation complications
+    - subject: <Contacting donors>
+      predicate: <TREATS>
+      object: <Clots>
+      qualifier: <Blood donation complications>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <Contacting donors>
+      object_extension: <Blood donation>
+    - subject: Contacting donors
+      predicate: TREATS
+      object: Hemolysis
+      qualifier: Blood donation complications
+    - subject: Medical history investigation
+      predicate: TREATS
+      object: Filtration problems
+      qualifier: Blood donation complications
+    - subject: Medical history investigation
+      predicate: TREATS
+      object: Clots
+      qualifier: Blood donation complications
+    - subject: Medical history investigation
+      predicate: TREATS
+      object: Hemolysis
+      qualifier: Blood donation complications
+    - subject: Donor carrier re-evaluation
+      predicate: TREATS
+      object: Filtration problems
+      qualifier: Blood donation complications
+    - subject: Donor carrier re-evaluation
+      predicate: TREATS
+      object: Clots
+      qualifier: Blood donation complications
+    - subject: Donor carrier re-evaluation
+      predicate: TREATS
+      object: Hemolysis
+      qualifier: Blood donation complications

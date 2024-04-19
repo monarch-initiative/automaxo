@@ -1,0 +1,88 @@
+---
+input_text: The Development of Neuroimaging Biomarkers for Cognitive Decline in Sickle
+  Cell Disease.Sickle cell disease (SCD) is complicated by neurologic complications
+  including vasculopathy, hemorrhagic or ischemic overt stroke, silent cerebral infarcts
+  and cognitive dysfunction. Patients with SCD, even in the absence of vasculopathy
+  or stroke, have experience cognitive dysfunction that progresses with age. Transcranial
+  Doppler ultrasound and structural brain MRI are currently used for primary and secondary
+  stroke prevention, but laboratory or imaging biomarkers do not currently exist that
+  are specific to the risk of cognitive dysfunction in patients with SCD. Recent investigations
+  have used advanced MR sequences assessing cerebral hemodynamics, white matter microstructure
+  and functional connectivity to better understand the pathophysiology of cognitive
+  decline in SCD, with the long-term goal of developing neuroimaging biomarkers to
+  be used in risk prediction algorithms and to assess the efficacy of treatment options
+  for patients with SCD.
+raw_completion_output: |-
+  primary_disease: Sickle Cell Disease (SCD)
+
+  medical_actions: Transcranial Doppler ultrasound; Structural brain MRI; Using advanced MR sequences
+
+  symptoms: neurologic complications; vasculopathy; hemorrhagic or ischemic overt stroke; silent cerebral infarcts; cognitive dysfunction
+
+  chemicals: 
+
+  action_annotation_relationships: Transcranial Doppler ultrasound PREVENTS stroke IN Sickle Cell Disease (SCD); Structural brain MRI PREVENTS stroke IN Sickle Cell Disease (SCD); Using advanced MR sequences TREATS cognitive dysfunction IN Sickle Cell Disease (SCD)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Using advanced MR sequences TREATS cognitive dysfunction IN Sickle Cell Disease (SCD)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0007374
+  medical_actions:
+    - Transcranial Doppler ultrasound
+    - Structural brain MRI
+    - Using advanced MR sequences
+  symptoms:
+    - neurologic complications
+    - HP:0002617
+    - hemorrhagic or ischemic overt stroke
+    - silent cerebral infarcts
+    - HP:0100543
+  action_annotation_relationships:
+    - subject: Transcranial Doppler ultrasound
+      predicate: PREVENTS
+      object: HP:0001297
+      qualifier: MONDO:0007374
+    - subject: <Structural brain MRI>
+      predicate: <PREVENTS>
+      object: <stroke>
+      qualifier: MONDO:0007374
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: <Using advanced MR sequences>
+      predicate: <TREATS>
+      object: <cognitive dysfunction>
+      qualifier: MONDO:0007374
+      subject_qualifier: <advanced>
+      subject_extension: <MR sequences>
+named_entities:
+  - id: MONDO:0011382
+    label: Sickle cell disease
+  - id: MONDO:0009665
+    label: Biotinidase deficiency
+  - id: CHEBI:44423
+    label: Hydroxyurea
+  - id: MONDO:0007374
+    label: Sickle Cell Disease (SCD)
+  - id: HP:0002617
+    label: vasculopathy
+  - id: HP:0100543
+    label: cognitive dysfunction
+  - id: HP:0001297
+    label: stroke
