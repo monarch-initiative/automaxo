@@ -1,17 +1,23 @@
 #===============================================================
-# 12-16/4/24 LC
+# Leonardo Chimirri - BIH Charité
+#
 # Analysis of the results of AutoMAxO. Inputs are
 #   (1) A subset of the "golden standard" of manually curated
 #       MAxO terms; we have 67.
 #   (2) The terms automatically genereated by AutoMAxO by  
 #       running the same 67 aforementioned Pubmed IDs.
 # 
-# As of now, we only show how many of the MAxO terms of (1) are
-# also present in (2), i.e. only true positives.
-#===============================================================
-# TODO
-# [a] Expand on number of keys (HPO, ...) that can be used.
-# [b] Look at better perfromance metrics.
+# We show how many of the:
+#       [1] MAxO terms of (1) also present in (2), with grounding
+#       [2] percentage representation of [1]
+#       [3] TP of MAxO terms/# of predictions
+#       [4] HPO terms of (1) also present in (2), with grounding
+#       [5] percentage representation of [4]
+#       [6] TP of HPO terms/# of predictions
+#       [7] MONDO terms of (1) also present in (2), with grounding
+#       [8] percentage representation of [7]
+#       [9] TP of MONDO terms/# of predictions
+
 #===============================================================
 import numpy as np
 import scipy as sp
@@ -20,15 +26,15 @@ import re
 import os
 
 #===============================================================
-# FOR NOW by hand ! Edit with care ;)
-gold_std_file = "/../retrived_maxo_annotations_df.xlsx"
-output_file = "/../fuzy_oak_evaluation_summary_post_ontoGPT_df.xlsx"
+# Naming: "out" related to output of automaxo, "gold" to manually curated
+gold_std_file = "/more_grounding/retrived_maxo_annotations_df.xlsx"
+output_file = "/more_grounding/fuzy_oak_evaluation_summary_post_ontoGPT_df.xlsx"
 which_gold_clmn = [0, 1, 3, 5] 
 which_output_clmn = [0, 1, 4, 6, 9, 10, 13] # depends on the structure of the above files, of course
 # Ungrounded also possible:
-# "/../oak_evaluation_summary_post_ontoGPT_df.xlsx"
-#===============================================================
+# "/more_grounding/oak_evaluation_summary_post_ontoGPT_df.xlsx"
 
+#===============================================================
 # import data as pandas DataFrame
 DIR = os.getcwd()
 df_gold = pd.read_excel(DIR + gold_std_file)
