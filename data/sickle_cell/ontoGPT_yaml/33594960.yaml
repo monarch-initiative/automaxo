@@ -1,0 +1,141 @@
+---
+input_text: 'Management of sickle cell disease: current practices and challenges in
+  a northeastern region of the Democratic Republic of the Congo. BACKGROUND: The Democratic
+  Republic of the Congo (DRC) is the third most affected country worldwide by sickle
+  cell disease (SCD). However, this disease is still orphaned in the country; large-scale
+  control actions are rare, and little is known about its management. OBJECTIVE: To
+  assess current practices in the management of SCD in Kisangani, DRC. METHODS: This
+  cross-sectional study was conducted in six health facilities in Kisangani. It involved
+  198 presumed sickle cell patients attending the above health facilities. The study
+  focused on the sociodemographic and clinical data of the participants, obtained
+  through a clinical examination and their medical records. Diagnostic confirmation
+  of SCD was made by high-performance liquid chromatography coupled to mass spectrometry.
+  Data were analyzed using SPSS 20.0. RESULTS: The diagnosis of SCD was confirmed
+  in 194 (98.0%; 95% CI: 94.9-99.2) participants, while it was not confirmed in 4
+  (2.0%; 95% CI: 0.8-5.1) participants. The diagnosis was mainly made by the Emmel
+  test (42.9%). 45.8% of participants had previously been transfused with the blood
+  of their parents. Folic acid was taken by 48.5% of participants and the previous
+  intake of hydroxyurea was reported in 5.1% of participants. The participants vaccinated
+  against Pneumococcus were 13.6% and against Haemophilus influenzae type b 28.3%.
+  Penicillin prophylaxis was received by only 1.5% and malaria prophylaxis by 11.6%
+  of participants. CONCLUSION: Standard-care practices for SCD patients in Kisangani
+  are insufficient. The Congolese government should regard this disease as a health
+  priority and consider actions to improve its management.'
+raw_completion_output: |-
+  primary_disease: Sickle cell disease
+
+  medical_actions: Blood transfusion; Folic acid intake; Hydroxyurea intake; Vaccination against Pneumococcus; Vaccination against Haemophilus influenzae type b; Penicillin prophylaxis; Malaria prophylaxis; Diagnostic testing with high-performance liquid chromatography coupled to mass spectrometry; Diagnostic testing with the Emmel test
+
+  symptoms: Not explicitly mentioned
+
+  chemicals: Folic acid; Hydroxyurea; Penicillin
+
+  action_annotation_relationships: Blood transfusion TREATS complications IN Sickle cell disease; Folic acid intake PREVENTS complications IN Sickle cell disease; Hydroxyurea intake TREATS symptoms IN Sickle cell disease; Vaccination against Pneumococcus PREVENTS infections IN Sickle cell disease; Vaccination against Haemophilus influenzae type b PREVENTS infections IN Sickle cell disease; Penicillin prophylaxis (with Penicillin) PREVENTS bacterial infections IN Sickle cell disease; Malaria prophylaxis PREVENTS malaria IN Sickle cell disease
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Malaria prophylaxis PREVENTS malaria IN Sickle cell disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0011382
+  medical_actions:
+    - MAXO:0000756
+    - Folic acid intake
+    - Hydroxyurea intake
+    - Vaccination against Pneumococcus
+    - Vaccination against Haemophilus influenzae type b
+    - Penicillin prophylaxis
+    - Malaria prophylaxis
+    - Diagnostic testing with high-performance liquid chromatography coupled to mass
+      spectrometry
+    - Diagnostic testing with the Emmel test
+  symptoms:
+    - Not explicitly mentioned
+  chemicals:
+    - CHEBI:27470
+    - CHEBI:44423
+    - CHEBI:17334
+  action_annotation_relationships:
+    - subject: MAXO:0000756
+      predicate: TREATS
+      object: complications
+      qualifier: MONDO:0011382
+    - subject: intake
+      predicate: PREVENTS
+      object: complications
+      qualifier: MONDO:0011382
+      subject_extension: CHEBI:27470
+    - subject: intake
+      predicate: TREATS
+      object: symptoms
+      qualifier: MONDO:0011382
+      subject_extension: CHEBI:44423
+    - subject: Vaccination against Pneumococcus
+      predicate: PREVENTS
+      object: infections
+      qualifier: MONDO:0011382
+    - subject: MAXO:0001017
+      predicate: PREVENTS
+      object: infections
+      qualifier: MONDO:0011382
+      subject_qualifier: against Haemophilus influenzae type b
+    - subject: Penicillin prophylaxis
+      predicate: PREVENTS
+      object: bacterial infections
+      qualifier: MONDO:0011382
+      subject_qualifier: with Penicillin
+      subject_extension: CHEBI:17334
+    - subject: Malaria prophylaxis
+      predicate: PREVENTS
+      object: malaria
+      qualifier: MONDO:0011382
+named_entities:
+  - id: MONDO:0007374
+    label: Sickle Cell Disease (SCD)
+  - id: CHEBI:29016
+    label: Arginine
+  - id: CHEBI:18211
+    label: Citrulline
+  - id: CHEBI:3638
+    label: Chloroquine
+  - id: CHEBI:44423
+    label: Hydroxyurea
+  - id: CHEBI:50733
+    label: Nutritional supplements
+  - id: MONDO:0011382
+    label: Sickle cell anemia
+  - id: HP:0001297
+    label: Stroke
+  - id: HP:0200023
+    label: Priapism
+  - id: HP:0001081
+    label: Cholelithiasis
+  - id: MAXO:0000127
+    label: Genetic analysis
+  - id: HP:0001622
+    label: Preterm delivery
+  - id: HP:0002754
+    label: Osteomyelitis
+  - id: HP:0001945
+    label: fever
+  - id: MAXO:0000756
+    label: Blood transfusion
+  - id: CHEBI:27470
+    label: Folic acid
+  - id: CHEBI:17334
+    label: Penicillin
+  - id: MAXO:0001017
+    label: Vaccination

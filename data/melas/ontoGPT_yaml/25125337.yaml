@@ -1,0 +1,146 @@
+---
+input_text: Novel MTCYB mutation in a young patient with recurrent stroke-like episodes
+  and status epilepticus. The acronym "MELAS" (mitochondrial encephalomyopathy with
+  lactic acidosis and stroke-like episodes) denotes patients with histological, biochemical
+  and/or molecular evidence of mitochondrial disease who experience stroke-like episodes.
+  Here we report on a girl with repeated stroke-like episodes and status epilepticus,
+  who was diagnosed with MELAS due to a novel mitochondrial cytochrome b gene (MTCYB)
+  mutation (m.15092G>A, which predicts p.G116S). Western blotting and in silico analyses
+  suggested that this mutation could affect the stability of complex III. Cytochrome
+  b is the only mtDNA-encoded subunit of respiratory chain complex III. Mutations
+  in MTCYB have been associated with isolated mitochondrial myopathy and exercise
+  intolerance, and rarely with multisystem and/or central nervous system involvement.
+  If the m.3243A>G and other common MELAS mutations are absent in several tissues,
+  MTCYB should be sequenced from muscle in patients with stroke-like episodes, especially
+  if muscle histology does not support a mitochondrial myopathy and lactic acidosis
+  is absent.
+raw_completion_output: |-
+  primary_disease: MELAS (mitochondrial encephalomyopathy with lactic acidosis and stroke-like episodes)
+
+  medical_actions: Western blotting; In silico analyses; Sequencing MTCYB from muscle; Muscle histology
+
+  symptoms: Recurrent stroke-like episodes; Status epilepticus; Exercise intolerance
+
+  chemicals: Cytochrome b
+
+  action_annotation_relationships: Western blotting TREATS identification of mutation stability IN MELAS; In silico analyses TREATS prediction of mutation impact IN MELAS; Sequencing MTCYB from muscle (with Cytochrome b) TREATS diagnosis of MELAS IN patients with stroke-like episodes; Muscle histology TREATS confirmation or exclusion of mitochondrial myopathy IN MELAS
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Muscle histology TREATS confirmation or exclusion of mitochondrial myopathy IN MELAS
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010789
+  medical_actions:
+    - Western blotting
+    - In silico analyses
+    - Sequencing MTCYB from muscle
+    - Muscle histology
+  symptoms:
+    - Recurrent stroke-like episodes
+    - HP:0002133
+    - HP:0003546
+  chemicals:
+    - CHEBI:38551
+  action_annotation_relationships:
+    - subject: Western blotting
+      predicate: TREATS
+      object: identification of mutation stability
+      qualifier: MONDO:0010789
+    - subject: <In silico analyses>
+      predicate: <TREATS>
+      object: <prediction of mutation impact>
+      qualifier: <MELAS>
+      subject_extension: <In silico analyses>
+    - subject: Sequencing MTCYB from muscle
+      predicate: TREATS
+      object: diagnosis of MELAS
+      qualifier: patients with stroke-like episodes
+      subject_qualifier: with Cytochrome b
+      subject_extension: CHEBI:38551
+    - subject: Muscle histology
+      predicate: TREATS
+      object: confirmation or exclusion of mitochondrial myopathy
+      qualifier: MONDO:0010789
+named_entities:
+  - id: MONDO:0009685
+    label: Mitochondrial myopathies (MM)
+  - id: MAXO:0000900
+    label: electrocardiography (ECG)
+  - id: MAXO:0010203
+    label: echocardiography
+  - id: HP:0011675
+    label: conduction abnormalities
+  - id: HP:0001639
+    label: hypertrophic cardiomyopathy
+  - id: HP:0001644
+    label: dilated cardiomyopathy
+  - id: CHEBI:33375
+    label: gadolinium
+  - id: MONDO:0009637
+    label: Mitochondrial myopathies
+  - id: MONDO:0010789
+    label: MELAS syndrome
+  - id: HP:0001289
+    label: confusion
+  - id: MAXO:0009003
+    label: preimplantation genetic diagnosis (PGD)
+  - id: CHEBI:26337
+    label: preimplantation genetic diagnosis (PGD)
+  - id: CHEBI:30452
+    label: <trophectoderm (TE) biopsy>
+  - id: MAXO:0000427
+    label: brain magnetic resonance imaging
+  - id: HP:0002401
+    label: stroke-like episodes
+  - id: HP:0000846
+    label: adrenal insufficiency
+  - id: HP:0100704
+    label: Cortical blindness
+  - id: MONDO:0010714
+    label: Primary mitochondrial disorders (PMD)
+  - id: HP:0002092
+    label: Pulmonary arterial hypertension
+  - id: HP:0001635
+    label: Heart failure
+  - id: HP:0001699
+    label: Sudden death
+  - id: MONDO:0005136
+    label: Malaria
+  - id: HP:0001250
+    label: seizures
+  - id: HP:0003737
+    label: mitochondrial myopathy
+  - id: HP:0001298
+    label: encephalopathy
+  - id: HP:0003128
+    label: lactic acidosis
+  - id: CHEBI:15422
+    label: ATP
+  - id: CHEBI:17287
+    label: phosphocreatine
+  - id: CHEBI:24996
+    label: lactate
+  - id: MONDO:0044970
+    label: Mitochondrial disease
+  - id: MONDO:0009293
+    label: McArdle's disease
+  - id: HP:0002133
+    label: Status epilepticus
+  - id: HP:0003546
+    label: Exercise intolerance
+  - id: CHEBI:38551
+    label: Cytochrome b
