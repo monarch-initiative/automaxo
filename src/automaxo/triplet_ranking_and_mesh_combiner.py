@@ -35,6 +35,7 @@ def load_yaml_files(directory_path: str) -> list:
 
     return data
 
+
 def extract_triplets(data: list) -> list:
     triplets = []
     named_entities = {}
@@ -45,14 +46,23 @@ def extract_triplets(data: list) -> list:
         named_entities[pubmed_id] = named_entities_dict
 
         for triplet in article.get('extracted_object', {}).get('action_annotation_relationships', []):
-            subject = triplet.get('subject', '').strip('<>')
-            predicate = triplet.get('predicate', '').strip('<>')
-            object_ = triplet.get('object', '').strip('<>')
-            qualifier = triplet.get('qualifier', '').strip('<>').replace('None', '').replace('Not applicable', '')
-            subject_qualifier = triplet.get('subject_qualifier', '').strip('<>').replace('None', '').replace('Not applicable', '')
-            object_qualifier = triplet.get('object_qualifier', '').strip('<>').replace('None', '').replace('Not applicable', '')
-            subject_extension = triplet.get('subject_extension', '').strip('<>').replace('None', '').replace('Not applicable', '')
-            object_extension = triplet.get('object_extension', '').strip('<>').replace('None', '').replace('Not applicable', '')
+            # Ensure each component is a string and handle non-string types gracefully
+            def clean_string(value):
+                if isinstance(value, str):
+                    return value.strip('<>').replace('None', '').replace('Not applicable', '')
+                elif value is None:
+                    return ''
+                else:
+                    return str(value).strip('<>').replace('None', '').replace('Not applicable', '')
+
+            subject = clean_string(triplet.get('subject'))
+            predicate = clean_string(triplet.get('predicate'))
+            object_ = clean_string(triplet.get('object'))
+            qualifier = clean_string(triplet.get('qualifier'))
+            subject_qualifier = clean_string(triplet.get('subject_qualifier'))
+            object_qualifier = clean_string(triplet.get('object_qualifier'))
+            subject_extension = clean_string(triplet.get('subject_extension'))
+            object_extension = clean_string(triplet.get('object_extension'))
 
             if not (subject and predicate and object_):
                 continue  # Skip if any of subject, predicate, or object is missing
@@ -65,7 +75,7 @@ def extract_triplets(data: list) -> list:
                 'subject': {subject: subject_label},
                 'predicate': predicate,
                 'object': {object_: object_label},
-                'qualifier': {qualifier: qualifier_label},  # Include the qualifier label
+                'qualifier': {qualifier: qualifier_label},
                 'subject_qualifier': subject_qualifier,
                 'object_qualifier': object_qualifier,
                 'subject_extension': subject_extension,
@@ -74,7 +84,6 @@ def extract_triplets(data: list) -> list:
             })
 
     return triplets
-
 
 def count_triplets(triplets: list) -> defaultdict:
     """
@@ -142,7 +151,7 @@ def create_pmid_info_dict(tsv_file_path: str, json_file_path: str) -> dict:
     with open(tsv_file_path, 'r') as tsv_file:
         reader = csv.reader(tsv_file, delimiter='\t')
         for row in reader:
-            pmid, _, text = row  # Unpack the row, ignoring the second column (relationships)
+            pmid, text = row  # Unpack the row, ignoring the second column (relationships)
             pmid_info_dict[pmid] = {
                 'text': text,
                 'mesh_info': mesh_info.get(pmid, {})  # Get MeSH info for the PMID if it exists

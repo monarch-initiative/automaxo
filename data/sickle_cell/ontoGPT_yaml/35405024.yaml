@@ -1,0 +1,85 @@
+---
+input_text: 'DNA testing for sickle cell anemia in Africa: Implementation choices
+  for the Democratic Republic of Congo.BACKGROUND: Hemoglobin-based tests form the
+  reference diagnostic test for SCA. In limited resource countries, these tests face
+  limitations including cost, low sensitivity due to recurrent transfusions in endemic
+  malaria region, and interference from fetal hemoglobin in neonatal diagnostic. This
+  study aimed at adapting DNA-based SCA tests to limited resource countries and evaluating
+  the economic benefit. METHODS: 338 participants were recruited in the Democratic
+  Republic of Congo, sorted in 3 cohorts based on venous blood, umbilical cord blood
+  (UCB) and buccal swab sampling. RFLP was performed to identify mutated allele. The
+  feasibility and technical validity of this RFLP was evaluated for specimens collected
+  on DBS cards and on EDTA tubes. RFLP on DBS stored at room temperature was regularly
+  repeated to assess sample conservation. Finally, the cost analysis was performed.
+  RESULTS: DBS cards yielded identical results to extracted DNA. Repeated testing
+  returned the same result after four years. The DBS-based test performed on UCB or
+  on buccal swab had a sensitivity and a precision of 100%. Cost comparison indicated
+  that our approach costs half price of the widely used isoelectrofocussing of hemoglobin.
+  CONCLUSION: The implemented DNA-based test approach overcomes the limitations faced
+  by hemoglobin-based tests, while being more affordable. We propose to implement
+  the RFLP test as a first line diagnostic test after transfusion and as second tiers
+  for newborn screening. However, users should be aware that this test is unable to
+  differentiate HbC from HbS or identify other point mutation of gene deletion of
+  HBB gene.'
+raw_completion_output: |-
+  primary_disease: Sickle Cell Anemia
+
+  medical_actions: DNA testing; RFLP analysis; cost analysis; newborn screening; sensitivity and precision assessment; sample conservation assessment
+
+  symptoms: none listed
+
+  chemicals: EDTA
+
+  action_annotation_relationships: DNA testing (with EDTA) PREVENTS misdiagnosis IN Sickle Cell Anemia; RFLP analysis TREATS diagnostic limitations IN Sickle Cell Anemia; newborn screening PREVENTS late diagnosis IN Sickle Cell Anemia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  newborn screening PREVENTS late diagnosis IN Sickle Cell Anemia
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0011382
+  medical_actions:
+    - DNA testing
+    - RFLP analysis
+    - cost analysis
+    - newborn screening
+    - sensitivity and precision assessment
+    - sample conservation assessment
+  symptoms:
+    - none listed
+  chemicals:
+    - CHEBI:4735
+  action_annotation_relationships:
+    - subject: DNA testing
+      predicate: PREVENTS
+      object: misdiagnosis
+      qualifier: MONDO:0011382
+      subject_qualifier: with EDTA
+      subject_extension: CHEBI:4735
+    - subject: <RFLP analysis>
+      predicate: <TREATS>
+      object: <diagnostic limitations>
+      qualifier: <Sickle Cell Anemia>
+      subject_extension: <RFLP analysis>
+    - subject: newborn screening
+      predicate: PREVENTS
+      object: late diagnosis
+      qualifier: MONDO:0011382
+named_entities:
+  - id: MONDO:0011382
+    label: Sickle Cell Anemia
+  - id: CHEBI:4735
+    label: EDTA

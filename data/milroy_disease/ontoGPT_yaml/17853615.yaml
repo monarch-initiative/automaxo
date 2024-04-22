@@ -1,0 +1,117 @@
+---
+input_text: "Fluorescence microlymphography: diagnostic potential in lymphedema and
+  basis for the measurement of lymphatic pressure and flow velocity. Fluorescence
+  microlymphography (FML) is an almost atraumatic technique used to visualize the
+  superficial skin network of initial lymphatics through the intact skin of man. Visualization
+  was performed with an incident light fluorescence microscope following subepidermal
+  injection of minute amounts of FITC-dextran 150,000 using microneedles. Emanating
+  from the bright dye depot, the surrounding network of microvessels is filled, documentation
+  performed by photography or video film. In congenital Milroy lymphedema, a lack
+  of microlymphatics (aplasia) is typical while in other primary lymphedemas and in
+  secondary lymphedema after mastectomy or irradiation of proximal lymph nodes, the
+  network remains intact but the depicted area is enlarged. Lymphatic microangiopathy
+  characterized by obliterations of capillary meshes or mesh segments develops in
+  phleboedema with trophic skin changes, progressive systemic sclerosis and Fabry's
+  disease. In lipedema, lymphatic microaneurysms are stained. Microlymphatic pressure
+  may also be measured using FML. For this purpose, glass micropipettes are inserted
+  into the capillaries by means of a micromanipulator and pressure is determined by
+  the servo-nulling technique. Normal subjects produced significantly lower pressure
+  (7.9 +/- 3.4 mmHg) compared to patients with primary lymphedema (15.0 +/- 5.1 mmHg,
+  p<0.001). This characteristic lymphatic hypertension may be improved by complex
+  physiotherapy or local application of prostaglandins. Additionally, a modification
+  of the FML procedure can be used to measure lymphatic capillary flow velocity in
+  controls and patients. FML is suited to confirm the clinical diagnosis of lymphedema,
+  contributes to distinguish among various forms of edema, and is useful in clinical
+  research. In addition, FML has also become a tool for experimental animal studies
+  including the depiction of gastric microlymphatics, the measurement of flow velocity
+  in the naked mouse tail, and in evaluation of lymphangiogenesis in a model of Milroy
+  disease."
+raw_completion_output: |-
+  primary_disease: lymphedema
+
+  medical_actions: visualization of the superficial skin network with fluorescence microlymphography (FML); subepidermal injection of FITC-dextran; documentation with photography or video film; measurement of microlymphatic pressure using glass micropipettes and the servo-nulling technique; local application of prostaglandins; complex physiotherapy; measurement of lymphatic capillary flow velocity
+
+  symptoms: lack of microlymphatics (aplasia); enlarged network area in lymphedemas; obliterations of capillary meshes or mesh segments; lymphatic microaneurysms; lymphatic hypertension
+
+  chemicals: FITC-dextran; prostaglandins
+
+  action_annotation_relationships: visualization of the superficial skin network with fluorescence microlymphography (FML) PREVENTS misdiagnosis IN lymphedema; subepidermal injection of FITC-dextran TREATS lack of visualization IN lymphedema; local application of prostaglandins (with prostaglandins) TREATS lymphatic hypertension IN lymphedema; complex physiotherapy TREATS lymphatic hypertension IN lymphedema; measurement of microlymphatic pressure using glass micropipettes and the servo-nulling technique DETERMINES lymphatic hypertension IN lymphedema; measurement of lymphatic capillary flow velocity IDENTIFIES flow abnormalities IN lymphedema
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  measurement of lymphatic capillary flow velocity IDENTIFIES flow abnormalities IN lymphedema
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0019297
+  medical_actions:
+    - visualization of the superficial skin network with fluorescence microlymphography
+      (FML)
+    - subepidermal injection of FITC-dextran
+    - documentation with photography or video film
+    - measurement of microlymphatic pressure using glass micropipettes and the servo-nulling
+      technique
+    - local application of prostaglandins
+    - complex physiotherapy
+    - measurement of lymphatic capillary flow velocity
+  symptoms:
+    - lack of microlymphatics (aplasia)
+    - enlarged network area in lymphedemas
+    - obliterations of capillary meshes or mesh segments
+    - lymphatic microaneurysms
+    - lymphatic hypertension
+  chemicals:
+    - FITC-dextran
+    - CHEBI:26333
+  action_annotation_relationships:
+    - subject: <visualization of the superficial skin network with fluorescence microlymphography
+        (FML)>
+      predicate: <PREVENTS>
+      object: <misdiagnosis>
+      qualifier: <lymphedema>
+      subject_extension: <fluorescence microlymphography>
+    - subject: subepidermal injection
+      predicate: TREATS
+      object: lack of visualization
+      qualifier: MONDO:0019297
+      subject_extension: FITC-dextran
+    - subject: local application of prostaglandins
+      predicate: TREATS
+      object: lymphatic hypertension
+      qualifier: MONDO:0019297
+      subject_qualifier: with prostaglandins
+      subject_extension: CHEBI:26333
+    - subject: complex physiotherapy
+      predicate: TREATS
+      object: lymphatic hypertension
+      qualifier: MONDO:0019297
+    - subject: measurement of microlymphatic pressure using glass micropipettes and
+        the servo-nulling technique
+      predicate: DETERMINES
+      object: lymphatic hypertension
+      qualifier: MONDO:0019297
+    - subject: measurement of lymphatic capillary flow velocity
+      predicate: IDENTIFIES
+      object: flow abnormalities
+      qualifier: MONDO:0019297
+named_entities:
+  - id: HP:0003812
+    label: Variable phenotypes
+  - id: HP:0001289
+    label: confusion
+  - id: MONDO:0019297
+    label: lymphedema
+  - id: CHEBI:26333
+    label: prostaglandins

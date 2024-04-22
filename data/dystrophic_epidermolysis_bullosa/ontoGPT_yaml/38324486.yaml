@@ -1,0 +1,87 @@
+---
+input_text: Ocular Gene Therapy in a Patient with Dystrophic Epidermolysis Bullosa.
+  Dystrophic epidermolysis bullosa is a rare genetic disease caused by damaging variants
+  in COL7A1, which encodes type VII collagen. Blistering and scarring of the ocular
+  surface develop, potentially leading to blindness. Beremagene geperpavec (B-VEC)
+  is a replication-deficient herpes simplex virus type 1-based gene therapy engineered
+  to deliver functional human type VII collagen. Here, we report the case of a patient
+  with cicatrizing conjunctivitis in both eyes caused by dystrophic epidermolysis
+  bullosa who received ophthalmic administration of B-VEC, which was associated with
+  improved visual acuity after surgery.
+raw_completion_output: |-
+  primary_disease: Dystrophic Epidermolysis Bullosa
+
+  medical_actions: ophthalmic administration of B-VEC; surgery
+
+  symptoms: blistering and scarring of the ocular surface; cicatrizing conjunctivitis; potential blindness
+
+  chemicals: Beremagene geperpavec (B-VEC)
+
+  action_annotation_relationships: ophthalmic administration of B-VEC (with Beremagene geperpavec) TREATS blistering and scarring of the ocular surface IN Dystrophic Epidermolysis Bullosa; ophthalmic administration of B-VEC (with Beremagene geperpavec) TREATS cicatrizing conjunctivitis IN Dystrophic Epidermolysis Bullosa; surgery TREATS cicatrizing conjunctivitis IN Dystrophic Epidermolysis Bullosa; ophthalmic administration of B-VEC PREVENTS potential blindness IN Dystrophic Epidermolysis Bullosa
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  ophthalmic administration of B-VEC PREVENTS potential blindness IN Dystrophic Epidermolysis Bullosa
+
+  ===
+
+extracted_object:
+  primary_disease: Dystrophic Epidermolysis Bullosa
+  medical_actions:
+    - ophthalmic administration of B-VEC
+    - MAXO:0000004
+  symptoms:
+    - blistering and scarring of the ocular surface
+    - cicatrizing conjunctivitis
+    - potential blindness
+  chemicals:
+    - Beremagene geperpavec (B-VEC)
+  action_annotation_relationships:
+    - subject: ophthalmic administration
+      predicate: TREATS
+      object: blistering and scarring of the ocular surface
+      qualifier: Dystrophic Epidermolysis Bullosa
+      subject_qualifier: with Beremagene geperpavec
+      subject_extension: B-VEC
+      object_extension: Beremagene geperpavec
+    - subject: ophthalmic administration
+      predicate: TREATS
+      object: cicatrizing conjunctivitis
+      qualifier: Dystrophic Epidermolysis Bullosa
+      subject_qualifier: with Beremagene geperpavec
+      subject_extension: B-VEC
+    - subject: MAXO:0000004
+      predicate: TREATS
+      object: cicatrizing conjunctivitis
+      qualifier: Dystrophic Epidermolysis Bullosa
+    - subject: ophthalmic administration
+      predicate: PREVENTS
+      object: HP:0000618
+      qualifier: Dystrophic Epidermolysis Bullosa
+      object_qualifier: potential
+      subject_extension: B-VEC
+      object_extension: potential
+named_entities:
+  - id: MONDO:0006543
+    label: Dystrophic epidermolysis bullosa (DEB)
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: MONDO:0009179
+    label: Recessive Dystrophic Epidermolysis Bullosa
+  - id: MAXO:0000502
+    label: Endotracheal intubation
+  - id: MAXO:0000004
+    label: surgery
+  - id: HP:0000618
+    label: blindness
