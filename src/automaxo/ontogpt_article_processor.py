@@ -68,7 +68,7 @@ def process_tsv_file(file_path: str, ke: SPIRESEngine, output_dir: str, existing
         rows = list(reader)  # Convert the reader to a list to get the total length
 
         for row in tqdm(rows, desc="Processing TSV file", total=len(rows)):
-            pubmed_id, relationship, text = row
+            pubmed_id, text = row
             if pubmed_id not in existing_pmids:
                 process_article(pubmed_id, text, ke, output_dir,template )
 

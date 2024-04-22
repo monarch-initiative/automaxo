@@ -1,0 +1,98 @@
+---
+input_text: 'Cost analysis of treatments for severe combined immunodeficiency patients
+  caused by adenosine deaminase deficiency: comparison of gene therapy and bone marrow
+  transplantation. In order to perform a cost assessment of treatment for severe combined-immunodeficiency
+  patients caused by adenosine deaminase deficiency, we estimated the cost for 3 successfully
+  treated patients in Japan for whom related HLA-identical bone marrow donors could
+  not be found. One patient received gene therapy and the other 2 patients received
+  HLA-haploidentical bone marrow transplantation. The medical costs required for hospitalization
+  periods for gene therapy and bone marrow transplantation were estimated respectively
+  by analyzing the monthly bills that were calculated based on the fee schedule covered
+  by health insurance. In the gene therapy, the total cost was calculated by adding
+  the charges not covered by health insurance. The gene therapy and transplantation
+  patients had significant differences in terms of cost structure and total cost.
+  The items concerning "procedures" associated with gene transduction in the former
+  amounted to 47.8% of the total cost, and "medication" in the latter amounted to
+  34.3% and 31.9% respectively. The items concerning "hospitalization" amounted to
+  a large percentage in both treatments. The total cost was estimated at approximately
+  18.9 million yen for gene therapy, and 7.4 million yen and 10.5 million yen for
+  transplantation. These results obtained through this study revealed the cost structure
+  of gene therapy in comparison with transplantation. This report represents the first
+  step to the assessment of medical technology of human gene therapy, in terms of
+  medical cost, in which a stable and favorable therapeutic outcome was achieved.'
+raw_completion_output: |-
+  primary_disease: Severe Combined Immunodeficiency caused by Adenosine Deaminase deficiency
+
+  medical_actions: Gene therapy;Bone marrow transplantation;Cost assessment of treatment;Hospitalization
+
+  symptoms: 
+
+  chemicals: 
+
+  action_annotation_relationships: Gene therapy TREATS Severe Combined Immunodeficiency caused by Adenosine Deaminase deficiency;Bone marrow transplantation TREATS Severe Combined Immunodeficiency caused by Adenosine Deaminase deficiency;Cost assessment of treatment PREVENTS financial burden IN Severe Combined Immunodeficiency caused by Adenosine Deaminase deficiency;Hospitalization TREATS Severe Combined Immunodeficiency caused by Adenosine Deaminase deficiency
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Hospitalization TREATS Severe Combined Immunodeficiency caused by Adenosine Deaminase deficiency
+
+  ===
+
+extracted_object:
+  primary_disease: Severe Combined Immunodeficiency caused by Adenosine Deaminase
+    deficiency
+  medical_actions:
+    - MAXO:0001001
+    - MAXO:0010030
+    - Cost assessment of treatment
+    - Hospitalization
+  action_annotation_relationships:
+    - subject: MAXO:0001001
+      predicate: TREATS
+      object: HP:0004430
+      qualifier: MONDO:0007064
+      subject_extension: Gene therapy
+    - subject: MAXO:0010030
+      predicate: TREATS
+      object: HP:0004430
+      qualifier: MONDO:0007064
+    - subject: <Cost assessment>
+      predicate: <PREVENTS>
+      object: <financial burden>
+      qualifier: <Severe Combined Immunodeficiency>
+      subject_qualifier: <treatment>
+      subject_extension: <Cost assessment>
+    - subject: <Hospitalization>
+      predicate: <TREATS>
+      object: <Severe Combined Immunodeficiency>
+      qualifier: <Adenosine Deaminase deficiency>
+      subject_qualifier: <none>
+      object_qualifier: <none>
+      subject_extension: <Adenosine Deaminase deficiency>
+      object_extension: <none>
+named_entities:
+  - id: MONDO:0015974
+    label: Severe Combined Immunodeficiency (SCID) from Adenosine Deaminase (ADA)
+      Deficiency; Insulin Dependent Diabetes Mellitus (IDDM)
+  - id: HP:0004430
+    label: SCID
+  - id: MONDO:0007064
+    label: Adenosine Deaminase (ADA) Deficiency
+  - id: MONDO:0016318
+    label: Progressive Multifocal Leukoencephalopathy (PML)
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: CHEBI:16335
+    label: Deoxyadenosine (dAdo)
+  - id: MAXO:0010030
+    label: Bone marrow transplantation

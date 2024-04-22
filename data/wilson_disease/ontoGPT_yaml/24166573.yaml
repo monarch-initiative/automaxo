@@ -1,0 +1,136 @@
+---
+input_text: "Acute focal dystonia induced by a tricyclic antidepressant in a patient
+  with Wilson disease: a case report. The authors present the case of a 19-year-old
+  patient with Wilson disease (WD) who developed symptoms of acute focal dystonia
+  of the left hand (a 'starfish' hand presentation) shortly after treatment with the
+  tricyclic antidepressant clomipramine. The diagnosis of WD was made 8 months earlier
+  based on abnormal copper metabolism parameters and was confirmed by genetic testing.
+  Initially, the patient presented with akathisia, sialorrhea, oromandibular dystonia
+  (occasionally grimacing) and slight dysarthria. The patient's symptoms diminished
+  after treatment with d-penicillamine was initiated. No further deterioration was
+  observed after copper-chelating therapy was started. The authors diagnosed acute
+  focal dystonia induced by clomipramine. Botulinum toxin and intensive rehabilitation
+  was initiated; complete regression of hand dystonia was observed. Based on the case,
+  the authors suggest that care should be exercised with regard to starting medications
+  that could potentially impact the extrapyramidal system in WD patients. "
+raw_completion_output: |-
+  primary_disease: Wilson disease
+
+  medical_actions: treatment with the tricyclic antidepressant clomipramine; treatment with d-penicillamine; copper-chelating therapy; treatment with Botulinum toxin; intensive rehabilitation
+
+  symptoms: acute focal dystonia of the left hand (a 'starfish' hand presentation); akathisia; sialorrhea; oromandibular dystonia (occasionally grimacing); slight dysarthria
+
+  chemicals: clomipramine; d-penicillamine; Botulinum toxin
+
+  action_annotation_relationships: treatment with the tricyclic antidepressant clomipramine INDUCES acute focal dystonia of the left hand IN Wilson disease; treatment with d-penicillamine TREATS akathisia IN Wilson disease; treatment with d-penicillamine TREATS sialorrhea IN Wilson disease; treatment with d-penicillamine TREATS oromandibular dystonia IN Wilson disease; treatment with d-penicillamine TREATS slight dysarthria IN Wilson disease; copper-chelating therapy TREATS symptoms IN Wilson disease; treatment with Botulinum toxin (with Botulinum toxin) TREATS acute focal dystonia of the left hand IN Wilson disease; intensive rehabilitation TREATS acute focal dystonia of the left hand IN Wilson disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  intensive rehabilitation TREATS acute focal dystonia of the left hand IN Wilson disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010200
+  medical_actions:
+    - treatment with the tricyclic antidepressant clomipramine
+    - treatment with d-penicillamine
+    - copper-chelating therapy
+    - treatment with Botulinum toxin
+    - intensive rehabilitation
+  symptoms:
+    - acute focal dystonia of the left hand (a 'starfish' hand presentation)
+    - HP:0031943
+    - HP:0002307
+    - HP:0012048
+    - slight dysarthria
+  chemicals:
+    - CHEBI:47780
+    - CHEBI:7959
+    - Botulinum toxin
+  action_annotation_relationships:
+    - subject: treatment with the tricyclic antidepressant
+      predicate: INDUCES
+      object: acute focal dystonia of the left hand
+      qualifier: MONDO:0010200
+      subject_extension: CHEBI:47780
+    - subject: treatment
+      predicate: TREATS
+      object: HP:0031943
+      qualifier: MONDO:0010200
+      subject_extension: CHEBI:7959
+    - subject: treatment
+      predicate: TREATS
+      object: HP:0002307
+      qualifier: MONDO:0010200
+      subject_extension: CHEBI:7959
+    - subject: treatment
+      predicate: TREATS
+      object: HP:0012048
+      qualifier: MONDO:0010200
+      subject_extension: CHEBI:7959
+    - subject: treatment
+      predicate: TREATS
+      object: slight dysarthria
+      qualifier: MONDO:0010200
+      subject_extension: CHEBI:7959
+    - subject: MAXO:0001298
+      predicate: TREATS
+      object: symptoms
+      qualifier: MONDO:0010200
+      subject_qualifier: copper-chelating
+      subject_extension: copper-chelating therapy
+    - subject: treatment
+      predicate: TREATS
+      object: acute focal dystonia of the left hand
+      qualifier: MONDO:0010200
+      subject_qualifier: with Botulinum toxin
+      subject_extension: Botulinum toxin
+    - subject: intensive rehabilitation
+      predicate: TREATS
+      object: acute focal dystonia of the left hand
+      qualifier: MONDO:0010200
+named_entities:
+  - id: MAXO:0000108
+    label: Iron supplementation
+  - id: HP:0011967
+    label: Copper deficiency
+  - id: CHEBI:28694
+    label: Copper
+  - id: CHEBI:18248
+    label: Iron
+  - id: CHEBI:22977
+    label: Cadmium
+  - id: CHEBI:25016
+    label: Lead
+  - id: CHEBI:28984
+    label: Aluminum
+  - id: CHEBI:16170
+    label: Mercury
+  - id: CHEBI:18291
+    label: Manganese
+  - id: MONDO:0010200
+    label: Wilson disease
+  - id: HP:0031943
+    label: akathisia
+  - id: HP:0002307
+    label: sialorrhea
+  - id: HP:0012048
+    label: oromandibular dystonia (occasionally grimacing)
+  - id: CHEBI:47780
+    label: clomipramine
+  - id: CHEBI:7959
+    label: d-penicillamine
+  - id: MAXO:0001298
+    label: therapy

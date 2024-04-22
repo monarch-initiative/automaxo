@@ -1,0 +1,135 @@
+---
+input_text: ATP, phosphocreatine and lactate in exercising muscle in mitochondrial
+  disease and McArdle's disease. We studied exercise-induced changes in the adenosine
+  triphosphate (ATP), phosphocreatine (PCr), and lactate levels in the skeletal muscle
+  of mitochondrial patients and patients with McArdle's disease. Needle muscle biopsy
+  specimens for biochemical measurement were obtained before and immediately after
+  maximal short-term bicycle exercise test from 12 patients suffering from autosomal
+  dominant and recessive forms of progressive external ophthalmoplegia and multiple
+  deletions of mitochondrial DNA (adPEO, arPEO, respectively), five patients with
+  mitochondrial encephalomyopathy with lactic acidosis and stroke-like episodes (MELAS)
+  3243 A-->G point mutation, and four patients with McArdle's disease. Muscle ATP
+  and PCr levels at rest or after exercise did not differ significantly from those
+  of the controls in any patient group. In patients with mitochondrial disease, muscle
+  lactate tended to be lower at rest and increase more during exercise than in controls,
+  the most remarkable rise being measured in patients with adPEO with generalized
+  muscle symptoms and in patients with MELAS point mutation. In McArdle patients,
+  the muscle lactate level decreased during exercise. No correlation was found between
+  the muscle ATP and PCr levels and the respiratory chain enzyme activity.
+raw_completion_output: |-
+  primary_disease: Mitochondrial disease and McArdle's disease
+
+  medical_actions: Needle muscle biopsy; maximal short-term bicycle exercise test
+
+  symptoms: Increased muscle lactate during exercise; Decreased muscle lactate during exercise
+
+  chemicals: ATP; phosphocreatine; lactate
+
+  action_annotation_relationships: Needle muscle biopsy TREATS Increased muscle lactate during exercise IN Mitochondrial disease; maximal short-term bicycle exercise test TREATS Decreased muscle lactate during exercise IN McArdle's disease; Needle muscle biopsy TREATS Decreased muscle lactate during exercise IN McArdle's disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Needle muscle biopsy TREATS Decreased muscle lactate during exercise IN McArdle's disease
+
+  ===
+
+extracted_object:
+  primary_disease: Mitochondrial disease and McArdle's disease
+  medical_actions:
+    - Needle muscle biopsy
+    - maximal short-term bicycle exercise test
+  symptoms:
+    - Increased muscle lactate during exercise
+    - Decreased muscle lactate during exercise
+  chemicals:
+    - CHEBI:15422
+    - CHEBI:17287
+    - CHEBI:24996
+  action_annotation_relationships:
+    - subject: Needle muscle biopsy
+      predicate: TREATS
+      object: Increased muscle lactate during exercise
+      qualifier: MONDO:0044970
+    - subject: maximal short-term bicycle exercise test
+      predicate: TREATS
+      object: Decreased muscle lactate during exercise
+      qualifier: MONDO:0009293
+      subject_extension: maximal short-term bicycle exercise test
+    - subject: Needle muscle biopsy
+      predicate: TREATS
+      object: Decreased muscle lactate during exercise
+      qualifier: MONDO:0009293
+named_entities:
+  - id: MONDO:0009685
+    label: Mitochondrial myopathies (MM)
+  - id: MAXO:0000900
+    label: electrocardiography (ECG)
+  - id: MAXO:0010203
+    label: echocardiography
+  - id: HP:0011675
+    label: conduction abnormalities
+  - id: HP:0001639
+    label: hypertrophic cardiomyopathy
+  - id: HP:0001644
+    label: dilated cardiomyopathy
+  - id: CHEBI:33375
+    label: gadolinium
+  - id: MONDO:0009637
+    label: Mitochondrial myopathies
+  - id: MONDO:0010789
+    label: MELAS syndrome
+  - id: HP:0001289
+    label: confusion
+  - id: MAXO:0009003
+    label: preimplantation genetic diagnosis (PGD)
+  - id: CHEBI:26337
+    label: preimplantation genetic diagnosis (PGD)
+  - id: CHEBI:30452
+    label: <trophectoderm (TE) biopsy>
+  - id: MAXO:0000427
+    label: brain magnetic resonance imaging
+  - id: HP:0002401
+    label: stroke-like episodes
+  - id: HP:0000846
+    label: adrenal insufficiency
+  - id: HP:0100704
+    label: Cortical blindness
+  - id: MONDO:0010714
+    label: Primary mitochondrial disorders (PMD)
+  - id: HP:0002092
+    label: Pulmonary arterial hypertension
+  - id: HP:0001635
+    label: Heart failure
+  - id: HP:0001699
+    label: Sudden death
+  - id: MONDO:0005136
+    label: Malaria
+  - id: HP:0001250
+    label: seizures
+  - id: HP:0003737
+    label: mitochondrial myopathy
+  - id: HP:0001298
+    label: encephalopathy
+  - id: HP:0003128
+    label: lactic acidosis
+  - id: CHEBI:15422
+    label: ATP
+  - id: CHEBI:17287
+    label: phosphocreatine
+  - id: CHEBI:24996
+    label: lactate
+  - id: MONDO:0044970
+    label: Mitochondrial disease
+  - id: MONDO:0009293
+    label: McArdle's disease

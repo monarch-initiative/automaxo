@@ -1,0 +1,124 @@
+---
+input_text: 'Red cell exchange transfusions increase cerebral capillary transit times
+  and may alter oxygen extraction in sickle cell disease.Persons with sickle cell
+  disease (SCD) suffer from chronic hemolytic anemia, reduced blood oxygen content,
+  and lifelong risk of silent and overt stroke. Major conventional stroke risk factors
+  are absent in most individuals with SCD, yet nearly 50% have evidence of brain infarcts
+  by the age of 30 years, indicating alternative etiologies for ischemia. We investigated
+  whether radiological evidence of accelerated blood water transit through capillaries,
+  visible on arterial spin labeling (ASL) magnetic resonance imaging, reduces following
+  transfusion-induced increases in hemoglobin and relates to oxygen extraction fraction
+  (OEF). Neurological evaluation along with anatomical and hemodynamic imaging with
+  cerebral blood flow (CBF)-weighted pseudocontinuous ASL and OEF imaging with T2
+  -relaxation-under-spin-tagging were applied in sequence before and after blood transfusion
+  therapy (n = 32) and in a comparator cohort of nontransfused SCD participants on
+  hydroxyurea therapy scanned at two time points to assess stability without interim
+  intervention (n = 13). OEF was calculated separately using models derived from human
+  hemoglobin-F, hemoglobin-A, and hemoglobin-S. Gray matter CBF and dural sinus signal,
+  indicative of rapid blood transit, were evaluated at each time point and compared
+  with OEF using paired statistical tests (significance: two-sided p < 0.05). No significant
+  change in sinus signal was observed in nontransfused participants (p = 0.650), but
+  a reduction was observed in transfused participants (p = 0.034), consistent with
+  slower red cell transit following transfusion. The dural sinus signal intensity
+  was inversely associated with OEF pretransfusion (p = 0.011), but not posttransfusion.
+  Study findings suggest that transfusion-induced increases in total hemoglobin may
+  lengthen blood transit times through cerebral capillaries and alter cerebral OEF
+  in SCD.'
+raw_completion_output: |-
+  primary_disease: Sickle cell disease
+
+  medical_actions: Red cell exchange transfusions; Blood transfusion therapy; Hydroxyurea therapy; Neurological evaluation; Anatomical and hemodynamic imaging; Cerebral blood flow-weighted pseudocontinuous arterial spin labeling imaging; Oxygen extraction fraction imaging with T2 -relaxation-under-spin-tagging
+
+  symptoms: Chronic hemolytic anemia; Reduced blood oxygen content; Risk of silent and overt stroke; Brain infarcts
+
+  chemicals: Hemoglobin-F; Hemoglobin-A; Hemoglobin-S; Hydroxyurea
+
+  action_annotation_relationships: Red cell exchange transfusions TREATS chronic hemolytic anemia IN Sickle cell disease; Blood transfusion therapy TREATS reduced blood oxygen content IN Sickle cell disease; Hydroxyurea therapy PREVENTS brain infarcts IN Sickle cell disease; Neurological evaluation ASSESSES risk of silent and overt stroke IN Sickle cell disease; Anatomical and hemodynamic imaging WITH Hemoglobin-F TREATS reduced blood oxygen content IN Sickle cell disease; Cerebral blood flow-weighted pseudocontinuous arterial spin labeling imaging ASSESSES chronic hemolytic anemia IN Sickle cell disease; Oxygen extraction fraction imaging with T2 -relaxation-under-spin-tagging ASSESSES risk of silent and overt stroke IN Sickle cell disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Oxygen extraction fraction imaging with T2 -relaxation-under-spin-tagging ASSESSES risk of silent and overt stroke IN Sickle cell disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0011382
+  medical_actions:
+    - Red cell exchange transfusions
+    - Blood transfusion therapy
+    - Hydroxyurea therapy
+    - Neurological evaluation
+    - Anatomical and hemodynamic imaging
+    - Cerebral blood flow-weighted pseudocontinuous arterial spin labeling imaging
+    - Oxygen extraction fraction imaging with T2 -relaxation-under-spin-tagging
+  symptoms:
+    - HP:0004870
+    - Reduced blood oxygen content
+    - Risk of silent and overt stroke
+    - Brain infarcts
+  chemicals:
+    - Hemoglobin-F
+    - Hemoglobin-A
+    - Hemoglobin-S
+    - CHEBI:44423
+  action_annotation_relationships:
+    - subject: Red cell exchange transfusions
+      predicate: TREATS
+      object: HP:0004870
+      qualifier: MONDO:0011382
+    - subject: Blood transfusion therapy
+      predicate: TREATS
+      object: reduced blood oxygen content
+      qualifier: MONDO:0011382
+    - subject: MAXO:0001298
+      predicate: PREVENTS
+      object: brain infarcts
+      qualifier: MONDO:0011382
+      subject_extension: CHEBI:44423
+    - subject: Neurological evaluation
+      predicate: ASSESSES
+      object: risk of silent and overt stroke
+      qualifier: MONDO:0011382
+    - subject: Anatomical and hemodynamic imaging
+      predicate: TREATS
+      object: reduced blood oxygen content
+      qualifier: MONDO:0011382
+      subject_qualifier: WITH
+      subject_extension: Hemoglobin-F
+    - subject: Cerebral blood flow-weighted pseudocontinuous arterial spin labeling
+        imaging
+      predicate: ASSESSES
+      object: HP:0004870
+      qualifier: MONDO:0011382
+    - subject: Oxygen extraction fraction imaging with T2-relaxation-under-spin-tagging
+      predicate: ASSESSES
+      object: risk of silent and overt stroke
+      qualifier: MONDO:0011382
+named_entities:
+  - id: HP:0002863
+    label: Leukemia/Myelodysplastic syndrome (MDS)
+  - id: CHEBI:4027
+    label: Cyclophosphamide
+  - id: MONDO:0007374
+    label: Sickle cell disease (SCD)
+  - id: MAXO:0000756
+    label: Blood transfusion
+  - id: MONDO:0011382
+    label: sickle cell disease
+  - id: HP:0004870
+    label: Chronic hemolytic anemia
+  - id: CHEBI:44423
+    label: Hydroxyurea
+  - id: MAXO:0001298
+    label: therapy
