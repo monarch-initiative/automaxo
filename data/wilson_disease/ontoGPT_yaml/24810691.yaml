@@ -1,0 +1,221 @@
+---
+input_text: 'Characterization of timed changes in hepatic copper concentrations, methionine
+  metabolism, gene expression, and global DNA methylation in the Jackson toxic milk
+  mouse model of Wilson disease. BACKGROUND: Wilson disease (WD) is characterized
+  by hepatic copper accumulation with progressive liver damage to cirrhosis. This
+  study aimed to characterize the toxic milk mouse from The Jackson Laboratory (Bar
+  Harbor, ME, USA) (tx-j) mouse model of WD according to changes over time in hepatic
+  copper concentrations, methionine metabolism, global DNA methylation, and gene expression
+  from gestational day 17 (fetal) to adulthood (28 weeks). METHODS: Included liver
+  histology and relevant biochemical analyses including hepatic copper quantification,
+  S-adenosylmethionine (SAM) and S-adenosylhomocysteine (SAH) liver levels, qPCR for
+  transcript levels of genes relevant to methionine metabolism and liver damage, and
+  DNA dot blot for global DNA methylation. RESULTS: Hepatic copper was lower in tx-j
+  fetuses but higher in weanling (three weeks) and adult tx-j mice compared to controls.
+  S-adenosylhomocysteinase transcript levels were significantly lower at all time
+  points, except at three weeks, correlating negatively with copper levels and with
+  consequent changes in the SAM:SAH methylation ratio and global DNA methylation.
+  CONCLUSION: Compared to controls, methionine metabolism including S-adenosylhomocysteinase
+  gene expression is persistently different in the tx-j mice with consequent alterations
+  in global DNA methylation in more advanced stages of liver disease. The inhibitory
+  effect of copper accumulation on S-adenosylhomocysteinase expression is associated
+  with progressively abnormal methionine metabolism and decreased methylation capacity
+  and DNA global methylation.'
+raw_completion_output: |-
+  primary_disease: Wilson disease
+
+  medical_actions: liver histology;biochemical analyses;hepatic copper quantification;quantification of S-adenosylmethionine (SAM) and S-adenosylhomocysteine (SAH) liver levels;quantitative PCR (qPCR) for transcript levels of genes;DNA dot blot for global DNA methylation
+
+  symptoms: hepatic copper accumulation;progressive liver damage to cirrhosis;lower hepatic copper in fetuses;higher hepatic copper in weanling and adult mice;persistently different methionine metabolism;decreased methylation capacity;abnormal global DNA methylation
+
+  chemicals: copper;S-adenosylmethionine (SAM);S-adenosylhomocysteine (SAH)
+
+  action_annotation_relationships: liver histology TREATS progressive liver damage to cirrhosis IN Wilson disease;biochemical analyses TREATS hepatic copper accumulation IN Wilson disease;hepatic copper quantification TREATS hepatic copper accumulation IN Wilson disease;quantification of S-adenosylmethionine (SAM) and S-adenosylhomocysteine (SAH) liver levels TREATS persistently different methionine metabolism IN Wilson disease;quantitative PCR (qPCR) for transcript levels of genes TREATS changes in gene expression related to liver damage IN Wilson disease;DNA dot blot for global DNA methylation TREATS abnormal global DNA methylation IN Wilson disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  DNA dot blot for global DNA methylation TREATS abnormal global DNA methylation IN Wilson disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010200
+  medical_actions:
+    - liver histology
+    - biochemical analyses
+    - hepatic copper quantification
+    - quantification of S-adenosylmethionine (SAM) and S-adenosylhomocysteine (SAH)
+      liver levels
+    - quantitative PCR (qPCR) for transcript levels of genes
+    - DNA dot blot for global DNA methylation
+  symptoms:
+    - hepatic copper accumulation
+    - progressive liver damage to cirrhosis
+    - lower hepatic copper in fetuses
+    - higher hepatic copper in weanling and adult mice
+    - persistently different methionine metabolism
+    - decreased methylation capacity
+    - abnormal global DNA methylation
+  chemicals:
+    - CHEBI:28694
+    - CHEBI:15414
+    - CHEBI:16680
+  action_annotation_relationships:
+    - subject: liver histology
+      predicate: TREATS
+      object: progressive liver damage to cirrhosis
+      qualifier: MONDO:0010200
+    - subject: biochemical analyses
+      predicate: TREATS
+      object: hepatic copper accumulation
+      qualifier: MONDO:0010200
+    - subject: hepatic copper quantification
+      predicate: TREATS
+      object: hepatic copper accumulation
+      qualifier: MONDO:0010200
+      subject_extension: copper quantification
+    - subject: <quantification of S-adenosylmethionine (SAM) and S-adenosylhomocysteine
+        (SAH) liver levels>
+      predicate: <TREATS>
+      object: <persistently different methionine metabolism>
+      qualifier: <Wilson disease>
+      subject_extension: CHEBI:15414
+    - subject: <quantitative PCR (qPCR) for transcript levels of genes>
+      predicate: <TREATS>
+      object: <changes in gene expression related to liver damage>
+      qualifier: <Wilson disease>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <quantitative PCR (qPCR)>
+      object_extension: <transcript levels of genes>
+    - subject: DNA dot blot
+      predicate: TREATS
+      object: abnormal global DNA methylation
+      qualifier: MONDO:0010200
+      subject_extension: global DNA methylation
+named_entities:
+  - id: MONDO:0010200
+    label: Wilson disease
+  - id: HP:0006554
+    label: acute liver failure
+  - id: CHEBI:35176
+    label: Zinc sulphate
+  - id: CHEBI:35475
+    label: NSAIDs
+  - id: HP:0025464
+    label: Oxidative stress
+  - id: CHEBI:28694
+    label: Copper
+  - id: CHEBI:75317
+    label: 4-phenylbutyrate
+  - id: CHEBI:9907
+    label: Ursodeoxycholic acid
+  - id: HP:0001508
+    label: Failure to thrive
+  - id: HP:0001263
+    label: Developmental delay
+  - id: HP:0001250
+    label: Seizures
+  - id: HP:0012332
+    label: Dysautonomia
+  - id: HP:0001260
+    label: Dysarthria
+  - id: HP:0001332
+    label: Dystonia
+  - id: HP:0001337
+    label: Tremor
+  - id: HP:0001288
+    label: Gait abnormalities
+  - id: MONDO:0010651
+    label: Menkes disease
+  - id: MONDO:0008493
+    label: occipital horn syndrome (OHS)
+  - id: MAXO:0001001
+    label: gene therapy
+  - id: MONDO:0010338
+    label: ATP7A-related distal motor neuropathy
+  - id: MAXO:0000427
+    label: Brain magnetic resonance imaging (MRI)
+  - id: HP:0001298
+    label: encephalopathy
+  - id: CHEBI:42797
+    label: Gabapentin
+  - id: MAXO:0000376
+    label: Liver biopsies
+  - id: MAXO:0000127
+    label: Genetic testing
+  - id: HP:0001397
+    label: Steatosis
+  - id: HP:0001394
+    label: Cirrhosis
+  - id: MAXO:0000610
+    label: enzyme-linked immunosorbent assay (ELISA)
+  - id: CHEBI:197440
+    label: tumor necrosis factor-alpha (TNF-alpha)
+  - id: CHEBI:63895
+    label: interleukin (IL)-8
+  - id: CHEBI:566274
+    label: malondialdehyde (MDA)
+  - id: CHEBI:16856
+    label: glutathione
+  - id: CHEBI:39501
+    label: trientine
+  - id: CHEBI:27363
+    label: zinc
+  - id: HP:0001410
+    label: hepatic dysfunction
+  - id: CHEBI:7959
+    label: D-penicillamine
+  - id: HP:0001347
+    label: Hyperreflexia
+  - id: HP:0031843
+    label: Bradyphrenia
+  - id: HP:0002362
+    label: Shuffling gait
+  - id: HP:0002300
+    label: Mutism
+  - id: HP:0001621
+    label: Hypophonia
+  - id: CHEBI:37153
+    label: Calcineurin inhibitors
+  - id: CHEBI:8356
+    label: Pramipexole
+  - id: CHEBI:2618
+    label: Amantadine
+  - id: CHEBI:26708
+    label: NA
+  - id: MONDO:0002561
+    label: lysosomal storage disorders
+  - id: CHEBI:18248
+    label: Iron
+  - id: HP:0001873
+    label: thrombocytopenia
+  - id: HP:0002344
+    label: worsening neurological symptoms
+  - id: CHEBI:50868
+    label: Penicillamine
+  - id: HP:0001392
+    label: Liver disease
+  - id: HP:0002375
+    label: hypokinesia
+  - id: HP:0001300
+    label: parkinsonism
+  - id: CHEBI:29708
+    label: Zinc gluconate
+  - id: CHEBI:37253
+    label: Elemental zinc
+  - id: CHEBI:15414
+    label: S-adenosylmethionine (SAM)
+  - id: CHEBI:16680
+    label: S-adenosylhomocysteine (SAH)

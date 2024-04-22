@@ -1,0 +1,120 @@
+---
+input_text: '[Realities for a Sickle Cell Disease Control Strategy in the World Health
+  Organization African Region]. The Network for the Study of Sickle Cell Disease in
+  Central Africa or REDAC, is a network of African, European and American researchers
+  whose aim is to combat sickle cell disease. Its congresses take place every year
+  in the partner countries with international symposia alternating with workshops.
+  REDAC enables host countries to obtain from local authorities a real involvement
+  in the fight through resolutions in line with national strategies of fight. The
+  Seventh International Symposium of REDAC was held in 2018 in Antananarivo, Madagascar
+  under the auspices of the Malagasy Minister of Health and the Malagasy Senate Authorities.
+  The theme chosen was that of strategies to combat sickle cell disease recommended
+  by the WHO. The presentations focused on neonatal screening, early diagnosis, management
+  of sickle cell disease and new therapies (marrow transplant, gene therapy and treatment
+  with hydroxyurea).'
+raw_completion_output: |-
+  primary_disease: Sickle Cell Disease
+  medical_actions: neonatal screening;early diagnosis;management of sickle cell disease;marrow transplant;gene therapy;treatment with hydroxyurea
+  symptoms: 
+  chemicals: hydroxyurea
+  action_annotation_relationships: neonatal screening PREVENTS complications IN Sickle Cell Disease;early diagnosis PREVENTS complications IN Sickle Cell Disease;management of sickle cell disease TREATS Sickle Cell Disease;treatment (with hydroxyurea) TREATS Sickle Cell Disease
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  treatment (with hydroxyurea) TREATS Sickle Cell Disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0011382
+  medical_actions:
+    - neonatal screening
+    - early diagnosis
+    - management of sickle cell disease
+    - marrow transplant
+    - MAXO:0001001
+    - treatment with hydroxyurea
+  chemicals:
+    - CHEBI:44423
+  action_annotation_relationships:
+    - subject: neonatal screening
+      predicate: PREVENTS
+      object: complications
+      qualifier: MONDO:0011382
+    - subject: early diagnosis
+      predicate: PREVENTS
+      object: complications
+      qualifier: MONDO:0011382
+    - subject: management of sickle cell disease
+      predicate: TREATS
+      object: Sickle Cell Disease
+      qualifier: MONDO:0011382
+    - subject: treatment
+      predicate: TREATS
+      object: Sickle Cell Disease
+      subject_qualifier: with hydroxyurea
+      subject_extension: CHEBI:44423
+named_entities:
+  - id: MONDO:0007374
+    label: Sickle Cell Disease (SCD)
+  - id: CHEBI:29016
+    label: Arginine
+  - id: CHEBI:18211
+    label: Citrulline
+  - id: CHEBI:3638
+    label: Chloroquine
+  - id: CHEBI:44423
+    label: Hydroxyurea
+  - id: CHEBI:50733
+    label: Nutritional supplements
+  - id: MONDO:0011382
+    label: Sickle cell anemia
+  - id: HP:0001297
+    label: Stroke
+  - id: HP:0200023
+    label: Priapism
+  - id: HP:0001081
+    label: Cholelithiasis
+  - id: MAXO:0000127
+    label: Genetic analysis
+  - id: HP:0001622
+    label: Preterm delivery
+  - id: HP:0002754
+    label: Osteomyelitis
+  - id: HP:0001945
+    label: fever
+  - id: MAXO:0000756
+    label: Blood transfusion
+  - id: CHEBI:27470
+    label: Folic acid
+  - id: CHEBI:17334
+    label: Penicillin
+  - id: MAXO:0001017
+    label: Vaccination
+  - id: HP:0002664
+    label: Cancer
+  - id: MONDO:0004992
+    label: Cancer
+  - id: HP:0006562
+    label: Viral hepatitis
+  - id: MONDO:0006011
+    label: Viral hepatitis
+  - id: MAXO:0001175
+    label: liver transplantation
+  - id: HP:0001903
+    label: Anaemia
+  - id: MAXO:0001298
+    label: therapy
+  - id: MAXO:0001001
+    label: gene therapy

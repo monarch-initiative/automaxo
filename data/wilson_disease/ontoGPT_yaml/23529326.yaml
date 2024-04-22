@@ -1,0 +1,165 @@
+---
+input_text: 'Correlations between anthropometric and serologic elements of metabolic
+  syndrome and histopathologic features of nonalcoholic fatty liver disease. AIM OF
+  THE STUDY: Studying the correlation between elements of metabolic syndrome and histological
+  changes of the liver in nonalcoholic fatty liver disease. PATIENTS AND METHODS:
+  Thirty-nine patients with nonalcoholic fatty liver disease were included in our
+  study. Inclusion criteria were: presence of liver steatosis on ultrasound in patients
+  with waist circumference over 94 cm in men and over 80 cm in women and with serologic
+  elements of metabolic syndrome. Exclusion criteria were: chronic viral hepatitis,
+  autoimmune hepatitis, Wilson disease, hemochromatosis, regular alcohol consumption.
+  Body mass index, waist circumference, fasting plasma glucose, serum triglyceride
+  and cholesterol levels and serum ALT were determined. On liver biopsy specimens,
+  performed in each patient, the NASH score, representing the sum of fibrosis, steatosis,
+  lobular inflammation and ballooning, was calculated. RESULTS: Necroinflammation
+  was mild in 15 patients, medium in 19 patients and severe in five patients. Mild
+  fibrosis was present in four cases, medium in 14 cases, severe in six, and two patients
+  were diagnosed with cirrhosis. We found statistically significant correlation between
+  waist circumference and the grade of histological activity, the presence of diabetes
+  and both fibrosis grade and histological activity, and the serum ALT and histological
+  activity. CONCLUSIONS: Noninvasive assessment of the severity of hepatic histological
+  changes in nonalcoholic fatty liver disease could be made by anthropometric parameters
+  or by serologic components of metabolic syndrome, but it is not an accurate method
+  to identify patients with high-risk for disease progression. These noninvasive parameters
+  cannot replace liver biopsy.'
+raw_completion_output: |-
+  primary_disease: Nonalcoholic fatty liver disease
+
+  medical_actions: Liver biopsy;Determination of body mass index;Measurement of waist circumference;Fasting plasma glucose test;Serum triglyceride level test;Serum cholesterol level test;Serum ALT level determination
+
+  symptoms: Liver steatosis;Necroinflammation;Fibrosis;Cirrhosis
+
+  chemicals: 
+
+  action_annotation_relationships: Liver biopsy TREATS Liver steatosis IN Nonalcoholic fatty liver disease;Determination of body mass index PREVENTS Necroinflammation IN Nonalcoholic fatty liver disease;Measurement of waist circumference PREVENTS Fibrosis IN Nonalcoholic fatty liver disease;Fasting plasma glucose test PREVENTS Cirrhosis IN Nonalcoholic fatty liver disease;Serum triglyceride level test PREVENTS Necroinflammation IN Nonalcoholic fatty liver disease;Serum cholesterol level test PREVENTS Fibrosis IN Nonalcoholic fatty liver disease;Serum ALT level determination PREVENTS Cirrhosis IN Nonalcoholic fatty liver disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Serum ALT level determination PREVENTS Cirrhosis IN Nonalcoholic fatty liver disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0013209
+  medical_actions:
+    - MAXO:0000376
+    - Determination of body mass index
+    - Measurement of waist circumference
+    - Fasting plasma glucose test
+    - Serum triglyceride level test
+    - Serum cholesterol level test
+    - Serum ALT level determination
+  symptoms:
+    - HP:0001397
+    - Necroinflammation
+    - Fibrosis
+    - HP:0001394
+  action_annotation_relationships:
+    - subject: MAXO:0000376
+      predicate: TREATS
+      object: HP:0001397
+      qualifier: MONDO:0013209
+    - subject: Determination of body mass index
+      predicate: PREVENTS
+      object: Necroinflammation
+      qualifier: MONDO:0013209
+    - subject: Measurement of waist circumference
+      predicate: PREVENTS
+      object: Fibrosis
+      qualifier: MONDO:0013209
+    - subject: Fasting plasma glucose test
+      predicate: PREVENTS
+      object: HP:0001394
+      qualifier: MONDO:0013209
+    - subject: Serum triglyceride level test
+      predicate: PREVENTS
+      object: Necroinflammation
+      qualifier: MONDO:0013209
+    - subject: Serum cholesterol level test
+      predicate: PREVENTS
+      object: Fibrosis
+      qualifier: MONDO:0013209
+    - subject: Serum ALT level determination
+      predicate: PREVENTS
+      object: HP:0001394
+      qualifier: MONDO:0013209
+named_entities:
+  - id: MAXO:0000108
+    label: Iron supplementation
+  - id: HP:0011967
+    label: Copper deficiency
+  - id: CHEBI:28694
+    label: Copper
+  - id: CHEBI:18248
+    label: Iron
+  - id: CHEBI:22977
+    label: Cadmium
+  - id: CHEBI:25016
+    label: Lead
+  - id: CHEBI:28984
+    label: Aluminum
+  - id: CHEBI:16170
+    label: Mercury
+  - id: CHEBI:18291
+    label: Manganese
+  - id: MONDO:0010200
+    label: Wilson disease
+  - id: HP:0031943
+    label: akathisia
+  - id: HP:0002307
+    label: sialorrhea
+  - id: HP:0012048
+    label: oromandibular dystonia (occasionally grimacing)
+  - id: CHEBI:47780
+    label: clomipramine
+  - id: CHEBI:7959
+    label: d-penicillamine
+  - id: MAXO:0001298
+    label: therapy
+  - id: MAXO:0000058
+    label: Pharmacotherapy
+  - id: HP:0001392
+    label: Liver disease
+  - id: HP:0011954
+    label: Non-cirrhotic portal hypertension
+  - id: MAXO:0001175
+    label: Liver transplantation
+  - id: HP:0002344
+    label: Neurologic deterioration
+  - id: CHEBI:39501
+    label: Trientine
+  - id: HP:0002071
+    label: extrapyramidal symptoms
+  - id: HP:0002480
+    label: Hepatic encephalopathy
+  - id: HP:0001410
+    label: liver dysfunction
+  - id: HP:0001409
+    label: portal hypertension
+  - id: HP:0000193
+    label: Cleft uvula
+  - id: HP:0001943
+    label: Low blood sugar
+  - id: HP:0003201
+    label: Rhabdomyolysis
+  - id: HP:0001644
+    label: Dilated cardiomyopathy
+  - id: MONDO:0013209
+    label: Nonalcoholic fatty liver disease
+  - id: MAXO:0000376
+    label: Liver biopsy
+  - id: HP:0001397
+    label: Liver steatosis
+  - id: HP:0001394
+    label: Cirrhosis

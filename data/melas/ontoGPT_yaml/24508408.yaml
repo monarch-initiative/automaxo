@@ -1,0 +1,89 @@
+---
+input_text: 'Adrenal insufficiency in a child with MELAS syndrome. Mitochondrial encephalomyopathy,
+  lactic acidosis and stroke-like episodes (MELAS) are established subgroups of mitochondrial
+  encephalomyopathy. m.3243A>G a common point mutation is detected in tRNA in majority
+  of patients with MELAS phenotype whereas m.8344A>G point mutation in tRNA is observed,
+  in MERRF phenotype. Adrenal insufficiency has not been reported in mitochondrial
+  disease, except in Kearns-Sayre Syndrome (KSS), which is a mitochondrial deletion
+  syndrome. We report an unusual presentation in a five year old boy who presented
+  with clinical phenotype of MELAS and was found to have m.8344A>G mutation in tRNA.
+  Addison disease was identified due to hyperpigmentation of lips and gums present
+  from early childhood. This is the first report describing adrenal insufficiency
+  in a child with MELAS phenotype. '
+raw_completion_output: |-
+  primary_disease: MELAS syndrome
+
+  medical_actions: <No specific medical actions mentioned>
+
+  symptoms: adrenal insufficiency; hyperpigmentation of lips and gums
+
+  chemicals: <No specific chemicals or drugs mentioned>
+
+  action_annotation_relationships: adrenal insufficiency IN MELAS syndrome; hyperpigmentation of lips and gums TREATS adrenal insufficiency IN MELAS syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  hyperpigmentation of lips and gums TREATS adrenal insufficiency IN MELAS syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010789
+  medical_actions:
+    - <No specific medical actions mentioned>
+  symptoms:
+    - HP:0000846
+    - hyperpigmentation of lips and gums
+  chemicals:
+    - <No specific chemicals or drugs mentioned>
+  action_annotation_relationships:
+    - object: HP:0000846
+      qualifier: MONDO:0010789
+    - subject: hyperpigmentation of lips and gums
+      predicate: TREATS
+      object: HP:0000846
+      qualifier: MONDO:0010789
+named_entities:
+  - id: MONDO:0009685
+    label: Mitochondrial myopathies (MM)
+  - id: MAXO:0000900
+    label: electrocardiography (ECG)
+  - id: MAXO:0010203
+    label: echocardiography
+  - id: HP:0011675
+    label: conduction abnormalities
+  - id: HP:0001639
+    label: hypertrophic cardiomyopathy
+  - id: HP:0001644
+    label: dilated cardiomyopathy
+  - id: CHEBI:33375
+    label: gadolinium
+  - id: MONDO:0009637
+    label: Mitochondrial myopathies
+  - id: MONDO:0010789
+    label: MELAS syndrome
+  - id: HP:0001289
+    label: confusion
+  - id: MAXO:0009003
+    label: preimplantation genetic diagnosis (PGD)
+  - id: CHEBI:26337
+    label: preimplantation genetic diagnosis (PGD)
+  - id: CHEBI:30452
+    label: <trophectoderm (TE) biopsy>
+  - id: MAXO:0000427
+    label: brain magnetic resonance imaging
+  - id: HP:0002401
+    label: stroke-like episodes
+  - id: HP:0000846
+    label: adrenal insufficiency

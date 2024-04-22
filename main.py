@@ -3,9 +3,8 @@ import src.automaxo as automaxo
 from automaxo import import_mesh_data, pmid_extractor, process_article_jsons_to_tsv, process_ontogpt_articles, process_triplets_and_mesh
 
 class AutoMaxoRunner:
-    def __init__(self, disease_name, max_pmid_retrieve=10, max_articles_to_save=10):
+    def __init__(self, disease_name, max_articles_to_save):
         self.disease_name = disease_name
-        self.max_pmid_retrieve = max_pmid_retrieve
         self.max_articles_to_save = max_articles_to_save
         self.base_data_path = f"data/{disease_name.replace(' ', '_')}/"
         self.json_files_dir = self.base_data_path + "pubtator3_json/"

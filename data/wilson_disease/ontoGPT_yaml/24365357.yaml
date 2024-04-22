@@ -1,0 +1,105 @@
+---
+input_text: 'Disorders of heavy metals. Heavy metals and trace elements play an important
+  role in relation to the physiology and pathology of the nervous system. Neurologic
+  diseases related to disorders of metabolism of copper and iron are reviewed. Copper
+  disorders are divided into two classes: ATP7A- or ATP7B-related inherited copper
+  transport disorders (Menkes disease, occipital horn syndrome, ATP7A-related distal
+  motor neuropathy, and Wilson disease) and acquired diseases associated with copper
+  deficiency or copper excess. Iron brain disorders are divided into genetic neurodegeneration
+  with brain iron accumulation (NBIA, neuroferritinopathy, and aceruloplasminemia),
+  genetic systemic iron accumulation with neurologic features (hemochromatosis), and
+  acquired diseases associated with iron excess (superficial siderosis) or iron deficiency
+  (restless leg syndrome). The main features of cadmium, lead, aluminum, mercury,
+  and manganese toxicity are summarized. '
+raw_completion_output: |-
+  primary_disease: Disorders of heavy metals
+
+  medical_actions: Chelation therapy; Iron supplementation; Copper supplementation; Phlebotomy; Dietary modifications
+
+  symptoms: Neurologic diseases; Copper deficiency; Copper excess; Iron accumulation; Iron deficiency
+
+  chemicals: Copper; Iron; Cadmium; Lead; Aluminum; Mercury; Manganese
+
+  action_annotation_relationships: Chelation therapy TREATS copper excess IN Disorders of heavy metals; Iron supplementation TREATS iron deficiency IN Disorders of heavy metals; Copper supplementation TREATS copper deficiency IN Disorders of heavy metals; Phlebotomy TREATS iron accumulation IN Disorders of heavy metals; Dietary modifications PREVENTS neurologic diseases IN Disorders of heavy metals
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Dietary modifications PREVENTS neurologic diseases IN Disorders of heavy metals
+
+  ===
+
+extracted_object:
+  primary_disease: Disorders of heavy metals
+  medical_actions:
+    - Chelation therapy
+    - MAXO:0000108
+    - Copper supplementation
+    - Phlebotomy
+    - Dietary modifications
+  symptoms:
+    - Neurologic diseases
+    - HP:0011967
+    - Copper excess
+    - Iron accumulation
+    - Iron deficiency
+  chemicals:
+    - CHEBI:28694
+    - CHEBI:18248
+    - CHEBI:22977
+    - CHEBI:25016
+    - CHEBI:28984
+    - CHEBI:16170
+    - CHEBI:18291
+  action_annotation_relationships:
+    - subject: Chelation therapy
+      predicate: TREATS
+      object: copper excess
+      qualifier: Disorders of heavy metals
+    - subject: MAXO:0000108
+      predicate: TREATS
+      object: iron deficiency
+      qualifier: Disorders of heavy metals
+      subject_extension: iron supplementation
+    - subject: Copper supplementation
+      predicate: TREATS
+      object: HP:0011967
+      qualifier: Disorders of heavy metals
+      subject_extension: Copper supplementation
+    - subject: Phlebotomy
+      predicate: TREATS
+      object: iron accumulation
+      qualifier: Disorders of heavy metals
+    - subject: Dietary modifications
+      predicate: PREVENTS
+      object: neurologic diseases
+      qualifier: Disorders of heavy metals
+named_entities:
+  - id: MAXO:0000108
+    label: Iron supplementation
+  - id: HP:0011967
+    label: Copper deficiency
+  - id: CHEBI:28694
+    label: Copper
+  - id: CHEBI:18248
+    label: Iron
+  - id: CHEBI:22977
+    label: Cadmium
+  - id: CHEBI:25016
+    label: Lead
+  - id: CHEBI:28984
+    label: Aluminum
+  - id: CHEBI:16170
+    label: Mercury
+  - id: CHEBI:18291
+    label: Manganese
