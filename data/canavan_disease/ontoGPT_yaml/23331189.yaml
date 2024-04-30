@@ -1,0 +1,160 @@
+---
+input_text: "A next step in adeno-associated virus-mediated gene therapy for neurological
+  diseases: regulation and targeting. Recombinant adeno-associated virus (rAAV) vectors
+  mediating long term transgene expression are excellent gene therapy tools for chronic
+  neurological diseases. While rAAV2 was the first serotype tested in the clinics,
+  more efficient vectors derived from the rh10 serotype are currently being evaluated
+  and other serotypes are likely to be tested in the near future. In addition, aside
+  from the currently used stereotaxy-guided intraparenchymal delivery, new techniques
+  for global brain transduction (by intravenous or intra-cerebrospinal injections)
+  are very promising. Various strategies for therapeutic gene delivery to the central
+  nervous system have been explored in human clinical trials in the past decade. Canavan
+  disease, a genetic disease caused by an enzymatic deficiency, was the first to be
+  approved. Three gene transfer paradigms for Parkinson's disease have been explored:
+  converting L-dopa into dopamine through AADC gene delivery in the putamen; synthesizing
+  GABA through GAD gene delivery in the overactive subthalamic nucleus and providing
+  neurotrophic support through neurturin gene delivery in the nigro-striatal pathway.
+  These pioneer clinical trials demonstrated the safety and tolerability of rAAV delivery
+  in the human brain at moderate doses. Therapeutic effects however, were modest,
+  emphasizing the need for higher doses of the therapeutic transgene product which
+  could be achieved using more efficient vectors or expression cassettes. This will
+  require re-addressing pharmacological aspects, with attention to which cases require
+  either localized and cell-type specific expression or efficient brain-wide transgene
+  expression, and when it is necessary to modulate or terminate the administration
+  of transgene product. The ongoing development of targeted and regulated rAAV vectors
+  is described. "
+raw_completion_output: |-
+  primary_disease: Neurological diseases
+
+  medical_actions: Gene therapy; Stereotaxy-guided intraparenchymal delivery; Intravenous injections; Intra-cerebrospinal injections; AADC gene delivery; GAD gene delivery; Neurturin gene delivery
+
+  symptoms: Enzymatic deficiency
+
+  chemicals: L-dopa; Dopamine; GABA
+
+  action_annotation_relationships: Gene therapy TREATS enzymatic deficiency IN Canavan disease; AADC gene delivery (with L-dopa) TREATS Parkinson's disease; GAD gene delivery (with GABA) TREATS Parkinson's disease; Neurturin gene delivery TREATS Parkinson's disease
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Neurturin gene delivery TREATS Parkinson's disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005071
+  medical_actions:
+    - MAXO:0001001
+    - Stereotaxy-guided intraparenchymal delivery
+    - Intravenous injections
+    - Intra-cerebrospinal injections
+    - AADC gene delivery
+    - GAD gene delivery
+    - Neurturin gene delivery
+  symptoms:
+    - Enzymatic deficiency
+  chemicals:
+    - CHEBI:15765
+    - CHEBI:18243
+    - CHEBI:16865
+  action_annotation_relationships:
+    - subject: MAXO:0001001
+      predicate: TREATS
+      object: enzymatic deficiency
+      qualifier: MONDO:0010079
+    - subject: AADC gene delivery
+      predicate: TREATS
+      object: Parkinson's disease
+      subject_qualifier: with L-dopa
+      subject_extension: CHEBI:15765
+    - subject: GAD gene delivery
+      predicate: TREATS
+      object: Parkinson's disease
+      subject_extension: GAD gene delivery
+      object_extension: with GABA
+    - subject: Neurturin gene delivery
+      predicate: TREATS
+      object: Parkinson's disease
+named_entities:
+  - id: CHEBI:26708
+    label: NA
+  - id: MONDO:0010100
+    label: Tay-Sachs disease
+  - id: MONDO:0008876
+    label: Bloom syndrome
+  - id: MONDO:0010079
+    label: Canavan disease
+  - id: HP:0001304
+    label: torsion dystonia
+  - id: MONDO:0009653
+    label: mucolipidosis type IV
+  - id: MONDO:0019391
+    label: Fanconi anemia
+  - id: MONDO:0018150
+    label: Gaucher disease
+  - id: HP:0001929
+    label: factor XI deficiency
+  - id: MONDO:0009287
+    label: glycogen storage disease type 1a
+  - id: MONDO:0009563
+    label: maple syrup urine disease
+  - id: MONDO:0018088
+    label: familial Mediterranean fever
+  - id: MONDO:0009291
+    label: glycogen storage disease type III
+  - id: MONDO:0009131
+    label: Familial dysautonomia
+  - id: MONDO:0044843
+    label: torsion dystonia
+  - id: CHEBI:21547
+    label: N-acetylaspartate (NAA)
+  - id: CHEBI:15351
+    label: Acetyl coenzyme A
+  - id: CHEBI:30089
+    label: Acetate
+  - id: HP:0001250
+    label: seizures
+  - id: HP:0001138
+    label: Optic neuropathy
+  - id: MAXO:0009004
+    label: Whole exome sequencing (WES)
+  - id: MAXO:0000536
+    label: Prenatal diagnosis by chorionic villi sampling (CVS)
+  - id: HP:0002329
+    label: Drowsiness
+  - id: HP:0001252
+    label: Hypotonia
+  - id: HP:0000741
+    label: Apathy
+  - id: HP:0012447
+    label: Abnormal myelination
+  - id: MAXO:0000530
+    label: Carrier screening
+  - id: MONDO:0009061
+    label: cystic fibrosis
+  - id: MONDO:0009756
+    label: Niemann-Pick disease type A
+  - id: HP:0001263
+    label: developmental delay
+  - id: HP:0000256
+    label: macrocephaly
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: MONDO:0005071
+    label: Neurological diseases
+  - id: CHEBI:15765
+    label: L-dopa
+  - id: CHEBI:18243
+    label: Dopamine
+  - id: CHEBI:16865
+    label: GABA

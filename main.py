@@ -15,10 +15,7 @@ class AutoMaxoRunner:
         self.output_json_path = self.base_data_path + "detailed_post_ontoGPT.json"
         self.output_tsv_path = self.base_data_path + "summary_post_ontoGPT.tsv"
 
-    def run(self):
-        print("Starting to get children MeSH IDs for target mesh IDs (Therapeutics and Diagnosis) ...")
-        self.get_targeted_mesh_ids()
-        
+    def run(self):       
         print(f"Starting to retrieve mesh IDs related to treatment and diagnosis of {self.disease_name}...")
         self.retrieve_pubmed_ids()
 
@@ -35,10 +32,6 @@ class AutoMaxoRunner:
 
         print(f"The whole process is complete and the summarised results are saved at {self.output_tsv_path} as a TSV file, and the detailed results are saved in a JSON file at {self.output_json_path} ")
 
-    def get_targeted_mesh_ids(self):
-        input_file = "data/mesh_target_ids.tsv"
-        mesh_list_path = "data/mesh_sets.tsv"
-        import_mesh_data(input_file, mesh_list_path)
 
     def retrieve_pubmed_ids(self):
         pmid_extractor(

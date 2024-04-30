@@ -1,0 +1,73 @@
+---
+input_text: 'Mutation detection in the aspartoacylase gene in 17 patients with Canavan
+  disease: four new mutations in the non-Jewish population. Canavan disease is a severe
+  progressive autosomal recessive disorder, which is characterised by spongy degeneration
+  of the brain. The disease is caused by mutations in the aspartoacylase gene. Two
+  different mutations were reported on 98% of the alleles of Ashkenazi Jewish patients,
+  in which population the disease is highly prevalent. In non-Jewish patients of European
+  origin, one mutation (914C > A) is found in 50% of the alleles, the other alleles
+  representing all kinds of different mutations. We here describe the results of the
+  mutation analysis in 17 European, non-Jewish patients. Ten different mutations were
+  found, of which four had not been described before (H21P, A57T, R168H, P181T). A
+  deletion of exon4, which until now had only been described once, was revealed in
+  all five alleles of Turkish origin tested, indicating that this is a founder effect
+  in the Turkish population.'
+raw_completion_output: |-
+  primary_disease: Canavan disease
+
+  medical_actions: Mutation detection
+
+  symptoms: Spongy degeneration of the brain
+
+  chemicals: 
+
+  action_annotation_relationships: Mutation detection (in aspartoacylase gene) TREATS Spongy degeneration of the brain IN Canavan disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Mutation detection (in aspartoacylase gene) TREATS Spongy degeneration of the brain IN Canavan disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010079
+  medical_actions:
+    - Mutation detection
+  symptoms:
+    - Spongy degeneration of the brain
+  action_annotation_relationships:
+    - subject: Mutation detection
+      predicate: TREATS
+      object: Spongy degeneration of the brain
+      qualifier: MONDO:0010079
+      subject_extension: aspartoacylase gene
+named_entities:
+  - id: MONDO:0010079
+    label: Canavan disease
+  - id: CHEBI:21547
+    label: N-acetyl-L-aspartate (NAA)
+  - id: CHEBI:16953
+    label: N-acetyl-L-aspartate
+  - id: CHEBI:17234
+    label: '[1-(13)C]glucose'
+  - id: MAXO:0000757
+    label: Infusion
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: HP:0001355
+    label: Megalencephaly
+  - id: HP:0010864
+    label: Severe mental retardation
+  - id: HP:0000256
+    label: Macrocephaly
