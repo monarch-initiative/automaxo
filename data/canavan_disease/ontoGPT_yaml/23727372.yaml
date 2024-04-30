@@ -1,0 +1,161 @@
+---
+input_text: '[Megalencephaly with dystonia revealing Canavan disease]. Canavan disease,
+  or N-acetyl aspartic aciduria, is an autosomal recessive leukodystrophy characterized
+  by spongy degeneration of the brain. The disease results from the accumulation of
+  N-acetyl aspartic acid in the brain, due to aspartoacylase deficiency. We report
+  the case of a 6-month-old girl who presented with megalencephaly, peripheral hypertonia,
+  and a developmental delay noticeable after 4 months of age. Magnetic resonance imaging
+  of the brain with spectroscopy was suggestive of Canavan disease, which was confirmed
+  by chromatography of urinary organic acids. '
+raw_completion_output: |-
+  primary_disease: Canavan disease
+
+  medical_actions: Magnetic resonance imaging of the brain with spectroscopy; Chromatography of urinary organic acids
+
+  symptoms: Megalencephaly; Peripheral hypertonia; Developmental delay
+
+  chemicals: N-acetyl aspartic acid
+
+  action_annotation_relationships: Magnetic resonance imaging of the brain with spectroscopy PREVENTS misdiagnosis IN Canavan disease; Chromatography of urinary organic acids TREATS diagnostic uncertainty IN Canavan disease; N-acetyl aspartic acid accumulation TREATS none IN Canavan disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  N-acetyl aspartic acid accumulation TREATS none IN Canavan disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010079
+  medical_actions:
+    - Magnetic resonance imaging of the brain with spectroscopy
+    - Chromatography of urinary organic acids
+  symptoms:
+    - HP:0001355
+    - Peripheral hypertonia
+    - HP:0001263
+  chemicals:
+    - N-acetyl aspartic acid
+  action_annotation_relationships:
+    - subject: <Magnetic resonance imaging of the brain with spectroscopy>
+      predicate: <PREVENTS>
+      object: <misdiagnosis>
+      qualifier: <Canavan disease>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: <Chromatography of urinary organic acids>
+      predicate: <TREATS>
+      object: <diagnostic uncertainty>
+      qualifier: <Canavan disease>
+      subject_extension: <Chromatography>
+    - subject: accumulation
+      predicate: TREATS
+      object: none
+      qualifier: MONDO:0010079
+      subject_extension: N-acetyl aspartic acid
+      object_extension: none
+named_entities:
+  - id: MONDO:0010079
+    label: Canavan disease
+  - id: MONDO:0003847
+    label: Genetic disorders
+  - id: HP:0000739
+    label: Anxiety
+  - id: HP:0001251
+    label: ataxia
+  - id: CHEBI:16953
+    label: N-acetyl-L-aspartate
+  - id: CHEBI:76720
+    label: antisense oligonucleotide
+  - id: MONDO:0019052
+    label: Inborn errors of metabolism (IEM)
+  - id: CHEBI:35584
+    label: Purines
+  - id: CHEBI:16898
+    label: Pyrimidines
+  - id: CHEBI:35692
+    label: Dicarboxylic acids
+  - id: CHEBI:16040
+    label: Cytosine
+  - id: CHEBI:17562
+    label: Cytidine
+  - id: CHEBI:16737
+    label: Creatinine
+  - id: CHEBI:17568
+    label: Uracil
+  - id: CHEBI:16704
+    label: Uridine
+  - id: CHEBI:17802
+    label: Beta-pseudouridine
+  - id: CHEBI:16708
+    label: Adenine
+  - id: CHEBI:38635
+    label: 3-methyladenine
+  - id: CHEBI:17368
+    label: Hypoxanthine
+  - id: CHEBI:15318
+    label: Xanthine
+  - id: CHEBI:18107
+    label: Xanthosine
+  - id: CHEBI:17596
+    label: Inosine
+  - id: CHEBI:16750
+    label: Guanosine
+  - id: CHEBI:22652
+    label: Ascorbic acid
+  - id: CHEBI:17821
+    label: Thymine
+  - id: CHEBI:17748
+    label: Thymidine
+  - id: CHEBI:27226
+    label: Uric acid
+  - id: CHEBI:68441
+    label: 1-methyluric acid
+  - id: CHEBI:16742
+    label: Orotic acid
+  - id: CHEBI:76931
+    label: N-acetylaspartylglutamate
+  - id: CHEBI:30794
+    label: Malonic acid
+  - id: CHEBI:30860
+    label: Methylmalonic acid
+  - id: CHEBI:16856
+    label: GSH
+  - id: CHEBI:17858
+    label: GSSG
+  - id: CHEBI:30145
+    label: lithium
+  - id: MONDO:0019046
+    label: leukodystrophies
+  - id: MAXO:0000127
+    label: genetic testing
+  - id: MAXO:0009004
+    label: whole exome sequencing (WES)
+  - id: MAXO:0000079
+    label: genetic counseling
+  - id: HP:0000256
+    label: Macrocephaly
+  - id: HP:0001249
+    label: Mental retardation
+  - id: HP:0001252
+    label: Hypotonia
+  - id: CHEBI:21547
+    label: N-acetylaspartic acid
+  - id: CHEBI:27881
+    label: Resveratrol (RSV)
+  - id: HP:0001355
+    label: Megalencephaly
+  - id: HP:0001263
+    label: Developmental delay

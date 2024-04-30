@@ -1,0 +1,103 @@
+---
+input_text: 'Canavan disease: a review of recent developments. The clinical features,
+  causes and potential treatment of Canavan disease are reviewed. The course of the
+  illness can show considerable variation, and can sometimes be protracted. It has
+  an autosomal recessive mode of inheritance, and is caused by mutations in the gene
+  for aspartoacetylase, localized to the short arm of chromosome 17. The changes in
+  the central nervous system are related to the deficiency of aspartoacyclase which
+  leads to an excess of N-acetylaspartate. Prenatal diagnosis of Canavan disease is
+  possible by the measurement of N-acetylaspartate in the amniotic fluid, but the
+  method of choice is by DNA analysis. If an infant is suspected of having the disease,
+  due to megalencephaly and clinical deterioration, the diagnosis can be confirmed
+  by elevated N-acetylaspartate levels in the urine, blood, and spinal fluid--and
+  in the brain using proton magnetic resonance spectroscopy. Neuroradiological investigations
+  confirm the white matter degeneration. Reports of children with megalencephaly,
+  and similar clinical findings, but with normal metabolic tests, are also considered.
+  Until recently treatment was symptomatic, such as the control of seizures, but now
+  there is a possibility though not yet proven, of using gene therapy with modification
+  of the phenotype of brain cells while bypassing the blood-brain barrier and the
+  ependyma. This seems to be well tolerated, and was associated with biochemical,
+  radiological, and clinical changes. The development of knockout mice for Canavan
+  disease should help in the development of gene transfer vectors to treat Canavan
+  disease and for understanding the pathophysiology.'
+raw_completion_output: |-
+  primary_disease: Canavan disease
+
+  medical_actions: Prenatal diagnosis; DNA analysis; Measurement of N-acetylaspartate in the amniotic fluid; Control of seizures; Gene therapy
+
+  symptoms: Megalencephaly; Clinical deterioration; White matter degeneration
+
+  chemicals: N-acetylaspartate
+
+  action_annotation_relationships: Prenatal diagnosis (with N-acetylaspartate) PREVENTS Clinical deterioration IN Canavan disease; DNA analysis PREVENTS Clinical deterioration IN Canavan disease; Control of seizures TREATS Megalencephaly IN Canavan disease; Gene therapy TREATS White matter degeneration IN Canavan disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Gene therapy TREATS White matter degeneration IN Canavan disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010079
+  medical_actions:
+    - Prenatal diagnosis
+    - DNA analysis
+    - Measurement of N-acetylaspartate in the amniotic fluid
+    - Control of seizures
+    - MAXO:0001001
+  symptoms:
+    - HP:0001355
+    - Clinical deterioration
+    - White matter degeneration
+  chemicals:
+    - N-acetylaspartate
+  action_annotation_relationships:
+    - subject: Prenatal diagnosis
+      predicate: PREVENTS
+      object: Clinical deterioration
+      qualifier: MONDO:0010079
+      subject_qualifier: with N-acetylaspartate
+      subject_extension: N-acetylaspartate
+    - subject: <DNA analysis>
+      predicate: <PREVENTS>
+      object: <Clinical deterioration>
+      qualifier: <Canavan disease>
+      subject_extension: <DNA analysis>
+    - subject: Control of seizures
+      predicate: TREATS
+      object: HP:0001355
+      qualifier: MONDO:0010079
+    - subject: <Gene therapy>
+      predicate: <TREATS>
+      object: <White matter degeneration>
+      qualifier: <Canavan disease>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <Gene therapy>
+      object_extension: <White matter degeneration>
+named_entities:
+  - id: MONDO:0010079
+    label: Canavan disease
+  - id: CHEBI:21547
+    label: N-acetyl-L-aspartate (NAA)
+  - id: CHEBI:16953
+    label: N-acetyl-L-aspartate
+  - id: CHEBI:17234
+    label: '[1-(13)C]glucose'
+  - id: MAXO:0000757
+    label: Infusion
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: HP:0001355
+    label: Megalencephaly

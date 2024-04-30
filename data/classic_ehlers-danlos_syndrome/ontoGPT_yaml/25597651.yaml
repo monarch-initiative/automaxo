@@ -1,0 +1,77 @@
+---
+input_text: Spontaneous ruptured dissection of the right common iliac artery in a
+  patient with classic Ehlers-Danlos syndrome phenotype. Unlike vascular Ehlers-Danlos
+  syndrome (EDS), classic EDS is rarely associated with vascular manifestation. We
+  report the case of a 39-year-old man who presented with acute abdominal pain. At
+  the time of presentation, the patient was in hypovolemic shock, and computed tomography
+  angiogram demonstrated common iliac artery dissection with rupture. He underwent
+  an attempted endovascular repair that was converted to an open repair of a ruptured
+  right common iliac artery dissection. Subsequent genetic testing revealed a substitution
+  of arginine for cysteine in type I collagen, COL1A1 exon 14 c.934C>T mutation, consistent
+  with a rare variant of classic EDS.
+raw_completion_output: |-
+  primary_disease: Classic Ehlers-Danlos syndrome
+
+  medical_actions: Attempted endovascular repair; Conversion to open repair; Genetic testing
+
+  symptoms: Acute abdominal pain; Hypovolemic shock; Common iliac artery dissection with rupture
+
+  chemicals: 
+
+  action_annotation_relationships: Attempted endovascular repair TREATS Common iliac artery dissection with rupture IN Classic Ehlers-Danlos syndrome; Conversion to open repair TREATS Common iliac artery dissection with rupture IN Classic Ehlers-Danlos syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Conversion to open repair TREATS Common iliac artery dissection with rupture IN Classic Ehlers-Danlos syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0007522
+  medical_actions:
+    - Attempted endovascular repair
+    - Conversion to open repair
+    - MAXO:0000127
+  symptoms:
+    - HP:0033400
+    - HP:0031274
+    - Common iliac artery dissection with rupture
+  action_annotation_relationships:
+    - subject: <Attempted endovascular repair>
+      predicate: <TREATS>
+      object: <Common iliac artery dissection with rupture>
+      qualifier: <Classic Ehlers-Danlos syndrome>
+      subject_qualifier: <Not applicable>
+      object_qualifier: <Not applicable>
+      subject_extension: <Not applicable>
+      object_extension: <Not applicable>
+    - subject: Conversion to open repair
+      predicate: TREATS
+      object: Common iliac artery dissection with rupture
+      qualifier: MONDO:0007522
+named_entities:
+  - id: MONDO:0020066
+    label: Ehlers-Danlos syndrome
+  - id: MAXO:0010203
+    label: echocardiography
+  - id: HP:0001634
+    label: mitral valve prolapse
+  - id: MONDO:0007522
+    label: Classic Ehlers-Danlos syndrome
+  - id: MAXO:0000127
+    label: Genetic testing
+  - id: HP:0033400
+    label: Acute abdominal pain
+  - id: HP:0031274
+    label: Hypovolemic shock

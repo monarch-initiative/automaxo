@@ -1,0 +1,104 @@
+---
+input_text: "Utilization of echocardiography in Ehlers-Danlos syndrome. OBJECTIVES:
+  This study assessed the frequency and utility of echocardiographic examination in
+  patients with all forms of Ehlers-Danlos syndrome and sought to identify clinical
+  variables associated with an abnormal echocardiogram. DESIGN/SETTING: This was a
+  retrospective study of all patients carrying a diagnosis of Ehlers-Danlos syndrome
+  of any type who were evaluated by a pediatrician or pediatric subspecialist at a
+  single tertiary medical center with an affiliated children's hospital during the
+  period January 2013 to December 2018. PATIENTS: Chart review was performed on all
+  patients carrying a diagnosis of Ehlers-Danlos syndrome in the electronic medical
+  record. OUTCOME MEASURES: Data from genetics examination, cardiovascular examination
+  where applicable, genetic test results when available, and echocardiography were
+  recorded. RESULTS: Of 262 patients identified, echocardiography and cardiac evaluation
+  were common occurring in 90% and 50% of patients with any form of Ehlers-Danlos
+  syndrome. Cardiovascular complications occurred in 50% of patients with vascular
+  Ehlers-Danlos syndrome but echocardiography was normal in all. Aortic dilation was
+  common in classic Ehlers-Danlos syndrome but absent in hypermobile Ehlers-Danlos
+  syndrome. Mitral valve prolapse and bicuspid aortic valve occurred at the same incidence
+  as the general population. Cardiac symptoms were present in 12% but did not correlate
+  with abnormal cardiac structure. Presentation with symptoms of musculoskeletal pain
+  was inversely related to the presence of cardiac pathology. CONCLUSIONS: In light
+  of the absence of cardiac pathology in patients with hypermobile Ehlers-Danlos syndrome,
+  routine cardiac evaluation and echocardiography are not required for patients with
+  hypermobile Ehlers-Danlos syndrome."
+raw_completion_output: |-
+  primary_disease: Ehlers-Danlos syndrome
+
+  medical_actions: echocardiography; cardiac evaluation; genetics examination; cardiovascular examination
+
+  symptoms: aortic dilation; mitral valve prolapse; bicuspid aortic valve; musculoskeletal pain
+
+  chemicals: 
+
+  action_annotation_relationships: echocardiography PREVENTS aortic dilation IN Ehlers-Danlos syndrome; cardiac evaluation PREVENTS mitral valve prolapse IN Ehlers-Danlos syndrome; genetics examination PREVENTS bicuspid aortic valve IN Ehlers-Danlos syndrome; cardiovascular examination TREATS musculoskeletal pain IN Ehlers-Danlos syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  cardiovascular examination TREATS musculoskeletal pain IN Ehlers-Danlos syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0020066
+  medical_actions:
+    - MAXO:0010203
+    - cardiac evaluation
+    - genetics examination
+    - cardiovascular examination
+  symptoms:
+    - HP:0004942
+    - HP:0001634
+    - HP:0001647
+    - musculoskeletal pain
+  action_annotation_relationships:
+    - subject: MAXO:0010203
+      predicate: PREVENTS
+      object: HP:0004942
+      qualifier: MONDO:0020066
+    - subject: cardiac evaluation
+      predicate: PREVENTS
+      object: HP:0001634
+      qualifier: MONDO:0020066
+    - subject: <genetics examination>
+      predicate: <PREVENTS>
+      object: <bicuspid aortic valve>
+      qualifier: <Ehlers-Danlos syndrome>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: cardiovascular examination
+      predicate: TREATS
+      object: musculoskeletal pain
+      qualifier: MONDO:0020066
+named_entities:
+  - id: MONDO:0020066
+    label: Ehlers-Danlos syndrome
+  - id: MAXO:0010203
+    label: echocardiography
+  - id: HP:0001634
+    label: mitral valve prolapse
+  - id: MONDO:0007522
+    label: Classic Ehlers-Danlos syndrome
+  - id: MAXO:0000127
+    label: Genetic testing
+  - id: HP:0033400
+    label: Acute abdominal pain
+  - id: HP:0031274
+    label: Hypovolemic shock
+  - id: HP:0004942
+    label: aortic dilation
+  - id: HP:0001647
+    label: bicuspid aortic valve
