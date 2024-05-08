@@ -1,0 +1,81 @@
+---
+input_text: "Pearls & Oy-sters: Epilepsy is a key feature of pediatric-onset Huntington's
+  disease. Pediatric-onset Huntingtons disease (PoHD) presents differently from adult-onset
+  disease. Children typically exhibit regression in school performance, psychiatric
+  features such as inattention, and oral motor dysfunction. Unlike adult-onset HD,
+  in which seizures occur at approximately the rate of the general public, at least
+  half of children with HD develop epilepsy and seizures can be a presenting feature
+  of PoHD. Here we present the case of a 10-year-old boy with a history of language
+  delay, motor regression, oral motor dysfunction, and tremor who presented with a
+  first lifetime seizure. Given a family history of Huntingtons disease in his father,
+  PoHD was considered, and a pathogenic allele with 88 repeats was confirmed in the
+  child. As symptoms progressed, history alone could not differentiate abnormal movements
+  from seizures. Continuous video electroencephalography helped to demonstrate epileptic
+  myoclonic jerks and guide treatment."
+raw_completion_output: |-
+  primary_disease: Pediatric-onset Huntington's disease
+  medical_actions: Continuous video electroencephalography; treatment
+  symptoms: Regression in school performance; inattention; oral motor dysfunction; seizures; language delay; motor regression; tremor
+  chemicals: 
+  action_annotation_relationships: Continuous video electroencephalography TREATS seizures IN Pediatric-onset Huntington's disease; treatment TREATS epileptic myoclonic jerks IN Pediatric-onset Huntington's disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  treatment TREATS epileptic myoclonic jerks IN Pediatric-onset Huntington's disease
+
+  ===
+
+extracted_object:
+  primary_disease: Pediatric-onset Huntington's disease
+  medical_actions:
+    - Continuous video electroencephalography
+    - treatment
+  symptoms:
+    - Regression in school performance
+    - inattention
+    - oral motor dysfunction
+    - HP:0001250
+    - HP:0000750
+    - HP:0033044
+    - HP:0001337
+  action_annotation_relationships:
+    - subject: <Continuous video electroencephalography>
+      predicate: <TREATS>
+      object: <seizures>
+      qualifier: <Pediatric-onset Huntington's disease>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: treatment
+      predicate: TREATS
+      object: epileptic myoclonic jerks
+      qualifier: Pediatric-onset Huntington's disease
+named_entities:
+  - id: MONDO:0007739
+    label: Huntington disease
+  - id: HP:0002354
+    label: Memory impairment
+  - id: HP:0002072
+    label: chorea
+  - id: HP:0000708
+    label: behavioural changes
+  - id: HP:0001250
+    label: seizures
+  - id: HP:0000750
+    label: language delay
+  - id: HP:0033044
+    label: motor regression
+  - id: HP:0001337
+    label: tremor

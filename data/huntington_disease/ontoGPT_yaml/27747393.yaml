@@ -1,0 +1,155 @@
+---
+input_text: "Exercise effects in Huntington disease. Huntington disease (HD) is a
+  relentlessly progressive neurodegenerative disorder with symptoms across a wide
+  range of neurological domains, including cognitive and motor dysfunction. There
+  is still no causative treatment for HD but environmental factors such as passive
+  lifestyle may modulate disease onset and progression. In humans, multidisciplinary
+  rehabilitation has a positive impact on cognitive functions. However, a specific
+  role for exercise as a component of an environmental enrichment effect has been
+  difficult to demonstrate. We aimed at investigating whether endurance training (ET)
+  stabilizes the progression of motor and cognitive dysfunction and ameliorates cardiovascular
+  function in HD patients. Twelve male HD patients (mean +- SD, 54.8 +- 7.1 years)
+  and twelve male controls (49.1 +- 6.8 years) completed 26 weeks of endurance training.
+  Before and after the training intervention, clinical assessments, exercise physiological
+  tests, and a body composition measurement were conducted and a muscle biopsy was
+  taken from M. vastus lateralis. To examine the natural course of the disease, HD
+  patients were additionally assessed 6 months prior to ET. During the ET period,
+  there was a motor deficit stabilization as indicated by the Unified Huntington's
+  Disease Rating Scale motor section score in HD patients (baseline: 18.6 +- 9.2,
+  pre-training: 26.0 +- 13.7, post-training: 26.8 +- 16.4). Peak oxygen uptake ([Formula:
+  see text]) significantly increased in HD patients ( [Formula: see text] = +0.33
+  +- 0.28 l) and controls ( [Formula: see text] = +0.29 +- 0.41 l). No adverse effects
+  of the training intervention were reported. Our results confirm that HD patients
+  are amenable to a specific exercise-induced therapeutic strategy indicated by an
+  increased cardiovascular function and a stabilization of motor function."
+raw_completion_output: |-
+  primary_disease: Huntington disease
+
+  medical_actions: endurance training;clinical assessments;exercise physiological tests;body composition measurement;muscle biopsy
+
+  symptoms: cognitive dysfunction;motor dysfunction;motor deficit
+
+  chemicals: 
+
+  action_annotation_relationships: endurance training TREATS motor deficit IN Huntington disease;endurance training STABILIZES motor dysfunction IN Huntington disease;endurance training AMELIORATES cognitive dysfunction IN Huntington disease;endurance training INCREASES cardiovascular function IN Huntington disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  endurance training INCREASES cardiovascular function IN Huntington disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0007739
+  medical_actions:
+    - endurance training
+    - MAXO:0000487
+    - exercise physiological tests
+    - body composition measurement
+    - MAXO:0000387
+  symptoms:
+    - HP:0100543
+    - motor dysfunction
+    - motor deficit
+  action_annotation_relationships:
+    - subject: endurance training
+      predicate: TREATS
+      object: motor deficit
+      qualifier: MONDO:0007739
+    - subject: endurance training
+      predicate: STABILIZES
+      object: motor dysfunction
+      qualifier: MONDO:0007739
+    - subject: <endurance training>
+      predicate: <AMELIORATES>
+      object: <cognitive dysfunction>
+      qualifier: <Huntington disease>
+      subject_extension: <endurance training>
+    - subject: endurance training
+      predicate: INCREASES
+      object: cardiovascular function
+      qualifier: MONDO:0007739
+named_entities:
+  - id: MONDO:0007739
+    label: Huntington disease
+  - id: HP:0002529
+    label: neuronal loss
+  - id: HP:0010535
+    label: sleep disordered breathing
+  - id: MAXO:0000010
+    label: cognitive behavioural therapy
+  - id: HP:0004305
+    label: involuntary movements
+  - id: MONDO:0005395
+    label: Movement disorders
+  - id: MAXO:0001000
+    label: Functional MRI (fMRI)
+  - id: MAXO:0009070
+    label: Single-photon emission computed tomography (SPECT)
+  - id: HP:0002487
+    label: Hyperkinetic movements
+  - id: HP:0001332
+    label: Dystonic movements
+  - id: HP:0100022
+    label: Movement disorders
+  - id: MAXO:0000127
+    label: Genetic testing
+  - id: MAXO:0000079
+    label: Genetic counseling
+  - id: HP:0025464
+    label: oxidative stress
+  - id: CHEBI:16908
+    label: NADH
+  - id: CHEBI:30879
+    label: Alcohol
+  - id: CHEBI:23888
+    label: Drugs
+  - id: MAXO:0000882
+    label: Behavioral interventions
+  - id: HP:0100543
+    label: cognitive deficits
+  - id: CHEBI:3723
+    label: citalopram
+  - id: HP:0002340
+    label: Caudate atrophy
+  - id: CHEBI:566274
+    label: Malondialdehyde (MDA)
+  - id: CHEBI:149681
+    label: Catalase (CAT)
+  - id: CHEBI:73860
+    label: Glutathione reductase (GR)
+  - id: CHEBI:16856
+    label: Reduced glutathione (GSH)
+  - id: MONDO:0005301
+    label: Multiple Sclerosis
+  - id: CHEBI:76720
+    label: Antisense oligonucleotides
+  - id: HP:0002333
+    label: motor deterioration
+  - id: HP:0002072
+    label: Chorea
+  - id: HP:0040141
+    label: Tardive dyskinesia
+  - id: HP:0100033
+    label: Tics
+  - id: CHEBI:9467
+    label: Tetrabenazine
+  - id: MONDO:0007661
+    label: Tourette syndrome
+  - id: HP:0002500
+    label: white matter abnormalities
+  - id: MAXO:0000487
+    label: clinical assessments
+  - id: MAXO:0000387
+    label: muscle biopsy

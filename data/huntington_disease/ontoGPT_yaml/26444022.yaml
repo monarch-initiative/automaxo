@@ -1,0 +1,117 @@
+---
+input_text: 'Practice Effects and Stability of Neuropsychological and UHDRS Tests
+  Over Short Retest Intervals in Huntington Disease. BACKGROUND: In Huntington disease
+  (HD), cognitive changes due to disease-progression or treatment are potentially
+  confounded by "practice effects" (PE)--performance improvement from prior exposure
+  to test materials. OBJECTIVE: A practice run-in ("dual baseline") was used in an
+  HD cognitive trial to determine if PE could be minimized and evaluate performance
+  trajectories over multiple visits. METHODS: Non-depressed adults (N = 36) with mild
+  to moderate HD-related cognitive deficits participated in a clinical trial to examine
+  the efficacy of citalopram to enhance cognition. Cognitive tests were administered
+  at three visits (2 weeks separating each visit), before active treatment randomization.
+  Some tests were also administered at screening. Therefore 3-4 pre-treatment repetitions
+  were available. We examined test improvement using repeated-measures ANOVAs with
+  planned pairwise comparisons. RESULTS: Despite the practice run-in and use of alternate
+  test forms, results indicated ongoing improvements over at least three test sessions
+  on all three UHDRS cognitive tests. Trails A and B showed improvements between the
+  third and fourth session, which suggests that one pre-baseline visit may not be
+  effective in reducing practice on this important and commonly used test. CONCLUSIONS:
+  Overall, 7 out of 13 variables showed some degree of short-term PE, even after multiple
+  sessions and alternate forms. Tests assessing processing speed and memory may be
+  particularly confounded by ongoing PE across at least 2-3 sessions. Practice run-in
+  periods and alternate forms may help minimize the impact of such effects in HD clinical
+  trials but awareness of which tests are most susceptible to PE is important in clinical
+  trial design.'
+raw_completion_output: |-
+  primary_disease: Huntington disease
+
+  medical_actions: practice run-in ("dual baseline"); clinical trial; repeated-measures ANOVAs; planned pairwise comparisons; use of alternate test forms
+
+  symptoms: cognitive changes; cognitive deficits
+
+  chemicals: citalopram
+
+  action_annotation_relationships: practice run-in ("dual baseline") PREVENTS cognitive changes IN Huntington disease; clinical trial (with citalopram) TREATS cognitive deficits IN Huntington disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  clinical trial (with citalopram) TREATS cognitive deficits IN Huntington disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0007739
+  medical_actions:
+    - practice run-in ("dual baseline")
+    - clinical trial
+    - repeated-measures ANOVAs
+    - planned pairwise comparisons
+    - use of alternate test forms
+  symptoms:
+    - cognitive changes
+    - HP:0100543
+  chemicals:
+    - CHEBI:3723
+  action_annotation_relationships:
+    - subject: practice run-in ("dual baseline")
+      predicate: PREVENTS
+      object: cognitive changes
+      qualifier: MONDO:0007739
+    - subject: clinical trial
+      predicate: TREATS
+      object: HP:0100543
+      qualifier: MONDO:0007739
+      subject_qualifier: with citalopram
+      subject_extension: CHEBI:3723
+named_entities:
+  - id: MONDO:0007739
+    label: Huntington disease
+  - id: HP:0002529
+    label: neuronal loss
+  - id: HP:0010535
+    label: sleep disordered breathing
+  - id: MAXO:0000010
+    label: cognitive behavioural therapy
+  - id: HP:0004305
+    label: involuntary movements
+  - id: MONDO:0005395
+    label: Movement disorders
+  - id: MAXO:0001000
+    label: Functional MRI (fMRI)
+  - id: MAXO:0009070
+    label: Single-photon emission computed tomography (SPECT)
+  - id: HP:0002487
+    label: Hyperkinetic movements
+  - id: HP:0001332
+    label: Dystonic movements
+  - id: HP:0100022
+    label: Movement disorders
+  - id: MAXO:0000127
+    label: Genetic testing
+  - id: MAXO:0000079
+    label: Genetic counseling
+  - id: HP:0025464
+    label: oxidative stress
+  - id: CHEBI:16908
+    label: NADH
+  - id: CHEBI:30879
+    label: Alcohol
+  - id: CHEBI:23888
+    label: Drugs
+  - id: MAXO:0000882
+    label: Behavioral interventions
+  - id: HP:0100543
+    label: cognitive deficits
+  - id: CHEBI:3723
+    label: citalopram

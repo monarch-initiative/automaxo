@@ -1,0 +1,83 @@
+---
+input_text: Psychogenic non-epileptic seizures in early Huntington's disease. Huntington's
+  disease (HD) is a neurodegenerative condition characterised by motor dysfunction
+  with involuntary movements and loss of voluntary control, cognitive deterioration
+  and psychiatric problems. We report a 51-year-old man with early HD who experienced
+  stereotyped episodes of repetitive, purposeless complex movements and unresponsiveness.
+  His neurological examination was compatible with HD as were all investigations.
+  We diagnosed psychogenic non-epileptic seizures. While seizures are common in juvenile-onset
+  HD, they are no more prevalent in adult-onset HD than in the general population.
+  However, neuropsychiatric symptoms are common in HD and can involve a number of
+  different complaints. Patients may experience dissociative attacks soon after manifesting
+  a HD diagnosis. Such episodes can be managed with patient and carer education, cognitive
+  behavioural therapy and anxiolytic selective serotonin reuptake inhibitors.
+raw_completion_output: |-
+  primary_disease: Huntington's disease
+
+  medical_actions: patient and carer education; cognitive behavioural therapy; anxiolytic selective serotonin reuptake inhibitors
+
+  symptoms: involuntary movements; loss of voluntary control; cognitive deterioration; psychiatric problems; stereotyped episodes of repetitive, purposeless complex movements and unresponsiveness
+
+  chemicals: selective serotonin reuptake inhibitors
+
+  action_annotation_relationships: patient and carer education TREATS stereotyped episodes of repetitive, purposeless complex movements and unresponsiveness IN Huntington's disease; cognitive behavioural therapy TREATS stereotyped episodes of repetitive, purposeless complex movements and unresponsiveness IN Huntington's disease; anxiolytic selective serotonin reuptake inhibitors (with selective serotonin reuptake inhibitors) TREATS psychiatric problems IN Huntington's disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  anxiolytic selective serotonin reuptake inhibitors (with selective serotonin reuptake inhibitors) TREATS psychiatric problems IN Huntington's disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0007739
+  medical_actions:
+    - patient and carer education
+    - MAXO:0000010
+    - anxiolytic selective serotonin reuptake inhibitors
+  symptoms:
+    - HP:0004305
+    - loss of voluntary control
+    - cognitive deterioration
+    - psychiatric problems
+    - stereotyped episodes of repetitive, purposeless complex movements and unresponsiveness
+  chemicals:
+    - selective serotonin reuptake inhibitors
+  action_annotation_relationships:
+    - subject: patient and carer education
+      predicate: TREATS
+      object: stereotyped episodes of repetitive, purposeless complex movements and
+        unresponsiveness
+      qualifier: MONDO:0007739
+    - subject: MAXO:0000010
+      predicate: TREATS
+      object: stereotyped episodes of repetitive, purposeless complex movements and
+        unresponsiveness
+      qualifier: MONDO:0007739
+    - subject: anxiolytic selective serotonin reuptake inhibitors
+      predicate: TREATS
+      object: psychiatric problems
+      qualifier: MONDO:0007739
+      subject_qualifier: with selective serotonin reuptake inhibitors
+      subject_extension: selective serotonin reuptake inhibitors
+named_entities:
+  - id: MONDO:0007739
+    label: Huntington disease
+  - id: HP:0002529
+    label: neuronal loss
+  - id: HP:0010535
+    label: sleep disordered breathing
+  - id: MAXO:0000010
+    label: cognitive behavioural therapy
+  - id: HP:0004305
+    label: involuntary movements
