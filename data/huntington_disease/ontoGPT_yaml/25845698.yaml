@@ -1,0 +1,108 @@
+---
+input_text: "Polysomnographic Findings and Clinical Correlates in Huntington Disease:
+  A Cross-Sectional Cohort Study. STUDY OBJECTIVES: To evaluate the sleep pattern
+  and the motor activity during sleep in a cohort of patients affected by Huntington
+  disease (HD). DESIGN: Cross-sectional cohort study. SETTING: Sleep laboratory. PATIENTS:
+  Thirty HD patients, 16 women and 14 men (mean age 57.3 +- 12.2 y); 30 matched healthy
+  controls (mean age 56.5 +- 11.8 y). INTERVENTIONS: Subjective sleep evaluation:
+  Epworth Sleepiness Scale (ESS); Berlin's Questionnaire, interview for restless legs
+  syndrome (RLS), questionnaire for REM sleep behavior disorder (RBD). Clinical evaluation:
+  disease duration, clinical severity (unified Huntington disease motor rating scale
+  [UHDMRS]), genetic tests. Laboratory-based full-night attended video-polysomnography
+  (V-PSG). MEASUREMENTS AND RESULTS: The duration of the disease was 9.4 +- 4.4 y,
+  UHMDRS score was 55.5 +- 23.4, CAG repeats were 44.3 +- 4.1. Body mass index was
+  21.9 +- 4.0 kg/m(2). No patients or caregivers reported poor sleep quality. Two
+  patients reported symptoms of RLS. Eight patients had an ESS score >= 9. Eight patients
+  had high risk of obstructive sleep apnea. At the RBD questionnaire, two patients
+  had a pathological score. HD patients, compared to controls, showed shorter sleep,
+  reduced sleep efficiency index, and increased arousals and awakenings. Four patients
+  presented with sleep disordered breathing (SDB). Periodic limb movements (PLMs)
+  during wake and sleep were observed in all patients. No episode of RBD was observed
+  in the V-PSG recordings, and no patients showed rapid eye movement (REM) sleep without
+  atonia. The disease duration correlated with ESS score (P < 0.02). UHMDRS correlated
+  positively with the ESS score (P < 0.005), and negatively with the percentage of
+  REM sleep. CONCLUSIONS: Patients with Huntington disease showed a severe sleep disruption
+  and a high prevalence of periodic limb movements, but no evidence of sleep disordered
+  breathing or REM sleep behavior disorder."
+raw_completion_output: |-
+  primary_disease: Huntington disease
+  medical_actions: Subjective sleep evaluation; Epworth Sleepiness Scale; Berlin's Questionnaire; interview for restless legs syndrome; questionnaire for REM sleep behavior disorder; Clinical evaluation; Laboratory-based full-night attended video-polysomnography
+  symptoms: severe sleep disruption; high prevalence of periodic limb movements; symptoms of restless legs syndrome; high risk of obstructive sleep apnea; shorter sleep; reduced sleep efficiency index; increased arousals and awakenings; sleep disordered breathing
+  chemicals: 
+  action_annotation_relationships: Subjective sleep evaluation TREATS severe sleep disruption IN Huntington disease; Epworth Sleepiness Scale (ESS) TREATS symptoms of restless legs syndrome IN Huntington disease; Berlin's Questionnaire PREVENTS high risk of obstructive sleep apnea IN Huntington disease; interview for restless legs syndrome (RLS) TREATS symptoms of restless legs syndrome IN Huntington disease; questionnaire for REM sleep behavior disorder PREVENTS REM sleep behavior disorder IN Huntington disease; Clinical evaluation TREATS increased arousals and awakenings IN Huntington disease; Laboratory-based full-night attended video-polysomnography TREATS severe sleep disruption IN Huntington disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Laboratory-based full-night attended video-polysomnography TREATS severe sleep disruption IN Huntington disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0007739
+  medical_actions:
+    - Subjective sleep evaluation
+    - Epworth Sleepiness Scale
+    - Berlin's Questionnaire
+    - interview for restless legs syndrome
+    - questionnaire for REM sleep behavior disorder
+    - Clinical evaluation
+    - Laboratory-based full-night attended video-polysomnography
+  symptoms:
+    - severe sleep disruption
+    - high prevalence of periodic limb movements
+    - symptoms of restless legs syndrome
+    - high risk of obstructive sleep apnea
+    - shorter sleep
+    - reduced sleep efficiency index
+    - increased arousals and awakenings
+    - HP:0010535
+  action_annotation_relationships:
+    - subject: Subjective sleep evaluation
+      predicate: TREATS
+      object: severe sleep disruption
+      qualifier: MONDO:0007739
+      object_qualifier: severe
+    - subject: Epworth Sleepiness Scale (ESS)
+      predicate: TREATS
+      object: symptoms of restless legs syndrome
+      qualifier: MONDO:0007739
+    - subject: <Berlin's Questionnaire>
+      predicate: <PREVENTS>
+      object: <high risk of obstructive sleep apnea>
+      qualifier: <Huntington disease>
+      subject_extension: <Berlin's Questionnaire>
+    - subject: interview for restless legs syndrome (RLS)
+      predicate: TREATS
+      object: symptoms of restless legs syndrome
+      qualifier: MONDO:0007739
+    - subject: questionnaire for REM sleep behavior disorder
+      predicate: PREVENTS
+      object: REM sleep behavior disorder
+      qualifier: MONDO:0007739
+    - subject: Clinical evaluation
+      predicate: TREATS
+      object: increased arousals and awakenings
+      qualifier: MONDO:0007739
+    - subject: Laboratory-based full-night attended video-polysomnography
+      predicate: TREATS
+      object: severe sleep disruption
+      qualifier: MONDO:0007739
+      object_qualifier: severe
+named_entities:
+  - id: MONDO:0007739
+    label: Huntington disease
+  - id: HP:0002529
+    label: neuronal loss
+  - id: HP:0010535
+    label: sleep disordered breathing

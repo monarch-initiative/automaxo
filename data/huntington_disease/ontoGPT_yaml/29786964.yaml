@@ -1,0 +1,101 @@
+---
+input_text: A Thorough QT/QTc Study With Laquinimod, a Novel Immunomodulator in Development
+  for Multiple Sclerosis and Huntington Disease. In this randomized double-blind study,
+  4 groups of healthy subjects (50 per arm) participated to evaluate the effect of
+  laquinimod, an oral treatment in development for multiple sclerosis and Huntington
+  disease, on the QTc interval. Subjects received a dose of either 0.6 or 1.2 mg/day
+  laquinimod for 14 days, placebo for 14 days, or 13 days of placebo followed by a
+  dose of 400 mg moxifloxacin on day 14. Continuous 12-lead electrocardiograms were
+  recorded on day -1 (baseline) and days 14 to 17,  and quadruplicate electrocardiograms
+  were extracted at predefined time points. The primary measure was time-matched change
+  from baseline in individual QTc (QTcI), and an analysis of variance was conducted
+  on the placebo-corrected change from baseline data (ddQTcI). Pharmacokinetic-pharmacodynamic
+  and safety assessments were included. Results showed that the upper limits of the
+  2-sided 90%CI for ddQTcI for both laquinimod doses were below 10 millisconds at
+  all time points, whereas lower limits for moxifloxacin were above 5 milliseconds.
+  No notable changes in ECG parameters were observed. Pharmacokinetic/pharmacodynamic
+  analysis showed no positive correlation between laquinimod plasma levels and QTcI.
+  In conclusion, laquinimod was not found to affect cardiac repolarization or to cause
+  prolongation of QTcI at doses of 0.6 and 1.2 mg/day.
+raw_completion_output: |-
+  primary_disease: Multiple Sclerosis; Huntington Disease
+  medical_actions: oral treatment; placebo treatment; electrocardiograms recording; pharmacokinetic-pharmacodynamic assessments; safety assessments
+  symptoms: prolongation of QTcI
+  chemicals: Laquinimod; Moxifloxacin
+  action_annotation_relationships: oral treatment (with Laquinimod) TREATS Multiple Sclerosis; oral treatment (with Laquinimod) TREATS Huntington Disease; placebo treatment PREVENTS prolongation of QTcI IN Multiple Sclerosis; placebo treatment PREVENTS prolongation of QTcI IN Huntington Disease; electrocardiograms recording MONITORS prolongation of QTcI IN Multiple Sclerosis; electrocardiograms recording MONITORS prolongation of QTcI IN Huntington Disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  electrocardiograms recording MONITORS prolongation of QTcI IN Huntington Disease
+
+  ===
+
+extracted_object:
+  primary_disease: Multiple Sclerosis; Huntington Disease
+  medical_actions:
+    - oral treatment
+    - placebo treatment
+    - electrocardiograms recording
+    - pharmacokinetic-pharmacodynamic assessments
+    - safety assessments
+  symptoms:
+    - prolongation of QTcI
+  chemicals:
+    - CHEBI:134738
+    - CHEBI:63611
+  action_annotation_relationships:
+    - subject: oral treatment
+      predicate: TREATS
+      object: Multiple Sclerosis
+      subject_qualifier: with Laquinimod
+      subject_extension: CHEBI:134738
+    - subject: oral treatment
+      predicate: TREATS
+      qualifier: MONDO:0007739
+      subject_qualifier: with Laquinimod
+      subject_extension: CHEBI:134738
+    - subject: placebo treatment
+      predicate: PREVENTS
+      object: prolongation of QTcI
+      qualifier: MONDO:0005301
+      subject_extension: placebo
+    - subject: <placebo treatment>
+      predicate: <PREVENTS>
+      object: <prolongation of QTcI>
+      qualifier: <Huntington Disease>
+      subject_extension: <placebo>
+    - subject: electrocardiograms recording
+      predicate: MONITORS
+      object: prolongation of QTcI
+      qualifier: MONDO:0005301
+      subject_extension: electrocardiograms
+    - subject: electrocardiograms recording
+      predicate: MONITORS
+      object: prolongation of QTcI
+      qualifier: MONDO:0007739
+named_entities:
+  - id: MONDO:0007739
+    label: Huntington's disease
+  - id: MAXO:0000972
+    label: Eye movement measurement
+  - id: HP:0002333
+    label: Motor deterioration
+  - id: HP:0100543
+    label: Cognitive deficits
+  - id: CHEBI:134738
+    label: Laquinimod
+  - id: CHEBI:63611
+    label: Moxifloxacin
+  - id: MONDO:0005301
+    label: Multiple Sclerosis
