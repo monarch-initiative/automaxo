@@ -21,7 +21,6 @@ class AutoMaxoRunner:
         print(f"Starting to extract data from json files and save the text where each row is title and abstract ...")
         process_article_jsons_to_tsv(self.json_files_dir,  self.no_replaced_tsv_file_path)
 
-
         print(f"Starting integration of OntoGPT article by article ...")
         process_ontogpt_articles(self.no_replaced_tsv_file_path, self.ontogpt_yaml_files_dir, template='maxo')
 

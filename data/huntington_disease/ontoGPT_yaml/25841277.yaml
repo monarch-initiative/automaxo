@@ -1,0 +1,117 @@
+---
+input_text: PET/MR in dementia and other neurodegenerative diseases. The spectrum
+  of neurodegenerative diseases covers the dementias, parkinsonian syndromes, Huntington
+  disease, amyotrophic lateral sclerosis, and prion diseases. In these entities, brain
+  MRI is often used in clinical routine to exclude other pathologies and to demonstrate
+  specific atrophy patterns. [18F]FDG PET delivers early and sensitive readouts of
+  neural tissue loss, and more specific PET tracers currently in use clinically target
+  beta-amyloid plaques or dopaminergic deficiency. The recent integration of PET into
+  MR technology offers a new chance to improve early and differential diagnosis of
+  many neurodegenerative diseases. Initial evidence in the literature is available
+  to support this notion. New emerging PET tracers, such as tracers that bind to tau
+  or alpha-synuclein aggregates, as well as MR techniques, like diffusion-tensor imaging,
+  resting-state functional MRI, and arterial spin labeling, have the potential to
+  broaden the diagnostic capabilities of combined PET/MRI to image dementias, Parkinson
+  disease, and other neurodegenerative diseases. The ultimate goal is to establish
+  combined PET/MRI as a first-line imaging technique to provide, in a one-stop-shop
+  fashion with improved patient comfort, all biomarker information required to increase
+  diagnostic confidence toward specific diagnoses. The technical challenge of accurate
+  PET data attenuation correction within PET/MRI systems needs yet to be solved. Apart
+  from the projected clinical routine applications, future research would need to
+  answer the questions of whether combined brain PET/MRI is able to improve basic
+  research of neurodegenerative diseases and antineurodegeneration drug testing.
+raw_completion_output: |-
+  primary_disease: neurodegenerative diseases
+  medical_actions: Use of brain MRI; Use of [18F]FDG PET; Use of specific PET tracers targeting beta-amyloid plaques; Use of specific PET tracers targeting dopaminergic deficiency; Integration of PET into MR technology; Use of PET tracers binding to tau or alpha-synuclein aggregates; Use of diffusion-tensor imaging; Use of resting-state functional MRI; Use of arterial spin labeling; Accurate PET data attenuation correction within PET/MRI systems; Antineurodegeneration drug testing
+  symptoms: Specific atrophy patterns; Neural tissue loss
+  chemicals: [18F]FDG; Beta-amyloid; Dopaminergic substances; Tau; Alpha-synuclein
+  action_annotation_relationships: Use of brain MRI PREVENTS misdiagnosis IN neurodegenerative diseases; Use of [18F]FDG PET TREATS inability to detect early neural tissue loss IN neurodegenerative diseases; Use of specific PET tracers targeting beta-amyloid plaques TREATS inability to detect beta-amyloid plaques IN neurodegenerative diseases; Use of specific PET tracers targeting dopaminergic deficiency TREATS inability to detect dopaminergic deficiency IN neurodegenerative diseases; Integration of PET into MR technology TREATS limitations in early and differential diagnosis IN neurodegenerative diseases; Use of PET tracers binding to tau TREATS inability to detect tau aggregates IN neurodegenerative diseases; Use of PET tracers binding to alpha-synuclein TREATS inability to detect alpha-synuclein aggregates IN neurodegenerative diseases
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Use of PET tracers binding to alpha-synuclein TREATS inability to detect alpha-synuclein aggregates IN neurodegenerative diseases
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005559
+  medical_actions:
+    - Use of brain MRI
+    - Use of [18F]FDG PET
+    - Use of specific PET tracers targeting beta-amyloid plaques
+    - Use of specific PET tracers targeting dopaminergic deficiency
+    - Integration of PET into MR technology
+    - Use of PET tracers binding to tau or alpha-synuclein aggregates
+    - Use of diffusion-tensor imaging
+    - Use of resting-state functional MRI
+    - Use of arterial spin labeling
+    - Accurate PET data attenuation correction within PET/MRI systems
+    - Antineurodegeneration drug testing
+  symptoms:
+    - Specific atrophy patterns
+    - Neural tissue loss
+  chemicals:
+    - '[18F]FDG'
+    - CHEBI:64645
+    - Dopaminergic substances
+    - CHEBI:36355
+    - Alpha-synuclein
+  action_annotation_relationships:
+    - subject: Use of brain MRI
+      predicate: PREVENTS
+      object: misdiagnosis
+      qualifier: MONDO:0005559
+    - subject: Use of [18F]FDG PET
+      predicate: TREATS
+      object: inability to detect early neural tissue loss
+      qualifier: MONDO:0005559
+      subject_extension: '[18F]FDG PET'
+    - subject: <Use of specific PET tracers>
+      predicate: <TREATS>
+      object: <inability to detect beta-amyloid plaques>
+      qualifier: <neurodegenerative diseases>
+      subject_qualifier: <specific>
+      subject_extension: <PET tracers targeting beta-amyloid plaques>
+    - subject: Use of specific PET tracers targeting dopaminergic deficiency
+      predicate: TREATS
+      object: inability to detect dopaminergic deficiency
+      qualifier: MONDO:0005559
+      subject_extension: PET tracers
+      object_extension: dopaminergic
+    - subject: Integration of PET into MR technology
+      predicate: TREATS
+      object: limitations in early and differential diagnosis
+      qualifier: MONDO:0005559
+    - subject: Use of PET tracers binding to tau
+      predicate: TREATS
+      object: inability to detect tau aggregates
+      qualifier: MONDO:0005559
+      subject_extension: PET tracers
+    - subject: Use of PET tracers binding to alpha-synuclein
+      predicate: TREATS
+      object: inability to detect alpha-synuclein aggregates
+      qualifier: MONDO:0005559
+      object_qualifier: IN
+      subject_extension: PET tracers binding to alpha-synuclein
+named_entities:
+  - id: MONDO:0005559
+    label: Neurodegeneration
+  - id: HP:0100543
+    label: Cognitive impairment
+  - id: HP:0000708
+    label: Behavioral changes
+  - id: CHEBI:64645
+    label: Beta-amyloid
+  - id: CHEBI:36355
+    label: Tau

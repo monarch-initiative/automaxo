@@ -1,0 +1,65 @@
+---
+input_text: 'Neurodegeneration and the Cerebellum. BACKGROUND: The cerebellum modulates
+  diverse neuronal networks, regulating motor, cognitive, behavioral, and limbic circuits.
+  Structural and functional changes to the cerebellum that occur with neurodegenerative
+  conditions have not been systematically reviewed. OBJECTIVE: We synthesize the current
+  understanding of cerebellar somatotopy and function with previously described cerebellar
+  changes in neurodegenerative diseases not associated with primary cerebellar pathology.
+  METHODS: A thorough literature review defines the role of the cerebellum in normal
+  function and neurodegeneration, and we additionally provide exemplar cases of cerebellar
+  dysfunction in neurodegenerative disorders. RESULTS: Comparisons between normal
+  function and neurodegenerative disease states emphasize how normal organization
+  of the cerebellum is altered in neurodegenerative disease states. We illustrate
+  key anatomic structures using novel cerebellar segmentation tools and images. CONCLUSIONS:
+  Altered cerebellum in neurodegeneration can provide important diagnostic and pathologic
+  insights into both predicting disease progression and network dysfunction.'
+raw_completion_output: |-
+  primary_disease: Neurodegeneration
+  medical_actions: Literature review; Diagnostic insights
+  symptoms: Motor dysfunction; Cognitive impairment; Behavioral changes; Limbic circuit disturbances
+  chemicals: 
+  action_annotation_relationships: Literature review PREVENTS misdiagnosis IN Neurodegeneration; Diagnostic insights TREATS misdiagnosis IN Neurodegeneration
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Diagnostic insights TREATS misdiagnosis IN Neurodegeneration
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005559
+  medical_actions:
+    - Literature review
+    - Diagnostic insights
+  symptoms:
+    - Motor dysfunction
+    - HP:0100543
+    - HP:0000708
+    - Limbic circuit disturbances
+  action_annotation_relationships:
+    - subject: Literature review
+      predicate: PREVENTS
+      object: misdiagnosis
+      qualifier: MONDO:0005559
+    - subject: Diagnostic insights
+      predicate: TREATS
+      object: misdiagnosis
+      qualifier: MONDO:0005559
+named_entities:
+  - id: MONDO:0005559
+    label: Neurodegeneration
+  - id: HP:0100543
+    label: Cognitive impairment
+  - id: HP:0000708
+    label: Behavioral changes

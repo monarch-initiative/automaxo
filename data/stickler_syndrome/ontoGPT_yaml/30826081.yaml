@@ -1,0 +1,64 @@
+---
+input_text: 'Bilateral Retinal Detachment in a Pediatric Patient. BACKGROUND: Pediatric
+  retinal detachments occur rarely, and thus may be easily missed. Without treatment,
+  this condition leads to permanent vision loss. Patients with Stickler syndrome,
+  an inherited disorder of collagen synthesis, are more likely to have retinal detachments
+  than the general population. CASE REPORT: We present a case of a 9-year-old boy
+  who presented to the Emergency Department with blurry vision, and who was subsequently
+  diagnosed with bilateral retinal detachments. The patient underwent successful operative
+  intervention. He was eventually determined to have Stickler syndrome. WHY SHOULD
+  AN EMERGENCY PHYSICIAN BE AWARE OF THIS?: It is important for emergency physicians
+  to recognize pediatric visual problems such as retinal detachment, as their presentations
+  may be unusual, and delay of definitive care could result in lifelong visual impairment.'
+raw_completion_output: |-
+  primary_disease: Bilateral Retinal Detachment
+
+  medical_actions: operative intervention
+
+  symptoms: blurry vision
+
+  chemicals: 
+
+  action_annotation_relationships: operative intervention TREATS blurry vision IN Bilateral Retinal Detachment
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  operative intervention TREATS blurry vision IN Bilateral Retinal Detachment
+
+  ===
+
+extracted_object:
+  primary_disease: Bilateral Retinal Detachment
+  medical_actions:
+    - operative intervention
+  symptoms:
+    - blurry vision
+  action_annotation_relationships:
+    - subject: operative intervention
+      predicate: TREATS
+      object: blurry vision
+      qualifier: Bilateral Retinal Detachment
+named_entities:
+  - id: MONDO:0007160
+    label: Stickler syndrome type 1
+  - id: MAXO:0000127
+    label: Genetic analysis
+  - id: HP:0004322
+    label: Short stature
+  - id: HP:0000185
+    label: Soft cleft palate
+  - id: HP:0011800
+    label: Flat midface
+  - id: HP:0000347
+    label: Micrognathia

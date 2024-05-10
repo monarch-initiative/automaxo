@@ -1,0 +1,79 @@
+---
+input_text: 'Sex-specific effects of the Huntington gene on normal neurodevelopment.
+  Huntington disease is a neurodegenerative disorder caused by a gene (HTT) with a
+  unique feature of trinucleotide repeats ranging from 10 to 35 in healthy people;
+  when expanded beyond 39 repeats, Huntington disease develops. Animal models demonstrate
+  that HTT is vital to brain development; however, this has not been studied in humans.
+  Moreover, evidence suggests that triplet repeat genes may have been vital in evolution
+  of the human brain. Here we evaluate brain structure using magnetic resonance imaging
+  and brain function using cognitive tests in a sample of school-aged children ages
+  6 to 18 years old. DNA samples were processed to quantify the number of CAG repeats
+  within HTT. We find that the number of repeats in HTT, below disease threshold,
+  confers advantageous changes in brain structure and general intelligence (IQ): the
+  higher the number of repeats, the greater the change in brain structure, and the
+  higher the IQ. The pattern of structural brain changes associated with HTT is strikingly
+  different between males and females. HTT may confer an advantage or a disadvantage
+  depending on the repeat length, playing a key role in either the evolution of a
+  superior human brain or development of a uniquely human brain disease.   2016 Wiley
+  Periodicals, Inc.'
+raw_completion_output: |-
+  primary_disease: Huntington disease
+  medical_actions: magnetic resonance imaging; cognitive tests
+  symptoms: 
+  chemicals: 
+  action_annotation_relationships: magnetic resonance imaging TREATS diagnosis IN Huntington disease; cognitive tests PREVENTS cognitive decline IN Huntington disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  cognitive tests PREVENTS cognitive decline IN Huntington disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0007739
+  medical_actions:
+    - magnetic resonance imaging
+    - MAXO:0009017
+  action_annotation_relationships:
+    - subject: magnetic resonance imaging
+      predicate: TREATS
+      object: diagnosis
+      qualifier: MONDO:0007739
+    - subject: MAXO:0009017
+      predicate: PREVENTS
+      object: HP:0001268
+      qualifier: MONDO:0007739
+named_entities:
+  - id: MONDO:0005559
+    label: Neurodegeneration
+  - id: HP:0100543
+    label: Cognitive impairment
+  - id: HP:0000708
+    label: Behavioral changes
+  - id: CHEBI:64645
+    label: Beta-amyloid
+  - id: CHEBI:36355
+    label: Tau
+  - id: MONDO:0002602
+    label: Central Nervous System Diseases
+  - id: HP:0000618
+    label: Blindness
+  - id: HP:0001658
+    label: Myocardial infarction
+  - id: MONDO:0007739
+    label: Huntington disease
+  - id: MAXO:0009017
+    label: cognitive tests
+  - id: HP:0001268
+    label: cognitive decline

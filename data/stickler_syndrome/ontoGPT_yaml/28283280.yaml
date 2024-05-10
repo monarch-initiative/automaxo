@@ -1,0 +1,92 @@
+---
+input_text: 'Foveal Hypoplasia in Patients with Stickler Syndrome. PURPOSE: To determine
+  the microstructure of the fovea in patients with Stickler syndrome using imaging
+  by spectral-domain optical coherence tomography (SD OCT) and swept-source OCT. DESIGN:
+  Retrospective case series study. PARTICIPANTS: A total of 39 eyes of 25 patients
+  with genetically confirmed Stickler syndrome were studied. METHODS: All of the patients
+  had mutations in the COL2A1 gene and were diagnosed with Stickler syndrome. Cross-sectional
+  OCT images, OCT angiography (OCTA), and en face OCT images were assessed. The ratio
+  of the foveal inner retinal layer (fIRL) thickness to the parafoveal inner retinal
+  layer (pIRL) thickness, the ratio of the foveal outer retinal layer (fORL) thickness
+  to the parafoveal outer retinal layer (pORL) thickness, and the size of the foveal
+  avascular zone (FAZ) were determined. MAIN OUTCOME MEASURES: The degree of foveal
+  hypoplasia and the best-corrected visual acuity in patients with Stickler syndrome.
+  RESULTS: A persistence of the inner retinal layers in the fovea with an fIRL/pIRL
+  ratio >0.2 was present in 32 of the 39 eyes (82%). Optical coherence tomography
+  angiography showed that the FAZ was smaller, 0 to 0.19 mm2, than that of normal
+  eyes, in 25 eyes of 17 patients who underwent OCTA. There was no significant correlation
+  between the visual acuities and the fIRL/pIRL ratios. CONCLUSIONS: A mild foveal
+  hypoplasia with a persistence of the IRL is characteristic of eyes with Stickler
+  syndrome. The visual acuities were not correlated with the fIRL/pIRL ratios.'
+raw_completion_output: |-
+  primary_disease: Stickler Syndrome
+  medical_actions: imaging by spectral-domain optical coherence tomography (SD OCT); swept-source OCT; OCT angiography (OCTA); en face OCT imaging
+  symptoms: persistence of the inner retinal layers in the fovea; smaller foveal avascular zone (FAZ); mild foveal hypoplasia
+  chemicals: 
+  action_annotation_relationships: imaging by spectral-domain optical coherence tomography (SD OCT) TREATS persistence of the inner retinal layers in the fovea IN Stickler Syndrome; swept-source OCT TREATS persistence of the inner retinal layers in the fovea IN Stickler Syndrome; OCT angiography (OCTA) TREATS smaller foveal avascular zone (FAZ) IN Stickler Syndrome; en face OCT imaging TREATS mild foveal hypoplasia IN Stickler Syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  en face OCT imaging TREATS mild foveal hypoplasia IN Stickler Syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0019354
+  medical_actions:
+    - imaging by spectral-domain optical coherence tomography (SD OCT)
+    - swept-source OCT
+    - OCT angiography (OCTA)
+    - en face OCT imaging
+  symptoms:
+    - persistence of the inner retinal layers in the fovea
+    - smaller foveal avascular zone (FAZ)
+    - mild foveal hypoplasia
+  action_annotation_relationships:
+    - subject: imaging
+      predicate: TREATS
+      object: persistence of the inner retinal layers in the fovea
+      qualifier: MONDO:0019354
+      subject_extension: spectral-domain optical coherence tomography
+    - subject: swept-source OCT
+      predicate: TREATS
+      object: persistence of the inner retinal layers in the fovea
+      qualifier: MONDO:0019354
+    - subject: <OCT angiography>
+      predicate: <TREATS>
+      object: <smaller foveal avascular zone>
+      qualifier: <Stickler Syndrome>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <OCT angiography (OCTA)>
+      object_extension: <smaller foveal avascular zone (FAZ)>
+    - subject: en face OCT imaging
+      predicate: TREATS
+      object: mild foveal hypoplasia
+      qualifier: MONDO:0019354
+named_entities:
+  - id: MONDO:0007160
+    label: Stickler syndrome type 1
+  - id: MAXO:0000127
+    label: Genetic analysis
+  - id: HP:0004322
+    label: Short stature
+  - id: HP:0000185
+    label: Soft cleft palate
+  - id: HP:0011800
+    label: Flat midface
+  - id: HP:0000347
+    label: Micrognathia
+  - id: MONDO:0019354
+    label: Stickler Syndrome

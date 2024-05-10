@@ -51,26 +51,31 @@ def process_article(pubmed_id: str, text: str, ke: SPIRESEngine, output_dir: str
         output_file.write(output.getvalue())
 
 
-
-def process_tsv_file(file_path: str, ke: SPIRESEngine, output_dir: str, existing_pmids: set, template:str):
+def process_tsv_file(file_path: str, ke, output_dir: str, existing_pmids: set, template: str):
     """
     Read a .tsv file and process each article, saving the outputs in the specified directory.
+    
+    The TSV file is expected to contain three columns: 'PMID', 'Title', and 'Abstract'.
+    This function concatenates the 'Title' and 'Abstract' for processing.
 
     Args:
         file_path (str): The path to the .tsv file containing the articles.
-        ke (SPIRESEngine): The knowledge extraction engine used to extract information from the articles.
-        output_dir (str): The directory where the extracted YAML files will be saved.
+        ke: The knowledge extraction engine used to extract information from the articles.
+        output_dir (str): The directory where the extracted outputs will be saved.
         existing_pmids (set): A set of PubMed IDs that have already been processed.
-
+        template (str): The template string or configuration used in processing the articles.
     """
     with open(file_path, "r") as file:
         reader = csv.reader(file, delimiter="\t")
+        header = next(reader)  # Skip the header row and grab it
         rows = list(reader)  # Convert the reader to a list to get the total length
 
         for row in tqdm(rows, desc="Processing TSV file", total=len(rows)):
-            pubmed_id, text = row
+            pubmed_id, title, abstract = row
             if pubmed_id not in existing_pmids:
-                process_article(pubmed_id, text, ke, output_dir,template )
+                text = title + " " + abstract  # Concatenate title and abstract
+                process_article(pubmed_id, text, ke, output_dir, template)
+
 
 
 @click.command()
