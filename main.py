@@ -13,7 +13,6 @@ class AutoMaxoRunner:
         self.poet_replaced_tsv_file_path = self.base_data_path + f"{disease_name.replace(' ', '_')}_poet_replaced.tsv"
         self.ontogpt_yaml_files_dir = self.base_data_path + "ontoGPT_yaml/"
         self.output_json_path = self.base_data_path + "detailed_post_ontoGPT.json"
-        self.output_tsv_path = self.base_data_path + "summary_post_ontoGPT.tsv"
 
     def run(self):       
         print(f"Starting to retrieve mesh IDs related to treatment and diagnosis of {self.disease_name}...")
@@ -28,9 +27,9 @@ class AutoMaxoRunner:
 
         print(f"Starting to Post Process OntoGPT results and saving the triplets found  ...")
 
-        process_triplets_and_mesh(self.ontogpt_yaml_files_dir, self.mesh_info_file_path, self.no_replaced_tsv_file_path, self.output_json_path, self.output_tsv_path )
+        process_triplets_and_mesh(self.ontogpt_yaml_files_dir, self.mesh_info_file_path, self.no_replaced_tsv_file_path, self.output_json_path )
 
-        print(f"The whole process is complete and the summarised results are saved at {self.output_tsv_path} as a TSV file, and the detailed results are saved in a JSON file at {self.output_json_path} ")
+        print(f"The whole process is complete detailed results are saved in a JSON file at {self.output_json_path} ")
 
 
     def retrieve_pubmed_ids(self):
