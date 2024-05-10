@@ -1,0 +1,106 @@
+---
+input_text: 'Severe Early-Onset Wilson Disease Caused by a Common Pathogenic Variant
+  in the Bukharan Jewish Population in Israel. BACKGROUND: Wilson disease is caused
+  by pathogenic variants in the ATP7B gene which encodes a copper-transporting ATPase.
+  AIMS: Describe a common founder pathogenic variant among Bukharan Jews and to assess
+  its prevalence, clinical features, and outcome. METHODS: The cohort consisted of
+  patients of Bukharan Jewish descent diagnosed with Wilson disease at a tertiary
+  pediatric medical center in 2013-2018. Clinical and genetic data were collected
+  and analyzed. RESULTS: Six patients from 4 unrelated families who were homozygous
+  for the c.3784G>T p.(Val1262Phe) pathogenic variant in ATP7B were identified. Five
+  presented with elevated aminotransferase levels, and one, with acute liver failure.
+  Mean age at diagnosis was 8.7 years (5-12.5). Serum ceruloplasmin level was extremely
+  low in all patients (1.9-7 mg/dL; mean 3.2(. The variant was identified in a heterozygous
+  state in 5/153 Bukharan Jews; 2/33 from our local exome database and 3/120 healthy
+  unrelated Bukharan Jews in another cohort, for an estimated carrier frequency of
+  ~1:30. CONCLUSIONS: We report a common founder pathogenic variant in the ATP7B gene
+  among Bukharan Jews associated with severe early-onset Wilson disease. Given the
+  clinical severity, high frequency of the variant, and being a treatable disease,
+  its inclusion in pre-symptomatic screening in the Bukharan Jewish community should
+  be considered. Furthermore, WD should be part of future genetic newborn screening
+  programs in Israel and worldwide, to enable early treatment and prevention of future
+  life-threatening complications.'
+raw_completion_output: |-
+  primary_disease: Wilson disease
+
+  medical_actions: pre-symptomatic screening; genetic newborn screening; early treatment
+
+  symptoms: elevated aminotransferase levels; acute liver failure; extremely low serum ceruloplasmin level
+
+  chemicals: 
+
+  action_annotation_relationships: pre-symptomatic screening PREVENTS acute liver failure IN Wilson disease; genetic newborn screening PREVENTS acute liver failure IN Wilson disease; early treatment TREATS elevated aminotransferase levels IN Wilson disease; early treatment TREATS extremely low serum ceruloplasmin level IN Wilson disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  early treatment TREATS extremely low serum ceruloplasmin level IN Wilson disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010200
+  medical_actions:
+    - pre-symptomatic screening
+    - genetic newborn screening
+    - early treatment
+  symptoms:
+    - elevated aminotransferase levels
+    - HP:0006554
+    - extremely low serum ceruloplasmin level
+  action_annotation_relationships:
+    - subject: pre-symptomatic screening
+      predicate: PREVENTS
+      object: HP:0006554
+      qualifier: MONDO:0010200
+    - subject: genetic newborn screening
+      predicate: PREVENTS
+      object: HP:0006554
+      qualifier: MONDO:0010200
+    - subject: early treatment
+      predicate: TREATS
+      object: elevated aminotransferase levels
+      qualifier: MONDO:0010200
+    - subject: early treatment
+      predicate: TREATS
+      object: extremely low serum ceruloplasmin level
+      qualifier: MONDO:0010200
+named_entities:
+  - id: MAXO:0000376
+    label: Liver biopsy
+  - id: HP:0001404
+    label: Hepatocellular necrosis
+  - id: CHEBI:61049
+    label: Tacrolimus
+  - id: CHEBI:50868
+    label: Penicillamine
+  - id: MONDO:0010200
+    label: Wilson Disease
+  - id: HP:0002063
+    label: rigidity
+  - id: HP:0001332
+    label: dystonia
+  - id: HP:0001260
+    label: dysarthria
+  - id: HP:0002307
+    label: drooling
+  - id: CHEBI:28694
+    label: copper
+  - id: HP:0006554
+    label: Acute liver failure
+  - id: HP:0002204
+    label: Pulmonary embolism
+  - id: HP:0100806
+    label: Sepsis
+  - id: HP:0001919
+    label: Acute kidney injury

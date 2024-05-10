@@ -131,7 +131,7 @@ def rank_triplets(triplet_counts: DefaultDict) -> List[Tuple]:
     return ranked_triplets
 
 
-def create_pmid_info_dict(tsv_file_path: str, json_file_path: str) -> dict:
+def create_pmid_mesh_info_dict(tsv_file_path: str, json_file_path: str) -> dict:
     """
     Create a dictionary with PubMed ID as the key, and a dictionary containing text and MeSH information as the value.
 
@@ -159,7 +159,7 @@ def create_pmid_info_dict(tsv_file_path: str, json_file_path: str) -> dict:
 
     return pmid_info_dict
 
-def combine_triplets_with_pmid_info_and_create_df(ranked_triplets: List[dict], pmid_info_dictionary: dict, output_json_path: str):
+def combine_triplets_with_mesh_pmid_info_and_create_df(ranked_triplets: List[dict], pmid_info_dictionary: dict):
     """
     Combine ranked triplets with their corresponding text and MeSH information from pmid_info_dictionary,
     create a DataFrame, and save the combined data as a JSON file.
@@ -167,7 +167,6 @@ def combine_triplets_with_pmid_info_and_create_df(ranked_triplets: List[dict], p
     Args:
         ranked_triplets: A list of dictionaries, each representing a ranked triplet.
         pmid_info_dictionary: A dictionary with PubMed IDs as keys and a dictionary containing text and MeSH information as values.
-        output_json_path: Path to the output JSON file.
     
     Returns:
         DataFrame: A DataFrame containing combined triplet and PubMed information.
@@ -176,10 +175,6 @@ def combine_triplets_with_pmid_info_and_create_df(ranked_triplets: List[dict], p
     for triplet, info in ranked_triplets:
         pubmed_ids_mesh_info = {pmid: pmid_info_dictionary.get(pmid, {}) for pmid in info['pubmed_ids']}
         combined_data.append({'triplet': triplet, 'count': info['count'], 'pubmed_ids_mesh_info': pubmed_ids_mesh_info})
-
-    # Save the combined data to a JSON file
-    with open(output_json_path, 'w') as f:
-        json.dump({'ranked_triplets': combined_data}, f, indent=4)
 
     rows = []
     for entry in combined_data:
@@ -205,15 +200,17 @@ def combine_triplets_with_pmid_info_and_create_df(ranked_triplets: List[dict], p
                 ])
 
     return pd.DataFrame(rows, columns=[
-        'Citation',
-        'Subject', 'Subject Label', 'Predicate', 'Object', 'Object Label',
-        'Qualifier', 'Qualifier Label', 'Subject Qualifier', 'Subject Extension', 'Object Extension',
-        'Count'
+      'citation',
+        'maxo', 'maxo_label', 'relationship', 'hpo', 'hpo_label',
+        'mondo', 'mondo_label', 'maxo_qualifier', 'chebi', 'hpo_extension',
+        'count'
     ])
 
-def move_and_clean_columns(df, columns):
+
+def separate_non_grounding_terms(df, columns):
     """
-    Moves non-grounded terms to separate columns and cleans original columns.
+    Moves non-grounded terms to separate columns and cleans original columns by nullifying entries in the original
+    columns if they are not grounded (i.e., corresponding label columns are NA or empty).
 
     Parameters:
     - df: DataFrame to modify.
@@ -221,69 +218,156 @@ def move_and_clean_columns(df, columns):
       and the corresponding label column.
 
     Returns:
-    - DataFrame with updated columns.
+    - DataFrame with updated columns where non-grounded terms are moved to new columns named as 'non_grounded_<column>'.
     """
     for col, label_col in columns:
-        non_grounded_col = f'Non grounded {col}'
-        df[non_grounded_col] = df.apply(lambda row: row[col] if pd.isna(row[label_col]) or row[label_col] == '' else None, axis=1)
-        df[col] = df.apply(lambda row: None if pd.isna(row[label_col]) or row[label_col] == '' else row[col], axis=1)
-    return df
+        non_grounded_col = f'non_grounded_{col}'  # Ensure naming consistency with underscores
+        # Identify non-grounded rows
+        non_grounded_mask = df[label_col].isna() | (df[label_col] == '')
+        
+        # Move non-grounded terms to new column
+        df[non_grounded_col] = df[col].where(non_grounded_mask)
 
-def annotate_text_with_ontology(df, adapter, ontology_prefix, text_column, new_column):
+        # Clear original column entries where non-grounded
+        df[col] = df[col].where(~non_grounded_mask)
+        
+    return df
+def get_potential_ontologies(df, adapter, ontology_prefix, text_column, new_column):
     """
     Annotates text in a DataFrame column with ontology information.
-    
+
     Parameters:
     - df: DataFrame containing the text to be annotated.
     - adapter: Adapter object to use for annotation.
     - ontology_prefix: Prefix of the ontology IDs to filter annotations.
     - text_column: The name of the column containing text to be annotated.
     - new_column: The name of the column to store the annotation results.
-    
+
     Returns:
     - DataFrame with a new column containing the annotation results.
     """
+    if text_column not in df.columns:
+        raise ValueError(f"Column {text_column} does not exist in DataFrame.")
+    if new_column not in df.columns:
+        df[new_column] = pd.NA  # Initialize column if not exist
+
     def get_potential_annotations(text):
-        annotation_results = []
-        if isinstance(text, str):
-            annotations = adapter.annotate_text(text)
-            choices = [(annotation.object_id, annotation.object_label) for annotation in annotations if annotation.object_id.startswith(ontology_prefix)]
-            choices_results = process.extract(text, [label for _, label in choices])
-            combined_results = [(choices[i][0], label, score) for i, (label, score) in enumerate(choices_results)]
-            sorted_results = sorted(combined_results, key=lambda x: x[2], reverse=True)
-            top_two_choices = [(mondo_id, label) for mondo_id, label, _ in sorted_results[:2]]
-            annotation_results.extend(top_two_choices)
-        return annotation_results
+        try:
+            if isinstance(text, str):
+                annotations = adapter.annotate_text(text)
+                choices = [(annotation.object_id, annotation.object_label) for annotation in annotations if annotation.object_id.startswith(ontology_prefix)]
+                if choices:
+                    choices_results = process.extract(text, [label for _, label in choices], limit=2)
+                    annotation_results = [(obj_id, label) for obj_id, label, _ in choices_results]
+                    return annotation_results
+        except Exception as e:
+            print(f"Error processing text {text}: {e}")
+        return []  # Return empty list in case of error or no data
 
     df[new_column] = df[text_column].progress_apply(get_potential_annotations)
     return df
 
 
 
-def process_dataframe(initial_df):
+def annotate_and_reformat_dataframe(initial_df):
     """
-    Processes a DataFrame to clean and annotate data using specified ontologies.
-    
+    Annotates and reformats a DataFrame by separating non-grounded terms, annotating with specified ontologies,
+    and reordering columns.
+
     Parameters:
-    - initial_df: The DataFrame to process.
-    
+    - initial_df (pd.DataFrame): The DataFrame to process.
+
     Returns:
-    - A new, processed DataFrame.
+    - pd.DataFrame: A DataFrame that has been annotated and reformatted, ready for further analysis.
     """
-    columns_to_check = [('Subject', 'Subject Label'), ('Object', 'Object Label'), ('Qualifier', 'Qualifier Label')]
-    annotated_df = move_and_clean_columns(initial_df.copy(), columns_to_check)
+    columns_to_check = [('maxo', 'maxo_label'), ('hpo', 'hpo_label'), ('mondo', 'mondo_label')]
+    # Separate non-grounded terms
+    annotated_df = separate_non_grounding_terms(initial_df.copy(), columns_to_check)
 
     # Annotate with different ontologies
-    annotated_df = annotate_text_with_ontology(annotated_df, get_adapter("sqlite:obo:maxo"), "MAXO", 'Non grounded Subject', 'Potential MAXO')
-    annotated_df = annotate_text_with_ontology(annotated_df, get_adapter("sqlite:obo:hp"), "HP", 'Non grounded Object', 'Potential HP')
-    annotated_df = annotate_text_with_ontology(annotated_df, get_adapter("sqlite:obo:mondo"), "MONDO", 'Non grounded Qualifier', 'Potential MONDO')
+    annotated_df = get_potential_ontologies(annotated_df, get_adapter("sqlite:obo:maxo"), "MAXO", 'non_grounded_maxo', 'potential_maxo')
+    annotated_df = get_potential_ontologies(annotated_df, get_adapter("sqlite:obo:hp"), "HP", 'non_grounded_hpo', 'potential_hpo')
+    annotated_df = get_potential_ontologies(annotated_df, get_adapter("sqlite:obo:mondo"), "MONDO", 'non_grounded_mondo', 'potential_mondo')
 
-    # Reorder columns
-    annotated_df = annotated_df[['Citation', 'Subject', 'Subject Label', 'Non grounded Subject', 'Potential MAXO', 'Predicate', 'Object',
-                     'Object Label', 'Non grounded Object', 'Potential HP', 'Qualifier', 'Qualifier Label', 'Non grounded Qualifier',
-                     'Potential MONDO', 'Subject Qualifier', 'Subject Extension', 'Object Extension', 'Count']]
+    # Reorder columns to ensure consistency and clarity
+    processed_annotated_df = annotated_df[['citation', 'maxo', 'maxo_label', 'non_grounded_maxo', 'potential_maxo', 'relationship', 'hpo',
+                     'hpo_label', 'non_grounded_hpo', 'potential_hpo', 'mondo', 'mondo_label', 'non_grounded_mondo',
+                     'potential_mondo', 'maxo_qualifier', 'chebi', 'hpo_extension', 'count']]
     
-    return annotated_df
+    return processed_annotated_df
+
+
+def aggregate_and_annotate_triplets(processed_annotated_df, pmid_info_dictionary):
+    """
+    Aggregates and enriches data from a DataFrame using PubMed IDs to link with external metadata.
+
+    Args:
+    processed_annotated_df (pd.DataFrame): A DataFrame with various biomedical annotations, including PubMed IDs.
+    pmid_info_dictionary (dict): Dictionary with PubMed IDs as keys and metadata such as text and MeSH info as values.
+
+    Returns:
+    dict: Contains a list of 'triplets', each a dictionary with aggregated data, maximum occurrence counts, and enriched metadata from pmid_info_dictionary. Each 'source' in the triplet is formatted with text and MeSH information for the associated PubMed ID.
+
+    Processes:
+    - Converts 'citation' IDs to strings for dictionary matching.
+    - Fills NaN values in crucial columns for grouping.
+    - Converts lists to tuples in necessary columns for grouping.
+    - Aggregates data by specified columns, computing unique citations and max counts.
+    - Annotates each group with metadata from the pmid_info_dictionary.
+    """
+        
+    # Convert the 'citation' column to string
+    processed_annotated_df['citation'] = processed_annotated_df['citation'].astype(str)
+
+    # Now, when you use these citation IDs to lookup in the pmid_info_dictionary, they should match correctly
+
+    # Fill NaN values for columns crucial for grouping
+    grouping_columns = ['maxo', 'maxo_label', 'non_grounded_maxo', 'potential_maxo', 'relationship', 'hpo',
+                       'hpo_label', 'non_grounded_hpo', 'potential_hpo', 'mondo', 'mondo_label', 'non_grounded_mondo',
+                       'potential_mondo', 'maxo_qualifier', 'chebi', 'hpo_extension']
+    
+    processed_annotated_df[grouping_columns] = processed_annotated_df[grouping_columns].fillna('None')
+
+    # Convert lists to tuples if any for these crucial grouping columns
+    for col in grouping_columns:
+        if processed_annotated_df[col].dtype == object and processed_annotated_df[col].apply(lambda x: isinstance(x, list)).any():
+            processed_annotated_df[col] = processed_annotated_df[col].apply(lambda x: tuple(x) if isinstance(x, list) else x)
+
+    # Group by the defined grouping columns
+    grouped = processed_annotated_df.groupby(grouping_columns).agg({
+        'citation': lambda x: list(set(x)),  # List all unique PMIDs
+        'count': 'max'  # Take the maximum count from the grouped rows
+    }).reset_index()
+
+    # Build the resulting triplets list
+    triplets_list = []
+    for _, row in grouped.iterrows():
+        pmid_list = row['citation']
+        count = row['count']
+        
+        # Annotate each PMID with corresponding dictionary data if available
+        pubmed_ids_mesh_info = {pmid: pmid_info_dictionary.get(pmid, {}) for pmid in pmid_list}
+        
+        # Constructing the source as specified
+        source = {}
+        for pmid, info in pubmed_ids_mesh_info.items():
+            source[pmid] = {
+                'text': info.get('text', 'No text available'),
+                'mesh_info': info.get('mesh_info', {})
+            }
+
+        # Collect triplet details
+        triplet_info = {
+            'triplet': {key: row[key] for key in grouping_columns},
+            'count': count,
+            'source': source
+        }
+        triplets_list.append(triplet_info)
+    
+    # Sort the triplets list by 'count' in descending order
+    triplets_list.sort(key=lambda x: x['count'], reverse=True)
+
+    return {'triplets': triplets_list}
 
 
 @click.command()
@@ -291,9 +375,8 @@ def process_dataframe(initial_df):
 @click.option('-s', '--mesh_info_file_path', required=True, help='Path to the file with selected PMID and MeSH info')
 @click.option('-n', '--no_replaced_file_path', required=True, help='Path to no_replaced tsv file with raw text')
 @click.option('-o', '--output_json_path', required=True, help='Path to the output JSON file')
-@click.option('-t', '--output_tsv_path', required=True, help='Path to the output TSV file')
 
-def main(yaml_directory_path: str, mesh_info_file_path: str, no_replaced_file_path: str, output_json_path: str, output_tsv_path: str):
+def main(yaml_directory_path: str, mesh_info_file_path: str, no_replaced_file_path: str, output_json_path: str):
     """
     Main function to process YAML files, extract triplets, count them, rank them, combine with MeSH info, and save to JSON and TSV.
 
@@ -302,33 +385,34 @@ def main(yaml_directory_path: str, mesh_info_file_path: str, no_replaced_file_pa
         mesh_info_file_path (str): Path to the file with selected PMID and MeSH info.
         no_replaced_file_path (str): Path to no_replaced tsv file with raw text.
         output_json_path (str): Path to the output JSON file.
-        output_tsv_path (str): Path to the output TSV file.
-    """
+   """
     data = load_yaml_files(yaml_directory_path)
     triplets = extract_triplets(data)
     triplet_counts = count_triplets(triplets)
     ranked_triplets = rank_triplets(triplet_counts)
 
-    pmid_info_dictionary = create_pmid_info_dict(no_replaced_file_path, mesh_info_file_path)
-    
+    pmid_info_dictionary = create_pmid_mesh_info_dict(no_replaced_file_path, mesh_info_file_path)
+        
     # Create the initial DataFrame and save the combined data as a JSON file
-    initial_df = combine_triplets_with_pmid_info_and_create_df(ranked_triplets, pmid_info_dictionary, output_json_path)
+    pre_processed_df = combine_triplets_with_mesh_pmid_info_and_create_df(ranked_triplets, pmid_info_dictionary)
+    
+    # Process the pre_processed_df with further data cleaning and annotation
+    processed_annotated_df = annotate_and_reformat_dataframe(pre_processed_df)
 
-    # Process the DataFrame
-    annotated_df = process_dataframe(initial_df)
+    # Aggregate and annotate the processed data into triplets
+    triplet_aggregation_result = aggregate_and_annotate_triplets(processed_annotated_df, pmid_info_dictionary)
 
-    # Save the annotated DataFrame to a TSV file
-    annotated_df.to_csv(output_tsv_path, sep='\t', index=False)
+    # Write the triplet_aggregation_result dictionary to a file in JSON format
+    with open(output_json_path, 'w') as f:
+        json.dump(triplet_aggregation_result, f, indent=4)  
 
 
-
-def run_in_notebook(yaml_directory_path, mesh_info_file_path, no_replaced_file_path, output_json_path, output_tsv_path):
+def run_in_notebook(yaml_directory_path, mesh_info_file_path, no_replaced_file_path, output_json_path):
     main.main(standalone_mode=False, args=[
         '--yaml_directory_path', yaml_directory_path,
         '--mesh_info_file_path', mesh_info_file_path,
         '--no_replaced_file_path', no_replaced_file_path,
-        '--output_json_path', output_json_path,
-        '--output_tsv_path', output_tsv_path,
+        '--output_json_path', output_json_path
     ])
 
 if __name__ == '__main__':
@@ -337,8 +421,7 @@ if __name__ == '__main__':
 
 """
 python triplet_ranking_and_mesh_combiner.py -i path/to/yaml/directory -s path/to/mesh/info/file -o path/to/output.json
-python triplet_ranking_and_mesh_combiner.py -i ../../data/melas/ontoGPT_yaml/ -s ../../data/melas/selected_pmid_mesh_info.json -n ../../data/melas/melas_no_replaced.tsv -o ../../data/melas/detailed_post_ontoGPT.json -t ../../data/melas/summary_post_ontoGPT.tsv 
 
-python triplet_ranking_and_mesh_combiner.py -i ../../evaluation/evaluation_ontoGPT_yaml/ -s ../../evaluation/evaluation_selected_pmid_mesh_info.json -n ../../evaluation/evaluation_no_replaced.tsv -o ../../evaluation/results/evaluation_detailed_post_ontoGPT.json -t ../../evaluation/results/evaluation_summary_post_ontoGPT.tsv 
-
+python triplet_ranking_and_mesh_combiner.py -i ../../data/donnai-barrow_syndrome/ontoGPT_yaml/ -s ../../data/donnai-barrow_syndrome/selected_pmid_mesh_info.json -n ../../data/donnai-barrow_syndrome/donnai-barrow_syndrome_no_replaced.tsv -o ../../data/donnai-barrow_syndrome/detailed_post_ontoGPT.json
 """
+
