@@ -1,0 +1,184 @@
+---
+input_text: 'Stickler syndrome. Epidemiology of retinal detachment. OBJECTIVE: A review
+  was performed on all patients with Stickler syndrome that had been treated in our
+  Centre since it was diagnosed, in order to evaluate the risk of suffering a retinal
+  detachment (RD). METHODS: A total of 14 patients, diagnosed by clinical criteria,
+  were included. The following variables were evaluated: age, gender, ocular background,
+  follow-up, initial and final visual acuity (VA), optical prescription, prophylactic
+  treatment, surgery and techniques performed. The risk age to suffer a RD, as well
+  as cataracts, was determined by using the Kaplan-Meier survival curve analysis.
+  RESULTS: From a total of 5 men and 9 women, the median initial VA was 0.35, which
+  was the same as the final VA. The median optical prescription was -9.5 D myopia.
+  The median of follow-up was 7 years. Ocular background was 4 RD cases and 2 Lasik
+  surgeries. The operations performed were 8 RD, 12 cataract, 2 glaucoma, 2 macular
+  hole, and one endotropia. The median age of RD was 20 years and cataract 34 years.
+  As regards surgical tecnique, 4 scleral buckle cases, and 4 scleral buckle+pars
+  plana vitrectomy cases were formed. The prophylactic treatments performed were:
+  one scleral buckle case, 4 endolaser photocoagulation, and one cryotherapy. Two
+  of which presented with RD. CONCLUSION: In the series presented, retinal detachment
+  in Stickler syndrome mainly occurs in the second decade of life, with cataracts
+  mainly developing in the fourth decade.'
+raw_completion_output: |-
+  primary_disease: Stickler syndrome
+
+  medical_actions: scleral buckle; endolaser photocoagulation; cryotherapy; pars plana vitrectomy; surgery
+
+  symptoms: retinal detachment; cataracts
+
+  chemicals: 
+
+  action_annotation_relationships: scleral buckle TREATS retinal detachment IN Stickler syndrome; endolaser photocoagulation TREATS retinal detachment IN Stickler syndrome; cryotherapy TREATS retinal detachment IN Stickler syndrome; pars plana vitrectomy TREATS retinal detachment IN Stickler syndrome; surgery TREATS cataracts IN Stickler syndrome; surgery TREATS glaucoma IN Stickler syndrome; surgery TREATS macular hole IN Stickler syndrome; surgery TREATS endotropia IN Stickler syndrome
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  surgery TREATS endotropia IN Stickler syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0019354
+  medical_actions:
+    - scleral buckle
+    - endolaser photocoagulation
+    - cryotherapy
+    - pars plana vitrectomy
+    - MAXO:0000004
+  symptoms:
+    - HP:0000541
+    - HP:0000518
+  action_annotation_relationships:
+    - subject: <scleral buckle>
+      predicate: <TREATS>
+      object: <retinal detachment>
+      qualifier: <Stickler syndrome>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: endolaser photocoagulation
+      predicate: TREATS
+      object: HP:0000541
+      qualifier: MONDO:0019354
+      subject_extension: endolaser photocoagulation
+    - subject: cryotherapy
+      predicate: TREATS
+      object: HP:0000541
+      qualifier: MONDO:0019354
+    - subject: pars plana vitrectomy
+      predicate: TREATS
+      object: HP:0000541
+      qualifier: MONDO:0019354
+    - subject: MAXO:0000004
+      predicate: TREATS
+      object: HP:0000518
+      qualifier: MONDO:0019354
+    - subject: MAXO:0000004
+      predicate: TREATS
+      object: HP:0000501
+      qualifier: MONDO:0019354
+    - subject: MAXO:0000004
+      predicate: TREATS
+      object: HP:0011508
+      qualifier: MONDO:0019354
+    - subject: MAXO:0000004
+      predicate: TREATS
+      object: endotropia
+      qualifier: MONDO:0019354
+named_entities:
+  - id: MONDO:0007160
+    label: Stickler syndrome type 1
+  - id: MAXO:0000127
+    label: Genetic analysis
+  - id: HP:0004322
+    label: Short stature
+  - id: HP:0000185
+    label: Soft cleft palate
+  - id: HP:0011800
+    label: Flat midface
+  - id: HP:0000347
+    label: Micrognathia
+  - id: MONDO:0019354
+    label: Stickler Syndrome
+  - id: HP:0000541
+    label: retinal detachment
+  - id: MAXO:0000004
+    label: surgery
+  - id: HP:0000175
+    label: cleft palate
+  - id: HP:0000220
+    label: velopharyngeal insufficiency
+  - id: HP:0000545
+    label: Myopia
+  - id: HP:0000365
+    label: Hearing impairment
+  - id: HP:0002652
+    label: Skeletal dysplasia
+  - id: MONDO:0010434
+    label: Stickler Syndrome (SS) and Pierre-Robin Syndrome (PRS)
+  - id: HP:0000162
+    label: Glossoptosis
+  - id: HP:0011003
+    label: Severe myopia
+  - id: MONDO:0009869
+    label: Pierre-Robin Syndrome
+  - id: MAXO:0000079
+    label: genetic counseling
+  - id: HP:0000618
+    label: blindness
+  - id: HP:0012714
+    label: severe hearing loss
+  - id: HP:0000938
+    label: Osteopenia
+  - id: HP:0001489
+    label: posterior vitreous detachment
+  - id: HP:0007750
+    label: foveal hypoplasia
+  - id: MAXO:0001085
+    label: Vitrectomy
+  - id: HP:0001132
+    label: lens subluxation
+  - id: HP:0000577
+    label: exotropia
+  - id: HP:0007773
+    label: vitreoretinal abnormalities
+  - id: HP:0000218
+    label: high palate
+  - id: HP:0100807
+    label: long fingers
+  - id: HP:0003040
+    label: arthropathy
+  - id: MONDO:0000358
+    label: Orofacial clefts
+  - id: HP:0410030
+    label: Cleft lip
+  - id: HP:0000201
+    label: Pierre Robin sequence
+  - id: MONDO:0018076
+    label: tuberculosis
+  - id: HP:0000252
+    label: microcephaly
+  - id: HP:0012413
+    label: congenital syphilis
+  - id: HP:0100510
+    label: scurvy
+  - id: HP:0002749
+    label: osteomalacia
+  - id: HP:0020110
+    label: fractures
+  - id: HP:0000518
+    label: cataracts
+  - id: HP:0000501
+    label: glaucoma
+  - id: HP:0011508
+    label: macular hole

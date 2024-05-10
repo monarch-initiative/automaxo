@@ -131,16 +131,19 @@ def rank_triplets(triplet_counts: DefaultDict) -> List[Tuple]:
     return ranked_triplets
 
 
+
 def create_pmid_mesh_info_dict(tsv_file_path: str, json_file_path: str) -> dict:
     """
-    Create a dictionary with PubMed ID as the key, and a dictionary containing text and MeSH information as the value.
+    Create a dictionary with PubMed ID as the key, and a dictionary containing title, abstract, 
+    and MeSH information as the value.
 
     Args:
-        tsv_file_path (str): The path to the TSV file.
+        tsv_file_path (str): The path to the TSV file, which is expected to contain columns for PMID, Title, and Abstract.
         json_file_path (str): The path to the JSON file containing MeSH information.
 
     Returns:
-        dict: A dictionary with PubMed IDs as keys and a dictionary containing text and MeSH information as values.
+        dict: A dictionary with PubMed IDs as keys and dictionaries containing title, abstract,
+              and MeSH information as values.
     """
     # Read the JSON file containing MeSH information
     with open(json_file_path, 'r') as json_file:
@@ -150,14 +153,19 @@ def create_pmid_mesh_info_dict(tsv_file_path: str, json_file_path: str) -> dict:
     pmid_info_dict = {}
     with open(tsv_file_path, 'r') as tsv_file:
         reader = csv.reader(tsv_file, delimiter='\t')
+        next(reader)  # Skip the header row
         for row in reader:
-            pmid, text = row  # Unpack the row, ignoring the second column (relationships)
+            if len(row) < 3:
+                continue  # Skip rows that do not have enough columns
+            pmid, title, abstract = row
             pmid_info_dict[pmid] = {
-                'text': text,
+                'title': title,
+                'abstract': abstract,
                 'mesh_info': mesh_info.get(pmid, {})  # Get MeSH info for the PMID if it exists
             }
 
     return pmid_info_dict
+
 
 def combine_triplets_with_mesh_pmid_info_and_create_df(ranked_triplets: List[dict], pmid_info_dictionary: dict):
     """
@@ -232,6 +240,7 @@ def separate_non_grounding_terms(df, columns):
         df[col] = df[col].where(~non_grounded_mask)
         
     return df
+
 def get_potential_ontologies(df, adapter, ontology_prefix, text_column, new_column):
     """
     Annotates text in a DataFrame column with ontology information.
@@ -302,33 +311,35 @@ def aggregate_and_annotate_triplets(processed_annotated_df, pmid_info_dictionary
     Aggregates and enriches data from a DataFrame using PubMed IDs to link with external metadata.
 
     Args:
-    processed_annotated_df (pd.DataFrame): A DataFrame with various biomedical annotations, including PubMed IDs.
-    pmid_info_dictionary (dict): Dictionary with PubMed IDs as keys and metadata such as text and MeSH info as values.
+        processed_annotated_df (pd.DataFrame): A DataFrame with various biomedical annotations, including PubMed IDs.
+        pmid_info_dictionary (dict): Dictionary with PubMed IDs as keys and dictionaries as values,
+            each containing title, abstract, and MeSH information.
 
     Returns:
-    dict: Contains a list of 'triplets', each a dictionary with aggregated data, maximum occurrence counts, and enriched metadata from pmid_info_dictionary. Each 'source' in the triplet is formatted with text and MeSH information for the associated PubMed ID.
+        dict: Contains a sorted list of 'triplets', each a dictionary with aggregated data,
+              maximum occurrence counts, and enriched metadata from pmid_info_dictionary.
+              Each 'source' in the triplet is formatted with title, abstract, and MeSH information
+              for the associated PubMed ID.
 
     Processes:
-    - Converts 'citation' IDs to strings for dictionary matching.
-    - Fills NaN values in crucial columns for grouping.
-    - Converts lists to tuples in necessary columns for grouping.
-    - Aggregates data by specified columns, computing unique citations and max counts.
-    - Annotates each group with metadata from the pmid_info_dictionary.
+        - Converts 'citation' IDs to strings for dictionary matching.
+        - Fills NaN values in crucial columns for grouping.
+        - Converts lists to tuples in necessary columns for grouping.
+        - Aggregates data by specified columns, computing unique citations and max counts.
+        - Annotates each group with metadata from the pmid_info_dictionary.
+        - Sorts triplets by 'count' in descending order.
     """
-        
     # Convert the 'citation' column to string
     processed_annotated_df['citation'] = processed_annotated_df['citation'].astype(str)
 
-    # Now, when you use these citation IDs to lookup in the pmid_info_dictionary, they should match correctly
-
     # Fill NaN values for columns crucial for grouping
     grouping_columns = ['maxo', 'maxo_label', 'non_grounded_maxo', 'potential_maxo', 'relationship', 'hpo',
-                       'hpo_label', 'non_grounded_hpo', 'potential_hpo', 'mondo', 'mondo_label', 'non_grounded_mondo',
-                       'potential_mondo', 'maxo_qualifier', 'chebi', 'hpo_extension']
+                        'hpo_label', 'non_grounded_hpo', 'potential_hpo', 'mondo', 'mondo_label', 'non_grounded_mondo',
+                        'potential_mondo', 'maxo_qualifier', 'chebi', 'hpo_extension']
     
     processed_annotated_df[grouping_columns] = processed_annotated_df[grouping_columns].fillna('None')
 
-    # Convert lists to tuples if any for these crucial grouping columns
+    # Convert lists to tuples in necessary columns for grouping
     for col in grouping_columns:
         if processed_annotated_df[col].dtype == object and processed_annotated_df[col].apply(lambda x: isinstance(x, list)).any():
             processed_annotated_df[col] = processed_annotated_df[col].apply(lambda x: tuple(x) if isinstance(x, list) else x)
@@ -352,7 +363,8 @@ def aggregate_and_annotate_triplets(processed_annotated_df, pmid_info_dictionary
         source = {}
         for pmid, info in pubmed_ids_mesh_info.items():
             source[pmid] = {
-                'text': info.get('text', 'No text available'),
+                'title': info.get('title', 'No title available'),
+                'abstract': info.get('abstract', 'No abstract available'),
                 'mesh_info': info.get('mesh_info', {})
             }
 
