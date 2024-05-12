@@ -1,0 +1,86 @@
+---
+input_text: Primary intracranial atypical teratoid/rhabdoid tumor in a child with
+  Canavan disease. A primary intracranial atypical teratoid/rhabdoid tumor was encountered
+  in a child (age 4 years and 9 months) with Canavan disease. The tumor contained
+  a large spindled cell component as well as classical rhabdoid morphology and focal
+  areas resembling a primitive neuroectodermal tumor. The rhabdoid areas of the neoplasm
+  were immunoreactive with antibodies against epithelial membrane antigen and vimentin,
+  in the classically described pattern. Ultrastructurally these portions of the tumor
+  displayed the characteristic perinuclear whorls of intermediate filaments reported
+  in rhabdoid tumors of all body sites. Thought to be purely coincidental, this is
+  also the first description of any intracranial neoplasm associated with Canavan
+  disease.
+raw_completion_output: |-
+  primary_disease: Atypical teratoid/rhabdoid tumor
+  medical_actions: Immunoreactivity testing with antibodies
+  symptoms: Large spindled cell component; Classical rhabdoid morphology; Focal areas resembling a primitive neuroectodermal tumor
+  chemicals: Antibodies against epithelial membrane antigen and vimentin
+  action_annotation_relationships: Immunoreactivity testing with antibodies (against epithelial membrane antigen and vimentin) TREATS Large spindled cell component IN Atypical teratoid/rhabdoid tumor; Immunoreactivity testing with antibodies (against epithelial membrane antigen and vimentin) TREATS Classical rhabdoid morphology IN Atypical teratoid/rhabdoid tumor; Immunoreactivity testing with antibodies (against epithelial membrane antigen and vimentin) TREATS Focal areas resembling a primitive neuroectodermal tumor IN Atypical teratoid/rhabdoid tumor
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Immunoreactivity testing with antibodies (against epithelial membrane antigen and vimentin) TREATS Focal areas resembling a primitive neuroectodermal tumor IN Atypical teratoid/rhabdoid tumor
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0020560
+  medical_actions:
+    - Immunoreactivity testing with antibodies
+  symptoms:
+    - Large spindled cell component
+    - Classical rhabdoid morphology
+    - Focal areas resembling a primitive neuroectodermal tumor
+  chemicals:
+    - Antibodies against epithelial membrane antigen and vimentin
+  action_annotation_relationships:
+    - subject: Immunoreactivity testing
+      predicate: TREATS
+      object: Large spindled cell component
+      qualifier: MONDO:0020560
+      subject_extension: antibodies (against epithelial membrane antigen and vimentin)
+      object_extension: Large spindled cell component
+    - subject: Immunoreactivity testing
+      predicate: TREATS
+      object: Classical rhabdoid morphology
+      qualifier: MONDO:0020560
+      subject_extension: antibodies (against epithelial membrane antigen and vimentin)
+    - subject: <Immunoreactivity testing>
+      predicate: <TREATS>
+      object: <Focal areas resembling a primitive neuroectodermal tumor>
+      qualifier: <Atypical teratoid/rhabdoid tumor>
+      subject_extension: <antibodies (against epithelial membrane antigen and vimentin)>
+named_entities:
+  - id: MONDO:0010079
+    label: Canavan disease
+  - id: MAXO:0000571
+    label: CT
+  - id: CHEBI:21547
+    label: N-Acetylaspartic acid
+  - id: MAXO:0001001
+    label: gene therapy
+  - id: HP:0001317
+    label: Cerebellar signs
+  - id: HP:0007256
+    label: Pyramidal signs
+  - id: CHEBI:15354
+    label: choline
+  - id: CHEBI:24996
+    label: lactate
+  - id: CHEBI:29987
+    label: Glutamate
+  - id: CHEBI:17268
+    label: myo-Inositol
+  - id: MONDO:0020560
+    label: Atypical teratoid/rhabdoid tumor

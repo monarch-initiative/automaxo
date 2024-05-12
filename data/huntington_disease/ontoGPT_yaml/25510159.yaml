@@ -1,0 +1,138 @@
+---
+input_text: Proteins in aggregates functionally impact multiple neurodegenerative
+  disease models by forming proteasome-blocking complexes. Age-dependent neurodegenerative
+  diseases progressively form aggregates containing both shared components (e.g.,
+  TDP-43, phosphorylated tau) and proteins specific to each disease. We investigated
+  whether diverse neuropathies might have additional aggregation-prone proteins in
+  common, discoverable by proteomics. Caenorhabditis elegans expressing unc-54p/Q40::YFP,
+  a model of polyglutamine array diseases such as Huntington's, accrues aggregates
+  in muscle 2-6 days posthatch. These foci, isolated on antibody-coupled magnetic
+  beads, were characterized by high-resolution mass spectrometry. Three Q40::YFP-associated
+  proteins were inferred to promote aggregation and cytotoxicity, traits reduced or
+  delayed by their RNA interference knockdown. These RNAi treatments also retarded
+  aggregation/cytotoxicity in Alzheimer's disease models, nematodes with muscle or
+  pan-neuronal Abeta1-42 expression and behavioral phenotypes. The most abundant aggregated
+  proteins are glutamine/asparagine-rich, favoring hydrophobic interactions with other
+  random-coil domains. A particularly potent modulator of aggregation, CRAM-1/HYPK,
+  contributed < 1% of protein aggregate peptides, yet its knockdown reduced Q40::YFP
+  aggregates 72-86% (P < 10(-6) ). In worms expressing Abeta1-42, knockdown of cram-1
+  reduced beta-amyloid 60% (P < 0.002) and slowed age-dependent paralysis > 30% (P
+  < 10(-6)). In wild-type worms, cram-1 knockdown reduced aggregation and extended
+  lifespan, but impaired early reproduction. Protection against seeded aggregates
+  requires proteasome function, implying that normal CRAM-1 levels promote aggregation
+  by interfering with proteasomal degradation of misfolded proteins. Molecular dynamic
+  modeling predicts spontaneous and stable interactions of CRAM-1 (or human orthologs)
+  with ubiquitin, and we verified that CRAM-1 reduces degradation of a tagged-ubiquitin
+  reporter. We propose that CRAM-1 exemplifies a class of primitive chaperones that
+  are initially protective and highly beneficial for early reproduction, but ultimately
+  impair aggregate clearance and limit longevity.
+raw_completion_output: |-
+  primary_disease: Huntington's disease; Alzheimer's disease
+  medical_actions: RNA interference knockdown; proteasome function enhancement
+  symptoms: aggregation; cytotoxicity; behavioral phenotypes; paralysis; age-dependent paralysis
+  chemicals: TDP-43; phosphorylated tau; Q40::YFP; Abeta1-42; CRAM-1/HYPK; ubiquitin
+  action_annotation_relationships: RNA interference knockdown TREATS aggregation IN Huntington's disease; RNA interference knockdown TREATS cytotoxicity IN Huntington's disease; RNA interference knockdown TREATS aggregation IN Alzheimer's disease; RNA interference knockdown TREATS cytotoxicity IN Alzheimer's disease; RNA interference knockdown TREATS aggregation IN Alzheimer's disease; RNA interference knockdown TREATS behavioral phenotypes IN Alzheimer's disease; RNA interference knockdown (with CRAM-1/HYPK) TREATS paralysis IN Alzheimer's disease; proteasome function enhancement PREVENTS aggregation IN neurodegenerative disease models
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  proteasome function enhancement PREVENTS aggregation IN neurodegenerative disease models
+
+  ===
+
+extracted_object:
+  primary_disease: Huntington's disease; Alzheimer's disease
+  medical_actions:
+    - RNA interference knockdown
+    - proteasome function enhancement
+  symptoms:
+    - aggregation
+    - cytotoxicity
+    - behavioral phenotypes
+    - HP:0003470
+    - age-dependent paralysis
+  chemicals:
+    - TDP-43
+    - phosphorylated tau
+    - Q40::YFP
+    - Abeta1-42
+    - CRAM-1/HYPK
+    - ubiquitin
+  action_annotation_relationships:
+    - subject: RNA interference knockdown
+      predicate: TREATS
+      object: aggregation
+      qualifier: MONDO:0007739
+    - subject: RNA interference knockdown
+      predicate: TREATS
+      object: cytotoxicity
+      qualifier: MONDO:0007739
+      subject_extension: RNA interference knockdown
+    - subject: RNA interference knockdown
+      predicate: TREATS
+      object: aggregation
+      qualifier: MONDO:0004975
+    - subject: RNA interference knockdown
+      predicate: TREATS
+      object: cytotoxicity
+      qualifier: MONDO:0004975
+    - subject: RNA interference knockdown
+      predicate: TREATS
+      object: aggregation
+      qualifier: MONDO:0004975
+    - subject: RNA interference knockdown
+      predicate: TREATS
+      object: behavioral phenotypes
+      qualifier: MONDO:0004975
+      subject_extension: RNA interference knockdown
+    - subject: RNA interference knockdown
+      predicate: TREATS
+      object: HP:0003470
+      qualifier: MONDO:0004975
+      subject_qualifier: with CRAM-1/HYPK
+      subject_extension: CRAM-1/HYPK
+    - subject: proteasome function enhancement
+      predicate: PREVENTS
+      object: aggregation
+      qualifier: neurodegenerative disease models
+named_entities:
+  - id: MONDO:0007739
+    label: Huntington disease (HD)
+  - id: HP:0001268
+    label: Cognitive decline
+  - id: CHEBI:76720
+    label: Antisense oligonucleotides
+  - id: MAXO:0000011
+    label: predictive testing (PT)
+  - id: MAXO:0000127
+    label: genetic testing
+  - id: MONDO:0004976
+    label: Amyotrophic lateral sclerosis
+  - id: MAXO:0000079
+    label: genetic counseling
+  - id: CHEBI:28300
+    label: Glutamine
+  - id: CHEBI:22653
+    label: Asparagine
+  - id: MAXO:0001000
+    label: Functional MRI
+  - id: MAXO:0000014
+    label: Reaction time (RT) tasks
+  - id: MONDO:0003847
+    label: Genetic disorders
+  - id: MAXO:0009003
+    label: Preimplantation genetic screening
+  - id: HP:0003470
+    label: paralysis
+  - id: MONDO:0004975
+    label: Alzheimer's disease

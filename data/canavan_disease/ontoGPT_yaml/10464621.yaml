@@ -1,0 +1,99 @@
+---
+input_text: 'Canavan disease: diagnosis and molecular analysis. Canavan disease, spongy
+  degeneration of the brain, is an autosomal recessive disorder with increased prevalence
+  among Ashkenazi Jews. The biochemical marker for this disease is increased levels
+  of N-acetylaspartic acid, due to the defective enzyme, aspartoacylase. This discovery
+  allowed for accurate diagnosis of the disease. The gene for aspartoacylase has been
+  cloned and two mutations have been found to be responsible for Canavan disease among
+  Ashkenazi Jewish patients in 98% of the cases. Molecular analysis of healthy Jewish
+  individuals for these mutations has resulted in an unexpectedly high carrier frequency
+  for Canavan disease among Jews. Therefore, carrier testing of the Jewish population
+  is possible and indicated.'
+raw_completion_output: |-
+  primary_disease: Canavan disease
+
+  medical_actions: Diagnosis; Molecular analysis; Carrier testing
+
+  symptoms: Spongy degeneration of the brain
+
+  chemicals: N-acetylaspartic acid
+
+  action_annotation_relationships: Diagnosis TREATS Spongy degeneration of the brain IN Canavan disease; Molecular analysis (with N-acetylaspartic acid) TREATS Spongy degeneration of the brain IN Canavan disease; Carrier testing PREVENTS Spongy degeneration of the brain IN Canavan disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Carrier testing PREVENTS Spongy degeneration of the brain IN Canavan disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010079
+  medical_actions:
+    - Diagnosis
+    - Molecular analysis
+    - Carrier testing
+  symptoms:
+    - Spongy degeneration of the brain
+  chemicals:
+    - CHEBI:21547
+  action_annotation_relationships:
+    - subject: Diagnosis
+      predicate: TREATS
+      object: Spongy degeneration of the brain
+      qualifier: MONDO:0010079
+    - subject: Molecular analysis
+      predicate: TREATS
+      object: Spongy degeneration of the brain
+      qualifier: MONDO:0010079
+      subject_qualifier: with N-acetylaspartic acid
+      subject_extension: CHEBI:21547
+    - subject: Carrier testing
+      predicate: PREVENTS
+      object: Spongy degeneration of the brain
+      qualifier: MONDO:0010079
+named_entities:
+  - id: MONDO:0010079
+    label: Canavan disease
+  - id: MAXO:0000571
+    label: CT
+  - id: CHEBI:21547
+    label: N-Acetylaspartic acid
+  - id: MAXO:0001001
+    label: gene therapy
+  - id: HP:0001317
+    label: Cerebellar signs
+  - id: HP:0007256
+    label: Pyramidal signs
+  - id: CHEBI:15354
+    label: choline
+  - id: CHEBI:24996
+    label: lactate
+  - id: CHEBI:29987
+    label: Glutamate
+  - id: CHEBI:17268
+    label: myo-Inositol
+  - id: MONDO:0020560
+    label: Atypical teratoid/rhabdoid tumor
+  - id: MONDO:0016063
+    label: Canavan disease (CD)
+  - id: HP:0002180
+    label: neurodegenerative disease
+  - id: MONDO:0003847
+    label: Hereditary diseases
+  - id: CHEBI:16953
+    label: N-acetyl-L-aspartate
+  - id: HP:0010864
+    label: Severe mental retardation
+  - id: HP:0000256
+    label: Macrocephaly

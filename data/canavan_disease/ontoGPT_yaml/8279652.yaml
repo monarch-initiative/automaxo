@@ -1,0 +1,90 @@
+---
+input_text: 'A case of Canavan disease: the first biochemically proven case in a Japanese
+  girl. Canavan disease (CD) has only been diagnosed on autopsy or brain biopsy, however,
+  specific biochemical markers, such as N-acetylaspartic acid (NAA) and aspartoacylase
+  activity, have recently been described in CD. We report a case of CD having the
+  above biochemical markers. High levels of NAA were found in her urine, serum and
+  CSF. Fibroblasts did not exhibit aspartoacylase activity. Clinically, she presented
+  progressive psychomotor retardation, cerebellar signs, pyramidal signs and relative
+  megalencephaly. CT and MRI showed findings of leukodystrophy. The evoked potentials
+  showed widespread involvement in the brainstem. Magnetic resonance spectra showed
+  a high level of NAA in the white matter. In Japan, this case is the first of CD
+  determined on the basis of biochemical markers.'
+raw_completion_output: |-
+  primary_disease: Canavan disease
+
+  medical_actions: Diagnostic imaging (CT; MRI); Measurement of N-acetylaspartic acid levels in urine, serum, and CSF; Fibroblast analysis for aspartoacylase activity; Evoked potential testing
+
+  symptoms: Progressive psychomotor retardation; Cerebellar signs; Pyramidal signs; Relative megalencephaly
+
+  chemicals: N-acetylaspartic acid
+
+  action_annotation_relationships: Diagnostic imaging (CT; MRI) TREATS None IN Canavan disease; Measurement of N-acetylaspartic acid levels in urine, serum, and CSF TREATS None IN Canavan disease; Fibroblast analysis for aspartoacylase activity TREATS None IN Canavan disease; Evoked potential testing TREATS None IN Canavan disease
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Evoked potential testing TREATS None IN Canavan disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010079
+  medical_actions:
+    - Diagnostic imaging (CT
+    - MRI)
+    - Measurement of N-acetylaspartic acid levels in urine, serum, and CSF
+    - Fibroblast analysis for aspartoacylase activity
+    - Evoked potential testing
+  symptoms:
+    - Progressive psychomotor retardation
+    - HP:0001317
+    - HP:0007256
+    - Relative megalencephaly
+  chemicals:
+    - CHEBI:21547
+  action_annotation_relationships:
+    - subject: MRI
+      predicate: TREATS
+      object: None
+      qualifier: MONDO:0010079
+    - subject: Measurement of N-acetylaspartic acid levels in urine, serum, and CSF
+      predicate: TREATS
+      object: None
+      qualifier: MONDO:0010079
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: CHEBI:21547
+      object_extension: <None>
+    - subject: Fibroblast analysis for aspartoacylase activity
+      predicate: TREATS
+      object: None
+      qualifier: MONDO:0010079
+      subject_extension: aspartoacylase
+    - subject: Evoked potential testing
+      predicate: TREATS
+      object: None
+      qualifier: MONDO:0010079
+named_entities:
+  - id: MONDO:0010079
+    label: Canavan disease
+  - id: MAXO:0000571
+    label: CT
+  - id: CHEBI:21547
+    label: N-Acetylaspartic acid
+  - id: MAXO:0001001
+    label: gene therapy
+  - id: HP:0001317
+    label: Cerebellar signs
+  - id: HP:0007256
+    label: Pyramidal signs

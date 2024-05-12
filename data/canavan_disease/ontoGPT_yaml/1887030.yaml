@@ -1,0 +1,88 @@
+---
+input_text: 'Metabolic and destructive brain disorders in children: findings with
+  localized proton MR spectroscopy. The diagnostic potential of volume-selective proton
+  magnetic resonance (MR) spectroscopy in vivo was evaluated in 20 children and young
+  adults with various neurodegenerative brain disorders. All patients were examined
+  with MR spectroscopy in conjunction with MR imaging of the brain on a whole-body
+  imager at 1.5 T. Comparison of spectra in our patients with those of children with
+  normal myelination (prominent signals from N-acetylaspartate [NAA], creatine/phosphocreatine,
+  and choline) revealed a marked decrease of NAA in 12 of 17 patients with focal or
+  generalized demyelination. In patients with Canavan disease, NAA signal intensity
+  was markedly increased, but no choline signal was found. Increased signal intensity
+  from lactate occurred in patients with Leigh disease, neuroaxonal dystrophy, Schilder
+  disease, and Cockayne disease, which indicated a disturbed energy metabolism in
+  the examined region. These results demonstrate that proton MR spectroscopy can be
+  applied in a clinical environment to facilitate diagnosis of hereditary and acquired
+  brain disorders in children.'
+raw_completion_output: |-
+  primary_disease: Metabolic and destructive brain disorders in children
+  medical_actions: localized proton MR spectroscopy; MR imaging of the brain
+  symptoms: decrease of NAA; increase of NAA signal intensity without choline signal; increased signal intensity from lactate
+  chemicals: N-acetylaspartate (NAA); creatine/phosphocreatine; choline; lactate
+  action_annotation_relationships: localized proton MR spectroscopy TREATS decrease of NAA IN Metabolic and destructive brain disorders in children; localized proton MR spectroscopy TREATS increase of NAA signal intensity without choline signal IN Metabolic and destructive brain disorders in children; localized proton MR spectroscopy TREATS increased signal intensity from lactate IN Metabolic and destructive brain disorders in children
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  localized proton MR spectroscopy TREATS increased signal intensity from lactate IN Metabolic and destructive brain disorders in children
+
+  ===
+
+extracted_object:
+  primary_disease: Metabolic and destructive brain disorders in children
+  medical_actions:
+    - localized proton MR spectroscopy
+    - MR imaging of the brain
+  symptoms:
+    - decrease of NAA
+    - increase of NAA signal intensity without choline signal
+    - increased signal intensity from lactate
+  chemicals:
+    - CHEBI:21547
+    - creatine/phosphocreatine
+    - CHEBI:15354
+    - CHEBI:24996
+  action_annotation_relationships:
+    - subject: <localized proton MR spectroscopy>
+      predicate: <TREATS>
+      object: <decrease of NAA>
+      qualifier: <Metabolic and destructive brain disorders in children>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <localized proton MR spectroscopy>
+      object_extension: <NAA>
+    - subject: localized proton MR spectroscopy
+      predicate: TREATS
+      object: increase of NAA signal intensity without choline signal
+      qualifier: Metabolic and destructive brain disorders in children
+    - subject: localized proton MR spectroscopy
+      predicate: TREATS
+      object: increased signal intensity from lactate
+      qualifier: Metabolic and destructive brain disorders in children
+named_entities:
+  - id: MONDO:0010079
+    label: Canavan disease
+  - id: MAXO:0000571
+    label: CT
+  - id: CHEBI:21547
+    label: N-Acetylaspartic acid
+  - id: MAXO:0001001
+    label: gene therapy
+  - id: HP:0001317
+    label: Cerebellar signs
+  - id: HP:0007256
+    label: Pyramidal signs
+  - id: CHEBI:15354
+    label: choline
+  - id: CHEBI:24996
+    label: lactate
