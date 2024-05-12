@@ -16,22 +16,6 @@ class AutoMaxoRunner:
 
     def run(self):       
         print(f"Starting to retrieve mesh IDs related to treatment and diagnosis of {self.disease_name}...")
-        self.retrieve_pubmed_ids()
-
-        print(f"Starting to extract data from json files and save the text where each row is title and abstract ...")
-        process_article_jsons_to_tsv(self.json_files_dir,  self.no_replaced_tsv_file_path)
-
-        print(f"Starting integration of OntoGPT article by article ...")
-        process_ontogpt_articles(self.no_replaced_tsv_file_path, self.ontogpt_yaml_files_dir, template='maxo')
-
-        print(f"Starting to Post Process OntoGPT results and saving the triplets found  ...")
-
-        process_triplets_and_mesh(self.ontogpt_yaml_files_dir, self.mesh_info_file_path, self.no_replaced_tsv_file_path, self.output_json_path )
-
-        print(f"The whole process is complete detailed results are saved in a JSON file at {self.output_json_path} ")
-
-
-    def retrieve_pubmed_ids(self):
         pmid_extractor(
             disease_name=self.disease_name,
             mesh_list_path="data/mesh_sets.tsv",
@@ -39,6 +23,30 @@ class AutoMaxoRunner:
             json_file_path=self.mesh_info_file_path,
             max_articles_to_save=self.max_articles_to_save
         )
+
+        print(f"Starting to extract data from json files and save the text where each row is title and abstract ...")
+        process_article_jsons_to_tsv(
+            self.json_files_dir,
+            self.no_replaced_tsv_file_path
+            )
+
+        print(f"Starting integration of OntoGPT article by article ...")
+        process_ontogpt_articles(
+            self.no_replaced_tsv_file_path, 
+            self.ontogpt_yaml_files_dir, 
+            template='maxo'
+            )
+
+        print(f"Starting to Post Process OntoGPT results and saving the triplets found  ...")
+        process_triplets_and_mesh(
+            self.ontogpt_yaml_files_dir, 
+            self.mesh_info_file_path, 
+            self.no_replaced_tsv_file_path, 
+            self.output_json_path 
+            )
+
+        print(f"The whole process is complete detailed results are saved in a JSON file at {self.output_json_path} ")
+
 
 @click.command()
 @click.option('--disease_name', prompt='Disease Name', help='The name of the disease to be processed.')

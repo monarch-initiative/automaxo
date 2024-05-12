@@ -12,6 +12,8 @@ from fuzzywuzzy import process
 from tqdm import tqdm
 tqdm.pandas()
 
+
+
 def load_yaml_files(directory_path: str) -> list:
     """
     Load YAML files from a specified directory and return their contents along with PubMed IDs.
@@ -241,41 +243,60 @@ def separate_non_grounding_terms(df, columns):
         
     return df
 
+
 def get_potential_ontologies(df, adapter, ontology_prefix, text_column, new_column):
     """
-    Annotates text in a DataFrame column with ontology information.
+    Annotates text in a DataFrame column with ontology information. This function uses an adapter
+    to fetch annotations for text, then filters these annotations based on a specified prefix.
 
     Parameters:
-    - df: DataFrame containing the text to be annotated.
-    - adapter: Adapter object to use for annotation.
-    - ontology_prefix: Prefix of the ontology IDs to filter annotations.
-    - text_column: The name of the column containing text to be annotated.
-    - new_column: The name of the column to store the annotation results.
+    - df (DataFrame): The DataFrame containing the text to be annotated.
+    - adapter: The adapter object used for fetching annotations. This should be pre-configured to
+               communicate with a specific ontology database.
+    - ontology_prefix (str): The prefix of the ontology IDs to include in the results. This prefix
+                             helps filter relevant annotations from the adapter's output.
+    - text_column (str): The name of the DataFrame column that contains the text to annotate.
+    - new_column (str): The name of the new column where the annotation results will be stored.
+    
+    Raises:
+    - ValueError: If the specified text_column does not exist in the DataFrame.
 
     Returns:
-    - DataFrame with a new column containing the annotation results.
+    - DataFrame: The original DataFrame augmented with a new column containing lists of tuples. Each tuple
+                 contains an ontology ID and the corresponding label from the annotations that match the prefix.
     """
+
+    # Check if the text column exists in the DataFrame; raise an error if it does not.
     if text_column not in df.columns:
         raise ValueError(f"Column {text_column} does not exist in DataFrame.")
+    
+    # Initialize the new column with missing values if it does not already exist in the DataFrame.
     if new_column not in df.columns:
-        df[new_column] = pd.NA  # Initialize column if not exist
+        df[new_column] = pd.NA
 
+    # Internal function to get annotations for a single piece of text.
     def get_potential_annotations(text):
         try:
+            # Process only if text is a string; skip otherwise.
             if isinstance(text, str):
+                # Fetch all annotations for the text using the adapter.
                 annotations = adapter.annotate_text(text)
-                choices = [(annotation.object_id, annotation.object_label) for annotation in annotations if annotation.object_id.startswith(ontology_prefix)]
-                if choices:
-                    choices_results = process.extract(text, [label for _, label in choices], limit=2)
-                    annotation_results = [(obj_id, label) for obj_id, label, _ in choices_results]
-                    return annotation_results
+                # Filter the annotations to include only those that start with the specified prefix.
+                filtered_annotations = [(annotation.object_id, annotation.object_label)
+                                        for annotation in annotations
+                                        if annotation.object_id.startswith(ontology_prefix)]
+                return filtered_annotations
         except Exception as e:
+            # Print an error message if there's an issue during the annotation process.
             print(f"Error processing text {text}: {e}")
-        return []  # Return empty list in case of error or no data
+        # Return an empty list if an error occurs or if no annotations match the filter.
+        return []
 
-    df[new_column] = df[text_column].progress_apply(get_potential_annotations)
+    # Apply the internal function to each entry in the specified text column.
+    df[new_column] = df[text_column].apply(get_potential_annotations)
+    
+    # Return the DataFrame with the new column added.
     return df
-
 
 
 def annotate_and_reformat_dataframe(initial_df):
@@ -435,5 +456,9 @@ if __name__ == '__main__':
 python triplet_ranking_and_mesh_combiner.py -i path/to/yaml/directory -s path/to/mesh/info/file -o path/to/output.json
 
 python triplet_ranking_and_mesh_combiner.py -i ../../data/donnai-barrow_syndrome/ontoGPT_yaml/ -s ../../data/donnai-barrow_syndrome/selected_pmid_mesh_info.json -n ../../data/donnai-barrow_syndrome/donnai-barrow_syndrome_no_replaced.tsv -o ../../data/donnai-barrow_syndrome/detailed_post_ontoGPT.json
+
+
+python triplet_ranking_and_mesh_combiner.py -i ../../evaluation/evaluation_ontoGPT_yaml -s ../../evaluation/evaluation_selected_pmid_mesh_info_1.json -n ../../evaluation/evaluation_no_replacement_1.tsv -o ../../evaluation/evaluation_detailed_post_ontoGPT.json
+
 """
 

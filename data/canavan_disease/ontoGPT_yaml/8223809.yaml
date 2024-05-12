@@ -1,0 +1,110 @@
+---
+input_text: Magnetic resonance imaging in juvenile Canavan disease. We present a 2-year-old
+  boy and a 6-year-old girl with mild Canavan disease (CD). Aspartoacylase activity
+  in skin fibroblasts was deficient. Magnetic resonance imaging (MRI) of the brain
+  did not show the prominent leucodystrophy previously reported in CD, but there was
+  a hyperintense signal from the lentiform nuclei and the heads of the caudate nuclei
+  on the T2-weighted MR images. This suggests a specific vulnerability of the corpus
+  striatum in these patients. In the older patient, the white matter became affected
+  at the age of 6 years. Proton magnetic resonance spectroscopy (1H-MRS) of white
+  matter revealed a normal concentration of N-acetyl-L-aspartate (NAA) and a markedly
+  decreased concentration of choline containing compounds (Cho) in the boy but a normal
+  ratio of NAA to Cho in the girl. We conclude that deficient NAA catabolism affects
+  myelin metabolism. This may present as changes in the striatum and/or as a low concentration
+  of Cho before leucodystrophy appears on MRI.
+raw_completion_output: |-
+  primary_disease: Canavan disease
+
+  medical_actions: Magnetic resonance imaging (MRI); Proton magnetic resonance spectroscopy (1H-MRS)
+
+  symptoms: Deficient aspartoacylase activity in skin fibroblasts; Hyperintense signal from the lentiform nuclei and the heads of the caudate nuclei on T2-weighted MR images; Affected white matter; Changes in the striatum; Low concentration of choline containing compounds (Cho) before leucodystrophy appears on MRI
+
+  chemicals: N-acetyl-L-aspartate (NAA); Choline containing compounds (Cho)
+
+  action_annotation_relationships: Magnetic resonance imaging (MRI) TREATS Hyperintense signal from the lentiform nuclei and the heads of the caudate nuclei IN Canavan disease; Proton magnetic resonance spectroscopy (1H-MRS) TREATS Changes in the striatum IN Canavan disease; Proton magnetic resonance spectroscopy (1H-MRS) PREVENTS Low concentration of choline containing compounds (Cho) before leucodystrophy appears IN Canavan disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Proton magnetic resonance spectroscopy (1H-MRS) PREVENTS Low concentration of choline containing compounds (Cho) before leucodystrophy appears IN Canavan disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010079
+  medical_actions:
+    - Magnetic resonance imaging (MRI)
+    - Proton magnetic resonance spectroscopy (1H-MRS)
+  symptoms:
+    - Deficient aspartoacylase activity in skin fibroblasts
+    - Hyperintense signal from the lentiform nuclei and the heads of the caudate nuclei
+      on T2-weighted MR images
+    - Affected white matter
+    - Changes in the striatum
+    - Low concentration of choline containing compounds (Cho) before leucodystrophy
+      appears on MRI
+  chemicals:
+    - CHEBI:21547
+    - Choline containing compounds (Cho)
+  action_annotation_relationships:
+    - subject: Magnetic resonance imaging (MRI)
+      predicate: TREATS
+      object: Hyperintense signal from the lentiform nuclei and the heads of the caudate
+        nuclei
+      qualifier: MONDO:0010079
+    - subject: Proton magnetic resonance spectroscopy (1H-MRS)
+      predicate: TREATS
+      object: Changes in the striatum
+      qualifier: MONDO:0010079
+    - subject: Proton magnetic resonance spectroscopy (1H-MRS)
+      predicate: PREVENTS
+      object: Low concentration of choline containing compounds (Cho)
+      qualifier: MONDO:0010079
+      object_qualifier: before leucodystrophy appears
+      subject_extension: Proton magnetic resonance spectroscopy (1H-MRS)
+      object_extension: Low concentration of choline containing compounds (Cho)
+named_entities:
+  - id: MONDO:0010079
+    label: Canavan disease
+  - id: MAXO:0000571
+    label: CT
+  - id: CHEBI:21547
+    label: N-Acetylaspartic acid
+  - id: MAXO:0001001
+    label: gene therapy
+  - id: HP:0001317
+    label: Cerebellar signs
+  - id: HP:0007256
+    label: Pyramidal signs
+  - id: CHEBI:15354
+    label: choline
+  - id: CHEBI:24996
+    label: lactate
+  - id: CHEBI:29987
+    label: Glutamate
+  - id: CHEBI:17268
+    label: myo-Inositol
+  - id: MONDO:0020560
+    label: Atypical teratoid/rhabdoid tumor
+  - id: MONDO:0016063
+    label: Canavan disease (CD)
+  - id: HP:0002180
+    label: neurodegenerative disease
+  - id: MONDO:0003847
+    label: Hereditary diseases
+  - id: CHEBI:16953
+    label: N-acetyl-L-aspartate
+  - id: HP:0010864
+    label: Severe mental retardation
+  - id: HP:0000256
+    label: Macrocephaly

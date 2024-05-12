@@ -8,7 +8,8 @@ import logging
 import pandas as pd
 from tqdm import tqdm
 
-# Initialize logger
+
+# Set up your logging as per the provided configuration
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 handler = logging.FileHandler('retrieve_pmids_evaluation.log')
@@ -16,7 +17,13 @@ formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(messag
 handler.setFormatter(formatter)
 logger.addHandler(handler)
 
-Entrez.email = "enock.niyonkuru@jax.org"
+# Optional Global Variables
+NCBI_KEY = "7c7bd2e8c94b474559a8993a626f9ea64008"  # Set this if you have an API key
+ENTREZ_EMAIL = "enockniyonkuru250@gmail.com"	# Set this if you have a registered email
+
+RETRY_MAX = 3
+BATCH_SIZE = 500
+
 
 
 
@@ -76,6 +83,7 @@ def fetch_and_save_abstracts_json(pmids_list, json_dir_path):
     print(f"Total number of articles found and saved: {found_count} / {found_count + not_found_count} ")
 
 
+    
 def fetch_mesh_ids(pmid, retries=3, delay=2):
     """
     Fetch MeSH IDs and their descriptor names for a given PubMed ID.

@@ -1,0 +1,75 @@
+---
+input_text: 'Canavan disease: neuromorphological and biochemical analysis of a brain
+  biopsy specimen. In this study we present a patient with Canavan disease or Van
+  Bogaert and Bertrand type of spongiform leukodystrophy, proven by brain biopsy.
+  We performed morphological studies and biochemical assays on fresh homogenates of
+  the grey and white matter. Quantitative neuromorphological analysis of the cortex
+  showed normal values except for poor dendritic arborization of the inner layers.
+  No signs of neuronal damage were observed. The Na-K-ATPase activity was increased.
+  Pyruvate and ketone bodies oxidation rates and the activity of cytochrome-c oxidase
+  were normal. We conclude that there is neither a primary neuronal damage nor a primary
+  mitochondrial dysfunction in the oxidative processes despite the abnormal morphology
+  of mitochondria in this disease.'
+raw_completion_output: |-
+  primary_disease: Canavan disease
+  medical_actions: Morphological studies; Biochemical assays
+  symptoms: Poor dendritic arborization of the inner layers
+  chemicals: 
+  action_annotation_relationships: Morphological studies TREATS Poor dendritic arborization of the inner layers IN Canavan disease; Biochemical assays TREATS Poor dendritic arborization of the inner layers IN Canavan disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Biochemical assays TREATS Poor dendritic arborization of the inner layers IN Canavan disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010079
+  medical_actions:
+    - Morphological studies
+    - Biochemical assays
+  symptoms:
+    - Poor dendritic arborization of the inner layers
+  action_annotation_relationships:
+    - subject: Morphological studies
+      predicate: TREATS
+      object: Poor dendritic arborization of the inner layers
+      qualifier: MONDO:0010079
+      subject_extension: Morphological studies
+    - subject: Biochemical assays
+      predicate: TREATS
+      object: Poor dendritic arborization of the inner layers
+      qualifier: MONDO:0010079
+      subject_extension: Biochemical assays
+named_entities:
+  - id: MONDO:0010079
+    label: Canavan disease
+  - id: MAXO:0000571
+    label: CT
+  - id: CHEBI:21547
+    label: N-Acetylaspartic acid
+  - id: MAXO:0001001
+    label: gene therapy
+  - id: HP:0001317
+    label: Cerebellar signs
+  - id: HP:0007256
+    label: Pyramidal signs
+  - id: CHEBI:15354
+    label: choline
+  - id: CHEBI:24996
+    label: lactate
+  - id: CHEBI:29987
+    label: Glutamate
+  - id: CHEBI:17268
+    label: myo-Inositol
