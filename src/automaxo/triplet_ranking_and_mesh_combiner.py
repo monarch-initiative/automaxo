@@ -277,6 +277,7 @@ def get_potential_ontologies(df, adapter, ontology_prefix, text_column, new_colu
     # Internal function to get annotations for a single piece of text.
     def get_potential_annotations(text):
         try:
+            annotation_results = []
             # Process only if text is a string; skip otherwise.
             if isinstance(text, str):
                 # Fetch all annotations for the text using the adapter.
@@ -285,12 +286,25 @@ def get_potential_ontologies(df, adapter, ontology_prefix, text_column, new_colu
                 filtered_annotations = [(annotation.object_id, annotation.object_label)
                                         for annotation in annotations
                                         if annotation.object_id.startswith(ontology_prefix)]
-                return filtered_annotations
+             
+                # Use fuzzy matching to get potential matches for the text.
+                choices_results = process.extract(text, [label for _, label in filtered_annotations])
+                # Combine the results with their corresponding IDs.
+                combined_results = [(filtered_annotations[i][0], label, score)
+                                    for i, (label, score) in enumerate(choices_results)]
+                # Sort the combined results by their fuzzy matching score in descending order.
+                sorted_results = sorted(combined_results, key=lambda x: x[2], reverse=True)
+                # Select the top two choices.
+                top_two_choices = [(identifier, label) for identifier, label, _ in sorted_results[:2]]
+                # top_two_choices = [{"id": identifier, "label": label} for identifier, label, _ in sorted_results[:2]]
+                # top_two_choices = [[{"id": identifier, "label": label}] for identifier, label, _ in sorted_results[:2]]
+                annotation_results.extend(top_two_choices)
+            return annotation_results
         except Exception as e:
             # Print an error message if there's an issue during the annotation process.
             print(f"Error processing text {text}: {e}")
-        # Return an empty list if an error occurs or if no annotations match the filter.
-        return []
+            # Return an empty list if an error occurs.
+            return []
 
     # Apply the internal function to each entry in the specified text column.
     df[new_column] = df[text_column].apply(get_potential_annotations)
@@ -325,6 +339,29 @@ def annotate_and_reformat_dataframe(initial_df):
                      'potential_mondo', 'maxo_qualifier', 'chebi', 'hpo_extension', 'count']]
     
     return processed_annotated_df
+
+
+def transform_potential_entries(dictionary):
+    for key, value in dictionary.items():
+        if isinstance(value, dict):
+            transform_potential_entries(value)
+        elif isinstance(value, list) and 'potential' in key:
+            dictionary[key] = [{"id": item[0], "label": item[1]} for item in value]
+    return dictionary
+
+
+# def transform_potential_entries(dictionary):
+#     if isinstance(dictionary, dict):
+#         for key, value in dictionary.items():
+#             if isinstance(value, dict):
+#                 dictionary[key] = transform_potential_entries(value)
+#             elif isinstance(value, list) and 'potential' in key:
+#                 dictionary[key] = [{"id": item[0], "label": item[1]} for item in value]
+#             elif isinstance(value, list):
+#                 dictionary[key] = [transform_potential_entries(item) if isinstance(item, dict) else item for item in value]
+#     elif isinstance(dictionary, list):
+#         dictionary = [transform_potential_entries(item) if isinstance(item, dict) else item for item in dictionary]
+#     return dictionary
 
 
 def aggregate_and_annotate_triplets(processed_annotated_df, pmid_info_dictionary):
@@ -389,19 +426,21 @@ def aggregate_and_annotate_triplets(processed_annotated_df, pmid_info_dictionary
                 'mesh_info': info.get('mesh_info', {})
             }
 
-        # Collect triplet details
+
+        # Collect triplet details and transform potential entries
         triplet_info = {
+            # 'triplet': transform_potential_entries({key: row[key] for key in grouping_columns}),
             'triplet': {key: row[key] for key in grouping_columns},
             'count': count,
             'source': source
         }
+
         triplets_list.append(triplet_info)
     
     # Sort the triplets list by 'count' in descending order
     triplets_list.sort(key=lambda x: x['count'], reverse=True)
 
     return {'triplets': triplets_list}
-
 
 @click.command()
 @click.option('-i', '--yaml_directory_path', required=True, help='Path to the directory containing YAML files')
