@@ -340,11 +340,21 @@ def annotate_and_reformat_dataframe(initial_df):
     return processed_annotated_df
 
 def transform_and_sort_triplets(triplets_list):
+    """Convert potential entries in triplets to a list of dictionaries where needed."""
+    new_list = []
     for triplet_dict in triplets_list:
+        new_triplet_dict = {"triplet":{},
+                            "count": triplet_dict["count"],
+                            "source": triplet_dict["source"]}
         triplet = triplet_dict["triplet"]
         for key, value in triplet.items():
-            if isinstance(value, list) and 'potential' in key:
-                triplet[key] = [{"id": item[0], "label": item[1]} for item in value]
+            if isinstance(value, (tuple, list)) and 'potential' in key:
+                new_triplet_dict["triplet"][key] = [{"id": item[0], "label": item[1]} for item in value]
+            else:
+                new_triplet_dict["triplet"][key] = value
+        new_list.append(new_triplet_dict)
+
+    triplets_list = new_list
 
     return triplets_list
 
@@ -421,7 +431,8 @@ def aggregate_and_annotate_triplets(processed_annotated_df, pmid_info_dictionary
 
         triplets_list.append(triplet_info)
 
-    # transform_triplets_list = transform_and_sort_triplets(triplets_list)
+    transform_triplets_list = transform_and_sort_triplets(triplets_list)
+    triplets_list = transform_triplets_list
     # Sort the triplets list by 'count' in descending order
     triplets_list.sort(key=lambda x: x['count'], reverse=True)
 
