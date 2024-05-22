@@ -297,7 +297,6 @@ def get_potential_ontologies(df, adapter, ontology_prefix, text_column, new_colu
                 # Select the top two choices.
                 top_two_choices = [(identifier, label) for identifier, label, _ in sorted_results[:2]]
                 # top_two_choices = [{"id": identifier, "label": label} for identifier, label, _ in sorted_results[:2]]
-                # top_two_choices = [[{"id": identifier, "label": label}] for identifier, label, _ in sorted_results[:2]]
                 annotation_results.extend(top_two_choices)
             return annotation_results
         except Exception as e:
@@ -340,29 +339,14 @@ def annotate_and_reformat_dataframe(initial_df):
     
     return processed_annotated_df
 
+def transform_and_sort_triplets(triplets_list):
+    for triplet_dict in triplets_list:
+        triplet = triplet_dict["triplet"]
+        for key, value in triplet.items():
+            if isinstance(value, list) and 'potential' in key:
+                triplet[key] = [{"id": item[0], "label": item[1]} for item in value]
 
-def transform_potential_entries(dictionary):
-    for key, value in dictionary.items():
-        if isinstance(value, dict):
-            transform_potential_entries(value)
-        elif isinstance(value, list) and 'potential' in key:
-            dictionary[key] = [{"id": item[0], "label": item[1]} for item in value]
-    return dictionary
-
-
-# def transform_potential_entries(dictionary):
-#     if isinstance(dictionary, dict):
-#         for key, value in dictionary.items():
-#             if isinstance(value, dict):
-#                 dictionary[key] = transform_potential_entries(value)
-#             elif isinstance(value, list) and 'potential' in key:
-#                 dictionary[key] = [{"id": item[0], "label": item[1]} for item in value]
-#             elif isinstance(value, list):
-#                 dictionary[key] = [transform_potential_entries(item) if isinstance(item, dict) else item for item in value]
-#     elif isinstance(dictionary, list):
-#         dictionary = [transform_potential_entries(item) if isinstance(item, dict) else item for item in dictionary]
-#     return dictionary
-
+    return triplets_list
 
 def aggregate_and_annotate_triplets(processed_annotated_df, pmid_info_dictionary):
     """
@@ -436,11 +420,14 @@ def aggregate_and_annotate_triplets(processed_annotated_df, pmid_info_dictionary
         }
 
         triplets_list.append(triplet_info)
-    
+
+    # transform_triplets_list = transform_and_sort_triplets(triplets_list)
     # Sort the triplets list by 'count' in descending order
     triplets_list.sort(key=lambda x: x['count'], reverse=True)
 
-    return {'triplets': triplets_list}
+    return {"triplets": triplets_list}
+
+
 
 @click.command()
 @click.option('-i', '--yaml_directory_path', required=True, help='Path to the directory containing YAML files')
@@ -472,11 +459,12 @@ def main(yaml_directory_path: str, mesh_info_file_path: str, no_replaced_file_pa
     processed_annotated_df = annotate_and_reformat_dataframe(pre_processed_df)
 
     # Aggregate and annotate the processed data into triplets
-    triplet_aggregation_result = aggregate_and_annotate_triplets(processed_annotated_df, pmid_info_dictionary)
-
+    triplet_aggregation_results = aggregate_and_annotate_triplets(processed_annotated_df, pmid_info_dictionary)
+     
+     
     # Write the triplet_aggregation_result dictionary to a file in JSON format
     with open(output_json_path, 'w') as f:
-        json.dump(triplet_aggregation_result, f, indent=4)  
+        json.dump(triplet_aggregation_results, f, indent=4)  
 
 
 def run_in_notebook(yaml_directory_path, mesh_info_file_path, no_replaced_file_path, output_json_path):
