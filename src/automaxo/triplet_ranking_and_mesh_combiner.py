@@ -296,7 +296,6 @@ def get_potential_ontologies(df, adapter, ontology_prefix, text_column, new_colu
                 sorted_results = sorted(combined_results, key=lambda x: x[2], reverse=True)
                 # Select the top two choices.
                 top_two_choices = [(identifier, label) for identifier, label, _ in sorted_results[:2]]
-                # top_two_choices = [{"id": identifier, "label": label} for identifier, label, _ in sorted_results[:2]]
                 annotation_results.extend(top_two_choices)
             return annotation_results
         except Exception as e:
@@ -423,7 +422,6 @@ def aggregate_and_annotate_triplets(processed_annotated_df, pmid_info_dictionary
 
         # Collect triplet details and transform potential entries
         triplet_info = {
-            # 'triplet': transform_potential_entries({key: row[key] for key in grouping_columns}),
             'triplet': {key: row[key] for key in grouping_columns},
             'count': count,
             'source': source

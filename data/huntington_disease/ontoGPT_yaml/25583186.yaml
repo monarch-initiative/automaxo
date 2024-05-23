@@ -1,0 +1,119 @@
+---
+input_text: 'Partial rescue of some features of Huntington Disease in the genetic
+  absence of caspase-6 in YAC128 mice. Huntington Disease (HD) is a progressive neurodegenerative
+  disease caused by an elongated CAG repeat in the huntingtin (HTT) gene that encodes
+  a polyglutamine tract in the HTT protein. Proteolysis of the mutant HTT protein
+  (mHTT) has been detected in human and murine HD brains and is implicated in the
+  pathogenesis of HD. Of particular importance is the site at amino acid (aa) 586
+  that contains a caspase-6 (Casp6) recognition motif. Activation of Casp6 occurs
+  presymptomatically in human HD patients and the inhibition of mHTT proteolysis at
+  aa586 in the YAC128 mouse model results in the full rescue of HD-like phenotypes.
+  Surprisingly, Casp6 ablation in two different HD mouse models did not completely
+  prevent the generation of this fragment, and therapeutic benefits were limited,
+  questioning the role of Casp6 in the disease. We have evaluated the impact of the
+  loss of Casp6 in the YAC128 mouse model of HD. Levels of the mHTT-586 fragment are
+  reduced but not absent in the absence of Casp6 and we identify caspase 8 as an alternate
+  enzyme that can generate this fragment. In vivo, the ablation of Casp6 results in
+  a partial rescue of body weight gain, normalized IGF-1 levels, a reversal of the
+  depression-like phenotype and decreased HTT levels. In the YAC128/Casp6-/- striatum
+  there is a concomitant reduction in p62 levels, a marker of autophagic activity,
+  suggesting increased autophagic clearance. These results implicate the HTT-586 fragment
+  as a key contributor to certain features of HD, irrespective of the enzyme involved
+  in its generation. '
+raw_completion_output: |-
+  primary_disease: Huntington Disease
+
+  medical_actions: inhibition of mHTT proteolysis; ablation of Casp6; increased autophagic clearance
+
+  symptoms: depression-like phenotype; decreased body weight gain; altered IGF-1 levels; increased HTT levels
+
+  chemicals: Casp6; mHTT-586 fragment; IGF-1; HTT; p62
+
+  action_annotation_relationships: inhibition of mHTT proteolysis TREATS generation of mHTT-586 fragment IN Huntington Disease; ablation of Casp6 (with Casp6) PREVENTS depression-like phenotype IN Huntington Disease; ablation of Casp6 (with Casp6) TREATS altered IGF-1 levels IN Huntington Disease; increased autophagic clearance (with p62) TREATS increased HTT levels IN Huntington Disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  increased autophagic clearance (with p62) TREATS increased HTT levels IN Huntington Disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0007739
+  medical_actions:
+    - inhibition of mHTT proteolysis
+    - ablation of Casp6
+    - increased autophagic clearance
+  symptoms:
+    - depression-like phenotype
+    - decreased body weight gain
+    - altered IGF-1 levels
+    - increased HTT levels
+  chemicals:
+    - Casp6
+    - mHTT-586 fragment
+    - IGF-1
+    - HTT
+    - p62
+  action_annotation_relationships:
+    - subject: inhibition
+      predicate: TREATS
+      object: generation
+      qualifier: MONDO:0007739
+      subject_extension: mHTT proteolysis
+      object_extension: mHTT-586 fragment
+    - subject: ablation of Casp6
+      predicate: PREVENTS
+      object: depression-like phenotype
+      qualifier: MONDO:0007739
+      subject_qualifier: with Casp6
+      subject_extension: Casp6
+    - subject: ablation of Casp6
+      predicate: TREATS
+      object: altered IGF-1 levels
+      qualifier: MONDO:0007739
+      subject_qualifier: with Casp6
+      subject_extension: Casp6
+    - subject: <increased autophagic clearance>
+      predicate: <TREATS>
+      object: <increased levels>
+      qualifier: <Huntington Disease>
+      subject_qualifier: <with p62>
+      object_qualifier: <N/A>
+      subject_extension: <p62>
+      object_extension: <HTT>
+named_entities:
+  - id: MONDO:0007739
+    label: Huntington disease (HD)
+  - id: CHEBI:17295
+    label: '[(18)F]MK-9470'
+  - id: HP:0002180
+    label: neurodegeneration
+  - id: CHEBI:18019
+    label: lysine (K)
+  - id: MONDO:0020380
+    label: Spinocerebellar ataxias (SCAs)
+  - id: HP:0000639
+    label: Nystagmus
+  - id: HP:0000597
+    label: Ophthalmoparesis
+  - id: HP:0000514
+    label: Slow saccades
+  - id: HP:0000641
+    label: Dysmetric saccades
+  - id: HP:0001268
+    label: Cognitive decline
+  - id: HP:0000708
+    label: Psychiatric disturbances
+  - id: CHEBI:76720
+    label: Antisense oligonucleotides (ASOs)
