@@ -1,0 +1,94 @@
+---
+input_text: 'Clinical features, treatment, and outcomes of celiac-associated arthritis:
+  a retrospective cohort study. BACKGROUND: Although arthritis is recognized as an
+  extra-intestinal manifestation of celiac disease, little is known about the clinical
+  course and outcomes of pediatric celiac-associated arthritis. This study describes
+  clinical characteristics, treatments, and outcomes of children with celiac-associated
+  arthritis. METHODS: This was a retrospective cohort study of children with celiac
+  disease seen in pediatric rheumatology clinic between 2004 and 2021 for joint complaints.
+  Data was abstracted from electronic health records. Patient demographics and clinical
+  manifestations were evaluated using standard descriptive statistics. Physician-
+  and patient-reported outcomes were evaluated at the index visit, 6-month follow-up,
+  and last recorded visit, and were compared using Wilcoxon signed-rank tests. RESULTS:
+  Twenty-nine patients with celiac disease were evaluated for joint complaints, and
+  13 were diagnosed with arthritis. Their mean age was 8.9 years (SD 5.9), and 61.5%
+  were female. Celiac disease diagnosis was made before arthritis diagnosis in only
+  2 cases (15.4%). Initial testing that led to the celiac disease diagnosis was obtained
+  by the rheumatologist in 6 cases (46.2%). Only 8 patients (61.5%) had concomitant
+  GI symptoms, and of these, 3 patients had BMI z-scores <-1.64 and 1 had impaired
+  linear growth. Arthritis presentation was most often oligoarticular (76.9%) and
+  asymmetric (84.6%). Most cases required systemic therapy (n = 11, 84.6%) with DMARDs,
+  biologics, or both. Of the 10 patients who required systemic therapy and reported
+  compliance with the gluten-free diet, 3 (30%) were able to stop systemic medications.
+  Two of 3 patients who cleared celiac serologies came off systemic medications. Statistically
+  significant improvement was noted in the number of joints involved (p = 0.02) and
+  physician global assessment of disease activity (p = 0.03) between the index and
+  final visit. CONCLUSIONS: Rheumatologists play an important role in the identification
+  of celiac disease, as arthritis was the presenting symptom in most cases and was
+  not always associated with GI symptoms or poor growth. The arthritis was most often
+  oligoarticular and asymmetric. Most children required systemic therapy. The gluten-free
+  diet may not be sufficient to manage arthritis, but antibody clearance may be an
+  indicator of higher likelihood of disease control off medications. Outcomes are
+  promising with a combination of diet and medical therapy.'
+raw_completion_output: |-
+  primary_disease: celiac-associated arthritis
+  medical_actions: systemic therapy with DMARDs; systemic therapy with biologics; gluten-free diet
+  symptoms: joint complaints; oligoarticular arthritis; asymmetric arthritis; concomitant GI symptoms; BMI z-scores <-1.64; impaired linear growth
+  chemicals: DMARDs; biologics
+  action_annotation_relationships: systemic therapy with DMARDs TREATS joint complaints IN celiac-associated arthritis; systemic therapy with biologics TREATS joint complaints IN celiac-associated arthritis; gluten-free diet PREVENTS concomitant GI symptoms IN celiac-associated arthritis
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  gluten-free diet PREVENTS concomitant GI symptoms IN celiac-associated arthritis
+
+  ===
+
+extracted_object:
+  primary_disease: celiac-associated arthritis
+  medical_actions:
+    - systemic therapy with DMARDs
+    - systemic therapy with biologics
+    - gluten-free diet
+  symptoms:
+    - joint complaints
+    - HP:0040313
+    - asymmetric arthritis
+    - concomitant GI symptoms
+    - BMI z-scores <-1.64
+    - impaired linear growth
+  chemicals:
+    - DMARDs
+    - biologics
+  action_annotation_relationships:
+    - subject: systemic therapy
+      predicate: TREATS
+      object: joint complaints
+      qualifier: celiac-associated arthritis
+      subject_extension: DMARDs
+    - subject: systemic therapy
+      predicate: TREATS
+      object: joint complaints
+      qualifier: celiac-associated arthritis
+      subject_extension: biologics
+    - subject: <diet>
+      predicate: <PREVENTS>
+      object: <concomitant symptoms>
+      qualifier: <celiac-associated arthritis>
+      subject_qualifier: <gluten-free>
+      object_qualifier: <concomitant>
+      subject_extension: <gluten>
+      object_extension: <GI symptoms>
+named_entities:
+  - id: HP:0040313
+    label: oligoarticular arthritis

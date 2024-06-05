@@ -1,0 +1,109 @@
+---
+input_text: Characteristics of individuals with Huntington disease in long-term care.
+  This is a retrospective review of 97 Huntington disease (HD) patients living in
+  long-term care facilities in the Twin Cities. The purpose of the study was to describe
+  the demographic features, patterns of behavior, weight change, nursing issues, medication
+  use, and hospitalization in this population. On admission to the nursing home, the
+  "average" HD patient was of either sex, 45 years old, previously employed, a high
+  school graduate, and not married. One third had severe behavior problems. Half gained
+  and half lost weight; weight loss was not a predictor of death. Almost all used
+  central nervous system-active drugs, most commonly neuroleptics. Eighty-four percent
+  were ambulatory on admission, but 88% of those who died were nonambulatory at the
+  time of death. We concluded that (a) HD patients are demographically different from
+  other residents of long-term care facilities, (b) weight gain can occur in some
+  late-stage patients, (c) negative behavior is a significant problem but is restricted
+  to a subset of patients, and (d) adapting creatively to increasing multifaceted
+  disability is the greatest challenge to the staff in facilities caring for HD patients.
+raw_completion_output: |-
+  primary_disease: Huntington disease
+
+  medical_actions: Use of central nervous system-active drugs; Use of neuroleptics
+
+  symptoms: Severe behavior problems; Weight loss; Weight gain; Negative behavior; Multifaceted disability
+
+  chemicals: Neuroleptics
+
+  action_annotation_relationships: Use of central nervous system-active drugs TREATS Severe behavior problems IN Huntington disease; Use of central nervous system-active drugs TREATS Multifaceted disability IN Huntington disease; Use of neuroleptics (with Neuroleptics) TREATS Severe behavior problems IN Huntington disease; Use of neuroleptics (with Neuroleptics) TREATS Multifaceted disability IN Huntington disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Use of neuroleptics (with Neuroleptics) TREATS Multifaceted disability IN Huntington disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0007739
+  medical_actions:
+    - Use of central nervous system-active drugs
+    - Use of neuroleptics
+  symptoms:
+    - Severe behavior problems
+    - HP:0001824
+    - HP:0004324
+    - Negative behavior
+    - Multifaceted disability
+  chemicals:
+    - CHEBI:35476
+  action_annotation_relationships:
+    - subject: Use of central nervous system-active drugs
+      predicate: TREATS
+      object: Severe behavior problems
+      qualifier: MONDO:0007739
+      object_qualifier: Severe
+      subject_extension: central nervous system-active drugs
+    - subject: Use of central nervous system-active drugs
+      predicate: TREATS
+      object: Multifaceted disability
+      qualifier: MONDO:0007739
+      subject_extension: Central nervous system-active drugs
+    - subject: Use of neuroleptics
+      predicate: TREATS
+      object: Severe behavior problems
+      qualifier: MONDO:0007739
+      subject_qualifier: with Neuroleptics
+      object_qualifier: Severe
+      subject_extension: CHEBI:35476
+    - subject: Use of neuroleptics
+      predicate: TREATS
+      object: Multifaceted disability
+      qualifier: MONDO:0007739
+      subject_qualifier: with Neuroleptics
+      subject_extension: CHEBI:35476
+named_entities:
+  - id: MONDO:0007739
+    label: Huntington disease
+  - id: MAXO:0009003
+    label: preimplantation genetic testing
+  - id: HP:0000716
+    label: depression
+  - id: HP:0000739
+    label: anxiety
+  - id: HP:0000737
+    label: irritability
+  - id: HP:0002072
+    label: choreic movements
+  - id: CHEBI:7735
+    label: olanzapine
+  - id: CHEBI:6030
+    label: Isoniazid (INH)
+  - id: CHEBI:16865
+    label: gamma-aminobutyric acid (GABA)
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0001824
+    label: Weight loss
+  - id: HP:0004324
+    label: Weight gain
+  - id: CHEBI:35476
+    label: Neuroleptics

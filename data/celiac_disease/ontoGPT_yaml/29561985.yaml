@@ -1,0 +1,178 @@
+---
+input_text: "REVIEW OF CELIAC DISEASE PRESENTATION IN A PEDIATRIC TERTIARY CENTRE.
+  BACKGROUND: Celiac disease is an immune-mediated disorder with a multiform presentation
+  and therefore a challenging diagnosis. OBJECTIVE: Our purpose is to identify the
+  epidemiological, clinical, laboratory and histologic characteristics of children
+  with celiac disease at diagnosis and on follow-up. METHODS: Children with previously
+  established or newly diagnosed celiac disease, admitted in a tertiary centre in
+  a two-year period (2014-2016) were recruited. Data was collected retrospectively
+  from electronic medical records and clinical notes, and subsequently analysed with
+  SPSS version 20.0. RESULTS: A total of 159 patients, out of 312, were included.
+  Age ranged from 1 to 17 years (mean +- SD: 8.5+-4.5 years, 69% girls). Disease presentation
+  was classical in 60%, non-classical in 25%, subclinical in 10% and 5% classified
+  as potential celiac disease. Non-classical and subclinical profiles had a higher
+  mean age at presentation but not statistically significant (P-value 0.24). The most
+  frequent gastrointestinal features at presentation were abdominal pain (58%), diarrhea
+  (43%) and bloating (27%). A positive family history for celiac disease was present
+  in 24% (n=35). We found anaemia in 23%, low ferritin in 63% and a moderate to severe
+  deficiency of 25-hydroxyvitamin D in 62%. celiac disease -specific serologic testing
+  and esophagogastroduodenoscopy were performed in 99%. Histology revealed modified
+  Marsh 2 or 3 enteropathy in 94%, the remaining had normal histology but positive
+  human leukocyte antigen typing. Clinical improvement at 12 months of gluten-free
+  diet was complete in 51% and partial in 49%. IgA tTG normalized after 12-30 months
+  of gluten-free diet in 45%. On growth assessment at diagnosis and after 12-28 months
+  of gluten-free diet, 100% had height increase (mean +-SD: 7.11+-4.43 cm) and 96%
+  weight gain (mean +-SD: 5.60+-4.91 kg). CONCLUSION: Our findings outline the diverse
+  clinical presentations of pediatric celiac disease that should be considered irrespective
+  of age. Increased clinician's awareness will enable an early diagnosis and treatment,
+  with subsequent symptom and nutritional status improvement."
+raw_completion_output: |-
+  primary_disease: Celiac disease
+
+  medical_actions: gluten-free diet; celiac disease-specific serologic testing; esophagogastroduodenoscopy; growth assessment
+
+  symptoms: abdominal pain; diarrhea; bloating; anaemia; low ferritin; deficiency of 25-hydroxyvitamin D
+
+  chemicals: IgA tTG
+
+  action_annotation_relationships: gluten-free diet TREATS abdominal pain IN Celiac disease; gluten-free diet TREATS diarrhea IN Celiac disease; gluten-free diet TREATS bloating IN Celiac disease; gluten-free diet TREATS anaemia IN Celiac disease; gluten-free diet (with IgA tTG normalization) TREATS celiac disease-specific symptoms IN Celiac disease; celiac disease-specific serologic testing DIAGNOSES Celiac disease; esophagogastroduodenoscopy DIAGNOSES Celiac disease; growth assessment MEASURES treatment effect IN Celiac disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  growth assessment MEASURES treatment effect IN Celiac disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005130
+  medical_actions:
+    - gluten-free diet
+    - celiac disease-specific serologic testing
+    - MAXO:0001193
+    - growth assessment
+  symptoms:
+    - HP:0002027
+    - HP:0002014
+    - HP:0003270
+    - HP:0001903
+    - low ferritin
+    - deficiency of 25-hydroxyvitamin D
+  chemicals:
+    - IgA tTG
+  action_annotation_relationships:
+    - subject: MAXO:0000088
+      predicate: TREATS
+      object: HP:0002027
+      qualifier: MONDO:0005130
+      subject_extension: gluten-free
+    - subject: gluten-free diet
+      predicate: TREATS
+      object: HP:0002014
+      qualifier: MONDO:0005130
+    - subject: gluten-free diet
+      predicate: TREATS
+      object: HP:0003270
+      qualifier: MONDO:0005130
+      subject_extension: gluten
+    - subject: gluten-free diet
+      predicate: TREATS
+      object: HP:0001903
+      qualifier: MONDO:0005130
+    - subject: gluten-free diet (with IgA tTG normalization)
+      predicate: TREATS
+      object: celiac disease-specific symptoms
+      qualifier: MONDO:0005130
+      subject_extension: gluten-free diet
+      object_extension: IgA tTG normalization
+    - subject: celiac disease-specific serologic testing
+      predicate: DIAGNOSES
+      object: HP:0002608
+    - subject: MAXO:0001193
+      predicate: DIAGNOSES
+      object: HP:0002608
+    - subject: growth assessment
+      predicate: MEASURES
+      object: treatment effect
+      qualifier: MONDO:0005130
+named_entities:
+  - id: MONDO:0005130
+    label: celiac disease
+  - id: MAXO:0000259
+    label: Insulin treatment
+  - id: HP:0033712
+    label: Recurrent implantation failure (RIF)
+  - id: CHEBI:145810
+    label: Insulin
+  - id: CHEBI:6801
+    label: Metformin
+  - id: HP:0002024
+    label: malabsorption
+  - id: HP:0012050
+    label: anasarca
+  - id: HP:0003111
+    label: electrolyte disorders
+  - id: MAXO:0000088
+    label: diet
+  - id: HP:0025502
+    label: Overweight
+  - id: HP:0001513
+    label: Obesity
+  - id: HP:0012393
+    label: Allergic diseases
+  - id: HP:0002608
+    label: Celiac disease
+  - id: HP:0000819
+    label: Diabetes
+  - id: HP:0030016
+    label: dyspareunia
+  - id: HP:0012786
+    label: recurrent cystitis
+  - id: HP:0400007
+    label: menstrual disorders
+  - id: MONDO:0100096
+    label: COVID-19
+  - id: MONDO:0005147
+    label: Type 1 diabetes mellitus
+  - id: HP:0000821
+    label: Hypothyroidism
+  - id: HP:0000822
+    label: Hypertension
+  - id: HP:0003119
+    label: Dyslipidemia
+  - id: HP:0009830
+    label: Neuropathy
+  - id: HP:0001626
+    label: Cardiovascular diseases
+  - id: HP:0005268
+    label: Miscarriage
+  - id: HP:0030991
+    label: primary sclerosing cholangitis
+  - id: MONDO:0005265
+    label: Inflammatory bowel disease
+  - id: CHEBI:18248
+    label: Iron
+  - id: HP:0002014
+    label: diarrhea
+  - id: HP:0012538
+    label: Gluten sensitivity
+  - id: MONDO:0016063
+    label: Celiac Disease (CD)
+  - id: MAXO:0001193
+    label: esophagogastroduodenoscopy
+  - id: HP:0002027
+    label: abdominal pain
+  - id: HP:0003270
+    label: bloating
+  - id: HP:0001903
+    label: anaemia

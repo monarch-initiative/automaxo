@@ -1,0 +1,120 @@
+---
+input_text: '[SEVERE INFANTILE ASTHMA TREATED WITH LONG-ACTING MUSCARINIC ANTAGONIST:
+  A CASE SERIES]. BACKGROUND: Long-acting muscarinic antagonists (LAMA) are used for
+  long-term treatment of bronchial asthma in adults. Its use in the management of
+  pediatric bronchial asthma, however, is currently not approved in Japan. Nonetheless,
+  there have been a few reports of its use in children, particularly in cases of severe
+  bronchial asthma or those without atopic disease that are refractory to existing
+  treatment protocols. We report the progress of LAMA in infantile asthma patients.
+  CASES: Three out of four patients had LAMA introduced at 3 to 5 years of age after
+  being diagnosed with asthma at 1 to 3 years old. Three patients had non-IgE-related
+  asthma and an underlying disease, such as Apert and Noonan syndrome, while one patient
+  had severe IgE-related asthma without a pre-existing disease. In all cases, conventional
+  long-term medications such as medium to high-dose inhaled corticosteroids and long-acting
+  beta-agonists, were given. However, severe bronchial asthma persisted, with some
+  patients having uncontrolled secretions. Since uncontrolled severe-persistent bronchial
+  asthma results in repeated hospitalization and intensive care unit admission, we
+  introduced LAMA, specifically 2.5mug/day of tiotropium (Tio). After the introducing
+  Tio, none of the patients had an acute exacerbation that required hospitalization
+  and the frequency of wheezing was reduced. LAMA was administered for up to 19 months,
+  with no adverse events. CONCLUSION: The results of this series suggest that LAMA
+  is an effective and safe option for uncontrolled infantile asthma.'
+raw_completion_output: |-
+  primary_disease: Severe infantile asthma
+
+  medical_actions: Introduction of Long-acting muscarinic antagonist (LAMA); Conventional long-term medications; Administration of medium to high-dose inhaled corticosteroids; Administration of long-acting beta-agonists; Hospitalization; Intensive care unit admission
+
+  symptoms: Severe bronchial asthma; Uncontrolled secretions; Wheezing; Acute exacerbation
+
+  chemicals: Tiotropium (Tio); Inhaled corticosteroids; Long-acting beta-agonists
+
+  action_annotation_relationships: Introduction of Long-acting muscarinic antagonist (LAMA) (with Tiotropium) TREATS Severe bronchial asthma IN Severe infantile asthma; Administration of medium to high-dose inhaled corticosteroids TREATS Severe bronchial asthma IN Severe infantile asthma; Administration of long-acting beta-agonists TREATS Severe bronchial asthma IN Severe infantile asthma; Hospitalization TREATS Acute exacerbation IN Severe infantile asthma; Intensive care unit admission TREATS Acute exacerbation IN Severe infantile asthma
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Intensive care unit admission TREATS Acute exacerbation IN Severe infantile asthma
+
+  ===
+
+extracted_object:
+  primary_disease: Severe infantile asthma
+  medical_actions:
+    - Introduction of Long-acting muscarinic antagonist (LAMA)
+    - Conventional long-term medications
+    - Administration of medium to high-dose inhaled corticosteroids
+    - Administration of long-acting beta-agonists
+    - Hospitalization
+    - Intensive care unit admission
+  symptoms:
+    - Severe bronchial asthma
+    - Uncontrolled secretions
+    - HP:0030828
+    - Acute exacerbation
+  chemicals:
+    - CHEBI:90960
+    - Inhaled corticosteroids
+    - Long-acting beta-agonists
+  action_annotation_relationships:
+    - subject: Introduction of Long-acting muscarinic antagonist (LAMA)
+      predicate: TREATS
+      object: Severe bronchial asthma
+      qualifier: Severe infantile asthma
+      subject_extension: CHEBI:90960
+    - subject: Administration
+      predicate: TREATS
+      object: Severe bronchial asthma
+      qualifier: Severe infantile asthma
+      subject_qualifier: medium to high-dose
+      subject_extension: inhaled corticosteroids
+    - subject: Administration of long-acting beta-agonists
+      predicate: TREATS
+      object: Severe bronchial asthma
+      qualifier: Severe infantile asthma
+      object_qualifier: Severe
+      subject_extension: long-acting beta-agonists
+    - subject: Hospitalization
+      predicate: TREATS
+      object: Acute exacerbation
+      qualifier: Severe infantile asthma
+    - subject: Intensive care unit admission
+      predicate: TREATS
+      object: Acute exacerbation
+      qualifier: Severe infantile asthma
+named_entities:
+  - id: CHEBI:33281
+    label: Antibiotics
+  - id: MONDO:0006936
+    label: pulmonary valve stenosis
+  - id: MAXO:0009072
+    label: surgical repair
+  - id: MONDO:0018997
+    label: Noonan syndrome
+  - id: MAXO:0010203
+    label: echocardiography
+  - id: HP:0004322
+    label: short stature
+  - id: MONDO:0011908
+    label: Juvenile myelomonocytic leukemia (JMML)
+  - id: MAXO:0000747
+    label: hematopoietic stem cell transplantation (HSCT)
+  - id: HP:0001663
+    label: ventricular fibrillation
+  - id: HP:0001639
+    label: hypertrophic cardiomyopathy
+  - id: HP:0032092
+    label: left ventricular outflow tract obstruction
+  - id: HP:0030828
+    label: Wheezing
+  - id: CHEBI:90960
+    label: Tiotropium (Tio)

@@ -1,6 +1,6 @@
 ---
 input_text: In vivo measurement of RBC survival in patients with sickle cell disease
-  before or after hematopoietic stem cell transplantation.Stable, mixed donor-recipient
+  before or after hematopoietic stem cell transplantation. Stable, mixed donor-recipient
   chimerism after allogeneic hematopoietic stem cell transplantation (HSCT) for patients
   with sickle cell disease (SCD) is sufficient for phenotypic disease reversal and
   results from differences in donor/recipient red blood cell (RBC) survival. Understanding
@@ -25,13 +25,13 @@ input_text: In vivo measurement of RBC survival in patients with sickle cell dis
 raw_completion_output: |-
   primary_disease: Sickle cell disease (SCD)
 
-  medical_actions: Allogeneic hematopoietic stem cell transplantation (HSCT); Biotin labeling of RBCs; Gene therapy
+  medical_actions: Hematopoietic stem cell transplantation (HSCT); Biotin labeling of RBCs; Gene therapy
 
-  symptoms: Shorter lifespan of RBCs; Phenotypic disease reversal; Polymerization of hemoglobin; Sickled RBCs after deoxygenation
+  symptoms: Shorter RBC lifespan; Increased sickling of RBCs after deoxygenation
 
   chemicals: Biotin
 
-  action_annotation_relationships: Allogeneic hematopoietic stem cell transplantation (HSCT) TREATS shorter lifespan of RBCs IN Sickle cell disease (SCD); Gene therapy TREATS polymerization of hemoglobin IN Sickle cell disease (SCD); Biotin labeling of RBCs (with Biotin) PREVENTS misinterpretation of RBC lifespan IN Sickle cell disease (SCD)
+  action_annotation_relationships: Hematopoietic stem cell transplantation (HSCT) PREVENTS shorter RBC lifespan IN Sickle cell disease (SCD); Biotin labeling of RBCs TREATS increased sickling of RBCs after deoxygenation IN Sickle cell disease (SCD); Gene therapy PREVENTS shorter RBC lifespan IN Sickle cell disease (SCD); Gene therapy PREVENTS increased sickling of RBCs after deoxygenation IN Sickle cell disease (SCD)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -46,7 +46,7 @@ prompt: |+
 
 
   Text:
-  Biotin labeling of RBCs (with Biotin) PREVENTS misinterpretation of RBC lifespan IN Sickle cell disease (SCD)
+  Gene therapy PREVENTS increased sickling of RBCs after deoxygenation IN Sickle cell disease (SCD)
 
   ===
 
@@ -57,232 +57,105 @@ extracted_object:
     - Biotin labeling of RBCs
     - MAXO:0001001
   symptoms:
-    - Shorter lifespan of RBCs
-    - Phenotypic disease reversal
-    - Polymerization of hemoglobin
-    - Sickled RBCs after deoxygenation
+    - Shorter RBC lifespan
+    - Increased sickling of RBCs after deoxygenation
   chemicals:
     - CHEBI:15956
   action_annotation_relationships:
-    - subject: <Allogeneic hematopoietic stem cell transplantation>
-      predicate: <TREATS>
-      object: <shorter lifespan of RBCs>
-      qualifier: <Sickle cell disease>
-      subject_qualifier: <Allogeneic>
-      subject_extension: <hematopoietic stem cell>
-    - subject: MAXO:0001001
+    - subject: MAXO:0000747
+      predicate: PREVENTS
+      object: shorter RBC lifespan
+      qualifier: MONDO:0011382
+    - subject: Biotin labeling of RBCs
       predicate: TREATS
-      object: polymerization of hemoglobin
+      object: increased sickling of RBCs after deoxygenation
+      qualifier: MONDO:0007374
+    - subject: MAXO:0001001
+      predicate: PREVENTS
+      object: shorter RBC lifespan
       qualifier: MONDO:0007374
       subject_extension: Gene therapy
-    - subject: Biotin labeling of RBCs
+    - subject: MAXO:0001001
       predicate: PREVENTS
-      object: misinterpretation of RBC lifespan
+      object: increased sickling of RBCs after deoxygenation
       qualifier: MONDO:0007374
-      subject_qualifier: with Biotin
-      subject_extension: CHEBI:15956
+      subject_extension: Gene therapy
 named_entities:
+  - id: MONDO:0011382
+    label: Sickle cell disease
+  - id: MAXO:0001001
+    label: genetic therapies
+  - id: MONDO:0005570
+    label: blood disorder
   - id: MONDO:0007374
-    label: Sickle Cell Disease (SCD)
+    label: Sickle cell disease (SCD)
+  - id: MAXO:0000756
+    label: Blood transfusion
+  - id: MAXO:0000747
+    label: Hematopoietic stem cell transplantation
+  - id: HP:0007760
+    label: Sickle cell disease (SCD)
+  - id: CHEBI:22720
+    label: Benzodiazepines
+  - id: HP:0001923
+    label: increased reticulocyte count
+  - id: MAXO:0000457
+    label: pain management
+  - id: MAXO:0000118
+    label: Immunizations
+  - id: HP:0001903
+    label: Anemia
+  - id: HP:0001297
+    label: Stroke
   - id: CHEBI:44423
     label: Hydroxyurea
-  - id: CHEBI:18050
-    label: L-glutamine
-  - id: MAXO:0001298
-    label: therapy
-  - id: MONDO:0011382
-    label: Sickle Cell Disease
-  - id: MONDO:0005290
-    label: Rhabdomyolysis
-  - id: MAXO:0001121
-    label: kidney biopsy
-  - id: MAXO:0000387
-    label: muscle biopsy
-  - id: HP:0001919
-    label: acute kidney injury (AKI)
-  - id: CHEBI:7044
-    label: Myoglobin
-  - id: MAXO:0000950
-    label: supportive care
-  - id: CHEBI:4027
-    label: cyclophosphamide
-  - id: MAXO:0000747
-    label: hematopoietic stem cell transplantation (HSCT)
-  - id: MAXO:0009101
-    label: early intervention
-  - id: MONDO:0100096
-    label: COVID-19
-  - id: MAXO:0000756
-    label: blood transfusion
-  - id: MAXO:0001001
-    label: gene therapy
-  - id: HP:0004936
-    label: venous thrombosis
-  - id: MONDO:0005266
-    label: diabetic retinopathy
-  - id: MONDO:0002303
-    label: central retinal vein occlusion
-  - id: HP:0100543
-    label: Cognitive dysfunction
-  - id: MONDO:0013517
-    label: beta-thalassemia
-  - id: HP:0012531
-    label: Pain
-  - id: MAXO:0000457
-    label: Pain management
-  - id: HP:0000739
-    label: anxiety
-  - id: HP:0000716
-    label: depression
-  - id: CHEBI:6716
-    label: depot medroxyprogesterone (DMPA)
-  - id: CHEBI:59826
-    label: progestin
-  - id: MONDO:0002049
-    label: Thrombocytopenia
-  - id: MAXO:0001017
-    label: Vaccination
-  - id: MONDO:0005632
-    label: Acute chest syndrome
-  - id: CHEBI:41879
-    label: dexamethasone
-  - id: CHEBI:17303
-    label: morphine
-  - id: CHEBI:16480
-    label: nitric oxide
-  - id: CHEBI:28304
-    label: heparin
-  - id: MONDO:0013730
-    label: graft versus host disease (GvHD)
-  - id: MAXO:0010030
-    label: Bone marrow transplantation
-  - id: MAXO:0000004
-    label: Surgical intervention
-  - id: HP:0200023
-    label: Priapism
-  - id: HP:0001945
-    label: pyrexia
-  - id: HP:0002019
-    label: constipation
-  - id: HP:0001903
-    label: decreased haemoglobin
-  - id: CHEBI:26710
-    label: NaCl
-  - id: MAXO:0000530
-    label: Carrier screening
-  - id: HP:0002615
-    label: Hypotension
-  - id: HP:0001662
-    label: Bradycardia
-  - id: HP:0002098
-    label: Respiratory distress
-  - id: CHEBI:119915
-    label: Fentanyl
-  - id: HP:0000407
-    label: Sensorineural hearing loss (SNHL)
-  - id: HP:0001249
-    label: Poor school performance
-  - id: HP:0030645
-    label: Risk of (central) auditory processing disorder
-  - id: CHEBI:28901
-    label: Busulfan
-  - id: MAXO:0000750
-    label: conditioning regimen
-  - id: MONDO:0002280
-    label: Anemia
-  - id: MONDO:0005003
-    label: Chronic Pancreatitis
-  - id: MAXO:0000088
-    label: Dietary interventions
-  - id: MAXO:0035049
-    label: Endoscopic retrograde cholangiopancreatography
-  - id: CHEBI:35480
-    label: Analgesic
-  - id: CHEBI:22586
-    label: Antioxidants
   - id: CHEBI:17334
     label: Penicillin
-  - id: HP:0001297
-    label: stroke
-  - id: HP:0003826
-    label: Stillbirths
-  - id: HP:0100806
-    label: Sepsis
-  - id: HP:0011891
-    label: Postpartum hemorrhage
-  - id: MONDO:0002050
-    label: Depression
-  - id: HP:0012418
-    label: Hypoxia
-  - id: CHEBI:17230
-    label: Homocysteine
-  - id: CHEBI:16811
-    label: Methionine
-  - id: MONDO:0005136
-    label: Malaria
+  - id: HP:0001511
+    label: Intrauterine growth retardation
   - id: HP:0001518
     label: Low birth weight
-  - id: CHEBI:38068
-    label: Antimalarial
-  - id: MONDO:0001754
-    label: Eclampsia
-  - id: HP:0011902
-    label: Abnormal hemoglobin
-  - id: CHEBI:223316
-    label: Artemisinin
-  - id: CHEBI:195280
-    label: Artemether
-  - id: CHEBI:156095
-    label: Lumefantrine
-  - id: CHEBI:63918
-    label: Artesunate
-  - id: CHEBI:2674
-    label: Amodiaquine
-  - id: MAXO:0009065
-    label: Intravenous push (IVP) analgesia
-  - id: MONDO:0010088
-    label: Musculoskeletal diseases (MSD)
-  - id: MONDO:0002081
-    label: Musculoskeletal diseases
-  - id: MONDO:0002146
-    label: Hypogonadism
-  - id: MONDO:0009061
-    label: cystic fibrosis
-  - id: MAXO:0000079
-    label: genetic counseling
-  - id: MONDO:0020380
-    label: Sickle Cell Anaemia (SCA)
-  - id: HP:0001511
-    label: intrauterine growth restriction
-  - id: HP:0100602
-    label: pre-eclampsia
-  - id: HP:0005268
-    label: miscarriage
-  - id: HP:0001622
-    label: preterm delivery
-  - id: HP:0011419
-    label: placental abruption
-  - id: CHEBI:15365
-    label: aspirin
-  - id: CHEBI:15552
-    label: prostacyclin
-  - id: CHEBI:26995
-    label: thromboxane
-  - id: MAXO:0001077
-    label: Splenectomy
-  - id: HP:0010972
-    label: Ineffective erythropoiesis
-  - id: HP:0004387
-    label: enterocolitis
-  - id: MONDO:0007100
-    label: transthyretin amyloidosis
-  - id: HP:0001139
-    label: conditional transcranial Doppler (TCD) flow velocities
-  - id: MAXO:0010203
-    label: Echocardiography
-  - id: HP:0001712
-    label: Left Ventricular Hypertrophy
-  - id: HP:0001699
-    label: Sudden death
+  - id: CHEBI:50249
+    label: anticoagulant
+  - id: HP:0012592
+    label: Albuminuria
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0012532
+    label: chronic pain
+  - id: MAXO:0000855
+    label: hemoglobin fractionation
   - id: CHEBI:15956
-    label: Biotin
+    label: biotin
+  - id: MAXO:0000127
+    label: genetic testing
+  - id: HP:0100602
+    label: Preeclampsia
+  - id: CHEBI:15365
+    label: Aspirin
+  - id: CHEBI:6888
+    label: methylprednisolone
+  - id: CHEBI:17650
+    label: hydrocortisone
+  - id: MONDO:0044348
+    label: Hemoglobinopathies
+  - id: HP:0200023
+    label: Priapism
+  - id: HP:0100639
+    label: Erectile dysfunction
+  - id: CHEBI:35480
+    label: Analgesics
+  - id: HP:0012531
+    label: pain
+  - id: CHEBI:51371
+    label: muscle relaxants
+  - id: HP:0001971
+    label: Hypersplenism
+  - id: HP:0001900
+    label: Increased hemoglobin
+  - id: HP:0012223
+    label: Splenic rupture
+  - id: HP:0002140
+    label: Arterial ischemic stroke
+  - id: MONDO:0020380
+    label: Sickle cell anemia (SCA)

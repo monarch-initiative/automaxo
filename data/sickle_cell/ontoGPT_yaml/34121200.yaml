@@ -1,6 +1,6 @@
 ---
 input_text: 'Antigen matching for transfusion support in Brazilian female patients
-  with sickle cell disease to reduce RBC alloimmunization.BACKGROUND: Red blood cell
+  with sickle cell disease to reduce RBC alloimmunization. BACKGROUND: Red blood cell
   (RBC) alloimmunization is a complication of patients with sickle cell disease (SCD)
   and it has a greater impact on pregnancy, leading to a risk of hemolytic disease
   of the newborn and reducing blood availability for pregnant women. This study proposed
@@ -23,15 +23,15 @@ input_text: 'Antigen matching for transfusion support in Brazilian female patien
   patients with SCD to reduce RBC alloimmunization; however, the supply of compatible
   blood can be impaired for patients with Rh variants.'
 raw_completion_output: |-
-  primary_disease: sickle cell disease
+  primary_disease: Sickle cell disease (SCD)
 
-  medical_actions: antigen matching transfusion protocols;genotyping for RBC antigens;RH molecular matching;prophylactic CEK antigen-matched RBCs transfusion;prophylactic extended antigen-matched RBCs transfusion;extended-matched RBCs transfusion for alloimmunized patients
+  medical_actions: Antigen matching transfusion protocols; Genotyping for RBC antigens and RH variants; Screening African descent donors
 
-  symptoms: RBC alloimmunization
+  symptoms: Red blood cell (RBC) alloimmunization; Risk of hemolytic disease of the newborn
 
   chemicals: 
 
-  action_annotation_relationships: antigen matching transfusion protocols PREVENTS RBC alloimmunization IN sickle cell disease;genotyping for RBC antigens TREATS RBC alloimmunization IN sickle cell disease;RH molecular matching PREVENTS RBC alloimmunization IN sickle cell disease;prophylactic CEK antigen-matched RBCs transfusion PREVENTS RBC alloimmunization IN sickle cell disease;prophylactic extended antigen-matched RBCs transfusion PREVENTS RBC alloimmunization IN sickle cell disease;extended-matched RBCs transfusion for alloimmunized patients TREATS RBC alloimmunization IN sickle cell disease
+  action_annotation_relationships: Antigen matching transfusion protocols PREVENTS Red blood cell (RBC) alloimmunization IN Sickle cell disease (SCD); Genotyping for RBC antigens and RH variants PREVENTS Red blood cell (RBC) alloimmunization IN Sickle cell disease (SCD); Screening African descent donors PREVENTS Red blood cell (RBC) alloimmunization IN Sickle cell disease (SCD); Antigen matching transfusion protocols PREVENTS Risk of hemolytic disease of the newborn IN Sickle cell disease (SCD)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -46,173 +46,206 @@ prompt: |+
 
 
   Text:
-  extended-matched RBCs transfusion for alloimmunized patients TREATS RBC alloimmunization IN sickle cell disease
+  Antigen matching transfusion protocols PREVENTS Risk of hemolytic disease of the newborn IN Sickle cell disease (SCD)
 
   ===
 
 extracted_object:
-  primary_disease: MONDO:0011382
+  primary_disease: MONDO:0007374
   medical_actions:
-    - antigen matching transfusion protocols
-    - genotyping for RBC antigens
-    - RH molecular matching
-    - prophylactic CEK antigen-matched RBCs transfusion
-    - prophylactic extended antigen-matched RBCs transfusion
-    - extended-matched RBCs transfusion for alloimmunized patients
+    - Antigen matching transfusion protocols
+    - Genotyping for RBC antigens and RH variants
+    - Screening African descent donors
   symptoms:
-    - RBC alloimmunization
+    - Red blood cell (RBC) alloimmunization
+    - Risk of hemolytic disease of the newborn
   action_annotation_relationships:
-    - subject: transfusion protocols
+    - subject: Antigen matching transfusion protocols
       predicate: PREVENTS
-      object: RBC alloimmunization
-      qualifier: MONDO:0011382
-      subject_qualifier: antigen matching
-      subject_extension: antigen matching transfusion protocols
-    - subject: genotyping for RBC antigens
-      predicate: TREATS
-      object: RBC alloimmunization
-      qualifier: MONDO:0011382
-    - subject: RH molecular matching
+      object: Red blood cell (RBC) alloimmunization
+      qualifier: MONDO:0007374
+    - subject: <Genotyping>
+      predicate: <PREVENTS>
+      object: <alloimmunization>
+      qualifier: MONDO:0007374
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <RBC antigens and RH variants>
+      object_extension: <Red blood cell (RBC)>
+    - subject: Screening African descent donors
       predicate: PREVENTS
-      object: RBC alloimmunization
-      qualifier: MONDO:0011382
-      subject_extension: RH molecular matching
-    - subject: MAXO:0000756
+      object: Red blood cell (RBC) alloimmunization
+      qualifier: MONDO:0007374
+    - subject: Antigen matching transfusion protocols
       predicate: PREVENTS
-      object: RBC alloimmunization
-      qualifier: MONDO:0011382
-      subject_qualifier: prophylactic
-      subject_extension: CEK antigen-matched RBCs
-    - subject: MAXO:0000756
-      predicate: PREVENTS
-      object: RBC alloimmunization
-      qualifier: MONDO:0011382
-      subject_qualifier: prophylactic
-      subject_extension: extended antigen-matched RBCs
-    - subject: extended-matched RBCs transfusion
-      predicate: TREATS
-      object: RBC alloimmunization
-      qualifier: MONDO:0011382
+      object: Risk of hemolytic disease of the newborn
+      qualifier: MONDO:0007374
 named_entities:
+  - id: MONDO:0011382
+    label: sickle cell disease
+  - id: MAXO:0010203
+    label: echocardiography
   - id: MONDO:0007374
     label: Sickle Cell Disease (SCD)
+  - id: HP:0001394
+    label: Cirrhosis
+  - id: HP:0002204
+    label: Pulmonary embolus
+  - id: HP:0001297
+    label: Stroke
+  - id: MONDO:0044348
+    label: hemoglobinopathies
+  - id: MONDO:0019740
+    label: acquired thrombotic thrombocytopenic purpura (aTTP)
+  - id: CHEBI:24261
+    label: glucocorticoids
   - id: CHEBI:44423
     label: Hydroxyurea
-  - id: CHEBI:18050
-    label: L-glutamine
-  - id: MAXO:0001298
-    label: therapy
-  - id: MONDO:0011382
-    label: Sickle Cell Disease
-  - id: MONDO:0005290
-    label: Rhabdomyolysis
-  - id: MAXO:0001121
-    label: kidney biopsy
-  - id: MAXO:0000387
-    label: muscle biopsy
-  - id: HP:0001919
-    label: acute kidney injury (AKI)
-  - id: CHEBI:7044
-    label: Myoglobin
-  - id: MAXO:0000950
-    label: supportive care
-  - id: CHEBI:4027
-    label: cyclophosphamide
-  - id: MAXO:0000747
-    label: hematopoietic stem cell transplantation (HSCT)
-  - id: MAXO:0009101
-    label: early intervention
-  - id: MONDO:0100096
-    label: COVID-19
+  - id: CHEBI:35480
+    label: Analgesics
+  - id: CHEBI:33281
+    label: Antibiotics
+  - id: CHEBI:35705
+    label: immunosuppressive agents
+  - id: MONDO:0002049
+    label: Thrombocytopenia
+  - id: CHEBI:46195
+    label: Acetaminophen
+  - id: CHEBI:47381
+    label: Diclofenac
+  - id: HP:0007018
+    label: Attention deficits
+  - id: CHEBI:6443
+    label: levonorgestrel
+  - id: HP:0001518
+    label: Small for gestational age
+  - id: HP:0001622
+    label: Preterm
+  - id: HP:0011105
+    label: Fluid overload
+  - id: HP:0001944
+    label: dehydration
+  - id: HP:0006775
+    label: Multiple Myeloma
   - id: MAXO:0000756
-    label: blood transfusion
+    label: Blood transfusions
+  - id: HP:0001903
+    label: Anaemia
+  - id: HP:0004421
+    label: Elevated systolic blood pressures
+  - id: CHEBI:33699
+    label: mRNA
+  - id: MAXO:0000068
+    label: Transplantation
+  - id: MAXO:0000149
+    label: Evaluation for an allogeneic hematopoietic stem cell transplant (HCT)
+  - id: CHEBI:50443
+    label: normal hematopoietic stem cells (HSCs)
   - id: MAXO:0001001
-    label: gene therapy
-  - id: HP:0004936
-    label: venous thrombosis
-  - id: MONDO:0005266
-    label: diabetic retinopathy
-  - id: MONDO:0002303
-    label: central retinal vein occlusion
-  - id: HP:0100543
-    label: Cognitive dysfunction
+    label: Gene therapies
   - id: MONDO:0013517
     label: beta-thalassemia
+  - id: MONDO:0005920
+    label: Plasmodium falciparum malaria
+  - id: HP:0001974
+    label: Leukocytosis
+  - id: HP:0001919
+    label: Acute kidney injury
+  - id: HP:0002140
+    label: Ischemic stroke
+  - id: HP:0002092
+    label: Pulmonary hypertension
+  - id: CHEBI:30413
+    label: Heme
+  - id: CHEBI:35143
+    label: Hemoglobin
+  - id: MONDO:0006079
+    label: Acute Chest Syndrome (ACS)
+  - id: MAXO:0000955
+    label: noninvasive, bi-level positive airway pressure ventilation (BiPAP)
+  - id: HP:0012418
+    label: hypoxemia
+  - id: MONDO:0005632
+    label: Acute Chest Syndrome
+  - id: HP:0001649
+    label: elevated heart rate
   - id: HP:0012531
-    label: Pain
-  - id: MAXO:0000457
-    label: Pain management
-  - id: HP:0000739
-    label: anxiety
-  - id: HP:0000716
-    label: depression
+    label: pain
+  - id: HP:0012532
+    label: Chronic pain
+  - id: CHEBI:125354
+    label: Plerixafor
+  - id: HP:0025085
+    label: bloody stools
+  - id: HP:0002027
+    label: abdominal pain
+  - id: MONDO:0100096
+    label: covid-19
+  - id: MAXO:0001017
+    label: vaccination
+  - id: MAXO:0000014
+    label: radiotherapy
+  - id: HP:0040319
+    label: Dark urine
+  - id: MONDO:0005136
+    label: Malaria
+  - id: MAXO:0001479
+    label: Allogeneic hematopoietic stem cell transplantation
+  - id: MAXO:0000950
+    label: Supportive care
+  - id: CHEBI:4027
+    label: Cyclophosphamide
+  - id: CHEBI:51451
+    label: endothelin receptor antagonists
+  - id: MONDO:0020380
+    label: sickle cell anemia (SCA)
+  - id: CHEBI:49005
+    label: deferasirox
+  - id: MONDO:0005290
+    label: Rhabdomyolysis
+  - id: CHEBI:9168
+    label: Sirolimus
+  - id: CHEBI:3770
+    label: Trimethoprim/Sulfamethoxazole (TMP-SMX)
+  - id: CHEBI:2453
+    label: Acyclovir
+  - id: HP:0040049
+    label: macular oedema
+  - id: CHEBI:18050
+    label: l-glutamine
+  - id: HP:0007760
+    label: Sickle Cell Disease (SCD)
+  - id: MAXO:0000503
+    label: mechanical ventilation
+  - id: MONDO:0018874
+    label: Acute Myeloid Leukemia
+  - id: CHEBI:17334
+    label: Penicillin
+  - id: MONDO:0003847
+    label: Genetic Disorders
+  - id: MAXO:0000573
+    label: Assisted Reproductive Technology (ART)
+  - id: HP:0000789
+    label: infertility
+  - id: MAXO:0000747
+    label: Hematopoietic stem cell transplantation (HSCT)
+  - id: MONDO:0019050
+    label: hereditary hemoglobinopathies
+  - id: MAXO:0000571
+    label: Chronic transfusion (CT)
+  - id: HP:0100699
+    label: Scarring
+  - id: HP:0002625
+    label: Deep venous thrombosis (DVT)
+  - id: MAXO:0001298
+    label: therapy
   - id: CHEBI:6716
     label: depot medroxyprogesterone (DMPA)
   - id: CHEBI:59826
     label: progestin
-  - id: MONDO:0002049
-    label: Thrombocytopenia
-  - id: MAXO:0001017
-    label: Vaccination
-  - id: MONDO:0005632
-    label: Acute chest syndrome
-  - id: CHEBI:41879
-    label: dexamethasone
-  - id: CHEBI:17303
-    label: morphine
-  - id: CHEBI:16480
-    label: nitric oxide
-  - id: CHEBI:28304
-    label: heparin
-  - id: MONDO:0013730
-    label: graft versus host disease (GvHD)
-  - id: MAXO:0010030
-    label: Bone marrow transplantation
   - id: MAXO:0000004
     label: Surgical intervention
   - id: HP:0200023
     label: Priapism
-  - id: HP:0001945
-    label: pyrexia
-  - id: HP:0002019
-    label: constipation
-  - id: HP:0001903
-    label: decreased haemoglobin
-  - id: CHEBI:26710
-    label: NaCl
-  - id: MAXO:0000530
-    label: Carrier screening
-  - id: HP:0002615
-    label: Hypotension
-  - id: HP:0001662
-    label: Bradycardia
-  - id: HP:0002098
-    label: Respiratory distress
-  - id: CHEBI:119915
-    label: Fentanyl
-  - id: HP:0000407
-    label: Sensorineural hearing loss (SNHL)
-  - id: HP:0001249
-    label: Poor school performance
-  - id: HP:0030645
-    label: Risk of (central) auditory processing disorder
-  - id: CHEBI:28901
-    label: Busulfan
-  - id: MAXO:0000750
-    label: conditioning regimen
-  - id: MONDO:0002280
-    label: Anemia
-  - id: MONDO:0005003
-    label: Chronic Pancreatitis
-  - id: MAXO:0000088
-    label: Dietary interventions
-  - id: MAXO:0035049
-    label: Endoscopic retrograde cholangiopancreatography
-  - id: CHEBI:35480
-    label: Analgesic
-  - id: CHEBI:22586
-    label: Antioxidants
-  - id: CHEBI:17334
-    label: Penicillin
-  - id: HP:0001297
-    label: stroke
+  - id: MAXO:0000011
+    label: post-transplant (PT) cyclophosphamide

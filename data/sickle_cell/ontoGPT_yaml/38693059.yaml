@@ -1,0 +1,137 @@
+---
+input_text: 'Survival of transfused red blood cells from a donor with alpha-thalassemia
+  trait in a recipient with sickle cell disease. BACKGROUND: Post-transfusion survival
+  of donor red blood cells (RBCs) is important for effective chronic transfusion therapy
+  in conditions including sickle cell disease (SCD). Biotin labeling RBCs allows direct
+  in vivo measurement of multiple donor RBC units simultaneously post-transfusion.
+  STUDY DESIGN AND METHODS: In an observational trial of patients with SCD receiving
+  monthly chronic transfusion therapy, aliquots of RBCs from one transfusion episode
+  were biotin-labeled and infused along with the unlabeled RBC units. Serial blood
+  samples were obtained to measure RBC survival. Donor units were tested for RBC indices,
+  hemoglobin fractionation, and glucose-6-phosphate dehydrogenase (G6PD) enzyme activity.
+  For microcytic donor RBCs (MCV < 70 fL), HBA1 and HBA2 genetic testing was performed
+  on whole blood. RESULTS: We present one recipient, a pediatric patient with SCD
+  and splenectomy who received two RBC units with aliquots from each unit labeled
+  at distinct biotin densities (2 and 18 mug/mL biotin). One donor unit was identified
+  to have microcytosis (MCV 68.5 fL after biotinylation); whole blood sample obtained
+  at a subsequent donation showed 2-gene deletion alpha-thalassemia trait (alpha-3.7kb/alpha-3.7kb)
+  and normal serum ferritin. G6PD activity was >60% of normal mean for both. The RBCs
+  with alpha-thalassemia RBC had accelerated clearance and increased surface phosphatidylserine
+  post-transfusion, as compared with the normocytic RBC (half life 65 vs. 86 days,
+  respectively). DISCUSSION: Post-transfusion RBC survival may be lower for units
+  from donors with alpha-thalassemia trait, although the impact of thalassemia trait
+  donors on transfusion efficacy requires further study.'
+raw_completion_output: |-
+  primary_disease: sickle cell disease
+  medical_actions: chronic transfusion therapy;biotin labeling RBCs;measurement of RBC survival;testing for RBC indices;hemoglobin fractionation;glucose-6-phosphate dehydrogenase enzyme activity measurement;HBA1 and HBA2 genetic testing
+  symptoms: accelerated clearance of RBCs;increased surface phosphatidylserine
+  chemicals: biotin;glucose-6-phosphate dehydrogenase
+  action_annotation_relationships: chronic transfusion therapy TREATS sickle cell disease;biotin labeling RBCs PREVENTS misidentification of transfused RBCs IN sickle cell disease;measurement of RBC survival TREATS ineffective transfusion IN sickle cell disease;testing for RCB indices, hemoglobin fractionation, and glucose-6-phosphate dehydrogenase enzyme activity measurement PREVENTS ineffective transfusion IN sickle cell disease;HBA1 and HBA2 genetic testing PREVENTS complications from alpha-thalassemia trait transfusion IN sickle cell disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  HBA1 and HBA2 genetic testing PREVENTS complications from alpha-thalassemia trait transfusion IN sickle cell disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0011382
+  medical_actions:
+    - chronic transfusion therapy
+    - biotin labeling RBCs
+    - measurement of RBC survival
+    - testing for RBC indices
+    - MAXO:0000855
+    - glucose-6-phosphate dehydrogenase enzyme activity measurement
+    - HBA1 and HBA2 genetic testing
+  symptoms:
+    - accelerated clearance of RBCs
+    - increased surface phosphatidylserine
+  chemicals:
+    - CHEBI:15956
+    - glucose-6-phosphate dehydrogenase
+  action_annotation_relationships:
+    - subject: chronic transfusion therapy
+      predicate: TREATS
+      object: sickle cell disease
+    - subject: labeling RBCs
+      predicate: PREVENTS
+      object: misidentification of transfused RBCs
+      qualifier: MONDO:0011382
+      subject_extension: CHEBI:15956
+    - subject: measurement of RBC survival
+      predicate: TREATS
+      object: ineffective transfusion
+      qualifier: MONDO:0011382
+      subject_extension: RBC survival
+      object_extension: ineffective transfusion
+    - subject: testing for RCB indices, hemoglobin fractionation, and glucose-6-phosphate
+        dehydrogenase enzyme activity measurement
+      predicate: PREVENTS
+      object: ineffective transfusion
+      qualifier: MONDO:0011382
+    - subject: MAXO:0000127
+      predicate: PREVENTS
+      object: complications from alpha-thalassemia trait transfusion
+      qualifier: MONDO:0011382
+      subject_extension: HBA1 and HBA2 genetic testing
+named_entities:
+  - id: MONDO:0011382
+    label: Sickle cell disease
+  - id: MAXO:0001001
+    label: genetic therapies
+  - id: MONDO:0005570
+    label: blood disorder
+  - id: MONDO:0007374
+    label: Sickle cell disease (SCD)
+  - id: MAXO:0000756
+    label: Blood transfusion
+  - id: MAXO:0000747
+    label: Hematopoietic stem cell transplantation
+  - id: HP:0007760
+    label: Sickle cell disease (SCD)
+  - id: CHEBI:22720
+    label: Benzodiazepines
+  - id: HP:0001923
+    label: increased reticulocyte count
+  - id: MAXO:0000457
+    label: pain management
+  - id: MAXO:0000118
+    label: Immunizations
+  - id: HP:0001903
+    label: Anemia
+  - id: HP:0001297
+    label: Stroke
+  - id: CHEBI:44423
+    label: Hydroxyurea
+  - id: CHEBI:17334
+    label: Penicillin
+  - id: HP:0001511
+    label: Intrauterine growth retardation
+  - id: HP:0001518
+    label: Low birth weight
+  - id: CHEBI:50249
+    label: anticoagulant
+  - id: HP:0012592
+    label: Albuminuria
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0012532
+    label: chronic pain
+  - id: MAXO:0000855
+    label: hemoglobin fractionation
+  - id: CHEBI:15956
+    label: biotin
+  - id: MAXO:0000127
+    label: genetic testing

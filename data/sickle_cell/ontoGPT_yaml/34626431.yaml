@@ -1,8 +1,8 @@
 ---
-input_text: "Exercise-induced changes of vital signs in adults with sickle cell disease.The
-  six-minute walk test (6MWT) has been used in patients with sickle cell disease (SCD),
-  in conjunction with tricuspid regurgitant velocity (TRV) and plasma N-terminal pro-brain
-  natriuretic peptide (NT-pro BNP), to assess risk of having pulmonary hypertension.
+input_text: "Exercise-induced changes of vital signs in adults with sickle cell disease.
+  The six-minute walk test (6MWT) has been used in patients with sickle cell disease
+  (SCD), in conjunction with tricuspid regurgitant velocity (TRV) and plasma N-terminal
+  pro-brain natriuretic peptide (NT-pro BNP), to assess risk of having pulmonary hypertension.
   Exercise-induced vital sign changes (VSCs) are predictors of clinical outcomes in
   other diseases. In this study, we assess the predictors and prognostic value of
   6MWT VSC in adult SCD patients. Data from a multinational study of SCD patients
@@ -21,17 +21,17 @@ input_text: "Exercise-induced changes of vital signs in adults with sickle cell 
   in SBP during the 6MWT was associated with improved survival and may be indicative
   of a patient's ability to increase stroke volume."
 raw_completion_output: |-
-  primary_disease: Sickle cell disease (SCD)
+  primary_disease: sickle cell disease (SCD)
 
-  medical_actions: Six-minute walk test (6MWT); Multivariable analysis; Survival analysis by the Cox proportional hazard method
+  medical_actions: six-minute walk test (6MWT); multivariable analysis; survival analysis using Cox proportional hazard method
 
-  symptoms: Increase in heart rate; Increase in systolic blood pressure (SBP); Decrease in oxygen saturation; Exercise-induced vital sign changes (VSC)
+  symptoms: increase in heart rate; increase in systolic blood pressure (SBP); decrease in oxygen saturation
 
-  chemicals: Sildenafil; N-terminal pro-brain natriuretic peptide (NT-pro BNP)
+  chemicals: N-terminal pro-brain natriuretic peptide (NT-pro BNP); sildenafil
 
-  action_annotation_relationships: 6MWT TREATS Increase in heart rate IN Sickle cell disease (SCD); 6MWT TREATS Increase in systolic blood pressure (SBP) IN Sickle cell disease (SCD); 6MWT TREATS Decrease in oxygen saturation IN Sickle cell disease (SCD); Multivariable analysis TREATS Exercise-induced vital sign changes (VSC) IN Sickle cell disease (SCD); Survival analysis by the Cox proportional hazard method TREATS Exercise-induced vital sign changes (VSC) IN Sickle cell disease (SCD); Sildenafil TREATS Sickle cell disease (SCD)
+  action_annotation_relationships: six-minute walk test (6MWT) TREATS increase in heart rate IN sickle cell disease (SCD); six-minute walk test (6MWT) TREATS increase in systolic blood pressure (SBP) IN sickle cell disease (SCD); six-minute walk test (6MWT) TREATS decrease in oxygen saturation IN sickle cell disease (SCD); multivariable analysis IDENTIFIES decrease in oxygen saturation IN sickle cell disease (SCD); survival analysis using Cox proportional hazard method INDICATES increase in systolic blood pressure (SBP) IN sickle cell disease (SCD)
 prompt: |+
-  Split the following piece of text into fields in the following format:
+  From the text below, extract the following entities in the following format:
 
   subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
   object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
@@ -44,108 +44,284 @@ prompt: |+
 
 
   Text:
-  Sildenafil TREATS Sickle cell disease (SCD)
+  survival analysis using Cox proportional hazard method INDICATES increase in systolic blood pressure (SBP) IN sickle cell disease (SCD)
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0007374
   medical_actions:
-    - Six-minute walk test (6MWT)
-    - Multivariable analysis
-    - Survival analysis by the Cox proportional hazard method
+    - six-minute walk test (6MWT)
+    - multivariable analysis
+    - survival analysis using Cox proportional hazard method
   symptoms:
-    - Increase in heart rate
-    - Increase in systolic blood pressure (SBP)
-    - Decrease in oxygen saturation
-    - Exercise-induced vital sign changes (VSC)
+    - increase in heart rate
+    - increase in systolic blood pressure (SBP)
+    - decrease in oxygen saturation
   chemicals:
-    - CHEBI:9139
     - N-terminal pro-brain natriuretic peptide (NT-pro BNP)
+    - CHEBI:9139
   action_annotation_relationships:
-    - subject: <6MWT>
-      predicate: <TREATS>
-      object: <Increase in heart rate>
-      qualifier: MONDO:0007374
-      subject_qualifier: <Not applicable>
-      object_qualifier: <Not applicable>
-      subject_extension: <Not applicable>
-      object_extension: <Not applicable>
-    - subject: <6MWT>
-      predicate: <TREATS>
-      object: <Increase in systolic blood pressure (SBP)>
-      qualifier: MONDO:0007374
-      subject_extension: <6MWT>
-    - subject: <6MWT>
-      predicate: <TREATS>
-      object: <Decrease in oxygen saturation>
-      qualifier: MONDO:0007374
-      subject_extension: <6MWT>
-    - subject: Multivariable analysis
+    - subject: six-minute walk test (6MWT)
       predicate: TREATS
-      object: Exercise-induced vital sign changes (VSC)
+      object: increase in heart rate
       qualifier: MONDO:0007374
-    - subject: <Survival analysis by the Cox proportional hazard method>
+    - subject: <six-minute walk test (6MWT)>
       predicate: <TREATS>
-      object: <Exercise-induced vital sign changes (VSC)>
+      object: <increase in systolic blood pressure (SBP)>
       qualifier: MONDO:0007374
-      subject_qualifier: <Not applicable>
-      object_qualifier: <Not applicable>
-      subject_extension: <Not applicable>
-      object_extension: <Not applicable>
-    - predicate: TREATS
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: six-minute walk test (6MWT)
+      predicate: TREATS
+      object: decrease in oxygen saturation
       qualifier: MONDO:0007374
-      subject_extension: CHEBI:9139
+    - subject: multivariable analysis
+      predicate: IDENTIFIES
+      object: decrease in oxygen saturation
+      qualifier: MONDO:0007374
+    - subject: survival analysis using Cox proportional hazard method
+      predicate: INDICATES
+      object: increase in systolic blood pressure (SBP)
+      qualifier: MONDO:0007374
 named_entities:
-  - id: HP:0002863
-    label: Leukemia/Myelodysplastic syndrome (MDS)
-  - id: CHEBI:4027
-    label: Cyclophosphamide
-  - id: MONDO:0007374
-    label: Sickle cell disease (SCD)
-  - id: MAXO:0000756
-    label: Blood transfusion
   - id: MONDO:0011382
     label: sickle cell disease
-  - id: HP:0004870
-    label: Chronic hemolytic anemia
+  - id: MAXO:0010203
+    label: echocardiography
+  - id: MONDO:0007374
+    label: Sickle Cell Disease (SCD)
+  - id: HP:0001394
+    label: Cirrhosis
+  - id: HP:0002204
+    label: Pulmonary embolus
+  - id: HP:0001297
+    label: Stroke
+  - id: MONDO:0044348
+    label: hemoglobinopathies
+  - id: MONDO:0019740
+    label: acquired thrombotic thrombocytopenic purpura (aTTP)
+  - id: CHEBI:24261
+    label: glucocorticoids
   - id: CHEBI:44423
     label: Hydroxyurea
-  - id: MAXO:0001298
-    label: therapy
-  - id: HP:0012592
-    label: Albuminuria
-  - id: HP:0030162
-    label: Glomerulomegaly
-  - id: HP:0033533
-    label: Increased cardiac output
-  - id: MONDO:0044348
-    label: Hemoglobinopathies
+  - id: CHEBI:35480
+    label: Analgesics
+  - id: CHEBI:33281
+    label: Antibiotics
+  - id: CHEBI:35705
+    label: immunosuppressive agents
+  - id: MONDO:0002049
+    label: Thrombocytopenia
+  - id: CHEBI:46195
+    label: Acetaminophen
+  - id: CHEBI:47381
+    label: Diclofenac
+  - id: HP:0007018
+    label: Attention deficits
+  - id: CHEBI:6443
+    label: levonorgestrel
+  - id: HP:0001518
+    label: Small for gestational age
+  - id: HP:0001622
+    label: Preterm
+  - id: HP:0011105
+    label: Fluid overload
+  - id: HP:0001944
+    label: dehydration
+  - id: HP:0006775
+    label: Multiple Myeloma
+  - id: MAXO:0000756
+    label: Blood transfusions
   - id: HP:0001903
-    label: Anemia
-  - id: HP:0012418
-    label: Hypoxemia
-  - id: MAXO:0000617
-    label: Pulse oximetry
+    label: Anaemia
+  - id: HP:0004421
+    label: Elevated systolic blood pressures
+  - id: CHEBI:33699
+    label: mRNA
   - id: MAXO:0000068
-    label: transplantation
-  - id: HP:0007760
-    label: Sickle Cell Disease (SCD)
+    label: Transplantation
+  - id: MAXO:0000149
+    label: Evaluation for an allogeneic hematopoietic stem cell transplant (HCT)
+  - id: CHEBI:50443
+    label: normal hematopoietic stem cells (HSCs)
+  - id: MAXO:0001001
+    label: Gene therapies
   - id: MONDO:0013517
     label: beta-thalassemia
-  - id: MONDO:0002304
-    label: Protein S deficiency
-  - id: MAXO:0001001
-    label: Gene therapy
-  - id: HP:0002098
-    label: respiratory distress
-  - id: HP:0012735
-    label: cough
+  - id: MONDO:0005920
+    label: Plasmodium falciparum malaria
+  - id: HP:0001974
+    label: Leukocytosis
+  - id: HP:0001919
+    label: Acute kidney injury
+  - id: HP:0002140
+    label: Ischemic stroke
+  - id: HP:0002092
+    label: Pulmonary hypertension
+  - id: CHEBI:30413
+    label: Heme
+  - id: CHEBI:35143
+    label: Hemoglobin
+  - id: MONDO:0006079
+    label: Acute Chest Syndrome (ACS)
+  - id: MAXO:0000955
+    label: noninvasive, bi-level positive airway pressure ventilation (BiPAP)
+  - id: HP:0012418
+    label: hypoxemia
+  - id: MONDO:0005632
+    label: Acute Chest Syndrome
+  - id: HP:0001649
+    label: elevated heart rate
+  - id: HP:0012531
+    label: pain
   - id: HP:0012532
     label: Chronic pain
+  - id: CHEBI:125354
+    label: Plerixafor
+  - id: HP:0025085
+    label: bloody stools
+  - id: HP:0002027
+    label: abdominal pain
+  - id: MONDO:0100096
+    label: covid-19
+  - id: MAXO:0001017
+    label: vaccination
+  - id: MAXO:0000014
+    label: radiotherapy
+  - id: HP:0040319
+    label: Dark urine
+  - id: MONDO:0005136
+    label: Malaria
+  - id: MAXO:0001479
+    label: Allogeneic hematopoietic stem cell transplantation
+  - id: MAXO:0000950
+    label: Supportive care
+  - id: CHEBI:4027
+    label: Cyclophosphamide
+  - id: CHEBI:51451
+    label: endothelin receptor antagonists
+  - id: MONDO:0020380
+    label: sickle cell anemia (SCA)
+  - id: CHEBI:49005
+    label: deferasirox
+  - id: MONDO:0005290
+    label: Rhabdomyolysis
+  - id: CHEBI:9168
+    label: Sirolimus
+  - id: CHEBI:3770
+    label: Trimethoprim/Sulfamethoxazole (TMP-SMX)
+  - id: CHEBI:2453
+    label: Acyclovir
+  - id: HP:0040049
+    label: macular oedema
+  - id: CHEBI:18050
+    label: l-glutamine
+  - id: HP:0007760
+    label: Sickle Cell Disease (SCD)
+  - id: MAXO:0000503
+    label: mechanical ventilation
+  - id: MONDO:0018874
+    label: Acute Myeloid Leukemia
+  - id: CHEBI:17334
+    label: Penicillin
+  - id: MONDO:0003847
+    label: Genetic Disorders
+  - id: MAXO:0000573
+    label: Assisted Reproductive Technology (ART)
+  - id: HP:0000789
+    label: infertility
+  - id: MAXO:0000747
+    label: Hematopoietic stem cell transplantation (HSCT)
+  - id: MONDO:0019050
+    label: hereditary hemoglobinopathies
+  - id: MAXO:0000571
+    label: Chronic transfusion (CT)
+  - id: HP:0100699
+    label: Scarring
+  - id: HP:0002625
+    label: Deep venous thrombosis (DVT)
+  - id: MAXO:0001298
+    label: therapy
+  - id: CHEBI:6716
+    label: depot medroxyprogesterone (DMPA)
+  - id: CHEBI:59826
+    label: progestin
+  - id: MAXO:0000004
+    label: Surgical intervention
+  - id: HP:0200023
+    label: Priapism
+  - id: MAXO:0000011
+    label: post-transplant (PT) cyclophosphamide
+  - id: MAXO:0009065
+    label: Intravenous push (IVP) analgesia
+  - id: CHEBI:17303
+    label: Morphine
+  - id: MAXO:0000079
+    label: Genetic counseling
+  - id: MONDO:0009061
+    label: Cystic fibrosis
+  - id: MAXO:0010030
+    label: Bone marrow transplantation
+  - id: MAXO:0000506
+    label: Non-invasive ventilation
+  - id: MAXO:0000586
+    label: Invasive ventilation
+  - id: MAXO:0000600
+    label: Renal replacement therapy
+  - id: MAXO:0000515
+    label: Extracorporeal membrane oxygenation
+  - id: HP:0100806
+    label: Sepsis
+  - id: HP:0002098
+    label: respiratory distress
+  - id: CHEBI:80240
+    label: Endothelin-1
+  - id: CHEBI:82557
+    label: treosulfan
+  - id: HP:0001945
+    label: fever
+  - id: HP:0002617
+    label: Vasculopathy
+  - id: CHEBI:50858
+    label: corticosteroids
+  - id: HP:0000822
+    label: Hypertension
+  - id: HP:0001635
+    label: Heart failure
+  - id: HP:0000819
+    label: Diabetes
+  - id: HP:0002099
+    label: Asthma
+  - id: HP:0003040
+    label: Joint disorders
+  - id: MONDO:0005775
+    label: Glucose-6-phosphate dehydrogenase deficiency
+  - id: CHEBI:29016
+    label: Arginine
+  - id: CHEBI:68554
+    label: deferiprone
+  - id: HP:0002013
+    label: vomiting
+  - id: HP:0001875
+    label: neutropenia
+  - id: HP:0012234
+    label: agranulocytosis
+  - id: CHEBI:4356
+    label: deferoxamine
+  - id: HP:0001907
+    label: Thromboembolism
+  - id: CHEBI:8461
+    label: Promethazine
+  - id: MAXO:0000058
+    label: drug treatment
   - id: MONDO:0004992
     label: Cancer
   - id: HP:0002664
     label: Cancer
+  - id: MONDO:0002304
+    label: Protein S deficiency
   - id: CHEBI:9139
-    label: Sildenafil
+    label: sildenafil

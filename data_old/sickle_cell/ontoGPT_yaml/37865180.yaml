@@ -1,0 +1,189 @@
+---
+input_text: "Multi-component Strategy Improves HPV Vaccination Rates among Adolescents
+  with Sickle Cell Disease.OBJECTIVE: To evaluate the effectiveness of a vaccine strategy
+  bundle to increase HPV vaccine initiation and completion in a specialty clinic setting.
+  STUDY DESIGN: Our Hematology clinic utilized an implementation framework from October
+  1, 2018, to December 31, 2019, involving nurses, nursing coordinators, and clinicians
+  in administering the HPV vaccination series to our adolescent sickle cell sample
+  of nearly 500 patients. The bundle included education for staff on the need for
+  HPV vaccine administration, provider incentives, vaccines offered to patients in
+  SCD clinics, and verification of patients' charts of vaccine completion. RESULTS:
+  Following the implementation of the bundle, the cumulative incidence of HPV vaccination
+  initiation and completion improved from 28% to 46% and 7% to 49%, respectively.
+  Both rates remained higher post-implementation as well. HPV vaccination series completion
+  was associated with a decreased distance to the healthcare facility, lower state
+  deprivation rank, and increased hospitalizations. CONCLUSION: Our clinic's implementation
+  strategy successfully improved vaccine completion rates among adolescents with SCD
+  while continuing to educate staff, patients, and families on the importance of cancer
+  prevention among people living with SCD."
+raw_completion_output: |-
+  primary_disease: Sickle Cell Disease
+  medical_actions: HPV vaccine initiation;HPV vaccine completion;education for staff on the need for HPV vaccine administration;provider incentives;verification of patients' charts of vaccine completion
+  symptoms: None specified
+  chemicals: HPV vaccine
+  action_annotation_relationships: HPV vaccine initiation PREVENTS HPV IN Sickle Cell Disease;HPV vaccine completion PREVENTS HPV IN Sickle Cell Disease;education for staff on the need for HPV vaccine administration (with HPV vaccine) PREVENTS HPV IN Sickle Cell Disease;provider incentives (with HPV vaccine) PREVENTS HPV IN Sickle Cell Disease;verification of patients' charts of vaccine completion (with HPV vaccine) PREVENTS HPV IN Sickle Cell Disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  verification of patients' charts of vaccine completion (with HPV vaccine) PREVENTS HPV IN Sickle Cell Disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0011382
+  medical_actions:
+    - HPV vaccine initiation
+    - HPV vaccine completion
+    - education for staff on the need for HPV vaccine administration
+    - provider incentives
+    - verification of patients' charts of vaccine completion
+  symptoms:
+    - None specified
+  chemicals:
+    - HPV vaccine
+  action_annotation_relationships:
+    - subject: vaccine initiation
+      predicate: PREVENTS
+      object: HPV
+      qualifier: MONDO:0011382
+      subject_extension: HPV vaccine
+    - subject: HPV vaccine completion
+      predicate: PREVENTS
+      object: HPV
+      qualifier: MONDO:0011382
+    - subject: education for staff on the need for HPV vaccine administration
+      predicate: PREVENTS
+      object: HPV
+      qualifier: MONDO:0011382
+      subject_qualifier: with HPV vaccine
+      subject_extension: HPV vaccine
+    - subject: <provider incentives>
+      predicate: <PREVENTS>
+      object: <HPV>
+      qualifier: <Sickle Cell Disease>
+      subject_qualifier: <with HPV vaccine>
+      subject_extension: <HPV vaccine>
+    - subject: verification of patients' charts of vaccine completion
+      predicate: PREVENTS
+      object: HPV
+      qualifier: MONDO:0011382
+      subject_qualifier: with HPV vaccine
+      subject_extension: HPV vaccine
+named_entities:
+  - id: MONDO:0011382
+    label: sickle cell disease
+  - id: MONDO:0100096
+    label: SARS-CoV-2
+  - id: MONDO:0007374
+    label: Sickle cell disease (SCD)
+  - id: HP:0100602
+    label: Preeclampsia
+  - id: HP:0001511
+    label: Intrauterine growth restriction
+  - id: CHEBI:44423
+    label: Hydroxyurea (HU)
+  - id: CHEBI:35143
+    label: Haemoglobin (Hb)
+  - id: HP:0001622
+    label: Preterm delivery
+  - id: CHEBI:50858
+    label: corticosteroids
+  - id: HP:0032654
+    label: Endothelial dysfunction
+  - id: HP:0012418
+    label: Hypoxia
+  - id: HP:0001409
+    label: Portal hypertension
+  - id: MAXO:0001001
+    label: Gene therapies
+  - id: MAXO:0000756
+    label: Transfusion
+  - id: MAXO:0000747
+    label: Hematopoietic stem cell transplantation
+  - id: MAXO:0001298
+    label: therapy
+  - id: MAXO:0009047
+    label: Total hip replacement (THR)
+  - id: CHEBI:22720
+    label: Benzodiazepines
+  - id: MONDO:0006079
+    label: Acute chest syndrome (ACS)
+  - id: CHEBI:24859
+    label: Iodine
+  - id: MONDO:0005632
+    label: Acute chest syndrome
+  - id: CHEBI:17334
+    label: penicillin
+  - id: MAXO:0000118
+    label: immunizations
+  - id: HP:0001903
+    label: anemia
+  - id: HP:0001297
+    label: stroke
+  - id: HP:0012532
+    label: Chronic pain
+  - id: CHEBI:3216
+    label: Buprenorphine
+  - id: HP:0001518
+    label: Low birth weight
+  - id: MAXO:0001006
+    label: Full blood count
+  - id: MAXO:0000825
+    label: Reticulocyte count
+  - id: MAXO:0000427
+    label: Brain magnetic resonance imaging (MRI)
+  - id: HP:0012592
+    label: albuminuria
+  - id: HP:0100543
+    label: cognitive dysfunction
+  - id: HP:0000739
+    label: anxiety
+  - id: HP:0010783
+    label: Redness
+  - id: CHEBI:33281
+    label: antibiotics
+  - id: MONDO:0009693
+    label: Multiple Myeloma
+  - id: CHEBI:145536
+    label: Motixafortide
+  - id: CHEBI:114786
+    label: sodium metabisulfite
+  - id: CHEBI:15365
+    label: aspirin
+  - id: HP:0000093
+    label: Proteinuria
+  - id: HP:0012622
+    label: CKD
+  - id: MAXO:0000969
+    label: optical coherence tomography (OCT)
+  - id: HP:0000505
+    label: visual impairment
+  - id: CHEBI:28901
+    label: busulfan
+  - id: CHEBI:82557
+    label: treosulfan
+  - id: CHEBI:9570
+    label: thiotepa
+  - id: HP:0100603
+    label: Hypertensive disorder of pregnancy (HDP)
+  - id: CHEBI:26308
+    label: unweighted polygenic risk score (PRS)
+  - id: CHEBI:35480
+    label: Analgesics
+  - id: HP:0012213
+    label: Decreased glomerular filtration rate
+  - id: HP:0012398
+    label: Peripheral oedema
+  - id: HP:0001685
+    label: Cardiac fibrosis

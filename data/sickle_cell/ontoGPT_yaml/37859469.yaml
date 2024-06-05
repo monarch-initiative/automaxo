@@ -1,6 +1,6 @@
 ---
 input_text: 'Cerebral hemodynamics and oxygenation in adult patients with sickle cell
-  disease after stem cell transplantation.Sickle cell disease (SCD) is characterized
+  disease after stem cell transplantation. Sickle cell disease (SCD) is characterized
   by chronic hemolytic anemia associated with impaired cerebral hemodynamics and oxygen
   metabolism. Hematopoietic stem cell transplantation (HSCT) is currently the only
   curative treatment for patients with SCD. Whereas normalization of hemoglobin levels
@@ -22,15 +22,15 @@ input_text: 'Cerebral hemodynamics and oxygenation in adult patients with sickle
   whether the observed normalization of cerebral hemodynamics and oxygen metabolism
   prevents new silent cerebral infarcts.'
 raw_completion_output: |-
-  primary_disease: Sickle cell disease (SCD)
+  primary_disease: Sickle cell disease
 
-  medical_actions: Hematopoietic stem cell transplantation (HSCT); MRI scans; acetazolamide as a vasodilatory stimulus
+  medical_actions: Hematopoietic stem cell transplantation (HSCT); MRI scans; Perfusion scans with acetazolamide
 
-  symptoms: chronic hemolytic anemia; impaired cerebral hemodynamics; impaired oxygen metabolism; decreased cerebral blood flow (CBF); reduced cerebrovascular reserve (CVR); altered oxygen extraction fraction (OEF); change in cerebral metabolic rate of oxygen (CMRO2)
+  symptoms: Chronic hemolytic anemia; Impaired cerebral hemodynamics; Impaired oxygen metabolism
 
-  chemicals: acetazolamide
+  chemicals: Acetazolamide
 
-  action_annotation_relationships: Hematopoietic stem cell transplantation (HSCT) TREATS chronic hemolytic anemia IN Sickle cell disease (SCD); Hematopoietic stem cell transplantation (HSCT) TREATS impaired cerebral hemodynamics IN Sickle cell disease (SCD); Hematopoietic stem cell transplantation (HSCT) TREATS impaired oxygen metabolism IN Sickle cell disease (SCD); acetazolamide (as a vasodilatory stimulus) TREATS reduced cerebrovascular reserve (CVR) IN Sickle cell disease (SCD); MRI scans MONITOR change in cerebral metabolic rate of oxygen (CMRO2) IN Sickle cell disease (SCD); MRI scans MONITOR altered oxygen extraction fraction (OEF) IN Sickle cell disease (SCD)
+  action_annotation_relationships: Hematopoietic stem cell transplantation (HSCT) TREATS chronic hemolytic anemia IN Sickle cell disease; Hematopoietic stem cell transplantation (HSCT) TREATS impaired cerebral hemodynamics IN Sickle cell disease; Hematopoietic stem cell transplantation (HSCT) TREATS impaired oxygen metabolism IN Sickle cell disease; MRI scans TREATS impaired cerebral hemodynamics IN Sickle cell disease; MRI scans TREATS impaired oxygen metabolism IN Sickle cell disease; Perfusion scans with acetazolamide TREATS impaired cerebral hemodynamics IN Sickle cell disease
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -45,24 +45,20 @@ prompt: |+
 
 
   Text:
-  MRI scans MONITOR altered oxygen extraction fraction (OEF) IN Sickle cell disease (SCD)
+  Perfusion scans with acetazolamide TREATS impaired cerebral hemodynamics IN Sickle cell disease
 
   ===
 
 extracted_object:
-  primary_disease: MONDO:0007374
+  primary_disease: MONDO:0011382
   medical_actions:
     - MAXO:0000747
     - MRI scans
-    - acetazolamide as a vasodilatory stimulus
+    - Perfusion scans with acetazolamide
   symptoms:
     - HP:0004870
-    - impaired cerebral hemodynamics
-    - impaired oxygen metabolism
-    - decreased cerebral blood flow (CBF)
-    - reduced cerebrovascular reserve (CVR)
-    - altered oxygen extraction fraction (OEF)
-    - change in cerebral metabolic rate of oxygen (CMRO2)
+    - Impaired cerebral hemodynamics
+    - Impaired oxygen metabolism
   chemicals:
     - CHEBI:27690
   action_annotation_relationships:
@@ -70,187 +66,156 @@ extracted_object:
       predicate: TREATS
       object: HP:0004870
       qualifier: MONDO:0011382
-    - subject: <Hematopoietic stem cell transplantation>
+    - subject: MAXO:0000747
+      predicate: TREATS
+      object: impaired cerebral hemodynamics
+      qualifier: MONDO:0011382
+    - subject: MAXO:0000747
+      predicate: TREATS
+      object: impaired oxygen metabolism
+      qualifier: MONDO:0011382
+    - subject: <MRI scans>
       predicate: <TREATS>
       object: <impaired cerebral hemodynamics>
       qualifier: <Sickle cell disease>
-      subject_extension: <Hematopoietic stem cell transplantation>
-    - subject: <Hematopoietic stem cell transplantation>
-      predicate: <TREATS>
-      object: <impaired oxygen metabolism>
-      qualifier: <Sickle cell disease>
-      subject_qualifier: <N/A>
-      object_qualifier: <N/A>
-      subject_extension: <Hematopoietic stem cell transplantation>
-      object_extension: <N/A>
-    - subject: vasodilatory stimulus
-      predicate: TREATS
-      object: reduced cerebrovascular reserve (CVR)
-      qualifier: MONDO:0007374
-      subject_extension: CHEBI:27690
-    - subject: <MRI scans>
-      predicate: <MONITOR>
-      object: <change in cerebral metabolic rate of oxygen (CMRO2)>
-      qualifier: MONDO:0007374
       subject_extension: <MRI scans>
     - subject: MRI scans
-      predicate: MONITOR
-      object: altered oxygen extraction fraction (OEF)
-      qualifier: MONDO:0007374
+      predicate: TREATS
+      object: impaired oxygen metabolism
+      qualifier: MONDO:0011382
+    - subject: Perfusion scans with acetazolamide
+      predicate: TREATS
+      object: impaired cerebral hemodynamics
+      qualifier: MONDO:0011382
+      subject_extension: CHEBI:27690
 named_entities:
-  - id: MONDO:0011382
-    label: sickle cell disease
-  - id: MONDO:0100096
-    label: SARS-CoV-2
   - id: MONDO:0007374
     label: Sickle cell disease (SCD)
-  - id: HP:0100602
-    label: Preeclampsia
-  - id: HP:0001511
-    label: Intrauterine growth restriction
-  - id: CHEBI:44423
-    label: Hydroxyurea (HU)
-  - id: CHEBI:35143
-    label: Haemoglobin (Hb)
-  - id: HP:0001622
-    label: Preterm delivery
-  - id: CHEBI:50858
-    label: corticosteroids
-  - id: HP:0032654
-    label: Endothelial dysfunction
-  - id: HP:0012418
-    label: Hypoxia
-  - id: HP:0001409
-    label: Portal hypertension
-  - id: MAXO:0001001
-    label: Gene therapies
-  - id: MAXO:0000756
-    label: Transfusion
-  - id: MAXO:0000747
-    label: Hematopoietic stem cell transplantation
-  - id: MAXO:0001298
-    label: therapy
-  - id: MAXO:0009047
-    label: Total hip replacement (THR)
-  - id: CHEBI:22720
-    label: Benzodiazepines
-  - id: MONDO:0006079
-    label: Acute chest syndrome (ACS)
-  - id: CHEBI:24859
-    label: Iodine
-  - id: MONDO:0005632
-    label: Acute chest syndrome
-  - id: CHEBI:17334
-    label: penicillin
-  - id: MAXO:0000118
-    label: immunizations
+  - id: MAXO:0000457
+    label: pain management
   - id: HP:0001903
     label: anemia
-  - id: HP:0001297
-    label: stroke
+  - id: CHEBI:44423
+    label: hydroxyurea
+  - id: CHEBI:18050
+    label: L-glutamine
+  - id: MAXO:0000058
+    label: pharmacotherapy
+  - id: HP:0100602
+    label: preeclampsia
+  - id: HP:0001622
+    label: preterm delivery
+  - id: HP:0001511
+    label: intrauterine growth restriction
+  - id: CHEBI:50858
+    label: corticosteroids
+  - id: HP:0001907
+    label: thromboembolism
+  - id: MAXO:0000503
+    label: Mechanical ventilation
+  - id: MONDO:0011382
+    label: Sickle Cell Disease
+  - id: MAXO:0001001
+    label: Gene therapies
+  - id: HP:0025322
+    label: VOD
+  - id: CHEBI:82557
+    label: Treosulfan
+  - id: MAXO:0000750
+    label: conditioning regimen
+  - id: MONDO:0007885
+    label: Osteonecrosis of the femoral head (AVNFH)
+  - id: HP:0012531
+    label: Pain
+  - id: HP:0000969
+    label: Oedema
+  - id: MONDO:0018660
+    label: hemophilia
   - id: HP:0012532
     label: Chronic pain
   - id: CHEBI:3216
     label: Buprenorphine
-  - id: HP:0001518
-    label: Low birth weight
-  - id: MAXO:0001006
-    label: Full blood count
-  - id: MAXO:0000825
-    label: Reticulocyte count
-  - id: MAXO:0000427
-    label: Brain magnetic resonance imaging (MRI)
-  - id: HP:0012592
-    label: albuminuria
+  - id: MAXO:0000747
+    label: Hematopoietic stem cell transplantation
   - id: HP:0100543
     label: cognitive dysfunction
   - id: HP:0000739
     label: anxiety
-  - id: HP:0010783
-    label: Redness
-  - id: CHEBI:33281
-    label: antibiotics
+  - id: CHEBI:50131
+    label: Decitabine
+  - id: CHEBI:29548
+    label: Cytidine deaminase (CDA)
   - id: MONDO:0009693
     label: Multiple Myeloma
   - id: CHEBI:145536
     label: Motixafortide
-  - id: CHEBI:114786
-    label: sodium metabisulfite
-  - id: CHEBI:15365
-    label: aspirin
-  - id: HP:0000093
-    label: Proteinuria
-  - id: HP:0012622
-    label: CKD
-  - id: MAXO:0000969
-    label: optical coherence tomography (OCT)
-  - id: HP:0000505
-    label: visual impairment
+  - id: MAXO:0000601
+    label: Dialysis
+  - id: HP:0000083
+    label: Kidney failure
+  - id: MONDO:0100096
+    label: COVID-19
+  - id: MAXO:0001017
+    label: vaccination
   - id: CHEBI:28901
     label: busulfan
-  - id: CHEBI:82557
-    label: treosulfan
   - id: CHEBI:9570
     label: thiotepa
-  - id: HP:0100603
-    label: Hypertensive disorder of pregnancy (HDP)
-  - id: CHEBI:26308
-    label: unweighted polygenic risk score (PRS)
-  - id: CHEBI:35480
-    label: Analgesics
-  - id: HP:0012213
-    label: Decreased glomerular filtration rate
-  - id: HP:0012398
-    label: Peripheral oedema
-  - id: HP:0001685
-    label: Cardiac fibrosis
+  - id: MAXO:0000952
+    label: Hydration therapy
+  - id: HP:0006775
+    label: Myeloma
+  - id: MAXO:0000756
+    label: blood transfusions
   - id: MONDO:0005570
-    label: hematologic diseases
-  - id: HP:0001871
-    label: hematologic diseases
-  - id: HP:0001712
-    label: Left ventricular hypertrophy
+    label: Hematologic diseases
   - id: HP:0007760
-    label: SCD
-  - id: MAXO:0000149
-    label: Hematopoietic cell transplant (HCT)
+    label: Sickle cell disease (SCD)
   - id: MAXO:0010203
-    label: Echocardiography
-  - id: HP:0012531
-    label: Pain
-  - id: CHEBI:51371
-    label: muscle relaxants
-  - id: HP:0002140
-    label: Arterial ischemic stroke
-  - id: MONDO:0019402
-    label: Thalassemia major
-  - id: MAXO:0000536
-    label: Chorionic villus sampling (CVS)
-  - id: MONDO:0020380
-    label: Sickle cell anemia (SCA)
+    label: echocardiography
+  - id: CHEBI:31980
+    label: Definity
+  - id: MAXO:0000149
+    label: Hematopoietic stem cell transplantation (HCT)
+  - id: HP:0001297
+    label: stroke
+  - id: CHEBI:6716
+    label: Depot medroxyprogesterone acetate
+  - id: CHEBI:50114
+    label: Estrogen
+  - id: CHEBI:59826
+    label: Progestin
   - id: MONDO:0005161
-    label: Human papillomavirus (HPV) infection
+    label: Human papillomavirus (HPV)
   - id: MAXO:0000759
     label: HPV vaccination
-  - id: MAXO:0000447
-    label: Surgical removal
-  - id: HP:0033138
-    label: Right atrial thrombus
-  - id: HP:0000989
-    label: pruritus
+  - id: MAXO:0000194
+    label: opioid therapy
+  - id: MAXO:0000882
+    label: behavioral modification
+  - id: MAXO:0001298
+    label: therapy
   - id: MAXO:0010041
     label: skin grafting
-  - id: MAXO:0000058
-    label: Pharmacotherapies
-  - id: HP:0001513
-    label: obesity
-  - id: CHEBI:4027
-    label: Cyclophosphamide
+  - id: MONDO:0044348
+    label: Hemoglobinopathies
+  - id: HP:0002092
+    label: Pulmonary hypertension
+  - id: MAXO:0000573
+    label: use of assisted reproductive technologies (ART)
+  - id: HP:0000044
+    label: hypogonadotropic hypogonadism (HH)
+  - id: HP:0009800
+    label: gestational diabetes mellitus
+  - id: HP:0011891
+    label: post-partum haemorrhage
   - id: HP:0002617
-    label: vasculopathy
+    label: Vasculopathy
+  - id: CHEBI:15365
+    label: Aspirin
   - id: MAXO:0000068
     label: Transplantation
   - id: HP:0004870
-    label: chronic hemolytic anemia
+    label: Chronic hemolytic anemia
   - id: CHEBI:27690
-    label: acetazolamide
+    label: Acetazolamide

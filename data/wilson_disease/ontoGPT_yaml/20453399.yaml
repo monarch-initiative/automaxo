@@ -1,0 +1,90 @@
+---
+input_text: "Current state of Wilson disease patients in central Japan. OBJECTIVE:
+  This study evaluated the current state of patients with Wilson disease in central
+  Japan. PATIENTS AND METHODS: Between 1999 and 2007, 30 patients were diagnosed as
+  having Wilson disease with an International Diagnostic Score of 4 or more. The phenotypes,
+  genotypes and post-diagnostic courses of these patients were analyzed. RESULTS:
+  Twenty-six patients had ATP7B mutations responsible for Wilson disease. Four patients
+  had a single mutant chromosome. There were 2 major mutations of 2333 G>T and 2871
+  delC (40%), and 6 novel mutations (13%) in our patients. The first clinical manifestation
+  was the hepatic form in 22, neurological form in 5, and hemolysis in 3 patients.
+  The hepatic form was diagnosed around the age of 13 years, followed by neurological
+  complication with a time lag of 9 years. Thus, some patients, especially patients
+  with the neurological form, did not undergo early diagnostic tests including ATP7B
+  analysis. During the post-diagnosis period, 3 patients were hospitalized for recurrent
+  liver disease, and 2 patients committed suicide. One female patient died from acute
+  hepatic failure associated with encephalopathy after fertilization therapy, while
+  2 male patients recovered from encephalopathy-free, prolonged hepatic failure after
+  noncompliance with drug therapy. The King's Scores for liver transplantation were
+  below the cut-off in both cases. CONCLUSION: To minimize delayed diagnosis, ceruloplasmin
+  determination and ATP7B analysis may be recommended to patients showing hepatic
+  damage of unknown etiology. At gene diagnosis, appropriate management of patients
+  including compliance education and emotional care to prevent suicide might be important."
+raw_completion_output: |-
+  primary_disease: Wilson disease
+
+  medical_actions: ceruloplasmin determination; ATP7B analysis; compliance education; emotional care; liver transplantation
+
+  symptoms: hepatic form; neurological form; hemolysis; recurrent liver disease; acute hepatic failure associated with encephalopathy
+
+  chemicals: 
+
+  action_annotation_relationships: ceruloplasmin determination PREVENTS delayed diagnosis IN Wilson disease; ATP7B analysis PREVENTS delayed diagnosis IN Wilson disease; compliance education TREATS recurrent liver disease IN Wilson disease; emotional care PREVENTS suicide IN Wilson disease; liver transplantation TREATS acute hepatic failure associated with encephalopathy IN Wilson disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  liver transplantation TREATS acute hepatic failure associated with encephalopathy IN Wilson disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010200
+  medical_actions:
+    - ceruloplasmin determination
+    - ATP7B analysis
+    - compliance education
+    - emotional care
+    - MAXO:0001175
+  symptoms:
+    - hepatic form
+    - neurological form
+    - hemolysis
+    - recurrent liver disease
+    - acute hepatic failure associated with encephalopathy
+  action_annotation_relationships:
+    - subject: ceruloplasmin determination
+      predicate: PREVENTS
+      object: delayed diagnosis
+      qualifier: MONDO:0010200
+    - subject: ATP7B analysis
+      predicate: PREVENTS
+      object: delayed diagnosis
+      qualifier: MONDO:0010200
+    - subject: compliance education
+      predicate: TREATS
+      object: recurrent liver disease
+      qualifier: MONDO:0010200
+    - subject: emotional care
+      predicate: PREVENTS
+      object: suicide
+      qualifier: MONDO:0010200
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: acute hepatic failure associated with encephalopathy
+      qualifier: MONDO:0010200
+named_entities:
+  - id: MONDO:0010200
+    label: Wilson disease
+  - id: MAXO:0001175
+    label: liver transplantation

@@ -1,0 +1,93 @@
+---
+input_text: Management of Tacrolimus-Induced Toxicity With Normal Serum Levels After
+  Liver Transplant. Drug-induced liver injury after liver transplant occurs in 1.7%
+  of patients. Tacrolimus is an effective immunosuppressant that is used to treat
+  acute rejection. Although rare, it can cause toxicity, which is demonstrated by
+  cholestatic liver injury. Here, we present a case of a young male patient who was
+  diagnosed with Wilson disease, had penicillaminechelating therapy, and underwent
+  living related liver transplant. Within 1 month posttransplant, he developed deranged,
+  predominantly cholestatic pattern liver function tests. Laboratory parameters showed
+  total bilirubin of 1.12 mg/ dL, alanine aminotransferase of 553 IU/L, gammaglutamyltransferase
+  of 624 IU/L, and tacrolimus level of 10.2 ng/mL. After thorough evaluation, a liver
+  biopsy was performed. Liver biopsy showed hepatocellular necrosis with centrilobular
+  cholestasis without any evidence of graft rejection. However, with normal level
+  of tacrolimus, the biopsy was suggestive of drug-induced liver injury. Thus, tacrolimus
+  dose was reduced, resulting in improved liver function tests and patient discharge
+  from the hospital. Tacrolimus is an effective immunosuppressant after liver transplant
+  and has the ability to treat early acute rejection. The patient's liver biopsy showed
+  hepatocellular necrosis with centrilobular cholestasis without any evidence of graft
+  rejection. Cholestatic liver injury after tacrolimus usually resolves after dose
+  reduction or by switching to another agent. With demonstrated tacrolimus-induced
+  toxicity in liver transplant recipients, despite normal serum levels, transplant
+  physicians should keep high index of suspicion regarding toxicity in the posttransplant
+  setting.
+raw_completion_output: |-
+  primary_disease: Tacrolimus-Induced Toxicity  
+  medical_actions: Reduced tacrolimus dose;Liver biopsy;Penicillamine chelating therapy;Liver transplant  
+  symptoms: Cholestatic liver injury;Hepatocellular necrosis;Centrilobular cholestasis;Deranged liver function tests  
+  chemicals: Tacrolimus;Penicillamine  
+  action_annotation_relationships: Reduced tacrolimus dose TREATS Cholestatic liver injury IN Tacrolimus-Induced Toxicity;Liver biopsy DIAGNOSES Hepatocellular necrosis WITH Centrilobular cholestasis IN Tacrolimus-Induced Toxicity;Penicillamine chelating therapy TREATS Wilson disease;Liver transplant TREATS Wilson disease
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Liver transplant TREATS Wilson disease
+
+  ===
+
+extracted_object:
+  primary_disease: Tacrolimus-Induced Toxicity
+  medical_actions:
+    - Reduced tacrolimus dose
+    - MAXO:0000376
+    - Penicillamine chelating therapy
+    - Liver transplant
+  symptoms:
+    - Cholestatic liver injury
+    - HP:0001404
+    - Centrilobular cholestasis
+    - Deranged liver function tests
+  chemicals:
+    - CHEBI:61049
+    - CHEBI:50868
+  action_annotation_relationships:
+    - subject: Reduced tacrolimus dose
+      predicate: TREATS
+      object: Cholestatic liver injury
+      qualifier: Tacrolimus-Induced Toxicity
+      subject_qualifier: reduced
+      subject_extension: CHEBI:61049
+    - subject: <Liver biopsy>
+      predicate: <DIAGNOSES>
+      object: <Hepatocellular necrosis>
+      qualifier: <Tacrolimus-Induced Toxicity>
+      subject_qualifier: <>
+      object_qualifier: <WITH Centrilobular cholestasis>
+      subject_extension: <Tacrolimus>
+      object_extension: <Centrilobular cholestasis>
+    - subject: chelating therapy
+      predicate: TREATS
+      object: Wilson disease
+      subject_extension: CHEBI:50868
+    - subject: Liver transplant
+      predicate: TREATS
+      object: Wilson disease
+named_entities:
+  - id: MAXO:0000376
+    label: Liver biopsy
+  - id: HP:0001404
+    label: Hepatocellular necrosis
+  - id: CHEBI:61049
+    label: Tacrolimus
+  - id: CHEBI:50868
+    label: Penicillamine

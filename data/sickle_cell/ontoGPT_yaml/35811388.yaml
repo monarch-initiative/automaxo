@@ -1,6 +1,6 @@
 ---
 input_text: Ten-year longitudinal analysis of hydroxyurea implementation in a pediatric
-  sickle cell program.Hydroxyurea (HU) has proven benefit in sickle cell anemia (SCA),
+  sickle cell program. Hydroxyurea (HU) has proven benefit in sickle cell anemia (SCA),
   but HU is still underutilized. The Pediatric Sickle Cell Program of Northern Virginia
   prescribes HU regardless of symptoms to all SCA patients age >= 9 months and prospectively
   tracks outcomes. HU is dosed to maximum tolerated dosing (MTD), targeting 30% Hgb
@@ -23,10 +23,10 @@ input_text: Ten-year longitudinal analysis of hydroxyurea implementation in a pe
   effective, and sustainable.
 raw_completion_output: |-
   primary_disease: sickle cell anemia
-  medical_actions: hydroxyurea implementation; maximum tolerated dosing; prescription of hydroxyurea; close monitoring; rigorous hydroxyurea implementation
-  symptoms: hospitalizations; sporadic transfusions; treat-and-release ED visits
-  chemicals: hydroxyurea
-  action_annotation_relationships: hydroxyurea implementation TREATS hospitalizations IN sickle cell anemia; hydroxyurea implementation TREATS sporadic transfusions IN sickle cell anemia; prescription of hydroxyurea (with hydroxyurea) PREVENTS hospitalizations IN sickle cell anemia; prescription of hydroxyurea (with hydroxyurea) PREVENTS sporadic transfusions IN sickle cell anemia
+  medical_actions: Hydroxyurea implementation; dosed to maximum tolerated dosing; prospective tracking of outcomes; close monitoring
+  symptoms: low hemoglobin levels; hospitalizations; transfusions; treat-and-release ED visits
+  chemicals: Hydroxyurea
+  action_annotation_relationships: Hydroxyurea implementation (with Hydroxyurea) TREATS low hemoglobin levels IN sickle cell anemia; Hydroxyurea implementation (with Hydroxyurea) PREVENTS hospitalizations IN sickle cell anemia; Hydroxyurea implementation (with Hydroxyurea) PREVENTS transfusions IN sickle cell anemia
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -41,87 +41,59 @@ prompt: |+
 
 
   Text:
-  prescription of hydroxyurea (with hydroxyurea) PREVENTS sporadic transfusions IN sickle cell anemia
+  Hydroxyurea implementation (with Hydroxyurea) PREVENTS transfusions IN sickle cell anemia
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0011382
   medical_actions:
-    - hydroxyurea implementation
-    - maximum tolerated dosing
-    - prescription of hydroxyurea
+    - Hydroxyurea implementation
+    - dosed to maximum tolerated dosing
+    - prospective tracking of outcomes
     - close monitoring
-    - rigorous hydroxyurea implementation
   symptoms:
+    - low hemoglobin levels
     - hospitalizations
-    - sporadic transfusions
+    - transfusions
     - treat-and-release ED visits
   chemicals:
     - CHEBI:44423
   action_annotation_relationships:
-    - subject: hydroxyurea implementation
+    - subject: Hydroxyurea implementation
       predicate: TREATS
-      object: hospitalizations
+      object: low hemoglobin levels
       qualifier: MONDO:0011382
+      subject_qualifier: with Hydroxyurea
       subject_extension: CHEBI:44423
-    - subject: implementation
-      predicate: TREATS
-      object: sporadic transfusions
-      qualifier: MONDO:0011382
-      subject_extension: CHEBI:44423
-    - subject: prescription of hydroxyurea
+    - subject: Hydroxyurea implementation
       predicate: PREVENTS
       object: hospitalizations
       qualifier: MONDO:0011382
-      subject_qualifier: with hydroxyurea
+      subject_qualifier: with Hydroxyurea
       subject_extension: CHEBI:44423
-    - subject: prescription of hydroxyurea
+    - subject: Hydroxyurea implementation
       predicate: PREVENTS
-      object: sporadic transfusions
+      object: transfusions
       qualifier: MONDO:0011382
-      subject_qualifier: with hydroxyurea
+      subject_qualifier: with Hydroxyurea
       subject_extension: CHEBI:44423
 named_entities:
-  - id: MONDO:0011382
-    label: Sickle Cell Anemia
   - id: MONDO:0007374
-    label: Sickle cell disease (SCD)
+    label: Sickle Cell Disease (SCD)
   - id: MAXO:0000747
     label: Allogeneic hematopoietic stem cell transplantation (HSCT)
-  - id: MAXO:0000756
-    label: blood transfusion
-  - id: CHEBI:33281
-    label: antibiotics
-  - id: HP:0001944
-    label: dehydration
   - id: HP:0007760
-    label: Sickle Cell Disease (SCD) symptoms
-  - id: HP:0012592
-    label: Albuminuria
-  - id: HP:0012622
-    label: Chronic kidney disease
-  - id: HP:0100543
-    label: cognitive deficits
+    label: Sickle Cell Disease (SCD)
   - id: MAXO:0001001
     label: Gene therapy
-  - id: HP:0002863
-    label: myelodysplastic syndrome
-  - id: HP:0004808
-    label: acute myeloid leukemia
   - id: CHEBI:28901
-    label: busulfan
-  - id: HP:0010972
-    label: Ineffective erythropoiesis
-  - id: HP:0001878
-    label: Hemolytic anemia
-  - id: HP:0001903
-    label: Anemia
-  - id: CHEBI:35143
-    label: Hemoglobin (HbS)
-  - id: CHEBI:44423
-    label: hydroxycarbamide
+    label: Busulfan
   - id: MONDO:0020380
     label: Sickle cell anemia (SCA)
-  - id: MONDO:0002120
-    label: Nasopharyngeal neuroendocrine carcinoma (NEC)
+  - id: HP:0001297
+    label: Stroke
+  - id: CHEBI:44423
+    label: Hydroxyurea
+  - id: MONDO:0011382
+    label: sickle cell anemia

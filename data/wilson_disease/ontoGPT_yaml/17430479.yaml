@@ -1,0 +1,142 @@
+---
+input_text: 'Pediatric liver transplantation in Iran: evaluation of the first 50 cases.
+  LT is nowadays accepted as the definitive therapy for end-stage liver disease. We
+  report our experiences with pediatric LT using grafts from living related and DD.
+  From April 1999 to March 2006, 50 infants and children who underwent LT were studied
+  for pretransplantation status, medical and surgical complications and survival rate.
+  There were 33 (66%) boys and 17 (34%) girls. The mean age of patients was 9.9 +/-
+  4.8 yr (range: 0.9-17.7) with a mean weight of 33.4 +/- 18.4 kg (range: 7.5-80).
+  The main indications were cryptogenic cirrhosis (30%), autoimmune cirrhosis (24%),
+  followed by biliary atresia (22%), Wilson disease (14%), progressive familial intrahepatic
+  cholestasis (4%), fulminant hepatitis (4%) and tyrosinemia (2%). We used living-related
+  donor in 14 (28%) and split liver in 5 (10%) cases and other patients received whole
+  liver from DD. The mean follow-up of patients was 24.7 +/- 22.6 months (range: 1-72).
+  The main postoperative complications were acute cellular rejection (44%) and infections
+  (30%), whereas chronic rejection was seen in 26% of cases. The mortality rate was
+  24%. Overall mean survival (76% alive) was 63.5 +/- 5.7, 95% CI: 52.3-74.6. Our
+  results demonstrate that pediatric LT is a feasible undertaking in Iran. Organ shortage
+  in our area led to liberal use of living related and split liver techniques. The
+  overall results of the pediatric LT in Iran are encouraging.'
+raw_completion_output: |-
+  primary_disease: end-stage liver disease
+  medical_actions: liver transplantation; management of acute cellular rejection; management of infections; management of chronic rejection
+  symptoms: acute cellular rejection; infections; chronic rejection
+  chemicals: 
+  action_annotation_relationships: liver transplantation TREATS end-stage liver disease; management of acute cellular rejection TREATS acute cellular rejection IN end-stage liver disease; management of infections TREATS infections IN end-stage liver disease; management of chronic rejection TREATS chronic rejection IN end-stage liver disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  management of chronic rejection TREATS chronic rejection IN end-stage liver disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0100193
+  medical_actions:
+    - MAXO:0001175
+    - management of acute cellular rejection
+    - management of infections
+    - management of chronic rejection
+  symptoms:
+    - acute cellular rejection
+    - infections
+    - chronic rejection
+  action_annotation_relationships:
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: HP:0100626
+    - subject: <management of acute cellular rejection>
+      predicate: <TREATS>
+      object: <acute cellular rejection>
+      qualifier: <end-stage liver disease>
+      subject_qualifier: <Not applicable>
+      object_qualifier: <Not applicable>
+      subject_extension: <Not applicable>
+      object_extension: <Not applicable>
+    - subject: management of infections
+      predicate: TREATS
+      object: infections
+      qualifier: MONDO:0100193
+    - subject: management of chronic rejection
+      predicate: TREATS
+      object: chronic rejection
+      qualifier: MONDO:0100193
+named_entities:
+  - id: MONDO:0010200
+    label: Wilson disease
+  - id: MAXO:0001175
+    label: liver transplantation
+  - id: MAXO:0000004
+    label: surgery (laparotomy, rectal mobilization, rectopexy, the partial sigmoid
+      colon resection with the primary anastomosis)
+  - id: HP:0002910
+    label: abnormal liver functions
+  - id: HP:0001394
+    label: cirrhosis
+  - id: CHEBI:27363
+    label: zinc
+  - id: CHEBI:50868
+    label: penicillamine
+  - id: CHEBI:51232
+    label: Hoechst 33342
+  - id: HP:0006554
+    label: acute liver failure
+  - id: MAXO:0000068
+    label: transplantation
+  - id: MAXO:0009095
+    label: Zinc therapy
+  - id: HP:0002344
+    label: Neurologic deterioration
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0001392
+    label: liver disease
+  - id: HP:0006579
+    label: neonatal jaundice
+  - id: HP:0002612
+    label: congenital hepatic fibrosis
+  - id: HP:0001409
+    label: portal hypertension
+  - id: HP:0030151
+    label: cholangitis
+  - id: MONDO:0013282
+    label: alpha-1-antitrypsin deficiency
+  - id: MONDO:0009061
+    label: cystic fibrosis
+  - id: MONDO:0009044
+    label: Crigler-Najjar syndrome
+  - id: MAXO:0000376
+    label: liver biopsy
+  - id: MAXO:0000127
+    label: genetic testing
+  - id: HP:0001903
+    label: anemia
+  - id: HP:0001410
+    label: liver dysfunction
+  - id: CHEBI:39501
+    label: trientine
+  - id: CHEBI:28694
+    label: copper
+  - id: HP:0001399
+    label: hepatic failure
+  - id: HP:0004448
+    label: fulminant hepatic failure
+  - id: CHEBI:35341
+    label: Steroids
+  - id: CHEBI:33281
+    label: Antibiotics
+  - id: MONDO:0100193
+    label: end-stage liver disease
+  - id: HP:0100626
+    label: end-stage liver disease

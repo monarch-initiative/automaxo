@@ -1,7 +1,7 @@
 ---
-input_text: 'Sickle cell disease and pregnancy.Pregnancy is a particularly risky period
-  in the life of patients with sickle cell disease (SCD). Physiological changes during
-  pregnancy increase the risk of vaso-occlusive crises (VOC), acute chest syndrome,
+input_text: 'Sickle cell disease and pregnancy. Pregnancy is a particularly risky
+  period in the life of patients with sickle cell disease (SCD). Physiological changes
+  during pregnancy increase the risk of vaso-occlusive crises (VOC), acute chest syndrome,
   venous thromboembolic events, and infections. This concerns haemoglobin (Hb) S/C
   and S/beta+-thalassaemia patients as much than S/S or S/beta0-thalassaemia patients.
   SCD also increases the risk of obstetrical complications, such as preeclampsia,
@@ -24,13 +24,13 @@ input_text: 'Sickle cell disease and pregnancy.Pregnancy is a particularly risky
 raw_completion_output: |-
   primary_disease: Sickle cell disease (SCD)
 
-  medical_actions: Close monitoring by a multidisciplinary team; Informing parents about risk of transmission; Prescribing haemoglobin electrophoresis; Revising treatments for pregnancy; Stopping hydroxyurea; Recommending preventive blood transfusion; Avoiding systematic administration of corticosteroids for foetal lung maturation; Deciding on caesarean section; Advising against exceeding 39 weeks of amenorrhoea; Post-partum follow-up
+  medical_actions: planned and closely monitored pregnancy; haemoglobin electrophoresis; stopping hydroxyurea (HU); preventive blood transfusion; corticosteroids not recommended for foetal lung maturation; caesarean section; post-partum follow-up
 
-  symptoms: Vaso-occlusive crises (VOC); Acute chest syndrome; Venous thromboembolic events; Infections; Preeclampsia; In utero foetal death; Preterm delivery mostly induced; Intrauterine growth restriction
+  symptoms: vaso-occlusive crises (VOC); acute chest syndrome; venous thromboembolic events; infections; preeclampsia; in utero foetal death; preterm delivery; intrauterine growth restriction
 
-  chemicals: Hydroxyurea (HU); Haemoglobin (Hb)
+  chemicals: hydroxyurea (HU); corticosteroids
 
-  action_annotation_relationships: Close monitoring by a multidisciplinary team PREVENTS Vaso-occlusive crises (VOC) IN Sickle cell disease (SCD); Prescribing haemoglobin electrophoresis PREVENTS In utero foetal death IN Sickle cell disease (SCD); Stopping hydroxyurea (HU) PREVENTS Preterm delivery mostly induced IN Sickle cell disease (SCD); Recommending preventive blood transfusion PREVENTS Vaso-occlusive crises (VOC) IN Sickle cell disease (SCD); Avoiding systematic administration of corticosteroids PREVENTS maternal vaso-occlusive event IN Sickle cell disease (SCD); Deciding on caesarean section TREATS Preeclampsia IN Sickle cell disease (SCD); Post-partum follow-up PREVENTS Venous thromboembolic events IN Sickle cell disease (SCD)
+  action_annotation_relationships: planned and closely monitored pregnancy PREVENTS obstetrical complications IN Sickle cell disease (SCD); haemoglobin electrophoresis PREVENTS transmission of Sickle cell disease (SCD); stopping hydroxyurea (HU) PREVENTS maternal vaso-occlusive event IN Sickle cell disease (SCD); preventive blood transfusion PREVENTS vaso-occlusive crises (VOC) IN Sickle cell disease (SCD); corticosteroids not recommended PREVENTS maternal vaso-occlusive event IN Sickle cell disease (SCD); caesarean section PREVENTS obstetrical complications IN Sickle cell disease (SCD); post-partum follow-up PREVENTS thromboembolism IN Sickle cell disease (SCD)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -45,92 +45,85 @@ prompt: |+
 
 
   Text:
-  Post-partum follow-up PREVENTS Venous thromboembolic events IN Sickle cell disease (SCD)
+  post-partum follow-up PREVENTS thromboembolism IN Sickle cell disease (SCD)
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0007374
   medical_actions:
-    - Close monitoring by a multidisciplinary team
-    - Informing parents about risk of transmission
-    - Prescribing haemoglobin electrophoresis
-    - Revising treatments for pregnancy
-    - Stopping hydroxyurea
-    - Recommending preventive blood transfusion
-    - Avoiding systematic administration of corticosteroids for foetal lung maturation
-    - Deciding on caesarean section
-    - Advising against exceeding 39 weeks of amenorrhoea
-    - Post-partum follow-up
+    - planned and closely monitored pregnancy
+    - haemoglobin electrophoresis
+    - stopping hydroxyurea (HU)
+    - preventive blood transfusion
+    - corticosteroids not recommended for foetal lung maturation
+    - caesarean section
+    - post-partum follow-up
   symptoms:
-    - Vaso-occlusive crises (VOC)
-    - Acute chest syndrome
-    - Venous thromboembolic events
-    - Infections
+    - vaso-occlusive crises (VOC)
+    - acute chest syndrome
+    - venous thromboembolic events
+    - infections
     - HP:0100602
-    - In utero foetal death
-    - Preterm delivery mostly induced
+    - in utero foetal death
+    - HP:0001622
     - HP:0001511
   chemicals:
     - CHEBI:44423
-    - CHEBI:35143
+    - CHEBI:50858
   action_annotation_relationships:
-    - subject: Close monitoring by a multidisciplinary team
+    - subject: planned and closely monitored pregnancy
       predicate: PREVENTS
-      object: Vaso-occlusive crises (VOC)
+      object: obstetrical complications
       qualifier: MONDO:0007374
-    - subject: prescribing haemoglobin electrophoresis
+    - subject: haemoglobin electrophysiology
       predicate: PREVENTS
-      object: in utero foetal death
+      object: transmission of Sickle cell disease
       qualifier: MONDO:0007374
-      subject_extension: haemoglobin electrophoresis
-    - subject: Stopping hydroxyurea
+    - subject: stopping hydroxyurea (HU)
       predicate: PREVENTS
-      object: HP:0001622
-      qualifier: MONDO:0011382
-      object_qualifier: mostly induced
+      object: vaso-occlusive event
+      qualifier: MONDO:0007374
+      object_qualifier: maternal
       subject_extension: CHEBI:44423
-    - subject: <preventive blood transfusion>
-      predicate: <PREVENTS>
-      object: <Vaso-occlusive crises (VOC)>
+      object_extension: maternal
+    - subject: preventive blood transfusion
+      predicate: PREVENTS
+      object: vaso-occlusive crises (VOC)
       qualifier: MONDO:0007374
-      subject_qualifier: <None>
-      object_qualifier: <None>
-      subject_extension: <None>
-      object_extension: <None>
-    - subject: Avoiding systematic administration of corticosteroids
+    - subject: not recommended
       predicate: PREVENTS
       object: maternal vaso-occlusive event
       qualifier: MONDO:0007374
       subject_extension: CHEBI:50858
-    - subject: <caesarean section>
-      predicate: <TREATS>
-      object: <Preeclampsia>
-      qualifier: MONDO:0007374
-      subject_qualifier: <Not applicable>
-      object_qualifier: <Not applicable>
-      subject_extension: <Not applicable>
-      object_extension: <Not applicable>
-    - subject: Post-partum follow-up
+    - subject: caesarean section
       predicate: PREVENTS
-      object: Venous thromboembolic events
+      object: obstetrical complications
+      qualifier: MONDO:0007374
+    - subject: post-partum follow-up
+      predicate: PREVENTS
+      object: HP:0001907
       qualifier: MONDO:0007374
 named_entities:
-  - id: MONDO:0011382
-    label: sickle cell disease
-  - id: MONDO:0100096
-    label: SARS-CoV-2
   - id: MONDO:0007374
     label: Sickle cell disease (SCD)
-  - id: HP:0100602
-    label: Preeclampsia
-  - id: HP:0001511
-    label: Intrauterine growth restriction
+  - id: MAXO:0000457
+    label: pain management
+  - id: HP:0001903
+    label: anemia
   - id: CHEBI:44423
-    label: Hydroxyurea (HU)
-  - id: CHEBI:35143
-    label: Haemoglobin (Hb)
+    label: hydroxyurea
+  - id: CHEBI:18050
+    label: L-glutamine
+  - id: MAXO:0000058
+    label: pharmacotherapy
+  - id: HP:0100602
+    label: preeclampsia
   - id: HP:0001622
-    label: Preterm delivery
+    label: preterm delivery
+  - id: HP:0001511
+    label: intrauterine growth restriction
   - id: CHEBI:50858
     label: corticosteroids
+  - id: HP:0001907
+    label: thromboembolism

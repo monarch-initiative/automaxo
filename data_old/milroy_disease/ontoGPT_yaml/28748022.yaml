@@ -1,0 +1,98 @@
+---
+input_text: "[Primary congenital lymphedema: Milroy disease: the first case observed
+  in the Department of Pediatrics at the University Hospital Yalgado Ouedraogo, Ouagadougou].Congenital
+  lymphedema is the accumulation of lymphatic fluid in the child's interstitial spaces.
+  Milroy disease is a rare, hereditary, autosomal dominant condition showing incomplete
+  penetrance. We report the case of a 7-year old little girl with Milroy disease examined
+  for erysipelas on congenital big right leg. A family history of large congenital
+  member existed. Physical examination showed big oedematous right leg painful to
+  palpation, with skin lichenification and erysipelas. Paraclinical assessment objectified
+  cutaneous lymphedema with vascular involvement suggestive of ectasia of the right
+  saphenous vein. Female karyotype showed no abnormalities, despite the small chromosomal
+  rearrangements. Treatment was based on physiotherapy, bandages, compression stockings
+  and psychotherapy. This first case in Burkina Faso testifies to the rarity of the
+  pathology but especially to the diagnostic difficulties related to the inadequacy
+  of paraclinical investigations."
+raw_completion_output: |-
+  primary_disease: Milroy disease
+
+  medical_actions: physiotherapy; bandages; compression stockings; psychotherapy
+
+  symptoms: accumulation of lymphatic fluid; big oedematous right leg; painful to palpation; skin lichenification; erysipelas
+
+  chemicals: 
+
+  action_annotation_relationships: physiotherapy TREATS accumulation of lymphatic fluid IN Milroy disease; bandages TREATS big oedematous right leg IN Milroy disease; compression stockings TREATS big oedematous right leg IN Milroy disease; psychotherapy TREATS psychological aspects IN Milroy disease
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  psychotherapy TREATS psychological aspects IN Milroy disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0007919
+  medical_actions:
+    - MAXO:0000011
+    - bandages
+    - compression stockings
+    - MAXO:0000077
+  symptoms:
+    - accumulation of lymphatic fluid
+    - big oedematous right leg
+    - painful to palpation
+    - skin lichenification
+    - HP:0001055
+  action_annotation_relationships:
+    - subject: MAXO:0000011
+      predicate: TREATS
+      object: accumulation of lymphatic fluid
+      qualifier: MONDO:0007919
+    - subject: bandages
+      predicate: TREATS
+      object: big oedematous right leg
+      qualifier: MONDO:0007919
+    - subject: compression stockings
+      predicate: TREATS
+      object: big oedematous right leg
+      qualifier: MONDO:0007919
+    - subject: MAXO:0000077
+      predicate: TREATS
+      qualifier: MONDO:0007919
+      object_extension: psychological aspects
+named_entities:
+  - id: MAXO:0009004
+    label: Exome sequencing
+  - id: MAXO:0000079
+    label: Genetic counseling
+  - id: HP:0001789
+    label: Hydrops fetalis
+  - id: HP:0010880
+    label: Increased nuchal translucency
+  - id: HP:0011920
+    label: Hydrothorax
+  - id: MONDO:0006282
+    label: Stewart-Treves Syndrome
+  - id: MONDO:0007919
+    label: Milroy Disease
+  - id: CHEBI:31696
+    label: Indocyanine green
+  - id: MONDO:0007922
+    label: Lymphedema-Distichiasis Syndrome
+  - id: MAXO:0000011
+    label: physiotherapy
+  - id: MAXO:0000077
+    label: psychotherapy
+  - id: HP:0001055
+    label: erysipelas

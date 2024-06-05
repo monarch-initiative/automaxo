@@ -1,0 +1,186 @@
+---
+input_text: 'Refeeding syndrome in adults with celiac crisis: a case report. BACKGROUND:
+  Refeeding syndrome is a rare and life-threatening pathology with polyvisceral manifestations
+  occurring in severely malnourished patients. It is rarely described in adults with
+  celiac disease. CASE PRESENTATION: We report the case of a 28-year-old Tunisian
+  woman followed up for celiac disease, who did not adhere to the gluten-free diet.
+  She presented to our hospital with celiac crisis manifested by severe diarrhea,
+  and metabolic and electrolyte disturbances. The treatment of electrolyte abnormalities,
+  hydration, and nutritional support was marked by the occurrence on the fifth day
+  of refeeding syndrome with psychomotor agitation followed by respiratory distress
+  and a state of cardiogenic shock. CONCLUSIONS: Refeeding syndrome is still under-recognized.
+  It should be systematically prevented for high-risk patients. Nutritional support
+  in patients with celiac crisis should be monitored carefully since the risk of refeeding
+  syndrome is very high with a poor prognosis.'
+raw_completion_output: |-
+  primary_disease: Refeeding syndrome
+
+  medical_actions: Treatment of electrolyte abnormalities;Hydration;Nutritional support
+
+  symptoms: Severe diarrhea;Metabolic disturbances;Electrolyte disturbances;Psychomotor agitation;Respiratory distress;Cardiogenic shock
+
+  chemicals: 
+
+  action_annotation_relationships: Treatment of electrolyte abnormalities TREATS Electrolyte disturbances IN Refeeding syndrome;Hydration TREATS Metabolic disturbances IN Refeeding syndrome;Nutritional support PREVENTS Refeeding syndrome IN celiac crisis
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Nutritional support PREVENTS Refeeding syndrome IN celiac crisis
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0400005
+  medical_actions:
+    - Treatment of electrolyte abnormalities
+    - Hydration
+    - Nutritional support
+  symptoms:
+    - Severe diarrhea
+    - Metabolic disturbances
+    - HP:0003111
+    - Psychomotor agitation
+    - HP:0002098
+    - HP:0030149
+  action_annotation_relationships:
+    - subject: Treatment of electrolyte abnormalities
+      predicate: TREATS
+      object: HP:0003111
+      qualifier: MONDO:0400005
+    - subject: Hydration
+      predicate: TREATS
+      object: Metabolic disturbances
+      qualifier: MONDO:0400005
+    - subject: Nutritional support
+      predicate: PREVENTS
+      object: Refeeding syndrome
+      qualifier: celiac crisis
+named_entities:
+  - id: MONDO:0005130
+    label: celiac disease
+  - id: MAXO:0000259
+    label: Insulin treatment
+  - id: HP:0033712
+    label: Recurrent implantation failure (RIF)
+  - id: CHEBI:145810
+    label: Insulin
+  - id: CHEBI:6801
+    label: Metformin
+  - id: HP:0002024
+    label: malabsorption
+  - id: HP:0012050
+    label: anasarca
+  - id: HP:0003111
+    label: electrolyte disorders
+  - id: MAXO:0000088
+    label: diet
+  - id: HP:0025502
+    label: Overweight
+  - id: HP:0001513
+    label: Obesity
+  - id: HP:0012393
+    label: Allergic diseases
+  - id: HP:0002608
+    label: Celiac disease
+  - id: HP:0000819
+    label: Diabetes
+  - id: HP:0030016
+    label: dyspareunia
+  - id: HP:0012786
+    label: recurrent cystitis
+  - id: HP:0400007
+    label: menstrual disorders
+  - id: MONDO:0100096
+    label: COVID-19
+  - id: MONDO:0005147
+    label: Type 1 diabetes mellitus
+  - id: HP:0000821
+    label: Hypothyroidism
+  - id: HP:0000822
+    label: Hypertension
+  - id: HP:0003119
+    label: Dyslipidemia
+  - id: HP:0009830
+    label: Neuropathy
+  - id: HP:0001626
+    label: Cardiovascular diseases
+  - id: HP:0005268
+    label: Miscarriage
+  - id: HP:0030991
+    label: primary sclerosing cholangitis
+  - id: MONDO:0005265
+    label: Inflammatory bowel disease
+  - id: CHEBI:18248
+    label: Iron
+  - id: HP:0002014
+    label: diarrhea
+  - id: HP:0012538
+    label: Gluten sensitivity
+  - id: MONDO:0016063
+    label: Celiac Disease (CD)
+  - id: MAXO:0001193
+    label: esophagogastroduodenoscopy
+  - id: HP:0002027
+    label: abdominal pain
+  - id: HP:0003270
+    label: bloating
+  - id: HP:0001903
+    label: anaemia
+  - id: HP:0001944
+    label: Dehydration
+  - id: HP:0002239
+    label: Gastrointestinal bleeding
+  - id: HP:0001942
+    label: Metabolic acidosis
+  - id: CHEBI:28384
+    label: Vitamin K
+  - id: CHEBI:35341
+    label: Steroids
+  - id: HP:0000855
+    label: Insulin resistance
+  - id: MONDO:0005340
+    label: Alopecia Areata
+  - id: HP:0001596
+    label: hair loss
+  - id: HP:0002232
+    label: Alopecia Areata
+  - id: HP:0012378
+    label: Fatigue
+  - id: HP:0011473
+    label: Villous atrophy
+  - id: CHEBI:3207
+    label: Budesonide
+  - id: MONDO:0005052
+    label: irritable bowel syndrome (IBS), celiac disease (CD), neurological disorders
+      (ND)
+  - id: CHEBI:73601
+    label: <ketogenic diet (KD)>
+  - id: MAXO:0001184
+    label: colonoscopy
+  - id: HP:0002028
+    label: recurrent diarrhea
+  - id: HP:0001824
+    label: weight loss
+  - id: HP:0003565
+    label: raised erythrocyte sedimentation rate (ESR)
+  - id: HP:0001891
+    label: iron deficiency anemia
+  - id: CHEBI:6909
+    label: metronidazole
+  - id: MONDO:0400005
+    label: Refeeding syndrome
+  - id: HP:0002098
+    label: Respiratory distress
+  - id: HP:0030149
+    label: Cardiogenic shock

@@ -1,0 +1,108 @@
+---
+input_text: "[Gene Therapy for Huntington Disease]. Englisch: Being one of the most
+  common genetic neurodegenerative disease, Huntington's disease has been a model
+  disease - also for gene therapy. Among the various options, the development of antisense
+  oligonucleotides is the most advanced. Further options at the RNA level include
+  micro-RNAs and modulators of RNA processing (splicing), at the DNA level zinc finger
+  proteins. Several products are in clinical trials. These differ in their mode of
+  application and in the extent of systemic availability. Another important difference
+  between therapeutic strategies could be whether all forms of the huntingtin protein
+  are targeted in the same extent, or whether a therapy preferentially targets particular
+  toxic forms such as the exon1 protein. The results of the recently terminated GENERATION
+  HD1 trial were somewhat sobering, most likely due to the side effect-related hydrocephalus.
+  Therefore they represent just one step towards the development of an effective gene
+  therapy against Huntington's disease."
+raw_completion_output: |-
+  primary_disease: Huntington's disease
+  medical_actions: Development of antisense oligonucleotides; Micro-RNAs; Modulators of RNA processing (splicing); Zinc finger proteins
+  symptoms: Neurodegenerative disease; Hydrocephalus
+  chemicals: Antisense oligonucleotides
+  action_annotation_relationships: Development of antisense oligonucleotides TREATS neurodegenerative disease IN Huntington's disease; Micro-RNAs TREATS neurodegenerative disease IN Huntington's disease; Modulators of RNA processing (splicing) TREATS neurodegenerative disease IN Huntington's disease; Zinc finger proteins TREATS neurodegenerative disease IN Huntington's disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Zinc finger proteins TREATS neurodegenerative disease IN Huntington's disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0007739
+  medical_actions:
+    - Development of antisense oligonucleotides
+    - Micro-RNAs
+    - Modulators of RNA processing (splicing)
+    - Zinc finger proteins
+  symptoms:
+    - HP:0002180
+    - HP:0000238
+  chemicals:
+    - CHEBI:76720
+  action_annotation_relationships:
+    - subject: Development of antisense oligonucleotides
+      predicate: TREATS
+      object: HP:0002180
+      qualifier: MONDO:0007739
+      subject_extension: CHEBI:76720
+    - subject: Micro-RNAs
+      predicate: TREATS
+      object: HP:0002180
+      qualifier: MONDO:0007739
+      subject_extension: Micro-RNAs
+    - subject: Modulators of RNA processing (splicing)
+      predicate: TREATS
+      object: HP:0002180
+      qualifier: MONDO:0007739
+      subject_extension: Modulators of RNA processing (splicing)
+    - subject: <Zinc finger proteins>
+      predicate: <TREATS>
+      object: <neurodegenerative disease>
+      qualifier: <Huntington's disease>
+      subject_extension: <Zinc finger proteins>
+named_entities:
+  - id: MONDO:0007739
+    label: Huntington disease
+  - id: HP:0002354
+    label: Memory impairment
+  - id: HP:0002072
+    label: chorea
+  - id: HP:0000708
+    label: behavioural changes
+  - id: HP:0001250
+    label: seizures
+  - id: HP:0000750
+    label: language delay
+  - id: HP:0033044
+    label: motor regression
+  - id: HP:0001337
+    label: tremor
+  - id: HP:0002180
+    label: Neurodegeneration
+  - id: MAXO:0009004
+    label: WES (Whole Exome Sequencing)
+  - id: HP:0001251
+    label: cerebellar ataxia
+  - id: MONDO:0005559
+    label: Neurodegenerative Disease
+  - id: MAXO:0000969
+    label: Optical Coherence Tomography (OCT)
+  - id: CHEBI:145810
+    label: Insulin
+  - id: CHEBI:50826
+    label: Silver nanoparticles (Ag-NPs)
+  - id: CHEBI:36751
+    label: PCA
+  - id: HP:0000238
+    label: Hydrocephalus
+  - id: CHEBI:76720
+    label: Antisense oligonucleotides

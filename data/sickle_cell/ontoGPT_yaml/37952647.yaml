@@ -1,6 +1,6 @@
 ---
 input_text: Improvement in cardiac morphology demonstrated by CMR and echo after haploidentical
-  hematopoietic cell transplant in adults with sickle cell disease.Cardiopulmonary
+  hematopoietic cell transplant in adults with sickle cell disease. Cardiopulmonary
   complications account for approximately 40% of deaths in patients with sickle cell
   disease (SCD). Diffuse myocardial fibrosis, elevated tricuspid regurgitant jet velocity
   (TRV) and iron overload are all associated with early mortality. While HLA-matched
@@ -25,15 +25,11 @@ input_text: Improvement in cardiac morphology demonstrated by CMR and echo after
   resolution of anemia; further studies are required to determine the role of myocardial
   fibrosis reversal, improved blood flow, and survival impact after HCT for SCD.
 raw_completion_output: |-
-  primary_disease: Sickle cell disease (SCD)
-
-  medical_actions: Hematopoietic cell transplant (HCT); Echocardiography; Cardiac magnetic resonance imaging (CMR); Laboratory studies
-
-  symptoms: Cardiopulmonary complications; Diffuse myocardial fibrosis; Elevated tricuspid regurgitant jet velocity (TRV); Iron overload
-
+  primary_disease: sickle cell disease
+  medical_actions: haploidentical hematopoietic cell transplant; cardiac magnetic resonance imaging (CMR); echocardiography; nonmyeloablative haploidentical peripheral blood HCT; laboratory studies
+  symptoms: Diffuse myocardial fibrosis; elevated tricuspid regurgitant jet velocity (TRV); iron overload
   chemicals: 
-
-  action_annotation_relationships: Hematopoietic cell transplant (HCT) TREATS cardiopulmonary complications IN Sickle cell disease (SCD); Hematopoietic cell transplant (HCT) TREATS diffuse myocardial fibrosis IN Sickle cell disease (SCD); Hematopoietic cell transplant (HCT) TREATS elevated tricuspid regurgitant jet velocity (TRV) IN Sickle cell disease (SCD); Hematopoietic cell transplant (HCT) TREATS iron overload IN Sickle cell disease (SCD)
+  action_annotation_relationships: haploidentical hematopoietic cell transplant TREATS Diffuse myocardial fibrosis IN sickle cell disease; haploidentical hematopoietic cell transplant (with nonmyeloablative haploidentical peripheral blood HCT) TREATS elevated tricuspid regurgitant jet velocity (TRV) IN sickle cell disease; haploidentical hematopoietic cell transplant TREATS iron overload IN sickle cell disease
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -48,159 +44,123 @@ prompt: |+
 
 
   Text:
-  Hematopoietic cell transplant (HCT) TREATS iron overload IN Sickle cell disease (SCD)
+  haploidentical hematopoietic cell transplant TREATS iron overload IN sickle cell disease
 
   ===
 
 extracted_object:
-  primary_disease: MONDO:0007374
+  primary_disease: MONDO:0011382
   medical_actions:
-    - MAXO:0000149
+    - haploidentical hematopoietic cell transplant
+    - cardiac magnetic resonance imaging (CMR)
     - MAXO:0010203
-    - Cardiac magnetic resonance imaging (CMR)
-    - Laboratory studies
+    - nonmyeloablative haploidentical peripheral blood HCT
+    - laboratory studies
   symptoms:
-    - Cardiopulmonary complications
     - Diffuse myocardial fibrosis
-    - Elevated tricuspid regurgitant jet velocity (TRV)
-    - Iron overload
+    - elevated tricuspid regurgitant jet velocity (TRV)
+    - iron overload
   action_annotation_relationships:
-    - subject: MAXO:0000149
-      predicate: TREATS
-      object: cardiopulmonary complications
-      qualifier: MONDO:0007374
-    - subject: MAXO:0000149
+    - subject: <haploidentical hematopoietic cell transplant>
       predicate: <TREATS>
-      object: <diffuse myocardial fibrosis>
-      qualifier: MONDO:0007374
-      subject_qualifier: <>
-      object_qualifier: <>
-      subject_extension: <Hematopoietic cell transplant>
-      object_extension: <>
-    - subject: MAXO:0000149
+      object: <Diffuse myocardial fibrosis>
+      qualifier: <sickle cell disease>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: haploidentical hematopoietic cell transplant
       predicate: TREATS
       object: elevated tricuspid regurgitant jet velocity (TRV)
-      qualifier: MONDO:0007374
-    - subject: MAXO:0000149
+      qualifier: MONDO:0011382
+      subject_qualifier: with nonmyeloablative haploidentical peripheral blood HCT
+      subject_extension: nonmyeloablative haploidentical peripheral blood HCT
+    - subject: haploidentical hematopoietic cell transplant
       predicate: TREATS
       object: iron overload
-      qualifier: MONDO:0007374
+      qualifier: MONDO:0011382
 named_entities:
-  - id: MONDO:0011382
-    label: sickle cell disease
-  - id: MONDO:0100096
-    label: SARS-CoV-2
   - id: MONDO:0007374
     label: Sickle cell disease (SCD)
-  - id: HP:0100602
-    label: Preeclampsia
-  - id: HP:0001511
-    label: Intrauterine growth restriction
-  - id: CHEBI:44423
-    label: Hydroxyurea (HU)
-  - id: CHEBI:35143
-    label: Haemoglobin (Hb)
-  - id: HP:0001622
-    label: Preterm delivery
-  - id: CHEBI:50858
-    label: corticosteroids
-  - id: HP:0032654
-    label: Endothelial dysfunction
-  - id: HP:0012418
-    label: Hypoxia
-  - id: HP:0001409
-    label: Portal hypertension
-  - id: MAXO:0001001
-    label: Gene therapies
-  - id: MAXO:0000756
-    label: Transfusion
-  - id: MAXO:0000747
-    label: Hematopoietic stem cell transplantation
-  - id: MAXO:0001298
-    label: therapy
-  - id: MAXO:0009047
-    label: Total hip replacement (THR)
-  - id: CHEBI:22720
-    label: Benzodiazepines
-  - id: MONDO:0006079
-    label: Acute chest syndrome (ACS)
-  - id: CHEBI:24859
-    label: Iodine
-  - id: MONDO:0005632
-    label: Acute chest syndrome
-  - id: CHEBI:17334
-    label: penicillin
-  - id: MAXO:0000118
-    label: immunizations
+  - id: MAXO:0000457
+    label: pain management
   - id: HP:0001903
     label: anemia
-  - id: HP:0001297
-    label: stroke
+  - id: CHEBI:44423
+    label: hydroxyurea
+  - id: CHEBI:18050
+    label: L-glutamine
+  - id: MAXO:0000058
+    label: pharmacotherapy
+  - id: HP:0100602
+    label: preeclampsia
+  - id: HP:0001622
+    label: preterm delivery
+  - id: HP:0001511
+    label: intrauterine growth restriction
+  - id: CHEBI:50858
+    label: corticosteroids
+  - id: HP:0001907
+    label: thromboembolism
+  - id: MAXO:0000503
+    label: Mechanical ventilation
+  - id: MONDO:0011382
+    label: Sickle Cell Disease
+  - id: MAXO:0001001
+    label: Gene therapies
+  - id: HP:0025322
+    label: VOD
+  - id: CHEBI:82557
+    label: Treosulfan
+  - id: MAXO:0000750
+    label: conditioning regimen
+  - id: MONDO:0007885
+    label: Osteonecrosis of the femoral head (AVNFH)
+  - id: HP:0012531
+    label: Pain
+  - id: HP:0000969
+    label: Oedema
+  - id: MONDO:0018660
+    label: hemophilia
   - id: HP:0012532
     label: Chronic pain
   - id: CHEBI:3216
     label: Buprenorphine
-  - id: HP:0001518
-    label: Low birth weight
-  - id: MAXO:0001006
-    label: Full blood count
-  - id: MAXO:0000825
-    label: Reticulocyte count
-  - id: MAXO:0000427
-    label: Brain magnetic resonance imaging (MRI)
-  - id: HP:0012592
-    label: albuminuria
+  - id: MAXO:0000747
+    label: Hematopoietic stem cell transplantation
   - id: HP:0100543
     label: cognitive dysfunction
   - id: HP:0000739
     label: anxiety
-  - id: HP:0010783
-    label: Redness
-  - id: CHEBI:33281
-    label: antibiotics
+  - id: CHEBI:50131
+    label: Decitabine
+  - id: CHEBI:29548
+    label: Cytidine deaminase (CDA)
   - id: MONDO:0009693
     label: Multiple Myeloma
   - id: CHEBI:145536
     label: Motixafortide
-  - id: CHEBI:114786
-    label: sodium metabisulfite
-  - id: CHEBI:15365
-    label: aspirin
-  - id: HP:0000093
-    label: Proteinuria
-  - id: HP:0012622
-    label: CKD
-  - id: MAXO:0000969
-    label: optical coherence tomography (OCT)
-  - id: HP:0000505
-    label: visual impairment
+  - id: MAXO:0000601
+    label: Dialysis
+  - id: HP:0000083
+    label: Kidney failure
+  - id: MONDO:0100096
+    label: COVID-19
+  - id: MAXO:0001017
+    label: vaccination
   - id: CHEBI:28901
     label: busulfan
-  - id: CHEBI:82557
-    label: treosulfan
   - id: CHEBI:9570
     label: thiotepa
-  - id: HP:0100603
-    label: Hypertensive disorder of pregnancy (HDP)
-  - id: CHEBI:26308
-    label: unweighted polygenic risk score (PRS)
-  - id: CHEBI:35480
-    label: Analgesics
-  - id: HP:0012213
-    label: Decreased glomerular filtration rate
-  - id: HP:0012398
-    label: Peripheral oedema
-  - id: HP:0001685
-    label: Cardiac fibrosis
+  - id: MAXO:0000952
+    label: Hydration therapy
+  - id: HP:0006775
+    label: Myeloma
+  - id: MAXO:0000756
+    label: blood transfusions
   - id: MONDO:0005570
-    label: hematologic diseases
-  - id: HP:0001871
-    label: hematologic diseases
-  - id: HP:0001712
-    label: Left ventricular hypertrophy
+    label: Hematologic diseases
   - id: HP:0007760
-    label: SCD
-  - id: MAXO:0000149
-    label: Hematopoietic cell transplant (HCT)
+    label: Sickle cell disease (SCD)
   - id: MAXO:0010203
-    label: Echocardiography
+    label: echocardiography

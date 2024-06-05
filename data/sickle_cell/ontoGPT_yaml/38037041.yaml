@@ -1,7 +1,7 @@
 ---
-input_text: "Opioid prescriptions among the World Trade Center Health Program population.BACKGROUND:
-  The World Trade Center Health Program (Program) provides limited health care to
-  those directly affected by the 9/11 terrorist attacks. Because of physical/mental
+input_text: "Opioid prescriptions among the World Trade Center Health Program population.
+  BACKGROUND: The World Trade Center Health Program (Program) provides limited health
+  care to those directly affected by the 9/11 terrorist attacks. Because of physical/mental
   trauma arising from the 9/11 attacks, Program members might be at high risk of opioid
   use. To prevent prescription opioid overuse, in 2018 the Program implemented various
   measures to improve opioid prescribing and expand access to non-opioid pain management
@@ -28,14 +28,10 @@ input_text: "Opioid prescriptions among the World Trade Center Health Program po
   is needed."
 raw_completion_output: |-
   primary_disease: Opioid use
-
-  medical_actions: Improve opioid prescribing; Expand access to non-opioid pain management; Administrative and claims data analysis; Ongoing surveillance
-
-  symptoms: Cancer-related pain; Hospice/end of life care pain; Surgery pain; Acute/chronic pain
-
-  chemicals: Opioids; Benzodiazepines
-
-  action_annotation_relationships: Improve opioid prescribing PREVENTS Opioid overuse IN Opioid use; Expand access to non-opioid pain management PREVENTS Opioid overuse IN Opioid use; Administrative and claims data analysis TREATS Lack of data ON opioid prescriptions IN Opioid use; Ongoing surveillance TREATS Opioid use; Opioids (with benzodiazepines) TREATS Cancer-related pain IN Opioid use; Opioids TREATS Hospice/end of life care pain IN Opioid use; Opioids TREATS Surgery pain IN Opioid use; Opioids TREATS Acute/chronic pain IN Opioid use
+  medical_actions: Improve opioid prescribing;Expand access to non-opid pain management;Prescribing opioids;Surveillance
+  symptoms: Cancer-related pain;Hospice/end of life care pain;Surgery pain;Acute/chronic pain
+  chemicals: Opioids;Benzodiazepines
+  action_annotation_relationships: Improve opioid prescribing PREVENTS Opioid use IN Opioid use;Expand access to non-opid pain management PREVENTS Opioid use IN Opioid use;Prescribing opioids (with Opioids) TREATS Cancer-related pain IN Opioid use;Prescribing opioids (with Opioids) TREATS Hospice/end of life care pain IN Opioid use;Prescribing opioids (with Opioids) TREATS Surgery pain IN Opioid use;Prescribing opioids (with Opioids) TREATS Acute/chronic pain IN Opioid use;Surveillance PREVENTS Opioid use IN Opioid use
 prompt: |+
   Split the following piece of text into fields in the following format:
 
@@ -50,7 +46,7 @@ prompt: |+
 
 
   Text:
-  Opioids TREATS Acute/chronic pain IN Opioid use
+  Surveillance PREVENTS Opioid use IN Opioid use
 
   ===
 
@@ -58,9 +54,9 @@ extracted_object:
   primary_disease: Opioid use
   medical_actions:
     - Improve opioid prescribing
-    - Expand access to non-opioid pain management
-    - Administrative and claims data analysis
-    - Ongoing surveillance
+    - Expand access to non-opid pain management
+    - Prescribing opioids
+    - Surveillance
   symptoms:
     - Cancer-related pain
     - Hospice/end of life care pain
@@ -70,79 +66,58 @@ extracted_object:
     - Opioids
     - CHEBI:22720
   action_annotation_relationships:
-    - subject: <Improve opioid prescribing>
-      predicate: <PREVENTS>
-      object: <Opioid overuse>
-      qualifier: <Opioid use>
-      subject_qualifier: <null>
-      object_qualifier: <null>
-      subject_extension: <opioid>
-      object_extension: <overuse>
+    - subject: Improve opioid prescribing
+      predicate: PREVENTS
+      object: Opioid use
+      qualifier: Opioid use
+      subject_extension: opioid
     - subject: Expand access to non-opioid pain management
       predicate: PREVENTS
-      object: Opioid overuse
+      object: Opioid use
       qualifier: Opioid use
       subject_extension: non-opioid pain management
-    - subject: Administrative and claims data analysis
-      predicate: TREATS
-      object: Lack of data
-      qualifier: Opioid use
-      object_extension: opioid
-    - subject: Ongoing surveillance
-      predicate: TREATS
-      object: Opioid use
-    - subject: Opioids (with benzodiazepines)
+    - subject: Prescribing opioids
       predicate: TREATS
       object: Cancer-related pain
       qualifier: Opioid use
+      subject_qualifier: with Opioids
       subject_extension: Opioids
-    - predicate: TREATS
+    - subject: Prescribing opioids
+      predicate: TREATS
       object: Hospice/end of life care pain
       qualifier: Opioid use
+      subject_qualifier: with Opioids
       subject_extension: Opioids
-    - predicate: TREATS
+    - subject: Prescribing opioids
+      predicate: TREATS
       object: Surgery pain
       qualifier: Opioid use
-      subject_extension: Opioids
-    - subject: Opioids
+      subject_qualifier: with Opioids
+      subject_extension: opioids
+    - subject: Prescribing opioids
       predicate: TREATS
       object: Acute/chronic pain
       qualifier: Opioid use
-      subject_extension: opioids
+      subject_qualifier: with Opioids
+      subject_extension: Opioids
+    - subject: Surveillance
+      predicate: PREVENTS
+      object: Opioid use
+      qualifier: Opioid use
 named_entities:
   - id: MONDO:0011382
-    label: sickle cell disease
-  - id: MONDO:0100096
-    label: SARS-CoV-2
+    label: Sickle cell disease
+  - id: MAXO:0001001
+    label: genetic therapies
+  - id: MONDO:0005570
+    label: blood disorder
   - id: MONDO:0007374
     label: Sickle cell disease (SCD)
-  - id: HP:0100602
-    label: Preeclampsia
-  - id: HP:0001511
-    label: Intrauterine growth restriction
-  - id: CHEBI:44423
-    label: Hydroxyurea (HU)
-  - id: CHEBI:35143
-    label: Haemoglobin (Hb)
-  - id: HP:0001622
-    label: Preterm delivery
-  - id: CHEBI:50858
-    label: corticosteroids
-  - id: HP:0032654
-    label: Endothelial dysfunction
-  - id: HP:0012418
-    label: Hypoxia
-  - id: HP:0001409
-    label: Portal hypertension
-  - id: MAXO:0001001
-    label: Gene therapies
   - id: MAXO:0000756
-    label: Transfusion
+    label: Blood transfusion
   - id: MAXO:0000747
     label: Hematopoietic stem cell transplantation
-  - id: MAXO:0001298
-    label: therapy
-  - id: MAXO:0009047
-    label: Total hip replacement (THR)
+  - id: HP:0007760
+    label: Sickle cell disease (SCD)
   - id: CHEBI:22720
     label: Benzodiazepines

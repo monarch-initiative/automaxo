@@ -1,0 +1,419 @@
+---
+input_text: "Simple open-heart surgery protocol for sickle-cell disease patients:
+  a retrospective cohort study comparing patients undergoing mitral valve surgery.OBJECTIVES:
+  Sickle-cell disease (SCD) patients are considered to be at high risk from open-heart
+  surgery. This study assessed the role of a simple sickling-prevention protocol.
+  METHODS: Perioperative non-specific and SCD-specific morbidity and 30-day mortality
+  are investigated in a retrospective cohort study on patients undergoing isolated
+  mitral valve surgery. Patients with and without SCD were compared. In the SCD cohort,
+  a bundle of interventions was applied to limit the risk of sickling: 'on-demand'
+  transfusions to keep haemoglobin levels of around 7-8 g/dl, cardiopulmonary bypass
+  (CPB) with higher blood flow and perfusion temperature, close monitoring of acid-base
+  balance and oxygenation. RESULTS: Twenty patients with and 40 patients without SCD
+  were included. At baseline, only preoperative haemoglobin levels differed between
+  cohorts (8.1 vs 11.8 g/dl, P < 0.001). Solely SCD patients received preoperative
+  transfusions (45.0%). Intraoperative transfusions were significantly larger in SCD
+  patients during CPB (priming: 300 vs 200 ml; entire length: 600 vs 300 ml and 20
+  vs 10 ml/kg). SCD patients had higher perfusion temperatures during CPB (34.7 vs
+  33.0 C, P = 0.01) with consequently higher pharyngeal temperature, both during cooling
+  (34.1 vs 32.3 C, P = 0.02) and rewarming (36.5 vs 36.2 C, P = 0.02). No mortality
+  occurred, and non-SCD-specific complications were comparable between groups, but
+  one SCD patient suffered from perioperative cerebrovascular accident with seizures,
+  and another had evident haemolysis. CONCLUSIONS: SCD patients may undergo open-heart
+  surgery for mitral valve procedures with an acceptable risk profile. Simple but
+  thoughtful perioperative management, embracing 'on-demand' transfusions and less-aggressive
+  CPB cooling is feasible and probably efficacious."
+raw_completion_output: |-
+  primary_disease: sickle-cell disease
+
+  medical_actions: on-demand transfusions; cardiopulmonary bypass with higher blood flow and perfusion temperature; close monitoring of acid-base balance and oxygenation
+
+  symptoms: perioperative cerebrovascular accident with seizures; evident haemolysis
+
+  chemicals: 
+
+  action_annotation_relationships: on-demand transfusions TREATS risk of sickling IN sickle-cell disease; cardiopulmonary bypass with higher blood flow and perfusion temperature TREATS risk of sickling IN sickle-cell disease; close monitoring of acid-base balance and oxygenation TREATS risk of sickling IN sickle-cell disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  close monitoring of acid-base balance and oxygenation TREATS risk of sickling IN sickle-cell disease
+
+  ===
+
+extracted_object:
+  primary_disease: sickle-cell disease
+  medical_actions:
+    - on-demand transfusions
+    - cardiopulmonary bypass with higher blood flow and perfusion temperature
+    - close monitoring of acid-base balance and oxygenation
+  symptoms:
+    - perioperative cerebrovascular accident with seizures
+    - evident haemolysis
+  action_annotation_relationships:
+    - subject: <on-demand transfusions>
+      predicate: <TREATS>
+      object: <risk of sickling>
+      qualifier: <sickle-cell disease>
+      subject_qualifier: <on-demand>
+      subject_extension: <transfusions>
+    - subject: cardiopulmonary bypass
+      predicate: TREATS
+      object: risk of sickling
+      qualifier: sickle-cell disease
+      subject_qualifier: with higher blood flow and perfusion temperature
+    - subject: close monitoring of acid-base balance and oxygenation
+      predicate: TREATS
+      object: risk of sickling
+      qualifier: sickle-cell disease
+named_entities:
+  - id: MONDO:0011382
+    label: Sickle Cell Anemia
+  - id: MONDO:0007374
+    label: Sickle cell disease (SCD)
+  - id: MAXO:0000747
+    label: Allogeneic hematopoietic stem cell transplantation (HSCT)
+  - id: MAXO:0000756
+    label: blood transfusion
+  - id: CHEBI:33281
+    label: antibiotics
+  - id: HP:0001944
+    label: dehydration
+  - id: HP:0007760
+    label: Sickle Cell Disease (SCD) symptoms
+  - id: HP:0012592
+    label: Albuminuria
+  - id: HP:0012622
+    label: Chronic kidney disease
+  - id: HP:0100543
+    label: cognitive deficits
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: HP:0002863
+    label: myelodysplastic syndrome
+  - id: HP:0004808
+    label: acute myeloid leukemia
+  - id: CHEBI:28901
+    label: busulfan
+  - id: HP:0010972
+    label: Ineffective erythropoiesis
+  - id: HP:0001878
+    label: Hemolytic anemia
+  - id: HP:0001903
+    label: Anemia
+  - id: CHEBI:35143
+    label: Hemoglobin (HbS)
+  - id: CHEBI:44423
+    label: hydroxycarbamide
+  - id: MONDO:0020380
+    label: Sickle cell anemia (SCA)
+  - id: MONDO:0002120
+    label: Nasopharyngeal neuroendocrine carcinoma (NEC)
+  - id: HP:0030828
+    label: wheeze
+  - id: HP:0012735
+    label: cough
+  - id: MONDO:0003664
+    label: Haemolytic anaemias
+  - id: HP:0032654
+    label: Endothelial dysfunction
+  - id: HP:0025464
+    label: Oxidative stress
+  - id: CHEBI:17627
+    label: Haem
+  - id: CHEBI:18248
+    label: Iron
+  - id: CHEBI:197439
+    label: TNFalpha
+  - id: MAXO:0000149
+    label: haploidentical hematopoietic cell transplant (HCT)
+  - id: MONDO:0005570
+    label: Blood disorders
+  - id: HP:0002617
+    label: Vasculopathy
+  - id: HP:0010885
+    label: Bone infarctions
+  - id: MONDO:0013517
+    label: beta-thalassemia
+  - id: HP:0001945
+    label: fever
+  - id: HP:0033050
+    label: sore throat
+  - id: HP:0002315
+    label: headache
+  - id: HP:0001394
+    label: Cirrhosis
+  - id: HP:0002204
+    label: Pulmonary embolus
+  - id: HP:0001297
+    label: Stroke
+  - id: HP:0031033
+    label: Renal acidification defect
+  - id: HP:0032632
+    label: Renal papillary necrosis
+  - id: HP:0000093
+    label: Proteinuria
+  - id: HP:0003774
+    label: End-stage renal disease
+  - id: HP:0012213
+    label: Decreased glomerular filtration rate (GFR)
+  - id: CHEBI:59163
+    label: biomarkers
+  - id: MAXO:0000915
+    label: Standardized polysomnography (PSG)
+  - id: HP:0002360
+    label: Sleep disturbances
+  - id: HP:0034312
+    label: Nocturnal hypoxemia
+  - id: CHEBI:35482
+    label: opioid analgesics
+  - id: MONDO:0005148
+    label: type II diabetes
+  - id: MAXO:0000058
+    label: Pharmacotherapy
+  - id: MAXO:0000457
+    label: Pain management
+  - id: CHEBI:18050
+    label: L-glutamine
+  - id: HP:0004421
+    label: Elevated systolic blood pressure
+  - id: HP:0030515
+    label: Moderate visual impairment
+  - id: HP:0000618
+    label: Blindness
+  - id: CHEBI:68579
+    label: rivaroxaban
+  - id: CHEBI:24261
+    label: glucocorticoids
+  - id: HP:0012532
+    label: Chronic pain
+  - id: CHEBI:6121
+    label: Ketamine
+  - id: MONDO:0010631
+    label: Acute ischemic priapism (IP)
+  - id: CHEBI:8093
+    label: Phenylephrine
+  - id: CHEBI:35480
+    label: Analgesics
+  - id: CHEBI:35705
+    label: immunosuppressive agents
+  - id: MAXO:0000503
+    label: Mechanical ventilation
+  - id: CHEBI:25555
+    label: Nitrogen
+  - id: HP:0001396
+    label: Cholestasis
+  - id: HP:0000083
+    label: Kidney failure
+  - id: CHEBI:50858
+    label: Corticosteroids
+  - id: CHEBI:9570
+    label: thiotepa
+  - id: CHEBI:4027
+    label: cyclophosphamide
+  - id: MAXO:0000494
+    label: Blood pressure monitoring
+  - id: HP:0003006
+    label: lack of universal newborn screening (NBS)
+  - id: MONDO:0002049
+    label: Thrombocytopenia
+  - id: MAXO:0001017
+    label: vaccination
+  - id: HP:0001873
+    label: Thrombocytopenia
+  - id: MONDO:0100096
+    label: COVID-19
+  - id: CHEBI:46195
+    label: Acetaminophen
+  - id: CHEBI:47381
+    label: Diclofenac
+  - id: MAXO:0000861
+    label: Labor induction
+  - id: HP:0100602
+    label: Preeclampsia
+  - id: CHEBI:16199
+    label: Urea
+  - id: CHEBI:16737
+    label: Creatinine
+  - id: MAXO:0000748
+    label: Fecal microbiota transplantation (FMT)
+  - id: CHEBI:17968
+    label: Butyrate
+  - id: CHEBI:31011
+    label: Valerate
+  - id: CHEBI:17272
+    label: Propionate
+  - id: MONDO:0020121
+    label: muscular dystrophy
+  - id: HP:0002664
+    label: cancer
+  - id: HP:0000819
+    label: diabetes
+  - id: MONDO:0004992
+    label: cancer
+  - id: MONDO:0005015
+    label: diabetes
+  - id: MAXO:0000610
+    label: Enzyme-linked immunosorbent assay
+  - id: HP:0007018
+    label: Attention deficits
+  - id: HP:0000848
+    label: Increased plasma renin
+  - id: CHEBI:48432
+    label: Angiotensin II
+  - id: CHEBI:4784
+    label: Enalapril
+  - id: HP:0100749
+    label: Chest pain
+  - id: HP:0002094
+    label: Shortness of breath
+  - id: HP:0000716
+    label: Depression
+  - id: HP:0001627
+    label: Cardiac abnormalities
+  - id: MONDO:0042491
+    label: Contrast-induced nephropathy (CIN)
+  - id: HP:0003259
+    label: Elevated serum creatinine (SCr)
+  - id: MONDO:0005399
+    label: Venous thromboembolism (VTE)
+  - id: MONDO:0054550
+    label: Avascular Necrosis of the Femoral Head (AVNFH)
+  - id: MAXO:0000004
+    label: surgical intervention
+  - id: HP:0012531
+    label: pain
+  - id: HP:0000969
+    label: oedema
+  - id: HP:0002140
+    label: Ischemic cerebrovascular accidents
+  - id: HP:0002098
+    label: respiratory distress
+  - id: HP:0002092
+    label: Pulmonary hypertension
+  - id: CHEBI:27690
+    label: Acetazolamide (ACZ)
+  - id: CHEBI:48021
+    label: Peptide nucleic acid (PNA)
+  - id: CHEBI:53374
+    label: Poly Lactic-co-Glycolic Acid (PLGA)
+  - id: MONDO:0006079
+    label: Acute chest syndrome (ACS)
+  - id: MONDO:0005632
+    label: Acute chest syndrome
+  - id: CHEBI:6443
+    label: Levonorgestrel
+  - id: HP:0001518
+    label: Small for gestational age
+  - id: HP:0001622
+    label: Preterm
+  - id: CHEBI:8735
+    label: PAINReportIt(R)
+  - id: MAXO:0000376
+    label: liver biopsy
+  - id: MAXO:0000066
+    label: Oxygen supplementation
+  - id: MAXO:0001175
+    label: Liver transplantation
+  - id: HP:0001395
+    label: Liver fibrosis
+  - id: MONDO:0044348
+    label: Hemoglobinopathies
+  - id: CHEBI:9168
+    label: sirolimus
+  - id: HP:0011105
+    label: Fluid overload
+  - id: HP:0012594
+    label: Microalbuminuria
+  - id: HP:0008209
+    label: Premature ovarian insufficiency (POI)
+  - id: CHEBI:28876
+    label: Melphalan
+  - id: MONDO:0019740
+    label: HIV-associated thrombotic thrombocytopenic purpura (TTP)
+  - id: MONDO:0005812
+    label: Influenza
+  - id: CHEBI:82594
+    label: Ferritin
+  - id: HP:0031417
+    label: rhinorrhea
+  - id: HP:0002027
+    label: abdominal pain
+  - id: HP:0025095
+    label: sneezing
+  - id: HP:0002014
+    label: diarrhea
+  - id: CHEBI:22587
+    label: antiviral
+  - id: MAXO:0001298
+    label: therapy
+  - id: MAXO:0009101
+    label: early intervention
+  - id: MONDO:0003847
+    label: Genetic disorders
+  - id: MAXO:0000079
+    label: Genetic counseling
+  - id: MAXO:0000530
+    label: Carrier screening
+  - id: HP:0004936
+    label: venous thromboembolism
+  - id: CHEBI:71942
+    label: phosphodiesterase 5 inhibitor
+  - id: MONDO:0010094
+    label: Sickle Cell Trait (SCT)
+  - id: MAXO:0000427
+    label: Brain magnetic resonance imaging
+  - id: HP:0004944
+    label: Intracranial aneurysms
+  - id: HP:0030447
+    label: Sickle Cell-Related Multiple Chronic Conditions (MCC)
+  - id: MAXO:0001077
+    label: splenectomy
+  - id: HP:0001896
+    label: reticulocytopenia
+  - id: CHEBI:35341
+    label: steroids
+  - id: CHEBI:64357
+    label: rituximab
+  - id: HP:0001513
+    label: Obesity
+  - id: HP:0001397
+    label: Liver steatosis
+  - id: HP:0003124
+    label: Hypercholesterolemia
+  - id: HP:0000822
+    label: Hypertension
+  - id: HP:0004308
+    label: Ventricular arrhythmias
+  - id: MAXO:0010203
+    label: Echocardiography
+  - id: MONDO:0002492
+    label: Acute Kidney Injury (AKI)
+  - id: CHEBI:35457
+    label: angiotensin-converting enzyme inhibitors
+  - id: HP:0031589
+    label: Suicidal ideation
+  - id: HP:0000789
+    label: Infertility
+  - id: CHEBI:22333
+    label: alkylating agents
+  - id: CHEBI:33699
+    label: mRNA
+  - id: MAXO:0000068
+    label: Transplantation
+  - id: HP:0000739
+    label: anxiety
+  - id: MONDO:0018585
+    label: Pediatric Arterial Ischemic Stroke
+  - id: HP:0025722
+    label: cerebral infarcts

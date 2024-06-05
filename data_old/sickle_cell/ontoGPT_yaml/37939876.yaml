@@ -1,0 +1,168 @@
+---
+input_text: 'Prevention of neurovascular complications in children with Sickle Cell
+  Disease in the real-world setting: What adult medicine physicians should know.Neurovascular
+  complications represent one of the most detrimental manifestations of Sickle Cell
+  Disease (SCD), affecting many patients since infancy. They include overt stroke,
+  silent cerebral infarcts and neurocognitive disorders. In fact, neurodevelopment
+  can be impaired in children resulting in cognitive dysfunction in adults with SCD.
+  This review is meant to resume the most recent guidelines about the prevention of
+  SCD neurovascular complications and to highlight the open challenges in their implementation.
+  Transcranial Doppler, Magnetic Resonance Imaging/Angiography and neurocognitive
+  test are useful screening tools. Chronic transfusion regimen, hematopoietic stem
+  cell transplantation and neurocognitive rehabilitation find indications in the context
+  of primary and secondary prevention of neurovascular complications of SCD. However,
+  international guidelines are often difficult to bring into the real world due to
+  the lack of appropriate instruments and trained personnel. Many challenges have
+  still to be faced to guarantee the best possible neurocognitive function to each
+  child affected by SCD.'
+raw_completion_output: |-
+  primary_disease: Sickle Cell Disease
+
+  medical_actions: Transcranial Doppler; Magnetic Resonance Imaging/Angiography; neurocognitive test; chronic transfusion regimen; hematopoietic stem cell transplantation; neurocognitive rehabilitation
+
+  symptoms: overt stroke; silent cerebral infarcts; neurocognitive disorders; cognitive dysfunction
+
+  chemicals: 
+
+  action_annotation_relationships: Transcranial Doppler PREVENTS overt stroke IN Sickle Cell Disease; Magnetic Resonance Imaging/Angiography PREVENTS silent cerebral infarcts IN Sickle Cell Disease; neurocognitive test PREVENTS neurocognitive disorders IN Sickle Cell Disease; chronic transfusion regimen PREVENTS overt stroke IN Sickle Cell Disease; chronic transfusion regimen PREVENTS silent cerebral infarcts IN Sickle Cell Disease; hematopoietic stem cell transplantation PREVENTS overt stroke IN Sickle Cell Disease; neurocognitive rehabilitation TREATS neurocognitive disorders IN Sickle Cell Disease; neurocognitive rehabilitation TREATS cognitive dysfunction IN Sickle Cell Disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  neurocognitive rehabilitation TREATS cognitive dysfunction IN Sickle Cell Disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0011382
+  medical_actions:
+    - Transcranial Doppler
+    - Magnetic Resonance Imaging/Angiography
+    - neurocognitive test
+    - chronic transfusion regimen
+    - MAXO:0000747
+    - neurocognitive rehabilitation
+  symptoms:
+    - overt stroke
+    - silent cerebral infarcts
+    - neurocognitive disorders
+    - HP:0100543
+  action_annotation_relationships:
+    - subject: Transcranial Doppler
+      predicate: PREVENTS
+      object: overt stroke
+      qualifier: MONDO:0011382
+    - subject: Magnetic Resonance Imaging/Angiography
+      predicate: PREVENTS
+      object: silent cerebral infarcts
+      qualifier: MONDO:0011382
+    - subject: neurocognitive test
+      predicate: PREVENTS
+      object: neurocognitive disorders
+      qualifier: MONDO:0011382
+    - subject: chronic transfusion regimen
+      predicate: PREVENTS
+      object: overt stroke
+      qualifier: MONDO:0011382
+    - subject: <chronic transfusion regimen>
+      predicate: <PREVENTS>
+      object: <silent cerebral infarcts>
+      qualifier: <Sickle Cell Disease>
+      subject_extension: <chronic transfusion regimen>
+    - subject: <hematopoietic stem cell transplantation>
+      predicate: <PREVENTS>
+      object: <overt stroke>
+      qualifier: <Sickle Cell Disease>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: neurocognitive rehabilitation
+      predicate: TREATS
+      object: neurocognitive disorders
+      qualifier: MONDO:0011382
+    - subject: <neurocognitive rehabilitation>
+      predicate: <TREATS>
+      object: <cognitive dysfunction>
+      qualifier: <Sickle Cell Disease>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <neurocognitive rehabilitation>
+      object_extension: <cognitive dysfunction>
+named_entities:
+  - id: MONDO:0011382
+    label: sickle cell disease
+  - id: MONDO:0100096
+    label: SARS-CoV-2
+  - id: MONDO:0007374
+    label: Sickle cell disease (SCD)
+  - id: HP:0100602
+    label: Preeclampsia
+  - id: HP:0001511
+    label: Intrauterine growth restriction
+  - id: CHEBI:44423
+    label: Hydroxyurea (HU)
+  - id: CHEBI:35143
+    label: Haemoglobin (Hb)
+  - id: HP:0001622
+    label: Preterm delivery
+  - id: CHEBI:50858
+    label: corticosteroids
+  - id: HP:0032654
+    label: Endothelial dysfunction
+  - id: HP:0012418
+    label: Hypoxia
+  - id: HP:0001409
+    label: Portal hypertension
+  - id: MAXO:0001001
+    label: Gene therapies
+  - id: MAXO:0000756
+    label: Transfusion
+  - id: MAXO:0000747
+    label: Hematopoietic stem cell transplantation
+  - id: MAXO:0001298
+    label: therapy
+  - id: MAXO:0009047
+    label: Total hip replacement (THR)
+  - id: CHEBI:22720
+    label: Benzodiazepines
+  - id: MONDO:0006079
+    label: Acute chest syndrome (ACS)
+  - id: CHEBI:24859
+    label: Iodine
+  - id: MONDO:0005632
+    label: Acute chest syndrome
+  - id: CHEBI:17334
+    label: penicillin
+  - id: MAXO:0000118
+    label: immunizations
+  - id: HP:0001903
+    label: anemia
+  - id: HP:0001297
+    label: stroke
+  - id: HP:0012532
+    label: Chronic pain
+  - id: CHEBI:3216
+    label: Buprenorphine
+  - id: HP:0001518
+    label: Low birth weight
+  - id: MAXO:0001006
+    label: Full blood count
+  - id: MAXO:0000825
+    label: Reticulocyte count
+  - id: MAXO:0000427
+    label: Brain magnetic resonance imaging (MRI)
+  - id: HP:0012592
+    label: albuminuria
+  - id: HP:0100543
+    label: cognitive dysfunction

@@ -1,5 +1,5 @@
 ---
-input_text: 'Viral Vectors in Gene Therapy: Where Do We Stand in 2023?Viral vectors
+input_text: 'Viral Vectors in Gene Therapy: Where Do We Stand in 2023? Viral vectors
   have been used for a broad spectrum of gene therapy for both acute and chronic diseases.
   In the context of cancer gene therapy, viral vectors expressing anti-tumor, toxic,
   suicide and immunostimulatory genes, such as cytokines and chemokines, have been
@@ -21,13 +21,17 @@ input_text: 'Viral Vectors in Gene Therapy: Where Do We Stand in 2023?Viral vect
   treatment of ADA-SCID disease, and the rhabdovirus-based vaccine Ervebo against
   Ebola virus disease have been approved for human use.'
 raw_completion_output: |-
-  primary_disease: cancer; COVID-19; severe combined immunodeficiency (SCID); muscular dystrophy; hemophilia; beta-thalassemia; sickle cell disease (SCD); non-small-cell lung cancer; ovarian cancer; melanoma; Ebola virus disease
-  medical_actions: use of viral vectors expressing anti-tumor, toxic, suicide, and immunostimulatory genes; application of oncolytic viruses; vaccine development; Emergency Use Authorization; proof-of-concept establishment in preclinical studies; conducting clinical gene therapy trials; approval of viral-based drugs; use of adenovirus-based vaccines ChAdOx1 nCoV-19 and Ad26.COV2.S; use of adenovirus-based drug Gendicine; use of reovirus-based drug Reolysin; use of oncolytic HSV T-VEC; lentivirus-based treatment; rhabdovirus-based vaccine Ervebo
-  symptoms: tumor cells; chronic diseases symptoms
+  primary_disease: Gene Therapy
+
+  medical_actions: application of viral vectors expressing anti-tumor, toxic, suicide, and immunostimulatory genes; use of oncolytic viruses; vaccine development; gene therapy for chronic diseases such as SCID, muscular dystrophy, hemophilia, beta-thalassemia, and SCD; clinical gene therapy trials; approval of viral-based drugs for various diseases
+
+  symptoms: tumor cells; acute and chronic diseases; severe combined immunodeficiency (SCID); muscular dystrophy; hemophilia; beta-thalassemia; sickle cell disease (SCD)
+
   chemicals: cytokines; chemokines; ChAdOx1 nCoV-19; Ad26.COV2.S; Gendicine; Reolysin; T-VEC
-  action_annotation_relationships: use of viral vectors expressing anti-tumor, toxic, suicide, and immunostimulatory genes TREATS tumor cells IN cancer; application of oncolytic viruses TREATS tumor cells IN cancer; vaccine development (with cytokines and chemokines) PREVENTS chronic diseases symptoms IN COVID-19; Emergency Use Authorization PREVENTS chronic diseases symptoms IN COVID-19; use of adenovirus-based vaccines ChAdOx1 nCoV-19 and Ad26.COV2.S PREVENTS chronic diseases symptoms IN COVID-19; use of adenovirus-based drug Gendicine TREATS tumor cells IN non-small-cell lung cancer; use of reovirus-based drug Reolysin TREATS tumor cells IN ovarian cancer; use of oncolytic HSV T-VEC TREATS tumor cells IN melanoma; lentivirus-based treatment TREATS symptoms IN severe combined immunodeficiency (SCID); rhabdovirus-based vaccine Ervebo PREVENTS chronic diseases symptoms IN Ebola virus disease
+
+  action_annotation_relationships: application of viral vectors expressing anti-tumor, toxic, suicide, and immunostimulatory genes (with cytokines and chemokines) TREATS tumor cells IN Gene Therapy; use of oncolytic viruses TREATS tumor cells IN Gene Therapy; vaccine development (with ChAdOx1 nCoV-19; Ad26.COV2.S) PREVENTS acute and chronic diseases IN Gene Therapy; gene therapy for chronic diseases TREATS severe combined immunodeficiency (SCID) IN Gene Therapy; gene therapy for chronic diseases TREATS muscular dystrophy IN Gene Therapy; gene therapy for chronic diseases TREATS hemophilia IN Gene Therapy; gene therapy for chronic diseases TREATS beta-thalassemia IN Gene Therapy; gene therapy for chronic diseases TREATS sickle cell disease (SCD) IN Gene Therapy; Gendicine TREATS non-small-cell lung cancer IN Gene Therapy; Reolysin TREATS ovarian cancer IN Gene Therapy; T-VEC TREATS melanoma IN Gene Therapy
 prompt: |+
-  From the text below, extract the following entities in the following format:
+  Split the following piece of text into fields in the following format:
 
   subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
   object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
@@ -40,30 +44,29 @@ prompt: |+
 
 
   Text:
-  rhabdovirus-based vaccine Ervebo PREVENTS chronic diseases symptoms IN Ebola virus disease
+  T-VEC TREATS melanoma IN Gene Therapy
 
   ===
 
 extracted_object:
-  primary_disease: MONDO:0015974
+  primary_disease: Gene Therapy
   medical_actions:
-    - use of viral vectors expressing anti-tumor, toxic, suicide, and immunostimulatory
+    - application of viral vectors expressing anti-tumor, toxic, suicide, and immunostimulatory
       genes
-    - application of oncolytic viruses
+    - use of oncolytic viruses
     - vaccine development
-    - Emergency Use Authorization
-    - proof-of-concept establishment in preclinical studies
-    - conducting clinical gene therapy trials
-    - approval of viral-based drugs
-    - use of adenovirus-based vaccines ChAdOx1 nCoV-19 and Ad26.COV2.S
-    - use of adenovirus-based drug Gendicine
-    - use of reovirus-based drug Reolysin
-    - use of oncolytic HSV T-VEC
-    - lentivirus-based treatment
-    - rhabdovirus-based vaccine Ervebo
+    - gene therapy for chronic diseases such as SCID, muscular dystrophy, hemophilia,
+      beta-thalassemia, and SCD
+    - clinical gene therapy trials
+    - approval of viral-based drugs for various diseases
   symptoms:
     - tumor cells
-    - chronic diseases symptoms
+    - acute and chronic diseases
+    - HP:0004430
+    - HP:0003560
+    - hemophilia
+    - beta-thalassemia
+    - HP:0007760
   chemicals:
     - cytokines
     - chemokines
@@ -73,113 +76,251 @@ extracted_object:
     - Reolysin
     - T-VEC
   action_annotation_relationships:
-    - subject: use of viral vectors
+    - subject: application
       predicate: TREATS
       object: tumor cells
-      qualifier: MONDO:0004992
+      qualifier: Gene Therapy
       subject_extension: viral vectors expressing anti-tumor, toxic, suicide, and
-        immunostimulatory genes
-    - subject: application of oncolytic viruses
+        immunostimulatory genes (with cytokines and chemokines)
+    - subject: use of oncolytic viruses
       predicate: TREATS
       object: tumor cells
-      qualifier: MONDO:0004992
-      subject_extension: oncolytic viruses
+      qualifier: Gene Therapy
     - subject: vaccine development
+      subject_extension: ChAdOx1 nCoV-19
+    - subject: MAXO:0001001
       predicate: PREVENTS
-      object: chronic diseases symptoms
-      qualifier: MONDO:0100096
-      subject_qualifier: with cytokines and chemokines
-      object_extension: cytokines and chemokines
-    - subject: Emergency Use Authorization
-      predicate: PREVENTS
-      object: chronic diseases symptoms
-      qualifier: MONDO:0100096
-    - subject: use of adenovirus-based vaccines
-      predicate: PREVENTS
-      object: chronic diseases symptoms
-      qualifier: MONDO:0100096
-      subject_extension: adenovirus-based vaccines ChAdOx1 nCoV-19 and Ad26.COV2.S
-    - subject: use of adenovirus-based drug Gendicine
-      predicate: TREATS
-      object: tumor cells
-      qualifier: non-small-cell lung cancer
-      subject_extension: adenovirus-based drug Gendicine
-    - subject: use of reovirus-based drug Reolysin
-      predicate: TREATS
-      object: tumor cells
-      qualifier: MONDO:0008170
-      subject_extension: reovirus-based drug Reolysin
-    - subject: use of oncolytic
-      predicate: TREATS
-      object: tumor cells
-      qualifier: MONDO:0005105
-      subject_extension: HSV T-VEC
-    - subject: <lentivirus-based treatment>
+      object: acute and chronic diseases
+      subject_extension: Ad26.COV2.S
+    - subject: <gene therapy for chronic diseases>
       predicate: <TREATS>
-      object: <symptoms>
-      qualifier: MONDO:0015974
-      subject_extension: <lentivirus>
-    - subject: Ervebo
-      predicate: PREVENTS
-      object: chronic diseases symptoms
-      qualifier: MONDO:0005737
-      subject_extension: rhabdovirus-based vaccine
+      object: HP:0004430
+      qualifier: <Gene Therapy>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <gene therapy>
+      object_extension: <>
+    - subject: gene therapy for chronic diseases
+      predicate: TREATS
+      object: HP:0003560
+      qualifier: Gene Therapy
+      subject_extension: gene therapy
+    - subject: gene therapy for chronic diseases
+      predicate: TREATS
+      object: hemophilia
+      qualifier: Gene Therapy
+      subject_extension: gene therapy
+    - subject: <gene therapy>
+      predicate: <TREATS>
+      object: <beta-thalassemia>
+      qualifier: <Gene Therapy>
+      subject_qualifier: <for chronic diseases>
+      object_qualifier: <Not provided>
+      subject_extension: <Not provided>
+      object_extension: <Not provided>
+    - subject: gene therapy for chronic diseases
+      predicate: TREATS
+      object: HP:0007760
+      qualifier: Gene Therapy
+      subject_extension: gene therapy
+    - subject: MAXO:0001001
+      predicate: TREATS
+      object: non-small-cell lung cancer
+    - subject: Reolysin
+      predicate: TREATS
+      object: HP:0100615
+      object_qualifier: In Gene Therapy
+      subject_extension: Reolysin
+      object_extension: Gene Therapy
+    - subject: MAXO:0001001
+      predicate: TREATS
+      object: HP:0002861
 named_entities:
-  - id: MONDO:0011382
-    label: Sickle cell disease
-  - id: MONDO:0009665
-    label: Biotinidase deficiency
-  - id: CHEBI:44423
-    label: Hydroxyurea
   - id: MONDO:0007374
     label: Sickle Cell Disease (SCD)
-  - id: HP:0002617
-    label: vasculopathy
-  - id: HP:0100543
-    label: cognitive dysfunction
+  - id: CHEBI:35480
+    label: analgesics
+  - id: HP:0001944
+    label: dehydration
+  - id: HP:0001903
+    label: anemia
+  - id: MAXO:0000756
+    label: Transfusion
+  - id: HP:0001396
+    label: Cholestasis
   - id: HP:0001297
-    label: stroke
-  - id: HP:0005268
-    label: miscarriage
-  - id: HP:0003826
-    label: stillbirth
-  - id: HP:0001518
-    label: low birth weight
-  - id: HP:0010885
-    label: Avascular necrosis (AVN)
-  - id: MAXO:0000827
-    label: serum ferritin measurement
-  - id: MAXO:0010203
-    label: echocardiography
-  - id: HP:0000112
-    label: nephropathy
-  - id: HP:0025169
-    label: left ventricular systolic dysfunction
-  - id: HP:0002092
-    label: pulmonary hypertension
-  - id: CHEBI:28304
-    label: heparin
-  - id: HP:0002788
-    label: upper respiratory tract infections
-  - id: HP:0012735
-    label: cough
-  - id: HP:0002099
-    label: asthma
-  - id: CHEBI:6715
-    label: Medroxyprogesterone
-  - id: MAXO:0001008
-    label: platelet counts
-  - id: MONDO:0015974
-    label: cancer; COVID-19; severe combined immunodeficiency (SCID); muscular dystrophy;
-      hemophilia; beta-thalassemia; sickle cell disease (SCD); non-small-cell lung
-      cancer; ovarian cancer; melanoma; Ebola virus disease
+    label: Stroke
+  - id: HP:0000083
+    label: Kidney failure
+  - id: CHEBI:50858
+    label: Corticosteroids
+  - id: CHEBI:44423
+    label: Hydroxyurea
+  - id: HP:0007760
+    label: Sickle cell disease (SCD)
+  - id: MAXO:0000747
+    label: Hematopoietic stem cell transplant (HSCT)
+  - id: CHEBI:28901
+    label: Busulfan
+  - id: CHEBI:9570
+    label: Thiotepa
+  - id: CHEBI:4027
+    label: Cyclophosphamide
+  - id: MAXO:0000750
+    label: conditioning regimen
+  - id: HP:0012532
+    label: chronic pain
+  - id: MONDO:0020121
+    label: Muscular dystrophy
   - id: MONDO:0004992
-    label: cancer
+    label: Cancer
+  - id: MONDO:0005015
+    label: Diabetes
+  - id: MONDO:0011382
+    label: Sickle cell disease
   - id: MONDO:0100096
     label: COVID-19
-  - id: MONDO:0008170
+  - id: MAXO:0001017
+    label: vaccination
+  - id: MAXO:0000149
+    label: Hematopoietic cell transplantation (HCT)
+  - id: HP:0008209
+    label: Premature ovarian insufficiency (POI)
+  - id: CHEBI:28876
+    label: Melphalan
+  - id: MONDO:0005570
+    label: hematological disorders
+  - id: MONDO:0011549
+    label: Hyperhemolytic syndrome (HHS)
+  - id: MAXO:0001077
+    label: Splenectomy
+  - id: HP:0001896
+    label: Reticulocytopenia
+  - id: CHEBI:35341
+    label: Steroids
+  - id: CHEBI:64357
+    label: Rituximab
+  - id: HP:0000789
+    label: infertility
+  - id: CHEBI:22333
+    label: alkylating agents
+  - id: MONDO:0009061
+    label: cystic fibrosis
+  - id: MONDO:0005453
+    label: congenital heart disease
+  - id: MONDO:0018585
+    label: Pediatric Arterial Ischemic Stroke
+  - id: CHEBI:119915
+    label: Fentanyl
+  - id: MAXO:0000127
+    label: Genetic testing
+  - id: HP:0001945
+    label: Fever
+  - id: HP:0200023
+    label: Priapism
+  - id: HP:0004395
+    label: malnutrition
+  - id: MONDO:0005136
+    label: Malaria
+  - id: CHEBI:8455
+    label: Proguanil
+  - id: HP:0007902
+    label: Vitreous haemorrhage
+  - id: HP:0011958
+    label: Retinal tear
+  - id: HP:0000541
+    label: Retinal detachment
+  - id: HP:0011506
+    label: Choroidal neovascularization
+  - id: HP:0000572
+    label: Visual loss
+  - id: HP:0001139
+    label: abnormal/conditional transcranial doppler (TCD)
+  - id: MAXO:0000503
+    label: mechanical ventilation
+  - id: HP:0002878
+    label: respiratory failure
+  - id: HP:0000988
+    label: skin rash
+  - id: HP:0001873
+    label: thrombocytopenia
+  - id: MONDO:0020380
+    label: Sickle cell anaemia (SCA)
+  - id: HP:0012531
+    label: Pain
+  - id: CHEBI:32250
+    label: Tramadol hydrochloride
+  - id: CHEBI:6129
+    label: Ketorolac
+  - id: CHEBI:47381
+    label: Diclofenac
+  - id: MAXO:0000946
+    label: neurosurgery
+  - id: MONDO:0005300
+    label: Chronic kidney disease
+  - id: HP:0100806
+    label: Sepsis
+  - id: HP:0002204
+    label: Pulmonary embolism
+  - id: HP:0012622
+    label: Chronic kidney disease
+  - id: HP:0001649
+    label: increased heart rate
+  - id: MAXO:0000573
+    label: Assisted reproductive technologies (ART)
+  - id: HP:0001394
+    label: cirrhosis
+  - id: CHEBI:68554
+    label: deferiprone
+  - id: CHEBI:4356
+    label: deferoxamine
+  - id: CHEBI:49005
+    label: deferasirox
+  - id: HP:0012378
+    label: Fatigue
+  - id: MONDO:0013730
+    label: Graft-versus-host disease (GVHD)
+  - id: HP:0004870
+    label: Chronic hemolytic anemia
+  - id: HP:0100724
+    label: Hypercoagulability
+  - id: HP:0004936
+    label: Venous thromboembolism
+  - id: MONDO:0005632
+    label: Acute chest syndrome
+  - id: HP:0100749
+    label: Chest pain
+  - id: HP:0030830
+    label: Crackles
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: CHEBI:74213
+    label: ribonucleotide reductase inhibitors
+  - id: MAXO:0000087
+    label: Massage
+  - id: MONDO:0002280
+    label: Anemia
+  - id: HP:0001915
+    label: Aplastic anemia
+  - id: CHEBI:9908
+    label: Ursolic acid
+  - id: CHEBI:16243
+    label: Quercetin
+  - id: CHEBI:28775
+    label: Hesperidin
+  - id: HP:0000739
+    label: Anxiety
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0002863
+    label: Leukemia/Myelodysplastic syndrome (MDS)
+  - id: HP:0002664
+    label: Cancer
+  - id: HP:0004430
+    label: severe combined immunodeficiency (SCID)
+  - id: HP:0003560
+    label: muscular dystrophy
+  - id: HP:0100615
     label: ovarian cancer
-  - id: MONDO:0005105
+  - id: HP:0002861
     label: melanoma
-  - id: MONDO:0005737
-    label: Ebola virus disease

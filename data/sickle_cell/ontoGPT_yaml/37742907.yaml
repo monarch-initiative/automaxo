@@ -1,6 +1,6 @@
 ---
 input_text: 'Buprenorphine, It Works so Differently: Adults with Sickle Cell Disease
-  Describe Transitioning to Buprenorphine for Treatment of Chronic Pain.A growing
+  Describe Transitioning to Buprenorphine for Treatment of Chronic Pain. A growing
   body of literature describes the use of buprenorphine for the treatment of chronic
   pain in people with sickle cell disease. The experiences of people with sickle cell
   disease who have tried buprenorphine are not yet reported. This qualitative descriptive
@@ -24,10 +24,14 @@ input_text: 'Buprenorphine, It Works so Differently: Adults with Sickle Cell Dis
   disease.'
 raw_completion_output: |-
   primary_disease: Sickle Cell Disease
-  medical_actions: Transitioning to buprenorphine; Treatment of chronic pain
-  symptoms: Chronic pain
+
+  medical_actions: Transitioning to buprenorphine;Treatment of chronic pain
+
+  symptoms: Chronic pain;Dissatisfaction with full agonist opioids
+
   chemicals: Buprenorphine
-  action_annotation_relationships: Transitioning to buprenorphine TREATS chronic pain IN Sickle Cell Disease; Treatment of chronic pain (with Buprenorphine) TREATS chronic pain IN Sickle Cell Disease
+
+  action_annotation_relationships: Transitioning to buprenorphine (with Buprenorphine) TREATS Chronic pain IN Sickle Cell Disease;Transitioning to buprenorphine (with Buprenorphine) TREATS Dissatisfaction with full agonist opioids IN Sickle Cell Disease
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -42,7 +46,7 @@ prompt: |+
 
 
   Text:
-  Treatment of chronic pain (with Buprenorphine) TREATS chronic pain IN Sickle Cell Disease
+  Transitioning to buprenorphine (with Buprenorphine) TREATS Dissatisfaction with full agonist opioids IN Sickle Cell Disease
 
   ===
 
@@ -53,6 +57,7 @@ extracted_object:
     - Treatment of chronic pain
   symptoms:
     - HP:0012532
+    - Dissatisfaction with full agonist opioids
   chemicals:
     - CHEBI:3216
   action_annotation_relationships:
@@ -60,64 +65,59 @@ extracted_object:
       predicate: TREATS
       object: HP:0012532
       qualifier: MONDO:0011382
-      subject_extension: CHEBI:3216
-    - subject: Treatment of chronic pain
-      predicate: TREATS
-      object: HP:0012532
-      qualifier: MONDO:0011382
       subject_qualifier: with Buprenorphine
       subject_extension: CHEBI:3216
+    - subject: Transitioning to buprenorphine
+      predicate: TREATS
+      object: Dissatisfaction
+      qualifier: MONDO:0011382
+      subject_qualifier: with Buprenorphine
+      object_qualifier: with full agonist opioids
+      subject_extension: CHEBI:3216
+      object_extension: full agonist opioids
 named_entities:
-  - id: MONDO:0011382
-    label: sickle cell disease
-  - id: MONDO:0100096
-    label: SARS-CoV-2
   - id: MONDO:0007374
     label: Sickle cell disease (SCD)
-  - id: HP:0100602
-    label: Preeclampsia
-  - id: HP:0001511
-    label: Intrauterine growth restriction
-  - id: CHEBI:44423
-    label: Hydroxyurea (HU)
-  - id: CHEBI:35143
-    label: Haemoglobin (Hb)
-  - id: HP:0001622
-    label: Preterm delivery
-  - id: CHEBI:50858
-    label: corticosteroids
-  - id: HP:0032654
-    label: Endothelial dysfunction
-  - id: HP:0012418
-    label: Hypoxia
-  - id: HP:0001409
-    label: Portal hypertension
-  - id: MAXO:0001001
-    label: Gene therapies
-  - id: MAXO:0000756
-    label: Transfusion
-  - id: MAXO:0000747
-    label: Hematopoietic stem cell transplantation
-  - id: MAXO:0001298
-    label: therapy
-  - id: MAXO:0009047
-    label: Total hip replacement (THR)
-  - id: CHEBI:22720
-    label: Benzodiazepines
-  - id: MONDO:0006079
-    label: Acute chest syndrome (ACS)
-  - id: CHEBI:24859
-    label: Iodine
-  - id: MONDO:0005632
-    label: Acute chest syndrome
-  - id: CHEBI:17334
-    label: penicillin
-  - id: MAXO:0000118
-    label: immunizations
+  - id: MAXO:0000457
+    label: pain management
   - id: HP:0001903
     label: anemia
-  - id: HP:0001297
-    label: stroke
+  - id: CHEBI:44423
+    label: hydroxyurea
+  - id: CHEBI:18050
+    label: L-glutamine
+  - id: MAXO:0000058
+    label: pharmacotherapy
+  - id: HP:0100602
+    label: preeclampsia
+  - id: HP:0001622
+    label: preterm delivery
+  - id: HP:0001511
+    label: intrauterine growth restriction
+  - id: CHEBI:50858
+    label: corticosteroids
+  - id: HP:0001907
+    label: thromboembolism
+  - id: MAXO:0000503
+    label: Mechanical ventilation
+  - id: MONDO:0011382
+    label: Sickle Cell Disease
+  - id: MAXO:0001001
+    label: Gene therapies
+  - id: HP:0025322
+    label: VOD
+  - id: CHEBI:82557
+    label: Treosulfan
+  - id: MAXO:0000750
+    label: conditioning regimen
+  - id: MONDO:0007885
+    label: Osteonecrosis of the femoral head (AVNFH)
+  - id: HP:0012531
+    label: Pain
+  - id: HP:0000969
+    label: Oedema
+  - id: MONDO:0018660
+    label: hemophilia
   - id: HP:0012532
     label: Chronic pain
   - id: CHEBI:3216

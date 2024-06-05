@@ -1,0 +1,109 @@
+---
+input_text: 'Short-term effects of olanzapine in Huntington disease. OBJECTIVE: The
+  aim was to describe the short-term (6 months) effects of olanzapine on behavioral
+  and motor clinical manifestations in a group of 11 patients with Huntington disease.
+  METHOD: An open-pilot study of olanzapine (5 mg) in patients with clinical and genetic
+  diagnosis of Huntington disease was used. The Unified Huntington Disease Rating
+  Scale for clinical assessment and the Total Functional Capacity score for the disease-stage
+  evaluation were used. A statistical analysis was performed to compare the effects
+  of olanzapine on the Unified Huntington Disease Rating Scale scores at time 0 (baseline)
+  and at time 1 (6 months). Comparisons of motor scores, of single behavioral items,
+  and of TFC scores were performed within the group. RESULTS: The behavioral assessment
+  score of items regarding depression, anxiety, irritability, and obsessions showed
+  a significant improvement (range of p, 0.0134-0.048). Given the total behavioral
+  scores (sum of all the items investigated), five patients significantly improved
+  their behavioral score after a 6-month treatment (range of p, 0.013-0.047). Choreic
+  movements improved, although not significantly (0.05 < or = p < or = 1). CONCLUSIONS:
+  Olanzapine is a potentially useful antipsychotic drug, with significant short-term
+  effects on behavioral changes, mainly in patients with severe psychiatric symptoms
+  at the onset. It might be considered as a possible therapeutic choice for treatment
+  of Huntington disease.'
+raw_completion_output: |-
+  primary_disease: Huntington disease
+
+  medical_actions: open-pilot study of olanzapine;clinical assessment with the Unified Huntington Disease Rating Scale;Total Functional Capacity score evaluation;statistical analysis of olanzapine effects
+
+  symptoms: depression;anxiety;irritability;obsessions;choreic movements
+
+  chemicals: olanzapine
+
+  action_annotation_relationships: open-pilot study of olanzapine (with olanzapine) TREATS depression IN Huntington disease;open-pilot study of olanzapine (with olanzapine) TREATS anxiety IN Huntington disease;open-pilot study of olanzapine (with olanzapine) TREATS irritability IN Huntington disease;open-pilot study of olanzapine (with olanzapine) TREATS obsessions IN Huntington disease;open-pilot study of olanzapine (with olanzapine) IMPROVES choreic movements IN Huntington disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  open-pilot study of olanzapine (with olanzapine) IMPROVES choreic movements IN Huntington disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0007739
+  medical_actions:
+    - open-pilot study of olanzapine
+    - clinical assessment with the Unified Huntington Disease Rating Scale
+    - Total Functional Capacity score evaluation
+    - statistical analysis of olanzapine effects
+  symptoms:
+    - HP:0000716
+    - HP:0000739
+    - HP:0000737
+    - obsessions
+    - HP:0002072
+  chemicals:
+    - CHEBI:7735
+  action_annotation_relationships:
+    - subject: open-pilot study
+      predicate: TREATS
+      object: HP:0000716
+      qualifier: MONDO:0007739
+      subject_qualifier: with olanzapine
+      subject_extension: CHEBI:7735
+    - subject: open-pilot study of olanzapine
+      predicate: TREATS
+      object: HP:0000739
+      qualifier: MONDO:0007739
+      subject_qualifier: with olanzapine
+      subject_extension: CHEBI:7735
+    - subject: open-pilot study
+      predicate: TREATS
+      object: HP:0000737
+      qualifier: MONDO:0007739
+      subject_qualifier: with olanzapine
+      subject_extension: CHEBI:7735
+    - subject: open-pilot study
+      predicate: TREATS
+      object: obsessions
+      qualifier: MONDO:0007739
+      subject_qualifier: with olanzapine
+      subject_extension: CHEBI:7735
+    - subject: open-pilot study
+      predicate: IMPROVES
+      object: HP:0002072
+      qualifier: MONDO:0007739
+      subject_qualifier: with olanzapine
+      subject_extension: CHEBI:7735
+named_entities:
+  - id: MONDO:0007739
+    label: Huntington disease
+  - id: MAXO:0009003
+    label: preimplantation genetic testing
+  - id: HP:0000716
+    label: depression
+  - id: HP:0000739
+    label: anxiety
+  - id: HP:0000737
+    label: irritability
+  - id: HP:0002072
+    label: choreic movements
+  - id: CHEBI:7735
+    label: olanzapine

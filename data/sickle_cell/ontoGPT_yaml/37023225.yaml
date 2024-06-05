@@ -1,6 +1,6 @@
 ---
 input_text: Managing Sickle Cell Disease in Patients for Whom Blood Transfusion Is
-  Not an Option.Sickle Cell Disease (SCD) is a hereditary blood disorder affecting
+  Not an Option. Sickle Cell Disease (SCD) is a hereditary blood disorder affecting
   beta hemoglobin. This disorder causes sickle-shaped red blood cells with decreased
   oxygen-carrying capacity resulting in vaso-occlusive crises. These crises are often
   treated with analgesics, antibiotics, IV fluids, supplementary oxygen, and allogeneic
@@ -18,13 +18,13 @@ input_text: Managing Sickle Cell Disease in Patients for Whom Blood Transfusion 
 raw_completion_output: |-
   primary_disease: Sickle Cell Disease (SCD)
 
-  medical_actions: analgesics; antibiotics; IV fluids; supplementary oxygen; blood transfusion; new therapies
+  medical_actions: analgesics; antibiotics; IV fluids; supplementary oxygen; allogeneic blood transfusion; new therapies to reduce the severity of SCD
 
-  symptoms: vaso-occlusive crises; decreased oxygen-carrying capacity
+  symptoms: sickle-shaped red blood cells; decreased oxygen-carrying capacity; vaso-occlusive crises
 
   chemicals: 
 
-  action_annotation_relationships: analgesics TREATS vaso-occlusive crises IN Sickle Cell Disease (SCD); antibiotics TREATS infections IN Sickle Cell Disease (SCD); IV fluids TREATS dehydration IN Sickle Cell Disease (SCD); supplementary oxygen TREATS decreased oxygen-carrying capacity IN Sickle Cell Disease (SCD); new therapies TREATS Sickle Cell Disease (SCD) symptoms IN Sickle Cell Disease (SCD)
+  action_annotation_relationships: analgesics TREAT vaso-occlusive crises IN Sickle Cell Disease (SCD); antibiotics TREAT infections IN Sickle Cell Disease (SCD); IV fluids TREAT dehydration IN Sickle Cell Disease (SCD); supplementary oxygen TREAT decreased oxygen-carrying capacity IN Sickle Cell Disease (SCD); allogeneic blood transfusion TREAT anemia IN Sickle Cell Disease (SCD); new therapies to reduce the severity of SCD PREVENT vaso-occlusive crises IN Sickle Cell Disease (SCD)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -39,7 +39,7 @@ prompt: |+
 
 
   Text:
-  new therapies TREATS Sickle Cell Disease (SCD) symptoms IN Sickle Cell Disease (SCD)
+  new therapies to reduce the severity of SCD PREVENT vaso-occlusive crises IN Sickle Cell Disease (SCD)
 
   ===
 
@@ -50,22 +50,23 @@ extracted_object:
     - antibiotics
     - IV fluids
     - supplementary oxygen
-    - MAXO:0000756
-    - new therapies
+    - allogeneic blood transfusion
+    - new therapies to reduce the severity of SCD
   symptoms:
-    - vaso-occlusive crises
+    - sickle-shaped red blood cells
     - decreased oxygen-carrying capacity
+    - vaso-occlusive crises
   action_annotation_relationships:
-    - subject: <analgesics>
-      predicate: <TREATS>
-      object: <vaso-occlusive crises>
-      qualifier: MONDO:0007374
-      subject_extension: <analgesics>
-    - subject: antibiotics
+    - subject: analgesics
       predicate: TREATS
-      object: infections
+      object: vaso-occlusive crises
       qualifier: MONDO:0007374
-      subject_extension: CHEBI:33281
+      subject_extension: CHEBI:35480
+    - subject: <antibiotics>
+      predicate: <TREATS>
+      object: <infections>
+      qualifier: MONDO:0007374
+      subject_extension: <antibiotics>
     - subject: IV fluids
       predicate: TREATS
       object: HP:0001944
@@ -74,23 +75,25 @@ extracted_object:
       predicate: <TREATS>
       object: <decreased oxygen-carrying capacity>
       qualifier: MONDO:0007374
-      subject_extension: <supplementary oxygen>
-    - subject: new therapies
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: allogeneic blood transfusion
       predicate: TREATS
-      object: HP:0007760
+      object: HP:0001903
       qualifier: MONDO:0007374
+    - subject: new therapies
+      predicate: PREVENT
+      object: vaso-occlusive crises
+      qualifier: MONDO:0007374
+      object_qualifier: to reduce the severity of
 named_entities:
-  - id: MONDO:0011382
-    label: Sickle Cell Anemia
   - id: MONDO:0007374
-    label: Sickle cell disease (SCD)
-  - id: MAXO:0000747
-    label: Allogeneic hematopoietic stem cell transplantation (HSCT)
-  - id: MAXO:0000756
-    label: blood transfusion
-  - id: CHEBI:33281
-    label: antibiotics
+    label: Sickle Cell Disease (SCD)
+  - id: CHEBI:35480
+    label: analgesics
   - id: HP:0001944
     label: dehydration
-  - id: HP:0007760
-    label: Sickle Cell Disease (SCD) symptoms
+  - id: HP:0001903
+    label: anemia

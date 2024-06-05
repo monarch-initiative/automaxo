@@ -1,0 +1,140 @@
+---
+input_text: 'Efficacy of therapeutic plasma exchange in pediatric cases of acute liver
+  failure as an extracorporeal liver support system. BACKGROUND: Acute liver failure
+  in the pediatric population is often accompanied by deranged metabolism, severe
+  encephalopathy and coagulopathy. A liver transplant is the most viable option for
+  the management of such patients. Therapeutic plasma exchange (TPE) is helpful in
+  improving the liver biochemistry profile, thereby, increasing their likelihood of
+  undergoing a liver transplant METHOD: The study was conducted over a period of 3
+  years (January 2018 to December 2021). Indications mainly consisted of ALF with
+  hepatic encephalopathy, worsening liver parameters in spite of medical management,
+  and candidacy for undergoing a liver transplant. Plasma exchange was performed daily
+  or alternatively until the patient recovered, succumbed, or was stable enough to
+  undergo a transplant. Biochemical parameters serum bilirubin, ALT, AST serum ammonia
+  serum urea, serum creatinine were recorded before and after TPE sessions. RESULTS:
+  The study group comprised 14 patients of which a total of 28 TPE was performed.
+  There were a total of 5 cases of cryptogenic ALF, 4 of Wilson disease, 2 cases each
+  of infection-related ALF and autoimmune hepatitis, and a single case of drug-induced
+  hepatitis. A total of 5 out of 14 patients underwent a liver transplant and amongst
+  the 9 who did not undergo a transplant, 4 patients expired due to septic shock syndrome;
+  the remaining 5 were discharged in a stable condition following TPE sessions. The
+  disease-free survival was 78.9% and the transplant-free survival was 35.71%. CONCLUSION:
+  TPE plays a crucial role in improving the biochemistry profile of the liver in children
+  with liver failure.'
+raw_completion_output: |-
+  primary_disease: Acute liver failure
+
+  medical_actions: Therapeutic plasma exchange; Liver transplant
+
+  symptoms: Deranged metabolism; Severe encephalopathy; Coagulopathy; Hepatic encephalopathy; Worsening liver parameters
+
+  chemicals: 
+
+  action_annotation_relationships: Therapeutic plasma exchange TREATS Deranged metabolism IN Acute liver failure; Therapeutic plasma exchange TREATS Severe encephalopathy IN Acute liver failure; Therapeutic plasma exchange TREATS Coagulopathy IN Acute liver failure; Therapeutic plasma exchange TREATS Hepatic encephalopathy IN Acute liver failure; Therapeutic plasma exchange TREATS Worsening liver parameters IN Acute liver failure; Liver transplant TREATS Acute liver failure
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Liver transplant TREATS Acute liver failure
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0019542
+  medical_actions:
+    - Therapeutic plasma exchange
+    - Liver transplant
+  symptoms:
+    - Deranged metabolism
+    - Severe encephalopathy
+    - HP:0003256
+    - HP:0002480
+    - Worsening liver parameters
+  action_annotation_relationships:
+    - subject: <Therapeutic plasma exchange>
+      predicate: <TREATS>
+      object: <Deranged metabolism>
+      qualifier: <Acute liver failure>
+      subject_qualifier: <Not applicable>
+      object_qualifier: <Not applicable>
+      subject_extension: <Not applicable>
+      object_extension: <Not applicable>
+    - subject: <Therapeutic plasma exchange>
+      predicate: <TREATS>
+      object: <Severe encephalopathy>
+      qualifier: <Acute liver failure>
+      object_qualifier: <Severe>
+      subject_extension: <plasma exchange>
+    - subject: Therapeutic plasma exchange
+      predicate: TREATS
+      object: HP:0003256
+      qualifier: MONDO:0019542
+    - subject: <Therapeutic plasma exchange>
+      predicate: <TREATS>
+      object: <Hepatic encephalopathy>
+      qualifier: <Acute liver failure>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: <Therapeutic plasma exchange>
+      predicate: <TREATS>
+      object: <Worsening liver parameters>
+      qualifier: <Acute liver failure>
+      subject_extension: <Therapeutic plasma exchange>
+    - subject: Liver transplant
+      predicate: TREATS
+      object: HP:0006554
+named_entities:
+  - id: MAXO:0000376
+    label: Liver biopsy
+  - id: HP:0001404
+    label: Hepatocellular necrosis
+  - id: CHEBI:61049
+    label: Tacrolimus
+  - id: CHEBI:50868
+    label: Penicillamine
+  - id: MONDO:0010200
+    label: Wilson Disease
+  - id: HP:0002063
+    label: rigidity
+  - id: HP:0001332
+    label: dystonia
+  - id: HP:0001260
+    label: dysarthria
+  - id: HP:0002307
+    label: drooling
+  - id: CHEBI:28694
+    label: copper
+  - id: HP:0006554
+    label: Acute liver failure
+  - id: HP:0002204
+    label: Pulmonary embolism
+  - id: HP:0100806
+    label: Sepsis
+  - id: HP:0001919
+    label: Acute kidney injury
+  - id: MONDO:0100192
+    label: Liver failure
+  - id: MAXO:0000127
+    label: Genetic testing
+  - id: MAXO:0000487
+    label: Clinical assessments
+  - id: HP:0001337
+    label: Tremors
+  - id: MONDO:0019542
+    label: Acute liver failure
+  - id: HP:0003256
+    label: Coagulopathy
+  - id: HP:0002480
+    label: Hepatic encephalopathy

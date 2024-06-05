@@ -1,0 +1,136 @@
+---
+input_text: Neural tissue transplantation, repair, and rehabilitation. Transplants
+  of cells and tissues to the central nervous system of adult mammals can, under appropriate
+  conditions, survive, integrate, and function. In particular, the grafted cells can
+  sustain functional recovery in animal models of a range of neurodegenerative conditions
+  including genetic and idiopathic neurodegenerative diseases of adulthood and aging,
+  ischemic stroke, and brain and spinal cord trauma. In a restricted subset of such
+  conditions, cell transplantation has progressed to application in humans in early-stage
+  clinical trials. At the present stage of play, there is clear evidence of clinical
+  efficacy of fetal cell transplants in Parkinson disease (notwithstanding a range
+  of technical difficulties still to be fully resolved), and preliminary claims of
+  promising outcomes in several other severe neurodegenerative conditions, including
+  Huntington disease and stroke. Moreover, the experimental literature is increasingly
+  suggesting that the experience and training of the graft recipient materially affects
+  the functional outcome. For example, environmental enrichment, behavioral activity,
+  and specific training can enhance the recovery process to maximize functional recovery.
+  There are even circumstances where the grafted cells have been demonstrated to restore
+  the neural substrate for new learning. Consequently, it is not sufficient to replace
+  lost cells anatomically; rather, for the grafts to be effective, they need to be
+  integrated functionally into the host circuitry, and the host animal requires training
+  and rehabilitation to maximize function of the reconstructed graft-host circuitry.
+  Such observations require reconsideration of the design of the next generation of
+  clinical trials and subsequent service delivery, to include physiotherapists, cognitive
+  therapists, and rehabilitation experts as core members of the transplant team, along
+  with the neurologists and neurosurgeons that have conventionally led the field.
+raw_completion_output: |-
+  primary_disease: Parkinson disease; neurodegenerative diseases
+
+  medical_actions: Neural tissue transplantation; repair; rehabilitation; cell transplantation; environmental enrichment; behavioral activity; specific training; physiotherapy; cognitive therapy
+
+  symptoms: neurodegenerative conditions; ischemic stroke; brain and spinal cord trauma
+
+  chemicals: 
+
+  action_annotation_relationships: Neural tissue transplantation TREATS neurodegenerative conditions IN Parkinson disease; Repair TREATS brain and spinal cord trauma IN neurodegenerative diseases; Rehabilitation TREATS neurodegenerative conditions IN neurodegenerative diseases; Cell transplantation (with fetal cells) TREATS neurodegenerative conditions IN Parkinson disease; Environmental enrichment ENHANCES recovery IN neurodegenerative diseases; Behavioral activity ENHANCES recovery IN neurodegenerative diseases; Specific training ENHANCES recovery IN neurodegenerative diseases; Physiotherapy ENHANCES recovery IN neurodegenerative diseases; Cognitive therapy ENHANCES recovery IN neurodegenerative diseases
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Cognitive therapy ENHANCES recovery IN neurodegenerative diseases
+
+  ===
+
+extracted_object:
+  primary_disease: Parkinson disease; neurodegenerative diseases
+  medical_actions:
+    - Neural tissue transplantation
+    - repair
+    - rehabilitation
+    - cell transplantation
+    - environmental enrichment
+    - behavioral activity
+    - specific training
+    - MAXO:0000011
+    - MAXO:0000883
+  symptoms:
+    - neurodegenerative conditions
+    - HP:0002140
+    - brain and spinal cord trauma
+  action_annotation_relationships:
+    - subject: Neural tissue transplantation
+      predicate: TREATS
+      object: neurodegenerative conditions
+      qualifier: MONDO:0005180
+    - subject: Repair
+      predicate: TREATS
+      object: brain and spinal cord trauma
+      qualifier: MONDO:0005559
+    - subject: Rehabilitation
+      predicate: TREATS
+      object: neurodegenerative conditions
+      qualifier: MONDO:0005559
+    - subject: Cell transplantation
+      predicate: TREATS
+      object: neurodegenerative conditions
+      qualifier: MONDO:0005180
+      subject_qualifier: with fetal cells
+      subject_extension: fetal cells
+    - subject: <Environmental enrichment>
+      predicate: <ENHANCES recovery IN>
+      object: <neurodegenerative diseases>
+      qualifier: <neurodegenerative diseases>
+      subject_extension: <Environmental enrichment>
+    - subject: Behavioral activity
+      predicate: ENHANCES
+      object: recovery
+      qualifier: MONDO:0005559
+    - subject: Specific training
+      predicate: ENHANCES
+      object: recovery
+      qualifier: MONDO:0005559
+    - subject: MAXO:0000011
+      predicate: ENHANCES
+      object: recovery
+      qualifier: MONDO:0005559
+    - subject: MAXO:0000883
+      predicate: ENHANCES
+      object: recovery
+      qualifier: MONDO:0005559
+named_entities:
+  - id: MONDO:0007739
+    label: Huntington Disease
+  - id: MONDO:0013310
+    label: P450 oxidoreductase deficiency
+  - id: CHEBI:78757
+    label: Cystamine
+  - id: HP:0002072
+    label: choreic movements
+  - id: HP:0100022
+    label: movement disorders
+  - id: CHEBI:16348
+    label: 3-nitropropionic acid (3-NP)
+  - id: MAXO:0000068
+    label: transplantation
+  - id: CHEBI:16675
+    label: quinolinic acid
+  - id: MAXO:0000011
+    label: physiotherapy
+  - id: MAXO:0000883
+    label: cognitive therapy
+  - id: HP:0002140
+    label: ischemic stroke
+  - id: MONDO:0005180
+    label: Parkinson disease
+  - id: MONDO:0005559
+    label: neurodegenerative diseases

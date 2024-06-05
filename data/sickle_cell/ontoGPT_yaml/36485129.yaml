@@ -1,6 +1,6 @@
 ---
 input_text: Knowledge to date on secondary malignancy following hematopoietic cell
-  transplantation for sickle cell disease.Allogeneic hematopoietic cell transplantation,
+  transplantation for sickle cell disease. Allogeneic hematopoietic cell transplantation,
   gene therapy, and gene editing offer a potential cure for sickle cell disease (SCD).
   Unfortunately, myelodysplastic syndrome and acute myeloid leukemia development have
   been higher than expected after graft rejection following nonmyeloablative conditioning
@@ -17,15 +17,15 @@ input_text: Knowledge to date on secondary malignancy following hematopoietic ce
   curative approach for them. Long-term follow-up is necessary to monitor for myeloid
   malignancies and other adverse effects of curative therapies for SCD.
 raw_completion_output: |-
-  primary_disease: sickle cell disease
+  primary_disease: Sickle cell disease (SCD)
 
-  medical_actions: Allogeneic hematopoietic cell transplantation; Gene therapy; Gene editing; Nonmyeloablative conditioning; Myeloablative busulfan; Whole-genome sequencing analysis; Whole-exome sequencing; Benefit/risk assessment; Long-term follow-up
+  medical_actions: Allogeneic hematopoietic cell transplantation; Gene therapy; Gene editing; Myeloablative conditioning with busulfan; Whole-genome sequencing analysis; Whole-exome sequencing; Benefit/risk assessment; Long-term follow-up
 
-  symptoms: myelodysplastic syndrome; acute myeloid leukemia; graft rejection
+  symptoms: Graft rejection; Myelodysplastic syndrome development; Acute myeloid leukemia development; Clonal hematopoiesis
 
-  chemicals: busulfan; lentivirus
+  chemicals: Busulfan
 
-  action_annotation_relationships: Allogeneic hematopoietic cell transplantation TREATS sickle cell disease; Gene therapy TREATS sickle cell disease; Gene editing TREATS sickle cell disease; Nonmyeloablative conditioning PREVENTS graft rejection IN sickle cell disease; Myeloablative busulfan (with busulfan) TREATS sickle cell disease; Whole-genome sequencing analysis IDENTIFIES myelodysplastic syndrome AND acute myeloid leukemia IN sickle cell disease; Whole-exome sequencing IDENTIFIES myelodysplastic syndrome AND acute myeloid leukemia IN sickle cell disease; Benefit/risk assessment ASSESSES risk of myelodysplastic syndrome AND acute myeloid leukemia IN sickle cell disease; Long-term follow-up MONITORS myelodysplastic syndrome AND acute myeloid leukemia IN sickle cell disease
+  action_annotation_relationships: Allogeneic hematopoietic cell transplantation TREATS Sickle cell disease (SCD); Gene therapy TREATS Sickle cell disease (SCD); Gene editing TREATS Sickle cell disease (SCD); Myeloablative conditioning with busulfan (with Busulfan) TREATS Sickle cell disease (SCD); Whole-genome sequencing analysis TREATS uncertainty IN Sickle cell disease (SCD); Whole-exome sequencing TREATS uncertainty IN Sickle cell disease (SCD); Benefit/risk assessment PREVENTS adverse effects IN Sickle cell disease (SCD); Long-term follow-up PREVENTS myeloid malignancies IN Sickle cell disease (SCD)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -40,99 +40,74 @@ prompt: |+
 
 
   Text:
-  Long-term follow-up MONITORS myelodysplastic syndrome AND acute myeloid leukemia IN sickle cell disease
+  Long-term follow-up PREVENTS myeloid malignancies IN Sickle cell disease (SCD)
 
   ===
 
 extracted_object:
-  primary_disease: MONDO:0011382
+  primary_disease: MONDO:0007374
   medical_actions:
     - Allogeneic hematopoietic cell transplantation
     - MAXO:0001001
     - Gene editing
-    - Nonmyeloablative conditioning
-    - Myeloablative busulfan
+    - Myeloablative conditioning with busulfan
     - Whole-genome sequencing analysis
     - Whole-exome sequencing
     - Benefit/risk assessment
     - Long-term follow-up
   symptoms:
-    - HP:0002863
-    - HP:0004808
-    - graft rejection
+    - Graft rejection
+    - Myelodysplastic syndrome development
+    - Acute myeloid leukemia development
+    - Clonal hematopoiesis
   chemicals:
     - CHEBI:28901
-    - lentivirus
   action_annotation_relationships:
     - subject: Allogeneic hematopoietic cell transplantation
       predicate: TREATS
-      object: sickle cell disease
+      object: Sickle cell disease
+      qualifier: MONDO:0007374
     - subject: MAXO:0001001
       predicate: TREATS
-      object: sickle cell disease
+      object: Sickle cell disease
+      qualifier: MONDO:0007374
     - subject: Gene editing
       predicate: TREATS
-      object: sickle cell disease
-    - subject: <Nonmyeloablative conditioning>
-      predicate: <PREVENTS>
-      object: <graft rejection>
-      qualifier: <sickle cell disease>
-      subject_qualifier: <None>
-      object_qualifier: <None>
-      subject_extension: <None>
-      object_extension: <None>
-    - subject: Myeloablative busulfan
+      object: HP:0007760
+    - subject: Myeloablative conditioning
       predicate: TREATS
-      object: sickle cell disease
-      subject_qualifier: with busulfan
+      object: Sickle cell disease
+      qualifier: MONDO:0007374
+      subject_qualifier: with Busulfan
       subject_extension: CHEBI:28901
     - subject: Whole-genome sequencing analysis
-      predicate: IDENTIFIES
-      object: myelodysplastic syndrome, acute myeloid leukemia
-      qualifier: MONDO:0011382
-    - subject: <Whole-exome sequencing>
-      predicate: <IDENTIFIES>
-      object: <myelodysplastic syndrome AND acute myeloid leukemia>
-      qualifier: <sickle cell disease>
-      subject_extension: <Whole-exome sequencing>
-    - subject: Benefit/risk assessment
-      predicate: ASSESSES
-      object: risk of myelodysplastic syndrome AND acute myeloid leukemia
-      qualifier: MONDO:0011382
-    - subject: <Long-term follow-up>
-      predicate: <MONITORS>
-      object: <myelodysplastic syndrome, acute myeloid leukemia>
-      qualifier: <sickle cell disease>
-      subject_qualifier: <N/A>
-      object_qualifier: <N/A>
-      subject_extension: <N/A>
-      object_extension: <N/A>
+      predicate: TREATS
+      object: uncertainty
+      qualifier: MONDO:0007374
+    - subject: Whole-exome sequencing
+      predicate: TREATS
+      object: uncertainty
+      qualifier: MONDO:0007374
+    - subject: <Benefit/risk assessment>
+      predicate: <PREVENTS>
+      object: <adverse effects>
+      qualifier: <Sickle cell disease>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <Benefit/risk assessment>
+      object_extension: <>
+    - subject: Long-term follow-up
+      predicate: PREVENTS
+      object: myeloid malignancies
+      qualifier: MONDO:0007374
 named_entities:
-  - id: MONDO:0011382
-    label: Sickle Cell Anemia
   - id: MONDO:0007374
-    label: Sickle cell disease (SCD)
+    label: Sickle Cell Disease (SCD)
   - id: MAXO:0000747
     label: Allogeneic hematopoietic stem cell transplantation (HSCT)
-  - id: MAXO:0000756
-    label: blood transfusion
-  - id: CHEBI:33281
-    label: antibiotics
-  - id: HP:0001944
-    label: dehydration
   - id: HP:0007760
-    label: Sickle Cell Disease (SCD) symptoms
-  - id: HP:0012592
-    label: Albuminuria
-  - id: HP:0012622
-    label: Chronic kidney disease
-  - id: HP:0100543
-    label: cognitive deficits
+    label: Sickle Cell Disease (SCD)
   - id: MAXO:0001001
     label: Gene therapy
-  - id: HP:0002863
-    label: myelodysplastic syndrome
-  - id: HP:0004808
-    label: acute myeloid leukemia
   - id: CHEBI:28901
-    label: busulfan
+    label: Busulfan

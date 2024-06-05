@@ -1,0 +1,81 @@
+---
+input_text: Isoniazid therapy of Huntington disease. We describe clinical and biochemical
+  changes in seven patients with Huntington disease given isoniazid (INH) in dosages
+  three to five greater than normally used in tuberculosis. Because INH inhibits the
+  enzyme gamma-aminobutyric acid aminotransferase (GABA-T), and increases GABA content
+  in the brains of experimental animals, it might correct the brain GABA deficiency
+  characteristic of Huntington disease. Of six patients treated long enough to be
+  clinically evaluated, one showed marked and two others showed signifciant improvement.
+  High-dose INH therapy carries serious toxic risks, which are influenced by patients'
+  acetylator phenotypes. Nevertheless, results are sufficiently promising to warrant
+  further controlled trials of INH or other GABA-T inhibitors in Huntington disease.
+raw_completion_output: |-
+  primary_disease: Huntington disease
+  medical_actions: Isoniazid therapy; High-dose INH therapy
+  symptoms: brain GABA deficiency
+  chemicals: Isoniazid (INH); gamma-aminobutyric acid (GABA)
+  action_annotation_relationships: Isoniazid therapy TREATS brain GABA deficiency IN Huntington disease; High-dose INH therapy (with Isoniazid) TREATS brain GABA deficiency IN Huntington disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  High-dose INH therapy (with Isoniazid) TREATS brain GABA deficiency IN Huntington disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0007739
+  medical_actions:
+    - Isoniazid therapy
+    - High-dose INH therapy
+  symptoms:
+    - brain GABA deficiency
+  chemicals:
+    - CHEBI:6030
+    - CHEBI:16865
+  action_annotation_relationships:
+    - subject: MAXO:0001298
+      predicate: TREATS
+      object: brain deficiency
+      qualifier: MONDO:0007739
+      subject_qualifier: isoniazid
+      object_qualifier: brain GABA
+      subject_extension: CHEBI:6030
+      object_extension: GABA
+    - subject: High-dose INH therapy
+      predicate: TREATS
+      object: brain GABA deficiency
+      qualifier: MONDO:0007739
+      subject_qualifier: high dose
+      subject_extension: CHEBI:6030
+named_entities:
+  - id: MONDO:0007739
+    label: Huntington disease
+  - id: MAXO:0009003
+    label: preimplantation genetic testing
+  - id: HP:0000716
+    label: depression
+  - id: HP:0000739
+    label: anxiety
+  - id: HP:0000737
+    label: irritability
+  - id: HP:0002072
+    label: choreic movements
+  - id: CHEBI:7735
+    label: olanzapine
+  - id: CHEBI:6030
+    label: Isoniazid (INH)
+  - id: CHEBI:16865
+    label: gamma-aminobutyric acid (GABA)
+  - id: MAXO:0001298
+    label: therapy

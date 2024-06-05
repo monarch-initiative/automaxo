@@ -1,7 +1,7 @@
 ---
 input_text: "Post-discharge morbidity and mortality in children admitted with severe
   anaemia and other health conditions in malaria-endemic settings in Africa: a systematic
-  review and meta-analysis.BACKGROUND: Severe anaemia is associated with high in-hospital
+  review and meta-analysis. BACKGROUND: Severe anaemia is associated with high in-hospital
   mortality among young children. In malaria-endemic areas, surviving children also
   remain at increased risk of mortality for several months after hospital discharge.
   We aimed to compare the risks of morbidity and mortality among children discharged
@@ -39,13 +39,13 @@ input_text: "Post-discharge morbidity and mortality in children admitted with se
 raw_completion_output: |-
   primary_disease: Severe anaemia
 
-  medical_actions: Improved strategies for the management of high-risk groups after discharge
+  medical_actions: Hospital discharge; Follow-up
 
-  symptoms: High in-hospital mortality; Increased risk of mortality after discharge; Increased risk of readmissions
+  symptoms: High in-hospital mortality; Increased risk of mortality after discharge; Readmissions within 6 months of discharge
 
   chemicals: 
 
-  action_annotation_relationships: Improved strategies for the management of high-risk groups after discharge PREVENTS Increased risk of mortality after discharge IN Severe anaemia; Improved strategies for the management of high-risk groups after discharge PREVENTS Increased risk of readmissions IN Severe anaemia
+  action_annotation_relationships: Hospital discharge TREATS high in-hospital mortality IN severe anaemia; Follow-up TREATS high in-hospital mortality IN severe anaemia; Follow-up TREATS increased risk of mortality after discharge IN severe anaemia; Hospital discharge TREATS readmissions within 6 months of discharge IN severe anaemia
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -60,39 +60,40 @@ prompt: |+
 
 
   Text:
-  Improved strategies for the management of high-risk groups after discharge PREVENTS Increased risk of readmissions IN Severe anaemia
+  Hospital discharge TREATS readmissions within 6 months of discharge IN severe anaemia
 
   ===
 
 extracted_object:
   primary_disease: Severe anaemia
   medical_actions:
-    - Improved strategies for the management of high-risk groups after discharge
+    - Hospital discharge
+    - Follow-up
   symptoms:
     - High in-hospital mortality
     - Increased risk of mortality after discharge
-    - Increased risk of readmissions
+    - Readmissions within 6 months of discharge
   action_annotation_relationships:
-    - subject: Improved strategies for the management of high-risk groups after discharge
-      predicate: PREVENTS
-      object: Increased risk of mortality after discharge
-      qualifier: Severe anaemia
-    - subject: Improved strategies for the management of high-risk groups after discharge
-      predicate: PREVENTS
-      object: Increased risk of readmissions
-      qualifier: Severe anaemia
+    - subject: Hospital discharge
+      predicate: TREATS
+      object: high in-hospital mortality
+      qualifier: severe anaemia
+    - subject: Follow-up
+      predicate: TREATS
+      object: high in-hospital mortality
+      qualifier: severe anaemia
+    - subject: Follow-up
+      predicate: TREATS
+      object: increased risk of mortality after discharge
+      qualifier: severe anaemia
+    - subject: Hospital discharge
+      predicate: TREATS
+      object: readmissions within 6 months of discharge
+      qualifier: severe anaemia
 named_entities:
-  - id: MONDO:0011382
-    label: Sickle Cell Anemia
   - id: MONDO:0007374
-    label: Sickle cell disease (SCD)
+    label: Sickle Cell Disease (SCD)
   - id: MAXO:0000747
     label: Allogeneic hematopoietic stem cell transplantation (HSCT)
-  - id: MAXO:0000756
-    label: blood transfusion
-  - id: CHEBI:33281
-    label: antibiotics
-  - id: HP:0001944
-    label: dehydration
   - id: HP:0007760
-    label: Sickle Cell Disease (SCD) symptoms
+    label: Sickle Cell Disease (SCD)

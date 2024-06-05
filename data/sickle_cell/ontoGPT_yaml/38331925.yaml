@@ -1,7 +1,7 @@
 ---
 input_text: 'Role of hydroxyurea therapy in the prevention of organ damage in sickle
-  cell disease: a systematic review and meta-analysis.BACKGROUND: Hydroxyurea is an
-  affordable drug that reduces vaso-occlusive crises and transfusion requirements
+  cell disease: a systematic review and meta-analysis. BACKGROUND: Hydroxyurea is
+  an affordable drug that reduces vaso-occlusive crises and transfusion requirements
   in sickle cell disease. However, its effectiveness in preventing chronic organ damage
   is still unclear. This systematic review and meta-analysis aimed to evaluate the
   role of hydroxyurea in preventing organ morbidity. METHOD: We included original
@@ -19,15 +19,11 @@ input_text: 'Role of hydroxyurea therapy in the prevention of organ damage in si
   regurgitant velocity, albuminuria, and splenic abnormality. SYSTEMATIC REVIEW REGISTRATION:
   PROSPERO CRD42023401187.'
 raw_completion_output: |-
-  primary_disease: sickle cell disease
-
-  medical_actions: hydroxyurea therapy; dose adjustment above 20 mg/kg/day
-
-  symptoms: transcranial doppler velocity; tricuspid regurgitant velocity; albuminuria; splenic abnormality
-
-  chemicals: hydroxyurea
-
-  action_annotation_relationships: hydroxyurea therapy TREATS transcranial doppler velocity IN sickle cell disease; hydroxyurea therapy TREATS tricuspid regurgitant velocity IN sickle cell disease; hydroxyurea therapy (with hydroxyurea) TREATS albuminuria IN sickle cell disease; hydroxyurea therapy TREATS splenic abnormality IN sickle cell disease
+  primary_disease: Sickle cell disease
+  medical_actions: Hydroxyurea therapy; Increase in HbF percentage
+  symptoms: Vaso-occlusive crises; Transfusion requirements; Organ damage; Transcranial Doppler velocity; Tricuspid regurgitant velocity; Albuminuria; Splenic abnormality
+  chemicals: Hydroxyurea
+  action_annotation_relationships: Hydroxyurea therapy TREATS vaso-occlusive crises IN sickle cell disease; Hydroxyurea therapy TREATS transfusion requirements IN sickle cell disease; Hydroxyurea therapy PREVENTS organ damage IN sickle cell disease; Hydroxyurea therapy TREATS transcranial Doppler velocity IN sickle cell disease; Hydroxyurea therapy TREATS tricuspid regurgitant velocity IN sickle cell disease; Hydroxyurea therapy TREATS albuminuria IN sickle cell disease; Hydroxyurea therapy (with Hydroxyurea) TREATS splenic abnormality IN sickle cell disease; Increase in HbF percentage PREVENTS organ damage IN sickle cell disease
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -42,26 +38,44 @@ prompt: |+
 
 
   Text:
-  hydroxyurea therapy TREATS splenic abnormality IN sickle cell disease
+  Increase in HbF percentage PREVENTS organ damage IN sickle cell disease
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0011382
   medical_actions:
-    - hydroxyurea therapy
-    - dose adjustment above 20 mg/kg/day
+    - Hydroxyurea therapy
+    - Increase in HbF percentage
   symptoms:
-    - transcranial doppler velocity
-    - tricuspid regurgitant velocity
+    - Vaso-occlusive crises
+    - Transfusion requirements
+    - Organ damage
+    - Transcranial Doppler velocity
+    - Tricuspid regurgitant velocity
     - HP:0012592
-    - splenic abnormality
+    - Splenic abnormality
   chemicals:
     - CHEBI:44423
   action_annotation_relationships:
     - subject: MAXO:0001298
       predicate: TREATS
-      object: transcranial doppler velocity
+      object: vaso-occlusive crises
+      qualifier: MONDO:0011382
+      subject_extension: CHEBI:44423
+    - subject: MAXO:0001298
+      predicate: TREATS
+      object: transfusion requirements
+      qualifier: MONDO:0011382
+      subject_extension: CHEBI:44423
+    - subject: MAXO:0001298
+      predicate: PREVENTS
+      object: organ damage
+      qualifier: MONDO:0011382
+      subject_extension: CHEBI:44423
+    - subject: MAXO:0001298
+      predicate: TREATS
+      object: transcranial Doppler velocity
       qualifier: MONDO:0011382
       subject_extension: CHEBI:44423
     - subject: MAXO:0001298
@@ -69,79 +83,60 @@ extracted_object:
       object: tricuspid regurgitant velocity
       qualifier: MONDO:0011382
       subject_extension: CHEBI:44423
-    - subject: hydroxyurea therapy
+    - subject: MAXO:0001298
       predicate: TREATS
       object: HP:0012592
       qualifier: MONDO:0011382
-      subject_qualifier: with hydroxyurea
       subject_extension: CHEBI:44423
-    - subject: MAXO:0001298
+    - subject: Hydroxyurea therapy
       predicate: TREATS
       object: splenic abnormality
       qualifier: MONDO:0011382
+      subject_qualifier: with Hydroxyurea
       subject_extension: CHEBI:44423
+    - subject: <Increase in HbF percentage>
+      predicate: <PREVENTS>
+      object: <organ damage>
+      qualifier: <sickle cell disease>
+      subject_extension: <HbF>
 named_entities:
   - id: MONDO:0011382
-    label: sickle cell disease
-  - id: MONDO:0100096
-    label: SARS-CoV-2
+    label: Sickle cell disease
+  - id: MAXO:0001001
+    label: genetic therapies
+  - id: MONDO:0005570
+    label: blood disorder
   - id: MONDO:0007374
     label: Sickle cell disease (SCD)
-  - id: HP:0100602
-    label: Preeclampsia
-  - id: HP:0001511
-    label: Intrauterine growth restriction
-  - id: CHEBI:44423
-    label: Hydroxyurea (HU)
-  - id: CHEBI:35143
-    label: Haemoglobin (Hb)
-  - id: HP:0001622
-    label: Preterm delivery
-  - id: CHEBI:50858
-    label: corticosteroids
-  - id: HP:0032654
-    label: Endothelial dysfunction
-  - id: HP:0012418
-    label: Hypoxia
-  - id: HP:0001409
-    label: Portal hypertension
-  - id: MAXO:0001001
-    label: Gene therapies
   - id: MAXO:0000756
-    label: Transfusion
+    label: Blood transfusion
   - id: MAXO:0000747
     label: Hematopoietic stem cell transplantation
-  - id: MAXO:0001298
-    label: therapy
-  - id: MAXO:0009047
-    label: Total hip replacement (THR)
+  - id: HP:0007760
+    label: Sickle cell disease (SCD)
   - id: CHEBI:22720
     label: Benzodiazepines
-  - id: MONDO:0006079
-    label: Acute chest syndrome (ACS)
-  - id: CHEBI:24859
-    label: Iodine
-  - id: MONDO:0005632
-    label: Acute chest syndrome
-  - id: CHEBI:17334
-    label: penicillin
+  - id: HP:0001923
+    label: increased reticulocyte count
+  - id: MAXO:0000457
+    label: pain management
   - id: MAXO:0000118
-    label: immunizations
+    label: Immunizations
   - id: HP:0001903
-    label: anemia
+    label: Anemia
   - id: HP:0001297
-    label: stroke
-  - id: HP:0012532
-    label: Chronic pain
-  - id: CHEBI:3216
-    label: Buprenorphine
+    label: Stroke
+  - id: CHEBI:44423
+    label: Hydroxyurea
+  - id: CHEBI:17334
+    label: Penicillin
+  - id: HP:0001511
+    label: Intrauterine growth retardation
   - id: HP:0001518
     label: Low birth weight
-  - id: MAXO:0001006
-    label: Full blood count
-  - id: MAXO:0000825
-    label: Reticulocyte count
-  - id: MAXO:0000427
-    label: Brain magnetic resonance imaging (MRI)
+  - id: CHEBI:50249
+    label: anticoagulant
   - id: HP:0012592
-    label: albuminuria
+    label: Albuminuria
+  - id: MAXO:0001298
+    label: therapy

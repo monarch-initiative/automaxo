@@ -1,7 +1,7 @@
 ---
 input_text: "Physical, Mental, and Social Health of Adult Patients with Sickle Cell
   Disease after Allogeneic Hematopoietic Stem Cell Transplantation: A Mixed-Methods
-  Study.Patients with sickle cell disease (SCD) experience a considerable physical
+  Study. Patients with sickle cell disease (SCD) experience a considerable physical
   and psychosocial disease burden. In recent years, the application of allogeneic
   hematopoietic stem cell transplantation (HSCT) to treat adults with SCD has increased.
   A thorough understanding of patients' physical, mental, and social health before
@@ -39,11 +39,11 @@ raw_completion_output: |-
 
   medical_actions: Allogeneic Hematopoietic Stem Cell Transplantation (HSCT); Psychological help
 
-  symptoms: Pain; Physical well-being issues; Mental well-being issues; Fatigue; Emotional struggles; Avascular osteonecrosis
+  symptoms: Pain; Physical well-being issues; Mental well-being issues; Transplantation-related toxicity; Ongoing pain from avascular osteonecrosis; Fatigue; Emotional struggles
 
   chemicals: 
 
-  action_annotation_relationships: Allogeneic Hematopoietic Stem Cell Transplantation (HSCT) TREATS physical well-being issues IN Sickle Cell Disease (SCD); Allogeneic Hematopoietic Stem Cell Transplantation (HSCT) TREATS mental well-being issues IN Sickle Cell Disease (SCD); Allogeneic Hematopoietic Stem Cell Transplantation (HSCT) TREATS pain IN Sickle Cell Disease (SCD); Psychological help TREATS emotional struggles IN Sickle Cell Disease (SCD)
+  action_annotation_relationships: Allogeneic Hematopoietic Stem Cell Transplantation (HSCT) TREATS Physical well-being issues IN Sickle Cell Disease (SCD); Allogeneic Hematopoietic Stem Cell Transplantation (HSCT) TREATS Pain IN Sickle Cell Disease (SCD); Psychological help TREATS Mental well-being issues IN Sickle Cell Disease (SCD); Psychological help TREATS Emotional struggles IN Sickle Cell Disease (SCD)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -58,7 +58,7 @@ prompt: |+
 
 
   Text:
-  Psychological help TREATS emotional struggles IN Sickle Cell Disease (SCD)
+  Psychological help TREATS Emotional struggles IN Sickle Cell Disease (SCD)
 
   ===
 
@@ -71,255 +71,175 @@ extracted_object:
     - HP:0012531
     - Physical well-being issues
     - Mental well-being issues
+    - Transplantation-related toxicity
+    - Ongoing pain from avascular osteonecrosis
     - HP:0012378
     - Emotional struggles
-    - Avascular osteonecrosis
   action_annotation_relationships:
-    - subject: <Allogeneic Hematopoietic Stem Cell Transplantation>
+    - subject: MAXO:0000747
+      predicate: TREATS
+      object: Physical well-being issues
+      qualifier: MONDO:0007374
+    - subject: MAXO:0000747
       predicate: <TREATS>
-      object: <physical well-being issues>
+      object: <Pain>
       qualifier: MONDO:0007374
-      subject_extension: <Allogeneic Hematopoietic Stem Cell Transplantation (HSCT)>
-    - subject: MAXO:0000747
-      predicate: TREATS
-      object: mental well-being issues
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: <Psychological help>
+      predicate: <TREATS>
+      object: <Mental well-being issues>
       qualifier: MONDO:0007374
-    - subject: MAXO:0000747
-      predicate: TREATS
-      object: HP:0012531
-      qualifier: MONDO:0007374
+      subject_qualifier: <N/A>
+      object_qualifier: <N/A>
+      subject_extension: <N/A>
+      object_extension: <N/A>
     - subject: Psychological help
       predicate: TREATS
-      object: emotional struggles
+      object: Emotional struggles
       qualifier: MONDO:0007374
 named_entities:
   - id: MONDO:0007374
     label: Sickle Cell Disease (SCD)
+  - id: CHEBI:35480
+    label: analgesics
+  - id: HP:0001944
+    label: dehydration
+  - id: HP:0001903
+    label: anemia
+  - id: MAXO:0000756
+    label: Transfusion
+  - id: HP:0001396
+    label: Cholestasis
+  - id: HP:0001297
+    label: Stroke
+  - id: HP:0000083
+    label: Kidney failure
+  - id: CHEBI:50858
+    label: Corticosteroids
   - id: CHEBI:44423
     label: Hydroxyurea
-  - id: CHEBI:18050
-    label: L-glutamine
-  - id: MAXO:0001298
-    label: therapy
-  - id: MONDO:0011382
-    label: Sickle Cell Disease
-  - id: MONDO:0005290
-    label: Rhabdomyolysis
-  - id: MAXO:0001121
-    label: kidney biopsy
-  - id: MAXO:0000387
-    label: muscle biopsy
-  - id: HP:0001919
-    label: acute kidney injury (AKI)
-  - id: CHEBI:7044
-    label: Myoglobin
-  - id: MAXO:0000950
-    label: supportive care
-  - id: CHEBI:4027
-    label: cyclophosphamide
+  - id: HP:0007760
+    label: Sickle cell disease (SCD)
   - id: MAXO:0000747
-    label: hematopoietic stem cell transplantation (HSCT)
-  - id: MAXO:0009101
-    label: early intervention
-  - id: MONDO:0100096
-    label: COVID-19
-  - id: MAXO:0000756
-    label: blood transfusion
-  - id: MAXO:0001001
-    label: gene therapy
-  - id: HP:0004936
-    label: venous thrombosis
-  - id: MONDO:0005266
-    label: diabetic retinopathy
-  - id: MONDO:0002303
-    label: central retinal vein occlusion
-  - id: HP:0100543
-    label: Cognitive dysfunction
-  - id: MONDO:0013517
-    label: beta-thalassemia
-  - id: HP:0012531
-    label: Pain
-  - id: MAXO:0000457
-    label: Pain management
-  - id: HP:0000739
-    label: anxiety
-  - id: HP:0000716
-    label: depression
-  - id: CHEBI:6716
-    label: depot medroxyprogesterone (DMPA)
-  - id: CHEBI:59826
-    label: progestin
-  - id: MONDO:0002049
-    label: Thrombocytopenia
-  - id: MAXO:0001017
-    label: Vaccination
-  - id: MONDO:0005632
-    label: Acute chest syndrome
-  - id: CHEBI:41879
-    label: dexamethasone
-  - id: CHEBI:17303
-    label: morphine
-  - id: CHEBI:16480
-    label: nitric oxide
-  - id: CHEBI:28304
-    label: heparin
-  - id: MONDO:0013730
-    label: graft versus host disease (GvHD)
-  - id: MAXO:0010030
-    label: Bone marrow transplantation
-  - id: MAXO:0000004
-    label: Surgical intervention
-  - id: HP:0200023
-    label: Priapism
-  - id: HP:0001945
-    label: pyrexia
-  - id: HP:0002019
-    label: constipation
-  - id: HP:0001903
-    label: decreased haemoglobin
-  - id: CHEBI:26710
-    label: NaCl
-  - id: MAXO:0000530
-    label: Carrier screening
-  - id: HP:0002615
-    label: Hypotension
-  - id: HP:0001662
-    label: Bradycardia
-  - id: HP:0002098
-    label: Respiratory distress
-  - id: CHEBI:119915
-    label: Fentanyl
-  - id: HP:0000407
-    label: Sensorineural hearing loss (SNHL)
-  - id: HP:0001249
-    label: Poor school performance
-  - id: HP:0030645
-    label: Risk of (central) auditory processing disorder
+    label: Hematopoietic stem cell transplant (HSCT)
   - id: CHEBI:28901
     label: Busulfan
+  - id: CHEBI:9570
+    label: Thiotepa
+  - id: CHEBI:4027
+    label: Cyclophosphamide
   - id: MAXO:0000750
     label: conditioning regimen
-  - id: MONDO:0002280
-    label: Anemia
-  - id: MONDO:0005003
-    label: Chronic Pancreatitis
-  - id: MAXO:0000088
-    label: Dietary interventions
-  - id: MAXO:0035049
-    label: Endoscopic retrograde cholangiopancreatography
-  - id: CHEBI:35480
-    label: Analgesic
-  - id: CHEBI:22586
-    label: Antioxidants
-  - id: CHEBI:17334
-    label: Penicillin
-  - id: HP:0001297
-    label: stroke
-  - id: HP:0003826
-    label: Stillbirths
-  - id: HP:0100806
-    label: Sepsis
-  - id: HP:0011891
-    label: Postpartum hemorrhage
-  - id: MONDO:0002050
-    label: Depression
-  - id: HP:0012418
-    label: Hypoxia
-  - id: CHEBI:17230
-    label: Homocysteine
-  - id: CHEBI:16811
-    label: Methionine
-  - id: MONDO:0005136
-    label: Malaria
-  - id: HP:0001518
-    label: Low birth weight
-  - id: CHEBI:38068
-    label: Antimalarial
-  - id: MONDO:0001754
-    label: Eclampsia
-  - id: HP:0011902
-    label: Abnormal hemoglobin
-  - id: CHEBI:223316
-    label: Artemisinin
-  - id: CHEBI:195280
-    label: Artemether
-  - id: CHEBI:156095
-    label: Lumefantrine
-  - id: CHEBI:63918
-    label: Artesunate
-  - id: CHEBI:2674
-    label: Amodiaquine
-  - id: MAXO:0009065
-    label: Intravenous push (IVP) analgesia
-  - id: MONDO:0010088
-    label: Musculoskeletal diseases (MSD)
-  - id: MONDO:0002081
-    label: Musculoskeletal diseases
-  - id: MONDO:0002146
-    label: Hypogonadism
-  - id: MONDO:0009061
-    label: cystic fibrosis
-  - id: MAXO:0000079
-    label: genetic counseling
-  - id: MONDO:0020380
-    label: Sickle Cell Anaemia (SCA)
-  - id: HP:0001511
-    label: intrauterine growth restriction
-  - id: HP:0100602
-    label: pre-eclampsia
-  - id: HP:0005268
-    label: miscarriage
-  - id: HP:0001622
-    label: preterm delivery
-  - id: HP:0011419
-    label: placental abruption
-  - id: CHEBI:15365
-    label: aspirin
-  - id: CHEBI:15552
-    label: prostacyclin
-  - id: CHEBI:26995
-    label: thromboxane
+  - id: HP:0012532
+    label: chronic pain
+  - id: MONDO:0020121
+    label: Muscular dystrophy
+  - id: MONDO:0004992
+    label: Cancer
+  - id: MONDO:0005015
+    label: Diabetes
+  - id: MONDO:0011382
+    label: Sickle cell disease
+  - id: MONDO:0100096
+    label: COVID-19
+  - id: MAXO:0001017
+    label: vaccination
+  - id: MAXO:0000149
+    label: Hematopoietic cell transplantation (HCT)
+  - id: HP:0008209
+    label: Premature ovarian insufficiency (POI)
+  - id: CHEBI:28876
+    label: Melphalan
+  - id: MONDO:0005570
+    label: hematological disorders
+  - id: MONDO:0011549
+    label: Hyperhemolytic syndrome (HHS)
   - id: MAXO:0001077
     label: Splenectomy
-  - id: HP:0010972
-    label: Ineffective erythropoiesis
-  - id: HP:0004387
-    label: enterocolitis
-  - id: MONDO:0007100
-    label: transthyretin amyloidosis
-  - id: HP:0001139
-    label: conditional transcranial Doppler (TCD) flow velocities
-  - id: MAXO:0010203
-    label: Echocardiography
-  - id: HP:0001712
-    label: Left Ventricular Hypertrophy
-  - id: HP:0001699
-    label: Sudden death
-  - id: CHEBI:15956
-    label: Biotin
-  - id: HP:0000689
-    label: malocclusion
-  - id: HP:0009102
-    label: anterior open bite
-  - id: HP:0000347
-    label: mandibular retrusion
-  - id: MAXO:0035088
-    label: Brain magnetic resonance imaging (MRI)/magnetic resonance angiography (MRA)
-  - id: HP:0002090
-    label: Pneumonia
-  - id: HP:0012330
-    label: Pyelonephritis
-  - id: HP:0003811
-    label: Neonatal death
+  - id: HP:0001896
+    label: Reticulocytopenia
+  - id: CHEBI:35341
+    label: Steroids
+  - id: CHEBI:64357
+    label: Rituximab
+  - id: HP:0000789
+    label: infertility
+  - id: CHEBI:22333
+    label: alkylating agents
+  - id: MONDO:0009061
+    label: cystic fibrosis
+  - id: MONDO:0005453
+    label: congenital heart disease
+  - id: MONDO:0018585
+    label: Pediatric Arterial Ischemic Stroke
+  - id: CHEBI:119915
+    label: Fentanyl
   - id: MAXO:0000127
     label: Genetic testing
+  - id: HP:0001945
+    label: Fever
+  - id: HP:0200023
+    label: Priapism
+  - id: HP:0004395
+    label: malnutrition
+  - id: MONDO:0005136
+    label: Malaria
+  - id: CHEBI:8455
+    label: Proguanil
+  - id: HP:0007902
+    label: Vitreous haemorrhage
+  - id: HP:0011958
+    label: Retinal tear
+  - id: HP:0000541
+    label: Retinal detachment
+  - id: HP:0011506
+    label: Choroidal neovascularization
+  - id: HP:0000572
+    label: Visual loss
+  - id: HP:0001139
+    label: abnormal/conditional transcranial doppler (TCD)
+  - id: MAXO:0000503
+    label: mechanical ventilation
+  - id: HP:0002878
+    label: respiratory failure
+  - id: HP:0000988
+    label: skin rash
+  - id: HP:0001873
+    label: thrombocytopenia
+  - id: MONDO:0020380
+    label: Sickle cell anaemia (SCA)
+  - id: HP:0012531
+    label: Pain
+  - id: CHEBI:32250
+    label: Tramadol hydrochloride
+  - id: CHEBI:6129
+    label: Ketorolac
+  - id: CHEBI:47381
+    label: Diclofenac
+  - id: MAXO:0000946
+    label: neurosurgery
+  - id: MONDO:0005300
+    label: Chronic kidney disease
+  - id: HP:0100806
+    label: Sepsis
+  - id: HP:0002204
+    label: Pulmonary embolism
+  - id: HP:0012622
+    label: Chronic kidney disease
+  - id: HP:0001649
+    label: increased heart rate
+  - id: MAXO:0000573
+    label: Assisted reproductive technologies (ART)
   - id: HP:0001394
-    label: Cirrhosis
+    label: cirrhosis
   - id: CHEBI:68554
-    label: Deferiprone
+    label: deferiprone
   - id: CHEBI:4356
-    label: Deferoxamine
+    label: deferoxamine
   - id: CHEBI:49005
-    label: Deferasirox
+    label: deferasirox
   - id: HP:0012378
     label: Fatigue

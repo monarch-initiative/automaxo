@@ -1,0 +1,234 @@
+---
+input_text: "Pregnancy in a patient with hepatic artery thrombosis after liver transplantation:
+  a case report. BACKGROUND: Hepatic artery thrombosis (HAT) increases the risk of
+  complications and mortality after liver transplantation. The incidence for HAT is
+  increased in patients with risk factors (vascular reconstructions, coagulation disorders
+  and acute rejection episodes amongst others). Early retransplantation improves the
+  prognosis for patients, but owing to lack of donors, surgical and interventional
+  radiologic attempts to restore the patency of hepatic artery are made. The prognosis
+  for the liver and the patient can also be improved by the development of collateral
+  circulation. CASE REPORT: We describe a case of a 30-year-old woman with hepatic
+  failure owing to Wilson disease. Liver transplantation with the use of vascular
+  conduit made of donor's iliac arteries was complicated by an early HAT. Heterozygous
+  factor V Leiden mutation was confirmed in the patient. Despite surgical and radiologic
+  attempts to restore patency and despite treatment with fractioned heparin and aspirin,
+  the hepatic artery remained occluded. Retransplantation was not considered, even
+  though the patient was planning a pregnancy. After 1 year of observation of stable
+  liver function, conversion from mycophenolate mofetil to azathioprine treatment,
+  the patient was given consent for a high-risk pregnancy. DISCUSSION: The course
+  of pregnancy was uneventful, with normal liver function parameters, without pathological
+  bleedings. The patient was treated with doses of enoxaparin adjusted for the patient's
+  weight. In the 34th week, owing to increasing concentration of bile acids, the pregnancy
+  ended with a cesarean section. The newborn had 10-point APGAR score."
+raw_completion_output: |-
+  primary_disease: Hepatic artery thrombosis (HAT) after liver transplantation
+
+  medical_actions: Early retransplantation; Surgical attempts to restore patency; Interventional radiologic attempts to restore patency; Treatment with fractioned heparin; Treatment with aspirin; Conversion from mycophenolate mofetil to azathioprine; Treatment with doses of enoxaparin; Cesarean section
+
+  symptoms: Complications; Mortality; Hepatic failure; Occluded hepatic artery; Increasing concentration of bile acids
+
+  chemicals: Heparin; Aspirin; Mycophenolate mofetil; Azathioprine; Enoxaparin
+
+  action_annotation_relationships: Early retransplantation TREATS complications IN Hepatic artery thrombosis (HAT) after liver transplantation; Surgical attempts to restore patency TREATS occluded hepatic artery IN Hepatic artery thrombosis (HAT) after liver transplantation; Interventional radiologic attempts to restore patency TREATS occluded hepatic artery IN Hepatic artery thrombosis (HAT) after liver transplantation; Treatment (with heparin) TREATS complications IN Hepatic artery thrombosis (HAT) after liver transplantation; Treatment (with aspirin) TREATS complications IN Hepatic artery thrombosis (HAT) after liver transplantation; Conversion from mycophenolate mofetil to azathioprine PREVENTS complications IN Hepatic artery thrombosis (HAT) after liver transplantation; Treatment (with enoxaparin) PREVENTS pathological bleedings IN Hepatic artery thrombosis (HAT) after liver transplantation; Cesarean section TREATS increasing concentration of bile acids IN Hepatic artery thrombosis (HAT) after liver transplantation
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Cesarean section TREATS increasing concentration of bile acids IN Hepatic artery thrombosis (HAT) after liver transplantation
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0018048
+  medical_actions:
+    - Early retransplantation
+    - Surgical attempts to restore patency
+    - Interventional radiologic attempts to restore patency
+    - Treatment with fractioned heparin
+    - MAXO:0000903
+    - Conversion from mycophenolate mofetil to azathioprine
+    - Treatment with doses of enoxaparin
+    - Cesarean section
+  symptoms:
+    - Complications
+    - Mortality
+    - HP:0001399
+    - Occluded hepatic artery
+    - Increasing concentration of bile acids
+  chemicals:
+    - CHEBI:28304
+    - CHEBI:15365
+    - CHEBI:8764
+    - CHEBI:2948
+    - CHEBI:28304
+  action_annotation_relationships:
+    - subject: Early retransplantation
+      predicate: TREATS
+      object: complications
+      qualifier: MONDO:0018048
+      object_qualifier: after liver transplantation
+    - subject: Surgical attempts to restore patency
+      predicate: TREATS
+      object: occluded hepatic artery
+      qualifier: MONDO:0018048
+    - subject: <attempts to restore patency>
+      predicate: <TREATS>
+      object: <occluded hepatic artery>
+      qualifier: MONDO:0018048
+      subject_extension: <Interventional radiologic>
+    - subject: Treatment
+      predicate: TREATS
+      object: complications
+      qualifier: MONDO:0018048
+      subject_qualifier: with heparin
+      subject_extension: CHEBI:28304
+    - subject: Treatment
+      predicate: TREATS
+      object: complications
+      qualifier: MONDO:0018048
+      subject_qualifier: with aspirin
+      subject_extension: CHEBI:15365
+    - subject: Conversion from mycophenolate mofetil to azathioprine
+      predicate: PREVENTS
+      object: complications
+      qualifier: MONDO:0018048
+      subject_extension: CHEBI:2948
+    - subject: Treatment
+      predicate: PREVENTS
+      object: pathological bleedings
+      qualifier: MONDO:0018048
+      subject_qualifier: with enoxaparin
+      subject_extension: CHEBI:28304
+    - subject: Cesarean section
+      predicate: TREATS
+      object: increasing concentration of bile acids
+      qualifier: MONDO:0018048
+named_entities:
+  - id: MAXO:0000108
+    label: Iron supplementation
+  - id: HP:0011967
+    label: Copper deficiency
+  - id: CHEBI:28694
+    label: Copper
+  - id: CHEBI:18248
+    label: Iron
+  - id: CHEBI:22977
+    label: Cadmium
+  - id: CHEBI:25016
+    label: Lead
+  - id: CHEBI:28984
+    label: Aluminum
+  - id: CHEBI:16170
+    label: Mercury
+  - id: CHEBI:18291
+    label: Manganese
+  - id: MONDO:0010200
+    label: Wilson disease
+  - id: HP:0031943
+    label: akathisia
+  - id: HP:0002307
+    label: sialorrhea
+  - id: HP:0012048
+    label: oromandibular dystonia (occasionally grimacing)
+  - id: CHEBI:47780
+    label: clomipramine
+  - id: CHEBI:7959
+    label: d-penicillamine
+  - id: MAXO:0001298
+    label: therapy
+  - id: MAXO:0000058
+    label: Pharmacotherapy
+  - id: HP:0001392
+    label: Liver disease
+  - id: HP:0011954
+    label: Non-cirrhotic portal hypertension
+  - id: MAXO:0001175
+    label: Liver transplantation
+  - id: HP:0002344
+    label: Neurologic deterioration
+  - id: CHEBI:39501
+    label: Trientine
+  - id: HP:0002071
+    label: extrapyramidal symptoms
+  - id: HP:0002480
+    label: Hepatic encephalopathy
+  - id: HP:0001410
+    label: liver dysfunction
+  - id: HP:0001409
+    label: portal hypertension
+  - id: HP:0000193
+    label: Cleft uvula
+  - id: HP:0001943
+    label: Low blood sugar
+  - id: HP:0003201
+    label: Rhabdomyolysis
+  - id: HP:0001644
+    label: Dilated cardiomyopathy
+  - id: MONDO:0013209
+    label: Nonalcoholic fatty liver disease
+  - id: MAXO:0000376
+    label: Liver biopsy
+  - id: HP:0001397
+    label: Liver steatosis
+  - id: HP:0001394
+    label: Cirrhosis
+  - id: CHEBI:23414
+    label: Copper sulfate (CuSO4)
+  - id: CHEBI:16856
+    label: Glutathione (GSH)
+  - id: CHEBI:566274
+    label: Malondialdehyde (MDA)
+  - id: CHEBI:53498
+    label: Total antioxidant capacity (TAC)
+  - id: CHEBI:16990
+    label: Bilirubin
+  - id: MONDO:0009379
+    label: Rotor syndrome
+  - id: CHEBI:35232
+    label: radiopharmaceutical
+  - id: MAXO:0035059
+    label: Nerve conduction studies
+  - id: HP:0000818
+    label: Endocrinopathies
+  - id: HP:0000951
+    label: Skin abnormalities
+  - id: HP:0001272
+    label: Cerebellar atrophy
+  - id: CHEBI:33234
+    label: Vitamin E
+  - id: CHEBI:16113
+    label: Cholesterol
+  - id: CHEBI:16285
+    label: Phytanic acid
+  - id: CHEBI:28358
+    label: Lactic acid
+  - id: CHEBI:86570
+    label: Cholestanol
+  - id: CHEBI:46245
+    label: Coenzyme Q10
+  - id: HP:0001251
+    label: ataxia
+  - id: MONDO:0018048
+    label: Hepatic artery thrombosis (HAT) after liver transplantation
+  - id: MAXO:0000903
+    label: Treatment with aspirin
+  - id: HP:0001399
+    label: Hepatic failure
+  - id: CHEBI:28304
+    label: Heparin
+  - id: CHEBI:15365
+    label: Aspirin
+  - id: CHEBI:8764
+    label: Mycophenolate mofetil
+  - id: CHEBI:2948
+    label: Azathioprine

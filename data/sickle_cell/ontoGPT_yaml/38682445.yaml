@@ -1,0 +1,107 @@
+---
+input_text: Optimization of single-needle red cell exchange in patients with sickle
+  cell disease. The hypercoagulable state associated with sickle cell disease (SCD)
+  can be challenging for apheresis procedures. Among 62 single-needle red cell exchanges
+  (SN-RCEs) performed over a 15-month period, 4 patients experienced 6 hemolytic events
+  with a discolored plasma layer, elevated plasma/RBC interface in the centrifuge,
+  and accompanying alarms of "Cells were detected in plasma line from centrifuge"
+  or "AIM system detected RBC at top of connector." The hemolysis originated from
+  the apheresis instrument because samples from the apheresis belt but not the patients'
+  peripheral blood were positive for hemolysis. Further analysis showed the alarms
+  occurred more often in SN-RCEs (20.4%) than double-needle RCEs (2.7%), and the hemolysis
+  was probably secondary to clumping. To optimize SN-RCE, we increased the anticoagulant
+  dosage by changing Inlet/AC ratio from 13 to 8 and lowered the inlet rate to the
+  level comparable to double-needle RCE. The adjustments were well-tolerated with
+  no more hemolysis.
+raw_completion_output: |-
+  primary_disease: sickle cell disease
+
+  medical_actions: single-needle red cell exchange (SN-RCE); increase anticoagulant dosage; lower the inlet rate
+
+  symptoms: hypercoagulable state; hemolytic events; discolored plasma layer; elevated plasma/RBC interface; alarms of "Cells were detected in plasma line from centrifuge"; "AIM system detected RBC at top of connector"
+
+  chemicals: 
+
+  action_annotation_relationships: single-needle red cell exchange (SN-RCE) TREATS hypercoagulable state IN sickle cell disease; increase anticoagulant dosage PREVENTS hemolytic events IN sickle cell disease; lower the inlet rate PREVENTS hemolytic events IN sickle cell disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  lower the inlet rate PREVENTS hemolytic events IN sickle cell disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0011382
+  medical_actions:
+    - single-needle red cell exchange (SN-RCE)
+    - increase anticoagulant dosage
+    - lower the inlet rate
+  symptoms:
+    - hypercoagulable state
+    - hemolytic events
+    - discolored plasma layer
+    - elevated plasma/RBC interface
+    - alarms of "Cells were detected in plasma line from centrifuge"
+    - '"AIM system detected RBC at top of connector"'
+  action_annotation_relationships:
+    - subject: single-needle red cell exchange (SN-RCE)
+      predicate: TREATS
+      object: hypercoagulable state
+      qualifier: MONDO:0011382
+    - subject: increase anticoagulant dosage
+      predicate: PREVENTS
+      object: hemolytic events
+      qualifier: MONDO:0011382
+      subject_extension: CHEBI:50249
+    - subject: lower the inlet rate
+      predicate: PREVENTS
+      object: hemolytic events
+      qualifier: MONDO:0011382
+named_entities:
+  - id: MONDO:0011382
+    label: Sickle cell disease
+  - id: MAXO:0001001
+    label: genetic therapies
+  - id: MONDO:0005570
+    label: blood disorder
+  - id: MONDO:0007374
+    label: Sickle cell disease (SCD)
+  - id: MAXO:0000756
+    label: Blood transfusion
+  - id: MAXO:0000747
+    label: Hematopoietic stem cell transplantation
+  - id: HP:0007760
+    label: Sickle cell disease (SCD)
+  - id: CHEBI:22720
+    label: Benzodiazepines
+  - id: HP:0001923
+    label: increased reticulocyte count
+  - id: MAXO:0000457
+    label: pain management
+  - id: MAXO:0000118
+    label: Immunizations
+  - id: HP:0001903
+    label: Anemia
+  - id: HP:0001297
+    label: Stroke
+  - id: CHEBI:44423
+    label: Hydroxyurea
+  - id: CHEBI:17334
+    label: Penicillin
+  - id: HP:0001511
+    label: Intrauterine growth retardation
+  - id: HP:0001518
+    label: Low birth weight
+  - id: CHEBI:50249
+    label: anticoagulant

@@ -1,0 +1,102 @@
+---
+input_text: "GRNDaD: big data and sickle cell disease.Big data are used in the pursuit
+  of precision medicine in the general population. Applying these tools to patients
+  with sickle cell disease (SCD) is essential for ensuring that they receive the most
+  appropriate customized therapy for their disease. For these tools to be applied,
+  there must be a large number of willing, fully phenotyped participants in collaborative
+  registries. Working collaboratively to respond to unmet clinical needs and the lack
+  of a large multisite registry, SCD providers at multiple sites developed The Globin
+  Regional Data and Discovery (GRNDaD) registry. The specific goals of GRNDaD are
+  to (1) prospectively obtain high-quality curated data on the evolving population
+  affected by SCD; (2) improve adherence to guideline-based care; (3) provide a platform
+  for ongoing quality improvement across sites; (4) allow for real-time investigation
+  of therapies, and collaborate broadly to address research questions using GRNDaD
+  as a shared platform. GRNDaD's current strength lies in the generous participation
+  of people living with SCD, collaborative investigators, and the opportunity to conduct
+  quality improvement activities across a large number of sites. GRNDaD will serve
+  as the data collection tool for the Health Resources and Services Administration
+  Sickle Cell Treatment Demonstration Program and for the newly established National
+  Alliance for Sickle Cell Centers (https://www.sicklecellcenters.org/). GRNDaD is
+  a robust collaborative registry that providers and researchers will use to identify
+  genetic markers that will help predict outcomes and lead to a better understanding
+  of the natural history of SCD in the modern era of novel therapies."
+raw_completion_output: |-
+  primary_disease: sickle cell disease
+  medical_actions: improve adherence to guideline-based care; real-time investigation of therapies
+  symptoms: 
+  chemicals: 
+  action_annotation_relationships: improve adherence to guideline-based care PREVENTS unmet clinical needs IN sickle cell disease; real-time investigation of therapies TREATS sickle cell disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  real-time investigation of therapies TREATS sickle cell disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0011382
+  medical_actions:
+    - improve adherence to guideline-based care
+    - real-time investigation of therapies
+  action_annotation_relationships:
+    - subject: improve adherence to guideline-based care
+      predicate: PREVENTS
+      object: unmet clinical needs
+      qualifier: MONDO:0011382
+    - subject: real-time investigation of therapies
+      predicate: TREATS
+      object: sickle cell disease
+named_entities:
+  - id: MONDO:0011382
+    label: Sickle cell disease
+  - id: MONDO:0009665
+    label: Biotinidase deficiency
+  - id: CHEBI:44423
+    label: Hydroxyurea
+  - id: MONDO:0007374
+    label: Sickle Cell Disease (SCD)
+  - id: HP:0002617
+    label: vasculopathy
+  - id: HP:0100543
+    label: cognitive dysfunction
+  - id: HP:0001297
+    label: stroke
+  - id: HP:0005268
+    label: miscarriage
+  - id: HP:0003826
+    label: stillbirth
+  - id: HP:0001518
+    label: low birth weight
+  - id: HP:0010885
+    label: Avascular necrosis (AVN)
+  - id: MAXO:0000827
+    label: serum ferritin measurement
+  - id: MAXO:0010203
+    label: echocardiography
+  - id: HP:0000112
+    label: nephropathy
+  - id: HP:0025169
+    label: left ventricular systolic dysfunction
+  - id: HP:0002092
+    label: pulmonary hypertension
+  - id: CHEBI:28304
+    label: heparin
+  - id: HP:0002788
+    label: upper respiratory tract infections
+  - id: HP:0012735
+    label: cough
+  - id: HP:0002099
+    label: asthma
+  - id: CHEBI:6715
+    label: Medroxyprogesterone
