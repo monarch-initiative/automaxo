@@ -1,0 +1,67 @@
+---
+input_text: Long-term follow-up of Huntington disease treated by bilateral deep brain
+  stimulation of the internal globus pallidus. Deep brain stimulation is now accepted
+  as a safe and efficient treatment for movement disorders including selected types
+  of dystonia and dyskinesia. Very little, however, is known about its effect on other
+  movement disorders, particularly for "choreic" movements. Huntington disease is
+  a fatal autosomal-dominant neurodegenerative disorder characterized by movement
+  disorders, progressive cognitive impairment, and psychiatric symptoms. Bilateral
+  chronic stimulation of the internal globus pallidus was performed to control choreic
+  movements in a 60-year-old man with a 10-year history of Huntington disease. Chronic
+  deep brain stimulation resulted in remarkable improvement of choreic movements.
+  Postoperative improvement was sustained after 4 years of follow-up with a marked
+  improvement in daily quality of life.
+raw_completion_output: |-
+  primary_disease: Huntington disease
+  medical_actions: bilateral deep brain stimulation of the internal globus pallidus; chronic stimulation of the internal globus pallidus
+  symptoms: choreic movements; movement disorders; progressive cognitive impairment; psychiatric symptoms
+  chemicals: 
+  action_annotation_relationships: bilateral deep brain stimulation of the internal globus pallidus TREATS choreic movements IN Huntington disease; chronic stimulation of the internal globus pallidus TREATS choreic movements IN Huntington disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  chronic stimulation of the internal globus pallidus TREATS choreic movements IN Huntington disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0007739
+  medical_actions:
+    - bilateral deep brain stimulation of the internal globus pallidus
+    - chronic stimulation of the internal globus pallidus
+  symptoms:
+    - HP:0002072
+    - HP:0100022
+    - progressive cognitive impairment
+    - psychiatric symptoms
+  action_annotation_relationships:
+    - subject: bilateral deep brain stimulation of the internal globus pallidus
+      predicate: TREATS
+      object: HP:0002072
+      qualifier: MONDO:0007739
+    - subject: chronic stimulation of the internal globus pallidus
+      predicate: TREATS
+      object: HP:0002072
+      qualifier: MONDO:0007739
+named_entities:
+  - id: MONDO:0007739
+    label: Huntington Disease
+  - id: MONDO:0013310
+    label: P450 oxidoreductase deficiency
+  - id: CHEBI:78757
+    label: Cystamine
+  - id: HP:0002072
+    label: choreic movements
+  - id: HP:0100022
+    label: movement disorders

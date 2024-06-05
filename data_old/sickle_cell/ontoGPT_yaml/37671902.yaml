@@ -1,0 +1,84 @@
+---
+input_text: 'Acute chest syndrome in children with sickle cell disease: Data from
+  a national AIEOP cohort identify priority areas of intervention in a hub-and-spoke
+  system.Acute chest syndrome (ACS) is a frequent cause of hospitalization in sickle
+  cell disease (SCD). Despite advances in acute care, many settings still lack knowledge
+  about ACS best practices. After the AIEOP Guidelines were published in 2012, suggesting
+  standardized management in Italy, a retrospective study was performed to assess
+  the diagnostic and therapeutic pathways of ACS in children. From 2013 to 2018, 208
+  ACS episodes were presented by 122/583 kids in 11 centres. 73 were male, mean age
+  10.9 years, 85% African, 92% HbSS or Sbeta . In our hub-and-spoke system, a good
+  adherence to Guidelines was documented, but discrepancies between reference centres
+  and general hospitals were noted. Improvement is needed for timely transfer to reference
+  centres, use of incentive spirometry, oxygen therapy and pain management.'
+raw_completion_output: |-
+  primary_disease: Acute chest syndrome (ACS) in children with sickle cell disease (SCD)
+
+  medical_actions: Use of incentive spirometry; Oxygen therapy; Pain management
+
+  symptoms: Frequent cause of hospitalization
+
+  chemicals: 
+
+  action_annotation_relationships: Use of incentive spirometry PREVENTS frequent cause of hospitalization IN Acute chest syndrome (ACS) in children with sickle cell disease (SCD); Oxygen therapy TREATS frequent cause of hospitalization IN Acute chest syndrome (ACS) in children with sickle cell disease (SCD); Pain management TREATS frequent cause of hospitalization IN Acute chest syndrome (ACS) in children with sickle cell disease (SCD)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Pain management TREATS frequent cause of hospitalization IN Acute chest syndrome (ACS) in children with sickle cell disease (SCD)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0006079
+  medical_actions:
+    - Use of incentive spirometry
+    - Oxygen therapy
+    - MAXO:0000457
+  symptoms:
+    - Frequent cause of hospitalization
+  action_annotation_relationships:
+    - subject: Use of incentive spirometry
+      predicate: PREVENTS
+      object: frequent cause of hospitalization
+      qualifier: MONDO:0006079
+      subject_extension: incentive spirometry
+    - subject: <Oxygen therapy>
+      predicate: <TREATS>
+      object: <frequent cause of hospitalization>
+      qualifier: MONDO:0006079
+      subject_extension: <Oxygen>
+    - subject: <Pain management>
+      predicate: <TREATS>
+      object: <frequent cause of hospitalization>
+      qualifier: MONDO:0006079
+      subject_extension: <Pain management>
+named_entities:
+  - id: HP:0001139
+    label: Elevated transcranial Doppler (TCD) arterial velocity
+  - id: MONDO:0005683
+    label: Brucellosis
+  - id: HP:0033399
+    label: Persistent fever
+  - id: MAXO:0000747
+    label: Hematopoietic stem cell transplantation (HSCT)
+  - id: HP:0025322
+    label: VOD
+  - id: CHEBI:82557
+    label: Treosulfan
+  - id: MAXO:0000750
+    label: conditioning regimen
+  - id: MONDO:0006079
+    label: Acute chest syndrome (ACS) in children with sickle cell disease (SCD)
+  - id: MAXO:0000457
+    label: Pain management

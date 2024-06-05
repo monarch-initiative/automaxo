@@ -1,22 +1,26 @@
 ---
-input_text: 'CRISPR-Cas9 base editors and their current role in human therapeutics.BACKGROUND:
-  Consistent progress has been made to create more efficient and useful CRISPR-Cas9-based
-  molecular toolsfor genomic modification. METHODS: This review focuses on recent
-  articles that have employed base editors (BEs) for both clinical and research purposes.
-  RESULTS: CRISPR-Cas9 BEs are a useful system because of their highefficiency and
-  broad applicability to gene correction and disruption. In addition, base editing
-  has beensuggested as a safer approach than other CRISPR-Cas9-based systems, as it
-  limits double-strand breaksduring multiplex gene knockout and does not require a
-  toxic DNA donor molecule for genetic correction. CONCLUSION: As such, numerous industry
-  and academic groups are currently developing base editing strategies withclinical
-  applications in cancer immunotherapy and gene therapy, which this review will discuss,
-  with a focuson current and future applications of in vivo BE delivery.'
+input_text: 'CRISPR-Cas9 base editors and their current role in human therapeutics.
+  BACKGROUND: Consistent progress has been made to create more efficient and useful
+  CRISPR-Cas9-based molecular toolsfor genomic modification. METHODS: This review
+  focuses on recent articles that have employed base editors (BEs) for both clinical
+  and research purposes. RESULTS: CRISPR-Cas9 BEs are a useful system because of their
+  highefficiency and broad applicability to gene correction and disruption. In addition,
+  base editing has beensuggested as a safer approach than other CRISPR-Cas9-based
+  systems, as it limits double-strand breaksduring multiplex gene knockout and does
+  not require a toxic DNA donor molecule for genetic correction. CONCLUSION: As such,
+  numerous industry and academic groups are currently developing base editing strategies
+  withclinical applications in cancer immunotherapy and gene therapy, which this review
+  will discuss, with a focuson current and future applications of in vivo BE delivery.'
 raw_completion_output: |-
   primary_disease: Cancer
-  medical_actions: Gene editing with CRISPR-Cas9 base editors; Cancer immunotherapy; Gene therapy
+
+  medical_actions: Gene correction; Gene disruption; Cancer immunotherapy; Gene therapy; In vivo BE delivery
+
   symptoms: 
+
   chemicals: 
-  action_annotation_relationships: Gene editing with CRISPR-Cas9 base editors TREATS IN Cancer; Cancer immunotherapy TREATS IN Cancer; Gene therapy TREATS IN Cancer
+
+  action_annotation_relationships: Gene correction TREATS genetic mutations IN Cancer; Gene disruption PREVENTS disease progression IN Cancer; Cancer immunotherapy TREATS Cancer; Gene therapy TREATS genetic disorders IN Cancer; In vivo BE delivery TREATS genetic abnormalities IN Cancer
 prompt: |+
   Split the following piece of text into fields in the following format:
 
@@ -31,75 +35,217 @@ prompt: |+
 
 
   Text:
-  Gene therapy TREATS IN Cancer
+  In vivo BE delivery TREATS genetic abnormalities IN Cancer
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0004992
   medical_actions:
-    - Gene editing with CRISPR-Cas9 base editors
+    - Gene correction
+    - Gene disruption
     - Cancer immunotherapy
     - MAXO:0001001
+    - In vivo BE delivery
   action_annotation_relationships:
-    - subject: Gene editing
+    - subject: Gene correction
       predicate: TREATS
-      object: HP:0002664
-      subject_extension: CRISPR-Cas9 base editors
+      object: genetic mutations
+      qualifier: MONDO:0004992
+    - subject: Gene disruption
+      predicate: PREVENTS
+      object: disease progression
+      qualifier: MONDO:0004992
     - subject: Cancer immunotherapy
       predicate: TREATS
       object: HP:0002664
     - subject: MAXO:0001001
       predicate: TREATS
-      object: HP:0002664
+      object: genetic disorders
+      qualifier: MONDO:0004992
+    - subject: In vivo BE delivery
+      predicate: TREATS
+      object: genetic abnormalities
+      qualifier: MONDO:0004992
+      subject_extension: BE delivery
 named_entities:
-  - id: HP:0002863
-    label: Leukemia/Myelodysplastic syndrome (MDS)
-  - id: CHEBI:4027
-    label: Cyclophosphamide
   - id: MONDO:0007374
-    label: Sickle cell disease (SCD)
+    label: Sickle Cell Disease (SCD)
+  - id: CHEBI:35480
+    label: analgesics
+  - id: HP:0001944
+    label: dehydration
+  - id: HP:0001903
+    label: anemia
   - id: MAXO:0000756
-    label: Blood transfusion
-  - id: MONDO:0011382
-    label: sickle cell disease
-  - id: HP:0004870
-    label: Chronic hemolytic anemia
+    label: Transfusion
+  - id: HP:0001396
+    label: Cholestasis
+  - id: HP:0001297
+    label: Stroke
+  - id: HP:0000083
+    label: Kidney failure
+  - id: CHEBI:50858
+    label: Corticosteroids
   - id: CHEBI:44423
     label: Hydroxyurea
-  - id: MAXO:0001298
-    label: therapy
-  - id: HP:0012592
-    label: Albuminuria
-  - id: HP:0030162
-    label: Glomerulomegaly
-  - id: HP:0033533
-    label: Increased cardiac output
-  - id: MONDO:0044348
-    label: Hemoglobinopathies
-  - id: HP:0001903
-    label: Anemia
-  - id: HP:0012418
-    label: Hypoxemia
-  - id: MAXO:0000617
-    label: Pulse oximetry
-  - id: MAXO:0000068
-    label: transplantation
   - id: HP:0007760
-    label: Sickle Cell Disease (SCD)
-  - id: MONDO:0013517
-    label: beta-thalassemia
-  - id: MONDO:0002304
-    label: Protein S deficiency
-  - id: MAXO:0001001
-    label: Gene therapy
-  - id: HP:0002098
-    label: respiratory distress
-  - id: HP:0012735
-    label: cough
+    label: Sickle cell disease (SCD)
+  - id: MAXO:0000747
+    label: Hematopoietic stem cell transplant (HSCT)
+  - id: CHEBI:28901
+    label: Busulfan
+  - id: CHEBI:9570
+    label: Thiotepa
+  - id: CHEBI:4027
+    label: Cyclophosphamide
+  - id: MAXO:0000750
+    label: conditioning regimen
   - id: HP:0012532
-    label: Chronic pain
+    label: chronic pain
+  - id: MONDO:0020121
+    label: Muscular dystrophy
   - id: MONDO:0004992
     label: Cancer
+  - id: MONDO:0005015
+    label: Diabetes
+  - id: MONDO:0011382
+    label: Sickle cell disease
+  - id: MONDO:0100096
+    label: COVID-19
+  - id: MAXO:0001017
+    label: vaccination
+  - id: MAXO:0000149
+    label: Hematopoietic cell transplantation (HCT)
+  - id: HP:0008209
+    label: Premature ovarian insufficiency (POI)
+  - id: CHEBI:28876
+    label: Melphalan
+  - id: MONDO:0005570
+    label: hematological disorders
+  - id: MONDO:0011549
+    label: Hyperhemolytic syndrome (HHS)
+  - id: MAXO:0001077
+    label: Splenectomy
+  - id: HP:0001896
+    label: Reticulocytopenia
+  - id: CHEBI:35341
+    label: Steroids
+  - id: CHEBI:64357
+    label: Rituximab
+  - id: HP:0000789
+    label: infertility
+  - id: CHEBI:22333
+    label: alkylating agents
+  - id: MONDO:0009061
+    label: cystic fibrosis
+  - id: MONDO:0005453
+    label: congenital heart disease
+  - id: MONDO:0018585
+    label: Pediatric Arterial Ischemic Stroke
+  - id: CHEBI:119915
+    label: Fentanyl
+  - id: MAXO:0000127
+    label: Genetic testing
+  - id: HP:0001945
+    label: Fever
+  - id: HP:0200023
+    label: Priapism
+  - id: HP:0004395
+    label: malnutrition
+  - id: MONDO:0005136
+    label: Malaria
+  - id: CHEBI:8455
+    label: Proguanil
+  - id: HP:0007902
+    label: Vitreous haemorrhage
+  - id: HP:0011958
+    label: Retinal tear
+  - id: HP:0000541
+    label: Retinal detachment
+  - id: HP:0011506
+    label: Choroidal neovascularization
+  - id: HP:0000572
+    label: Visual loss
+  - id: HP:0001139
+    label: abnormal/conditional transcranial doppler (TCD)
+  - id: MAXO:0000503
+    label: mechanical ventilation
+  - id: HP:0002878
+    label: respiratory failure
+  - id: HP:0000988
+    label: skin rash
+  - id: HP:0001873
+    label: thrombocytopenia
+  - id: MONDO:0020380
+    label: Sickle cell anaemia (SCA)
+  - id: HP:0012531
+    label: Pain
+  - id: CHEBI:32250
+    label: Tramadol hydrochloride
+  - id: CHEBI:6129
+    label: Ketorolac
+  - id: CHEBI:47381
+    label: Diclofenac
+  - id: MAXO:0000946
+    label: neurosurgery
+  - id: MONDO:0005300
+    label: Chronic kidney disease
+  - id: HP:0100806
+    label: Sepsis
+  - id: HP:0002204
+    label: Pulmonary embolism
+  - id: HP:0012622
+    label: Chronic kidney disease
+  - id: HP:0001649
+    label: increased heart rate
+  - id: MAXO:0000573
+    label: Assisted reproductive technologies (ART)
+  - id: HP:0001394
+    label: cirrhosis
+  - id: CHEBI:68554
+    label: deferiprone
+  - id: CHEBI:4356
+    label: deferoxamine
+  - id: CHEBI:49005
+    label: deferasirox
+  - id: HP:0012378
+    label: Fatigue
+  - id: MONDO:0013730
+    label: Graft-versus-host disease (GVHD)
+  - id: HP:0004870
+    label: Chronic hemolytic anemia
+  - id: HP:0100724
+    label: Hypercoagulability
+  - id: HP:0004936
+    label: Venous thromboembolism
+  - id: MONDO:0005632
+    label: Acute chest syndrome
+  - id: HP:0100749
+    label: Chest pain
+  - id: HP:0030830
+    label: Crackles
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: CHEBI:74213
+    label: ribonucleotide reductase inhibitors
+  - id: MAXO:0000087
+    label: Massage
+  - id: MONDO:0002280
+    label: Anemia
+  - id: HP:0001915
+    label: Aplastic anemia
+  - id: CHEBI:9908
+    label: Ursolic acid
+  - id: CHEBI:16243
+    label: Quercetin
+  - id: CHEBI:28775
+    label: Hesperidin
+  - id: HP:0000739
+    label: Anxiety
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0002863
+    label: Leukemia/Myelodysplastic syndrome (MDS)
   - id: HP:0002664
     label: Cancer

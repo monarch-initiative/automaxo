@@ -1,0 +1,92 @@
+---
+input_text: Influence of HLA-DQ2.5 Dose on Clinical Picture of Unrelated Celiac Disease
+  Patients. The clinical phenotype of celiac disease varies considerably among patients
+  and the dosage of HLA-DQ2.5 alleles has been suggested to be a contributing factor.
+  We investigated whether HLA-DQ2.5 allele dosage is associated with distinct clinical
+  parameters at the time of diagnosis and with patients' response to a gluten-free
+  diet. The final cohort included 605 carefully phenotyped non-related Finnish celiac
+  disease patients grouped as having 0, 1 or 2 copies of HLA-DQ2.5. Clinical data
+  at the time of diagnosis and during gluten-free diet were collected systematically
+  from medical records and supplementary interviews. An increasing HLA-DQ2.5 dose
+  effect was detected for celiac disease antibody positivity at diagnosis (p = 0.021)
+  and for the presence of any first-degree relatives with celiac disease (p = 0.011
+  and p = 0.031, respectively). Instead, DQ2.5-negative patients were suffering most
+  often from classical symptoms at diagnosis (p = 0.007 between HLA groups). In addition,
+  during follow-up they were most often symptomatic despite a gluten-free diet (p
+  = 0.002 between groups). Our results thus suggest that increasing HLA-DQ2.5 dose
+  only has a minor effect on the clinical picture of celiac disease. However, HLA-DQ2.5-negative
+  patients should not be overlooked in clinical practice and particular attention
+  should be paid to this patient group during gluten-free diet.
+raw_completion_output: |-
+  primary_disease: Celiac disease
+
+  medical_actions: Gluten-free diet; Systematic collection of clinical data; Supplementary interviews
+
+  symptoms: Classical symptoms; Celiac disease antibody positivity; Symptomatic despite a gluten-free diet
+
+  chemicals: 
+
+  action_annotation_relationships: Gluten-free diet TREATS classical symptoms IN Celiac disease; Systematic collection of clinical data PREVENTS misdiagnosis IN Celiac disease; Supplementary interviews PREVENTS misdiagnosis IN Celiac disease; Gluten-free diet TREATS Symptomatic despite a gluten-free diet IN Celiac disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Gluten-free diet TREATS Symptomatic despite a gluten-free diet IN Celiac disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005130
+  medical_actions:
+    - Gluten-free diet
+    - Systematic collection of clinical data
+    - Supplementary interviews
+  symptoms:
+    - Classical symptoms
+    - Celiac disease antibody positivity
+    - Symptomatic despite a gluten-free diet
+  action_annotation_relationships:
+    - subject: Gluten-free diet
+      predicate: TREATS
+      object: classical symptoms
+      qualifier: MONDO:0005130
+    - subject: Systematic collection of clinical data
+      predicate: PREVENTS
+      object: misdiagnosis
+      qualifier: MONDO:0005130
+    - subject: Supplementary interviews
+      predicate: PREVENTS
+      object: misdiagnosis
+      qualifier: MONDO:0005130
+    - subject: Gluten-free diet
+      predicate: TREATS
+      object: Symptomatic despite a gluten-free diet
+      qualifier: MONDO:0005130
+      subject_extension: Gluten-free diet
+named_entities:
+  - id: HP:0040313
+    label: oligoarticular arthritis
+  - id: CHEBI:65312
+    label: Corticotropin releasing hormone
+  - id: CHEBI:197439
+    label: TNFalpha
+  - id: MONDO:0005130
+    label: Celiac Disease
+  - id: MAXO:0000058
+    label: pharmacological treatment
+  - id: HP:0002608
+    label: Celiac Disease
+  - id: HP:0025464
+    label: Oxidative stress
+  - id: CHEBI:26195
+    label: Polyphenols

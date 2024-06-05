@@ -1,0 +1,141 @@
+---
+input_text: 'A randomized, double-blind, placebo-controlled study of latrepirdine
+  in patients with mild to moderate Huntington disease. BACKGROUND Latrepirdine is
+  an orally administered experimental small molecule that was initially developed
+  as an antihistamine and subsequently was shown to stabilize mitochondrial membranes
+  and function, which might be impaired in Huntington disease. OBJECTIVE To determine
+  the effect of latrepirdine on cognition and global function in patients with mild
+  to moderate Huntington disease. DESIGN Randomized, double-blind, placebo-controlled
+  study. SETTING Sixty-four research centers in Australia, Europe, and North America.
+  PATIENTS Four hundred three patients with mild to moderate Huntington disease and
+  baseline cognitive impairment (Mini-Mental State Examination score, 10-26). INTERVENTION
+  Latrepirdine (20 mg) vs matching placebo administered orally 3 times daily for 26
+  weeks. MAIN OUTCOME MEASURES The co-primary outcome measures were cognition as measured
+  by the change in Mini-Mental State Examination score from baseline to week 26 and
+  global function at week 26 as measured by the Clinician Interview-Based Impression
+  of Change, plus carer interview, which ranges from 1 (marked improvement) to 7 (marked
+  worsening). Secondary efficacy outcome measures included behavior, daily function,
+  motor function, and safety. RESULTS The mean change in Mini-Mental State Examination
+  score among participants randomized to latrepirdine (1.5-point improvement) did
+  not differ significantly from that among participants randomized to placebo (1.3-point
+  improvement) (P=.39). Similarly, the distribution of the Clinician Interview-Based
+  Impression of Change, plus carer interview did not differ significantly among those
+  randomized to latrepirdine compared with placebo (P=.84). No significant treatment
+  effects were detected on the secondary efficacy outcome measures. The incidence
+  of adverse events was similar between those randomized to latrepirdine (68.5%) and
+  placebo (68.0%). CONCLUSION In patients with mild to moderate Huntington disease
+  and cognitive impairment, treatment with latrepirdine for 6 months was safe and
+  well tolerated but did not improve cognition or global function relative to placebo.
+  TRIAL REGISTRATION clinicaltrials.gov Identifier: NCT00920946.'
+raw_completion_output: |-
+  primary_disease: Huntington disease
+
+  medical_actions: Administration of latrepirdine; Placebo administration; Cognitive assessment (Mini-Mental State Examination); Global function assessment (Clinician Interview-Based Impression of Change, plus carer interview); Behavioral assessment; Daily function assessment; Motor function assessment; Safety monitoring
+
+  symptoms: Cognitive impairment
+
+  chemicals: Latrepirdine
+
+  action_annotation_relationships: Administration of latrepirdine TREATS cognitive impairment IN Huntington disease; Placebo administration PREVENTS cognitive impairment IN Huntington disease (implied, as control); Cognitive assessment (Mini-Mental State Examination) ASSESSES cognitive impairment IN Huntington disease; Global function assessment (Clinician Interview-Based Impression of Change, plus carer interview) ASSESSES global function IN Huntington disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Global function assessment (Clinician Interview-Based Impression of Change, plus carer interview) ASSESSES global function IN Huntington disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0007739
+  medical_actions:
+    - Administration of latrepirdine
+    - Placebo administration
+    - MAXO:0009017
+    - Global function assessment (Clinician Interview-Based Impression of Change,
+      plus carer interview)
+    - Behavioral assessment
+    - Daily function assessment
+    - Motor function assessment
+    - Safety monitoring
+  symptoms:
+    - HP:0100543
+  chemicals:
+    - CHEBI:92976
+  action_annotation_relationships:
+    - subject: Administration
+      predicate: TREATS
+      object: HP:0100543
+      qualifier: MONDO:0007739
+      subject_extension: CHEBI:92976
+    - subject: Placebo administration
+      predicate: PREVENTS
+      object: HP:0100543
+      qualifier: MONDO:0007739
+      subject_extension: placebo
+    - subject: <Cognitive assessment>
+      predicate: <ASSESSES>
+      object: <cognitive impairment>
+      qualifier: <Huntington disease>
+      subject_extension: <Mini-Mental State Examination>
+    - subject: Global function assessment (Clinician Interview-Based Impression of
+        Change, plus carer interview)
+      predicate: ASSESSES
+      object: global function
+      qualifier: MONDO:0007739
+named_entities:
+  - id: MONDO:0007739
+    label: Huntington Disease
+  - id: MONDO:0013310
+    label: P450 oxidoreductase deficiency
+  - id: CHEBI:78757
+    label: Cystamine
+  - id: HP:0002072
+    label: choreic movements
+  - id: HP:0100022
+    label: movement disorders
+  - id: CHEBI:16348
+    label: 3-nitropropionic acid (3-NP)
+  - id: MAXO:0000068
+    label: transplantation
+  - id: CHEBI:16675
+    label: quinolinic acid
+  - id: MAXO:0000011
+    label: physiotherapy
+  - id: MAXO:0000883
+    label: cognitive therapy
+  - id: HP:0002140
+    label: ischemic stroke
+  - id: MONDO:0005180
+    label: Parkinson disease
+  - id: MONDO:0005559
+    label: neurodegenerative diseases
+  - id: HP:0004395
+    label: malnutrition
+  - id: CHEBI:22720
+    label: benzodiazepines
+  - id: CHEBI:2618
+    label: amantadine
+  - id: CHEBI:15765
+    label: levodopa
+  - id: HP:0001251
+    label: Ataxia
+  - id: HP:0001260
+    label: Dysarthria
+  - id: HP:0002119
+    label: Ventricular dilatation
+  - id: MAXO:0009017
+    label: Cognitive assessment (Mini-Mental State Examination)
+  - id: HP:0100543
+    label: Cognitive impairment
+  - id: CHEBI:92976
+    label: Latrepirdine

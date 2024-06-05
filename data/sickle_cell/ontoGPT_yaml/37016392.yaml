@@ -2,7 +2,7 @@
 input_text: 'Dihydroartemisinin-piperaquine or sulphadoxine-pyrimethamine for the
   chemoprevention of malaria in children with sickle cell anaemia in eastern and southern
   Africa (CHEMCHA): a protocol for a multi-centre, two-arm, double-blind, randomised,
-  placebo-controlled superiority trial.BACKGROUND: An estimated 300,000 babies are
+  placebo-controlled superiority trial. BACKGROUND: An estimated 300,000 babies are
   born with sickle cell anaemia (SCA) annually. Affected children have chronic ill
   health and suffer premature death. Febrile illnesses such as malaria commonly precipitate
   acute crises in children with SCA. Thus, chemoprophylaxis for malaria is an important
@@ -24,15 +24,15 @@ input_text: 'Dihydroartemisinin-piperaquine or sulphadoxine-pyrimethamine for th
   trial was registered at ClinicalTrials.gov, NCT04844099 . Registered on 08 April
   2021.'
 raw_completion_output: |-
-  primary_disease: sickle cell anaemia (SCA)
+  primary_disease: Malaria
 
-  medical_actions: chemoprophylaxis for malaria; weekly single-day courses of DP compared to monthly single-day courses of SP; investigate the efficacy, safety, acceptability and uptake and cost-effectiveness of malaria chemoprevention; assess toxicity from cumulative DP dosing and the development of resistance
+  medical_actions: Chemoprophylaxis; Randomised, double-blind, parallel-group superiority trial; Weekly single-day courses of dihydroartemisinin-piperaquine; Monthly single-day courses of sulphadoxine-pyrimethamine; Investigate efficacy, safety, acceptability and uptake and cost-effectiveness; Assess toxicity; Development of resistance
 
-  symptoms: chronic ill health; febrile illnesses; acute crises
+  symptoms: Febrile illnesses; Acute crises
 
-  chemicals: dihydroartemisinin-piperaquine (DP); sulphadoxine-pyrimethamine (SP); proguanil
+  chemicals: Dihydroartemisinin-piperaquine; Sulphadoxine-pyrimethamine; Proguanil
 
-  action_annotation_relationships: chemoprophylaxis for malaria PREVENTS febrile illnesses IN sickle cell anaemia (SCA); weekly single-day courses of DP (with dihydroartemisinin-piperaquine) PREVENTS febrile illnesses IN sickle cell anaemia (SCA); monthly single-day courses of SP (with sulphadoxine-pyrimethamine) PREVENTS febrile illnesses IN sickle cell anaemia (SCA)
+  action_annotation_relationships: Chemoprophylaxis PREVENTS Malaria IN children with sickle cell anaemia; Weekly single-day courses of dihydroartemisinin-piperaquine PREVENTS Malaria IN children with sickle cell anaemia; Monthly single-day courses of sulphadoxine-pyrimethamine PREVENTS Malaria IN children with sickle cell anaemia; Assess toxicity TREATS Acute crises IN Malaria; Development of resistance PREVENTS effectiveness of treatment IN Malaria
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -47,435 +47,139 @@ prompt: |+
 
 
   Text:
-  monthly single-day courses of SP (with sulphadoxine-pyrimethamine) PREVENTS febrile illnesses IN sickle cell anaemia (SCA)
+  Development of resistance PREVENTS effectiveness of treatment IN Malaria
 
   ===
 
 extracted_object:
-  primary_disease: MONDO:0020380
+  primary_disease: MONDO:0005136
   medical_actions:
-    - chemoprophylaxis for malaria
-    - weekly single-day courses of DP compared to monthly single-day courses of SP
-    - investigate the efficacy, safety, acceptability and uptake and cost-effectiveness
-      of malaria chemoprevention
-    - assess toxicity from cumulative DP dosing and the development of resistance
+    - Chemoprophylaxis
+    - Randomised, double-blind, parallel-group superiority trial
+    - Weekly single-day courses of dihydroartemisinin-piperaquine
+    - Monthly single-day courses of sulphadoxine-pyrimethamine
+    - Investigate efficacy, safety, acceptability and uptake and cost-effectiveness
+    - Assess toxicity
+    - Development of resistance
   symptoms:
-    - chronic ill health
-    - febrile illnesses
-    - acute crises
+    - Febrile illnesses
+    - Acute crises
   chemicals:
-    - CHEBI:137245
-    - CHEBI:74820
+    - Dihydroartemisinin-piperaquine
+    - Sulphadoxine-pyrimethamine
     - CHEBI:8455
   action_annotation_relationships:
-    - subject: chemoprophylaxis for malaria
+    - subject: Chemoprophylaxis
       predicate: PREVENTS
-      object: febrile illnesses
-      qualifier: MONDO:0020380
-    - subject: weekly single-day courses of DP
-      predicate: PREVENTS
-      object: febrile illnesses
+      object: Malaria
       qualifier: sickle cell anaemia
-      subject_extension: dihydroartemisinin-piperaquine
-    - subject: monthly single-day courses
+      object_qualifier: IN children
+    - subject: Weekly single-day courses of dihydroartemisinin-piperaquine
       predicate: PREVENTS
-      object: febrile illnesses
-      qualifier: MONDO:0020380
-      subject_extension: CHEBI:74820
+      object: Malaria
+      qualifier: sickle cell anaemia
+      object_qualifier: IN children
+      subject_extension: dihydroartemisinin-piperaquine
+    - subject: Monthly single-day courses
+      predicate: PREVENTS
+      object: Malaria
+      qualifier: sickle cell anaemia
+      object_qualifier: in children
+      subject_extension: sulphadoxine-pyrimethamine
+    - subject: Assess toxicity
+      predicate: TREATS
+      object: Acute crises
+      qualifier: MONDO:0005136
+    - subject: Development of resistance
+      predicate: PREVENTS
+      object: effectiveness of treatment
+      qualifier: MONDO:0005136
 named_entities:
-  - id: MONDO:0011382
-    label: Sickle Cell Anemia
   - id: MONDO:0007374
-    label: Sickle cell disease (SCD)
-  - id: MAXO:0000747
-    label: Allogeneic hematopoietic stem cell transplantation (HSCT)
-  - id: MAXO:0000756
-    label: blood transfusion
-  - id: CHEBI:33281
-    label: antibiotics
+    label: Sickle Cell Disease (SCD)
+  - id: CHEBI:35480
+    label: analgesics
   - id: HP:0001944
     label: dehydration
-  - id: HP:0007760
-    label: Sickle Cell Disease (SCD) symptoms
-  - id: HP:0012592
-    label: Albuminuria
-  - id: HP:0012622
-    label: Chronic kidney disease
-  - id: HP:0100543
-    label: cognitive deficits
-  - id: MAXO:0001001
-    label: Gene therapy
-  - id: HP:0002863
-    label: myelodysplastic syndrome
-  - id: HP:0004808
-    label: acute myeloid leukemia
-  - id: CHEBI:28901
-    label: busulfan
-  - id: HP:0010972
-    label: Ineffective erythropoiesis
-  - id: HP:0001878
-    label: Hemolytic anemia
   - id: HP:0001903
-    label: Anemia
-  - id: CHEBI:35143
-    label: Hemoglobin (HbS)
-  - id: CHEBI:44423
-    label: hydroxycarbamide
-  - id: MONDO:0020380
-    label: Sickle cell anemia (SCA)
-  - id: MONDO:0002120
-    label: Nasopharyngeal neuroendocrine carcinoma (NEC)
-  - id: HP:0030828
-    label: wheeze
-  - id: HP:0012735
-    label: cough
-  - id: MONDO:0003664
-    label: Haemolytic anaemias
-  - id: HP:0032654
-    label: Endothelial dysfunction
-  - id: HP:0025464
-    label: Oxidative stress
-  - id: CHEBI:17627
-    label: Haem
-  - id: CHEBI:18248
-    label: Iron
-  - id: CHEBI:197439
-    label: TNFalpha
-  - id: MAXO:0000149
-    label: haploidentical hematopoietic cell transplant (HCT)
-  - id: MONDO:0005570
-    label: Blood disorders
-  - id: HP:0002617
-    label: Vasculopathy
-  - id: HP:0010885
-    label: Bone infarctions
-  - id: MONDO:0013517
-    label: beta-thalassemia
-  - id: HP:0001945
-    label: fever
-  - id: HP:0033050
-    label: sore throat
-  - id: HP:0002315
-    label: headache
-  - id: HP:0001394
-    label: Cirrhosis
-  - id: HP:0002204
-    label: Pulmonary embolus
-  - id: HP:0001297
-    label: Stroke
-  - id: HP:0031033
-    label: Renal acidification defect
-  - id: HP:0032632
-    label: Renal papillary necrosis
-  - id: HP:0000093
-    label: Proteinuria
-  - id: HP:0003774
-    label: End-stage renal disease
-  - id: HP:0012213
-    label: Decreased glomerular filtration rate (GFR)
-  - id: CHEBI:59163
-    label: biomarkers
-  - id: MAXO:0000915
-    label: Standardized polysomnography (PSG)
-  - id: HP:0002360
-    label: Sleep disturbances
-  - id: HP:0034312
-    label: Nocturnal hypoxemia
-  - id: CHEBI:35482
-    label: opioid analgesics
-  - id: MONDO:0005148
-    label: type II diabetes
-  - id: MAXO:0000058
-    label: Pharmacotherapy
-  - id: MAXO:0000457
-    label: Pain management
-  - id: CHEBI:18050
-    label: L-glutamine
-  - id: HP:0004421
-    label: Elevated systolic blood pressure
-  - id: HP:0030515
-    label: Moderate visual impairment
-  - id: HP:0000618
-    label: Blindness
-  - id: CHEBI:68579
-    label: rivaroxaban
-  - id: CHEBI:24261
-    label: glucocorticoids
-  - id: HP:0012532
-    label: Chronic pain
-  - id: CHEBI:6121
-    label: Ketamine
-  - id: MONDO:0010631
-    label: Acute ischemic priapism (IP)
-  - id: CHEBI:8093
-    label: Phenylephrine
-  - id: CHEBI:35480
-    label: Analgesics
-  - id: CHEBI:35705
-    label: immunosuppressive agents
-  - id: MAXO:0000503
-    label: Mechanical ventilation
-  - id: CHEBI:25555
-    label: Nitrogen
+    label: anemia
+  - id: MAXO:0000756
+    label: Transfusion
   - id: HP:0001396
     label: Cholestasis
+  - id: HP:0001297
+    label: Stroke
   - id: HP:0000083
     label: Kidney failure
   - id: CHEBI:50858
     label: Corticosteroids
+  - id: CHEBI:44423
+    label: Hydroxyurea
+  - id: HP:0007760
+    label: Sickle cell disease (SCD)
+  - id: MAXO:0000747
+    label: Hematopoietic stem cell transplant (HSCT)
+  - id: CHEBI:28901
+    label: Busulfan
   - id: CHEBI:9570
-    label: thiotepa
+    label: Thiotepa
   - id: CHEBI:4027
-    label: cyclophosphamide
-  - id: MAXO:0000494
-    label: Blood pressure monitoring
-  - id: HP:0003006
-    label: lack of universal newborn screening (NBS)
-  - id: MONDO:0002049
-    label: Thrombocytopenia
-  - id: MAXO:0001017
-    label: vaccination
-  - id: HP:0001873
-    label: Thrombocytopenia
+    label: Cyclophosphamide
+  - id: MAXO:0000750
+    label: conditioning regimen
+  - id: HP:0012532
+    label: chronic pain
+  - id: MONDO:0020121
+    label: Muscular dystrophy
+  - id: MONDO:0004992
+    label: Cancer
+  - id: MONDO:0005015
+    label: Diabetes
+  - id: MONDO:0011382
+    label: Sickle cell disease
   - id: MONDO:0100096
     label: COVID-19
-  - id: CHEBI:46195
-    label: Acetaminophen
-  - id: CHEBI:47381
-    label: Diclofenac
-  - id: MAXO:0000861
-    label: Labor induction
-  - id: HP:0100602
-    label: Preeclampsia
-  - id: CHEBI:16199
-    label: Urea
-  - id: CHEBI:16737
-    label: Creatinine
-  - id: MAXO:0000748
-    label: Fecal microbiota transplantation (FMT)
-  - id: CHEBI:17968
-    label: Butyrate
-  - id: CHEBI:31011
-    label: Valerate
-  - id: CHEBI:17272
-    label: Propionate
-  - id: MONDO:0020121
-    label: muscular dystrophy
-  - id: HP:0002664
-    label: cancer
-  - id: HP:0000819
-    label: diabetes
-  - id: MONDO:0004992
-    label: cancer
-  - id: MONDO:0005015
-    label: diabetes
-  - id: MAXO:0000610
-    label: Enzyme-linked immunosorbent assay
-  - id: HP:0007018
-    label: Attention deficits
-  - id: HP:0000848
-    label: Increased plasma renin
-  - id: CHEBI:48432
-    label: Angiotensin II
-  - id: CHEBI:4784
-    label: Enalapril
-  - id: HP:0100749
-    label: Chest pain
-  - id: HP:0002094
-    label: Shortness of breath
-  - id: HP:0000716
-    label: Depression
-  - id: HP:0001627
-    label: Cardiac abnormalities
-  - id: MONDO:0042491
-    label: Contrast-induced nephropathy (CIN)
-  - id: HP:0003259
-    label: Elevated serum creatinine (SCr)
-  - id: MONDO:0005399
-    label: Venous thromboembolism (VTE)
-  - id: MONDO:0054550
-    label: Avascular Necrosis of the Femoral Head (AVNFH)
-  - id: MAXO:0000004
-    label: surgical intervention
-  - id: HP:0012531
-    label: pain
-  - id: HP:0000969
-    label: oedema
-  - id: HP:0002140
-    label: Ischemic cerebrovascular accidents
-  - id: HP:0002098
-    label: respiratory distress
-  - id: HP:0002092
-    label: Pulmonary hypertension
-  - id: CHEBI:27690
-    label: Acetazolamide (ACZ)
-  - id: CHEBI:48021
-    label: Peptide nucleic acid (PNA)
-  - id: CHEBI:53374
-    label: Poly Lactic-co-Glycolic Acid (PLGA)
-  - id: MONDO:0006079
-    label: Acute chest syndrome (ACS)
-  - id: MONDO:0005632
-    label: Acute chest syndrome
-  - id: CHEBI:6443
-    label: Levonorgestrel
-  - id: HP:0001518
-    label: Small for gestational age
-  - id: HP:0001622
-    label: Preterm
-  - id: CHEBI:8735
-    label: PAINReportIt(R)
-  - id: MAXO:0000376
-    label: liver biopsy
-  - id: MAXO:0000066
-    label: Oxygen supplementation
-  - id: MAXO:0001175
-    label: Liver transplantation
-  - id: HP:0001395
-    label: Liver fibrosis
-  - id: MONDO:0044348
-    label: Hemoglobinopathies
-  - id: CHEBI:9168
-    label: sirolimus
-  - id: HP:0011105
-    label: Fluid overload
-  - id: HP:0012594
-    label: Microalbuminuria
+  - id: MAXO:0001017
+    label: vaccination
+  - id: MAXO:0000149
+    label: Hematopoietic cell transplantation (HCT)
   - id: HP:0008209
     label: Premature ovarian insufficiency (POI)
   - id: CHEBI:28876
     label: Melphalan
-  - id: MONDO:0019740
-    label: HIV-associated thrombotic thrombocytopenic purpura (TTP)
-  - id: MONDO:0005812
-    label: Influenza
-  - id: CHEBI:82594
-    label: Ferritin
-  - id: HP:0031417
-    label: rhinorrhea
-  - id: HP:0002027
-    label: abdominal pain
-  - id: HP:0025095
-    label: sneezing
-  - id: HP:0002014
-    label: diarrhea
-  - id: CHEBI:22587
-    label: antiviral
-  - id: MAXO:0001298
-    label: therapy
-  - id: MAXO:0009101
-    label: early intervention
-  - id: MONDO:0003847
-    label: Genetic disorders
-  - id: MAXO:0000079
-    label: Genetic counseling
-  - id: MAXO:0000530
-    label: Carrier screening
-  - id: HP:0004936
-    label: venous thromboembolism
-  - id: CHEBI:71942
-    label: phosphodiesterase 5 inhibitor
-  - id: MONDO:0010094
-    label: Sickle Cell Trait (SCT)
-  - id: MAXO:0000427
-    label: Brain magnetic resonance imaging
-  - id: HP:0004944
-    label: Intracranial aneurysms
-  - id: HP:0030447
-    label: Sickle Cell-Related Multiple Chronic Conditions (MCC)
+  - id: MONDO:0005570
+    label: hematological disorders
+  - id: MONDO:0011549
+    label: Hyperhemolytic syndrome (HHS)
   - id: MAXO:0001077
-    label: splenectomy
+    label: Splenectomy
   - id: HP:0001896
-    label: reticulocytopenia
+    label: Reticulocytopenia
   - id: CHEBI:35341
-    label: steroids
+    label: Steroids
   - id: CHEBI:64357
-    label: rituximab
-  - id: HP:0001513
-    label: Obesity
-  - id: HP:0001397
-    label: Liver steatosis
-  - id: HP:0003124
-    label: Hypercholesterolemia
-  - id: HP:0000822
-    label: Hypertension
-  - id: HP:0004308
-    label: Ventricular arrhythmias
-  - id: MAXO:0010203
-    label: Echocardiography
-  - id: MONDO:0002492
-    label: Acute Kidney Injury (AKI)
-  - id: CHEBI:35457
-    label: angiotensin-converting enzyme inhibitors
-  - id: HP:0031589
-    label: Suicidal ideation
+    label: Rituximab
   - id: HP:0000789
-    label: Infertility
+    label: infertility
   - id: CHEBI:22333
     label: alkylating agents
-  - id: CHEBI:33699
-    label: mRNA
-  - id: MAXO:0000068
-    label: Transplantation
-  - id: HP:0000739
-    label: anxiety
+  - id: MONDO:0009061
+    label: cystic fibrosis
+  - id: MONDO:0005453
+    label: congenital heart disease
   - id: MONDO:0018585
     label: Pediatric Arterial Ischemic Stroke
-  - id: HP:0025722
-    label: cerebral infarcts
-  - id: MAXO:0000571
-    label: CT scans
-  - id: HP:0002904
-    label: hyperbilirubinemia
-  - id: HP:0012418
-    label: hypoxia
-  - id: CHEBI:32026
-    label: Poloxamer 188
-  - id: MONDO:0005920
-    label: Plasmodium falciparum malaria
-  - id: HP:0001974
-    label: Leukocytosis
-  - id: HP:0001919
-    label: Acute kidney injury
-  - id: CHEBI:30413
-    label: Heme
-  - id: MAXO:0000110
-    label: Vitamin D supplementation
-  - id: CHEBI:27300
-    label: Vitamin D
-  - id: CHEBI:81579
-    label: Erythropoietin
   - id: CHEBI:119915
     label: Fentanyl
-  - id: HP:0001907
-    label: Thromboembolic events
-  - id: HP:0001511
-    label: Fetal growth restriction
-  - id: HP:0003826
-    label: Stillbirth
-  - id: MONDO:0007256
-    label: Hepatocellular carcinoma (HCC)
-  - id: MAXO:0000647
-    label: Chemotherapy
-  - id: MAXO:0000448
-    label: Resection
-  - id: HP:0001402
-    label: Hepatocellular carcinoma
-  - id: HP:0001712
-    label: Left ventricular hypertrophy
-  - id: MONDO:0005098
-    label: Stroke
-  - id: HP:0010619
-    label: Decreased fractional anisotropy (FA)
-  - id: MAXO:0000955
-    label: Bi-level positive airway pressure ventilation (BiPAP)
-  - id: HP:0033401
-    label: tissue ischemia
-  - id: HP:0001649
-    label: Elevated heart rate
-  - id: CHEBI:137245
-    label: dihydroartemisinin-piperaquine (DP)
-  - id: CHEBI:74820
-    label: sulphadoxine-pyrimethamine (SP)
+  - id: MAXO:0000127
+    label: Genetic testing
+  - id: HP:0001945
+    label: Fever
+  - id: HP:0200023
+    label: Priapism
+  - id: HP:0004395
+    label: malnutrition
+  - id: MONDO:0005136
+    label: Malaria
   - id: CHEBI:8455
-    label: proguanil
+    label: Proguanil

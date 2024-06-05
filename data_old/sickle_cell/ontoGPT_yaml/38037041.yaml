@@ -1,0 +1,148 @@
+---
+input_text: "Opioid prescriptions among the World Trade Center Health Program population.BACKGROUND:
+  The World Trade Center Health Program (Program) provides limited health care to
+  those directly affected by the 9/11 terrorist attacks. Because of physical/mental
+  trauma arising from the 9/11 attacks, Program members might be at high risk of opioid
+  use. To prevent prescription opioid overuse, in 2018 the Program implemented various
+  measures to improve opioid prescribing and expand access to non-opioid pain management
+  among Program members. However, the characteristics of opioid prescriptions dispensed
+  among this population has never been described. METHODS: Administrative and claims
+  data from 07/01/2011 to 09/30/2022 were used to describe opioid prescriptions dispensed
+  during 2013-2021. RESULTS: From 2013-2021, 108,285 members were Program-enrolled
+  for >= 10 months, 4,053 (3.7%) had 22,938 outpatient opioid prescriptions, of which,
+  62.1% were for cancer-related pain, 11.1% for hospice/end of life care, 4.8% for
+  surgery pain, and 9.8% for acute/chronic pain. Among members with Program-paid diagnostic/treatment
+  claims (n = 70,721), the proportion with opioid prescriptions for cancer/hospice/end
+  of life care increased from 0.5% in 2013 to 1.6% in 2018 (p = 0.010), then decreased
+  to 1.1% in 2021 (p = 0.070), and the proportion for non-cancer surgery/acute/chronic
+  pain decreased from 0.6% in 2013 to 0.23% in 2021 (p = 0.0005). Among members prescribed
+  opioids without cancer/hospice/sickle cell disease, the proportion who started with
+  long-acting opioids or had opioid prescriptions from >= 4 prescribers were below
+  6.5% annually; the proportion receiving a high-dose (>= 90 morphine milligram equivalents
+  per day [MED]), or with concurrent opioids and benzodiazepines use, or who started
+  opioids with MED >= 50 or with long duration (>= 7 days' supply) were above 10%
+  annually, but decreased since 2017. CONCLUSIONS: Prevalence of outpatient opioid
+  prescriptions paid by the Program was very low and prescriptions were primarily
+  dispensed for cancer/hospice/end of life care. Although Program efforts to improve
+  opioid prescribing coincided with improvements in outcomes, ongoing surveillance
+  is needed."
+raw_completion_output: |-
+  primary_disease: Opioid use
+
+  medical_actions: Improve opioid prescribing; Expand access to non-opioid pain management; Administrative and claims data analysis; Ongoing surveillance
+
+  symptoms: Cancer-related pain; Hospice/end of life care pain; Surgery pain; Acute/chronic pain
+
+  chemicals: Opioids; Benzodiazepines
+
+  action_annotation_relationships: Improve opioid prescribing PREVENTS Opioid overuse IN Opioid use; Expand access to non-opioid pain management PREVENTS Opioid overuse IN Opioid use; Administrative and claims data analysis TREATS Lack of data ON opioid prescriptions IN Opioid use; Ongoing surveillance TREATS Opioid use; Opioids (with benzodiazepines) TREATS Cancer-related pain IN Opioid use; Opioids TREATS Hospice/end of life care pain IN Opioid use; Opioids TREATS Surgery pain IN Opioid use; Opioids TREATS Acute/chronic pain IN Opioid use
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Opioids TREATS Acute/chronic pain IN Opioid use
+
+  ===
+
+extracted_object:
+  primary_disease: Opioid use
+  medical_actions:
+    - Improve opioid prescribing
+    - Expand access to non-opioid pain management
+    - Administrative and claims data analysis
+    - Ongoing surveillance
+  symptoms:
+    - Cancer-related pain
+    - Hospice/end of life care pain
+    - Surgery pain
+    - Acute/chronic pain
+  chemicals:
+    - Opioids
+    - CHEBI:22720
+  action_annotation_relationships:
+    - subject: <Improve opioid prescribing>
+      predicate: <PREVENTS>
+      object: <Opioid overuse>
+      qualifier: <Opioid use>
+      subject_qualifier: <null>
+      object_qualifier: <null>
+      subject_extension: <opioid>
+      object_extension: <overuse>
+    - subject: Expand access to non-opioid pain management
+      predicate: PREVENTS
+      object: Opioid overuse
+      qualifier: Opioid use
+      subject_extension: non-opioid pain management
+    - subject: Administrative and claims data analysis
+      predicate: TREATS
+      object: Lack of data
+      qualifier: Opioid use
+      object_extension: opioid
+    - subject: Ongoing surveillance
+      predicate: TREATS
+      object: Opioid use
+    - subject: Opioids (with benzodiazepines)
+      predicate: TREATS
+      object: Cancer-related pain
+      qualifier: Opioid use
+      subject_extension: Opioids
+    - predicate: TREATS
+      object: Hospice/end of life care pain
+      qualifier: Opioid use
+      subject_extension: Opioids
+    - predicate: TREATS
+      object: Surgery pain
+      qualifier: Opioid use
+      subject_extension: Opioids
+    - subject: Opioids
+      predicate: TREATS
+      object: Acute/chronic pain
+      qualifier: Opioid use
+      subject_extension: opioids
+named_entities:
+  - id: MONDO:0011382
+    label: sickle cell disease
+  - id: MONDO:0100096
+    label: SARS-CoV-2
+  - id: MONDO:0007374
+    label: Sickle cell disease (SCD)
+  - id: HP:0100602
+    label: Preeclampsia
+  - id: HP:0001511
+    label: Intrauterine growth restriction
+  - id: CHEBI:44423
+    label: Hydroxyurea (HU)
+  - id: CHEBI:35143
+    label: Haemoglobin (Hb)
+  - id: HP:0001622
+    label: Preterm delivery
+  - id: CHEBI:50858
+    label: corticosteroids
+  - id: HP:0032654
+    label: Endothelial dysfunction
+  - id: HP:0012418
+    label: Hypoxia
+  - id: HP:0001409
+    label: Portal hypertension
+  - id: MAXO:0001001
+    label: Gene therapies
+  - id: MAXO:0000756
+    label: Transfusion
+  - id: MAXO:0000747
+    label: Hematopoietic stem cell transplantation
+  - id: MAXO:0001298
+    label: therapy
+  - id: MAXO:0009047
+    label: Total hip replacement (THR)
+  - id: CHEBI:22720
+    label: Benzodiazepines

@@ -1,24 +1,28 @@
 ---
-input_text: The evolving treatment landscape for children with sickle cell disease.Sickle
-  cell disease is the most common inherited pathological haemoglobinopathy. Over the
-  past 30 years, disease-related morbidity and mortality have improved in high-income
-  countries due to advances in preventive care and treatments. Established disease-modifying
-  therapies, such as hydroxyurea (hydrocarbamide), are continuing to have an important
-  role in the treatment of sickle cell disease, and newer agents also show promise.
-  In the past 5 years, the US Food and Drug Administration approved three additional
-  sickle cell disease-modifying medications, and new gene therapies have been developed
-  as an alternative curative treatment to haematopoietic stem-cell transplantation.
-  In this Review, we discuss the current treatment landscape for paediatric sickle
-  cell disease and emerging innovations in care. We also review the need for close,
-  long-term management for children receiving newer therapies and the importance of
-  ongoing investment in people with sickle cell disease in low-income and middle-income
-  countries.
+input_text: The evolving treatment landscape for children with sickle cell disease.
+  Sickle cell disease is the most common inherited pathological haemoglobinopathy.
+  Over the past 30 years, disease-related morbidity and mortality have improved in
+  high-income countries due to advances in preventive care and treatments. Established
+  disease-modifying therapies, such as hydroxyurea (hydrocarbamide), are continuing
+  to have an important role in the treatment of sickle cell disease, and newer agents
+  also show promise. In the past 5 years, the US Food and Drug Administration approved
+  three additional sickle cell disease-modifying medications, and new gene therapies
+  have been developed as an alternative curative treatment to haematopoietic stem-cell
+  transplantation. In this Review, we discuss the current treatment landscape for
+  paediatric sickle cell disease and emerging innovations in care. We also review
+  the need for close, long-term management for children receiving newer therapies
+  and the importance of ongoing investment in people with sickle cell disease in low-income
+  and middle-income countries.
 raw_completion_output: |-
   primary_disease: Sickle cell disease
-  medical_actions: disease-modifying therapies; hydroxyurea administration; gene therapies; haematopoietic stem-cell transplantation; preventive care; treatments
-  symptoms: 
-  chemicals: hydroxyurea; hydrocarbamide
-  action_annotation_relationships: disease-modifying therapies TREATS sickle cell disease; hydroxyurea (with hydrocarbamide) TREATS sickle cell disease; gene therapies TREATS sickle cell disease; haematopoietic stem-cell transplantation TREATS sickle cell disease; preventive care PREVENTS morbidity IN sickle cell disease; treatments TREATS morbidity IN sickle cell disease
+
+  medical_actions: Hydroxyurea treatment; Haematopoietic stem-cell transplantation; Gene therapies; Preventive care; Disease-modifying therapies
+
+  symptoms: Disease-related morbidity; Mortality
+
+  chemicals: Hydroxyurea
+
+  action_annotation_relationships: Hydroxyurea treatment TREATS disease-related morbidity IN Sickle cell disease; Hydroxyurea treatment TREATS mortality IN Sickle cell disease; Preventive care PREVENTS disease-related morbidity IN Sickle cell disease; Preventive care PREVENTS mortality IN Sickle cell disease; Disease-modifying therapies TREAT disease-related morbidity IN Sickle cell disease; Disease-modifying therapies TREAT mortality IN Sickle cell disease; Haematopoietic stem-cell transplantation TREATS disease-related morbidity IN Sickle cell disease; Haematopoietic stem-cell transplantation TREATS mortality IN Sickle cell disease; Gene therapies TREAT disease-related morbidity IN Sickle cell disease; Gene therapies TREAT mortality IN Sickle cell disease
 prompt: |+
   Split the following piece of text into fields in the following format:
 
@@ -33,77 +37,101 @@ prompt: |+
 
 
   Text:
-  treatments TREATS morbidity IN sickle cell disease
+  Gene therapies TREAT mortality IN Sickle cell disease
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0011382
   medical_actions:
-    - disease-modifying therapies
-    - hydroxyurea administration
+    - Hydroxyurea treatment
+    - Haematopoietic stem-cell transplantation
     - MAXO:0001001
-    - haematopoietic stem-cell transplantation
-    - preventive care
-    - treatments
+    - Preventive care
+    - Disease-modifying therapies
+  symptoms:
+    - Disease-related morbidity
+    - Mortality
   chemicals:
     - CHEBI:44423
-    - hydrocarbamide
   action_annotation_relationships:
-    - subject: disease-modifying therapies
+    - subject: treatment
       predicate: TREATS
-      object: sickle cell disease
-    - subject: hydroxyurea (with hydrocarbamide)
-      predicate: TREATS
-      object: sickle cell disease
-      subject_qualifier: with hydrocarbamide
+      object: disease-related morbidity
+      qualifier: MONDO:0011382
+      subject_qualifier: <None>
+      object_qualifier: <None>
       subject_extension: CHEBI:44423
+      object_extension: <None>
+    - subject: treatment
+      predicate: TREATS
+      object: mortality
+      qualifier: MONDO:0011382
+      subject_extension: CHEBI:44423
+    - subject: Preventive care
+      predicate: PREVENTS
+      object: disease-related morbidity
+      qualifier: MONDO:0011382
+    - subject: Preventive care
+      predicate: PREVENTS
+      object: mortality
+      qualifier: MONDO:0011382
+    - subject: <Disease-modifying therapies>
+      predicate: <TREATS>
+      object: <disease-related morbidity>
+      qualifier: <Sickle cell disease>
+      subject_extension: <Disease-modifying therapies>
+    - subject: <Disease-modifying therapies>
+      predicate: <TREATS>
+      object: <mortality>
+      qualifier: <Sickle cell disease>
+      subject_extension: <Disease-modifying therapies>
+    - subject: Haematopoietic stem-cell transplantation
+      predicate: TREATS
+      object: disease-related morbidity
+      qualifier: MONDO:0011382
+    - subject: Haematopoietic stem-cell transplantation
+      predicate: TREATS
+      object: mortality
+      qualifier: MONDO:0011382
+    - subject: <Gene therapies>
+      predicate: <TREATS>
+      object: <disease-related morbidity>
+      qualifier: <Sickle cell disease>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <Gene therapies>
+      object_extension: <>
     - subject: MAXO:0001001
       predicate: TREATS
-      object: sickle cell disease
-    - subject: haematopoietic stem-cell transplantation
-      predicate: TREATS
-      object: sickle cell disease
-    - subject: preventive care
-      predicate: PREVENTS
-      object: morbidity
-      qualifier: MONDO:0011382
-    - subject: treatments
-      predicate: TREATS
-      object: morbidity
+      object: mortality
       qualifier: MONDO:0011382
 named_entities:
-  - id: MONDO:0011382
-    label: sickle cell disease
-  - id: MONDO:0100096
-    label: SARS-CoV-2
   - id: MONDO:0007374
     label: Sickle cell disease (SCD)
-  - id: HP:0100602
-    label: Preeclampsia
-  - id: HP:0001511
-    label: Intrauterine growth restriction
+  - id: MAXO:0000457
+    label: pain management
+  - id: HP:0001903
+    label: anemia
   - id: CHEBI:44423
-    label: Hydroxyurea (HU)
-  - id: CHEBI:35143
-    label: Haemoglobin (Hb)
+    label: hydroxyurea
+  - id: CHEBI:18050
+    label: L-glutamine
+  - id: MAXO:0000058
+    label: pharmacotherapy
+  - id: HP:0100602
+    label: preeclampsia
   - id: HP:0001622
-    label: Preterm delivery
+    label: preterm delivery
+  - id: HP:0001511
+    label: intrauterine growth restriction
   - id: CHEBI:50858
     label: corticosteroids
-  - id: HP:0032654
-    label: Endothelial dysfunction
-  - id: HP:0012418
-    label: Hypoxia
-  - id: HP:0001409
-    label: Portal hypertension
+  - id: HP:0001907
+    label: thromboembolism
+  - id: MAXO:0000503
+    label: Mechanical ventilation
+  - id: MONDO:0011382
+    label: Sickle Cell Disease
   - id: MAXO:0001001
     label: Gene therapies
-  - id: MAXO:0000756
-    label: Transfusion
-  - id: MAXO:0000747
-    label: Hematopoietic stem cell transplantation
-  - id: MAXO:0001298
-    label: therapy
-  - id: MAXO:0009047
-    label: Total hip replacement (THR)

@@ -1,0 +1,137 @@
+---
+input_text: 'Effect of a Gluten-free Diet on Quality of Life in Patients With Nonclassical
+  Versus Classical Presentations of Celiac Disease. BACKGROUND: Celiac disease (CD)
+  often presents with symptoms of diarrhea and malabsorption, termed classical CD.
+  However, it can also present as nonclassical CD, which is commonly associated with
+  nongastrointestinal symptoms. Studies suggest that nonclassical CD tends to have
+  less severe symptoms than classical CD, which may affect both adherence to a gluten-free
+  diet (GFD) and psychological stress. Therefore, we compared adherence to a GFD and
+  psychological measures, including quality of life (QOL) and somatization, between
+  patients with nonclassical and classical presentations of CD. METHODS: Patients
+  at a tertiary care center with biopsy-proven CD, who completed a Talley Bowel Disease
+  Questionnaire and the Short Form-36 at diagnosis and who had been on a GFD for at
+  least 1 year, were included in this study. Patients were further surveyed to assess
+  gastrointestinal symptoms, QOL, Somatization Symptom Checklist (SSC), and adherence
+  to a GFD. Results were compared between patients with classical versus nonclassical
+  CD presentation. RESULTS: Among 122 patients included in this study, 62 had classical
+  CD and 60 had nonclassical CD. At diagnosis, health-related QOL was lower in the
+  classical CD group than in the nonclassical CD group. After following a GFD, both
+  groups had improved QOL after following a GFD, and body mass index significantly
+  increased in both groups. Most subscales of QOL, SSC scores, and adherence to the
+  GFD were similar between the groups, except the Short Form-36 Mental Component summary
+  scores that were still lower in the classical CD (48.4 vs. 52.6 nonclassical CD
+  group; P=0.03). CONCLUSIONS: Despite QOL at diagnosis being higher in those with
+  nonclassical CD versus lower in those with classical CD, both groups had improved
+  QOL and achieved a similar QOL after following a GFD.'
+raw_completion_output: |-
+  primary_disease: Celiac Disease
+  medical_actions: Gluten-free Diet;Adjusting diet;Monitoring health-related quality of life;Compliance monitoring
+  symptoms: diarrhea;malabsorption;nongastrointestinal symptoms;somatization
+  chemicals: 
+  action_annotation_relationships: Gluten-free Diet PREVENTS symptoms IN Celiac Disease;Adjusting diet TREATS malabsorption IN Celiac Disease;Monitoring health-related quality of life TREATS somatization IN Celiac Disease;Compliance monitoring PREVENTS diarrhea IN Celiac Disease
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Compliance monitoring PREVENTS diarrhea IN Celiac Disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005130
+  medical_actions:
+    - Gluten-free Diet
+    - Adjusting diet
+    - Monitoring health-related quality of life
+    - Compliance monitoring
+  symptoms:
+    - HP:0002014
+    - HP:0002024
+    - nongastrointestinal symptoms
+    - somatization
+  action_annotation_relationships:
+    - subject: Gluten-free Diet
+      predicate: PREVENTS
+      object: symptoms
+      qualifier: MONDO:0005130
+    - subject: Adjusting diet
+      predicate: TREATS
+      object: HP:0002024
+      qualifier: MONDO:0005130
+    - subject: Monitoring health-related quality of life
+      predicate: TREATS
+      object: somatization
+      qualifier: MONDO:0005130
+    - subject: Compliance monitoring
+      predicate: PREVENTS
+      object: HP:0002014
+      qualifier: MONDO:0005130
+named_entities:
+  - id: MONDO:0005130
+    label: celiac disease
+  - id: MAXO:0000259
+    label: Insulin treatment
+  - id: HP:0033712
+    label: Recurrent implantation failure (RIF)
+  - id: CHEBI:145810
+    label: Insulin
+  - id: CHEBI:6801
+    label: Metformin
+  - id: HP:0002024
+    label: malabsorption
+  - id: HP:0012050
+    label: anasarca
+  - id: HP:0003111
+    label: electrolyte disorders
+  - id: MAXO:0000088
+    label: diet
+  - id: HP:0025502
+    label: Overweight
+  - id: HP:0001513
+    label: Obesity
+  - id: HP:0012393
+    label: Allergic diseases
+  - id: HP:0002608
+    label: Celiac disease
+  - id: HP:0000819
+    label: Diabetes
+  - id: HP:0030016
+    label: dyspareunia
+  - id: HP:0012786
+    label: recurrent cystitis
+  - id: HP:0400007
+    label: menstrual disorders
+  - id: MONDO:0100096
+    label: COVID-19
+  - id: MONDO:0005147
+    label: Type 1 diabetes mellitus
+  - id: HP:0000821
+    label: Hypothyroidism
+  - id: HP:0000822
+    label: Hypertension
+  - id: HP:0003119
+    label: Dyslipidemia
+  - id: HP:0009830
+    label: Neuropathy
+  - id: HP:0001626
+    label: Cardiovascular diseases
+  - id: HP:0005268
+    label: Miscarriage
+  - id: HP:0030991
+    label: primary sclerosing cholangitis
+  - id: MONDO:0005265
+    label: Inflammatory bowel disease
+  - id: CHEBI:18248
+    label: Iron
+  - id: HP:0002014
+    label: diarrhea

@@ -1,0 +1,145 @@
+---
+input_text: "Sickle Cell Disease is Associated with Increased Morbidity, Resource
+  Utilization, and Readmissions after Common Abdominal Surgeries: A Multistate Analysis,
+  2007-2014. INTRODUCTION: Sickle cell disease (SCD), the most commonly inherited
+  hemoglobinopathy in the United States, increases the likelihood of postoperative
+  complications, resulting in higher costs and readmissions. We used a retrospective
+  cohort study to explore SCD's influence on postoperative complications and readmissions
+  after cholecystectomy, appendectomy, and hysterectomy. METHODS: We used an administrative
+  database's 2007-2014 data from California, Florida, New York, Maryland, and Kentucky.
+  RESULTS: 1,934,562 patients aged >=18 years were included. Compared to non-SCD patients,
+  SCD patients experienced worse outcomes: increased odds of blood transfusion and
+  major and minor complications, higher adjusted odds of 30- and 90-day readmissions,
+  longer length of stay, and higher total hospital charges. CONCLUSION: Sickle cell
+  disease patients are at high risk for poor outcomes based on their demographic characteristics.
+  Therefore, perioperative physicians including hematologists, anesthesiologists,
+  and surgeons need to take this knowledge into consideration for management and counselling
+  of SCD patients on the risks of surgery and recovery."
+raw_completion_output: |-
+  primary_disease: Sickle Cell Disease
+  medical_actions: Blood transfusion;Management and counselling
+  symptoms: Postoperative complications;Major complications;Minor complications;Increased odds of readmissions;Longer length of stay;Higher total hospital charges
+  chemicals: 
+  action_annotation_relationships: Blood transfusion TREATS Postoperative complications IN Sickle Cell Disease;Management and counselling PREVENTS Increased odds of readmissions IN Sickle Cell Disease;Management and counselling PREVENTS Longer length of stay IN Sickle Cell Disease;Management and counselling PREVENTS Higher total hospital charges IN Sickle Cell Disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Management and counselling PREVENTS Higher total hospital charges IN Sickle Cell Disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0011382
+  medical_actions:
+    - MAXO:0000756
+    - Management and counselling
+  symptoms:
+    - Postoperative complications
+    - Major complications
+    - Minor complications
+    - Increased odds of readmissions
+    - Longer length of stay
+    - Higher total hospital charges
+  action_annotation_relationships:
+    - subject: MAXO:0000756
+      predicate: TREATS
+      object: Postoperative complications
+      qualifier: MONDO:0011382
+    - subject: Management and counselling
+      predicate: PREVENTS
+      object: Increased odds of readmissions
+      qualifier: MONDO:0011382
+    - subject: Management and counselling
+      predicate: PREVENTS
+      object: Longer length of stay
+      qualifier: MONDO:0011382
+    - subject: Management and counselling
+      predicate: PREVENTS
+      object: Higher total hospital charges
+      qualifier: MONDO:0011382
+named_entities:
+  - id: MONDO:0011382
+    label: Sickle Cell Disease
+  - id: MAXO:0000457
+    label: Pain Management
+  - id: HP:0012531
+    label: Pain
+  - id: HP:0000739
+    label: anxiety
+  - id: MONDO:0005812
+    label: Influenza
+  - id: MAXO:0001017
+    label: vaccination
+  - id: MAXO:0000756
+    label: transfusion
+  - id: MONDO:0018881
+    label: Myelodysplasia
+  - id: MONDO:0000984
+    label: Thalassemia
+  - id: MONDO:0018373
+    label: avascular necrosis (AVN)
+  - id: MAXO:0009047
+    label: total hip replacement (THR)
+  - id: HP:0010885
+    label: avascular necrosis
+  - id: MONDO:0007374
+    label: Sickle Cell Disease (SCD)
+  - id: CHEBI:131923
+    label: Salubrinal
+  - id: MAXO:0000068
+    label: Transplantation
+  - id: CHEBI:44423
+    label: hydroxyurea
+  - id: MONDO:0003664
+    label: Haemolytic Anaemias
+  - id: HP:0032654
+    label: Endothelial dysfunction
+  - id: HP:0025464
+    label: Oxidative stress
+  - id: MAXO:0001298
+    label: therapies
+  - id: MAXO:0000110
+    label: Vitamin D supplementation
+  - id: HP:0100512
+    label: Vitamin D deficiency
+  - id: CHEBI:27300
+    label: Vitamin D
+  - id: CHEBI:28940
+    label: Cholecalciferol
+  - id: CHEBI:29016
+    label: Arginine
+  - id: CHEBI:18211
+    label: Citrulline
+  - id: CHEBI:3638
+    label: Chloroquine
+  - id: CHEBI:50733
+    label: Nutritional supplements
+  - id: HP:0012532
+    label: Chronic pain
+  - id: HP:0000716
+    label: Depression
+  - id: HP:0012432
+    label: Chronic fatigue
+  - id: MAXO:0000747
+    label: Hematopoietic stem cell transplant (HSCT)
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: HP:0007760
+    label: Sickle Cell Disease (SCD)
+  - id: MAXO:0035088
+    label: magnetic resonance imaging (MRI)/magnetic resonance angiography (MRA)
+  - id: HP:0002140
+    label: ischemic stroke
+  - id: HP:0001139
+    label: abnormal transcranial Doppler ultrasound (TCD) results

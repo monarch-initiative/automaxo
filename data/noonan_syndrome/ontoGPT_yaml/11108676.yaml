@@ -1,0 +1,91 @@
+---
+input_text: Cutaneous oozing of lymphatic fluid after interventional cardiac catheterization
+  in a patient with Noonan syndrome. A 15-year-old girl with Noonan syndrome, intestinal
+  lymphangiectasia and severe valvar pulmonary stenosis had an abnormal lymphangioscintigram
+  that showed intense activity in the inguinal regions bilaterally. Cutaneous oozing
+  of lymphatic fluid from the groin wound complicated percutaneous balloon pulmonary
+  valvoplasty. This previously unreported complication highlights the risk of damage
+  to abnormal lymphatic channels in patients with Noonan syndrome who undergo interventional
+  catheterization.
+raw_completion_output: |-
+  primary_disease: Noonan syndrome
+  medical_actions: Interventional cardiac catheterization; Percutaneous balloon pulmonary valvoplasty
+  symptoms: Cutaneous oozing of lymphatic fluid; Intense activity in the inguinal regions; Abnormal lymphangioscintigram
+  chemicals: 
+  action_annotation_relationships: Interventional cardiac catheterization TREATS severe valvar pulmonary stenosis IN Noonan syndrome; Percutaneous balloon pulmonary valvoplasty TREATS severe valvar pulmonary stenosis IN Noonan syndrome; Percutaneous balloon pulmonary valvoplasty TREATS abnormal lymphangioscintigram IN Noonan syndrome; Interventional cardiac catheterization CAUSES Cutaneous oozing of lymphatic fluid IN Noonan syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Interventional cardiac catheterization CAUSES Cutaneous oozing of lymphatic fluid IN Noonan syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0018997
+  medical_actions:
+    - Interventional cardiac catheterization
+    - Percutaneous balloon pulmonary valvoplasty
+  symptoms:
+    - Cutaneous oozing of lymphatic fluid
+    - Intense activity in the inguinal regions
+    - Abnormal lymphangioscintigram
+  action_annotation_relationships:
+    - subject: Interventional cardiac catheterization
+      predicate: TREATS
+      object: severe valvar pulmonary stenosis
+      qualifier: MONDO:0018997
+      object_qualifier: severe
+    - subject: <Percutaneous balloon pulmonary valvoplasty>
+      predicate: <TREATS>
+      object: <severe valvar pulmonary stenosis>
+      qualifier: <Noonan syndrome>
+      object_qualifier: <severe>
+      subject_extension: <Percutaneous balloon pulmonary valvoplasty>
+    - subject: <Percutaneous balloon pulmonary valvoplasty>
+      predicate: <TREATS>
+      object: <abnormal lymphangioscintigram>
+      qualifier: <Noonan syndrome>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <Percutaneous balloon pulmonary valvoplasty>
+      object_extension: <>
+    - subject: Interventional cardiac catheterization
+      predicate: CAUSES
+      object: Cutaneous oozing of lymphatic fluid
+      qualifier: MONDO:0018997
+named_entities:
+  - id: MONDO:0018997
+    label: Noonan syndrome
+  - id: MAXO:0035118
+    label: cardiac catheterization
+  - id: HP:0001659
+    label: aortic regurgitation
+  - id: HP:0001004
+    label: lymphedema
+  - id: HP:0004322
+    label: short stature
+  - id: CHEBI:37845
+    label: growth hormone
+  - id: MONDO:0005516
+    label: osteochondrodysplasias
+  - id: MONDO:0008300
+    label: Prader-Willi syndrome
+  - id: MAXO:0000930
+    label: Speech therapy
+  - id: HP:0000750
+    label: speech and language difficulties
+  - id: MONDO:0006497
+    label: Cerebral Palsy
+  - id: MAXO:0000004
+    label: surgery

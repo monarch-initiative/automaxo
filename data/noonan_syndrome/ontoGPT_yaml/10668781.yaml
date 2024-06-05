@@ -1,0 +1,127 @@
+---
+input_text: Cardiopulmonary rehabilitation in a patient with Noonan syndrome. Noonan
+  syndrome, an autosomal dominant disease occurring with an incidence of 1 in 1,000
+  to 1 in 2,500 live births, is characterized by its particular cardiovascular abnormalities,
+  including pulmonic valve stenosis, pulmonary artery stenosis, and, more rarely,
+  septal defects and coarctation of the aorta. The case of a 20-year-old man admitted
+  for inpatient cardiopulmonary rehabilitation after pulmonic valve repair, left pulmonary
+  artery angioplasty, and pectus excavatum repair is presented. His endurance was
+  markedly decreased, thus limiting his ability to perform activities of daily living
+  and reducing his exercise tolerance. With participation in a comprehensive cardiopulmonary
+  rehabilitation program, he experienced marked improvement with independence in his
+  activities of daily living and an increase in his metabolic equivalent levels from
+  to 2.8 to 5.4. After inpatient rehabilitation, he underwent left pulmonary stent
+  placement before being discharged home. Subsequent outpatient cardiopulmonary rehabilitation
+  has continued to improve significantly his overall exercise tolerance. Given that
+  Noonan syndrome is viewed as the most common syndrome associated with congenital
+  heart disease after Down syndrome, physiatrists must be familiar with its presentation,
+  its associated abnormalities, and the treatment approach to optimize the patient's
+  cardiopulmonary, musculoskeletal, and psychological status.
+raw_completion_output: |-
+  primary_disease: Noonan syndrome
+  medical_actions: cardiopulmonary rehabilitation; pulmonic valve repair; left pulmonary artery angioplasty; pectus excavatum repair; left pulmonary stent placement
+  symptoms: decreased endurance; limited ability to perform activities of daily living; reduced exercise tolerance
+  chemicals: 
+  action_annotation_relationships: cardiopulmonary rehabilitation TREATS decreased endurance IN Noonan syndrome; cardiopulmonary rehabilitation TREATS limited ability to perform activities of daily living IN Noonan syndrome; cardiopulmonary rehabilitation TREATS reduced exercise tolerance IN Noonan syndrome; pulmonic valve repair TREATS cardiovascular abnormalities IN Noonan syndrome; left pulmonary artery angioplasty TREATS cardiovascular abnormalities IN Noonan syndrome; pectus excavatum repair TREATS cardiovascular abnormalities IN Noonan syndrome; left pulmonary stent placement TREATS cardiovascular abnormalities IN Noonan syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  left pulmonary stent placement TREATS cardiovascular abnormalities IN Noonan syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0018997
+  medical_actions:
+    - cardiopulmonary rehabilitation
+    - pulmonic valve repair
+    - left pulmonary artery angioplasty
+    - pectus excavatum repair
+    - left pulmonary stent placement
+  symptoms:
+    - decreased endurance
+    - limited ability to perform activities of daily living
+    - reduced exercise tolerance
+  action_annotation_relationships:
+    - subject: cardiopulmonary rehabilitation
+      predicate: TREATS
+      object: decreased endurance
+      qualifier: MONDO:0018997
+    - subject: cardiopulmonary rehabilitation
+      predicate: TREATS
+      object: limited ability to perform activities of daily living
+      qualifier: MONDO:0018997
+    - subject: <cardiopulmonary rehabilitation>
+      predicate: <TREATS>
+      object: <reduced exercise tolerance>
+      qualifier: <Noonan syndrome>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: pulmonic valve repair
+      predicate: TREATS
+      object: HP:0001626
+      qualifier: MONDO:0018997
+    - subject: left pulmonary artery angioplasty
+      predicate: TREATS
+      object: HP:0001626
+      qualifier: MONDO:0018997
+    - subject: pectus excavatum repair
+      predicate: TREATS
+      object: HP:0001626
+      qualifier: MONDO:0018997
+    - subject: left pulmonary stent placement
+      predicate: TREATS
+      object: HP:0001626
+      qualifier: MONDO:0018997
+named_entities:
+  - id: MONDO:0018997
+    label: Noonan syndrome
+  - id: MAXO:0035118
+    label: cardiac catheterization
+  - id: HP:0001659
+    label: aortic regurgitation
+  - id: HP:0001004
+    label: lymphedema
+  - id: HP:0004322
+    label: short stature
+  - id: CHEBI:37845
+    label: growth hormone
+  - id: MONDO:0005516
+    label: osteochondrodysplasias
+  - id: MONDO:0008300
+    label: Prader-Willi syndrome
+  - id: MAXO:0000930
+    label: Speech therapy
+  - id: HP:0000750
+    label: speech and language difficulties
+  - id: MONDO:0006497
+    label: Cerebral Palsy
+  - id: MAXO:0000004
+    label: surgery
+  - id: MAXO:0035035
+    label: lymphography
+  - id: HP:0002243
+    label: protein-losing enteropathy
+  - id: HP:0001642
+    label: pulmonary stenosis
+  - id: HP:0001639
+    label: hypertrophic cardiomyopathy
+  - id: CHEBI:8382
+    label: prednisone
+  - id: CHEBI:27902
+    label: tetracycline
+  - id: HP:0001626
+    label: cardiovascular abnormalities

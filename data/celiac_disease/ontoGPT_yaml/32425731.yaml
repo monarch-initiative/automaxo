@@ -1,0 +1,112 @@
+---
+input_text: 'COVID-19 pandemic perception in adults with celiac disease: an impulse
+  to implement the use of telemedicine. Background: Coronavirus Disease 2019 (COVID-19)
+  causes severe complications and deaths all over the world. COVID-19 also has indirect
+  effects from the lockdown and the possible lack of food. We aimed to evaluate the
+  perception of this in Celiac Disease (CeD) patients who require a lifelong gluten-free
+  diet as a therapy. Methods: We invited by e-mail CeD adult patients from the University
+  of Salerno (Campania, South Italy) and the University of Padua (Veneto, North Italy)
+  to answer an ad hoc COVID-19 survey. Results: We sent the web survey to 651 email
+  addresses and we received 276 answers (42,4%). CeD patients did not feel more vulnerable
+  because they had CeD (not at all 56.6%) and they did not worry much about the possible
+  shortness of gluten-free food during the epidemic (not at all 48.5%). The most worried
+  were the elderly patients, patients with other comorbidities and females. Finally,
+  CeD patients were happy with remote consultations and explicitly asked to have them.
+  Discussion: The COVID-19 pandemic has impacted a proportion of patients with CeD;
+  in particular, women, elderly patients, patients with other comorbidities. COVID-19,
+  although a challenging experience from the medical and the psychological point of
+  view, has offered an opportunity to practice, on a large-scale, a remote consultation
+  approach for CeD healthcare.'
+raw_completion_output: |-
+  primary_disease: COVID-19
+  medical_actions: use of telemedicine; implementation of a gluten-free diet; remote consultations
+  symptoms: severe complications; deaths; vulnerability to COVID-19; concern over the shortage of gluten-free food
+  chemicals: 
+  action_annotation_relationships: use of telemedicine TREATS concern over the shortage of gluten-free food IN COVID-19; implementation of a gluten-free diet PREVENTS severe complications IN Celiac Disease; remote consultations TREATS vulnerability to COVID-19 IN COVID-19
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  remote consultations TREATS vulnerability to COVID-19 IN COVID-19
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0100096
+  medical_actions:
+    - use of telemedicine
+    - implementation of a gluten-free diet
+    - remote consultations
+  symptoms:
+    - severe complications
+    - deaths
+    - vulnerability to COVID-19
+    - concern over the shortage of gluten-free food
+  action_annotation_relationships:
+    - subject: <use of telemedicine>
+      predicate: <TREATS>
+      object: <concern over the shortage of food>
+      qualifier: <COVID-19>
+      subject_qualifier: <>
+      object_qualifier: <gluten-free>
+      subject_extension: <telemedicine>
+      object_extension: <gluten-free>
+    - subject: <implementation of a gluten-free diet>
+      predicate: <PREVENTS>
+      object: <severe complications>
+      qualifier: <Celiac Disease>
+      subject_qualifier: <>
+      object_qualifier: <severe>
+      subject_extension: <gluten-free diet>
+      object_extension: <>
+    - subject: remote consultations
+      predicate: TREATS
+      object: vulnerability to COVID-19
+      qualifier: MONDO:0100096
+named_entities:
+  - id: MONDO:0005130
+    label: celiac disease
+  - id: MAXO:0000259
+    label: Insulin treatment
+  - id: HP:0033712
+    label: Recurrent implantation failure (RIF)
+  - id: CHEBI:145810
+    label: Insulin
+  - id: CHEBI:6801
+    label: Metformin
+  - id: HP:0002024
+    label: malabsorption
+  - id: HP:0012050
+    label: anasarca
+  - id: HP:0003111
+    label: electrolyte disorders
+  - id: MAXO:0000088
+    label: diet
+  - id: HP:0025502
+    label: Overweight
+  - id: HP:0001513
+    label: Obesity
+  - id: HP:0012393
+    label: Allergic diseases
+  - id: HP:0002608
+    label: Celiac disease
+  - id: HP:0000819
+    label: Diabetes
+  - id: HP:0030016
+    label: dyspareunia
+  - id: HP:0012786
+    label: recurrent cystitis
+  - id: HP:0400007
+    label: menstrual disorders
+  - id: MONDO:0100096
+    label: COVID-19

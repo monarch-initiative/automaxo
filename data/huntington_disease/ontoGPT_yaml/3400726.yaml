@@ -1,0 +1,235 @@
+---
+input_text: "Ethics and medical genetics in the United States: a national survey.
+  The approaches of 295 medical geneticists in the United States to 14 clinical problems
+  and 3 screening situations that required a moral choice are summarized. These data
+  are part of a survey of 682 geneticists in 19 nations. Of 490 U.S. geneticists asked
+  to participate, 295 (60%) returned anonymous detailed questionnaires. There was
+  strong (greater than 75%) consensus that preserving the mother's confidentiality
+  overrides disclosure of true paternity; that conflicting test results, new/controversial
+  interpretations of results, and ambiguous/artifactual results should be disclosed;
+  that artificial insemination by donor, adoption, taking chances, contraception,
+  sterilization, and in-vitro fertilization with a donor egg should be presented as
+  reproductive options to carriers of disorders not diagnosable prenatally; that prenatal
+  diagnosis should be performed for patients who refuse abortion and for maternal
+  anxiety in the absence of medical indications; that screening in the workplace should
+  be voluntary. There was no consensus about disclosure of a diagnosis of Huntington
+  disease or hemophilia A to relatives at risk, against the patient's wishes, or about
+  disclosure of parental translocations. Geneticists in the U.S. differed from 18
+  other nations in presenting surrogate motherhood as an option (67%); willingness
+  to perform prenatal diagnosis for sex selection or refer (62%); and disclosure of
+  XY genotype in a female (62%). Men were more likely than women to say that they
+  would give directive counseling. Women were more likely than men to say that they
+  would perform prenatal diagnosis for maternal anxiety or for sex selection."
+raw_completion_output: |-
+  primary_disease: Genetic disorders
+  medical_actions: Preserving the mother's confidentiality; Disclosure of true paternity; Disclosure of conflicting test results; Disclosure of new/controversial interpretations of results; Disclosure of ambiguous/artifactual results; Presentation of artificial insemination by donor as a reproductive option; Presentation of adoption as a reproductive option; Presentation of taking chances as a reproductive option; Presentation of contraception as a reproductive option; Presentation of sterilization as a reproductive option; Presentation of in-vitro fertilization with a donor egg as a reproductive option; Performing prenatal diagnosis for patients who refuse abortion; Performing prenatal diagnosis for maternal anxiety; Voluntary workplace screening; Directive counseling; Perform prenatal diagnosis for maternal anxiety; Perform prenatal diagnosis for sex selection
+  symptoms: Maternal anxiety
+  chemicals: 
+  action_annotation_relationships: Preserving the mother's confidentiality PREVENTS disclosure issues IN Genetic disorders; Disclosure of conflicting test results TREATS misinformation IN Genetic disorders; Disclosure of new/controversial interpretations of results TREATS misinformation IN Genetic disorders; Disclosure of ambiguous/artifactual results TREATS misinformation IN Genetic disorders; Artificial insemination by donor PREVENTS transmission of genetic disorders IN Genetic disorders; Adoption PREVENTS transmission of genetic disorders IN Genetic disorders; Taking chances INFORMS risk of transmission IN Genetic disorders; Contraception PREVENTS pregnancy IN Genetic disorders; Sterilization PREVENTS pregnancy IN Genetic disorders; In-vitro fertilization with a donor egg PREVENTS transmission of genetic disorders IN Genetic disorders; Performing prenatal diagnosis for patients who refuse abortion ADDRESSES maternal anxiety IN Genetic disorders; Performing prenatal diagnosis for maternal anxiety TREATS maternal anxiety IN Genetic disorders; Voluntary workplace screening PREVENTS discrimination IN Genetic disorders; Directive counseling TREATS indecision IN Genetic disorders; Perform prenatal diagnosis for maternal anxiety TREATS maternal anxiety IN Genetic disorders; Perform prenatal diagnosis for sex selection ADDRESSES parent's preference IN Genetic disorders
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Perform prenatal diagnosis for sex selection ADDRESSES parent's preference IN Genetic disorders
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0003847
+  medical_actions:
+    - Preserving the mother's confidentiality
+    - Disclosure of true paternity
+    - Disclosure of conflicting test results
+    - Disclosure of new/controversial interpretations of results
+    - Disclosure of ambiguous/artifactual results
+    - Presentation of artificial insemination by donor as a reproductive option
+    - Presentation of adoption as a reproductive option
+    - Presentation of taking chances as a reproductive option
+    - Presentation of contraception as a reproductive option
+    - Presentation of sterilization as a reproductive option
+    - Presentation of in-vitro fertilization with a donor egg as a reproductive option
+    - Performing prenatal diagnosis for patients who refuse abortion
+    - Performing prenatal diagnosis for maternal anxiety
+    - Voluntary workplace screening
+    - Directive counseling
+    - Perform prenatal diagnosis for maternal anxiety
+    - Perform prenatal diagnosis for sex selection
+  symptoms:
+    - Maternal anxiety
+  action_annotation_relationships:
+    - subject: Preserving the mother's confidentiality
+      predicate: PREVENTS
+      object: disclosure issues
+      qualifier: MONDO:0003847
+    - subject: <Disclosure of conflicting test results>
+      predicate: <TREATS>
+      object: <misinformation>
+      qualifier: <Genetic disorders>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: Disclosure of new/controversial interpretations of results
+      predicate: TREATS
+      object: misinformation
+      qualifier: MONDO:0003847
+    - subject: Disclosure of ambiguous/artificial results
+      predicate: TREATS
+      object: misinformation
+      qualifier: MONDO:0003847
+    - subject: Artificial insemination by donor
+      predicate: PREVENTS
+      object: transmission of genetic disorders
+      qualifier: MONDO:0003847
+    - subject: <Adoption>
+      predicate: <PREVENTS>
+      object: <transmission of genetic disorders>
+      qualifier: <Genetic disorders>
+      subject_qualifier: <Not applicable>
+      object_qualifier: <Not applicable>
+      subject_extension: <Not applicable>
+      object_extension: <Not applicable>
+    - subject: Taking chances
+      predicate: INFORMS
+      object: risk of transmission
+      qualifier: MONDO:0003847
+    - subject: Contraception
+      predicate: PREVENTS
+      object: pregnancy
+      qualifier: MONDO:0003847
+    - subject: Sterilization
+      predicate: PREVENTS
+      object: pregnancy
+      qualifier: MONDO:0003847
+    - subject: <In-vitro fertilization>
+      predicate: <PREVENTS>
+      object: <transmission of genetic disorders>
+      qualifier: <Genetic disorders>
+      subject_qualifier: <with a donor egg>
+      subject_extension: <donor egg>
+    - subject: <Performing prenatal diagnosis>
+      predicate: <ADDRESSES>
+      object: <maternal anxiety>
+      qualifier: <Genetic disorders>
+      subject_qualifier: <Not applicable>
+      object_qualifier: <Not applicable>
+      subject_extension: <Not applicable>
+      object_extension: <Not applicable>
+    - subject: <prenatal diagnosis>
+      predicate: <TREATS>
+      object: <maternal anxiety>
+      qualifier: <Genetic disorders>
+      subject_qualifier: <performing>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: Voluntary workplace screening
+      predicate: PREVENTS
+      object: discrimination
+      qualifier: MONDO:0003847
+    - subject: Directive counseling
+      predicate: TREATS
+      object: indecision
+      qualifier: MONDO:0003847
+    - subject: Perform prenatal diagnosis
+      predicate: TREATS
+      object: maternal anxiety
+      qualifier: MONDO:0003847
+      subject_extension: prenatal diagnosis
+    - subject: prenatal diagnosis for sex selection
+      predicate: ADDRESSES
+      object: parent's preference
+      qualifier: MONDO:0003847
+named_entities:
+  - id: MONDO:0007739
+    label: Huntington disease
+  - id: MAXO:0009003
+    label: preimplantation genetic testing
+  - id: HP:0000716
+    label: depression
+  - id: HP:0000739
+    label: anxiety
+  - id: HP:0000737
+    label: irritability
+  - id: HP:0002072
+    label: choreic movements
+  - id: CHEBI:7735
+    label: olanzapine
+  - id: CHEBI:6030
+    label: Isoniazid (INH)
+  - id: CHEBI:16865
+    label: gamma-aminobutyric acid (GABA)
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0001824
+    label: Weight loss
+  - id: HP:0004324
+    label: Weight gain
+  - id: CHEBI:35476
+    label: Neuroleptics
+  - id: HP:0002120
+    label: cortical atrophy
+  - id: CHEBI:52815
+    label: Cresyl violet
+  - id: HP:0100543
+    label: cognitive deficits
+  - id: HP:0001332
+    label: dystonia
+  - id: HP:0004305
+    label: involuntary movements
+  - id: HP:0002312
+    label: clumsiness
+  - id: HP:0000745
+    label: lack of motivation
+  - id: HP:0011999
+    label: paranoia
+  - id: HP:0000746
+    label: delusions
+  - id: HP:0000738
+    label: hallucinations
+  - id: HP:0002354
+    label: memory loss
+  - id: MAXO:0000930
+    label: speech therapy
+  - id: MAXO:0000011
+    label: Physical therapy
+  - id: CHEBI:23888
+    label: drugs
+  - id: CHEBI:16670
+    label: peptides
+  - id: MONDO:0008608
+    label: Down syndrome
+  - id: MONDO:0004975
+    label: Alzheimer disease
+  - id: MONDO:0004976
+    label: amyotrophic lateral sclerosis
+  - id: MONDO:0018150
+    label: Gaucher disease
+  - id: MONDO:0005044
+    label: hypertension
+  - id: CHEBI:76720
+    label: antisense oligonucleotides
+  - id: MAXO:0000127
+    label: genetic testing
+  - id: MONDO:0017014
+    label: children
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: CHEBI:29988
+    label: L-glutamate
+  - id: CHEBI:16709
+    label: pyridoxine
+  - id: CHEBI:35469
+    label: antidepressant drugs
+  - id: MONDO:0003847
+    label: Genetic disorders

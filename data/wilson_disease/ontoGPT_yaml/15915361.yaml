@@ -1,0 +1,188 @@
+---
+input_text: '[Wilson disease]. Wilson disease is an autosomal recessive inherited
+  disorder of human copper metabolism that leads to neurological symptoms and hepatic
+  damage of variable degree. The affected gene ATP7B encodes a hepatic copper transport
+  protein, which plays a key role in human copper metabolism. Clinical symptoms are
+  complex with neurologic symptoms such as tremor, dysarthria, psychiatric disorders
+  etc., predominant hepatic disease or mixed forms. Copper deposition in the liver
+  results in acute liver failure, chronic hepatitis or liver cirrhosis. Early recognition
+  by means of clinical, biochemical or genetic examination and early initiation of
+  therapy with chelators or zinc-salts are essential for outcome and prognosis. Liver
+  transplantation is an alternative in cases with acute and chronic liver failure
+  and cures the hepatic disease. Frequent monitoring of drug therapy, adverse effects,
+  and compliance is critical for the prognosis of the disease.'
+raw_completion_output: |-
+  primary_disease: Wilson disease
+
+  medical_actions: initiation of therapy with chelators; zinc-salts therapy; liver transplantation; frequent monitoring of drug therapy
+
+  symptoms: tremor; dysarthria; psychiatric disorders; acute liver failure; chronic hepatitis; liver cirrhosis
+
+  chemicals: chelators; zinc-salts
+
+  action_annotation_relationships: initiation of therapy with chelators TREATS Wilson disease; zinc-salts therapy TREATS Wilson disease; liver transplantation TREATS acute liver failure IN Wilson disease; liver transplantation TREATS chronic hepatitis IN Wilson disease; liver transplantation TREATS liver cirrhosis IN Wilson disease; frequent monitoring of drug therapy PREVENTS adverse effects IN Wilson disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  frequent monitoring of drug therapy PREVENTS adverse effects IN Wilson disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010200
+  medical_actions:
+    - initiation of therapy with chelators
+    - zinc-salts therapy
+    - MAXO:0001175
+    - frequent monitoring of drug therapy
+  symptoms:
+    - HP:0001337
+    - HP:0001260
+    - HP:0000708
+    - HP:0006554
+    - HP:0200123
+    - HP:0001394
+  chemicals:
+    - CHEBI:38161
+    - zinc-salts
+  action_annotation_relationships:
+    - subject: initiation of therapy
+      predicate: TREATS
+      object: Wilson disease
+      subject_qualifier: with chelators
+      subject_extension: CHEBI:38161
+    - subject: MAXO:0001298
+      predicate: TREATS
+      qualifier: MONDO:0010200
+      subject_extension: zinc-salts
+    - subject: <liver transplantation>
+      predicate: <TREATS>
+      object: <acute liver failure>
+      qualifier: <Wilson disease>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: HP:0200123
+      qualifier: MONDO:0010200
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: HP:0001394
+      qualifier: MONDO:0010200
+    - subject: frequent monitoring of drug therapy
+      predicate: PREVENTS
+      object: adverse effects
+      qualifier: MONDO:0010200
+named_entities:
+  - id: MONDO:0010200
+    label: Wilson disease
+  - id: MAXO:0001175
+    label: liver transplantation
+  - id: MAXO:0000004
+    label: surgery (laparotomy, rectal mobilization, rectopexy, the partial sigmoid
+      colon resection with the primary anastomosis)
+  - id: HP:0002910
+    label: abnormal liver functions
+  - id: HP:0001394
+    label: cirrhosis
+  - id: CHEBI:27363
+    label: zinc
+  - id: CHEBI:50868
+    label: penicillamine
+  - id: CHEBI:51232
+    label: Hoechst 33342
+  - id: HP:0006554
+    label: acute liver failure
+  - id: MAXO:0000068
+    label: transplantation
+  - id: MAXO:0009095
+    label: Zinc therapy
+  - id: HP:0002344
+    label: Neurologic deterioration
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0001392
+    label: liver disease
+  - id: HP:0006579
+    label: neonatal jaundice
+  - id: HP:0002612
+    label: congenital hepatic fibrosis
+  - id: HP:0001409
+    label: portal hypertension
+  - id: HP:0030151
+    label: cholangitis
+  - id: MONDO:0013282
+    label: alpha-1-antitrypsin deficiency
+  - id: MONDO:0009061
+    label: cystic fibrosis
+  - id: MONDO:0009044
+    label: Crigler-Najjar syndrome
+  - id: MAXO:0000376
+    label: liver biopsy
+  - id: MAXO:0000127
+    label: genetic testing
+  - id: HP:0001903
+    label: anemia
+  - id: HP:0001410
+    label: liver dysfunction
+  - id: CHEBI:39501
+    label: trientine
+  - id: CHEBI:28694
+    label: copper
+  - id: HP:0001399
+    label: hepatic failure
+  - id: HP:0004448
+    label: fulminant hepatic failure
+  - id: CHEBI:35341
+    label: Steroids
+  - id: CHEBI:33281
+    label: Antibiotics
+  - id: MONDO:0100193
+    label: end-stage liver disease
+  - id: HP:0100626
+    label: end-stage liver disease
+  - id: HP:0100660
+    label: dyskinesia
+  - id: HP:0004787
+    label: fulminant hepatitis
+  - id: HP:0031811
+    label: bilirubinuria
+  - id: HP:0001397
+    label: hepatic steatosis
+  - id: CHEBI:16359
+    label: cholic acid
+  - id: MONDO:0019542
+    label: Acute liver failure (ALF)
+  - id: HP:0002480
+    label: Hepatic encephalopathy
+  - id: CHEBI:27385
+    label: CCL4
+  - id: MAXO:0001017
+    label: Vaccination
+  - id: HP:0001541
+    label: Ascites
+  - id: HP:0012398
+    label: Peripheral edema
+  - id: HP:0001337
+    label: tremor
+  - id: HP:0001260
+    label: dysarthria
+  - id: HP:0000708
+    label: psychiatric disorders
+  - id: HP:0200123
+    label: chronic hepatitis
+  - id: CHEBI:38161
+    label: chelators

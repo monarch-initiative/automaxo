@@ -1,0 +1,216 @@
+---
+input_text: 'Self-management for sickle cell disease among patients and parents: A
+  qualitative study. OBJECTIVE: This study aimed to explore self-management practices
+  among patients and parents of children with sickle cell disease (SCD). METHODS:
+  The qualitative descriptive design was employed. The study involved 19 participants
+  comprising adult SCD patients >=16 years, and nine parents of SCD children <= 15
+  years. Purposive sampling was conducted to select participants from a teaching hospital
+  and SCD association. Data was collected using one-on-one interviews, transcribed
+  verbatim, and analysed using qualitative content analysis. RESULTS: Self-management
+  was reported through four categories including preventive health, self-monitoring,
+  self-diagnosis, and self-treatment. Hydration, nutrition, activity limitation, avoidance
+  of cold temperatures, and supportive medications were the most common preventive
+  health actions. Regarding self-monitoring and self-diagnosis, the parents emphasized
+  objective indicators such as changes in urine and eye colour compared to the adults
+  who utilize subjective indicators such as feeling unwell and easy fatigue. Pharmacological
+  and non-pharmacological measures were reported by both groups for treating painful
+  episodes, fever, leg ulcers, priapism, and unspecified symptoms. DISCUSSION: The
+  participants in this study practice several self-management actions with some differences
+  in application between adults and children. Tailored self-management services may
+  be helpful for adults and children when developing services for SCD patients.'
+raw_completion_output: |-
+  primary_disease: Sickle Cell Disease (SCD)
+
+  medical_actions: Hydration; Nutrition; Activity limitation; Avoidance of cold temperatures; Supportive medications; Self-monitoring; Self-diagnosis; Self-treatment; Pharmacological measures; Non-pharmacological measures
+
+  symptoms: Painful episodes; Fever; Leg ulcers; Priapism; Unspecified symptoms; Changes in urine color; Changes in eye color; Feeling unwell; Easy fatigue
+
+  chemicals: 
+
+  action_annotation_relationships: Hydration PREVENTS dehydration IN Sickle Cell Disease (SCD); Nutrition PREVENTS malnutrition IN Sickle Cell Disease (SCD); Activity limitation PREVENTS overexertion IN Sickle Cell Disease (SCD); Avoidance of cold temperatures PREVENTS cold-induced vaso-occlusion IN Sickle Cell Disease (SCD); Supportive medications TREATS painful episodes IN Sickle Cell Disease (SCD); Pharmacological measures TREATS fevers IN Sickle Cell Disease (SCD); Pharmacological measures TREATS leg ulcers IN Sickle Cell Disease (SCD); Pharmacological measures TREATS priapism IN Sickle Cell Disease (SCD); Non-pharmacological measures TREATS unspecified symptoms IN Sickle Cell Disease (SCD); Self-monitoring TREATS changes in urine color IN Sickle Cell Disease (SCD); Self-monitoring TREATS changes in eye color IN Sickle Cell Disease (SCD); Self-diagnosis TREATS feeling unwell IN Sickle Cell Disease (SCD); Self-diagnosis TREATS easy fatigue IN Sickle Cell Disease (SCD)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Self-diagnosis TREATS easy fatigue IN Sickle Cell Disease (SCD)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0007374
+  medical_actions:
+    - Hydration
+    - Nutrition
+    - Activity limitation
+    - Avoidance of cold temperatures
+    - Supportive medications
+    - Self-monitoring
+    - Self-diagnosis
+    - Self-treatment
+    - Pharmacological measures
+    - Non-pharmacological measures
+  symptoms:
+    - Painful episodes
+    - HP:0001945
+    - Leg ulcers
+    - HP:0200023
+    - Unspecified symptoms
+    - Changes in urine color
+    - Changes in eye color
+    - Feeling unwell
+    - Easy fatigue
+  action_annotation_relationships:
+    - subject: Hydration
+      predicate: PREVENTS
+      object: HP:0001944
+      qualifier: MONDO:0007374
+    - subject: Nutrition
+      predicate: PREVENTS
+      object: HP:0004395
+      qualifier: MONDO:0007374
+    - subject: Activity limitation
+      predicate: PREVENTS
+      object: overexertion
+      qualifier: MONDO:0007374
+    - subject: Avoidance of cold temperatures
+      predicate: PREVENTS
+      object: cold-induced vaso-occlusion
+      qualifier: MONDO:0007374
+    - subject: <Supportive medications>
+      predicate: <TREATS>
+      object: <painful episodes>
+      qualifier: MONDO:0007374
+      subject_extension: <Supportive medications>
+    - subject: <Pharmacological measures>
+      predicate: <TREATS>
+      object: <fevers>
+      qualifier: MONDO:0007374
+      subject_extension: <Pharmacological measures>
+    - subject: Pharmacological measures
+      predicate: TREATS
+      object: leg ulcers
+      qualifier: MONDO:0007374
+    - subject: Pharmacological measures
+      predicate: TREATS
+      object: HP:0200023
+      qualifier: MONDO:0007374
+    - subject: Non-pharmacological measures
+      predicate: TREATS
+      object: unspecified symptoms
+      qualifier: MONDO:0007374
+    - subject: Self-monitoring
+      predicate: TREATS
+      object: changes in urine color
+      qualifier: MONDO:0007374
+    - subject: <Self-monitoring>
+      predicate: <TREATS>
+      object: <changes in eye color>
+      qualifier: MONDO:0007374
+      subject_extension: <Self-monitoring>
+    - subject: Self-diagnosis
+      predicate: TREATS
+      object: feeling unwell
+      qualifier: MONDO:0007374
+    - subject: <Self-diagnosis>
+      predicate: <TREATS>
+      object: <easy fatigue>
+      qualifier: MONDO:0007374
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+named_entities:
+  - id: MONDO:0007374
+    label: Sickle Cell Disease (SCD)
+  - id: CHEBI:35480
+    label: analgesics
+  - id: HP:0001944
+    label: dehydration
+  - id: HP:0001903
+    label: anemia
+  - id: MAXO:0000756
+    label: Transfusion
+  - id: HP:0001396
+    label: Cholestasis
+  - id: HP:0001297
+    label: Stroke
+  - id: HP:0000083
+    label: Kidney failure
+  - id: CHEBI:50858
+    label: Corticosteroids
+  - id: CHEBI:44423
+    label: Hydroxyurea
+  - id: HP:0007760
+    label: Sickle cell disease (SCD)
+  - id: MAXO:0000747
+    label: Hematopoietic stem cell transplant (HSCT)
+  - id: CHEBI:28901
+    label: Busulfan
+  - id: CHEBI:9570
+    label: Thiotepa
+  - id: CHEBI:4027
+    label: Cyclophosphamide
+  - id: MAXO:0000750
+    label: conditioning regimen
+  - id: HP:0012532
+    label: chronic pain
+  - id: MONDO:0020121
+    label: Muscular dystrophy
+  - id: MONDO:0004992
+    label: Cancer
+  - id: MONDO:0005015
+    label: Diabetes
+  - id: MONDO:0011382
+    label: Sickle cell disease
+  - id: MONDO:0100096
+    label: COVID-19
+  - id: MAXO:0001017
+    label: vaccination
+  - id: MAXO:0000149
+    label: Hematopoietic cell transplantation (HCT)
+  - id: HP:0008209
+    label: Premature ovarian insufficiency (POI)
+  - id: CHEBI:28876
+    label: Melphalan
+  - id: MONDO:0005570
+    label: hematological disorders
+  - id: MONDO:0011549
+    label: Hyperhemolytic syndrome (HHS)
+  - id: MAXO:0001077
+    label: Splenectomy
+  - id: HP:0001896
+    label: Reticulocytopenia
+  - id: CHEBI:35341
+    label: Steroids
+  - id: CHEBI:64357
+    label: Rituximab
+  - id: HP:0000789
+    label: infertility
+  - id: CHEBI:22333
+    label: alkylating agents
+  - id: MONDO:0009061
+    label: cystic fibrosis
+  - id: MONDO:0005453
+    label: congenital heart disease
+  - id: MONDO:0018585
+    label: Pediatric Arterial Ischemic Stroke
+  - id: CHEBI:119915
+    label: Fentanyl
+  - id: MAXO:0000127
+    label: Genetic testing
+  - id: HP:0001945
+    label: Fever
+  - id: HP:0200023
+    label: Priapism
+  - id: HP:0004395
+    label: malnutrition

@@ -1,0 +1,209 @@
+---
+input_text: 'FDA Approval Summary: (Daunorubicin and Cytarabine) Liposome for Injection
+  for the Treatment of Adults with High-Risk Acute Myeloid Leukemia. On August 3,
+  2017, the FDA granted regular approval to Vyxeos (also known as CPX-351; Jazz Pharmaceuticals),
+  a liposomal formulation of daunorubicin and cytarabine in a fixed combination, for
+  the treatment of adults with newly diagnosed therapy-related acute myeloid leukemia
+  (t-AML) or acute myeloid leukemia (AML) with myelodysplasia-related changes (AML-MRC).
+  Approval was based on data from Study CLTR0310-301, a randomized, multicenter, open-label,
+  active-controlled trial comparing Vyxeos with a standard combination of daunorubicin
+  and cytarabine ("7+3") in 309 patients 60-75 years of age with newly diagnosed t-AML
+  or AML-MRC. Because of elemental copper concerns with the Vyxeos formulation, patients
+  with Wilson disease were excluded from the study. Vyxeos demonstrated an improvement
+  in overall survival (HR 0.69; 95% confidence interval, 0.52-0.90; P = 0.005) with
+  an estimated median overall survival of 9.6 months compared with 5.9 months for
+  the "7+3" control arm. The toxicity profile of Vyxeos was similar to that seen with
+  standard "7+3" with the exception of more prolonged neutropenia and thrombocytopenia
+  on the Vyxeos arm. Because the pharmacology of Vyxeos differs from that of other
+  formulations of daunorubicin and cytarabine, labeling includes a warning against
+  interchanging formulations during treatment. This is the first FDA-approved treatment
+  specifically for patients with t-AML or AML-MRC.'
+raw_completion_output: |-
+  primary_disease: Acute Myeloid Leukemia (t-AML or AML-MRC)
+
+  medical_actions: FDA approval of Vyxeos; Comparison of Vyxeos with standard treatment; Exclusion of patients with Wilson disease from the study; Improvement in overall survival observed; Warning against interchanging formulations
+
+  symptoms: Newly diagnosed therapy-related acute myeloid leukemia; Acute myeloid leukemia with myelodysplasia-related changes; Prolonged neutropenia; Thrombocytopenia
+
+  chemicals: Daunorubicin; Cytarabine; Elemental copper
+
+  action_annotation_relationships: FDA approval of Vyxeos TREATS newly diagnosed therapy-related acute myeloid leukemia IN Acute Myeloid Leukemia (t-AML or AML-MRC); FDA approval of Vyxeos TREATS acute myeloid leukemia with myelodysplasia-related changes IN Acute Myeloid Leukemia (t-AML or AML-MRC); Comparison of Vyxeos with standard treatment (with Daunorubicin and Cytarabine) TREATS newly diagnosed therapy-related acute myeloid leukemia IN Acute Myeloid Leukemia (t-AML or AML-MRC); Comparison of Vyxeos with standard treatment (with Daunorubicin and Cytarabine) TREATS acute myeloid leukemia with myelodysplasia-related changes IN Acute Myeloid Leukemia (t-AML or AML-MRC); Warning against interchanging formulations PREVENTS treatment complications IN Acute Myeloid Leukemia (t-AML or AML-MRC)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Warning against interchanging formulations PREVENTS treatment complications IN Acute Myeloid Leukemia (t-AML or AML-MRC)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0018874
+  medical_actions:
+    - FDA approval of Vyxeos
+    - Comparison of Vyxeos with standard treatment
+    - Exclusion of patients with Wilson disease from the study
+    - Improvement in overall survival observed
+    - Warning against interchanging formulations
+  symptoms:
+    - Newly diagnosed therapy-related acute myeloid leukemia
+    - Acute myeloid leukemia with myelodysplasia-related changes
+    - Prolonged neutropenia
+    - HP:0001873
+  chemicals:
+    - CHEBI:41977
+    - CHEBI:28680
+    - CHEBI:37404
+  action_annotation_relationships:
+    - subject: FDA approval
+      predicate: TREATS
+      object: newly diagnosed therapy-related acute myeloid leukemia
+      qualifier: MONDO:0018874
+      object_qualifier: newly diagnosed
+      subject_extension: Vyxeos
+    - subject: FDA approval
+      predicate: TREATS
+      object: acute myeloid leukemia with myelodysplasia-related changes
+      qualifier: MONDO:0018874
+      subject_extension: Vyxeos
+    - subject: Comparison of Vyxeos with standard treatment
+      predicate: TREATS
+      object: newly diagnosed therapy-related acute myeloid leukemia
+      qualifier: MONDO:0018874
+      subject_extension: Vyxeos
+      object_extension: standard treatment (with Daunorubicin and Cytarabine)
+    - subject: Comparison of Vyxeos with standard treatment
+      predicate: TREATS
+      object: acute myeloid leukemia with myelodysplasia-related changes
+      qualifier: MONDO:0018874
+      subject_extension: Vyxeos, Daunorubicin, Cytarabine
+    - subject: <Warning against interchanging formulations>
+      predicate: <PREVENTS>
+      object: <treatment complications>
+      qualifier: <Acute Myeloid Leukemia>
+      subject_qualifier: <not applicable>
+      object_qualifier: <not applicable>
+      subject_extension: <not applicable>
+      object_extension: <not applicable>
+named_entities:
+  - id: MONDO:0010200
+    label: Wilson's disease
+  - id: MAXO:0001175
+    label: liver transplantation
+  - id: HP:0001695
+    label: cardiac arrest
+  - id: HP:0001685
+    label: myocardial fibrosis
+  - id: HP:0001663
+    label: ventricular fibrillation
+  - id: CHEBI:30703
+    label: tetrathiomolybdate (TTM)
+  - id: CHEBI:35176
+    label: Zinc sulphate
+  - id: CHEBI:35475
+    label: NSAIDs
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: HP:0006554
+    label: acute liver failure
+  - id: HP:0003256
+    label: coagulopathy
+  - id: HP:0002480
+    label: hepatic encephalopathy
+  - id: HP:0001337
+    label: Tremor
+  - id: HP:0001332
+    label: Dystonia
+  - id: CHEBI:28694
+    label: Copper
+  - id: HP:0001395
+    label: Liver fibrosis
+  - id: HP:0001394
+    label: Cirrhosis
+  - id: CHEBI:39501
+    label: trientine
+  - id: CHEBI:27363
+    label: zinc
+  - id: HP:0001410
+    label: hepatic dysfunction
+  - id: CHEBI:7959
+    label: D-penicillamine
+  - id: MAXO:0000376
+    label: Liver biopsy
+  - id: HP:0001404
+    label: Hepatocellular necrosis
+  - id: CHEBI:61049
+    label: Tacrolimus
+  - id: CHEBI:50868
+    label: Penicillamine
+  - id: HP:0001744
+    label: splenomegaly
+  - id: HP:0001541
+    label: ascites
+  - id: HP:0001260
+    label: Dysarthria
+  - id: HP:0001347
+    label: Hyperreflexia
+  - id: HP:0031843
+    label: Bradyphrenia
+  - id: HP:0002362
+    label: Shuffling gait
+  - id: HP:0002300
+    label: Mutism
+  - id: HP:0001621
+    label: Hypophonia
+  - id: CHEBI:37153
+    label: Calcineurin inhibitors
+  - id: CHEBI:8356
+    label: Pramipexole
+  - id: CHEBI:2618
+    label: Amantadine
+  - id: HP:0001399
+    label: liver failure
+  - id: HP:0000952
+    label: jaundice
+  - id: HP:0001919
+    label: acute kidney injury
+  - id: HP:0200032
+    label: Kayser-Fleischer rings
+  - id: MONDO:0013792
+    label: Intracerebral Hemorrhage
+  - id: HP:0001342
+    label: Intracerebral Hemorrhage
+  - id: MAXO:0000533
+    label: Molecular genetic testing
+  - id: HP:0001873
+    label: thrombocytopenia
+  - id: HP:0002344
+    label: worsening neurological symptoms
+  - id: HP:0001272
+    label: Cerebellar Atrophy
+  - id: HP:0012896
+    label: abnormal motor evoked potentials (MEPs)
+  - id: HP:0001392
+    label: liver disease
+  - id: HP:0001396
+    label: cholestasis
+  - id: HP:0001403
+    label: macrovesicular steatosis
+  - id: CHEBI:8830
+    label: rhodanine
+  - id: CHEBI:90299
+    label: orcein
+  - id: MONDO:0018874
+    label: Acute Myeloid Leukemia (t-AML or AML-MRC)
+  - id: CHEBI:41977
+    label: Daunorubicin
+  - id: CHEBI:28680
+    label: Cytarabine
+  - id: CHEBI:37404
+    label: Elemental copper

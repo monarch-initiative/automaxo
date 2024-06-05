@@ -1,0 +1,80 @@
+---
+input_text: '[Dietetic management of patients with impaired swallowing]. Swallowing
+  deficits may be present in patients with neurological, otolaryngoiatric or internal
+  medicine diseases. These deficits impair their feeding capability, thus inducing
+  malnutrition. Diet therapy in these conditions involves specific instructions for
+  properly choosing, handling and eating food, in order to allow patients to preserve
+  their autonomy and safety while eating, thus preventing malnutrition. We refer paradigmatically
+  to patients with Huntington disease, which is the main neurologic cause of swallowing
+  deficits, although these guidelines may be conveniently extended to other patients
+  with impaired transit of food.'
+raw_completion_output: |-
+  primary_disease: Huntington disease
+  medical_actions: Diet therapy; specific instructions for properly choosing, handling and eating food
+  symptoms: swallowing deficits; malnutrition
+  chemicals: 
+  action_annotation_relationships: Diet therapy PREVENTS malnutrition IN Huntington disease; specific instructions for properly choosing, handling and eating food PREVENTS swallowing deficits IN Huntington disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  specific instructions for properly choosing, handling and eating food PREVENTS swallowing deficits IN Huntington disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0007739
+  medical_actions:
+    - Diet therapy
+    - specific instructions for properly choosing, handling and eating food
+  symptoms:
+    - swallowing deficits
+    - HP:0004395
+  action_annotation_relationships:
+    - subject: Diet therapy
+      predicate: PREVENTS
+      object: HP:0004395
+      qualifier: MONDO:0007739
+    - subject: specific instructions for properly choosing, handling and eating food
+      predicate: PREVENTS
+      object: swallowing deficits
+      qualifier: MONDO:0007739
+named_entities:
+  - id: MONDO:0007739
+    label: Huntington Disease
+  - id: MONDO:0013310
+    label: P450 oxidoreductase deficiency
+  - id: CHEBI:78757
+    label: Cystamine
+  - id: HP:0002072
+    label: choreic movements
+  - id: HP:0100022
+    label: movement disorders
+  - id: CHEBI:16348
+    label: 3-nitropropionic acid (3-NP)
+  - id: MAXO:0000068
+    label: transplantation
+  - id: CHEBI:16675
+    label: quinolinic acid
+  - id: MAXO:0000011
+    label: physiotherapy
+  - id: MAXO:0000883
+    label: cognitive therapy
+  - id: HP:0002140
+    label: ischemic stroke
+  - id: MONDO:0005180
+    label: Parkinson disease
+  - id: MONDO:0005559
+    label: neurodegenerative diseases
+  - id: HP:0004395
+    label: malnutrition

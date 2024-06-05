@@ -1,0 +1,111 @@
+---
+input_text: "Westphal variant Huntington disease and refractory catatonia: a case
+  report. A young woman with Westphal variant (juvenile) Huntington disease (HD) also
+  developed catatonia. Catatonia is an underdiagnosed psychomotor syndrome often associated
+  with neurological and psychiatric disorders, but it has rarely been documented in
+  patients with HD. Catatonia usually responds to standard treatment with benzodiazepines
+  and electroconvulsive therapy; however, this patient's catatonic syndrome did not
+  improve until we augmented the standard treatment with amantadine and levodopa.
+  The underlying pathophysiology and a neurochemical hypothesis of HD and catatonia
+  can explain their comorbidity and the refractoriness of catatonia to treatment.
+  Both conditions are linked to dysregulation of neurotransmitters in the striatocortical
+  and corticocortical pathways. This understanding may serve as a guide for the use
+  of nonstandard treatments. Our evidence also suggests that electroconvulsive therapy
+  can be useful and safe in the treatment of HD."
+raw_completion_output: |-
+  primary_disease: Huntington disease
+
+  medical_actions: standard treatment with benzodiazepines; electroconvulsive therapy; augmented standard treatment with amantadine; augmented standard treatment with levodopa
+
+  symptoms: refractory catatonia; psychomotor syndrome
+
+  chemicals: benzodiazepines; amantadine; levodopa
+
+  action_annotation_relationships: standard treatment with benzodiazepines TREATS refractory catatonia IN Huntington disease; electroconvulsive therapy TREATS refractory catatonia IN Huntington disease; augmented standard treatment with amantadine TREATS refractory catatonia IN Huntington disease; augmented standard treatment with levodopa TREATS refractory catatonia IN Huntington disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  augmented standard treatment with levodopa TREATS refractory catatonia IN Huntington disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0007739
+  medical_actions:
+    - standard treatment with benzodiazepines
+    - electroconvulsive therapy
+    - augmented standard treatment with amantadine
+    - augmented standard treatment with levodopa
+  symptoms:
+    - refractory catatonia
+    - psychomotor syndrome
+  chemicals:
+    - CHEBI:22720
+    - CHEBI:2618
+    - CHEBI:15765
+  action_annotation_relationships:
+    - subject: standard treatment
+      predicate: TREATS
+      object: refractory catatonia
+      qualifier: MONDO:0007739
+      subject_extension: CHEBI:22720
+    - subject: electroconvulsive therapy
+      predicate: TREATS
+      object: refractory catatonia
+      qualifier: MONDO:0007739
+    - subject: augmented standard treatment
+      predicate: TREATS
+      object: refractory catatonia
+      qualifier: MONDO:0007739
+      subject_extension: CHEBI:2618
+    - subject: augmented standard treatment
+      predicate: TREATS
+      object: refractory catatonia
+      qualifier: MONDO:0007739
+      subject_extension: CHEBI:15765
+named_entities:
+  - id: MONDO:0007739
+    label: Huntington Disease
+  - id: MONDO:0013310
+    label: P450 oxidoreductase deficiency
+  - id: CHEBI:78757
+    label: Cystamine
+  - id: HP:0002072
+    label: choreic movements
+  - id: HP:0100022
+    label: movement disorders
+  - id: CHEBI:16348
+    label: 3-nitropropionic acid (3-NP)
+  - id: MAXO:0000068
+    label: transplantation
+  - id: CHEBI:16675
+    label: quinolinic acid
+  - id: MAXO:0000011
+    label: physiotherapy
+  - id: MAXO:0000883
+    label: cognitive therapy
+  - id: HP:0002140
+    label: ischemic stroke
+  - id: MONDO:0005180
+    label: Parkinson disease
+  - id: MONDO:0005559
+    label: neurodegenerative diseases
+  - id: HP:0004395
+    label: malnutrition
+  - id: CHEBI:22720
+    label: benzodiazepines
+  - id: CHEBI:2618
+    label: amantadine
+  - id: CHEBI:15765
+    label: levodopa

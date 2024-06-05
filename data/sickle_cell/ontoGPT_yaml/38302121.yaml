@@ -1,5 +1,5 @@
 ---
-input_text: Disease-Modifying Therapies for Sickle Cell Disease-An Overview.Sickle
+input_text: Disease-Modifying Therapies for Sickle Cell Disease-An Overview. Sickle
   cell disease refers to a group of inherited blood disorders in which hemoglobin
   polymerization leads to hemolysis and vaso-occlusion. This causes a myriad of complications
   during a patient's life span, ranging from anemia, infections, and acute and chronic
@@ -11,12 +11,12 @@ input_text: Disease-Modifying Therapies for Sickle Cell Disease-An Overview.Sick
   Ann. 2024;53(2):e52-e55.].
 raw_completion_output: |-
   primary_disease: Sickle cell disease
-  medical_actions: penicillin prophylaxis; immunizations; improved transfusion practices; hydroxyurea therapy
-  symptoms: anemia; infections; acute and chronic pain; stroke; multiorgan dysfunction
-  chemicals: penicillin; hydroxyurea
-  action_annotation_relationships: penicillin prophylaxis PREVENTS infections IN Sickle cell disease; hydroxyurea therapy TREATS anemia IN Sickle cell disease
+  medical_actions: Hydroxyurea administration; Penicillin prophylaxis; Immunizations; Improved transfusion practices
+  symptoms: Anemia; Infections; Acute and chronic pain; Stroke; Multiorgan dysfunction
+  chemicals: Hydroxyurea; Penicillin
+  action_annotation_relationships: Hydroxyurea administration (with Hydroxyurea) TREATS Anemia IN Sickle cell disease; Hydroxyurea administration (with Hydroxyurea) TREATS Acute and chronic pain IN Sickle cell disease; Penicillin prophylaxis (with Penicillin) PREVENTS Infections IN Sickle cell disease; Improved transfusion practices TREATS Anemia IN Sickle cell disease
 prompt: |+
-  Split the following piece of text into fields in the following format:
+  From the text below, extract the following entities in the following format:
 
   subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
   object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
@@ -29,85 +29,77 @@ prompt: |+
 
 
   Text:
-  hydroxyurea therapy TREATS anemia IN Sickle cell disease
+  Improved transfusion practices TREATS Anemia IN Sickle cell disease
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0011382
   medical_actions:
-    - penicillin prophylaxis
+    - Hydroxyurea administration
+    - Penicillin prophylaxis
     - MAXO:0000118
-    - improved transfusion practices
-    - hydroxyurea therapy
+    - Improved transfusion practices
   symptoms:
     - HP:0001903
-    - infections
-    - acute and chronic pain
+    - Infections
+    - Acute and chronic pain
     - HP:0001297
-    - multiorgan dysfunction
+    - Multiorgan dysfunction
   chemicals:
-    - CHEBI:17334
     - CHEBI:44423
+    - CHEBI:17334
   action_annotation_relationships:
-    - subject: prophylaxis
-      predicate: PREVENTS
-      object: infections
-      qualifier: MONDO:0011382
-      subject_extension: CHEBI:17334
-    - subject: MAXO:0001298
+    - subject: Hydroxyurea administration
       predicate: TREATS
       object: HP:0001903
       qualifier: MONDO:0011382
+      subject_qualifier: with Hydroxyurea
       subject_extension: CHEBI:44423
+    - subject: Hydroxyurea administration
+      predicate: TREATS
+      object: Acute and chronic pain
+      qualifier: MONDO:0011382
+      subject_qualifier: with Hydroxyurea
+      subject_extension: CHEBI:44423
+    - subject: prophylaxis
+      predicate: PREVENTS
+      object: Infections
+      qualifier: MONDO:0011382
+      subject_qualifier: with Penicillin
+      subject_extension: CHEBI:17334
+    - subject: Improved transfusion practices
+      predicate: TREATS
+      object: HP:0001903
+      qualifier: MONDO:0011382
 named_entities:
   - id: MONDO:0011382
-    label: sickle cell disease
-  - id: MONDO:0100096
-    label: SARS-CoV-2
+    label: Sickle cell disease
+  - id: MAXO:0001001
+    label: genetic therapies
+  - id: MONDO:0005570
+    label: blood disorder
   - id: MONDO:0007374
     label: Sickle cell disease (SCD)
-  - id: HP:0100602
-    label: Preeclampsia
-  - id: HP:0001511
-    label: Intrauterine growth restriction
-  - id: CHEBI:44423
-    label: Hydroxyurea (HU)
-  - id: CHEBI:35143
-    label: Haemoglobin (Hb)
-  - id: HP:0001622
-    label: Preterm delivery
-  - id: CHEBI:50858
-    label: corticosteroids
-  - id: HP:0032654
-    label: Endothelial dysfunction
-  - id: HP:0012418
-    label: Hypoxia
-  - id: HP:0001409
-    label: Portal hypertension
-  - id: MAXO:0001001
-    label: Gene therapies
   - id: MAXO:0000756
-    label: Transfusion
+    label: Blood transfusion
   - id: MAXO:0000747
     label: Hematopoietic stem cell transplantation
-  - id: MAXO:0001298
-    label: therapy
-  - id: MAXO:0009047
-    label: Total hip replacement (THR)
+  - id: HP:0007760
+    label: Sickle cell disease (SCD)
   - id: CHEBI:22720
     label: Benzodiazepines
-  - id: MONDO:0006079
-    label: Acute chest syndrome (ACS)
-  - id: CHEBI:24859
-    label: Iodine
-  - id: MONDO:0005632
-    label: Acute chest syndrome
-  - id: CHEBI:17334
-    label: penicillin
+  - id: HP:0001923
+    label: increased reticulocyte count
+  - id: MAXO:0000457
+    label: pain management
   - id: MAXO:0000118
-    label: immunizations
+    label: Immunizations
   - id: HP:0001903
-    label: anemia
+    label: Anemia
   - id: HP:0001297
-    label: stroke
+    label: Stroke
+  - id: CHEBI:44423
+    label: Hydroxyurea
+  - id: CHEBI:17334
+    label: Penicillin

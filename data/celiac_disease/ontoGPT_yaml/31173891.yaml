@@ -1,0 +1,95 @@
+---
+input_text: 'Rate, Risk Factors, and Outcomes of Nonadherence in Pediatric Patients
+  With Celiac Disease: A Systematic Review. BACKGROUND AND AIMS: The only treatment
+  for celiac disease is strict adherence to a gluten-free diet (GFD). We performed
+  a systematic review to investigate the rate of adherence to a GFD in children with
+  celiac disease, risk factors that affect adherence, and outcomes of non-adherence.
+  METHODS: We searched PubMed, Cochrane Library, EBSCO, and Scopus for studies through
+  January 2019. We included observational studies of >=50 children diagnosed with
+  celiac disease and recommended for placement on a GFD. We collected data on adherence
+  assessment (self-report, serology tests, structured dietary interview, biopsies,
+  or assays for gluten immunogenic peptides), risk factors, and outcomes related to
+  adherence. Findings were presented with medians, range, and a narrative synthesis.
+  RESULTS: We identified 703 studies; of these, 167 were eligible for full-text assessment
+  and 49 were included in the final analysis, comprising 7850 children. Rates of adherence
+  to a GFD ranged from 23% to 98%. Comparable rates (median rates of adherence, 75%-87%)
+  were found irrespective of how assessments were performed. Adolescents were at risk
+  of non-adherence and children whose parents had good knowledge about celiac disease
+  adhered more strictly. Non-adherence associated with patient growth, symptoms, and
+  quality of life. CONCLUSION: In a systematic review of 49 studies of children with
+  celiac disease, we found substantial variation in adherence to a GFD among patients.
+  Rate of adherence was not associated with method of adherence measurement, so all
+  methods appear to be useful, with lack of consensus on the ideal metric. Studies
+  are needed to determine the best method to ensure adherence and effects on long-term
+  health.'
+raw_completion_output: |-
+  primary_disease: celiac disease
+
+  medical_actions: adherence to a gluten-free diet (GFD);self-report;serology tests;structured dietary interview;biopsies;assays for gluten immunogenic peptides
+
+  symptoms: non-adherence;patient growth;quality of life
+
+  chemicals: 
+
+  action_annotation_relationships: adherence to a gluten-free diet (GFD) TREATS non-adherence IN celiac disease;self-report PREVENTS non-adherence IN celiac disease;serology tests PREVENTS non-adherence IN celiac disease;structured dietary interview PREVENTS non-adherence IN celiac disease;biopsies PREVENTS non-adherence IN celiac disease;assays for gluten immunogenic peptides PREVENTS non-adherence IN celiac disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  assays for gluten immunogenic peptides PREVENTS non-adherence IN celiac disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005130
+  medical_actions:
+    - adherence to a gluten-free diet (GFD)
+    - self-report
+    - serology tests
+    - structured dietary interview
+    - biopsies
+    - assays for gluten immunogenic peptides
+  symptoms:
+    - non-adherence
+    - patient growth
+    - quality of life
+  action_annotation_relationships:
+    - subject: <adherence to a gluten-free diet>
+      predicate: <TREATS>
+      object: <non-adherence>
+      qualifier: <celiac disease>
+      subject_extension: <gluten-free diet>
+    - subject: self-report
+      predicate: PREVENTS
+      object: non-adherence
+      qualifier: MONDO:0005130
+    - subject: serology tests
+      predicate: PREVENTS
+      object: non-adherence
+      qualifier: MONDO:0005130
+    - subject: structured dietary interview
+      predicate: PREVENTS
+      object: non-adherence
+      qualifier: MONDO:0005130
+    - subject: biopsies
+      predicate: PREVENTS
+      object: non-adherence
+      qualifier: MONDO:0005130
+    - subject: <assays>
+      predicate: <PREVENTS>
+      object: <non-adherence>
+      qualifier: <celiac disease>
+      subject_extension: <gluten immunogenic peptides>
+named_entities:
+  - id: MONDO:0005130
+    label: celiac disease

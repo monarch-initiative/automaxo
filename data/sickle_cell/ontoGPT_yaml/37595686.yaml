@@ -1,7 +1,7 @@
 ---
 input_text: 'Treosulfan-based conditioning regimen in pediatric hematopoietic stem
   cell transplantation: A retrospective analysis on behalf of the Spanish Group for
-  Hematopoietic Transplantation and Cellular Therapy (GETH-TC).INTRODUCTION: Data
+  Hematopoietic Transplantation and Cellular Therapy (GETH-TC). INTRODUCTION: Data
   on treosulfan-based conditioning regimens are little by little increasing, and the
   benefits of this approach are consistent, particularly regarding acute toxicity.
   This study aims to describe the results of treosulfan-based conditioning regimens
@@ -31,11 +31,15 @@ input_text: 'Treosulfan-based conditioning regimen in pediatric hematopoietic st
   survival. A treosulfan-based conditioning regimen is an emerging option for the
   first HSCT in non-malignant diseases.'
 raw_completion_output: |-
-  primary_disease: Non-malignant diseases; Malignant diseases
-  medical_actions: Treosulfan-based conditioning regimen; Hematopoietic stem cell transplantation (HSCT); Retrospective observational study
-  symptoms: Acute toxicity; VOD; Grade III-IV aGvHD; cGvHD; TRM; Relapse
+  primary_disease: Hematopoietic stem cell transplantation (HSCT) conditioning
+
+  medical_actions: Treosulfan-based conditioning regimen; Pediatric hematopoietic stem cell transplantation; Retrospective analysis
+
+  symptoms: Acute toxicity; VOD; aGvHD; cGvHD; TRM; Relapse; GRFS
+
   chemicals: Treosulfan
-  action_annotation_relationships: Treosulfan-based conditioning regimen TREATS acute toxicity IN Non-malignant diseases; Treosulfan-based conditioning regimen TREATS acute toxicity IN Malignant diseases; Treosulfan (with Treosulfan) TREATS VOD IN Non-malignant diseases; Treosulfan (with Treosulfan) TREATS VOD IN Malignant diseases; Treosulfan (with Treosulfan) TREATS Grade III-IV aGvHD IN Malignant diseases; Treosulfan (with Treosulfan) TREATS cGvHD IN Malignant diseases; Treosulfan (with Treosulfan) PREVENTS Relapse IN Malignant diseases
+
+  action_annotation_relationships: Treosulfan-based conditioning regimen TREATS acute toxicity IN HSCT conditioning; Treosulfan-based conditioning regimen PREVENTS VOD IN HSCT conditioning; Treosulfan-based conditioning regimen PREVENTS aGvHD IN HSCT conditioning; Treosulfan-based conditioning regimen PREVENTS cGvHD IN HSCT conditioning; Treosulfan-based conditioning regimen PREVENTS TRM IN HSCT conditioning; Treosulfan-based conditioning regimen PREVENTS Relapse IN HSCT conditioning; Treosulfan-based conditioning regimen PREVENTS GRFS IN HSCT conditioning
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -50,77 +54,100 @@ prompt: |+
 
 
   Text:
-  Treosulfan (with Treosulfan) PREVENTS Relapse IN Malignant diseases
+  Treosulfan-based conditioning regimen PREVENTS GRFS IN HSCT conditioning
 
   ===
 
 extracted_object:
-  primary_disease: Non-malignant diseases; Malignant diseases
+  primary_disease: Hematopoietic stem cell transplantation (HSCT) conditioning
   medical_actions:
     - Treosulfan-based conditioning regimen
-    - MAXO:0000747
-    - Retrospective observational study
+    - Pediatric hematopoietic stem cell transplantation
+    - Retrospective analysis
   symptoms:
     - Acute toxicity
     - HP:0025322
-    - Grade III-IV aGvHD
+    - aGvHD
     - cGvHD
     - TRM
     - Relapse
+    - GRFS
   chemicals:
     - CHEBI:82557
   action_annotation_relationships:
     - subject: MAXO:0000750
       predicate: TREATS
       object: acute toxicity
-      qualifier: Non-malignant diseases
+      qualifier: HSCT conditioning
       subject_qualifier: Treosulfan-based
       subject_extension: CHEBI:82557
     - subject: MAXO:0000750
-      predicate: TREATS
-      object: acute toxicity
-      qualifier: Malignant diseases
+      predicate: PREVENTS
+      object: HP:0025322
+      qualifier: HSCT conditioning
       subject_qualifier: Treosulfan-based
       subject_extension: CHEBI:82557
-    - subject: Treosulfan
-      predicate: TREATS
-      object: HP:0025322
-      qualifier: Non-malignant diseases
-      subject_qualifier: with Treosulfan
+    - subject: MAXO:0000750
+      predicate: PREVENTS
+      object: aGvHD
+      qualifier: HSCT conditioning
+      subject_qualifier: Treosulfan-based
       subject_extension: CHEBI:82557
-    - subject: Treosulfan
-      predicate: TREATS
-      object: HP:0025322
-      qualifier: Malignant diseases
-      subject_qualifier: with Treosulfan
-      subject_extension: CHEBI:82557
-    - subject: Treosulfan
-      predicate: TREATS
-      object: Grade III-IV aGvHD
-      qualifier: Malignant diseases
-      subject_qualifier: with Treosulfan
-      subject_extension: CHEBI:82557
-    - subject: Treosulfan
-      predicate: TREATS
+    - subject: MAXO:0000750
+      predicate: PREVENTS
       object: cGvHD
-      qualifier: Malignant diseases
-      subject_qualifier: with Treosulfan
+      qualifier: HSCT conditioning
+      subject_qualifier: Treosulfan-based
       subject_extension: CHEBI:82557
-    - subject: Treosulfan
+    - subject: <conditioning regimen>
+      predicate: <PREVENTS>
+      object: <TRM>
+      qualifier: <HSCT conditioning>
+      subject_qualifier: <Treosulfan-based>
+      object_qualifier: <>
+      subject_extension: <Treosulfan>
+      object_extension: <>
+    - subject: MAXO:0000750
       predicate: PREVENTS
       object: Relapse
-      qualifier: Malignant diseases
-      subject_qualifier: with Treosulfan
+      qualifier: HSCT conditioning
+      subject_qualifier: Treosulfan-based
+      subject_extension: CHEBI:82557
+    - subject: MAXO:0000750
+      predicate: PREVENTS
+      object: GRFS
+      qualifier: HSCT conditioning
+      subject_qualifier: Treosulfan-based
       subject_extension: CHEBI:82557
 named_entities:
-  - id: HP:0001139
-    label: Elevated transcranial Doppler (TCD) arterial velocity
-  - id: MONDO:0005683
-    label: Brucellosis
-  - id: HP:0033399
-    label: Persistent fever
-  - id: MAXO:0000747
-    label: Hematopoietic stem cell transplantation (HSCT)
+  - id: MONDO:0007374
+    label: Sickle cell disease (SCD)
+  - id: MAXO:0000457
+    label: pain management
+  - id: HP:0001903
+    label: anemia
+  - id: CHEBI:44423
+    label: hydroxyurea
+  - id: CHEBI:18050
+    label: L-glutamine
+  - id: MAXO:0000058
+    label: pharmacotherapy
+  - id: HP:0100602
+    label: preeclampsia
+  - id: HP:0001622
+    label: preterm delivery
+  - id: HP:0001511
+    label: intrauterine growth restriction
+  - id: CHEBI:50858
+    label: corticosteroids
+  - id: HP:0001907
+    label: thromboembolism
+  - id: MAXO:0000503
+    label: Mechanical ventilation
+  - id: MONDO:0011382
+    label: Sickle Cell Disease
+  - id: MAXO:0001001
+    label: Gene therapies
   - id: HP:0025322
     label: VOD
   - id: CHEBI:82557

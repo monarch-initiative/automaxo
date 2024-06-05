@@ -1,0 +1,182 @@
+---
+input_text: 'The dilemma to diagnose Wilson disease by genetic testing alone. BACKGROUND:
+  Wilson disease (WD) is an autosomal recessive disorder of hepatic copper excretion.
+  About sixty per cent of patients present with liver disease. WD is considered a
+  fatal disease if undiagnosed and/or untreated but recent data indicate that disease
+  penetrance may not be 100%. MATERIALS AND METHODS: All patients underwent liver
+  biopsy as part of the diagnostic workup. Genetic testing for ATP7B was performed
+  by Sanger sequencing. RESULTS: We report on a large family with multiple affected
+  siblings. The first patient (male, 31 years) underwent orthotopic liver transplantation
+  (OLT) because of fulminant WD. He was homozygous for p.G710A. One asymptomatic brother
+  (37 years) had the same mutation. He is doing well on chelation therapy. Fifteen
+  years later, a second-degree sibling (female, 16 years) presented with fulminant
+  WD and underwent OLT. She was compound heterozygote (p.G710A/p.G710S). Further family
+  screening revealed a third mutation (p.V536A) in a female (21 years) and male (16
+  years) compound-heterozygote sibling (p.G710A/p.V536A). In both, serum ceruloplasmin
+  and 24-hour urinary copper excretion were normal. Liver biopsy showed normal histology
+  and a quantitative hepatic copper content within the normal range or only slightly
+  elevated (19 and 75 mug/g dry weight, respectively). No decoppering treatment was
+  initiated so far. CONCLUSION: Genetic testing alone is not always sufficient to
+  diagnose WD in asymptomatic patients, and human mutation databases should be used
+  with caution. Even patients carrying two disease-causing mutations do not necessarily
+  have demonstrable alteration of copper metabolism. Asymptomatic siblings diagnosed
+  by genetic screening require further testing before initiating treatment.'
+raw_completion_output: |-
+  primary_disease: Wilson disease
+
+  medical_actions: liver biopsy; genetic testing for ATP7B by Sanger sequencing; orthotopic liver transplantation (OLT); chelation therapy
+
+  symptoms: liver disease; fulminant Wilson disease
+
+  chemicals: ceruloplasmin
+
+  action_annotation_relationships: liver biopsy TREATS liver disease IN Wilson disease; genetic testing for ATP7B by Sanger sequencing PREVENTS misdiagnosis IN Wilson disease; orthotopic liver transplantation (OLT) TREATS fulminant Wilson disease IN Wilson disease; chelation therapy (with ceruloplasmin) PREVENTS liver disease IN Wilson disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  chelation therapy (with ceruloplasmin) PREVENTS liver disease IN Wilson disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010200
+  medical_actions:
+    - MAXO:0000376
+    - genetic testing for ATP7B by Sanger sequencing
+    - orthotopic liver transplantation (OLT)
+    - chelation therapy
+  symptoms:
+    - HP:0001392
+    - fulminant Wilson disease
+  chemicals:
+    - ceruloplasmin
+  action_annotation_relationships:
+    - subject: MAXO:0000376
+      predicate: TREATS
+      object: HP:0001392
+      qualifier: MONDO:0010200
+    - subject: <genetic testing>
+      predicate: <PREVENTS>
+      object: <misdiagnosis>
+      qualifier: <Wilson disease>
+      subject_qualifier: <for ATP7B by Sanger sequencing>
+      subject_extension: <ATP7B>
+    - subject: <orthotopic liver transplantation (OLT)>
+      predicate: <TREATS>
+      object: <fulminant Wilson disease>
+      qualifier: <Wilson disease>
+      subject_extension: <orthotopic liver transplantation>
+    - subject: chelation therapy
+      predicate: PREVENTS
+      object: HP:0001392
+      qualifier: MONDO:0010200
+      subject_qualifier: with ceruloplasmin
+      subject_extension: ceruloplasmin
+named_entities:
+  - id: MONDO:0010200
+    label: Wilson's disease
+  - id: MAXO:0001175
+    label: liver transplantation
+  - id: HP:0001695
+    label: cardiac arrest
+  - id: HP:0001685
+    label: myocardial fibrosis
+  - id: HP:0001663
+    label: ventricular fibrillation
+  - id: CHEBI:30703
+    label: tetrathiomolybdate (TTM)
+  - id: CHEBI:35176
+    label: Zinc sulphate
+  - id: CHEBI:35475
+    label: NSAIDs
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: HP:0006554
+    label: acute liver failure
+  - id: HP:0003256
+    label: coagulopathy
+  - id: HP:0002480
+    label: hepatic encephalopathy
+  - id: HP:0001337
+    label: Tremor
+  - id: HP:0001332
+    label: Dystonia
+  - id: CHEBI:28694
+    label: Copper
+  - id: HP:0001395
+    label: Liver fibrosis
+  - id: HP:0001394
+    label: Cirrhosis
+  - id: CHEBI:39501
+    label: trientine
+  - id: CHEBI:27363
+    label: zinc
+  - id: HP:0001410
+    label: hepatic dysfunction
+  - id: CHEBI:7959
+    label: D-penicillamine
+  - id: MAXO:0000376
+    label: Liver biopsy
+  - id: HP:0001404
+    label: Hepatocellular necrosis
+  - id: CHEBI:61049
+    label: Tacrolimus
+  - id: CHEBI:50868
+    label: Penicillamine
+  - id: HP:0001744
+    label: splenomegaly
+  - id: HP:0001541
+    label: ascites
+  - id: HP:0001260
+    label: Dysarthria
+  - id: HP:0001347
+    label: Hyperreflexia
+  - id: HP:0031843
+    label: Bradyphrenia
+  - id: HP:0002362
+    label: Shuffling gait
+  - id: HP:0002300
+    label: Mutism
+  - id: HP:0001621
+    label: Hypophonia
+  - id: CHEBI:37153
+    label: Calcineurin inhibitors
+  - id: CHEBI:8356
+    label: Pramipexole
+  - id: CHEBI:2618
+    label: Amantadine
+  - id: HP:0001399
+    label: liver failure
+  - id: HP:0000952
+    label: jaundice
+  - id: HP:0001919
+    label: acute kidney injury
+  - id: HP:0200032
+    label: Kayser-Fleischer rings
+  - id: MONDO:0013792
+    label: Intracerebral Hemorrhage
+  - id: HP:0001342
+    label: Intracerebral Hemorrhage
+  - id: MAXO:0000533
+    label: Molecular genetic testing
+  - id: HP:0001873
+    label: thrombocytopenia
+  - id: HP:0002344
+    label: worsening neurological symptoms
+  - id: HP:0001272
+    label: Cerebellar Atrophy
+  - id: HP:0012896
+    label: abnormal motor evoked potentials (MEPs)
+  - id: HP:0001392
+    label: liver disease

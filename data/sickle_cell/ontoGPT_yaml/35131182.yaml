@@ -1,7 +1,7 @@
 ---
 input_text: 'Therapeutic plasma exchange in the management of acute complications
-  of sickle cell disease: A single centre experience.Sickle cell disease results in
-  systemic inflammation even at steady state and this is accentuated during acute
+  of sickle cell disease: A single centre experience. Sickle cell disease results
+  in systemic inflammation even at steady state and this is accentuated during acute
   crises. The plasma of affected patients contains several proinflammatory cytokines
   as well as adhesion molecules and prothrombotic factors. This environment promotes
   further red cell sickling while many of these substances can cause direct tissue
@@ -23,14 +23,10 @@ input_text: 'Therapeutic plasma exchange in the management of acute complication
   clinical outcome.'
 raw_completion_output: |-
   primary_disease: Sickle cell disease
-
-  medical_actions: Therapeutic plasma exchange; Red cell transfusion
-
-  symptoms: Systemic inflammation; Acute crises; Hypoxia; Severe pain; End-organ damage; Intractable chest wall pain; Impending acute chest syndrome
-
+  medical_actions: Therapeutic plasma exchange; red cell transfusion; red cell exchange
+  symptoms: systemic inflammation; severe pain; significantly hypoxic; intractable chest wall pain; impending acute chest syndrome
   chemicals: 
-
-  action_annotation_relationships: Therapeutic plasma exchange TREATS systemic inflammation IN Sickle cell disease; Therapeutic plasma exchange TREATS acute crises IN Sickle cell disease; Therapeutic plasma exchange TREATS hypoxia IN Sickle cell disease; Therapeutic plasma exchange TREATS severe pain IN Sickle cell disease; Therapeutic plasma exchange PREVENTS end-organ damage IN Sickle cell disease; Therapeutic plasma exchange TREATS intractable chest wall pain IN Sickle cell disease; Therapeutic plasma exchange PREVENTS impending acute chest syndrome IN Sickle cell disease; Red cell transfusion TREATS severe acute complications IN Sickle cell disease
+  action_annotation_relationships: Therapeutic plasma exchange TREATS systemic inflammation IN Sickle cell disease; Therapeutic plasma exchange TREATS severe pain IN Sickle cell disease; Therapeutic plasma exchange TREATS significantly hypoxic IN Sickle cell disease; Therapeutic plasma exchange TREATS intractable chest wall pain IN Sickle cell disease; Therapeutic plasma exchange PREVENTS impending acute chest syndrome IN Sickle cell disease; red cell transfusion TREATS acute complications IN Sickle cell disease; red cell exchange TREATS acute complications IN Sickle cell disease
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -45,7 +41,7 @@ prompt: |+
 
 
   Text:
-  Red cell transfusion TREATS severe acute complications IN Sickle cell disease
+  red cell exchange TREATS acute complications IN Sickle cell disease
 
   ===
 
@@ -53,34 +49,19 @@ extracted_object:
   primary_disease: MONDO:0011382
   medical_actions:
     - Therapeutic plasma exchange
-    - Red cell transfusion
+    - red cell transfusion
+    - red cell exchange
   symptoms:
-    - Systemic inflammation
-    - Acute crises
-    - HP:0012418
-    - Severe pain
-    - End-organ damage
-    - Intractable chest wall pain
-    - Impending acute chest syndrome
+    - systemic inflammation
+    - severe pain
+    - significantly hypoxic
+    - intractable chest wall pain
+    - impending acute chest syndrome
   action_annotation_relationships:
     - subject: Therapeutic plasma exchange
       predicate: TREATS
       object: systemic inflammation
       qualifier: MONDO:0011382
-    - subject: <Therapeutic plasma exchange>
-      predicate: <TREATS>
-      object: <acute crises>
-      qualifier: <Sickle cell disease>
-      subject_qualifier: <None>
-      object_qualifier: <None>
-      subject_extension: <None>
-      object_extension: <None>
-    - subject: Therapeutic plasma exchange
-      predicate: TREATS
-      object: HP:0012418
-      qualifier: MONDO:0011382
-      subject_qualifier: therapeutic
-      subject_extension: plasma exchange
     - subject: Therapeutic plasma exchange
       predicate: TREATS
       object: severe pain
@@ -88,13 +69,13 @@ extracted_object:
       object_qualifier: severe
       subject_extension: therapeutic plasma exchange
     - subject: <Therapeutic plasma exchange>
-      predicate: <PREVENTS>
-      object: <end-organ damage>
+      predicate: <TREATS>
+      object: <significant hypoxia>
       qualifier: <Sickle cell disease>
-      subject_qualifier: <Not applicable>
-      object_qualifier: <Not applicable>
-      subject_extension: <Not applicable>
-      object_extension: <Not applicable>
+      subject_qualifier: <N/A>
+      object_qualifier: <N/A>
+      subject_extension: <plasma exchange>
+      object_extension: <N/A>
     - subject: <Therapeutic plasma exchange>
       predicate: <TREATS>
       object: <intractable chest wall pain>
@@ -104,141 +85,225 @@ extracted_object:
       predicate: PREVENTS
       object: impending acute chest syndrome
       qualifier: MONDO:0011382
-    - subject: Red cell transfusion
+    - subject: MAXO:0000756
       predicate: TREATS
-      object: severe acute complications
+      object: acute complications
       qualifier: MONDO:0011382
-      object_qualifier: severe
+      subject_extension: red cell
+    - subject: red cell exchange
+      predicate: TREATS
+      object: acute complications
+      qualifier: MONDO:0011382
 named_entities:
   - id: MONDO:0007374
     label: Sickle Cell Disease (SCD)
+  - id: MAXO:0000747
+    label: Allogeneic hematopoietic stem cell transplantation (HSCT)
+  - id: HP:0007760
+    label: Sickle Cell Disease (SCD)
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: CHEBI:28901
+    label: Busulfan
+  - id: MONDO:0020380
+    label: Sickle cell anemia (SCA)
+  - id: HP:0001297
+    label: Stroke
   - id: CHEBI:44423
     label: Hydroxyurea
-  - id: CHEBI:18050
-    label: L-glutamine
-  - id: MAXO:0001298
-    label: therapy
   - id: MONDO:0011382
-    label: Sickle Cell Disease
+    label: sickle cell anemia
+  - id: MAXO:0000149
+    label: allogeneic human leukocyte antigen (HLA)-matched sibling and haploidentical
+      hematopoietic cell transplant (HCT)
+  - id: CHEBI:17303
+    label: morphine
+  - id: CHEBI:35482
+    label: opioid analgesics
+  - id: HP:0012532
+    label: chronic pain
+  - id: CHEBI:6121
+    label: ketamine
+  - id: HP:0012531
+    label: pain
+  - id: MAXO:0000748
+    label: fecal microbiota transplantation (FMB)
+  - id: CHEBI:26666
+    label: SCFA
+  - id: CHEBI:17968
+    label: butyrate
+  - id: CHEBI:31011
+    label: valerate
+  - id: CHEBI:17272
+    label: propionate
+  - id: MONDO:0005399
+    label: Venous thromboembolism (VTE)
+  - id: HP:0002140
+    label: Ischemic cerebrovascular accidents
+  - id: HP:0002098
+    label: respiratory distress
+  - id: CHEBI:8735
+    label: PAINReportIt(R)
+  - id: MAXO:0000066
+    label: Oxygen supplementation
+  - id: MAXO:0000756
+    label: Blood transfusions
+  - id: HP:0002094
+    label: Dyspnea
+  - id: CHEBI:33281
+    label: antibiotic
+  - id: MAXO:0001175
+    label: Liver transplantation
+  - id: HP:0001395
+    label: Liver fibrosis
+  - id: MAXO:0000750
+    label: conditioning regimen (alemtuzumab, total body irradiation, and sirolimus
+      for GVHD prophylaxis)
+  - id: CHEBI:9168
+    label: sirolimus
+  - id: MONDO:0005812
+    label: Influenza
+  - id: MONDO:0100096
+    label: COVID-19
+  - id: MONDO:0003847
+    label: Genetic diseases
+  - id: MONDO:0002492
+    label: Acute Kidney Injury (AKI)
+  - id: CHEBI:35457
+    label: angiotensin-converting enzyme inhibitors
+  - id: HP:0001919
+    label: AKI
+  - id: MONDO:0005300
+    label: chronic kidney disease
+  - id: HP:0031589
+    label: Suicidal ideation
+  - id: HP:0000739
+    label: anxiety
+  - id: MONDO:0005252
+    label: heart failure
+  - id: MONDO:0005249
+    label: pneumonia
+  - id: MONDO:0005068
+    label: MI
+  - id: MONDO:0011751
+    label: COPD
+  - id: HP:0001907
+    label: Thromboembolic events
+  - id: HP:0100602
+    label: Preeclampsia
+  - id: HP:0001511
+    label: Fetal growth restriction
+  - id: HP:0001622
+    label: Preterm birth
+  - id: HP:0003826
+    label: Stillbirth
+  - id: MAXO:0001479
+    label: allogeneic hematopoietic stem cell transplantation
+  - id: CHEBI:18050
+    label: l-glutamine
+  - id: HP:0008209
+    label: Premature ovarian insufficiency
+  - id: HP:0004870
+    label: Chronic hemolytic anemia
+  - id: CHEBI:17115
+    label: Statistical Software Package(s)
+  - id: HP:0001903
+    label: anemia
+  - id: MAXO:0000503
+    label: Mechanical ventilation
+  - id: MONDO:0010094
+    label: sickle cell trait (SCT)
+  - id: HP:0000822
+    label: hypertension
+  - id: HP:0001626
+    label: cardiovascular disease
+  - id: HP:0000093
+    label: proteinuria
+  - id: HP:0000083
+    label: kidney failure
+  - id: HP:0000112
+    label: kidney disease
+  - id: HP:0001997
+    label: Gout
+  - id: HP:0002863
+    label: myelodysplastic syndrome
+  - id: HP:0003418
+    label: Back pain
+  - id: HP:0002018
+    label: Nausea
+  - id: HP:0002019
+    label: Constipation
+  - id: HP:0002014
+    label: Diarrhea
+  - id: HP:0100785
+    label: Insomnia
+  - id: CHEBI:50443
+    label: hematopoietic stem cells (HSCs)
+  - id: HP:0000789
+    label: infertility
+  - id: CHEBI:41879
+    label: dexamethasone
+  - id: CHEBI:64360
+    label: Tocilizumab
+  - id: MONDO:0011549
+    label: Hyperhemolysis syndrome (HHS)
+  - id: HP:0001896
+    label: Reticulocytopenia
+  - id: MAXO:0001017
+    label: Vaccination
+  - id: CHEBI:66919
+    label: Ruxolitinib
+  - id: CHEBI:76612
+    label: Ibrutinib
+  - id: MONDO:0013517
+    label: beta-thalassemia (beta-TM)
+  - id: MONDO:0005047
+    label: Infertility
+  - id: CHEBI:46195
+    label: Acetaminophen
+  - id: CHEBI:41423
+    label: Celecoxib
+  - id: CHEBI:63629
+    label: Tizanidine
+  - id: CHEBI:6129
+    label: Ketorolac
   - id: MONDO:0005290
     label: Rhabdomyolysis
   - id: MAXO:0001121
-    label: kidney biopsy
+    label: Kidney biopsy
   - id: MAXO:0000387
-    label: muscle biopsy
-  - id: HP:0001919
-    label: acute kidney injury (AKI)
-  - id: CHEBI:7044
-    label: Myoglobin
+    label: Muscle biopsy
   - id: MAXO:0000950
-    label: supportive care
+    label: Supportive care
   - id: CHEBI:4027
-    label: cyclophosphamide
-  - id: MAXO:0000747
-    label: hematopoietic stem cell transplantation (HSCT)
-  - id: MAXO:0009101
-    label: early intervention
-  - id: MONDO:0100096
-    label: COVID-19
-  - id: MAXO:0000756
-    label: blood transfusion
-  - id: MAXO:0001001
-    label: gene therapy
-  - id: HP:0004936
-    label: venous thrombosis
-  - id: MONDO:0005266
-    label: diabetic retinopathy
-  - id: MONDO:0002303
-    label: central retinal vein occlusion
-  - id: HP:0100543
-    label: Cognitive dysfunction
-  - id: MONDO:0013517
-    label: beta-thalassemia
-  - id: HP:0012531
-    label: Pain
-  - id: MAXO:0000457
-    label: Pain management
-  - id: HP:0000739
-    label: anxiety
-  - id: HP:0000716
-    label: depression
-  - id: CHEBI:6716
-    label: depot medroxyprogesterone (DMPA)
-  - id: CHEBI:59826
-    label: progestin
-  - id: MONDO:0002049
-    label: Thrombocytopenia
-  - id: MAXO:0001017
-    label: Vaccination
+    label: Cyclophosphamide
   - id: MONDO:0005632
     label: Acute chest syndrome
-  - id: CHEBI:41879
-    label: dexamethasone
-  - id: CHEBI:17303
-    label: morphine
   - id: CHEBI:16480
     label: nitric oxide
   - id: CHEBI:28304
     label: heparin
   - id: MONDO:0013730
-    label: graft versus host disease (GvHD)
+    label: Graft versus host disease (GvHD)
   - id: MAXO:0010030
     label: Bone marrow transplantation
-  - id: MAXO:0000004
-    label: Surgical intervention
-  - id: HP:0200023
-    label: Priapism
-  - id: HP:0001945
-    label: pyrexia
-  - id: HP:0002019
-    label: constipation
-  - id: HP:0001903
-    label: decreased haemoglobin
-  - id: CHEBI:26710
-    label: NaCl
-  - id: MAXO:0000530
-    label: Carrier screening
   - id: HP:0002615
     label: Hypotension
   - id: HP:0001662
     label: Bradycardia
-  - id: HP:0002098
-    label: Respiratory distress
   - id: CHEBI:119915
     label: Fentanyl
-  - id: HP:0000407
-    label: Sensorineural hearing loss (SNHL)
-  - id: HP:0001249
-    label: Poor school performance
-  - id: HP:0030645
-    label: Risk of (central) auditory processing disorder
-  - id: CHEBI:28901
-    label: Busulfan
-  - id: MAXO:0000750
-    label: conditioning regimen
-  - id: MONDO:0002280
-    label: Anemia
-  - id: MONDO:0005003
-    label: Chronic Pancreatitis
-  - id: MAXO:0000088
-    label: Dietary interventions
+  - id: MONDO:0006497
+    label: Chronic Pancreatitis (CP)
   - id: MAXO:0035049
     label: Endoscopic retrograde cholangiopancreatography
-  - id: CHEBI:35480
-    label: Analgesic
-  - id: CHEBI:22586
-    label: Antioxidants
+  - id: MAXO:0000004
+    label: Surgical procedures
+  - id: MAXO:0000088
+    label: Dietary interventions
+  - id: MONDO:0005003
+    label: Chronic Pancreatitis
   - id: CHEBI:17334
-    label: Penicillin
-  - id: HP:0001297
-    label: stroke
-  - id: HP:0003826
-    label: Stillbirths
-  - id: HP:0100806
-    label: Sepsis
-  - id: HP:0011891
-    label: Postpartum hemorrhage
-  - id: MONDO:0002050
+    label: penicillin
+  - id: HP:0000716
     label: Depression
-  - id: HP:0012418
-    label: Hypoxia

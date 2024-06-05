@@ -1,0 +1,167 @@
+---
+input_text: 'Prevalence of Self-Reported Gluten-Related Disorders and Adherence to
+  a Gluten-Free Diet in Salvadoran Adult Population. Gluten-related disorders are
+  not considered of relevance at public health level in Central America. The prevalence
+  of gluten-related disorders, and adherence to a gluten-free diet, remain unknown
+  in the Central American region. We conducted a cross-sectional survey of the Central
+  American population from San Salvador, El Salvador, to estimate the prevalence rates
+  of self-reported gluten-related disorders and adherence to a gluten-free diet. 1326
+  individuals were surveyed. Self-reported prevalence rates were (95% Confidence Interval):
+  gluten sensitivity 3.1% (2.3&ndash;4.2); physician-diagnosed celiac disease 0.15%
+  (0.04&ndash;0.5); wheat allergy 0.75% (0.4&ndash;1.3); non-celiac gluten sensitivity
+  0.98% (0.5&ndash;1.6). The prevalence rate of adherence to a gluten-free diet was
+  7.0% (5.7&ndash;8.5). Seven self-reported physician diagnosed gluten-sensitive cases
+  informed the co-existence of non-celiac gluten sensitivity with celiac disease and/or
+  wheat allergy. Among the non-self-reported gluten sensitivity individuals following
+  a gluten-free diet, 50% reported that they were seeing a health professional for
+  gluten-free dietary advice. Gluten sensitivity is commonly reported in Salvadoran
+  population, but some health professionals acknowledge the coexistence of wheat allergy,
+  celiac disease, and non-celiac gluten sensitivity. Among studies at population level,
+  the prevalence of adherence to a gluten-free diet in Salvadoran population is the
+  highest reported until now. However, just a few of the gluten-free diet followers
+  were doing it for health-related benefits; the others reported weight control and
+  the perception that the diet is healthier as the main motivation for adopting such
+  a diet.'
+raw_completion_output: |-
+  primary_disease: Gluten-related disorders
+
+  medical_actions: Adherence to a gluten-free diet; Seeing a health professional for gluten-free dietary advice
+
+  symptoms: Gluten sensitivity; Non-celiac gluten sensitivity; Celiac disease; Wheat allergy
+
+  chemicals: 
+
+  action_annotation_relationships: Adherence to a gluten-free diet PREVENTS gluten sensitivity IN Gluten-related disorders; Adherence to a gluten-free diet PREVENTS non-celiac gluten sensitivity IN Gluten-related disorders; Adherence to a gluten-free diet PREVENTS celiac disease IN Gluten-related disorders; Adherence to a gluten-free diet PREVENTS wheat allergy IN Gluten-related disorders; Seeing a health professional for gluten-free dietary advice TREATS gluten sensitivity IN Gluten-related disorders; Seeing a health professional for gluten-free dietary advice TREATS non-celiac gluten sensitivity IN Gluten-related disorders; Seeing a health professional for gluten-free dietary advice TREATS celiac disease IN Gluten-related disorders; Seeing a health professional for gluten-free dietary advice TREATS wheat allergy IN Gluten-related disorders
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Seeing a health professional for gluten-free dietary advice TREATS wheat allergy IN Gluten-related disorders
+
+  ===
+
+extracted_object:
+  primary_disease: Gluten-related disorders
+  medical_actions:
+    - Adherence to a gluten-free diet
+    - Seeing a health professional for gluten-free dietary advice
+  symptoms:
+    - HP:0012538
+    - Non-celiac gluten sensitivity
+    - HP:0002608
+    - Wheat allergy
+  action_annotation_relationships:
+    - subject: Adherence
+      predicate: PREVENTS
+      object: HP:0012538
+      qualifier: Gluten-related disorders
+      subject_extension: gluten-free diet
+    - subject: Adherence to a gluten-free diet
+      predicate: PREVENTS
+      object: non-celiac gluten sensitivity
+      qualifier: Gluten-related disorders
+      subject_extension: gluten-free diet
+    - subject: Adherence to a gluten-free diet
+      predicate: PREVENTS
+      object: HP:0002608
+      qualifier: Gluten-related disorders
+      subject_extension: gluten-free diet
+      object_extension: Gluten-related disorders
+    - subject: Adherence to a diet
+      predicate: PREVENTS
+      object: wheat allergy
+      qualifier: Gluten-related disorders
+      subject_qualifier: gluten-free
+      object_extension: gluten-free
+    - subject: Seeing a health professional for
+      predicate: TREATS
+      object: HP:0012538
+      qualifier: Gluten-related disorders
+      subject_extension: gluten-free dietary advice
+      object_extension: gluten sensitivity
+    - subject: <Seeing a health professional for gluten-free dietary advice>
+      predicate: <TREATS>
+      object: <non-celiac gluten sensitivity>
+      qualifier: <Gluten-related disorders>
+      subject_extension: <gluten-free dietary advice>
+    - subject: Seeing a health professional for gluten-free dietary advice
+      predicate: TREATS
+      object: HP:0002608
+      qualifier: Gluten-related disorders
+      subject_extension: gluten-free dietary advice
+    - subject: Seeing a health professional for gluten-free dietary advice
+      predicate: TREATS
+      object: wheat allergy
+      qualifier: Gluten-related disorders
+      subject_extension: gluten-free dietary advice
+named_entities:
+  - id: MONDO:0005130
+    label: celiac disease
+  - id: MAXO:0000259
+    label: Insulin treatment
+  - id: HP:0033712
+    label: Recurrent implantation failure (RIF)
+  - id: CHEBI:145810
+    label: Insulin
+  - id: CHEBI:6801
+    label: Metformin
+  - id: HP:0002024
+    label: malabsorption
+  - id: HP:0012050
+    label: anasarca
+  - id: HP:0003111
+    label: electrolyte disorders
+  - id: MAXO:0000088
+    label: diet
+  - id: HP:0025502
+    label: Overweight
+  - id: HP:0001513
+    label: Obesity
+  - id: HP:0012393
+    label: Allergic diseases
+  - id: HP:0002608
+    label: Celiac disease
+  - id: HP:0000819
+    label: Diabetes
+  - id: HP:0030016
+    label: dyspareunia
+  - id: HP:0012786
+    label: recurrent cystitis
+  - id: HP:0400007
+    label: menstrual disorders
+  - id: MONDO:0100096
+    label: COVID-19
+  - id: MONDO:0005147
+    label: Type 1 diabetes mellitus
+  - id: HP:0000821
+    label: Hypothyroidism
+  - id: HP:0000822
+    label: Hypertension
+  - id: HP:0003119
+    label: Dyslipidemia
+  - id: HP:0009830
+    label: Neuropathy
+  - id: HP:0001626
+    label: Cardiovascular diseases
+  - id: HP:0005268
+    label: Miscarriage
+  - id: HP:0030991
+    label: primary sclerosing cholangitis
+  - id: MONDO:0005265
+    label: Inflammatory bowel disease
+  - id: CHEBI:18248
+    label: Iron
+  - id: HP:0002014
+    label: diarrhea
+  - id: HP:0012538
+    label: Gluten sensitivity

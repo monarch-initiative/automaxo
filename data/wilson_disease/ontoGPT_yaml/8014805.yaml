@@ -1,0 +1,158 @@
+---
+input_text: Infectious complications in living related liver transplantation. During
+  the last 31 months, 50 children between 3 months and 15 years of age have undergone
+  living related liver transplantation (LRLT) for end-stage liver diseases (39 biliary
+  atresia, 2 Budd-Chiari syndrome, 2 progressive intrahepatic cholestasis, 3 liver
+  cirrhosis, 1 Wilson disease, 1 protoporphyria, 1 tyrosinemia, and 1 fulminant hepatitis).
+  Combined FK-506 and low-dose steroids were routinely used for immunosuppression.
+  There were seven deaths, two of which were related to infection (Candida pneumonia
+  and Epstein-Barr virus [EBV]-associated lymphoproliferative syndrome [LPS]). Five
+  patients had a bacterial infection, all of which were associated with surgical complications.
+  Three patients had Candida infection, all of which were malnourished, had biliary
+  atresia, and had been managed with prolonged antibiotics against obstinate ascending
+  cholangitis. There were 14 symptomatic viral infections (1 herpes simplex virus,
+  1 herpes zoster virus, 5 cytomegalovirus [CMV], 6 EBV, and 1 EBV-associated LPS).
+  Three of the five CMV infections appeared in patients whose graft was ABO-incompatible,
+  who were managed with prophylactic OKT-3. Most of the viral infections (except 1
+  EBV-associated LPS) were minor and were treated successfully. The low incidence
+  and successful treatment of CMV infection are related to the high compatibility
+  and low incidence of allograft rejection in LRLT. Bacterial and fungal infections
+  can be decreased by greater refinement of surgical technique and more aggressive
+  preoperative management. Treatment of EBV infection is still an unsolved problem.
+raw_completion_output: |-
+  primary_disease: Infectious complications in living related liver transplantation
+
+  medical_actions: Immunusuppression with FK-506 and low-dose steroids; Management with prolonged antibiotics; Prophylactic OKT-3; Refinement of surgical technique; Aggressive preoperative management
+
+  symptoms: Candida pneumonia; Epstein-Barr virus (EBV)-associated lymphoproliferative syndrome (LPS); Bacterial infection; Candida infection; Symptomatic viral infections
+
+  chemicals: FK-506; Steroids; Antibiotics; OKT-3
+
+  action_annotation_relationships: Immunusuppression with FK-506 and low-dose steroids PREVENTS rejection IN living related liver transplantation; Management with prolonged antibiotics TREATS obstinate ascending cholangitis IN living related liver transplantation; Prophylactic OKT-3 PREVENTS CMV infection IN living related liver transplantation; Refinement of surgical technique PREVENTS bacterial and fungal infections IN living related liver transplantation; Aggressive preoperative management PREVENTS bacterial and fungal infections IN living related liver transplantation
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Aggressive preoperative management PREVENTS bacterial and fungal infections IN living related liver transplantation
+
+  ===
+
+extracted_object:
+  primary_disease: Infectious complications in living related liver transplantation
+  medical_actions:
+    - Immunusuppression with FK-506 and low-dose steroids
+    - Management with prolonged antibiotics
+    - Prophylactic OKT-3
+    - Refinement of surgical technique
+    - Aggressive preoperative management
+  symptoms:
+    - Candida pneumonia
+    - Epstein-Barr virus (EBV)-associated lymphoproliferative syndrome (LPS)
+    - Bacterial infection
+    - Candida infection
+    - Symptomatic viral infections
+  chemicals:
+    - FK-506
+    - CHEBI:35341
+    - CHEBI:33281
+    - OKT-3
+  action_annotation_relationships:
+    - subject: Immunosuppression
+      predicate: PREVENTS
+      object: rejection
+      qualifier: living related liver transplantation
+      subject_extension: FK-506
+      object_extension: low-dose
+    - subject: <Management with prolonged antibiotics>
+      predicate: <TREATS>
+      object: <obstinate ascending cholangitis>
+      qualifier: <living related liver transplantation>
+      subject_qualifier: <prolonged>
+      subject_extension: <antibiotics>
+    - subject: Prophylactic
+      predicate: PREVENTS
+      object: CMV infection
+      qualifier: living related liver transplantation
+      subject_extension: OKT-3
+    - subject: Refinement of surgical technique
+      predicate: PREVENTS
+      object: bacterial and fungal infections
+      qualifier: living related liver transplantation
+    - subject: Aggressive preoperative management
+      predicate: PREVENTS
+      object: bacterial and fungal infections
+      qualifier: living related liver transplantation
+named_entities:
+  - id: MONDO:0010200
+    label: Wilson disease
+  - id: MAXO:0001175
+    label: liver transplantation
+  - id: MAXO:0000004
+    label: surgery (laparotomy, rectal mobilization, rectopexy, the partial sigmoid
+      colon resection with the primary anastomosis)
+  - id: HP:0002910
+    label: abnormal liver functions
+  - id: HP:0001394
+    label: cirrhosis
+  - id: CHEBI:27363
+    label: zinc
+  - id: CHEBI:50868
+    label: penicillamine
+  - id: CHEBI:51232
+    label: Hoechst 33342
+  - id: HP:0006554
+    label: acute liver failure
+  - id: MAXO:0000068
+    label: transplantation
+  - id: MAXO:0009095
+    label: Zinc therapy
+  - id: HP:0002344
+    label: Neurologic deterioration
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0001392
+    label: liver disease
+  - id: HP:0006579
+    label: neonatal jaundice
+  - id: HP:0002612
+    label: congenital hepatic fibrosis
+  - id: HP:0001409
+    label: portal hypertension
+  - id: HP:0030151
+    label: cholangitis
+  - id: MONDO:0013282
+    label: alpha-1-antitrypsin deficiency
+  - id: MONDO:0009061
+    label: cystic fibrosis
+  - id: MONDO:0009044
+    label: Crigler-Najjar syndrome
+  - id: MAXO:0000376
+    label: liver biopsy
+  - id: MAXO:0000127
+    label: genetic testing
+  - id: HP:0001903
+    label: anemia
+  - id: HP:0001410
+    label: liver dysfunction
+  - id: CHEBI:39501
+    label: trientine
+  - id: CHEBI:28694
+    label: copper
+  - id: HP:0001399
+    label: hepatic failure
+  - id: HP:0004448
+    label: fulminant hepatic failure
+  - id: CHEBI:35341
+    label: Steroids
+  - id: CHEBI:33281
+    label: Antibiotics

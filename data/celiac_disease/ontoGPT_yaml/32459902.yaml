@@ -1,0 +1,130 @@
+---
+input_text: '[Gluten-free diet in the treatment of extra-intestinal forms of gluten
+  intolerance]. Following a gluten-free diet is recommended by clinical guidelines
+  in the presence of gluten intolerance. However, due to the variety of clinical picture
+  of various forms of intolerance, the elimination of gluten occurs not always timely.
+  There are also diseases that classic treatment regimen does not include diet therapy,
+  however, studies have confirmed the effectiveness of its use. The aim of the research
+  - to study current data on the effectiveness of a gluten-free diet for extra-intestinal
+  manifestations of gluten intolerance. Material and methods. Literature data concerning
+  the effectiveness of including a gluten-free diet in the treatment of various diseases
+  according to the PubMed and eLIBRARY portal were studied. Results. Modern data on
+  the forms of gluten intolerance and their clinical manifestations are presented.
+  The results of both randomized studies and individual clinical cases of gluten intolerance
+  that occurred under the guise of other diseases are presented. A clinical case of
+  an acute onset of the disease - celiac crisis, accompanied by acute diarrheal syndrome
+  with subsequent malabsorption and progressive loss of body weight, anasarca and
+  electrolyte disorders is considered. Neurological and psycho-neurological manifestations
+  of celiac disease are described, including current data on the results of including
+  a glutenfree diet in the treatment of autism spectrum disorders. The question of
+  using dietary therapy for autism remains controversial to nowadays. The article
+  outlines the arguments of supporters and opponents of excluding gluten in this pathology.
+  Particular attention is paid to the diagnosis of gluten intolerance in patients
+  with hematological disorders. The significance of a complete survey to identify
+  celiac disease and timely diet therapy of the disease under stunted growth in children,
+  after excluding other causes of malabsorption and even in the presence of negative
+  serological markers of celiac disease is shown. The article also contains information
+  on the pathology of kidneys and reproductive system, which were leveled only after
+  the exclusion of gluten from the diet. Conclusion. The presented cases demonstrate
+  a wide variety of clinical forms of gluten intolerance, examples of diagnostic search
+  and dynamics of the clinical picture with the timely appointment of a gluten-free
+  diet are given.'
+raw_completion_output: |-
+  primary_disease: gluten intolerance
+  medical_actions: Following a gluten-freeurgence
+  symptoms: acute diarrheal syndrome; malabsorption; progressive loss of body weight; anasarca; electrolyte disorders; neurological manifestations; psycho-neurological manifestations; stunted growth in children
+  chemicals: 
+  action_annotation_relationships: gluten-free diet PREVENTS acute diarrheal syndrome IN gluten intolerance; gluten-free diet PREVENTS malabsorption IN gluten intolerance; gluten-free diet PREVENTS progressive loss of body weight IN gluten intolerance; gluten-free diet PREVENTs anasarca IN gluten intolerance; gluten-free diet PREVENTS electrolyte disorders IN gluten intolerance; gluten-free diet PREVENTS neurological manifestations IN gluten intolerance; gluten-free diet PREVENTS psycho-neurological manifestations IN gluten intolerance; gluten-free diet PREVENTS stunted growth in children IN gluten intolerance
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  gluten-free diet PREVENTS stunted growth in children IN gluten intolerance
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005130
+  medical_actions:
+    - Following a gluten-freeurgence
+  symptoms:
+    - acute diarrheal syndrome
+    - HP:0002024
+    - progressive loss of body weight
+    - HP:0012050
+    - HP:0003111
+    - neurological manifestations
+    - psycho-neurological manifestations
+    - stunted growth in children
+  action_annotation_relationships:
+    - subject: <gluten-free diet>
+      predicate: <PREVENTS>
+      object: <acute diarrheal syndrome>
+      qualifier: <gluten intolerance>
+      subject_extension: <gluten-free>
+    - subject: <diet>
+      predicate: <PREVENTS>
+      object: <malabsorption>
+      qualifier: <gluten intolerance>
+      subject_qualifier: <gluten-free>
+      subject_extension: <gluten-free>
+    - subject: gluten-free diet
+      predicate: PREVENTS
+      object: progressive loss of body weight
+      qualifier: MONDO:0005130
+      subject_extension: gluten-free diet
+    - subject: gluten-free diet
+      predicate: PREVENTS
+      object: HP:0012050
+      qualifier: MONDO:0005130
+    - subject: <gluten-free diet>
+      predicate: <PREVENTS>
+      object: <electrolyte disorders>
+      qualifier: <gluten intolerance>
+      subject_extension: <gluten-free>
+    - subject: MAXO:0000088
+      predicate: PREVENTS
+      object: neurological manifestations
+      qualifier: MONDO:0005130
+      subject_qualifier: gluten-free
+      subject_extension: gluten-free
+    - subject: gluten-free diet
+      predicate: PREVENTS
+      object: psycho-neurological manifestations
+      qualifier: MONDO:0005130
+      subject_extension: gluten
+    - subject: MAXO:0000088
+      predicate: PREVENTS
+      object: stunted growth
+      qualifier: MONDO:0005130
+      object_qualifier: in children
+      subject_extension: gluten-free
+named_entities:
+  - id: MONDO:0005130
+    label: celiac disease
+  - id: MAXO:0000259
+    label: Insulin treatment
+  - id: HP:0033712
+    label: Recurrent implantation failure (RIF)
+  - id: CHEBI:145810
+    label: Insulin
+  - id: CHEBI:6801
+    label: Metformin
+  - id: HP:0002024
+    label: malabsorption
+  - id: HP:0012050
+    label: anasarca
+  - id: HP:0003111
+    label: electrolyte disorders
+  - id: MAXO:0000088
+    label: diet

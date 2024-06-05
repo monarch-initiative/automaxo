@@ -1,0 +1,154 @@
+---
+input_text: 'Preliminary study of spontaneous hepatitis in Long-Evans Cinnamon rats:
+  a blood exchange may improve fetal hepatitis. Long-Evans Cinnamon rats are a Wilson
+  disease model highly susceptible to fulminant hepatitis around the age of 20 weeks,
+  and hepatoma over the age of one year. Although prophylaxis has been established
+  for the otherwise fatal hepatitis, effective treatment remains unknown. A blood
+  exchange was tested to determine whether the prognosis of spontaneous hepatitis
+  could be modified in icteric female rats. When bilirubinuria appeared, the rats
+  immediately underwent surgery. Rats under anesthesia were first cannulated into
+  the right atrium via the carotid vein, followed by 2.5 mL of blood exchange with
+  heparinized fresh blood from Long-Evans agouti rats. Treated rats and controls were
+  then observed for 2 months. Compared to the 50% mortality of untreated rats, all
+  icteric rats that received a blood exchange survived the acute episode. We confirmed
+  that Wilson disease animals are highly susceptible to acute hepatitis and show a
+  poor prognosis. However, a single blood exchange improved spontaneous hepatitis
+  in this animal model. This would serve as a first step for establishing a treatment
+  for fatal hepatitis in animals. A blood exchange may improve fulminant hepatitis
+  of Wilson disease model rats.'
+raw_completion_output: |-
+  primary_disease: Wilson disease
+
+  medical_actions: blood exchange; surgery; cannulation into the right atrium; blood exchange with heparinized fresh blood
+
+  symptoms: fulminant hepatitis; bilirubinuria; icteric
+
+  chemicals: heparinized fresh blood
+
+  action_annotation_relationships: blood exchange TREATS fulminant hepatitis IN Wilson disease; surgery (with heparinized fresh blood) TREATS bilirubinuria IN Wilson disease; cannulation into the right atrium TREATS icteric IN Wilson disease; blood exchange with heparinized fresh blood TREATS fulminant hepatitis IN Wilson disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  blood exchange with heparinized fresh blood TREATS fulminant hepatitis IN Wilson disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010200
+  medical_actions:
+    - blood exchange
+    - MAXO:0000004
+    - cannulation into the right atrium
+    - blood exchange with heparinized fresh blood
+  symptoms:
+    - HP:0004787
+    - HP:0031811
+    - icteric
+  chemicals:
+    - heparinized fresh blood
+  action_annotation_relationships:
+    - subject: blood exchange
+      predicate: TREATS
+      object: HP:0004787
+      qualifier: MONDO:0010200
+    - subject: MAXO:0000004
+      predicate: TREATS
+      object: HP:0031811
+      qualifier: MONDO:0010200
+      subject_qualifier: with heparinized fresh blood
+      subject_extension: heparinized fresh blood
+    - subject: cannulation into the right atrium
+      predicate: TREATS
+      object: icteric
+      qualifier: MONDO:0010200
+    - subject: blood exchange
+      predicate: TREATS
+      object: HP:0004787
+      qualifier: MONDO:0010200
+      subject_qualifier: with heparinized fresh blood
+      subject_extension: heparinized fresh blood
+named_entities:
+  - id: MONDO:0010200
+    label: Wilson disease
+  - id: MAXO:0001175
+    label: liver transplantation
+  - id: MAXO:0000004
+    label: surgery (laparotomy, rectal mobilization, rectopexy, the partial sigmoid
+      colon resection with the primary anastomosis)
+  - id: HP:0002910
+    label: abnormal liver functions
+  - id: HP:0001394
+    label: cirrhosis
+  - id: CHEBI:27363
+    label: zinc
+  - id: CHEBI:50868
+    label: penicillamine
+  - id: CHEBI:51232
+    label: Hoechst 33342
+  - id: HP:0006554
+    label: acute liver failure
+  - id: MAXO:0000068
+    label: transplantation
+  - id: MAXO:0009095
+    label: Zinc therapy
+  - id: HP:0002344
+    label: Neurologic deterioration
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0001392
+    label: liver disease
+  - id: HP:0006579
+    label: neonatal jaundice
+  - id: HP:0002612
+    label: congenital hepatic fibrosis
+  - id: HP:0001409
+    label: portal hypertension
+  - id: HP:0030151
+    label: cholangitis
+  - id: MONDO:0013282
+    label: alpha-1-antitrypsin deficiency
+  - id: MONDO:0009061
+    label: cystic fibrosis
+  - id: MONDO:0009044
+    label: Crigler-Najjar syndrome
+  - id: MAXO:0000376
+    label: liver biopsy
+  - id: MAXO:0000127
+    label: genetic testing
+  - id: HP:0001903
+    label: anemia
+  - id: HP:0001410
+    label: liver dysfunction
+  - id: CHEBI:39501
+    label: trientine
+  - id: CHEBI:28694
+    label: copper
+  - id: HP:0001399
+    label: hepatic failure
+  - id: HP:0004448
+    label: fulminant hepatic failure
+  - id: CHEBI:35341
+    label: Steroids
+  - id: CHEBI:33281
+    label: Antibiotics
+  - id: MONDO:0100193
+    label: end-stage liver disease
+  - id: HP:0100626
+    label: end-stage liver disease
+  - id: HP:0100660
+    label: dyskinesia
+  - id: HP:0004787
+    label: fulminant hepatitis
+  - id: HP:0031811
+    label: bilirubinuria
