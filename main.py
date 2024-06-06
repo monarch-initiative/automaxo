@@ -1,6 +1,6 @@
 import click
 import src.automaxo as automaxo
-from automaxo import import_mesh_data, pmid_extractor, process_article_jsons_to_tsv, process_ontogpt_articles, process_triplets_and_mesh
+from automaxo import import_mesh_data, pmid_extractor, process_article_jsons_to_tsv, process_ontogpt_articles, process_triplets_and_mesh, ontology_validation
 
 class AutoMaxoRunner:
     def __init__(self, disease_name, max_articles_to_save):
@@ -13,6 +13,8 @@ class AutoMaxoRunner:
         self.poet_replaced_tsv_file_path = self.base_data_path + f"{disease_name.replace(' ', '_')}_poet_replaced.tsv"
         self.ontogpt_yaml_files_dir = self.base_data_path + "ontoGPT_yaml/"
         self.output_json_path = self.base_data_path + "detailed_post_ontoGPT.json"
+        self.final_automaxo_results_path = self.base_data_path + "final_automaxo_results.json"
+
 
     def run(self):       
         print(f"Starting to retrieve mesh IDs related to treatment and diagnosis of {self.disease_name}...")
@@ -44,8 +46,14 @@ class AutoMaxoRunner:
             self.no_replaced_tsv_file_path, 
             self.output_json_path 
             )
+        
+        print(f"Starting to validate annotations to ensure right labels  ...")
+        ontology_validation(
+            self.output_json_path, 
+            self.final_automaxo_results_path 
+            )
 
-        print(f"The whole process is complete detailed results are saved in a JSON file at {self.output_json_path} ")
+        print(f"The whole process is complete detailed results are saved in a JSON file at {self.final_automaxo_results_path} ")
 
 
 @click.command()
