@@ -1,0 +1,101 @@
+---
+input_text: 'Contemporary Dietary Practices: FODMAPs and Beyond. There is no diet
+  that is recommended for all individuals. Some special diets (eg, gluten-free for
+  celiac disease) are necessary for health and quality of life. Other diets may be
+  recommended for a short period of time to aid in symptom relief but may not be recommended
+  for the long- term (eg, LFD). Popular diets continue to come and go with varying
+  levels of success. When considering adolescents, continued growth and development
+  are most important, and restrictive diets can lead to nutrient inadequacies and
+  poor growth. Before making any recommendation, it is important to consider the goal
+  of the diet and the cost versus benefits associated with following the diet. Adherence
+  is always a challenge, regardless of the type of diet implemented. If a special
+  diet is not warranted for the health, safety, and desired quality of life of the
+  individual, it should not be implemented.'
+raw_completion_output: |-
+  primary_disease: Celiac disease
+  medical_actions: Consideration of dietary practices; Implementation of gluten-free diet; Consideration of adolescents' growth and development; Evaluation of restrictive diets; Assessment of nutrient inadequacies; Evaluation of diet adherence
+  symptoms: Nutrient inadequacies; Poor growth
+  chemicals: Gluten
+  action_annotation_relationships: Implementation of gluten-free diet (with Gluten) PREVENTS Nutrient inadequacies IN Celiac disease; Implementation of gluten-free diet (with Gluten) PREVENTS Poor growth IN Celiac disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Implementation of gluten-free diet (with Gluten) PREVENTS Poor growth IN Celiac disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005130
+  medical_actions:
+    - Consideration of dietary practices
+    - Implementation of gluten-free diet
+    - Consideration of adolescents' growth and development
+    - Evaluation of restrictive diets
+    - Assessment of nutrient inadequacies
+    - Evaluation of diet adherence
+  symptoms:
+    - Nutrient inadequacies
+    - HP:0001510
+  chemicals:
+    - Gluten
+  action_annotation_relationships:
+    - subject: Implementation of gluten-free diet
+      predicate: PREVENTS
+      object: Nutrient inadequacies
+      qualifier: MONDO:0005130
+      subject_qualifier: with Gluten
+      subject_extension: Gluten
+    - subject: Implementation of gluten-free diet
+      predicate: PREVENTS
+      object: HP:0001510
+      qualifier: MONDO:0005130
+      subject_qualifier: with Gluten
+      subject_extension: Gluten
+named_entities:
+  - id: MONDO:0044092
+    label: Collagenous sprue
+  - id: HP:0002014
+    label: Diarrhea
+  - id: CHEBI:50858
+    label: Corticosteroids
+  - id: MONDO:0016063
+    label: Celiac Disease (CD)
+  - id: HP:0004395
+    label: Malnutrition
+  - id: MONDO:0005130
+    label: Celiac Disease
+  - id: HP:0020110
+    label: fractures
+  - id: HP:0012378
+    label: Fatigue
+  - id: HP:0002039
+    label: Anorexia
+  - id: HP:0000823
+    label: Delayed puberty
+  - id: HP:0004322
+    label: Short stature
+  - id: HP:0000789
+    label: Infertility
+  - id: HP:0002242
+    label: Enteropathy
+  - id: HP:0003270
+    label: Abdominal bloating
+  - id: HP:0012531
+    label: Pain
+  - id: HP:0000716
+    label: Depression
+  - id: HP:0011107
+    label: Aphthous stomatitis
+  - id: HP:0001510
+    label: Poor growth

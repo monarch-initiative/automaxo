@@ -1,0 +1,89 @@
+---
+input_text: 'Comparison of clinical features, treatment, and outcomes of collagenous
+  sprue, celiac disease, and collagenous colitis. BACKGROUND: Collagenous sprue (CS)
+  is a rare form of enteropathy that had been reported to be associated with celiac
+  disease (CD) and collagenous colitis (CC). The aim of our study was to compare the
+  clinical features, treatments, and outcomes of CS, CD, and CC. METHODS: All patients
+  with histologic diagnosis of CS, CD, or CC with complete clinical data were extracted
+  from our pathology database between 1990 and 2015. Demographic and clinical features
+  were recorded along with treatments and outcomes. RESULTS: A total of 21 patients
+  with CS were included. Overall CS patients were more symptomatic with 17 (81.0%)
+  patients with diarrhea and 15 (71.4%) with unintentional weight loss. Positive celiac
+  serology was noted in 5 (23.8%) CS patients. CS patients had higher rates for disease-related
+  temporary total parenteral nutrition (TPN) use (38.1% vs. 1.1% vs. 1.0%, P < 0.0001)
+  and disease-related hospitalization (52.4% vs. 3.3% vs. 8.2%, P < 0.0001) than that
+  in CD and CC patients. Twenty CS patients received treatments, including the combination
+  of gluten-free diet (GFD) and corticosteroids (n = 12), GFD only (n = 2), and corticosteroids
+  only (n = 6). All CS patients showed symptomatic reliefs with treatment. Although
+  CS patients had a higher rate for hospitalization and TPN use, disease-related death
+  was not observed in all three groups. CONCLUSIONS: Collagenous sprue patients had
+  more severe clinical presentation than patients with CD and CC and therefore had
+  higher demand for temporary TPN and hospitalization. Nevertheless, a prompt use
+  of steroids and/or GFD upon histologic diagnosis of CS may have contributed to an
+  overall excellent prognosis.'
+raw_completion_output: |-
+  primary_disease: Collagenous sprue
+  medical_actions: Temporary total parenteral nutrition (TPN); Corticosteroids; Gluten-free diet (GFD)
+  symptoms: Diarrhea; Unintentional weight loss
+  chemicals: Corticosteroids
+  action_annotation_relationships: Temporary total parenteral nutrition (TPN) TREATS diarrhea IN Collagenous sprue; Corticosteroids TREATS diarrhea IN Collagenous sprue; Corticosteroids TREATS unintentional weight loss IN Collagenous sprue; Gluten-free diet (GFD) TREATS diarrhea IN Collagenous sprue; Gluten-free diet (GFD) TREATS unintentional weight loss IN Collagenous sprue
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Gluten-free diet (GFD) TREATS unintentional weight loss IN Collagenous sprue
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0044092
+  medical_actions:
+    - Temporary total parenteral nutrition (TPN)
+    - Corticosteroids
+    - Gluten-free diet (GFD)
+  symptoms:
+    - HP:0002014
+    - Unintentional weight loss
+  chemicals:
+    - CHEBI:50858
+  action_annotation_relationships:
+    - subject: Temporary total parenteral nutrition (TPN)
+      predicate: TREATS
+      object: HP:0002014
+      qualifier: MONDO:0044092
+    - subject: Corticosteroids
+      predicate: TREATS
+      object: HP:0002014
+      qualifier: MONDO:0044092
+      subject_extension: CHEBI:50858
+    - subject: Corticosteroids
+      predicate: TREATS
+      object: unintentional weight loss
+      qualifier: MONDO:0044092
+      subject_extension: CHEBI:50858
+    - subject: Gluten-free diet (GFD)
+      predicate: TREATS
+      object: HP:0002014
+      qualifier: MONDO:0044092
+    - subject: <Gluten-free diet>
+      predicate: <TREATS>
+      object: <unintentional weight loss>
+      qualifier: <Collagenous sprue>
+      subject_extension: <Gluten-free diet>
+named_entities:
+  - id: MONDO:0044092
+    label: Collagenous sprue
+  - id: HP:0002014
+    label: Diarrhea
+  - id: CHEBI:50858
+    label: Corticosteroids

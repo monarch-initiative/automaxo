@@ -1,0 +1,120 @@
+---
+input_text: 'Bones of contention: bone mineral density recovery in celiac disease--a
+  systematic review. Metabolic bone disease is a frequent co-morbidity in newly diagnosed
+  adults with celiac disease (CD), an autoimmune disorder triggered by the ingestion
+  of dietary gluten. This systematic review of studies looked at the efficacy of the
+  gluten-free diet, physical activity, nutrient supplementation, and bisphosphonates
+  for low bone density treatment. Case control and cohort designs were identified
+  from PubMed and other academic databases (from 1996 to 2015) that observed newly
+  diagnosed adults with CD for at least one year after diet treatment using the dual-energy
+  x-ray absorptiometry (DXA) scan. Only 20 out of 207 studies met the inclusion criteria.
+  Methodological quality was assessed using the Strengthening of the Reporting of
+  Observational Studies in Epidemiology (STROBE) statement checklist. Gluten-free
+  diet adherence resulted in partial recovery of bone density by one year in all studies,
+  and full recovery by the fifth year. No treatment differences were observed between
+  the gluten-free diet alone and diet plus bisphosphonates in one study. For malnourished
+  patients, supplementation with vitamin D and calcium resulted in significant improvement.
+  Evidence for the impact of physical activity on bone density was limited. Therapeutic
+  strategies aimed at modifying lifestyle factors throughout the lifespan should be
+  studied. '
+raw_completion_output: |-
+  primary_disease: celiac disease
+  medical_actions: gluten-free diet; physical activity; nutrient supplementation; bisphosphonates; diet treatment; vitamin D and calcium supplementation
+  symptoms: low bone density; malnourishment
+  chemicals: vitamin D; calcium; bisphosphonates
+  action_annotation_relationships: gluten-free diet TREATS low bone density IN celiac disease;  diet treatment TREATS low bone density IN celiac disease;  vitamin D and calcium supplementation TREATS malnourishment IN celiac disease; bisphosphonates TREATS low bone density IN celiac disease
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  bisphosphonates TREATS low bone density IN celiac disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005130
+  medical_actions:
+    - gluten-free diet
+    - physical activity
+    - nutrient supplementation
+    - bisphosphonates
+    - diet treatment
+    - vitamin D and calcium supplementation
+  symptoms:
+    - low bone density
+    - malnourishment
+  chemicals:
+    - CHEBI:27300
+    - CHEBI:22984
+    - CHEBI:77383
+  action_annotation_relationships:
+    - subject: gluten-free diet
+      predicate: TREATS
+      object: low bone density
+      qualifier: MONDO:0005130
+    - subject: diet treatment
+      predicate: TREATS
+      object: low bone density
+      qualifier: MONDO:0005130
+    - subject: supplementation
+      predicate: TREATS
+      object: malnourishment
+      qualifier: MONDO:0005130
+      subject_extension: vitamin D and calcium
+    - predicate: TREATS
+      object: low bone density
+      qualifier: MONDO:0005130
+      subject_extension: CHEBI:77383
+named_entities:
+  - id: MONDO:0044092
+    label: Collagenous sprue
+  - id: HP:0002014
+    label: Diarrhea
+  - id: CHEBI:50858
+    label: Corticosteroids
+  - id: MONDO:0016063
+    label: Celiac Disease (CD)
+  - id: HP:0004395
+    label: Malnutrition
+  - id: MONDO:0005130
+    label: Celiac Disease
+  - id: HP:0020110
+    label: fractures
+  - id: HP:0012378
+    label: Fatigue
+  - id: HP:0002039
+    label: Anorexia
+  - id: HP:0000823
+    label: Delayed puberty
+  - id: HP:0004322
+    label: Short stature
+  - id: HP:0000789
+    label: Infertility
+  - id: HP:0002242
+    label: Enteropathy
+  - id: HP:0003270
+    label: Abdominal bloating
+  - id: HP:0012531
+    label: Pain
+  - id: HP:0000716
+    label: Depression
+  - id: HP:0011107
+    label: Aphthous stomatitis
+  - id: HP:0001510
+    label: Poor growth
+  - id: CHEBI:27300
+    label: vitamin D
+  - id: CHEBI:22984
+    label: calcium
+  - id: CHEBI:77383
+    label: bisphosphonates

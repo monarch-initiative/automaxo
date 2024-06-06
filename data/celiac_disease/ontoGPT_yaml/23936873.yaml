@@ -1,0 +1,111 @@
+---
+input_text: 'Clinical features and symptom recovery on a gluten-free diet in Canadian
+  adults with celiac disease. BACKGROUND: Celiac disease can present with mild or
+  nongastrointestinal symptoms, and may escape timely recognition. The treatment of
+  celiac disease involves a gluten-free diet, which is complex and challenging. OBJECTIVE:
+  To evaluate clinical features and symptom recovery on a gluten-free diet in a Canadian
+  adult celiac population. METHODS: All adult members (n=10,693) of the two national
+  celiac support organizations, the Canadian Celiac Association and Fondation quebecoise
+  de la maladie coeliaque, were surveyed using a questionnaire. RESULTS: A total of
+  5912 individuals (>=18 years of age) with biopsy-confirmed celiac disease and/or
+  dermatitis herpetiformis completed the survey. The female to male ratio was 3:1,
+  and mean (+- SD) age at diagnosis was 45.2 +- 16.4 years. Mean time to diagnosis
+  after onset of symptoms was 12.0 +- 14.4 years. Abdominal pain and bloating (84.9%),
+  extreme weakness/tiredness (74.2%), diarrhea (71.7%) and anemia (67.8%) were the
+  most commonly reported symptoms at the time of diagnosis. Many respondents continued
+  to experience symptoms after being on a gluten-free diet for >5 years. Sex differences
+  were reported in clinical features before diagnosis, recovery after being on gluten-free
+  diet and perceived quality of life, with women experiencing more difficulties than
+  men. CONCLUSIONS: Delays in diagnosis of celiac disease in Canada remain unacceptably
+  long despite wider availability of serological screening tests. Many patients report
+  continuing symptoms despite adhering to a gluten-free diet for >5 years, with women
+  experiencing more symptoms and a lower recovery rate than men. Awareness of celiac
+  disease needs improvement, and follow-up with a physician and a dietitian is essential
+  for all patients with celiac disease.'
+raw_completion_output: |-
+  primary_disease: celiac disease
+
+  medical_actions: gluten-free diet
+
+  symptoms: abdominal pain; bloating; extreme weakness/tiredness; diarrhea; anemia
+
+  chemicals: 
+
+  action_annotation_relationships: gluten-free diet TREATS abdominal pain IN celiac disease; gluten-free diet TREATS bloating IN celiac disease; gluten-free diet TREATS extreme weakness/tiredness IN celiac disease; gluten-free diet TREATS diarrhea IN celiac disease; gluten-free diet TREATS anemia IN celiac disease
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  gluten-free diet TREATS anemia IN celiac disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005130
+  medical_actions:
+    - gluten-free diet
+  symptoms:
+    - HP:0002027
+    - HP:0003270
+    - extreme weakness/tiredness
+    - HP:0002014
+    - HP:0001903
+  action_annotation_relationships:
+    - subject: gluten-free diet
+      predicate: TREATS
+      object: HP:0002027
+      qualifier: MONDO:0005130
+    - subject: gluten-free diet
+      predicate: TREATS
+      object: HP:0003270
+      qualifier: MONDO:0005130
+    - subject: gluten-free diet
+      predicate: TREATS
+      object: extreme weakness/tiredness
+      qualifier: MONDO:0005130
+      subject_extension: gluten
+    - subject: gluten-free diet
+      predicate: TREATS
+      object: HP:0002014
+      qualifier: MONDO:0005130
+      subject_qualifier: <Not Applicable>
+      object_qualifier: <Not Applicable>
+      subject_extension: <Not Applicable>
+      object_extension: <Not Applicable>
+    - subject: gluten-free diet
+      predicate: TREATS
+      object: HP:0001903
+      qualifier: MONDO:0005130
+named_entities:
+  - id: MONDO:0005130
+    label: Celiac disease
+  - id: CHEBI:81580
+    label: Prolactin
+  - id: HP:0000870
+    label: Hyperprolactinemia
+  - id: HP:0000938
+    label: Bone loss
+  - id: CHEBI:22984
+    label: Calcium
+  - id: CHEBI:27300
+    label: Vitamin D
+  - id: MONDO:0019473
+    label: Enteropathy-associated T-cell lymphoma (EATL)
+  - id: HP:0002027
+    label: abdominal pain
+  - id: HP:0003270
+    label: bloating
+  - id: HP:0002014
+    label: diarrhea
+  - id: HP:0001903
+    label: anemia
