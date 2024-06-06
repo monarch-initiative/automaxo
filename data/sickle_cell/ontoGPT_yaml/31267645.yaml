@@ -1,0 +1,97 @@
+---
+input_text: Higher executive abilities following a blood transfusion in children and
+  young adults with sickle cell disease. Individuals with sickle cell disease (SCD)
+  experience cognitive deficits; however, it remains unclear whether medical treatments
+  for SCD improve cognition. Given that executive abilities are typically impaired
+  in individuals with SCD, they were the focus of the current study. Our primary hypothesis
+  was that executive abilities would be higher acutely soon after a blood transfusion
+  in children and young adults with SCD. We used tests from the NIH Toolbox to assess
+  executive abilities in 27 participants with SCD receiving chronic transfusion in
+  comparison to 34 participants with SCD receiving hydroxyurea (HU) and 41 non-SCD
+  demographically matched controls, all of whom were tested at two time points. Participants
+  in the transfusion group completed cognitive testing within 3 days after a transfusion
+  (soon after transfusion) and then within 3 days before their next transfusion (long
+  after transfusion) over an interval of 3-7 weeks. We found that executive abilities
+  were significantly poorer for the transfusion and HU groups than for the control
+  group. In support of our primary hypothesis, executive abilities for the transfusion
+  group were significantly better soon after a transfusion compared to long after
+  a transfusion, chi2 (1) = 17.8, P < .0001. Our results demonstrate that executive
+  abilities were higher acutely following a blood transfusion. These findings have
+  implications for daily functioning, medical decision making, and academic achievement
+  in children and young adults with SCD.
+raw_completion_output: |-
+  primary_disease: Sickle cell disease
+
+  medical_actions: Blood transfusion; Use of hydroxyurea; Cognitive testing
+
+  symptoms: Cognitive deficits; Impaired executive abilities
+
+  chemicals: Hydroxyurea
+
+  action_annotation_relationships: Blood transfusion TREATS impaired executive abilities IN Sickle cell disease; Use of hydroxyurea TREATS cognitive deficits IN Sickle cell disease; Cognitive testing ASSESSES impaired executive abilities IN Sickle cell disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Cognitive testing ASSESSES impaired executive abilities IN Sickle cell disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0011382
+  medical_actions:
+    - MAXO:0000756
+    - Use of hydroxyurea
+    - Cognitive testing
+  symptoms:
+    - HP:0100543
+    - Impaired executive abilities
+  chemicals:
+    - CHEBI:44423
+  action_annotation_relationships:
+    - subject: MAXO:0000756
+      predicate: TREATS
+      object: impaired executive abilities
+      qualifier: MONDO:0011382
+    - subject: Use of hydroxyurea
+      predicate: TREATS
+      object: HP:0100543
+      qualifier: MONDO:0011382
+      subject_extension: CHEBI:44423
+    - subject: Cognitive testing
+      predicate: ASSESSES
+      object: impaired executive abilities
+      qualifier: MONDO:0011382
+named_entities:
+  - id: MONDO:0007374
+    label: Sickle Cell Disease (SCD)
+  - id: MAXO:0001017
+    label: Vaccination
+  - id: MAXO:0000756
+    label: Blood transfusion
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: HP:0012824
+    label: severity
+  - id: MONDO:0044348
+    label: hemoglobinopathies
+  - id: MONDO:0011382
+    label: Sickle Cell Disease
+  - id: CHEBI:44423
+    label: Hydroxyurea
+  - id: MAXO:0000747
+    label: Hematopoietic Stem Cell Transplantation
+  - id: HP:0001297
+    label: Stroke
+  - id: HP:0100543
+    label: Cognitive deficits

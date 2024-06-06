@@ -1,0 +1,111 @@
+---
+input_text: 'Extracorporeal Life Support for Severe Acute Chest Syndrome in Adult
+  Sickle Cell Disease: A Preliminary Report. OBJECTIVES: Extracorporeal life support
+  could be helpful for severe acute chest syndrome in adults sickle cell disease,
+  because of the frequent hemodynamic compromise in this setting, including acute
+  pulmonary vascular dysfunction and right ventricular failure. The aim of this study
+  was to report the extracorporeal life support experience for severe acute chest
+  syndrome in four referral centers in France. DESIGN: The primary endpoint of this
+  multicentric retrospective study was ICU survival of patients with severe acute
+  chest syndrome managed with extracorporeal life support. Secondary endpoints included
+  comparisons between survivors and nonsurvivors. SETTING: We performed this study
+  between January 2009 and July 2017 in four referral centers in France. PATIENTS:
+  We included adult patients (age > 18 yr) with sickle cell disease, admitted for
+  severe acute chest syndrome and who required extracorporeal life support during
+  the ICU stay. INTERVENTIONS: The study was observational. MEASUREMENTS AND MAIN
+  RESULTS: Over the 8-year period, 22 patients with sickle cell disease required extracorporeal
+  life support for severe acute chest syndrome, including 10 (45%) veno-venous and
+  12 (55%) veno-arterial extracorporeal life support. In-ICU mortality was high (73%).
+  Nonsurvivors had a higher severity at extracorporeal life support implantation,
+  as assessed by their Vasoactive-Inotrope Score and number of organ failures. CONCLUSIONS:
+  Our study shows that outcome is impaired in sickle cell disease patients receiving
+  extracorporeal life support while in severe multiple organ failure. Further studies
+  are needed to evaluate selection criteria in this setting.'
+raw_completion_output: |-
+  primary_disease: Severe Acute Chest Syndrome in Adult Sickle Cell Disease
+  medical_actions: Extracorporeal life support; Vasoactive-Inotrope Score assessment
+  symptoms: Hemodynamic compromise; Acute pulmonary vascular dysfunction; Right ventricular failure; Multiple organ failure
+  chemicals: 
+  action_annotation_relationships: Extracorporeal life support TREATS hemodynamic compromise IN Severe Acute Chest Syndrome in Adult Sickle Cell Disease; Extracorporeal life support TREATS acute pulmonary vascular dysfunction IN Severe Acute Chest Syndrome in Adult Sickle Cell Disease; Extracorporeal life support TREATS right ventricular failure IN Severe Acute Chest Syndrome in Adult Sickle Cell Disease; Extracorporeal life support TREATS multiple organ failure IN Severe Acute Chest Syndrome in Adult Sickle Cell Disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Extracorporeal life support TREATS multiple organ failure IN Severe Acute Chest Syndrome in Adult Sickle Cell Disease
+
+  ===
+
+extracted_object:
+  primary_disease: Severe Acute Chest Syndrome in Adult Sickle Cell Disease
+  medical_actions:
+    - MAXO:0000515
+    - Vasoactive-Inotrope Score assessment
+  symptoms:
+    - Hemodynamic compromise
+    - Acute pulmonary vascular dysfunction
+    - HP:0001708
+    - Multiple organ failure
+  action_annotation_relationships:
+    - subject: MAXO:0000515
+      predicate: TREATS
+      object: hemodynamic compromise
+      qualifier: Severe Acute Chest Syndrome in Adult Sickle Cell Disease
+    - subject: <Extracorporeal life support>
+      predicate: <TREATS>
+      object: <acute pulmonary vascular dysfunction>
+      qualifier: <Severe Acute Chest Syndrome in Adult Sickle Cell Disease>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: <Extracorporeal life support>
+      predicate: <TREATS>
+      object: <right ventricular failure>
+      qualifier: <Severe Acute Chest Syndrome in Adult Sickle Cell Disease>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <Extracorporeal life support>
+      object_extension: <>
+    - subject: MAXO:0000515
+      predicate: TREATS
+      object: multiple organ failure
+      qualifier: Severe Acute Chest Syndrome in Adult Sickle Cell Disease
+named_entities:
+  - id: MONDO:0007374
+    label: Sickle Cell Disease (SCD)
+  - id: MAXO:0001017
+    label: Vaccination
+  - id: MAXO:0000756
+    label: Blood transfusion
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: HP:0012824
+    label: severity
+  - id: MONDO:0044348
+    label: hemoglobinopathies
+  - id: MONDO:0011382
+    label: Sickle Cell Disease
+  - id: CHEBI:44423
+    label: Hydroxyurea
+  - id: MAXO:0000747
+    label: Hematopoietic Stem Cell Transplantation
+  - id: HP:0001297
+    label: Stroke
+  - id: HP:0100543
+    label: Cognitive deficits
+  - id: HP:0002140
+    label: Ischemic Stroke
+  - id: MAXO:0000515
+    label: Extracorporeal life support
+  - id: HP:0001708
+    label: Right ventricular failure

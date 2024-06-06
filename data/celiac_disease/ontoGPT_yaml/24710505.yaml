@@ -1,0 +1,124 @@
+---
+input_text: 'Novel role of the serine protease inhibitor elafin in gluten-related
+  disorders. OBJECTIVES: Elafin, an endogenous serine protease inhibitor, modulates
+  colonic inflammation. We investigated the role of elafin in celiac disease (CD)
+  using human small intestinal tissues and in vitro assays of gliadin deamidation.
+  We also investigated the potential beneficial effects of elafin in a mouse model
+  of gluten sensitivity. METHODS: Epithelial elafin expression in the small intestine
+  of patients with active CD, treated CD, and controls without CD was determined by
+  immunofluorescence. Interaction of elafin with human tissue transglutaminase-2 (TG-2)
+  was investigated in vitro. The 33-mer peptide, a highly immunogenic gliadin peptide,
+  was incubated with TG-2 and elafin at different concentrations. The degree of deamidation
+  of the 33-mer peptide was analyzed by liquid chromatography-mass spectrometry. Elafin
+  was delivered to the intestine of gluten-sensitive mice using a recombinant Lactococcus
+  lactis vector. Small intestinal barrier function, inflammation, proteolytic activity,
+  and zonula occludens-1 (ZO-1) expression were assessed. RESULTS: Elafin expression
+  in the small intestinal epithelium was lower in patients with active CD compared
+  with control patients. In vitro, elafin significantly slowed the kinetics of the
+  deamidation of the 33-mer peptide to its more immunogenic form. Treatment of gluten-sensitive
+  mice with elafin delivered by the L. lactis vector normalized inflammation, improved
+  permeability, and maintained ZO-1 expression. CONCLUSIONS: The decreased elafin
+  expression in the small intestine of patients with active CD, the reduction of 33-mer
+  peptide deamidation by elafin, coupled to the barrier enhancing and anti-inflammatory
+  effects observed in gluten-sensitive mice, suggest that this molecule may have pathophysiological
+  and therapeutic importance in gluten-related disorders.'
+raw_completion_output: |-
+  primary_disease: Celiac Disease (CD)
+  medical_actions: Immunofluorescence to determine elafin expression; In vitro assays of gliadin deamidation; Liquid chromatography-mass spectrometry to analyze deamidation; Treatment with elafin delivered by a Lactococcus lactis vector
+  symptoms: Inflammation; Permeability issues; Decreased expression of ZO-1; Gluten sensitivity
+  chemicals: Elafin; 33-mer peptide; Tissue transglutaminase-2 (TG-2)
+
+  action_annotation_relationships: Immunofluorescence TREATS decreased elafin expression IN Celiac Disease (CD); In vitro assays of gliadin deamidation (with elafin) PREVENTS inflammation IN Celiac Disease (CD); Liquid chromatography-mass spectrometry TREATS permeability issues IN Celiac Disease (CD); Treatment with elafin delivered by a Lactococcus lactis vector TREATS decreased expression of ZO-1 IN Celiac Disease (CD); Treatment with elafin delivered by a Lactococcus lactis vector TREATS gluten sensitivity IN Celiac Disease (CD)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Treatment with elafin delivered by a Lactococcus lactis vector TREATS gluten sensitivity IN Celiac Disease (CD)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0016063
+  medical_actions:
+    - Immunofluorescence to determine elafin expression
+    - In vitro assays of gliadin deamidation
+    - Liquid chromatography-mass spectrometry to analyze deamidation
+    - Treatment with elafin delivered by a Lactococcus lactis vector
+  symptoms:
+    - Inflammation
+    - Permeability issues
+    - Decreased expression of ZO-1
+    - HP:0012538
+  chemicals:
+    - Elafin
+    - 33-mer peptide
+    - Tissue transglutaminase-2 (TG-2)
+  action_annotation_relationships:
+    - subject: <Immunofluorescence>
+      predicate: <TREATS>
+      object: <decreased elafin expression>
+      qualifier: MONDO:0016063
+      subject_qualifier: <>
+      object_qualifier: <decreased>
+      subject_extension: <Immunofluorescence>
+      object_extension: <elafin expression>
+    - subject: In vitro assays of gliadin deamidation
+      predicate: PREVENTS
+      object: inflammation
+      qualifier: MONDO:0016063
+      subject_qualifier: with elafin
+      subject_extension: elafin
+    - subject: Liquid chromatography-mass spectrometry
+      predicate: TREATS
+      object: permeability issues
+      qualifier: MONDO:0016063
+    - subject: Treatment
+      predicate: TREATS
+      object: decreased expression of ZO-1
+      qualifier: MONDO:0016063
+      subject_qualifier: delivered by a Lactococcus lactis vector
+      subject_extension: elafin
+    - subject: Treatment with elafin delivered by a Lactococcus lactis vector
+      predicate: TREATS
+      object: HP:0012538
+      qualifier: MONDO:0016063
+      subject_extension: elafin
+named_entities:
+  - id: MONDO:0005130
+    label: Celiac disease
+  - id: CHEBI:81580
+    label: Prolactin
+  - id: HP:0000870
+    label: Hyperprolactinemia
+  - id: HP:0000938
+    label: Bone loss
+  - id: CHEBI:22984
+    label: Calcium
+  - id: CHEBI:27300
+    label: Vitamin D
+  - id: MONDO:0019473
+    label: Enteropathy-associated T-cell lymphoma (EATL)
+  - id: HP:0002027
+    label: abdominal pain
+  - id: HP:0003270
+    label: bloating
+  - id: HP:0002014
+    label: diarrhea
+  - id: HP:0001903
+    label: anemia
+  - id: MONDO:0005298
+    label: Osteoporosis
+  - id: MONDO:0016063
+    label: Celiac Disease (CD)
+  - id: HP:0012538
+    label: Gluten sensitivity
