@@ -43,4 +43,4 @@ plot <- ggplot(data1, aes(x = Counts, y = Value_Types, fill = Value_Types)) +
   )
 
 # Save the plot as a JPG file
-ggsave("evaluation/plot_1.jpg", plot = plot, device = "jpeg", width = 12, height = 8, dpi = 300)
+ggsave("evaluation/plot.jpg", plot = plot, device = "jpeg", width = 12, height = 8, dpi = 300)
