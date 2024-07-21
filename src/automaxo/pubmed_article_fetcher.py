@@ -245,7 +245,7 @@ if __name__ == '__main__':
 
 
 """
-python pubmed_article_fetcher.py -d "sickle cell" -m ../../data/mesh_sets.tsv -o ../../data/sickle_cell/pubtator3_json/  -j ../../data/sickle_cell/selected_pmid_mesh_info.json -n 10
+python pubmed_article_fetcher.py -d "sickle cell" -m ../../data/mesh_sets.tsv -o ../../data/sickle_cell/pubtator3_json/  -j ../../data/sickle_cell/selected_pmid_mesh_info.json -n 2
 
 
 
