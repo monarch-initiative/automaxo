@@ -66,7 +66,7 @@ Extract data from the JSON files and save the text where each row represents the
 | option | meaning                                                                   |
 |--------|---------------------------------------------------------------------------|
 | _-i_   | directory containing json files produced in step 2                        |
-| _-n_   | a path for _.tsv_ file  pre processed articles data                       |
+| _-n_   | a path for _.tsv_ file pre processed text data                            |
 
 
 for example:
@@ -82,7 +82,7 @@ Integrate OntoGPT article by article to process the text data. This step each ro
 
 | option        | meaning                                                                   |
 |---------------|---------------------------------------------------------------------------|
-| _-i_          | a path for _.tsv_ file produced in step 3                                 |
+| _-i_          | a path for _.tsv_ file pre processed text produced in step 3              |
 | _-o_          | directory containing yaml files produced by LLMs (ontoGPT)                |
 | _-template_   | name of the tamplate to ontoGPT (default = 'maxo')                        |
 
@@ -94,7 +94,18 @@ python ontogpt_article_processor.py -i ../../data/sickle_cell/sickle_cell_no_rep
 
 ```
 
-## Step 5: 
+## Step 5: Post Process LLMs Results 
+
+Post process LLMs results for separate yamal files to single json file, including further grounding of terms to the existing ontologies, and ranking extracted triplets by frequency of appearance. 
+
+
+| option  | meaning                                                                                    |
+|---------|--------------------------------------------------------------------------------------------|
+| _-i_    | directory containing yaml files produced in step 4                                         |
+| _-s_    | a path for _.json_ file to save MeSH ids related to retrieved articles produced in step 2  |
+| _-n     | a path for _.tsv_ file pre processed text produced in step 3                               |
+| _-o     | a path to  _.json_ file to save post processed LLM results in one file                     |
+
 
 
 for example:
@@ -107,7 +118,6 @@ python triplet_ranking_and_mesh_combiner.py -i ../../data/sickle_cell/ontoGPT_ya
 ## Step 6: Validate Annotations
 
 Validate the annotations to ensure the right labels are used.
-
 
 
 # Running the Script
