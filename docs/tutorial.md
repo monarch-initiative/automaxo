@@ -2,27 +2,6 @@
 
 Welcome to the AutoMAxO tutorial. This guide will walk you through running the AutoMAxO project, step by step.
 
-## Prerequisites
-
-Ensure you have the following installed:
-- Python 3.x
-- Required Python packages (as specified in your `requirements.txt` or similar file)
-
-### Setting Up the Project
-
-Clone the AutoMAxO repository and navigate to the project directory:
-
-```bash
-git clone https://github.com/your-repo/automaxo.git
-cd automaxo
-```
-
-Install the required dependencies:
-
-```shell
-pip install -r requirements.txt
-```
-
 ## Step 1: Retrieve MeSH IDs
 
 Start by retrieving the MeSH IDs related to the treatment and diagnosis of your specified disease. 
