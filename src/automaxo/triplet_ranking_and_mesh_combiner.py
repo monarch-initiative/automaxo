@@ -491,10 +491,7 @@ if __name__ == '__main__':
 """
 python triplet_ranking_and_mesh_combiner.py -i path/to/yaml/directory -s path/to/mesh/info/file -o path/to/output.json
 
-python triplet_ranking_and_mesh_combiner.py -i ../../data/donnai-barrow_syndrome/ontoGPT_yaml/ -s ../../data/donnai-barrow_syndrome/selected_pmid_mesh_info.json -n ../../data/donnai-barrow_syndrome/donnai-barrow_syndrome_no_replaced.tsv -o ../../data/donnai-barrow_syndrome/detailed_post_ontoGPT.json
-
-
-python triplet_ranking_and_mesh_combiner.py -i ../../evaluation/evaluation_ontoGPT_yaml -s ../../evaluation/evaluation_selected_pmid_mesh_info_1.json -n ../../evaluation/evaluation_no_replacement_1.tsv -o ../../evaluation/evaluation_detailed_post_ontoGPT.json
+python triplet_ranking_and_mesh_combiner.py -i ../../data/sickle_cell/ontoGPT_yaml/ -s ../../data/sickle_cell/selected_pmid_mesh_info.json -n ../../data/sickle_cell/sickle_cell_no_replaced.tsv -o ../../data/sickle_cell/detailed_post_ontoGPT.json
 
 """
 

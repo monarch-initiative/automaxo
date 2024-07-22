@@ -17,7 +17,7 @@ class AutoMaxoRunner:
 
 
     def run(self):       
-        print(f"Starting to retrieve mesh IDs related to treatment and diagnosis of {self.disease_name}...")
+        print(f"Starting to retrieve raw data and  mesh IDs related to treatment of {self.disease_name}...")
         pmid_extractor(
             disease_name=self.disease_name,
             mesh_list_path="data/mesh_sets.tsv",

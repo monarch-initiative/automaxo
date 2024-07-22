@@ -31,7 +31,7 @@ runoak set-apikey -e openai <your openai api key>
 
 ```
 
-# Running the Script
+## Running the Script
 
 You can run the script using the following command:
 
