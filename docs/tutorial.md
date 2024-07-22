@@ -2,6 +2,10 @@
 
 Welcome to the AutoMAxO tutorial. This guide will walk you through running the AutoMAxO project, step by step.
 
+## Setup
+See [installation instructions](install.md).
+
+
 ### Note:
 There are two options to run the whole AutoMAxO pipeline depending of the usage: 
 1. You can run the whole project by just one command if you would like to retrieve certain number of articles that talks about therapeutics and extract medical actions.
