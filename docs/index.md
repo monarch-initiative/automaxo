@@ -1,28 +1,18 @@
 # AutoMAxO
 
-## Using LLM for MaXO Curation
+## Running the Script
 
-This project aims to use Large Language Models (LLMs) for the curation of the Medical Action Ontology (MaXO).
+You can run the script using the following command:
 
-The following steps outline the setup and execution of the project.
-
-## Setting Up the Virtual Environment And Running the whole project
-
-First, create and activate a virtual environment:
-
-```bash
-poetry install
-poetry shell  
+```shell
+python main.py --disease_name "YourDiseaseName" --max_articles_to_save 100
 ```
+Replace "YourDiseaseName" with the name of the disease you want to process and adjust 100 to the desired number of articles to save.
 
-Add your openAI key:
+or you can just run this command: 
 
-```bash
-runoak set-apikey -e openai <your openai api key>
-
-```
-
-To run the code for the whole project
 ```bash
 python main.py
 ```
+and then enter a disease name, and number of articles to be saved. 
+
