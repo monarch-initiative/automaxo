@@ -3,9 +3,9 @@
 ## 1. Prerequisites
 
 Ensure you have the following installed:
-- Python: >=3.9, <3.9.7 or >3.9.7, <3.11
-- Poetry
-- OpenAI API Key
+* Python: >=3.9, <3.9.7 or >3.9.7, <3.11
+* Poetry
+* OpenAI API Key
 
 ### Install the Right Version of Python
 AutoMAxO requires Python 3.9. There are many ways to set this up, and users should consult documentation specific to their system.
