@@ -1,128 +1,131 @@
 # AutoMAxO Tutorial
 
-Welcome to the AutoMAxO tutorial. This guide will walk you through running the AutoMAxO project, step by step.
-
-## Setup
-See [installation instructions](install.md).
-
+Welcome to the AutoMAxO tutorial. This guide will walk you through running the AutoMAxO project step by step.
 
 ### Note:
-There are two options to run the whole AutoMAxO pipeline depending of the usage: 
-1. You can run the whole project by just one command if you would like to retrieve certain number of articles that talks about therapeutics and extract medical actions.
+There are two options to run the whole AutoMAxO pipeline depending on your usage:
+1. You can run the entire project with just one command if you would like to retrieve a certain number of articles that discuss therapeutics and extract medical actions.
 
 ```shell
 python main.py --disease_name "YourDiseaseName" --max_articles_to_save 100
 ```
-Replace "YourDiseaseName" with the name of the disease you want to process and adjust 100 to the desired number of articles to save.
+Replace "YourDiseaseName" with the name of the disease you want to process and adjust `100` to the desired number of articles to save.
 
-2. You can run eah file separately to easily modify and integrate AutoMAxO to differnt applications to accomplish differnt tasks. Follow the following step by step:  
-
+2. You can run each file separately to easily modify and integrate AutoMAxO into different applications to accomplish various tasks. In this tutorial, we will be using "sickle cell" as a sample disease, but you can change it to any name you prefer. Follow the step-by-step instructions below:
 
 ## Step 1: Extract MeSH Sets from Target MeSH IDs
 
-Reads a list of targeted mesh ids and their labels and creates a formated file with mesh sets required for AutoMAxO project
+The script, `mesh_importer.py`, reads a list of targeted MeSH IDs and their labels to create a formatted file with MeSH sets required for the AutoMAxO project.
+
+| Option       | Meaning                                          |
+|--------------|--------------------------------------------------|
+| --input-file | Path to the .tsv file containing MeSH target IDs |
+| --output-file| Path to the output .tsv file with MeSH sets      |
+
+For example:
 
 ```shell
 python mesh_importer.py --input-file path/to/mesh_target_ids.tsv --output-file path/to/mesh_sets.tsv
 ```
+The default format for `mesh_target_ids` in the project is as follows:
 
-The default of the project for mesh_target_ids, following the right formart is this:
+| mesh.id | label        |
+|---------|--------------|
+| D013812 | Therapeutics |
 
-| mesh.id | label          |
-|--------|-----------------|
-| D013812 | Therapeutics   |
+Sample output for `mesh_sets`:
 
-Sample of the output:  mesh_sets :
-
-| label        | mesh.id         | mesh set                                 |
-|--------------|-----------------|------------------------------------------|
-| Therapeutics | D013812         |061645;D000075162;D000161;D000203;D019050 |
+| label        | mesh.id | mesh set                             |
+|--------------|---------|--------------------------------------|
+| Therapeutics | D013812 | 061645;D000075162;D000161;D000203;D019050 |
 
 ## Step 2: Retrieve MeSH IDs
 
-Start by retrieving raw data and MeSH IDs related to the treatment of your specified disease. On this stage the scrip first checks whether there are already existing articles in the directory, and to avoid duplicate extraction, it ensures that the new articles being extracted are not the same as the ones already exisitng in the directory, and try to extract up to the maximum as the user mentioned. 
+The script, `pubmed_article_fetcher.py`,start by retrieving raw data and MeSH IDs related to the treatment of your specified disease. In this stage, the script first checks whether there are already existing articles in the directory to avoid duplicate extraction. It ensures that the new articles being extracted are not the same as the ones already existing in the directory, and attempts to extract up to the maximum number specified by the user.
 
-
-
-| option | meaning                                                                   |
+| Option | Meaning                                                                   |
 |--------|---------------------------------------------------------------------------|
-| _-d_   | a disease Name                                                            |
-| _-m_   | a path for _.tsv_ file  with mesh sets created in step 1                  |
-| _-o_   | directory where retreived articles will be saved in form of _.json_ files |
-| _-j_   | a path for _.json_ file to save MeSH ids related to retrieved articles    |
-| _-n_   | maximum articles to be retrieved                                          |
+| -d     | Disease name                                                              |
+| -m     | Path to the .tsv file with MeSH sets created in Step 1                    |
+| -o     | Directory where retrieved articles will be saved in the form of .json files |
+| -j     | Path to the .json file to save MeSH IDs related to retrieved articles     |
+| -n     | Maximum number of articles to retrieve                                    |
 
+For example:
 
-for example:
 ```shell
-python pubmed_article_fetcher.py -d "sickle cell" -m ../../data/mesh_sets.tsv -o ../../data/sickle_cell/pubtator3_json/  -j ../../data/sickle_cell/selected_pmid_mesh_info.json -n 2
-
+python pubmed_article_fetcher.py -d "sickle cell" -m ../../data/mesh_sets.tsv -o ../../data/sickle_cell/pubtator3_json/ -j ../../data/sickle_cell/selected_pmid_mesh_info.json -n 2
 ```
-Note:  
-* a disease name is not case sensitive
-* The maximum articles, will be the articles both abuout  a specific disease and has at least one one the MeSH Ids in the mesh sets from step 1, means articles about a theraputics of a specific disease for our use case for example. 
 
+Note:
+* The disease name is not case-sensitive.
+* The maximum number of articles will include articles both about a specific disease and having at least one of the MeSH IDs in the MeSH sets from Step 1, meaning articles about therapeutics of a specific disease, for example, in our use case.
 
-## Step 3: Pre Process Extract Data from JSON Files
+## Step 3: Pre-process Extracted Data from JSON Files
 
-Extract data from the JSON files and save the text where each row represents the title and abstract of an article.
+The script, `article_data_extractor.py`, extracts data from JSON files and saves the text where each row represents the title and abstract of an article.
 
-| option | meaning                                                                   |
-|--------|---------------------------------------------------------------------------|
-| _-i_   | directory containing json files produced in step 2                        |
-| _-n_   | a path for _.tsv_ file pre processed text data                            |
+| Option | Meaning                                    |
+|--------|--------------------------------------------|
+| -i     | Directory containing JSON files produced in Step 2 |
+| -n     | Path to the .tsv file for pre-processed text data  |
 
+For example:
 
-for example:
 ```shell
-python article_data_extractor.py -i ../../data/sickle_cell/pubtator3_json/ -n  ../../data/sickle_cell/sickle_cell_no_replaced.tsv 
-
+python article_data_extractor.py -i ../../data/sickle_cell/pubtator3_json/ -n ../../data/sickle_cell/sickle_cell_no_replaced.tsv
 ```
 
 ## Step 4: Integrate OntoGPT
 
-Integrate OntoGPT article by article to process the text data. This step each row represents each articles extracted, each row is treated as an input text for ontoGPT. 
+The script, `ontogpt_article_processor.py`, processes the text data from the pre-processed .tsv file using OntoGPT. Each row in the .tsv file is treated as an input text for OntoGPT. For more information about OntoGPT, please refer to <a href="https://github.com/monarch-initiative/ontogpt" target="_blank">this repo</a>.
 
 
-| option        | meaning                                                                   |
-|---------------|---------------------------------------------------------------------------|
-| _-i_          | a path for _.tsv_ file pre processed text produced in step 3              |
-| _-o_          | directory containing yaml files produced by LLMs (ontoGPT)                |
-| _-template_   | name of the tamplate to ontoGPT (default = 'maxo')                        |
+| Option     | Meaning                                                            |
+|------------|--------------------------------------------------------------------|
+| -i         | Path to the .tsv file for pre-processed text produced in Step 3    |
+| -o         | Directory containing YAML files produced by LLMs (OntoGPT)         |
+| -template  | Name of the template for OntoGPT (default = 'maxo')                |
 
+For example:
 
-
-for example:
 ```shell
 python ontogpt_article_processor.py -i ../../data/sickle_cell/sickle_cell_no_replaced.tsv -o ../../data/sickle_cell/ontoGPT_yaml/
-
 ```
 
-## Step 5: Post Process LLMs Results 
+## Step 5: Post-process LLM Results
 
-Post process LLMs results for separate yamal files to single json file, including further grounding of terms to the existing ontologies, and ranking extracted triplets by frequency of appearance. 
+The script, `ontology_validation.py`, 
+Post-process LLM results from separate YAML files into a single JSON file. This includes further grounding of terms to the existing ontologies and ranking extracted triplets by frequency of appearance.
 
+| Option | Meaning                                                                                   |
+|--------|-------------------------------------------------------------------------------------------|
+| -i     | Directory containing YAML files produced in Step 4                                        |
+| -s     | Path to the .json file to save MeSH IDs related to retrieved articles produced in Step 2  |
+| -n     | Path to the .tsv file for pre-processed text produced in Step 3                           |
+| -o     | Path to the .json file to save post-processed LLM results in one file                     |
 
-| option  | meaning                                                                                    |
-|---------|--------------------------------------------------------------------------------------------|
-| _-i_    | directory containing yaml files produced in step 4                                         |
-| _-s_    | a path for _.json_ file to save MeSH ids related to retrieved articles produced in step 2  |
-| _-n     | a path for _.tsv_ file pre processed text produced in step 3                               |
-| _-o     | a path to  _.json_ file to save post processed LLM results in one file                     |
+For example:
 
-
-
-for example:
 ```shell
 python triplet_ranking_and_mesh_combiner.py -i ../../data/sickle_cell/ontoGPT_yaml/ -s ../../data/sickle_cell/selected_pmid_mesh_info.json -n ../../data/sickle_cell/sickle_cell_no_replaced.tsv -o ../../data/sickle_cell/detailed_post_ontoGPT.json
-
-
 ```
 
 ## Step 6: Validate Annotations
 
-Validate the annotations to ensure the right labels are used.
+The script, `ontology_validation.py`, updates ontology labels in a JSON file by validating and augmenting MAXO, HPO, and MONDO IDs with their corresponding labels. It processes the JSON data, generates ontology term files using `runoak`, and integrates these terms into the JSON file to enhance the dataset with accurate ontology information.
 
+
+| Option              | Meaning                                                                                   |
+|---------------------|-------------------------------------------------------------------------------------------|
+| -json_file_path     | Path to the .json file of post-processed LLM results produced in Step 5                   |
+| -output_file_path   | Path to the .json file, final result of validated ontologies produced by automaxo         |
+
+For example:
+
+```shell
+python ontology_validation.py ../../data/sickle_cell/detailed_post_ontoGPT.json ../../data/sickle_cell/final_automaxo_results.json
+```
 
 # Running the Script
 
@@ -131,4 +134,4 @@ You can run the script using the following command:
 ```shell
 python main.py --disease_name "YourDiseaseName" --max_articles_to_save 100
 ```
-Replace "YourDiseaseName" with the name of the disease you want to process and adjust 100 to the desired number of articles to save.
+Replace "YourDiseaseName" with the name of the disease you want to process and adjust `100` to the desired number of articles to save.

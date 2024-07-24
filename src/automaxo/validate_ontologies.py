@@ -95,3 +95,9 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     run_in_notebook(args.json_file_path, args.output_file_path)
+
+"""
+python ontology_validation.py ../../data/sickle_cell/detailed_post_ontoGPT.json ../../data/sickle_cell/final_automaxo_results.json
+
+
+"""
