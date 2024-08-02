@@ -1,0 +1,67 @@
+---
+input_text: 'Preventing a Catastrophe: Increasing Awareness of Loeys-Dietz Syndrome.
+  Loeys-Dietz syndrome is a genetic disorder that predisposes patients to aortic aneurysms.
+  If left untreated, the natural history of the associated aortopathy often culminates
+  in fatal aortic dissection. We describe the case of a 21-year-old man who was diagnosed
+  with Loeys-Dietz syndrome after 2 family members died of aortic dissection. This
+  case highlights the importance of increased physician awareness of this syndrome,
+  which can play a crucial role in preventing premature sudden cardiac death caused
+  by aortic catastrophe.'
+raw_completion_output: |-
+  primary_disease: Loeys-Dietz syndrome
+  medical_actions: increased physician awareness
+  symptoms: aortic aneurysms; fatal aortic dissection; premature sudden cardiac death
+  chemicals: 
+  action_annotation_relationships: increased physician awareness PREVENTS aortic aneurysms IN Loeys-Dietz syndrome; increased physician awareness PREVENTS fatal aortic dissection IN Loeys-Dietz syndrome; increased physician awareness PREVENTS premature sudden cardiac death IN Loeys-Dietz syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  increased physician awareness PREVENTS premature sudden cardiac death IN Loeys-Dietz syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0018954
+  medical_actions:
+    - increased physician awareness
+  symptoms:
+    - HP:0004942
+    - fatal aortic dissection
+    - HP:0001645
+  action_annotation_relationships:
+    - subject: increased physician awareness
+      predicate: PREVENTS
+      object: HP:0004942
+      qualifier: MONDO:0018954
+    - subject: increased physician awareness
+      predicate: PREVENTS
+      object: fatal aortic dissection
+      qualifier: MONDO:0018954
+    - subject: increased physician awareness
+      predicate: PREVENTS
+      object: HP:0001645
+      qualifier: MONDO:0018954
+named_entities:
+  - id: MONDO:0018954
+    label: Loeys-Dietz syndrome
+  - id: HP:0012764
+    label: orthopnea
+  - id: HP:0001631
+    label: atrial septal defect
+  - id: HP:0012531
+    label: pain
+  - id: HP:0004942
+    label: aortic aneurysms
+  - id: HP:0001645
+    label: premature sudden cardiac death

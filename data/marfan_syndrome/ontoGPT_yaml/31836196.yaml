@@ -1,0 +1,82 @@
+---
+input_text: 'Irbesartan in Marfan syndrome (AIMS): a double-blind, placebo-controlled
+  randomised trial. BACKGROUND: Irbesartan, a long acting selective angiotensin-1
+  receptor inhibitor, in Marfan syndrome might reduce aortic dilatation, which is
+  associated with dissection and rupture. We aimed to determine the effects of irbesartan
+  on the rate of aortic dilatation in children and adults with Marfan syndrome. METHODS:
+  We did a placebo-controlled, double-blind randomised trial at 22 centres in the
+  UK. Individuals aged 6-40 years with clinically confirmed Marfan syndrome were eligible
+  for inclusion. Study participants were all given 75 mg open label irbesartan once
+  daily, then randomly assigned to 150 mg of irbesartan (increased to 300 mg as tolerated)
+  or matching placebo. Aortic diameter was measured by echocardiography at baseline
+  and then annually. All images were analysed by a core laboratory blinded to treatment
+  allocation. The primary endpoint was the rate of aortic root dilatation. This trial
+  is registered with ISRCTN, number ISRCTN90011794. FINDINGS: Between March 14, 2012,
+  and May 1, 2015, 192 participants were recruited and randomly assigned to irbesartan
+  (n=104) or placebo (n=88), and all were followed for up to 5 years. Median age at
+  recruitment was 18 years (IQR 12-28), 99 (52%) were female, mean blood pressure
+  was 110/65 mm Hg (SDs 16 and 12), and 108 (56%) were taking beta blockers. Mean
+  baseline aortic root diameter was 34 4 mm in the irbesartan group (SD 5 8) and placebo
+  group (5 5). The mean rate of aortic root dilatation was 0 53 mm per year (95% CI
+  0 39 to 0 67) in the irbesartan group compared with 0 74 mm per year (0 60 to 0
+  89) in the placebo group, with a difference in means of -0 22 mm per year (-0 41
+  to -0 02, p=0 030). The rate of change in aortic Z score was also reduced by irbesartan
+  (difference in means -0 10 per year, 95% CI -0 19 to -0 01, p=0 035). Irbesartan
+  was well tolerated with no observed differences in rates of serious adverse events.
+  INTERPRETATION: Irbesartan is associated with a reduction in the rate of aortic
+  dilatation in children and young adults with Marfan syndrome and could reduce the
+  incidence of aortic complications. FUNDING: British Heart Foundation, the UK Marfan
+  Trust, the UK Marfan Association.'
+raw_completion_output: |-
+  primary_disease: Marfan syndrome
+  medical_actions: prescription of irbesartan; echocardiography; double-blind, placebo-controlled randomised trial
+  symptoms: aortic dilatation
+  chemicals: irbesartan
+  action_annotation_relationships: prescription of irbesartan TREATS aortic dilatation IN Marfan syndrome; echocardiography MEASURES aortic dilatation IN Marfan syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  echocardiography MEASURES aortic dilatation IN Marfan syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0007947
+  medical_actions:
+    - prescription of irbesartan
+    - MAXO:0010203
+    - double-blind, placebo-controlled randomised trial
+  symptoms:
+    - HP:0004942
+  chemicals:
+    - CHEBI:5959
+  action_annotation_relationships:
+    - subject: prescription of irbesartan
+      predicate: TREATS
+      object: HP:0004942
+      qualifier: MONDO:0007947
+      subject_extension: CHEBI:5959
+    - subject: MAXO:0010203
+      predicate: MEASURES
+      object: HP:0004942
+      qualifier: MONDO:0007947
+named_entities:
+  - id: MONDO:0007947
+    label: Marfan syndrome
+  - id: MAXO:0010203
+    label: echocardiography
+  - id: HP:0004942
+    label: aortic dilatation
+  - id: CHEBI:5959
+    label: irbesartan

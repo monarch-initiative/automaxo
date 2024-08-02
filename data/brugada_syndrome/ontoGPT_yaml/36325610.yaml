@@ -1,0 +1,98 @@
+---
+input_text: COVID-19 Vaccination-Induced Ventricular Fibrillation in an Afebrile Patient
+  With Brugada Syndrome. A 43-year-old man presented with cardiac arrest 2 days after
+  the second coronavirus disease 2019 (COVID-19) vaccination with an mRNA vaccine.
+  Electrocardiograms showed ventricular fibrillation and type 1 Brugada pattern ST
+  segment elevation. The patient reported having no symptoms, including febrile sensation.
+  There were no known underlying cardiac diseases to explain such electrocardiographic
+  abnormalities. ST segment elevation completely disappeared in two weeks. Although
+  there were no genetic mutations or personal or family history typical of Brugada
+  syndrome, flecainide administration induced type 1 Brugada pattern ST segment elevation.
+  This case suggests that COVID-19 vaccination may induce cardiac ion channel dysfunction
+  and cause life threatening ventricular arrhythmias in specific patients with Brugada
+  syndrome.
+raw_completion_output: |-
+  primary_disease: COVID-19 Vaccination-Induced Ventricular Fibrillation in Brugada Syndrome
+  medical_actions: Vaccination with mRNA vaccine; Electrocardiograms; Flecainide administration
+  symptoms: Cardiac arrest; Ventricular fibrillation; Type 1 Brugada pattern ST segment elevation; No febrile sensation
+  chemicals: mRNA vaccine; Flecainide
+  action_annotation_relationships: Vaccination with mRNA vaccine PREVENTS COVID-19 IN COVID-19 Vaccination-Induced Ventricular Fibrillation in Brugada Syndrome; Electrocardiograms DIAGNOSE Ventricular fibrillation IN COVID-19 Vaccination-Induced Ventricular Fibrillation in Brugada Syndrome; Electrocardiograms DIAGNOSE Type 1 Brugada pattern ST segment elevation IN COVID-19 Vaccination-Induced Ventricular Fibrillation in Brugada Syndrome; Flecainide administration (with Flecainide) INDUCES Type 1 Brugada pattern ST segment elevation IN COVID-19 Vaccination-Induced Ventricular Fibrillation in Brugada Syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Flecainide administration (with Flecainide) INDUCES Type 1 Brugada pattern ST segment elevation IN COVID-19 Vaccination-Induced Ventricular Fibrillation in Brugada Syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: COVID-19 Vaccination-Induced Ventricular Fibrillation in Brugada
+    Syndrome
+  medical_actions:
+    - Vaccination with mRNA vaccine
+    - Electrocardiograms
+    - Flecainide administration
+  symptoms:
+    - HP:0001695
+    - HP:0001663
+    - Type 1 Brugada pattern ST segment elevation
+    - No febrile sensation
+  chemicals:
+    - mRNA vaccine
+    - CHEBI:75984
+  action_annotation_relationships:
+    - subject: MAXO:0001017
+      predicate: PREVENTS
+      object: COVID-19
+      qualifier: COVID-19 Vaccination-Induced Ventricular Fibrillation in Brugada
+        Syndrome
+      subject_extension: mRNA vaccine
+    - subject: <Electrocardiograms>
+      predicate: <DIAGNOSE>
+      object: <Ventricular fibrillation>
+      qualifier: <COVID-19 Vaccination-Induced Ventricular Fibrillation in Brugada
+        Syndrome>
+      subject_qualifier: <Not applicable>
+      object_qualifier: <Not applicable>
+      subject_extension: <Not applicable>
+      object_extension: <Not applicable>
+    - subject: Electrocardiograms
+      predicate: DIAGNOSE
+      object: Type 1 Brugada pattern ST segment elevation
+      qualifier: COVID-19 Vaccination-Induced Ventricular Fibrillation in Brugada
+        Syndrome
+    - subject: Flecainide administration
+      predicate: INDUCES
+      object: Type 1 Brugada pattern ST segment elevation
+      qualifier: COVID-19 Vaccination-Induced Ventricular Fibrillation in Brugada
+        Syndrome
+      subject_qualifier: with Flecainide
+      subject_extension: CHEBI:75984
+      object_extension: Type 1 Brugada pattern ST segment elevation
+named_entities:
+  - id: HP:0001663
+    label: ventricular fibrillation
+  - id: HP:0007760
+    label: sudden cardiac death (SCD)
+  - id: HP:0100543
+    label: cognitive impairment
+  - id: MONDO:0002076
+    label: Pneumothorax
+  - id: HP:0002094
+    label: Dyspnea
+  - id: HP:0001695
+    label: Cardiac arrest
+  - id: CHEBI:75984
+    label: Flecainide
+  - id: MAXO:0001017
+    label: Vaccination

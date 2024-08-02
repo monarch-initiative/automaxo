@@ -1,0 +1,155 @@
+---
+input_text: "Long-Term Results after Modified Bentall Operation in 200 Patients. BACKGROUND:
+  Composite graft replacement of the aortic root is the treatment of choice for an
+  array of aortic root pathologies, such as annuloaortic ectasia, Marfan syndrome
+  and acute or chronic aortic dissection type A. In this retrospective study of the
+  authors' aortic surgery database, an exploration was made of factors related to
+  early and long-term morbidity and mortality of patients who underwent this procedure.
+  METHODS: Between 2000 and 2009, a total of 200 consecutive patients (male:female
+  ratio 4:1; mean age 56.2 +- 11.66 years) underwent the modified Bentall operation
+  at the authors' institution, with a composite graft (mechanical valve) being used
+  to correct aortic root pathology. All preoperative, perioperative and postoperative
+  data, as well as long-term follow up data, were retrieved from the authors' aortic
+  surgery database. RESULTS: Preoperative characteristics of the patients included
+  elective and emergency operations (83.1% and 15.9%, respectively). Intraoperative
+  and 30-day mortalities were 2% and 3.5%, respectively, while the rate of postoperative
+  cerebrovascular events was 1.5%. Long-term survival at a mean follow up of 110 months
+  for the elective and emergency groups was 88.6% and 71.9%, respectively (p = 0.007).
+  Moreover, during the same period new cerebrovascular events were observed in 5.8%
+  of cases. Predictive factors for late survival were type of surgery (elective versus
+  emergency; p = 0.023), conduit size (<=23 mm versus >23 mm; p = 0.053) , age >65
+  years (p = 0.001), intensive care unit stay (days; p <0.001) and postoperative creatinine
+  level (p = 0.002). Survival rates at one, three, five and 10 years postoperatively
+  were 93.5%, 92.5%, 91.5% and 85.9%, respectively. CONCLUSIONS: Patients who underwent
+  the modified Bentall operation presented with minimal major adverse effects and
+  demonstrated a good long-term survival."
+raw_completion_output: |-
+  primary_disease: Aortic root pathologies
+  medical_actions: Composite graft replacement;Modified Bentall operation;Use of mechanical valve
+  symptoms: Annuloaortic ectasia;Marfan syndrome;Acute aortic dissection type A;Chronic aortic dissection type A;Cerebrovascular events
+  chemicals: 
+  action_annotation_relationships: Composite graft replacement TREATS annuloaortic ectasia IN Aortic root pathologies;Composite graft replacement TREATS Marfan syndrome IN Aortic root pathologies;Composite graft replacement TREATS acute aortic dissection type A IN Aortic root pathologies;Composite graft replacement TREATS chronic aortic dissection type A IN Aortic root pathologies;Modified Bentall operation (with mechanical valve) PREVENTS cerebrovascular events IN Aortic root pathologies
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Modified Bentall operation (with mechanical valve) PREVENTS cerebrovascular events IN Aortic root pathologies
+
+  ===
+
+extracted_object:
+  primary_disease: Aortic root pathologies
+  medical_actions:
+    - Composite graft replacement
+    - Modified Bentall operation
+    - Use of mechanical valve
+  symptoms:
+    - HP:0200146
+    - Marfan syndrome
+    - Acute aortic dissection type A
+    - Chronic aortic dissection type A
+    - Cerebrovascular events
+  action_annotation_relationships:
+    - subject: <Composite graft replacement>
+      predicate: <TREATS>
+      object: <annuloaortic ectasia>
+      qualifier: <Aortic root pathologies>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: Composite graft replacement
+      predicate: TREATS
+      object: Aortic root pathologies
+      qualifier: MONDO:0007947
+    - subject: <Composite graft replacement>
+      predicate: <TREATS>
+      object: <acute aortic dissection type A>
+      qualifier: <Aortic root pathologies>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: Composite graft replacement
+      predicate: TREATS
+      object: chronic aortic dissection type A
+      qualifier: Aortic root pathologies
+    - subject: Modified Bentall operation
+      predicate: PREVENTS
+      object: cerebrovascular events
+      qualifier: Aortic root pathologies
+      subject_qualifier: with mechanical valve
+      subject_extension: mechanical valve
+named_entities:
+  - id: MONDO:0007947
+    label: Marfan syndrome
+  - id: HP:0032079
+    label: Medial degeneration
+  - id: HP:0002617
+    label: aneurysm
+  - id: HP:0030965
+    label: increased aortic stiffness
+  - id: HP:0001659
+    label: aortic regurgitation
+  - id: HP:0001712
+    label: left ventricular hypertrophy
+  - id: HP:0005162
+    label: left ventricular failure
+  - id: MONDO:0020333
+    label: Anterior sacral meningocele (ASM)
+  - id: HP:0002315
+    label: headache
+  - id: HP:0002018
+    label: nausea
+  - id: HP:0002138
+    label: subarachnoid hemorrhage
+  - id: HP:0012531
+    label: Pain
+  - id: HP:0012378
+    label: Fatigue
+  - id: HP:0012332
+    label: Dysautonomia
+  - id: HP:0002659
+    label: Bone fragility
+  - id: HP:0025017
+    label: Capillary fragility
+  - id: HP:0001030
+    label: Skin fragility
+  - id: MONDO:0044632
+    label: Extracranial Carotid Artery Aneurysms (ECAAs)
+  - id: MAXO:0000448
+    label: Surgical resection
+  - id: HP:0001297
+    label: Stroke
+  - id: HP:0002616
+    label: aortic root aneurysms
+  - id: HP:0002090
+    label: Pneumonia
+  - id: HP:0000010
+    label: Urinary tract infections
+  - id: HP:0002140
+    label: ischemic stroke
+  - id: HP:0001342
+    label: hemorrhagic stroke
+  - id: HP:0004944
+    label: cerebral aneurysms
+  - id: HP:0012158
+    label: carotid artery dissection
+  - id: HP:0012514
+    label: Leg pain
+  - id: HP:0007340
+    label: Leg weakness
+  - id: HP:0002650
+    label: scoliosis
+  - id: HP:0200146
+    label: Annuloaortic ectasia

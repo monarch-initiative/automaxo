@@ -1,0 +1,124 @@
+---
+input_text: "Recent Modifications of the Nuss Procedure: The Pursuit of Safety During
+  the Minimally Invasive Repair of Pectus Excavatum. OBJECTIVE: To review standardized
+  Nuss correction of pectus excavatum and vacuum bell treatment over the last 10 years.
+  SUMMARY OF BACKGROUND DATA: In 2010, we reported 21 years of the Nuss procedure
+  in 1215 patients. METHODS: Over the last 10 years, 2008-2018, we evaluated 1885
+  pectus excavatum patients. Surgery was indicated for well-defined objective criteria.
+  A consistent operation was performed by 8 surgeons in 1034 patients, median 15 years,
+  (range 6-46); 996 were primary, and 38 redo operations. Surgical patients' mean
+  computed tomography index was 5.46. Mitral valve prolapse was present in 5.4%, Marfan
+  syndrome in 1.1% and scoliosis in 29%. Vacuum bell treatment was introduced for
+  218 patients who did not meet surgical criteria or were averse to surgery. RESULTS:
+  At primary operation, 1 bar was placed in 49.8%; 2 bars, 49.4%; and 3 bars, 0.7%.
+  There were no deaths. Cardiac perforation occurred in 1 patient who had undergone
+  previous cardiac surgery. Paraplegia after epidural catheter occurred once. Reoperation
+  for bar displacement occurred in 1.8%, hemothorax in 0.3%, and wound infection in
+  2.9%; 1.4% required surgical drainage. Allergy to stainless steel was identified
+  in 13.7%. A good anatomic outcome was always achieved at bar removal. Recurrence
+  requiring reoperation occurred in 3 primary surgical patients. Two patients developed
+  carinate overcorrection requiring reoperation. Vacuum bell treatment produced better
+  results in younger and less severe cases. CONCLUSIONS: A standardized Nuss procedure
+  was performed by multiple surgeons in 1034 patients with good overall safety and
+  results in primary repairs. Vacuum bell treatment is useful."
+raw_completion_output: |-
+  primary_disease: Pectus Excavatum
+
+  medical_actions: Nuss procedure; Vacuum bell treatment; Surgical drainage; Reoperation for bar displacement; Reoperation for carinate overcorrection
+
+  symptoms: Mitral valve prolapse; Marfan syndrome; Scoliosis; Cardiac perforation; Paraplegia; Hemothorax; Wound infection; Allergy to stainless steel
+
+  chemicals: 
+
+  action_annotation_relationships: Nuss procedure TREATS Pectus Excavatum; Vacuum bell treatment TREATS Pectus Excavatum; Surgical drainage TREATS wound infection IN Pectus Excavatum; Reoperation for bar displacement TREATS dislocation complications IN Pectus Excavatum; Reoperation for carinate overcorrection TREATS overcorrection complications IN Pectus Excavatum
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Reoperation for carinate overcorrection TREATS overcorrection complications IN Pectus Excavatum
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0008213
+  medical_actions:
+    - Nuss procedure
+    - Vacuum bell treatment
+    - Surgical drainage
+    - Reoperation for bar displacement
+    - Reoperation for carinate overcorrection
+  symptoms:
+    - HP:0001634
+    - Marfan syndrome
+    - HP:0002650
+    - Cardiac perforation
+    - HP:0010550
+    - HP:0012151
+    - Wound infection
+    - Allergy to stainless steel
+  action_annotation_relationships:
+    - subject: Nuss procedure
+      predicate: TREATS
+      object: HP:0000767
+    - subject: Vacuum bell treatment
+      predicate: TREATS
+      object: HP:0000767
+    - subject: Surgical drainage
+      predicate: TREATS
+      object: wound infection
+      qualifier: MONDO:0008213
+    - subject: Reoperation for bar displacement
+      predicate: TREATS
+      object: dislocation complications
+      qualifier: MONDO:0008213
+    - subject: Reoperation for carinate overcorrection
+      predicate: TREATS
+      object: overcorrection complications
+      qualifier: MONDO:0008213
+named_entities:
+  - id: MONDO:0007947
+    label: Marfan syndrome
+  - id: MAXO:0010203
+    label: echocardiography
+  - id: HP:0004942
+    label: aortic dilatation
+  - id: CHEBI:5959
+    label: irbesartan
+  - id: CHEBI:2904
+    label: atenolol
+  - id: CHEBI:6541
+    label: losartan
+  - id: HP:0002647
+    label: Aortic dissection
+  - id: HP:0004933
+    label: Type A aortic dissection
+  - id: MONDO:0018353
+    label: Rare cardiovascular diseases (RCDs)
+  - id: HP:0001657
+    label: Long QT syndrome (LQT)
+  - id: HP:0001071
+    label: Fabry disease (FD)
+  - id: MONDO:0020015
+    label: Rare cardiovascular diseases
+  - id: MONDO:0008213
+    label: Pectus Excavatum
+  - id: HP:0001634
+    label: Mitral valve prolapse
+  - id: HP:0002650
+    label: Scoliosis
+  - id: HP:0010550
+    label: Paraplegia
+  - id: HP:0012151
+    label: Hemothorax
+  - id: HP:0000767
+    label: Pectus Excavatum
