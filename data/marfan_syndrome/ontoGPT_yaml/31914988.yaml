@@ -1,0 +1,149 @@
+---
+input_text: 'A case of Marfan syndrome with massive haemoptysis from collaterals of
+  the lateral thoracic artery. BACKGROUND: Marfan Syndrome (MFS) is a heritable connective
+  tissue disorder with a high degree of clinical variability including respiratory
+  diseases; a rare case of MFS with massive intrathoracic bleeding has been reported
+  recently. CASE PRESENTATION: A 32-year-old man who had been diagnosed with MFS underwent
+  a Bentall operation with artificial valve replacement for aortic dissection and
+  regurgitation of an aortic valve in 2012. Warfarin was started postoperatively,
+  and the dosage was gradually increased until 2017, when the patient was transported
+  to our hospital due to sudden massive haemoptysis. Computed tomography (CT) with
+  a maximum intensity projection (MIP) revealed several giant pulmonary cysts with
+  fluid levels in the apex of the right lung with an abnormal vessel from the right
+  subclavian artery. Transcatheter arterial embolization was performed with angiography
+  and haemostasis was achieved, which suggested that the bleeding vessel was the lateral
+  thoracic artery (LTA) branch. CT taken before the incident indicated thickening
+  of the cystic wall adjacent to the thorax; therefore, it was postulated that the
+  bleeding originated from fragile anastomoses between the LTA and pulmonary or bronchial
+  arteries. It appears that the vessels exhibited inflammation that began postoperatively,
+  which extended to the cysts. CONCLUSION: We experienced a case of MFS with massive
+  haemoptysis from the right LTA. We have to be aware of the possibility that massive
+  haemoptysis could be induced in MFS with inflamed pulmonary cysts.'
+raw_completion_output: |-
+  primary_disease: Marfan Syndrome (MFS)
+
+  medical_actions: Bentall operation with artificial valve replacement; Warfarin administration; Transcatheter arterial embolization; Haemostasis achievement
+
+  symptoms: Massive haemoptysis; Aortic dissection; Regurgitation of an aortic valve; Giant pulmonary cysts with fluid levels; Thickening of the cystic wall
+
+  chemicals: Warfarin
+
+  action_annotation_relationships: Bentall operation with artificial valve replacement TREATS aortic dissection IN Marfan Syndrome (MFS); Bentall operation with artificial valve replacement TREATS regurgitation of an aortic valve IN Marfan Syndrome (MFS); Warfarin administration PREVENTS massive haemoptysis IN Marfan Syndrome (MFS); Transcatheter arterial embolization TREATS massive haemoptysis IN Marfan Syndrome (MFS); Haemostasis achievement TREATS massive haemoptysis IN Marfan Syndrome (MFS)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Haemostasis achievement TREATS massive haemoptysis IN Marfan Syndrome (MFS)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009691
+  medical_actions:
+    - Bentall operation with artificial valve replacement
+    - Warfarin administration
+    - Transcatheter arterial embolization
+    - Haemostasis achievement
+  symptoms:
+    - Massive haemoptysis
+    - HP:0002647
+    - Regurgitation of an aortic valve
+    - Giant pulmonary cysts with fluid levels
+    - Thickening of the cystic wall
+  chemicals:
+    - CHEBI:10033
+  action_annotation_relationships:
+    - subject: <Bentall operation>
+      predicate: <TREATS>
+      object: <aortic dissection>
+      qualifier: MONDO:0009691
+      subject_qualifier: <with artificial valve replacement>
+      subject_extension: <artificial valve>
+    - subject: Bentall operation
+      predicate: TREATS
+      object: regurgitation of an aortic valve
+      qualifier: MONDO:0009691
+      subject_qualifier: with artificial valve replacement
+      subject_extension: artificial valve
+    - subject: Warfarin administration
+      predicate: PREVENTS
+      object: massive haemoptysis
+      qualifier: MONDO:0007947
+      subject_extension: CHEBI:10033
+    - subject: Transcatheter arterial embolization
+      predicate: TREATS
+      object: massive haemoptysis
+      qualifier: MONDO:0009691
+    - subject: Haemostasis achievement
+      predicate: TREATS
+      object: massive haemoptysis
+      qualifier: MONDO:0009691
+named_entities:
+  - id: MONDO:0007947
+    label: Marfan syndrome
+  - id: MAXO:0010203
+    label: echocardiography
+  - id: HP:0004942
+    label: aortic dilatation
+  - id: CHEBI:5959
+    label: irbesartan
+  - id: CHEBI:2904
+    label: atenolol
+  - id: CHEBI:6541
+    label: losartan
+  - id: HP:0002647
+    label: Aortic dissection
+  - id: HP:0004933
+    label: Type A aortic dissection
+  - id: MONDO:0018353
+    label: Rare cardiovascular diseases (RCDs)
+  - id: HP:0001657
+    label: Long QT syndrome (LQT)
+  - id: HP:0001071
+    label: Fabry disease (FD)
+  - id: MONDO:0020015
+    label: Rare cardiovascular diseases
+  - id: MONDO:0008213
+    label: Pectus Excavatum
+  - id: HP:0001634
+    label: Mitral valve prolapse
+  - id: HP:0002650
+    label: Scoliosis
+  - id: HP:0010550
+    label: Paraplegia
+  - id: HP:0012151
+    label: Hemothorax
+  - id: HP:0000767
+    label: Pectus Excavatum
+  - id: HP:0001704
+    label: tricuspid valve prolapse
+  - id: HP:0000545
+    label: myopia
+  - id: HP:0001083
+    label: ectopia lentis
+  - id: HP:0004927
+    label: pulmonary artery dilatation
+  - id: HP:0100775
+    label: dural ectasia
+  - id: HP:0100790
+    label: hernia
+  - id: HP:0001919
+    label: Acute kidney injury (AKI)
+  - id: HP:0012499
+    label: Type B aortic dissection (TBAD)
+  - id: CHEBI:35530
+    label: Beta-blockers
+  - id: MONDO:0009691
+    label: Marfan Syndrome (MFS)
+  - id: CHEBI:10033
+    label: Warfarin

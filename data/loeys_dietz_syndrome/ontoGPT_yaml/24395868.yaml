@@ -1,0 +1,117 @@
+---
+input_text: 'Cerebral arterial angioplasty in a patient with Loeys-Dietz syndrome.
+  A 14-year-old boy with Loeys-Dietz syndrome (LDS) had an acute neurologic decline
+  6 days after a subarachnoid hemorrhage. Cerebral angiography at presentation did
+  not show an aneurysmal source of the hemorrhage. However, on post-bleed day 6 the
+  patient experienced an acutely worsening headache and subsequently lost consciousness.
+  Head CT showed new subarachnoid blood and repeat angiography demonstrated a basilar
+  tip aneurysm. Endovascular coil embolization was performed and his neurologic status
+  improved postoperatively until post-bleed day 9 when he became unresponsive. A CT
+  angiogram demonstrated severe proximal vasospasm. After an unsuccessful attempt
+  to treat the vasospasm medically, the patient was transported to the neurointerventional
+  suite for intra-arterial vasodilator treatment, which also failed to ameliorate
+  the vasospasm. The endovascular surgeons were then faced with the conundrum of attempting
+  a high-risk cerebral angioplasty in a pediatric patient with LDS or returning to
+  maximal medical treatment for severe refractory vasospasm. '
+raw_completion_output: |-
+  primary_disease: Loeys-Dietz syndrome
+
+  medical_actions: Cerebral angiography; Endovascular coil embolization; CT angiogram; Intra-arterial vasodilator treatment; Cerebral arterial angioplasty
+
+  symptoms: Acute neurologic decline; Worsening headache; Subarachnoid hemorrhage; Loss of consciousness; Severe proximal vasospasm
+
+  chemicals: 
+
+  action_annotation_relationships: Cerebral angiography TREATS Subarachnoid hemorrhage IN Loeys-Dietz syndrome; Endovascular coil embolization TREATS basilar tip aneurysm IN Loeys-Dietz syndrome; CT angiogram TREATS Severe proximal vasospasm IN Loeys-Dietz syndrome; Intra-arterial vasodilator treatment TREATS Severe proximal vasospasm IN Loeys-Dietz syndrome; Cerebral arterial angioplasty TREATS Severe proximal vasospasm IN Loeys-Dietz syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Cerebral arterial angioplasty TREATS Severe proximal vasospasm IN Loeys-Dietz syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0018954
+  medical_actions:
+    - Cerebral angiography
+    - Endovascular coil embolization
+    - MAXO:0010319
+    - Intra-arterial vasodilator treatment
+    - Cerebral arterial angioplasty
+  symptoms:
+    - Acute neurologic decline
+    - Worsening headache
+    - HP:0002138
+    - HP:0007185
+    - Severe proximal vasospasm
+  action_annotation_relationships:
+    - subject: Cerebral angiography
+      predicate: TREATS
+      object: HP:0002138
+      qualifier: MONDO:0018954
+    - subject: Endovascular coil embolization
+      predicate: TREATS
+      object: basilar tip aneurysm
+      qualifier: MONDO:0018954
+    - subject: MAXO:0010319
+      predicate: TREATS
+      object: Severe proximal vasospasm
+      qualifier: MONDO:0018954
+      object_qualifier: Severe
+    - subject: Intra-arterial vasodilator treatment
+      predicate: TREATS
+      object: HP:0025637
+      qualifier: MONDO:0018954
+      object_qualifier: Severe
+      subject_extension: CHEBI:35620
+      object_extension: proximal
+    - subject: Cerebral arterial angioplasty
+      predicate: TREATS
+      object: proximal vasospasm
+      qualifier: MONDO:0018954
+      object_qualifier: Severe
+      object_extension: Severe
+named_entities:
+  - id: MONDO:0018954
+    label: Loeys-Dietz syndrome
+  - id: MAXO:0000945
+    label: Spinal cord stimulation (SCS)
+  - id: HP:0031625
+    label: Pseudoaneurysms
+  - id: MAXO:0000451
+    label: Implantation
+  - id: HP:0000978
+    label: Easy bruising
+  - id: HP:0002616
+    label: Aortic root dilatation
+  - id: HP:0001382
+    label: Joint laxity
+  - id: CHEBI:35530
+    label: Beta-blocker
+  - id: HP:0004942
+    label: Aortic aneurysms
+  - id: HP:0004944
+    label: Cerebral aneurysms
+  - id: HP:0002617
+    label: Vasculopathy
+  - id: MAXO:0010319
+    label: CT angiogram
+  - id: HP:0002138
+    label: Subarachnoid hemorrhage
+  - id: HP:0007185
+    label: Loss of consciousness
+  - id: CHEBI:35620
+    label: vasodilator
+  - id: HP:0025637
+    label: vasospasm

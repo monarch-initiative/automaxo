@@ -1,0 +1,109 @@
+---
+input_text: 'Lateral Position for Cesarean Delivery Because of Severe Aortocaval Compression
+  in a Patient With Marfan Syndrome: A Case Report. Prompt recognition and management
+  of hypotension resulting from aortocaval compression syndrome are essential to optimize
+  the maternal and fetal outcomes. Management involves increasing leftward uterine
+  displacement and sometimes full lateral positioning, although lateral position during
+  cesarean delivery is typically considered to be impractical. We report an obstetric
+  patient case of severe aortocaval compression syndrome resulting in hypotension
+  and loss of consciousness that ultimately underwent cesarean delivery under general
+  anesthesia in the lateral position. Performing cesarean delivery in the lateral
+  position is virtually unreported, and this unique strategy prevented further symptoms
+  of aortocaval compression and enabled safe delivery.'
+raw_completion_output: |-
+  primary_disease: Aortocaval Compression Syndrome
+  medical_actions: Increasing leftward uterine displacement; Lateral positioning; Cesarean delivery under general anesthesia
+  symptoms: Hypotension; Loss of consciousness
+  chemicals: 
+  action_annotation_relationships: Increasing leftward uterine displacement TREATS hypotension IN Aortocaval Compression Syndrome; Lateral positioning TREATS hypotension IN Aortocaval Compression Syndrome; Cesarean delivery under general anesthesia TREATS loss of consciousness IN Aortocaval Compression Syndrome; Cesarean delivery under general anesthesia PREVENTS further symptoms IN Aortocaval Compression Syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Cesarean delivery under general anesthesia PREVENTS further symptoms IN Aortocaval Compression Syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: Aortocaval Compression Syndrome
+  medical_actions:
+    - Increasing leftward uterine displacement
+    - Lateral positioning
+    - Cesarean delivery under general anesthesia
+  symptoms:
+    - HP:0002615
+    - HP:0007185
+  action_annotation_relationships:
+    - subject: Increasing leftward uterine displacement
+      predicate: TREATS
+      object: HP:0002615
+      qualifier: Aortocaval Compression Syndrome
+    - subject: Lateral positioning
+      predicate: TREATS
+      object: HP:0002615
+      qualifier: Aortocaval Compression Syndrome
+    - subject: Cesarean delivery
+      predicate: TREATS
+      object: HP:0007185
+      qualifier: Aortocaval Compression Syndrome
+      subject_qualifier: under
+      subject_extension: general anesthesia
+    - subject: Cesarean delivery
+      predicate: PREVENTS
+      object: further symptoms
+      qualifier: Aortocaval Compression Syndrome
+      subject_qualifier: under
+      subject_extension: general anesthesia
+named_entities:
+  - id: MONDO:0007947
+    label: Marfan Syndrome
+  - id: HP:0000768
+    label: Pectus carinatum
+  - id: HP:0002650
+    label: Scoliosis
+  - id: HP:0002108
+    label: Spontaneous pneumothorax
+  - id: HP:0003423
+    label: Thoracolumbar kyphoscoliosis
+  - id: HP:0000822
+    label: Hypertension
+  - id: HP:0001649
+    label: Tachycardia
+  - id: HP:0012531
+    label: pain
+  - id: MONDO:0009691
+    label: Marfan syndrome (MFS)
+  - id: CHEBI:6541
+    label: Losartan
+  - id: HP:0031625
+    label: Pseudoaneurysms
+  - id: MAXO:0000451
+    label: Implantation
+  - id: HP:0031649
+    label: Aortic rupture
+  - id: MAXO:0001061
+    label: Laminectomy
+  - id: MAXO:0000571
+    label: CT
+  - id: HP:0034267
+    label: Pelvic pain
+  - id: HP:0000139
+    label: Genital prolapse
+  - id: HP:0100518
+    label: Dysuria
+  - id: HP:0001297
+    label: stroke
+  - id: HP:0002615
+    label: Hypotension
+  - id: HP:0007185
+    label: Loss of consciousness

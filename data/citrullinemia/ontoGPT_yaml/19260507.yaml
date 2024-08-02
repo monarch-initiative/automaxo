@@ -1,0 +1,104 @@
+---
+input_text: Living donor liver transplantation for type II citrullinemia from a heterozygous
+  donor. Adult-onset type II citrullinemia (CTLN2) is a rare disorder of the urea
+  cycle resulting in hyperammonemia, with a poor prognosis. Here we report a 48-year-old
+  Japanese man who showed abnormal nocturnal behavior. Laboratory data indicated raised
+  plasma concentrations of ammonia and citrulline, and a definitive diagnosis of CTLN2
+  was made by DNA analysis. Hyperammonemia was not improved by oral intake of branched-chain
+  amino acids (BCAA), whereas venous infusion of BCAA was effective. Western blotting
+  revealed heterozygotic expression of citrin protein in a liver biopsy specimen from
+  the patient's brother. However, as symptomatic CTLN2 is very unusual in a heterozygotic
+  carrier, we considered the brother suitable as a living-donor liver transplantation
+  (LDLT) donor. The recipient's entire liver was removed, and replaced with the left
+  liver graft. The plasma ammonia level remained low without infusion of BCAA after
+  liver transplantation. From this case we conclude that venous infusion, rather than
+  oral administration, of BCAA is useful for conservative treatment of CTLN2. However,
+  liver transplantation is the only effective therapeutic option for CTLN2, and should
+  be performed before irreversible encephalopathy occurs. Use of a graft from heterozygotic
+  donors is permissible treatment for CTLN2.
+raw_completion_output: |-
+  primary_disease: Type II Citrullinemia (CTLN2)
+  medical_actions: Venous infusion of BCAA; Oral intake of BCAA; Living-donor liver transplantation (LDLT)
+  symptoms: Hyperammonemia; Abnormal nocturnal behavior; Raised plasma concentrations of ammonia and citrulline
+  chemicals: Branched-chain amino acids (BCAA)
+  action_annotation_relationships: Venous infusion of BCAA TREATS Hyperammonemia IN Type II Citrullinemia (CTLN2); Oral intake of BCAA DOES NOT TREAT Hyperammonemia IN Type II Citrullinemia (CTLN2); Living-donor liver transplantation (LDLT) TREATS Hyperammonemia IN Type II Citrullinemia (CTLN2)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Living-donor liver transplantation (LDLT) TREATS Hyperammonemia IN Type II Citrullinemia (CTLN2)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0016603
+  medical_actions:
+    - Venous infusion of BCAA
+    - Oral intake of BCAA
+    - Living-donor liver transplantation (LDLT)
+  symptoms:
+    - HP:0001987
+    - Abnormal nocturnal behavior
+    - Raised plasma concentrations of ammonia and citrulline
+  chemicals:
+    - CHEBI:22918
+  action_annotation_relationships:
+    - subject: Venous infusion
+      predicate: TREATS
+      object: HP:0001987
+      qualifier: MONDO:0016603
+      subject_extension: BCAA
+    - subject: Oral intake
+      predicate: DOES NOT TREAT
+      object: HP:0001987
+      qualifier: MONDO:0016603
+      subject_extension: BCAA
+    - subject: <Living-donor liver transplantation>
+      predicate: <TREATS>
+      object: <Hyperammonemia>
+      qualifier: <Type II Citrullinemia>
+      subject_qualifier: <none>
+      object_qualifier: <none>
+      subject_extension: <none>
+      object_extension: <none>
+named_entities:
+  - id: MONDO:0019052
+    label: Inborn errors of metabolism (IEMs)
+  - id: MAXO:0001175
+    label: Liver transplantation
+  - id: MONDO:0016603
+    label: Adult-onset citrullinemia (CTLN2)
+  - id: MONDO:0016602
+    label: Citrin deficiency
+  - id: MONDO:0005311
+    label: atherosclerosis
+  - id: CHEBI:18211
+    label: citrulline
+  - id: CHEBI:29016
+    label: arginine
+  - id: CHEBI:16349
+    label: L-citrulline
+  - id: CHEBI:16467
+    label: L-arginine
+  - id: HP:0002621
+    label: atherosclerosis
+  - id: MONDO:0008988
+    label: Citrullinemia type 1
+  - id: MAXO:0000603
+    label: Peritoneal dialysis
+  - id: MAXO:0000127
+    label: Genetic analysis
+  - id: HP:0001987
+    label: Hyperammonemia
+  - id: CHEBI:22918
+    label: Branched-chain amino acids (BCAA)

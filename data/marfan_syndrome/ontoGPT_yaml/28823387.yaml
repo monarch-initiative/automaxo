@@ -1,0 +1,184 @@
+---
+input_text: Losartan in combination with propranolol slows the aortic root dilatation
+  in neonatal Marfan syndrome. Neonatal Marfan syndrome, in contrast to classical
+  Marfan syndrome, is characterized by rapidly progressive multi-valvular cardiac
+  disease and death from congestive heart failure, typically within the first year
+  of life. Due to the rarity of this condition, treatment for neonatal Marfan syndrome
+  has not been well studied. In this report, a combination of losartan and propranolol
+  reduced the aortic root dilatation rate after three months of losartan therapy.
+  Genetic analysis in this patient revealed a mutation in exon 25 of the FBN1 gene,
+  which typically results in a shorter life expectancy. However, the patient's heart
+  failure was controlled by losartan, propranolol and other anti-congestive medications,
+  which may have prolonged his survival.
+raw_completion_output: |-
+  primary_disease: Neonatal Marfan syndrome
+  medical_actions: Combination of losartan and propranolol; Losartan therapy; Genetic analysis; Other anti-congestive medications
+  symptoms: Aortic root dilatation; Rapidly progressive multi-valvular cardiac disease; Congestive heart failure
+  chemicals: Losartan; Propranolol
+  action_annotation_relationships: Combination of losartan and propranolol SLOWS aortic root dilatation IN Neonatal Marfan syndrome; Losartan therapy (with Losartan) TREATS congestive heart failure IN Neonatal Marfan syndrome; Genetic analysis IDENTIFIES mutation IN Neonatal Marfan syndrome; Other anti-congestive medications TREAT congestive heart failure IN Neonatal Marfan syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Other anti-congestive medications TREAT congestive heart failure IN Neonatal Marfan syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0017309
+  medical_actions:
+    - Combination of losartan and propranolol
+    - Losartan therapy
+    - MAXO:0000127
+    - Other anti-congestive medications
+  symptoms:
+    - HP:0002616
+    - Rapidly progressive multi-valvular cardiac disease
+    - HP:0001635
+  chemicals:
+    - CHEBI:6541
+    - CHEBI:8499
+  action_annotation_relationships:
+    - subject: Combination
+      predicate: SLOWS
+      object: HP:0002616
+      qualifier: MONDO:0017309
+      subject_extension: losartan and propranolol
+    - subject: Losartan therapy
+      predicate: TREATS
+      object: HP:0001635
+      qualifier: MONDO:0017309
+      subject_qualifier: with Losartan
+      subject_extension: CHEBI:6541
+    - subject: MAXO:0000127
+      predicate: IDENTIFIES
+      object: mutation
+      qualifier: MONDO:0017309
+    - subject: Other anti-congestive medications
+      predicate: TREAT
+      object: HP:0001635
+      qualifier: MONDO:0017309
+      subject_extension: anti-congestive medications
+named_entities:
+  - id: MONDO:0007947
+    label: Marfan syndrome
+  - id: HP:0032079
+    label: Medial degeneration
+  - id: HP:0002617
+    label: aneurysm
+  - id: HP:0030965
+    label: increased aortic stiffness
+  - id: HP:0001659
+    label: aortic regurgitation
+  - id: HP:0001712
+    label: left ventricular hypertrophy
+  - id: HP:0005162
+    label: left ventricular failure
+  - id: MONDO:0020333
+    label: Anterior sacral meningocele (ASM)
+  - id: HP:0002315
+    label: headache
+  - id: HP:0002018
+    label: nausea
+  - id: HP:0002138
+    label: subarachnoid hemorrhage
+  - id: HP:0012531
+    label: Pain
+  - id: HP:0012378
+    label: Fatigue
+  - id: HP:0012332
+    label: Dysautonomia
+  - id: HP:0002659
+    label: Bone fragility
+  - id: HP:0025017
+    label: Capillary fragility
+  - id: HP:0001030
+    label: Skin fragility
+  - id: MONDO:0044632
+    label: Extracranial Carotid Artery Aneurysms (ECAAs)
+  - id: MAXO:0000448
+    label: Surgical resection
+  - id: HP:0001297
+    label: Stroke
+  - id: HP:0002616
+    label: aortic root aneurysms
+  - id: HP:0002090
+    label: Pneumonia
+  - id: HP:0000010
+    label: Urinary tract infections
+  - id: HP:0002140
+    label: ischemic stroke
+  - id: HP:0001342
+    label: hemorrhagic stroke
+  - id: HP:0004944
+    label: cerebral aneurysms
+  - id: HP:0012158
+    label: carotid artery dissection
+  - id: HP:0012514
+    label: Leg pain
+  - id: HP:0007340
+    label: Leg weakness
+  - id: HP:0002650
+    label: scoliosis
+  - id: HP:0200146
+    label: Annuloaortic ectasia
+  - id: CHEBI:35530
+    label: Beta-blockers
+  - id: MAXO:0009072
+    label: Surgical repair
+  - id: HP:0004942
+    label: aortic aneurysm
+  - id: MONDO:0004737
+    label: homocystinuria
+  - id: MONDO:0009691
+    label: Marfan Syndrome (MF)
+  - id: MAXO:0010203
+    label: echocardiography
+  - id: HP:0031649
+    label: aortic rupture
+  - id: HP:0001083
+    label: Ectopia Lentis
+  - id: HP:0030961
+    label: Microspherophakia
+  - id: MAXO:0001085
+    label: Vitrectomy
+  - id: HP:0012230
+    label: Rhegmatogenous Retinal Detachment
+  - id: CHEBI:2904
+    label: atenolol
+  - id: CHEBI:6541
+    label: losartan
+  - id: HP:0001650
+    label: Aortic stenosis (AS)
+  - id: MONDO:0008829
+    label: Chylous Ascites
+  - id: HP:0003270
+    label: Abdominal distention
+  - id: HP:0002027
+    label: Abdominal pain
+  - id: HP:0025406
+    label: Weakness
+  - id: HP:0012281
+    label: Chylous Ascites
+  - id: HP:0001132
+    label: lens subluxation
+  - id: HP:0012499
+    label: Type B aortic dissection
+  - id: MONDO:0017309
+    label: Neonatal Marfan syndrome
+  - id: MAXO:0000127
+    label: Genetic analysis
+  - id: HP:0001635
+    label: Congestive heart failure
+  - id: CHEBI:8499
+    label: Propranolol

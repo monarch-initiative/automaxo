@@ -1,0 +1,92 @@
+---
+input_text: 'Subcutaneous Implantable Cardioverter Defibrillators for the Prevention
+  of Sudden Cardiac Death: Pediatric Single-Center Experience. BACKGROUND: The subcutaneous
+  implantable cardioverter defibrillator (S-ICD) was developed as an alternative to
+  the transvenous ICD, to prevent lead-related complications associated with the latter.
+  The absence of intravascular or intracardiac components offers potential advantages
+  to pediatric patients. AIMS: The aim of the study is to present an overview of our
+  experience with S-ICDs in the pediatric center that, currently, has performed the
+  largest number of implantations in children in Poland. METHODS: Retrospective analysis
+  of data from medical history, qualification, implantation procedure, and S-ICD post-implantation
+  observations in 11 pediatric patients were performed. RESULTS: S-ICDs were implanted
+  in 11 patients, 8 boys and 3 girls, aged 12-17 years. The S-ICD was implanted for
+  primary prevention in seven patients: four with hypertrophic cardiomyopathy (HCM),
+  two with dilated cardiomyopathy (DCM), and one with arrhythmogenic right ventricular
+  cardiomyopathy (ARVC). It was implanted for secondary prevention in four patients:
+  two with sudden cardiac arrest (SCA) in the course of idiopathic ventricular fibrillation
+  (IVF), one with long QT syndrome (LQTS) after probable SCA, and one with Brugada
+  syndrome after SCA. In all patients, the device was implanted intramuscularly. One
+  patient did not have a defibrillation test performed due to the presence of an intracardiac
+  thrombus. In one patient, during screening, it was decided to implant an electrode
+  on the right side of the sternum. There were no early or late complications with
+  any of the procedures. So far, no inadequate discharges have been observed. CONCLUSIONS:
+  Our results prove the efficacy of the S-ICD treatment option along with technically
+  simple surgery, which supports its further and more widespread application in children.'
+raw_completion_output: |-
+  primary_disease: Sudden Cardiac Death
+  medical_actions: Retrospective analysis;Implantation procedure;S-ICD post-implantation observations
+  symptoms: Sudden cardiac arrest;Long QT syndrome
+  chemicals: 
+  action_annotation_relationships: Implantation procedure (with S-ICD) PREVENTS sudden cardiac arrest IN Sudden Cardiac Death;Implantation procedure (with S-ICD) PREVENTS Long QT syndrome IN Sudden Cardiac Death
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Implantation procedure (with S-ICD) PREVENTS Long QT syndrome IN Sudden Cardiac Death
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0007264
+  medical_actions:
+    - Retrospective analysis
+    - Implantation procedure
+    - S-ICD post-implantation observations
+  symptoms:
+    - HP:0031628
+    - HP:0001657
+  action_annotation_relationships:
+    - subject: Implantation procedure
+      predicate: PREVENTS
+      object: HP:0031628
+      qualifier: MONDO:0007264
+      subject_qualifier: with S-ICD
+    - subject: Implantation procedure
+      predicate: PREVENTS
+      object: HP:0001657
+      qualifier: MONDO:0007264
+      subject_qualifier: with S-ICD
+      subject_extension: S-ICD
+named_entities:
+  - id: HP:0001663
+    label: ventricular fibrillation
+  - id: HP:0007760
+    label: sudden cardiac death (SCD)
+  - id: HP:0100543
+    label: cognitive impairment
+  - id: MONDO:0002076
+    label: Pneumothorax
+  - id: HP:0002094
+    label: Dyspnea
+  - id: HP:0001695
+    label: Cardiac arrest
+  - id: CHEBI:75984
+    label: Flecainide
+  - id: MAXO:0001017
+    label: Vaccination
+  - id: MONDO:0007264
+    label: Sudden Cardiac Death
+  - id: HP:0031628
+    label: Sudden cardiac arrest
+  - id: HP:0001657
+    label: Long QT syndrome

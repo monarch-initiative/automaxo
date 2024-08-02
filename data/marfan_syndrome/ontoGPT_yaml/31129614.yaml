@@ -1,0 +1,217 @@
+---
+input_text: 'Maternal and fetal outcomes in pregnancies complicated by Marfan syndrome.
+  OBJECTIVES: Information to guide counselling and management for pregnancy in women
+  with Marfan syndrome (MFS) is limited. We therefore conducted a UK multicentre study.
+  METHODS: Retrospective observational study of women with MFS delivering between
+  January 1998 and March 2018 in 12 UK centres reporting data on maternal and neonatal
+  outcomes. RESULTS: In total, there were 258 pregnancies in 151 women with MFS (19
+  women had prior aortic root replacements), including 226 pregnancies >=24 weeks
+  (two sets of twins), 20 miscarriages and 12 pregnancy terminations. Excluding miscarriages
+  and terminations, there were 221 live births in 139 women. Only 50% of women received
+  preconception counselling. There were no deaths, but five women experienced aortic
+  dissection (1.9%; one type A and four type B-one had a type B dissection at 12 weeks
+  and subsequent termination of pregnancy). Five women required cardiac surgery postpartum.
+  No predictors for aortic dissection could be identified. The babies of the 131 (65.8%)
+  women taking beta-blockers were on average 316 g lighter (p<0.001). Caesarean section
+  rates were high (50%), particularly in women with dilated aortic roots. In 55 women,
+  echocardiographic aortic imaging was available prepregnancy and postpregnancy; there
+  was a small but significant average increase in AoR size of 0.84 mm (Median follow-up
+  2.3 months) CONCLUSION: There were no maternal deaths, and the aortic dissection
+  rate was 1.9% (mainly type B). There with no identifiable factors associated with
+  aortic dissection in our cohort. Preconception counselling rates were low and need
+  improvement. Aortic size measurements increased marginally following pregnancy.'
+raw_completion_output: |-
+  primary_disease: Marfan syndrome
+  medical_actions: preconception counselling; cardiac surgery; administration of beta-blockers; Caesarean section; aortic imaging
+  symptoms: aortic dissection; miscarriages; pregnancy terminations; lighter babies; dilated aortic roots
+  chemicals: beta-blockers
+  action_annotation_relationships: preconception counselling PREVENTS miscarriages IN Marfan syndrome; preconception counselling PREVENTS pregnancy terminations IN Marfan syndrome; cardiac surgery TREATS aortic dissection IN Marfan syndrome; administration of beta-blockers PREVENTS aortic dissection IN Marfan syndrome; Caesarean section TREATS dilated aortic roots IN Marfan syndrome; aortic imaging TREATS aortic dissection IN Marfan syndrome
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  aortic imaging TREATS aortic dissection IN Marfan syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0007947
+  medical_actions:
+    - preconception counselling
+    - MAXO:0025001
+    - administration of beta-blockers
+    - Caesarean section
+    - aortic imaging
+  symptoms:
+    - HP:0002647
+    - HP:0005268
+    - pregnancy terminations
+    - lighter babies
+    - dilated aortic roots
+  chemicals:
+    - CHEBI:35530
+  action_annotation_relationships:
+    - subject: preconception counselling
+      predicate: PREVENTS
+      object: HP:0005268
+      qualifier: MONDO:0007947
+    - subject: preconception counselling
+      predicate: PREVENTS
+      object: pregnancy terminations
+      qualifier: MONDO:0007947
+    - subject: MAXO:0025001
+      predicate: TREATS
+      object: HP:0002647
+      qualifier: MONDO:0007947
+    - subject: administration
+      predicate: PREVENTS
+      object: HP:0002647
+      qualifier: MONDO:0007947
+      subject_extension: CHEBI:35530
+    - subject: Caesarean section
+      predicate: TREATS
+      object: dilated aortic roots
+      qualifier: MONDO:0007947
+    - subject: aortic imaging
+      predicate: TREATS
+      object: HP:0002647
+      qualifier: MONDO:0007947
+named_entities:
+  - id: MONDO:0007947
+    label: Marfan syndrome
+  - id: HP:0032079
+    label: Medial degeneration
+  - id: HP:0002617
+    label: aneurysm
+  - id: HP:0030965
+    label: increased aortic stiffness
+  - id: HP:0001659
+    label: aortic regurgitation
+  - id: HP:0001712
+    label: left ventricular hypertrophy
+  - id: HP:0005162
+    label: left ventricular failure
+  - id: MONDO:0020333
+    label: Anterior sacral meningocele (ASM)
+  - id: HP:0002315
+    label: headache
+  - id: HP:0002018
+    label: nausea
+  - id: HP:0002138
+    label: subarachnoid hemorrhage
+  - id: HP:0012531
+    label: Pain
+  - id: HP:0012378
+    label: Fatigue
+  - id: HP:0012332
+    label: Dysautonomia
+  - id: HP:0002659
+    label: Bone fragility
+  - id: HP:0025017
+    label: Capillary fragility
+  - id: HP:0001030
+    label: Skin fragility
+  - id: MONDO:0044632
+    label: Extracranial Carotid Artery Aneurysms (ECAAs)
+  - id: MAXO:0000448
+    label: Surgical resection
+  - id: HP:0001297
+    label: Stroke
+  - id: HP:0002616
+    label: aortic root aneurysms
+  - id: HP:0002090
+    label: Pneumonia
+  - id: HP:0000010
+    label: Urinary tract infections
+  - id: HP:0002140
+    label: ischemic stroke
+  - id: HP:0001342
+    label: hemorrhagic stroke
+  - id: HP:0004944
+    label: cerebral aneurysms
+  - id: HP:0012158
+    label: carotid artery dissection
+  - id: HP:0012514
+    label: Leg pain
+  - id: HP:0007340
+    label: Leg weakness
+  - id: HP:0002650
+    label: scoliosis
+  - id: HP:0200146
+    label: Annuloaortic ectasia
+  - id: CHEBI:35530
+    label: Beta-blockers
+  - id: MAXO:0009072
+    label: Surgical repair
+  - id: HP:0004942
+    label: aortic aneurysm
+  - id: MONDO:0004737
+    label: homocystinuria
+  - id: MONDO:0009691
+    label: Marfan Syndrome (MF)
+  - id: MAXO:0010203
+    label: echocardiography
+  - id: HP:0031649
+    label: aortic rupture
+  - id: HP:0001083
+    label: Ectopia Lentis
+  - id: HP:0030961
+    label: Microspherophakia
+  - id: MAXO:0001085
+    label: Vitrectomy
+  - id: HP:0012230
+    label: Rhegmatogenous Retinal Detachment
+  - id: CHEBI:2904
+    label: atenolol
+  - id: CHEBI:6541
+    label: losartan
+  - id: HP:0001650
+    label: Aortic stenosis (AS)
+  - id: MONDO:0008829
+    label: Chylous Ascites
+  - id: HP:0003270
+    label: Abdominal distention
+  - id: HP:0002027
+    label: Abdominal pain
+  - id: HP:0025406
+    label: Weakness
+  - id: HP:0012281
+    label: Chylous Ascites
+  - id: HP:0001132
+    label: lens subluxation
+  - id: HP:0012499
+    label: Type B aortic dissection
+  - id: MONDO:0017309
+    label: Neonatal Marfan syndrome
+  - id: MAXO:0000127
+    label: Genetic analysis
+  - id: HP:0001635
+    label: Congestive heart failure
+  - id: CHEBI:8499
+    label: Propranolol
+  - id: MAXO:0000011
+    label: Physiotherapy
+  - id: MAXO:0000004
+    label: Surgical interventions
+  - id: HP:0001513
+    label: Obesity
+  - id: CHEBI:35341
+    label: Steroids
+  - id: MONDO:0005385
+    label: Vascular disease
+  - id: MAXO:0025001
+    label: cardiac surgery
+  - id: HP:0002647
+    label: aortic dissection
+  - id: HP:0005268
+    label: miscarriages

@@ -1,0 +1,121 @@
+---
+input_text: 'Pelvic pain from a giant presacral Tarlov cyst successfully obliterated
+  using aneurysm clips in a patient with Marfan syndrome. Patients with Marfan syndrome
+  used to succumb early in life from cardiovascular complications. With the current
+  rapid advance in medical and surgical care, such patients may now have near-normal
+  longevities. Consequently, rare late-life complications are emerging in these patients
+  and represent challenges to clinicians for their diagnoses and treatments. The authors
+  report a rare case of pelvic pain and genital prolapse from a giant presacral Tarlov
+  cyst in a 67-year-old patient with Marfan syndrome. This 67-year-old Caucasian female
+  presented with progressively severe pelvic pain, intermittent explosive diarrhea,
+  and dysuria. Physical and bimanual examination demonstrated genital prolapse and
+  a nontender, cyst-like mass fixed in the midline. She underwent ultrasound, CT,
+  and eventually MRI evaluations that led to the diagnosis of a giant (6.7 x 6.4 x
+  6.6 cm) Tarlov cyst originating from the right S-2 nerve root sleeve/sacral foramen
+  with intrapelvic extension. She underwent S1-S2 and S2-S3 laminectomy with obliteration
+  of the Tarlov cyst using aneurysm clips. Postoperatively, her pelvic pain and bowel
+  symptoms resolved and the bladder symptoms improved. The 3-month follow-up CT of
+  abdomen/pelvis demonstrated resolution of the cyst. The present case illustrates
+  that clinicians caring for elderly patients with Marfan syndrome need to increasingly
+  recognize such unusual late-life complications. Also, these large Tarlov cysts can
+  be simply and effectively obliterated with aneurysm clips. '
+raw_completion_output: |-
+  primary_disease: Marfan syndrome
+
+  medical_actions: Laminectomy;Obliteration of the Tarlov cyst using aneurysm clips;Ultrasound;CT;MRI evaluations
+
+  symptoms: Pelvic pain;Genital prolapse;Intermittent explosive diarrhea;Dysuria
+
+  chemicals: 
+
+  action_annotation_relationships: Laminectomy TREATS pelvic pain IN Marfan syndrome;Obliteration of the Tarlov cyst using aneurysm clips TREATS pelvic pain IN Marfan syndrome;Ultrasound TREATS pelvic pain IN Marfan syndrome;CT TREATS pelvic pain IN Marfan syndrome;MRI evaluations TREATS pelvic pain IN Marfan syndrome
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  MRI evaluations TREATS pelvic pain IN Marfan syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0007947
+  medical_actions:
+    - MAXO:0001061
+    - Obliteration of the Tarlov cyst using aneurysm clips
+    - Ultrasound
+    - MAXO:0000571
+    - MRI evaluations
+  symptoms:
+    - HP:0034267
+    - HP:0000139
+    - Intermittent explosive diarrhea
+    - HP:0100518
+  action_annotation_relationships:
+    - subject: MAXO:0001061
+      predicate: TREATS
+      object: HP:0034267
+      qualifier: MONDO:0007947
+    - subject: <Obliteration of the Tarlov cyst>
+      predicate: <TREATS>
+      object: <pelvic pain>
+      qualifier: <Marfan syndrome>
+      subject_extension: <aneurysm clips>
+    - subject: Ultrasound
+      predicate: TREATS
+      object: HP:0034267
+      qualifier: MONDO:0007947
+    - subject: MAXO:0000571
+      predicate: TREATS
+      object: HP:0034267
+      qualifier: MONDO:0007947
+    - subject: MRI evaluations
+      predicate: TREATS
+      object: HP:0034267
+      qualifier: MONDO:0007947
+named_entities:
+  - id: MONDO:0007947
+    label: Marfan Syndrome
+  - id: HP:0000768
+    label: Pectus carinatum
+  - id: HP:0002650
+    label: Scoliosis
+  - id: HP:0002108
+    label: Spontaneous pneumothorax
+  - id: HP:0003423
+    label: Thoracolumbar kyphoscoliosis
+  - id: HP:0000822
+    label: Hypertension
+  - id: HP:0001649
+    label: Tachycardia
+  - id: HP:0012531
+    label: pain
+  - id: MONDO:0009691
+    label: Marfan syndrome (MFS)
+  - id: CHEBI:6541
+    label: Losartan
+  - id: HP:0031625
+    label: Pseudoaneurysms
+  - id: MAXO:0000451
+    label: Implantation
+  - id: HP:0031649
+    label: Aortic rupture
+  - id: MAXO:0001061
+    label: Laminectomy
+  - id: MAXO:0000571
+    label: CT
+  - id: HP:0034267
+    label: Pelvic pain
+  - id: HP:0000139
+    label: Genital prolapse
+  - id: HP:0100518
+    label: Dysuria
