@@ -1,0 +1,104 @@
+---
+input_text: Towards a Precision Medicine Approach Based on Machine Learning for Tailoring
+  Medical Treatment in Alkaptonuria. ApreciseKUre is a multi-purpose digital platform
+  facilitating data collection, integration and analysis for patients affected by
+  Alkaptonuria (AKU), an ultra-rare autosomal recessive genetic disease. It includes
+  genetic, biochemical, histopathological, clinical, therapeutic resources and quality
+  of life scores that can be shared among registered researchers and clinicians in
+  order to create a Precision Medicine Ecosystem (PME). The combination of machine
+  learning application to analyse and re-interpret data available in the ApreciseKUre
+  shows the potential direct benefits to achieve patient stratification and the consequent
+  tailoring of care and treatments to a specific subgroup of patients. In this study,
+  we have developed a tool able to investigate the most suitable treatment for AKU
+  patients in accordance with their Quality of Life scores, which indicates changes
+  in health status before/after the assumption of a specific class of drugs. This
+  fact highlights the necessity of development of patient databases for rare diseases,
+  like ApreciseKUre. We believe this is not limited to the study of AKU, but it represents
+  a proof of principle study that could be applied to other rare diseases, allowing
+  data management, analysis, and interpretation.
+raw_completion_output: |-
+  primary_disease: Alkaptonuria (AKU)
+
+  medical_actions: Data collection;Integration of data;Analysis of data;Patient stratification;Tailoring of care;Tailoring of treatments
+
+  symptoms: Changes in health status
+
+  chemicals: 
+
+  action_annotation_relationships: Data collection TREATS Changes in health status IN Alkaptonuria (AKU);Integration of data TREATS Changes in health status IN Alkaptonuria (AKU);Analysis of data TREATS Changes in health status IN Alkaptonuria (AKU);Patient stratification TREATS Changes in health status IN Alkaptonuria (AKU);Tailoring of care TREATS Changes in health status IN Alkaptonuria (AKU);Tailoring of treatments TREATS Changes in health status IN Alkaptonuria (AKU)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Tailoring of treatments TREATS Changes in health status IN Alkaptonuria (AKU)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0008753
+  medical_actions:
+    - Data collection
+    - Integration of data
+    - Analysis of data
+    - Patient stratification
+    - Tailoring of care
+    - Tailoring of treatments
+  symptoms:
+    - Changes in health status
+  action_annotation_relationships:
+    - subject: Data collection
+      predicate: TREATS
+      object: Changes in health status
+      qualifier: MONDO:0008753
+    - subject: <Integration of data>
+      predicate: <TREATS>
+      object: <Changes in health status>
+      qualifier: MONDO:0008753
+      subject_extension: <Integration of data>
+    - subject: <Analysis of data>
+      predicate: <TREATS>
+      object: <Changes in health status>
+      qualifier: MONDO:0008753
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <Data analysis>
+      object_extension: <Changes in health status>
+    - subject: Patient stratification
+      predicate: TREATS
+      object: Changes in health status
+      qualifier: MONDO:0008753
+    - subject: Tailoring of care
+      predicate: TREATS
+      object: Changes in health status
+      qualifier: MONDO:0008753
+    - subject: Tailoring of treatments
+      predicate: TREATS
+      object: Changes in health status
+      qualifier: MONDO:0008753
+named_entities:
+  - id: MAXO:0001175
+    label: Liver transplantation
+  - id: HP:0030764
+    label: Ochronosis
+  - id: CHEBI:44747
+    label: Homogentisic acid
+  - id: MONDO:0008753
+    label: alkaptonuria
+  - id: HP:0002758
+    label: osteoarthritis
+  - id: CHEBI:50378
+    label: nitisinone
+  - id: CHEBI:18186
+    label: tyrosine
+  - id: CHEBI:28044
+    label: Phenylalanine

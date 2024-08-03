@@ -1,0 +1,70 @@
+---
+input_text: 'Improving mobility in a client with hypochondroplasia (dwarfism): a case
+  report. A client with hypochondroplasia dwarfism and a medical diagnosis of spinal
+  stenosis had found that her ability to walk had decreased over the past 7 years
+  from easily walking 6 miles (10 K) to now needing to rest every half block (171
+  ft/52 m) due to muscle fatigue. Such weakness is consistent with nerve impingement
+  due to spinal stenosis, which would not be improved by massage. However, during
+  a preliminary assessment, it was found that both lower legs had severe fascial adhesions,
+  possibly compressing lower leg blood vessels and nerves. It was hoped that by using
+  myofascial massage techniques to relieve the adhesions, her mobility would improve
+  over the course of 8 sessions. Myofascial massage techniques showed positive results
+  in reducing adhesions, improving circulation, and increasing the distance the client
+  could walk before resting to 2 blocks (686 ft/209 m). Working with this client showed
+  that Licensed Massage Practitioners (LMPs) can easily accommodate clients of very
+  short height.'
+raw_completion_output: |-
+  primary_disease: Hypochondroplasia dwarfism
+  medical_actions: Myofascial massage techniques
+  symptoms: Muscle fatigue; Severe fascial adhesions
+  chemicals: 
+  action_annotation_relationships: Myofascial massage techniques TREATS severe fascial adhesions IN Hypochondroplasia dwarfism; Myofascial massage techniques TREATS muscle fatigue IN Hypochondroplasia dwarfism
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Myofascial massage techniques TREATS muscle fatigue IN Hypochondroplasia dwarfism
+
+  ===
+
+extracted_object:
+  primary_disease: Hypochondroplasia dwarfism
+  medical_actions:
+    - Myofascial massage techniques
+  symptoms:
+    - HP:0003750
+    - Severe fascial adhesions
+  action_annotation_relationships:
+    - subject: <Myofascial massage techniques>
+      predicate: <TREATS>
+      object: <severe fascial adhesions>
+      qualifier: <Hypochondroplasia dwarfism>
+      subject_qualifier: <NA>
+      object_qualifier: <severe>
+      subject_extension: <NA>
+      object_extension: <NA>
+    - subject: Myofascial massage techniques
+      predicate: TREATS
+      object: HP:0003750
+      qualifier: Hypochondroplasia dwarfism
+named_entities:
+  - id: HP:0031846
+    label: Femoral fracture
+  - id: MAXO:0000745
+    label: cytogenetic analysis
+  - id: HP:0000256
+    label: macrocephaly
+  - id: MAXO:0000127
+    label: genetic testing
+  - id: HP:0003750
+    label: Muscle fatigue

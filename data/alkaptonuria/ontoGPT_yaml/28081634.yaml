@@ -1,0 +1,164 @@
+---
+input_text: 'The effect of nitisinone on homogentisic acid and tyrosine: a two-year
+  survey of patients attending the National Alkaptonuria Centre, Liverpool. Background
+  Alkaptonuria is a rare, debilitating autosomal recessive disorder affecting tyrosine
+  metabolism. Deficiency of homogentisate 1,2-dioxygenase leads to increased homogentisic
+  acid which is deposited as ochronotic pigment. Clinical sequelae include severe
+  early onset osteoarthritis, increased renal and prostate stone formation and cardiac
+  complications. Treatment has been largely based on analgaesia and arthroplasty.
+  The National Alkaptonuria Centre in Liverpool has been using 2 mg nitisinone (NTBC)
+  off-license for all patients in the United Kingdom with alkaptonuria and monitoring
+  the tyrosine metabolite profiles. Methods Patients with confirmed alkaptonuria are
+  commenced on 2 mg dose (alternative days) of NTBC for three months with daily dose
+  thereafter. Metabolite measurement by LC-MS/MS is performed at baseline, day 4,
+  three-months, six-months and one-year post-commencing NTBC. Thereafter, monitoring
+  and clinical assessments are performed annually. Results Urine homogentisic acid
+  concentration decreased from a mean baseline 20,557 micromol/24 h (95th percentile
+  confidence interval 18,446-22,669 micromol/24 h) by on average 95.4% by six months,
+  94.8% at one year and 94.1% at two year monitoring. A concurrent reduction in serum
+  homogentisic acid concentration of 83.2% compared to baseline was also measured.
+  Serum tyrosine increased from normal adult reference interval to a mean +- SD of
+  594 +- 184 micromol /L at year-two monitoring with an increased urinary excretion
+  from 103 +- 81 micromol /24 h at baseline to 1071 +- 726 micromol /24 h two years
+  from therapy. Conclusions The data presented represent the first longitudinal survey
+  of NTBC use in an NHS service setting and demonstrate the sustained effect of NTBC
+  on the tyrosine metabolite profile.'
+raw_completion_output: |-
+  primary_disease: Alkaptonuria
+  medical_actions: Commencing NTBC;Analgaesia;Arthroplasty;Metabolite measurement by LC-MS/MS;Monitoring and clinical assessments
+  symptoms: Severe early onset osteoarthritis;Increased renal and prostate stone formation;Cardiac complications
+  chemicals: Nitisinone (NTBC);Homogentisic acid;Tyrosine
+  action_annotation_relationships: Commencing NTBC TREATS increased homogentisic acid IN Alkaptonuria;Commencing NTBC (with Nitisinone (NTBC)) TREATS increased homogentisic acid IN Alkaptonuria;Analgaesia TREATS severe early onset osteoarthritis IN Alkaptonuria;Arthroplasty TREATS severe early onset osteoarthritis IN Alkaptonuria
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Arthroplasty TREATS severe early onset osteoarthritis IN Alkaptonuria
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0008753
+  medical_actions:
+    - Commencing NTBC
+    - Analgaesia
+    - MAXO:0009082
+    - Metabolite measurement by LC-MS/MS
+    - Monitoring and clinical assessments
+  symptoms:
+    - Severe early onset osteoarthritis
+    - Increased renal and prostate stone formation
+    - Cardiac complications
+  chemicals:
+    - CHEBI:50378
+    - CHEBI:44747
+    - CHEBI:18186
+  action_annotation_relationships:
+    - subject: Commencing NTBC
+      predicate: TREATS
+      object: increased homogentisic acid
+      qualifier: MONDO:0008753
+      subject_extension: NTBC
+    - subject: Commencing NTBC
+      predicate: TREATS
+      object: increased homogentisic acid
+      qualifier: MONDO:0008753
+      subject_qualifier: with Nitisinone (NTBC)
+      subject_extension: CHEBI:50378
+    - subject: Analgaesia
+      predicate: TREATS
+      object: early onset osteoarthritis
+      qualifier: MONDO:0008753
+      object_qualifier: severe
+      subject_extension: Analgaesia
+      object_extension: severe
+    - subject: MAXO:0009082
+      predicate: TREATS
+      object: severe early onset osteoarthritis
+      qualifier: MONDO:0008753
+      object_qualifier: severe
+named_entities:
+  - id: MAXO:0001175
+    label: Liver transplantation
+  - id: HP:0030764
+    label: Ochronosis
+  - id: CHEBI:44747
+    label: Homogentisic acid
+  - id: MONDO:0008753
+    label: alkaptonuria
+  - id: HP:0002758
+    label: osteoarthritis
+  - id: CHEBI:50378
+    label: nitisinone
+  - id: CHEBI:18186
+    label: tyrosine
+  - id: CHEBI:28044
+    label: Phenylalanine
+  - id: CHEBI:18243
+    label: Dopamine
+  - id: CHEBI:1582
+    label: 3-methoxytyramine
+  - id: CHEBI:33569
+    label: Noradrenaline
+  - id: CHEBI:27897
+    label: Tryptophan
+  - id: CHEBI:28790
+    label: Serotonin
+  - id: CHEBI:29987
+    label: Glutamate
+  - id: CHEBI:15760
+    label: Tyramine
+  - id: MONDO:0023094
+    label: Exogenous ochronosis
+  - id: MAXO:0000423
+    label: Skin biopsy
+  - id: CHEBI:15854
+    label: Quinine
+  - id: CHEBI:15882
+    label: Phenol
+  - id: CHEBI:17594
+    label: Hydroquinone
+  - id: MAXO:0001046
+    label: discectomy
+  - id: MAXO:0000502
+    label: Endotracheal intubation
+  - id: HP:0000822
+    label: Hypertension
+  - id: HP:0002789
+    label: Tachypnea
+  - id: HP:0003324
+    label: Generalized weakness
+  - id: HP:0001635
+    label: Congestive heart failure
+  - id: HP:0100598
+    label: Pulmonary edema
+  - id: CHEBI:35498
+    label: Diuretics
+  - id: CHEBI:28787
+    label: Nitroglycerin
+  - id: CHEBI:4670
+    label: Dobutamine
+  - id: CHEBI:32139
+    label: Sodium bicarbonate
+  - id: MAXO:0000757
+    label: infusion
+  - id: HP:0001650
+    label: aortic stenosis
+  - id: HP:0001649
+    label: tachycardia
+  - id: HP:0001942
+    label: metabolic acidosis
+  - id: HP:0000708
+    label: Behavioural problems
+  - id: MAXO:0009082
+    label: Arthroplasty
