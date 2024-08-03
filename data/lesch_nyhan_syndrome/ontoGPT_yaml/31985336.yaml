@@ -1,0 +1,245 @@
+---
+input_text: 'Late diagnosis of Lesch-Nyhan disease complicated with end-stage renal
+  disease and tophi burst: a case report. Background: Lesch-Nyhan disease (LND) is
+  a rare X-linked recessive inborn error of purine metabolism. Late diagnosis of LND
+  may cause significant morbidity. LND cases have never been reported in Indonesia.Case
+  report: A 15-year-old male who had been diagnosed with cerebral palsy was referred
+  to our hospital due to renal failure requiring emergency dialysis. The patient presented
+  with three classic manifestations of LND: increased uric acid levels, neurological
+  disorders, and self-injurious behaviors. LND was suspected because of an abscess-like
+  lump on the left ankle that was confirmed to be a tophus, which had burst and discharged
+  thick masses containing blood, debris, and white crystal materials. The diagnosis
+  of LND was confirmed by the presence of a deletion to exon 1 of the HPRT1 gene.
+  The patient received oral allopurinol daily and treatment for end-stage renal disease
+  (ESRD), which included regular dialysis and subcutaneous administration of erythropoietin.
+  At a 2-month follow-up, he improved clinically with a 71% decrease in uric acid
+  levels after regular dialysis and allopurinol treatment.Conclusion: In developed
+  countries, LND can be diagnosed as early as 3 days after birth. However, diagnosis
+  in the present case was delayed due to the rarity of the disease and the limited
+  number of facilities in Indonesia that offer genetic counseling. Late diagnosis
+  of LND leads to ESRD and irreversible abnormalities. This is the first case of LND
+  presenting with a unique clinical presentation of tophus burst reported in Indonesia.'
+raw_completion_output: |-
+  primary_disease: Lesch-Nyhan disease
+  medical_actions: emergency dialysis; oral allopurinol daily; regular dialysis; subcutaneous administration of erythropoietin
+  symptoms: increased uric acid levels; neurological disorders; self-injurious behaviors; renal failure; tophus burst
+  chemicals: allopurinol; erythropoietin
+  action_annotation_relationships: emergency dialysis TREATS renal failure IN Lesch-Nyhan disease; oral allopurinol daily (with allopurinol) TREATS increased uric acid levels IN Lesch-Nyhan disease; regular dialysis TREATS renal failure IN Lesch-Nyhan disease; subcutaneous administration of erythropoietin (with erythropoietin) TREATS renal failure IN Lesch-Nyhan disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  subcutaneous administration of erythropoietin (with erythropoietin) TREATS renal failure IN Lesch-Nyhan disease
+
+  ===
+
+extracted_object:
+  primary_disease: Lesch-Nyhan disease
+  medical_actions:
+    - emergency dialysis
+    - oral allopurinol daily
+    - regular dialysis
+    - subcutaneous administration of erythropoietin
+  symptoms:
+    - increased uric acid levels
+    - neurological disorders
+    - HP:0100716
+    - HP:0000083
+    - tophus burst
+  chemicals:
+    - CHEBI:40279
+    - CHEBI:81579
+  action_annotation_relationships:
+    - subject: emergency dialysis
+      predicate: TREATS
+      object: HP:0000083
+      qualifier: Lesch-Nyhan disease
+    - subject: oral allopurinol daily
+      predicate: TREATS
+      object: increased uric acid levels
+      qualifier: Lesch-Nyhan disease
+      subject_qualifier: with allopurinol
+      subject_extension: CHEBI:40279
+    - subject: regular dialysis
+      predicate: TREATS
+      object: HP:0000083
+      qualifier: Lesch-Nyhan disease
+    - subject: subcutaneous administration of erythropoietin
+      predicate: TREATS
+      object: HP:0000083
+      qualifier: Lesch-Nyhan disease
+      subject_qualifier: with erythropoietin
+      subject_extension: CHEBI:81579
+named_entities:
+  - id: MONDO:0010298
+    label: Lesch-Nyhan syndrome
+  - id: HP:0002149
+    label: hyperuricemia
+  - id: HP:0100021
+    label: spastic cerebral palsy (CP)
+  - id: HP:0001332
+    label: dystonia
+  - id: HP:0000742
+    label: self-mutilation
+  - id: HP:0001257
+    label: Spasticity
+  - id: HP:0001266
+    label: Choreoathetosis
+  - id: HP:0100716
+    label: Self-injurious behavior
+  - id: HP:0000718
+    label: Aggression
+  - id: HP:0002104
+    label: Apnea
+  - id: HP:0002013
+    label: Vomiting
+  - id: CHEBI:44915
+    label: Propofol
+  - id: MAXO:0000943
+    label: deep brain stimulation surgery (DBS)
+  - id: CHEBI:9130
+    label: sevoflurane
+  - id: MAXO:0009003
+    label: preimplantation genetic diagnosis (PGD)
+  - id: HP:0001249
+    label: mental retardation
+  - id: CHEBI:17368
+    label: Hypoxanthine
+  - id: CHEBI:15372
+    label: tetrahydrobiopterin
+  - id: CHEBI:35634
+    label: xanthine oxidase inhibitors
+  - id: CHEBI:3387
+    label: Carbamazepine
+  - id: HP:0007325
+    label: generalized dystonia
+  - id: HP:0100660
+    label: dyskinesia
+  - id: HP:0003149
+    label: Hyperuricosuria
+  - id: HP:0001997
+    label: Gouty arthritis
+  - id: CHEBI:28790
+    label: serotonin
+  - id: CHEBI:28683
+    label: kynurenine
+  - id: CHEBI:16675
+    label: quinolinic acid
+  - id: CHEBI:15318
+    label: xanthine
+  - id: HP:0001263
+    label: developmental retardation
+  - id: MONDO:0002486
+    label: Lesch-Nyhan syndrome (LNS)
+  - id: HP:0000708
+    label: Behavioral disturbances
+  - id: HP:0012758
+    label: Neurodevelopmental delay
+  - id: CHEBI:8802
+    label: Remifentanil
+  - id: MAXO:0010033
+    label: Umbilical cord blood transplant (UCBT)
+  - id: MAXO:0000139
+    label: Autopsy
+  - id: HP:0033006
+    label: Diffuse alveolar damage
+  - id: HP:6000716
+    label: Hepatic veno-occlusive disease
+  - id: HP:0011793
+    label: malignant neoplasm
+  - id: MAXO:0000882
+    label: behavioral interventions
+  - id: MAXO:0000894
+    label: extracorporeal shock wave lithotripsy
+  - id: CHEBI:40279
+    label: allopurinol
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0030050
+    label: Catalepsy
+  - id: CHEBI:73297
+    label: SCH 23390
+  - id: CHEBI:5123
+    label: fluphenazine
+  - id: CHEBI:32168
+    label: (+/-) sulpiride
+  - id: MONDO:0010100
+    label: Tay-Sachs disease
+  - id: MAXO:0000058
+    label: Pharmacological treatment
+  - id: CHEBI:15414
+    label: S-adenosylmethionine (SAMe)
+  - id: CHEBI:18406
+    label: AICAR
+  - id: HP:0004305
+    label: involuntary movements
+  - id: MAXO:0010030
+    label: Bone marrow transplantation
+  - id: HP:0012169
+    label: self-biting
+  - id: CHEBI:78741
+    label: 6-hydroxydopamine (6-OHDA)
+  - id: CHEBI:53704
+    label: apomorphine (APO)
+  - id: CHEBI:17256
+    label: dopamine (DA)
+  - id: CHEBI:1582
+    label: 3-methoxytyramine (3-MT)
+  - id: CHEBI:33310
+    label: norepinephrine (NE)
+  - id: CHEBI:48538
+    label: apomorphine
+  - id: HP:0001276
+    label: hypertonia
+  - id: CHEBI:2972
+    label: baclofen
+  - id: CHEBI:545959
+    label: homovanillic acid (HVA)
+  - id: CHEBI:27823
+    label: 5-hydroxyindoleacetic acid (5-HIAA)
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: CHEBI:15996
+    label: GTP
+  - id: CHEBI:16708
+    label: Adenine
+  - id: MAXO:0000504
+    label: tracheostomy
+  - id: MAXO:0001183
+    label: bronchoscopy
+  - id: HP:0002094
+    label: dyspnea
+  - id: HP:0001824
+    label: loss of weight
+  - id: HP:0000083
+    label: renal failure
+  - id: HP:0001250
+    label: convulsions
+  - id: HP:0001699
+    label: sudden death
+  - id: HP:0002779
+    label: tracheomalacia
+  - id: MONDO:0005393
+    label: Gout
+  - id: MAXO:0000601
+    label: Dialysis
+  - id: MAXO:0000747
+    label: hematopoietic stem cell transplantation (HSCT)
+  - id: CHEBI:4027
+    label: cyclophosphamide
+  - id: MONDO:0009061
+    label: Cystic fibrosis
+  - id: MONDO:0010679
+    label: Duchenne muscular dystrophy
+  - id: CHEBI:81579
+    label: erythropoietin

@@ -1,0 +1,98 @@
+---
+input_text: 'Suitability Of Nitisinone In Alkaptonuria 1 (SONIA 1): an international,
+  multicentre, randomised, open-label, no-treatment controlled, parallel-group, dose-response
+  study to investigate the effect of once daily nitisinone on 24-h urinary homogentisic
+  acid excretion in patients with alkaptonuria after 4 weeks of treatment. BACKGROUND:
+  Alkaptonuria (AKU) is a serious genetic disease characterised by premature spondyloarthropathy.
+  Homogentisate-lowering therapy is being investigated for AKU. Nitisinone decreases
+  homogentisic acid (HGA) in AKU but the dose-response relationship has not been previously
+  studied. METHODS: Suitability Of Nitisinone In Alkaptonuria 1 (SONIA 1) was an international,
+  multicentre, randomised, open-label, no-treatment controlled, parallel-group, dose-response
+  study. The primary objective was to investigate the effect of different doses of
+  nitisinone once daily on 24-h urinary HGA excretion (u-HGA24) in patients with AKU
+  after 4 weeks of treatment. Forty patients were randomised into five groups of eight
+  patients each, with groups receiving no treatment or 1 mg, 2 mg, 4 mg and 8 mg of
+  nitisinone. FINDINGS: A clear dose-response relationship was observed between nitisinone
+  and the urinary excretion of HGA. At 4 weeks, the adjusted geometric mean u-HGA24
+  was 31.53 mmol, 3.26 mmol, 1.44 mmol, 0.57 mmol and 0.15 mmol for the no treatment
+  or 1 mg, 2 mg, 4 mg and 8 mg doses, respectively. For the most efficacious dose,
+  8 mg daily, this corresponds to a mean reduction of u-HGA24 of 98.8% compared with
+  baseline. An increase in tyrosine levels was seen at all doses but the dose-response
+  relationship was less clear than the effect on HGA. Despite tyrosinaemia, there
+  were no safety concerns and no serious adverse events were reported over the 4 weeks
+  of nitisinone therapy. CONCLUSIONS: In this study in patients with AKU, nitisinone
+  therapy decreased urinary HGA excretion to low levels in a dose-dependent manner
+  and was well tolerated within the studied dose range. TRIAL REGISTRATION NUMBER:
+  EudraCT number: 2012-005340-24. Registered at ClinicalTrials.gov: NCTO1828463.'
+raw_completion_output: |-
+  primary_disease: Alkaptonuria (AKU)
+  medical_actions: administration of nitisinone; monitoring of 24-h urinary homogentisic acid excretion; monitoring of tyrosine levels
+  symptoms: premature spondyloarthropathy
+  chemicals: nitisinone; homogentisic acid; tyrosine
+  action_annotation_relationships: administration of nitisinone TREATS premature spondyloarthropathy IN Alkaptonuria (AKU); administration of nitisinone (with nitisinone) TREATS increased homogentisic acid IN Alkaptonuria (AKU); monitoring of 24-h urinary homogentisic acid excretion MANAGES homogentisic acid levels IN Alkaptonuria (AKU); monitoring of tyrosine levels MONITORS side effects IN Alkaptonuria (AKU)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  monitoring of tyrosine levels MONITORS side effects IN Alkaptonuria (AKU)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0008753
+  medical_actions:
+    - administration of nitisinone
+    - monitoring of 24-h urinary homogentisic acid excretion
+    - monitoring of tyrosine levels
+  symptoms:
+    - premature spondyloarthropathy
+  chemicals:
+    - CHEBI:50378
+    - CHEBI:44747
+    - CHEBI:18186
+  action_annotation_relationships:
+    - subject: administration of nitisinone
+      predicate: TREATS
+      object: premature spondyloarthropathy
+      qualifier: MONDO:0008753
+      subject_extension: CHEBI:50378
+    - subject: administration of nitisinone
+      predicate: TREATS
+      object: increased homogentisic acid
+      qualifier: MONDO:0008753
+      subject_qualifier: with nitisinone
+      subject_extension: CHEBI:50378
+    - subject: monitoring of 24-h urinary homogentisic acid excretion
+      predicate: MANAGES
+      object: homogentisic acid levels
+      qualifier: MONDO:0008753
+    - subject: monitoring
+      predicate: MONITORS
+      object: side effects
+      qualifier: MONDO:0008753
+      subject_extension: tyrosine levels
+named_entities:
+  - id: MAXO:0001175
+    label: Liver transplantation
+  - id: HP:0030764
+    label: Ochronosis
+  - id: CHEBI:44747
+    label: Homogentisic acid
+  - id: MONDO:0008753
+    label: alkaptonuria
+  - id: HP:0002758
+    label: osteoarthritis
+  - id: CHEBI:50378
+    label: nitisinone
+  - id: CHEBI:18186
+    label: tyrosine
