@@ -1,3 +1,4 @@
+import sys
 import click
 from Bio import Entrez
 import requests
@@ -170,6 +171,9 @@ def search_articles_with_mesh_info(disease_name: str, mesh_list_path: str, max_a
             record = Entrez.read(handle)
             handle.close()
 
+            if 'ErrorList' in record:
+                raise Exception(f"Unresolvable error retrieving articles: {record['ErrorList']}")
+
             for pmid in record["IdList"]:
                 if pmid in existing_pmids:
                     continue
@@ -186,7 +190,10 @@ def search_articles_with_mesh_info(disease_name: str, mesh_list_path: str, max_a
             retstart += max_articles_to_save
         except Exception as e:
             logger.error(f"Error processing batch starting at {retstart}: {e}")
-            break
+            if len(record['IdList']) == 0:
+                sys.exit("No more articles to retrieve. Exiting...")
+            else:
+                break
 
     return pmid_mesh_info
 
