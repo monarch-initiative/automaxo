@@ -1,0 +1,101 @@
+---
+input_text: 'NK cell effector functions in a Chediak-Higashi patient undergoing cord
+  blood transplantation: Effects of in vitro treatment with IL-2. NK cell cytotoxicity
+  in Chediak-Higashi syndrome (CHS) is strongly impaired as lytic granules are not
+  released upon NK-target cell contact, contributing to several defects typical of
+  this severe immunodeficiency. Correction of NK cell defects in CHS should improve
+  the outcome of hematopoietic stem-cell transplantation, proposed as therapy. We
+  investigated NK cell functions in a CHS patient before and after cord-blood transplantation,
+  and the ability of in vitro IL-2 treatment to restore them. Before the transplant,
+  the strong defect in NK cell-mediated natural and antibody-dependent cytotoxicity,
+  as well as in IFN-gamma production, could be restored up to normal levels by in
+  vitro IL-2 treatment. This cytokine also caused the appearance of smaller lysosomal
+  granules and their orientation towards the NK-target cell contact area, thus suggesting
+  that IL-2 had a more general capacity to restore NK cell effector functions. Moreover
+  after the transplant, although the successful engraftment, NK cell cytotoxicity
+  resulted still partially impaired at one year, almost normal at ten years and, anyhow,
+  fully recovered by in vitro IL-2 treatment. Taken together, our results indicate
+  that IL-2 had a wide capacity to restore NK cell effector functions, being able
+  to reverse the altered cytotoxic activity, lytic granule pattern, and cytokine production
+  observed in the CHS patient.'
+raw_completion_output: |-
+  primary_disease: Chediak-Higashi syndrome
+
+  medical_actions: cord blood transplantation;in vitro treatment with IL-2
+
+  symptoms: impaired NK cell cytotoxicity;defects in NK cell-mediated natural and antibody-dependent cytotoxicity;defects in IFN-gamma production
+
+  chemicals: IL-2
+
+  action_annotation_relationships: in vitro treatment with IL-2 TREATS impaired NK cell cytotoxicity IN Chediak-Higashi syndrome;in vitro treatment with IL-2 TREATS defects in NK cell-mediated natural and antibody-dependent cytotoxicity IN Chediak-Higashi syndrome;in vitro treatment with IL-2 TREATS defects in IFN-gamma production IN Chediak-Higashi syndrome;cord blood transplantation TREATS impaired NK cell cytotoxicity IN Chediak-Higashi syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  cord blood transplantation TREATS impaired NK cell cytotoxicity IN Chediak-Higashi syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0008963
+  medical_actions:
+    - MAXO:0010033
+    - in vitro treatment with IL-2
+  symptoms:
+    - impaired NK cell cytotoxicity
+    - defects in NK cell-mediated natural and antibody-dependent cytotoxicity
+    - defects in IFN-gamma production
+  chemicals:
+    - IL-2
+  action_annotation_relationships:
+    - subject: in vitro treatment
+      predicate: TREATS
+      object: impaired NK cell cytotoxicity
+      qualifier: MONDO:0008963
+      subject_extension: IL-2
+    - subject: in vitro treatment
+      predicate: TREATS
+      object: defects in NK cell-mediated natural and antibody-dependent cytotoxicity
+      qualifier: MONDO:0008963
+      subject_qualifier: with IL-2
+      subject_extension: IL-2
+    - subject: in vitro treatment
+      predicate: TREATS
+      object: defects in IFN-gamma production
+      qualifier: MONDO:0008963
+      subject_extension: IL-2
+    - subject: <cord blood transplantation>
+      predicate: <TREATS>
+      object: <impaired cytotoxicity>
+      qualifier: <Chediak-Higashi syndrome>
+      subject_qualifier: <>
+      object_qualifier: <impaired>
+      subject_extension: <cord blood>
+      object_extension: <NK cell>
+named_entities:
+  - id: MAXO:0010030
+    label: Bone marrow transplantation (BMT)
+  - id: MONDO:0008963
+    label: Chediak-Higashi syndrome
+  - id: MAXO:0010033
+    label: Unrelated cord blood transplantation (UCBT)
+  - id: MAXO:0000747
+    label: HSCT
+  - id: MAXO:0000750
+    label: Conditioning regimens
+  - id: CHEBI:41264
+    label: BU
+  - id: CHEBI:4027
+    label: Cyclophosphamide
+  - id: CHEBI:4911
+    label: Etoposide

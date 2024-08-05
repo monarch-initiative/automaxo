@@ -1,0 +1,113 @@
+---
+input_text: Perceptions of the outcome of orthopedic surgery in patients with chondrodysplasias.
+  As part of a larger survey of patients with chondrodysplasias, 197 patients or their
+  parents were asked whether they had undergone orthopedic surgery related to their
+  chondrodysplasia and, if so, to rate their impression of the outcome. Seventy-four
+  patients (37.6%) had undergone a total of 152 procedures (221 if concurrent bilateral
+  operations are counted separately). The percentage of patients treated surgically
+  ranged from a low of 8.3% for hypochondroplasia to a high of 87.5% for diastrophic
+  dysplasia. Of the patients who had surgery, the mean number of procedures per patient
+  ranged from 1.0 for hypochondroplasia to 2.69 for pseudoachondroplasia. Of 180 individual
+  procedures related to the limbs, the outcome in 88.8% was judged 'a bit better'
+  or higher and in 68.8% 'much better' or higher. The responses ranged from a low
+  of 70.4 and 66.7%, respectively for proximal femoral osteotomies to a high of 100
+  and 85.9% for hip replacement. The comparable figures for spine related surgery
+  were 81.8 and 48.5% with a low of 58.3 and 50.0% for foramen magnum-cervical surgery
+  and a high of 93.8 and 43.8% for thoracolumbar procedures. The expressed perception
+  of lack of satisfaction varied not only by procedure but by diagnosis. Overall,
+  patients perceived a high level of post-surgical improvement, although a number
+  experienced subsequent deterioration and the need for further intervention.
+raw_completion_output: |-
+  primary_disease: Chondrodysplasias
+  medical_actions: Orthopedic surgery;Hip replacement;Proximal femoral osteotomies;Foramen magnum-cervical surgery;Thoracolumbar procedures
+  symptoms: Deterioration
+  chemicals: 
+  action_annotation_relationships: Orthopedic surgery TREATS Chondrodysplasias;Hip replacement TREATS deterioration IN Chondrodysplasias;Proximal femoral osteotomies TREATS Chondrodysplasias;Foramen magnum-cervical surgery TREATS Chondrodysplasias;Thoracolumbar procedures TREATS Chondrodysplasias
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Thoracolumbar procedures TREATS Chondrodysplasias
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0022723
+  medical_actions:
+    - MAXO:0000479
+    - MAXO:0009047
+    - Proximal femoral osteotomies
+    - Foramen magnum-cervical surgery
+    - Thoracolumbar procedures
+  symptoms:
+    - Deterioration
+  action_annotation_relationships:
+    - subject: MAXO:0000479
+      predicate: TREATS
+      object: Chondrodysplasias
+    - subject: MAXO:0009047
+      predicate: TREATS
+      object: deterioration
+      qualifier: MONDO:0022723
+    - subject: Proximal femoral osteotomies
+      predicate: TREATS
+      object: Chondrodysplasias
+    - subject: Foramen magnum-cervical surgery
+      predicate: TREATS
+      object: Chondrodysplasias
+    - subject: Thoracolumbar procedures
+      predicate: TREATS
+      object: Chondrodysplasias
+named_entities:
+  - id: HP:0031846
+    label: Femoral fracture
+  - id: MAXO:0000745
+    label: cytogenetic analysis
+  - id: HP:0000256
+    label: macrocephaly
+  - id: MAXO:0000127
+    label: genetic testing
+  - id: HP:0003750
+    label: Muscle fatigue
+  - id: MONDO:0000050
+    label: Growth hormone deficiency
+  - id: MAXO:0000780
+    label: Growth hormone therapy
+  - id: CHEBI:37845
+    label: Growth hormone
+  - id: MAXO:0000526
+    label: Clinical examination
+  - id: MONDO:0005516
+    label: Skeletal dysplasia
+  - id: CHEBI:77383
+    label: bisphosphonates
+  - id: MAXO:0001298
+    label: therapy
+  - id: MONDO:0007037
+    label: Achondroplasia
+  - id: HP:0004322
+    label: Short stature
+  - id: MONDO:0007793
+    label: hypochondroplasia
+  - id: HP:0010535
+    label: Sleep apnea
+  - id: MONDO:0017194
+    label: Blount's disease
+  - id: HP:0003498
+    label: Disproportionate short stature
+  - id: MONDO:0022723
+    label: Chondrodysplasias
+  - id: MAXO:0000479
+    label: Orthopedic surgery
+  - id: MAXO:0009047
+    label: Hip replacement

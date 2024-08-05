@@ -1,0 +1,96 @@
+---
+input_text: 'Efficacy and safety of once-daily nitisinone for patients with alkaptonuria
+  (SONIA 2): an international, multicentre, open-label, randomised controlled trial.
+  BACKGROUND: Alkaptonuria is a rare, genetic, multisystem disease characterised by
+  the accumulation of homogentisic acid (HGA). No HGA-lowering therapy has been approved
+  to date. The aim of SONIA 2 was to investigate the efficacy and safety of once-daily
+  nitisinone for reducing HGA excretion in patients with alkaptonuria and to evaluate
+  whether nitisinone has a clinical benefit. METHODS: SONIA 2 was a 4-year, open-label,
+  evaluator-blind, randomised, no treatment controlled, parallel-group study done
+  at three sites in the UK, France, and Slovakia. Patients aged 25 years or older
+  with confirmed alkaptonuria and any clinical disease manifestations were randomly
+  assigned (1:1) to receive either oral nitisinone 10 mg daily or no treatment. Patients
+  could not be masked to treatment due to colour changes in the urine, but the study
+  was evaluator-blinded as far as possible. The primary endpoint was daily urinary
+  HGA excretion (u-HGA24) after 12 months. Clinical evaluation Alkaptonuria Severity
+  Score Index (cAKUSSI) score was assessed at 12, 24, 36, and 48 months. Efficacy
+  variables were analysed in all randomly assigned patients with a valid u-HGA24 measurement
+  at baseline. Safety variables were analysed in all randomly assigned patients. The
+  study was registered at ClinicalTrials.gov (NCT01916382). FINDINGS: Between May
+  7, 2014, and Feb 16, 2015, 139 patients were screened, of whom 138 were included
+  in the study, with 69 patients randomly assigned to each group. 55 patients in the
+  nitisinone group and 53 in the control group completed the study. u-HGA24 at 12
+  months was significantly decreased by 99 7% in the nitisinone group compared with
+  the control group (adjusted geometric mean ratio of nitisinone/control 0 003 [95%
+  CI 0 003 to 0 004], p<0 0001). At 48 months, the increase in cAKUSSI score from
+  baseline was significantly lower in the nitisinone group compared with the control
+  group (adjusted mean difference -8 6 points [-16 0 to -1 2], p=0 023). 400 adverse
+  events occurred in 59 (86%) patients in the nitisinone group and 284 events occurred
+  in 57 (83%) patients in the control group. No treatment-related deaths occurred.
+  INTERPRETATION: Nitisinone 10 mg daily was well tolerated and effective in reducing
+  urinary excretion of HGA. Nitisinone decreased ochronosis and improved clinical
+  signs, indicating a slower disease progression. FUNDING: European Commission Seventh
+  Framework Programme.'
+raw_completion_output: |-
+  primary_disease: Alkaptonuria
+  medical_actions: once-daily nitisinone administration;clinical evaluation Alkaptonuria Severity Score Index (cAKUSSI) assessment;random assignment to treatment groups;urinary HGA excretion measurement
+  symptoms: accumulation of homogentisic acid (HGA);ochronosis
+  chemicals: nitisinone;homogentisic acid (HGA)
+  action_annotation_relationships: once-daily nitisinone administration TREATS accumulation of homogentisic acid (HGA) IN Alkaptonuria;once-daily nitisinone administration (with nitisinone) TREATS ochronosis IN Alkaptonuria
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  once-daily nitisinone administration (with nitisinone) TREATS ochronosis IN Alkaptonuria
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0008753
+  medical_actions:
+    - once-daily nitisinone administration
+    - clinical evaluation Alkaptonuria Severity Score Index (cAKUSSI) assessment
+    - random assignment to treatment groups
+    - urinary HGA excretion measurement
+  symptoms:
+    - accumulation of homogentisic acid (HGA)
+    - HP:0030764
+  chemicals:
+    - CHEBI:50378
+    - CHEBI:44747
+  action_annotation_relationships:
+    - subject: administration
+      predicate: TREATS
+      object: accumulation of homogentisic acid (HGA)
+      qualifier: MONDO:0008753
+      subject_qualifier: once-daily
+      subject_extension: CHEBI:50378
+    - subject: nitisinone administration
+      predicate: TREATS
+      object: HP:0030764
+      qualifier: MONDO:0008753
+      subject_qualifier: once-daily
+      subject_extension: CHEBI:50378
+named_entities:
+  - id: MAXO:0001175
+    label: Liver transplantation
+  - id: HP:0030764
+    label: Ochronosis
+  - id: CHEBI:44747
+    label: Homogentisic acid
+  - id: MONDO:0008753
+    label: alkaptonuria
+  - id: HP:0002758
+    label: osteoarthritis
+  - id: CHEBI:50378
+    label: nitisinone

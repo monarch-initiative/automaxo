@@ -1,0 +1,89 @@
+---
+input_text: "ApreciseKUre: an approach of Precision Medicine in a Rare Disease. BACKGROUND:
+  Alkaptonuria (AKU; OMIM:203500) is a classic Mendelian genetic disorder described
+  by Garrod already in 1902. It causes urine to turn black upon exposure to air and
+  also leads to ochronosis as well as early osteoarthritis. Our objective is the implementation
+  of a Precision Medicine (PM) approach to AKU. We present here a novel ApreciseKUre
+  database facilitating the collection, integration and analysis of patient data in
+  order to create an AKU-dedicated \"PM Ecosystem\" in which genetic, biochemical
+  and clinical resources can be shared among registered researchers. In order to exploit
+  the ApreciseKUre database, we developed an analytic method based on Pearson's correlation
+  coefficient and P value that generates as refreshable correlation matrix. A complete
+  statistical analysis is obtained by associating every pair of parameters to examine
+  the dependence between multiple variables at the same time. SHORT CONCLUSIONS: Employing
+  this analytic approach, we showed that some clinically used biomarkers are not suitable
+  as prognostic biomarkers in AKU for a more reliable patients' clinical monitoring.
+  We believe this database could be a good starting point for the creation of a new
+  clinical management tool in AKU, which will lead to the development of a deeper
+  knowledge network on the disease and will advance its treatment. Moreover, our approach
+  can serve as a personalization model paradigm for other inborn errors of metabolism
+  or rare diseases in general."
+raw_completion_output: |-
+  primary_disease: Alkaptonuria (AKU)
+
+  medical_actions: Implementation of a Precision Medicine (PM) approach; Development of the ApreciseKUre database; Analytic method based on Pearson's correlation coefficient and P value; Statistical analysis; Clinical management tool development
+
+  symptoms: Urine turns black upon exposure to air; Ochronosis; Early osteoarthritis
+
+  chemicals: 
+
+  action_annotation_relationships: Implementation of a Precision Medicine (PM) approach PREVENTS Urine turns black upon exposure to air IN Alkaptonuria (AKU); Implementation of a Precision Medicine (PM) approach PREVENTS Ochronosis IN Alkaptonuria (AKU); Implementation of a Precision Medicine (PM) approach PREVENTS Early osteoarthritis IN Alkaptonuria (AKU)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Implementation of a Precision Medicine (PM) approach PREVENTS Early osteoarthritis IN Alkaptonuria (AKU)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0008753
+  medical_actions:
+    - Implementation of a Precision Medicine (PM) approach
+    - Development of the ApreciseKUre database
+    - Analytic method based on Pearson's correlation coefficient and P value
+    - Statistical analysis
+    - Clinical management tool development
+  symptoms:
+    - Urine turns black upon exposure to air
+    - HP:0030764
+    - Early osteoarthritis
+  action_annotation_relationships:
+    - subject: Implementation of a Precision Medicine (PM) approach
+      predicate: PREVENTS
+      object: Urine turns black upon exposure to air
+      qualifier: MONDO:0008753
+      subject_extension: Precision Medicine
+    - subject: Implementation of a Precision Medicine (PM) approach
+      predicate: PREVENTS
+      object: HP:0030764
+      qualifier: MONDO:0008753
+      subject_extension: Precision Medicine
+    - subject: Implementation of a PM approach
+      predicate: PREVENTS
+      object: HP:0002758
+      qualifier: MONDO:0008753
+      object_qualifier: Early
+      subject_extension: Precision Medicine
+      object_extension: Early
+named_entities:
+  - id: MAXO:0001175
+    label: Liver transplantation
+  - id: HP:0030764
+    label: Ochronosis
+  - id: CHEBI:44747
+    label: Homogentisic acid
+  - id: MONDO:0008753
+    label: alkaptonuria
+  - id: HP:0002758
+    label: osteoarthritis

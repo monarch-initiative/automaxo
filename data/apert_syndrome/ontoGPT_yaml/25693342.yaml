@@ -1,0 +1,113 @@
+---
+input_text: '[Air-Q  intubating laryngeal airway as a conduit for tracheal intubation
+  in a patient with Apert syndrome: a case report]. We present a case of an 18-year-old
+  male who underwent strabismus operation under general anesthesia. In his childhood,
+  tracheostomy had been performed for the repair of cleft lip and palate. His Mallampati
+  classification was IV and preoperative endoscopic examination revealed megaloglossia
+  and severe airway narrowing. For possible difficult airway, intubating laryngeal
+  airway (air-Q , size 2.5) was used for tracheal intubation. Following insertion
+  of air-Q , trachea was intubated via air-Q  guided with fiberscope. The patient
+  was ventilated via tracheal tube with the air-Q  remaining in place during the operation.
+  air-Q  can be effectively utilized for airway management for an adult Apert syndrome
+  patient'
+raw_completion_output: |-
+  primary_disease: Apert syndrome
+  medical_actions: Tracheal intubation using air-Q; Ventilation via tracheal tube; Use of fiberscope for guidance; Tracheostomy
+  symptoms: Megaloglossia; Severe airway narrowing
+  chemicals: 
+  action_annotation_relationships: Tracheal intubation using air-Q TREATS severe airway narrowing IN Apert syndrome; Ventilation via tracheal tube TREATS severe airway narrowing IN Apert syndrome; Use of fiberscope for guidance TREATS severe airway narrowing IN Apert syndrome; Tracheostomy TREATS severe airway narrowing IN Apert syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Tracheostomy TREATS severe airway narrowing IN Apert syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0007041
+  medical_actions:
+    - Tracheal intubation using air-Q
+    - Ventilation via tracheal tube
+    - Use of fiberscope for guidance
+    - MAXO:0000504
+  symptoms:
+    - Megaloglossia
+    - Severe airway narrowing
+  action_annotation_relationships:
+    - subject: MAXO:0000502
+      predicate: TREATS
+      object: severe airway narrowing
+      qualifier: MONDO:0007041
+      subject_qualifier: using air-Q
+      object_qualifier: severe
+      subject_extension: air-Q
+    - subject: Ventilation via tracheal tube
+      predicate: TREATS
+      object: severe airway narrowing
+      qualifier: MONDO:0007041
+      object_qualifier: severe
+    - subject: Use of fiberscope for guidance
+      predicate: TREATS
+      object: severe airway narrowing
+      qualifier: MONDO:0007041
+      object_qualifier: severe
+      subject_extension: fiberscope
+    - subject: MAXO:0000504
+      predicate: TREATS
+      object: severe airway narrowing
+      qualifier: MONDO:0007041
+      object_qualifier: severe
+named_entities:
+  - id: HP:0011800
+    label: Midface hypoplasia
+  - id: MONDO:0007041
+    label: Apert syndrome
+  - id: MAXO:0000486
+    label: distraction osteogenesis
+  - id: HP:0012531
+    label: pain
+  - id: HP:0001288
+    label: gait disturbances
+  - id: MONDO:0003432
+    label: Strabismus
+  - id: HP:0001159
+    label: Syndactyly
+  - id: MAXO:0000004
+    label: surgical procedures
+  - id: HP:0001363
+    label: craniosynostosis
+  - id: MONDO:0015338
+    label: syndromic craniosynostosis
+  - id: HP:0001061
+    label: Acne
+  - id: CHEBI:6067
+    label: isotretinoin
+  - id: MONDO:0015469
+    label: Craniosynostosis
+  - id: HP:0000572
+    label: Vision loss
+  - id: HP:0000646
+    label: Amblyopia
+  - id: HP:0001138
+    label: Optic neuropathy
+  - id: HP:0000486
+    label: Strabismus
+  - id: HP:0012803
+    label: Anisometropia
+  - id: HP:0000483
+    label: Astigmatism
+  - id: MAXO:0000504
+    label: Tracheostomy
+  - id: MAXO:0000502
+    label: Tracheal intubation

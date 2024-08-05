@@ -1,0 +1,203 @@
+---
+input_text: 'Liver Transplantation for Propionic Acidemia and Methylmalonic Acidemia:
+  Perioperative Management and Clinical Outcomes. Propionic acidemia (PA) and methylmalonic
+  acidemia (MMA) comprise the most common organic acidemias and account for profound
+  morbidity in affected individuals. Although liver transplantation (LT) has emerged
+  as a bulk enzyme-replacement strategy to stabilize metabolically fragile patients,
+  it is not a metabolic cure because patients remain at risk for disease-related complications.
+  We retrospectively studied LT and/or liver-kidney transplant in 9 patients with
+  PA or MMA with additional focus on the optimization of metabolic control and management
+  in the perioperative period. Metabolic crises were common before transplant. By
+  implementing a strategy of carbohydrate minimization with gradual but early lipid
+  and protein introduction, lactate levels significantly improved over the perioperative
+  period (P < 0.001). Posttransplant metabolic improvement is demonstrated by improvements
+  in serum glycine levels (for PA; P < 0.001 x 10-14 ), methylmalonic acid levels
+  (for MMA; P < 0.001), and ammonia levels (for PA and MMA; P < 0.001). Dietary restriction
+  remained after transplant. However, no further metabolic crises have occurred. Other
+  disease-specific comorbidities such as renal dysfunction and cardiomyopathy stabilized
+  and improved. In conclusion, transplant can provide a strategy for altering the
+  natural history of PA and MMA providing stability to a rare but metabolically brittle
+  population. Nutritional management is critical to optimize patient outcomes.'
+raw_completion_output: |-
+  primary_disease: Propionic acidemia (PA) and methylmalonic acidemia (MMA)
+
+  medical_actions: Liver transplantation (LT); Liver-kidney transplant; Carbohydrate minimization; Early lipid and protein introduction; Nutritional management
+
+  symptoms: Metabolic crises; High lactate levels; High serum glycine levels; High methylmalonic acid levels; High ammonia levels; Renal dysfunction; Cardiomyopathy
+
+  chemicals: 
+
+  action_annotation_relationships: Liver transplantation TREATS metabolic crises IN Propionic acidemia (PA); Liver transplantation TREATS metabolic crises IN methylmalonic acidemia (MMA); Carbohydrate minimization TREATS high lactate levels IN Propionic acidemia (PA) and methylmalonic acidemia (MMA); Early lipid and protein introduction TREATS high lactate levels IN Propionic acidemia (PA) and methylmalonic acidemia (MMA); Nutritional management TREATS high serum glycine levels IN Propionic acidemia (PA); Nutritional management TREATS high methylmalonic acid levels IN methylmalonic acidemia (MMA); Nutritional management TREATS high ammonia levels IN Propionic acidemia (PA) and methylmalonic acidemia (MMA); Liver transplantation TREATS renal dysfunction IN Propionic acidemia (PA) and methylmalonic acidemia (MMA); Liver transplantation TREATS cardiomyopathy IN Propionic acidemia (PA) and methylmalonic acidemia (MMA)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Liver transplantation TREATS cardiomyopathy IN Propionic acidemia (PA) and methylmalonic acidemia (MMA)
+
+  ===
+
+extracted_object:
+  primary_disease: Propionic acidemia (PA) and methylmalonic acidemia (MMA)
+  medical_actions:
+    - MAXO:0001175
+    - Liver-kidney transplant
+    - Carbohydrate minimization
+    - Early lipid and protein introduction
+    - Nutritional management
+  symptoms:
+    - Metabolic crises
+    - High lactate levels
+    - High serum glycine levels
+    - High methylmalonic acid levels
+    - High ammonia levels
+    - Renal dysfunction
+    - HP:0001638
+  action_annotation_relationships:
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: metabolic crises
+      qualifier: MONDO:0011628
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: metabolic crises
+      qualifier: MONDO:0002012
+    - subject: Carbohydrate minimization
+      predicate: TREATS
+      object: high lactate levels
+      qualifier: Propionic acidemia (PA) and methylmalonic acidemia (MMA)
+      subject_extension: Carbohydrate minimization
+    - subject: <Early lipid and protein introduction>
+      predicate: <TREATS>
+      object: <high lactate levels>
+      qualifier: <Propionic acidemia (PA) and methylmalonic acidemia (MMA)>
+      subject_qualifier: <Early>
+      subject_extension: <lipid and protein>
+    - subject: Nutritional management
+      predicate: TREATS
+      object: high serum glycine levels
+      qualifier: MONDO:0011628
+    - subject: Nutritional management
+      predicate: TREATS
+      object: high methylmalonic acid levels
+      qualifier: MONDO:0002012
+    - subject: <Nutritional management>
+      predicate: <TREATS>
+      object: <high ammonia levels>
+      qualifier: <Propionic acidemia (PA) and methylmalonic acidemia (MMA)>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <Nutritional management>
+      object_extension: <high ammonia levels>
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: renal dysfunction
+      qualifier: Propionic acidemia (PA), methylmalonic acidemia (MMA)
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: HP:0001638
+      qualifier: Propionic acidemia (PA) and methylmalonic acidemia (MMA)
+named_entities:
+  - id: MONDO:0010184
+    label: methylmalonic acidemia (MMA); propionic acidemia; cobalamin C (cblC) deficiency
+  - id: CHEBI:15603
+    label: leucine (Leu)
+  - id: CHEBI:16414
+    label: valine (Val)
+  - id: CHEBI:17191
+    label: isoleucine (Ile)
+  - id: CHEBI:16044
+    label: methionine (Met)
+  - id: MONDO:0002012
+    label: methylmalonic acidemia (MMA)
+  - id: MONDO:0011628
+    label: propionic acidemia
+  - id: CHEBI:25017
+    label: leucine
+  - id: MAXO:0001175
+    label: liver transplantation
+  - id: HP:0001638
+    label: cardiomyopathy
+  - id: HP:0100543
+    label: Cognitive impairment
+  - id: CHEBI:176843
+    label: Vitamin B12
+  - id: MONDO:0019052
+    label: Inborn errors of metabolism (IEMs)
+  - id: MAXO:0010039
+    label: organ transplantation
+  - id: HP:0001942
+    label: metabolic acidosis
+  - id: HP:0001987
+    label: hyperammonemia
+  - id: HP:0003571
+    label: Propionic acidemia
+  - id: HP:0001695
+    label: cardiac arrest
+  - id: HP:0001263
+    label: Developmental delay
+  - id: CHEBI:15428
+    label: Glycine
+  - id: CHEBI:28867
+    label: Propionylcarnitine
+  - id: HP:0001138
+    label: optic neuropathy
+  - id: HP:0000083
+    label: Renal failure
+  - id: MONDO:0005290
+    label: Rhabdomyolysis
+  - id: MAXO:0000950
+    label: Supportive care
+  - id: HP:0003287
+    label: Mitochondrial dysfunction
+  - id: HP:0001250
+    label: seizures
+  - id: HP:0002071
+    label: extrapyramidal symptoms
+  - id: HP:0001733
+    label: pancreatitis
+  - id: CHEBI:27881
+    label: resveratrol
+  - id: CHEBI:22586
+    label: antioxidants
+  - id: MONDO:0009563
+    label: Maple Syrup Urine Disease (MSUD)
+  - id: CHEBI:15539
+    label: propionyl-CoA
+  - id: CHEBI:33709
+    label: amino acids
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: CHEBI:36080
+    label: protein
+  - id: MONDO:0000688
+    label: organic acidemias
+  - id: HP:0008281
+    label: Acute hyperammonemia
+  - id: CHEBI:26708
+    label: NA
+  - id: HP:0002829
+    label: arthralgia
+  - id: HP:0001410
+    label: liver dysfunction
+  - id: HP:0001919
+    label: acute renal failure
+  - id: HP:0033677
+    label: ARDS
+  - id: CHEBI:64357
+    label: rituximab
+  - id: CHEBI:35341
+    label: steroid
+  - id: MAXO:0010032
+    label: Heart transplantation
+  - id: HP:0001644
+    label: Dilated cardiomyopathy (DCM)

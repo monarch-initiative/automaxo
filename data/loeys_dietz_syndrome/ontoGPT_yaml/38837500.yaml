@@ -1,0 +1,69 @@
+---
+input_text: Delayed diagnosis of Loeys-Dietz syndrome revealed through atrial septal
+  defect with pulmonary artery dilation. Loeys-Dietz syndrome (LDS) is an autosomal-dominant
+  connective tissue disorder associated with mutations in the transforming growth
+  factor beta receptor. It is characterized by distinctive craniofacial changes, skeletal
+  features, and cardiovascular complications. We present a case of a 24-year-old male
+  with development delay and a one-year history of progressively worsening dyspnea
+  on moderate exertion and orthopnea. Echocardiography revealed right atrial and right
+  ventricle dilation, right ventricle hypertrophy, atrial septal defect, and aneurysmal
+  dilation of the pulmonary artery trunk. This case underscores the importance of
+  early detection and comprehensive imaging in patients suspected of having LDS, particularly
+  considering the potential for atypical vascular manifestations.
+raw_completion_output: |-
+  primary_disease: Loeys-Dietz syndrome
+
+  medical_actions: early detection; comprehensive imaging
+
+  symptoms: development delay; progressively worsening dyspnea on moderate exertion; orthopnea; right atrial and right ventricle dilation; right ventricle hypertrophy; atrial septal defect; aneurysmal dilation of the pulmonary artery trunk
+
+  chemicals: 
+
+  action_annotation_relationships: early detection PREVENTS progression IN Loeys-Dietz syndrome; comprehensive imaging PREVENTS misdiagnosis IN Loeys-Dietz syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  comprehensive imaging PREVENTS misdiagnosis IN Loeys-Dietz syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0018954
+  medical_actions:
+    - early detection
+    - comprehensive imaging
+  symptoms:
+    - development delay
+    - progressively worsening dyspnea on moderate exertion
+    - HP:0012764
+    - right atrial and right ventricle dilation
+    - right ventricle hypertrophy
+    - HP:0001631
+    - aneurysmal dilation of the pulmonary artery trunk
+  action_annotation_relationships:
+    - subject: early detection
+      predicate: PREVENTS
+      object: progression
+      qualifier: MONDO:0018954
+    - subject: comprehensive imaging
+      predicate: PREVENTS
+      object: misdiagnosis
+      qualifier: MONDO:0018954
+named_entities:
+  - id: MONDO:0018954
+    label: Loeys-Dietz syndrome
+  - id: HP:0012764
+    label: orthopnea
+  - id: HP:0001631
+    label: atrial septal defect

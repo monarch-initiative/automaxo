@@ -1,0 +1,206 @@
+---
+input_text: '[Marfan syndrome: clinical and pathomorphological restructurings after
+  surgical treatment of aortic aneurysm]. The authors examined the state of patients
+  suffering from Marfan syndrome (MS) who endured operation for ascending aorta aneurysm
+  with replacement of the ascending aorta and aortic valve (Bentall operation), studying
+  alterations of the skeleton, face, heart and eyes, as well as pathomorphological
+  restructurings in the aortic wall. The study was carried out 7.0 +- 4.2 years after
+  the operation. We examined a total of 39 patients with MS - 27 (69.2%) men and 12
+  (30.8%) women aged from 22 to 70 years old (average age - 42.1 +- 13.4 years). All
+  patients were operated on for dissecting aneurysm of the ascending aorta accompanied
+  by a considerable degree of aortic valve insufficiency or aortic ostium stenosis.
+  The mean diameter of the aorta at the level of the sinuses of Valsalva amounted
+  to 7.0 +- 1.3 cm (minimal - 5.0 cm, maximal - 12.0 cm), the Z-score prior to operation
+  was 12.7 +- 6.5. The time form making the diagnosis of MS to surgical intervention
+  for aortic aneurysm amounted to 9.6 +- 5.9 years. The condition after operative
+  treatment in all patients was satisfactory, with the haemodynamic indices stable:
+  systolic AP - 133.5 +- 19.1 mm Hg, diastolic AP 85.1 +- 12.9 mm Hg, heart rate 74.8
+  +- 7.2 bpm. The average systemic score for the symptoms and tests of MS patients
+  amounted to 8.2 +- 3.3 points. Pathohistological alterations of the aorta in patients
+  with Marfan syndrome consisted in pronounced restructuring of the wall with deep
+  irreversible alternative changes. The pathological process extended in the middle
+  aortic layer all alone the length, but not only in the portions of rupture and dissection.
+  The main pathomorphological signs in MS were as follows: focal accumulations of
+  mucoid substances, dystrophic alterations of smooth-muscle cells, ribbon-like anuclear
+  zones, formation of cystlike cavities, alterations of elastic fibres - fragmentation,
+  hyperelastosis, multiplication, thinning and straightening, zones of elastolysis.'
+raw_completion_output: |-
+  primary_disease: Marfan syndrome
+  medical_actions: surgical treatment of aortic aneurysm; replacement of the ascending aorta and aortic valve (Bentall operation)
+  symptoms: alterations of the skeleton; alterations of the face; heart alterations; eye alterations; dissecting aneurysm of the ascending aorta; aortic valve insufficiency; aortic ostium stenosis; pronounced restructuring of the aortic wall with deep irreversible alternative changes; focal accumulations of mucoid substances; dystrophic alterations of smooth-muscle cells; ribbon-like anuclear zones; formation of cystlike cavities; alterations of elastic fibres - fragmentation, hyperelastosis, multiplication, thinning and straightening; zones of elastolysis
+  chemicals: 
+  action_annotation_relationships: surgical treatment of aortic aneurysm TREATS dissecting aneurysm of the ascending aorta IN Marfan syndrome; replacement of the ascending aorta and aortic valve (Bentall operation) TREATS aortic valve insufficiency IN Marfan syndrome; replacement of the ascending aorta and aortic valve (Bentall operation) TREATS aortic ostium stenosis IN Marfan syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  replacement of the ascending aorta and aortic valve (Bentall operation) TREATS aortic ostium stenosis IN Marfan syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0007947
+  medical_actions:
+    - surgical treatment of aortic aneurysm
+    - replacement of the ascending aorta and aortic valve (Bentall operation)
+  symptoms:
+    - alterations of the skeleton
+    - alterations of the face
+    - heart alterations
+    - eye alterations
+    - dissecting aneurysm of the ascending aorta
+    - HP:0001659
+    - aortic ostium stenosis
+    - pronounced restructuring of the aortic wall with deep irreversible alternative
+      changes
+    - focal accumulations of mucoid substances
+    - dystrophic alterations of smooth-muscle cells
+    - ribbon-like anuclear zones
+    - formation of cystlike cavities
+    - alterations of elastic fibres - fragmentation, hyperelastosis, multiplication,
+      thinning and straightening
+    - zones of elastolysis
+  action_annotation_relationships:
+    - subject: surgical treatment of aortic aneurysm
+      predicate: TREATS
+      object: dissecting aneurysm of the ascending aorta
+      qualifier: MONDO:0007947
+    - subject: replacement of the ascending aorta and aortic valve (Bentall operation)
+      predicate: TREATS
+      object: HP:0001659
+      qualifier: MONDO:0007947
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <>
+      object_extension: <>
+    - subject: replacement of the ascending aorta and aortic valve (Bentall operation)
+      predicate: TREATS
+      object: aortic ostium stenosis
+      qualifier: MONDO:0007947
+named_entities:
+  - id: MONDO:0007947
+    label: Marfan Syndrome
+  - id: HP:0000768
+    label: Pectus carinatum
+  - id: HP:0002650
+    label: Scoliosis
+  - id: HP:0002108
+    label: Spontaneous pneumothorax
+  - id: HP:0003423
+    label: Thoracolumbar kyphoscoliosis
+  - id: HP:0000822
+    label: Hypertension
+  - id: HP:0001649
+    label: Tachycardia
+  - id: HP:0012531
+    label: pain
+  - id: MONDO:0009691
+    label: Marfan syndrome (MFS)
+  - id: CHEBI:6541
+    label: Losartan
+  - id: HP:0031625
+    label: Pseudoaneurysms
+  - id: MAXO:0000451
+    label: Implantation
+  - id: HP:0031649
+    label: Aortic rupture
+  - id: MAXO:0001061
+    label: Laminectomy
+  - id: MAXO:0000571
+    label: CT
+  - id: HP:0034267
+    label: Pelvic pain
+  - id: HP:0000139
+    label: Genital prolapse
+  - id: HP:0100518
+    label: Dysuria
+  - id: HP:0001297
+    label: stroke
+  - id: HP:0002615
+    label: Hypotension
+  - id: HP:0007185
+    label: Loss of consciousness
+  - id: MAXO:0001056
+    label: Hepatectomy
+  - id: HP:0002239
+    label: Gastrointestinal bleeding
+  - id: HP:0000952
+    label: Jaundice
+  - id: MONDO:0009352
+    label: Cystathionine beta-Synthase Deficiency
+  - id: MAXO:0010092
+    label: methionine restriction
+  - id: HP:0000545
+    label: myopia
+  - id: HP:0001083
+    label: ectopia lentis
+  - id: HP:0001249
+    label: mental retardation
+  - id: HP:0000924
+    label: skeletal anomalies
+  - id: HP:0001907
+    label: thromboembolic events
+  - id: HP:0003235
+    label: hypermethioninemia
+  - id: CHEBI:17750
+    label: betaine
+  - id: CHEBI:16811
+    label: methionine
+  - id: MAXO:0001298
+    label: therapy
+  - id: MAXO:0001085
+    label: Vitrectomy
+  - id: HP:0012109
+    label: Angle closure glaucoma
+  - id: HP:0000572
+    label: Visual loss
+  - id: HP:0002092
+    label: Pulmonary hypertension
+  - id: CHEBI:50249
+    label: Anticoagulants
+  - id: HP:0000973
+    label: elastolysis
+  - id: MAXO:0001001
+    label: gene therapy
+  - id: HP:0100584
+    label: endocarditis
+  - id: MONDO:0005010
+    label: Congenital heart disease (CHD)
+  - id: MAXO:0010032
+    label: Heart transplantation
+  - id: MAXO:0010203
+    label: Echocardiography
+  - id: HP:0001635
+    label: Heart failure
+  - id: MAXO:0009072
+    label: Surgical repair
+  - id: HP:0002647
+    label: Aortic dissection
+  - id: MONDO:0009279
+    label: Abdominal Aortic Aneurysm (AAA)
+  - id: CHEBI:3312
+    label: CaCl2
+  - id: HP:0002027
+    label: Abdominal pain
+  - id: CHEBI:10033
+    label: Warfarin
+  - id: MAXO:0000004
+    label: surgical intervention
+  - id: HP:0004942
+    label: aortic dilation
+  - id: MONDO:0017309
+    label: Neonatal Marfan Syndrome
+  - id: HP:0001653
+    label: mitral valve insufficiency
+  - id: HP:0001659
+    label: aortic valve insufficiency

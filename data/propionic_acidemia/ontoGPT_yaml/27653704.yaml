@@ -1,0 +1,119 @@
+---
+input_text: 'Methylmalonic and propionic acidemias: clinical management update. PURPOSE
+  OF REVIEW: Recent clinical studies and management guidelines for the treatment of
+  the organic acidopathies methylmalonic acidemia (MMA) and propionic acidemia address
+  the scope of interventions to maximize health and quality of life. Unfortunately,
+  these disorders continue to cause significant morbidity and mortality due to acute
+  and chronic systemic and end-organ injury. RECENT FINDINGS: Dietary management with
+  medical foods has been a mainstay of therapy for decades, yet well controlled patients
+  can manifest growth, development, cardiac, ophthalmological, renal, and neurological
+  complications. Patients with organic acidopathies suffer metabolic brain injury
+  that targets specific regions of the basal ganglia in a distinctive pattern, and
+  these injuries may occur even with optimal management during metabolic stress. Liver
+  transplantation has improved quality of life and metabolic stability, yet transplantation
+  in this population does not entirely prevent brain injury or the development of
+  optic neuropathy and cardiac disease. SUMMARY: Management guidelines should identify
+  necessary screening for patients with methylmalonic acidemia and propionic acidemia,
+  and improve anticipatory management of progressive end-organ disease. Liver transplantation
+  improves overall metabolic control, but injury to nonregenerative tissues may not
+  be mitigated. Continued use of medical foods in these patients requires prospective
+  studies to demonstrate evidence of benefit in a controlled manner.'
+raw_completion_output: |-
+  primary_disease: Methylmalonic acidemia (MMA) and propionic acidemia
+  medical_actions: Dietary management with medical foods; Liver transplantation
+  symptoms: growth, development, cardiac, ophthalmological, renal, and neurological complications; metabolic brain injury; optic neuropathy; cardiac disease
+  chemicals: 
+  action_annotation_relationships: Dietary management with medical foods TREATS growth, development, cardiac, ophthalmological, renal, and neurological complications IN Methylmalonic acidemia (MMA) and propionic acidemia; Liver transplantation PREVENTS metabolic brain injury IN Methylmalonic acidemia (MMA) and propionic acidemia; Liver transplantation TREATS optic neuropathy IN Methylmalonic acidemia (MMA) and propionic acidemia; Liver transplantation TREATS cardiac disease IN Methylmalonic acidemia (MMA) and propionic acidemia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Liver transplantation TREATS cardiac disease IN Methylmalonic acidemia (MMA) and propionic acidemia
+
+  ===
+
+extracted_object:
+  primary_disease: Methylmalonic acidemia (MMA) and propionic acidemia
+  medical_actions:
+    - Dietary management with medical foods
+    - MAXO:0001175
+  symptoms:
+    - growth, development, cardiac, ophthalmological, renal, and neurological complications
+    - metabolic brain injury
+    - HP:0001138
+    - cardiac disease
+  action_annotation_relationships:
+    - subject: Dietary management
+      predicate: TREATS
+      object: complications
+      qualifier: Methylmalonic acidemia (MMA), propionic acidemia
+      object_qualifier: growth, development, cardiac, ophthalmological, renal, neurological
+      subject_extension: medical foods
+      object_extension: growth, development, cardiac, ophthalmological, renal, neurological
+    - subject: MAXO:0001175
+      predicate: PREVENTS
+      object: metabolic brain injury
+      qualifier: Methylmalonic acidemia (MMA), propionic acidemia
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: HP:0001138
+      qualifier: Methylmalonic acidemia (MMA) and propionic acidemia
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: cardiac disease
+      qualifier: Methylmalonic acidemia (MMA) and propionic acidemia
+named_entities:
+  - id: MONDO:0010184
+    label: methylmalonic acidemia (MMA); propionic acidemia; cobalamin C (cblC) deficiency
+  - id: CHEBI:15603
+    label: leucine (Leu)
+  - id: CHEBI:16414
+    label: valine (Val)
+  - id: CHEBI:17191
+    label: isoleucine (Ile)
+  - id: CHEBI:16044
+    label: methionine (Met)
+  - id: MONDO:0002012
+    label: methylmalonic acidemia (MMA)
+  - id: MONDO:0011628
+    label: propionic acidemia
+  - id: CHEBI:25017
+    label: leucine
+  - id: MAXO:0001175
+    label: liver transplantation
+  - id: HP:0001638
+    label: cardiomyopathy
+  - id: HP:0100543
+    label: Cognitive impairment
+  - id: CHEBI:176843
+    label: Vitamin B12
+  - id: MONDO:0019052
+    label: Inborn errors of metabolism (IEMs)
+  - id: MAXO:0010039
+    label: organ transplantation
+  - id: HP:0001942
+    label: metabolic acidosis
+  - id: HP:0001987
+    label: hyperammonemia
+  - id: HP:0003571
+    label: Propionic acidemia
+  - id: HP:0001695
+    label: cardiac arrest
+  - id: HP:0001263
+    label: Developmental delay
+  - id: CHEBI:15428
+    label: Glycine
+  - id: CHEBI:28867
+    label: Propionylcarnitine
+  - id: HP:0001138
+    label: optic neuropathy

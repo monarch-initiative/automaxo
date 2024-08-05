@@ -1,0 +1,213 @@
+---
+input_text: 'Pallidal deep-brain stimulation associated with complete remission of
+  self-injurious behaviors in a patient with Lesch-Nyhan syndrome: a case report.
+  The purpose of this case report is to review the management of a boy with Lesch-Nyhan
+  syndrome with deep-brain stimulation who had remission of self-injurious behaviors
+  as a result. This patient was treated with intrathecal baclofen and, later, with
+  deep-brain stimulation to reduce hypertonia. Goals were to improve wheelchair positioning
+  for school attendance and to reduce the use of restraints for comfort. Intrathecal
+  baclofen was implanted twice and decreased the hypertonia, but both were explanted
+  because of infection. Deep-brain stimulation was initiated 2.5 years ago, and since
+  that time, comfort and function have improved and caregiver burden has decreased.
+  Improvements in dystonia with deep-brain stimulation have also occurred, and self-injurious
+  behaviors have resolved.'
+raw_completion_output: |-
+  primary_disease: Lesch-Nyhan syndrome
+
+  medical_actions: deep-brain stimulation; intrathecal baclofen implantation; wheelchair positioning; use of restraints
+
+  symptoms: self-injurious behaviors; hypertonia; dystonia
+
+  chemicals: baclofen
+
+  action_annotation_relationships: intrathecal baclofen implantation (with baclofen) TREATS hypertonia IN Lesch-Nyhan syndrome; deep-brain stimulation TREATS self-injurious behaviors IN Lesch-Nyhan syndrome; deep-brain stimulation TREATS dystonia IN Lesch-Nyhan syndrome; wheelchair positioning PREVENTS discomfort IN Lesch-Nyhan syndrome; use of restraints PREVENTS discomfort IN Lesch-Nyhan syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  use of restraints PREVENTS discomfort IN Lesch-Nyhan syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010298
+  medical_actions:
+    - deep-brain stimulation
+    - intrathecal baclofen implantation
+    - wheelchair positioning
+    - use of restraints
+  symptoms:
+    - HP:0100716
+    - HP:0001276
+    - HP:0001332
+  chemicals:
+    - CHEBI:2972
+  action_annotation_relationships:
+    - subject: intrathecal baclofen implantation
+      predicate: TREATS
+      object: HP:0001276
+      qualifier: MONDO:0010298
+      subject_qualifier: with baclofen
+      subject_extension: CHEBI:2972
+    - subject: <deep-brain stimulation>
+      predicate: <TREATS>
+      object: <self-injurious behaviors>
+      qualifier: <Lesch-Nyhan syndrome>
+      subject_qualifier: <Not applicable>
+      object_qualifier: <Not applicable>
+      subject_extension: <Not applicable>
+      object_extension: <Not applicable>
+    - subject: <deep-brain stimulation>
+      predicate: <TREATS>
+      object: <dystonia>
+      qualifier: <Lesch-Nyhan syndrome>
+      subject_qualifier: <Not Applicable>
+      object_qualifier: <Not Applicable>
+      subject_extension: <Not Applicable>
+      object_extension: <Not Applicable>
+    - subject: wheelchair positioning
+      predicate: PREVENTS
+      object: discomfort
+      qualifier: MONDO:0010298
+      subject_qualifier: <none>
+      object_qualifier: <none>
+      subject_extension: <none>
+      object_extension: <none>
+    - subject: <use of restraints>
+      predicate: <PREVENTS>
+      object: <discomfort>
+      qualifier: <Lesch-Nyhan syndrome>
+      subject_extension: <restraints>
+named_entities:
+  - id: MONDO:0010298
+    label: Lesch-Nyhan syndrome
+  - id: HP:0002149
+    label: hyperuricemia
+  - id: HP:0100021
+    label: spastic cerebral palsy (CP)
+  - id: HP:0001332
+    label: dystonia
+  - id: HP:0000742
+    label: self-mutilation
+  - id: HP:0001257
+    label: Spasticity
+  - id: HP:0001266
+    label: Choreoathetosis
+  - id: HP:0100716
+    label: Self-injurious behavior
+  - id: HP:0000718
+    label: Aggression
+  - id: HP:0002104
+    label: Apnea
+  - id: HP:0002013
+    label: Vomiting
+  - id: CHEBI:44915
+    label: Propofol
+  - id: MAXO:0000943
+    label: deep brain stimulation surgery (DBS)
+  - id: CHEBI:9130
+    label: sevoflurane
+  - id: MAXO:0009003
+    label: preimplantation genetic diagnosis (PGD)
+  - id: HP:0001249
+    label: mental retardation
+  - id: CHEBI:17368
+    label: Hypoxanthine
+  - id: CHEBI:15372
+    label: tetrahydrobiopterin
+  - id: CHEBI:35634
+    label: xanthine oxidase inhibitors
+  - id: CHEBI:3387
+    label: Carbamazepine
+  - id: HP:0007325
+    label: generalized dystonia
+  - id: HP:0100660
+    label: dyskinesia
+  - id: HP:0003149
+    label: Hyperuricosuria
+  - id: HP:0001997
+    label: Gouty arthritis
+  - id: CHEBI:28790
+    label: serotonin
+  - id: CHEBI:28683
+    label: kynurenine
+  - id: CHEBI:16675
+    label: quinolinic acid
+  - id: CHEBI:15318
+    label: xanthine
+  - id: HP:0001263
+    label: developmental retardation
+  - id: MONDO:0002486
+    label: Lesch-Nyhan syndrome (LNS)
+  - id: HP:0000708
+    label: Behavioral disturbances
+  - id: HP:0012758
+    label: Neurodevelopmental delay
+  - id: CHEBI:8802
+    label: Remifentanil
+  - id: MAXO:0010033
+    label: Umbilical cord blood transplant (UCBT)
+  - id: MAXO:0000139
+    label: Autopsy
+  - id: HP:0033006
+    label: Diffuse alveolar damage
+  - id: HP:6000716
+    label: Hepatic veno-occlusive disease
+  - id: HP:0011793
+    label: malignant neoplasm
+  - id: MAXO:0000882
+    label: behavioral interventions
+  - id: MAXO:0000894
+    label: extracorporeal shock wave lithotripsy
+  - id: CHEBI:40279
+    label: allopurinol
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0030050
+    label: Catalepsy
+  - id: CHEBI:73297
+    label: SCH 23390
+  - id: CHEBI:5123
+    label: fluphenazine
+  - id: CHEBI:32168
+    label: (+/-) sulpiride
+  - id: MONDO:0010100
+    label: Tay-Sachs disease
+  - id: MAXO:0000058
+    label: Pharmacological treatment
+  - id: CHEBI:15414
+    label: S-adenosylmethionine (SAMe)
+  - id: CHEBI:18406
+    label: AICAR
+  - id: HP:0004305
+    label: involuntary movements
+  - id: MAXO:0010030
+    label: Bone marrow transplantation
+  - id: HP:0012169
+    label: self-biting
+  - id: CHEBI:78741
+    label: 6-hydroxydopamine (6-OHDA)
+  - id: CHEBI:53704
+    label: apomorphine (APO)
+  - id: CHEBI:17256
+    label: dopamine (DA)
+  - id: CHEBI:1582
+    label: 3-methoxytyramine (3-MT)
+  - id: CHEBI:33310
+    label: norepinephrine (NE)
+  - id: CHEBI:48538
+    label: apomorphine
+  - id: HP:0001276
+    label: hypertonia
+  - id: CHEBI:2972
+    label: baclofen

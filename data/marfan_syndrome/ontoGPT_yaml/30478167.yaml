@@ -1,0 +1,142 @@
+---
+input_text: Patients at Risk for Aortic Rupture Often Exposed to Fluoroquinolones
+  during Hospitalization. Several studies have indicated that fluoroquinolone use
+  may be associated with an increased risk of aortic aneurysm or dissection (AAD).
+  Because patients with AAD or Marfan syndrome are at increased risk for aortic rupture,
+  we performed a retrospective cohort study to determine the prevalence of systemic
+  fluoroquinolone exposure and predictors of fluoroquinolone use in these patients.
+  Data were obtained from the advisory board billing and administrative database,
+  which contained information on 22 million adult hospitalizations in the United States
+  for the study period (2009 to 2015). International Classification of Diseases (9/10)
+  and Current Procedural Terminology codes were used to identify patients who had
+  AAD or Marfan syndrome or underwent aortic repair. We identified 136,789 admissions
+  for AAD, which involved 99,818 unique patients, 20% of whom received fluoroquinolone
+  during a hospital admission. Of the 7,045 patients with dissection, 18% were exposed
+  to fluoroquinolone. Of the 27,876 AAD patients who underwent aortic repair, 19%
+  received fluoroquinolone during a hospitalization before the repair. In the AAD
+  patients, having a diagnosis of pneumonia or urinary tract infection increased the
+  likelihood of receiving fluoroquinolone during admission by 46% and 40%, respectively
+  (P < 0.001). Additionally, we identified 2,871 admissions for Marfan syndrome, which
+  involved 1,872 patients, 14% of whom received fluoroquinolone during an admission.
+  In these patients, pneumonia and urinary tract infections also increased the risk
+  of fluoroquinolone exposure. If the deleterious effects of fluoroquinolone on aortic
+  integrity are substantiated, reducing fluoroquinolone use in hospitalized patients
+  with aortic disorders will become an urgent safety issue for antibiotic stewardship
+  programs.
+raw_completion_output: |-
+  primary_disease: Aortic Aneurysm or Dissection (AAD)
+
+  medical_actions: Retrospective cohort study;Systemic fluoroquinolone exposure assessment;Aortic repair
+
+  symptoms: Increased risk of aortic aneurysm or dissection;Pneumonia;Urinary tract infections
+
+  chemicals: Fluoroquinolones
+
+  action_annotation_relationships: Systemic fluoroquinolone exposure assessment TREATS Increased risk of aortic aneurysm or dissection IN Aortic Aneurysm or Dissection (AAD);Retrospective cohort study PREVENTS Increased risk of aortic aneurysm or dissection IN Aortic Aneurysm or Dissection (AAD);Aortic repair TREATS Increased risk of aortic aneurysm or dissection IN Aortic Aneurysm or Dissection (AAD);Systemic fluoroquinolone exposure assessment (with Fluoroquinolones) TREATS Pneumonia IN Aortic Aneurysm or Dissection (AAD);Systemic fluoroquinolone exposure assessment (with Fluoroquinolones) TREATS Urinary tract infections IN Aortic Aneurysm or Dissection (AAD)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Systemic fluoroquinolone exposure assessment (with Fluoroquinolones) TREATS Urinary tract infections IN Aortic Aneurysm or Dissection (AAD)
+
+  ===
+
+extracted_object:
+  primary_disease: Aortic Aneurysm or Dissection (AAD)
+  medical_actions:
+    - Retrospective cohort study
+    - Systemic fluoroquinolone exposure assessment
+    - Aortic repair
+  symptoms:
+    - Increased risk of aortic aneurysm or dissection
+    - HP:0002090
+    - HP:0000010
+  chemicals:
+    - Fluoroquinolones
+  action_annotation_relationships:
+    - subject: Systemic fluoroquinolone exposure assessment
+      predicate: TREATS
+      object: Increased risk of aortic aneurysm or dissection
+      qualifier: Aortic Aneurysm or Dissection (AAD)
+      subject_extension: fluoroquinolone
+    - subject: <Retrospective cohort study>
+      predicate: <PREVENTS>
+      object: <Increased risk of aortic aneurysm or dissection>
+      qualifier: <Aortic Aneurysm or Dissection (AAD)>
+      subject_qualifier: <Not applicable>
+      object_qualifier: <Not applicable>
+      subject_extension: <Not applicable>
+      object_extension: <Not applicable>
+    - subject: Aortic repair
+      predicate: TREATS
+      object: Increased risk of aortic aneurysm or dissection
+      qualifier: Aortic Aneurysm or Dissection (AAD)
+    - subject: Systemic fluoroquinolone exposure assessment
+      predicate: TREATS
+      object: HP:0002090
+      qualifier: Aortic Aneurysm or Dissection (AAD)
+      subject_qualifier: with Fluoroquinolones
+      subject_extension: Fluoroquinolones
+    - subject: Systemic fluoroquinolone exposure assessment
+      predicate: TREATS
+      object: HP:0000010
+      qualifier: Aortic Aneurysm or Dissection (AAD)
+      subject_qualifier: with Fluoroquinolones
+      subject_extension: Fluoroquinolones
+named_entities:
+  - id: MONDO:0007947
+    label: Marfan syndrome
+  - id: HP:0032079
+    label: Medial degeneration
+  - id: HP:0002617
+    label: aneurysm
+  - id: HP:0030965
+    label: increased aortic stiffness
+  - id: HP:0001659
+    label: aortic regurgitation
+  - id: HP:0001712
+    label: left ventricular hypertrophy
+  - id: HP:0005162
+    label: left ventricular failure
+  - id: MONDO:0020333
+    label: Anterior sacral meningocele (ASM)
+  - id: HP:0002315
+    label: headache
+  - id: HP:0002018
+    label: nausea
+  - id: HP:0002138
+    label: subarachnoid hemorrhage
+  - id: HP:0012531
+    label: Pain
+  - id: HP:0012378
+    label: Fatigue
+  - id: HP:0012332
+    label: Dysautonomia
+  - id: HP:0002659
+    label: Bone fragility
+  - id: HP:0025017
+    label: Capillary fragility
+  - id: HP:0001030
+    label: Skin fragility
+  - id: MONDO:0044632
+    label: Extracranial Carotid Artery Aneurysms (ECAAs)
+  - id: MAXO:0000448
+    label: Surgical resection
+  - id: HP:0001297
+    label: Stroke
+  - id: HP:0002616
+    label: aortic root aneurysms
+  - id: HP:0002090
+    label: Pneumonia
+  - id: HP:0000010
+    label: Urinary tract infections

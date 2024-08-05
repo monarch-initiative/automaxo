@@ -1,0 +1,72 @@
+---
+input_text: Botulinum toxin as a novel treatment for self-mutilation in Lesch-Nyhan
+  syndrome. Lesch-Nyhan syndrome (LNS) is an X-linked recessive disorder resulting
+  from a deficiency of the metabolic enzyme hypozanthine-guanine phosphoribosyltransferase
+  (HPRT). This syndrome presents with abnormal metabolic and neurological manifestations
+  including hyperuricemia, mental retardation*, spastic cerebral palsy (CP), dystonia,
+  and self-mutilation. The mechanism behind the severe self-mutilating behavior exhibited
+  by patients with LNS is unknown and remains one of the greatest obstacles in providing
+  care to these patients. This report describes a 10-year-old male child with confirmed
+  LNS who was treated for self-mutilation of his hands, tongue, and lips with repeated
+  botulinum toxin A (BTX-A) injections into the bilateral masseters. Our findings
+  suggest that treatment with BTX-A affects both the central and peripheral nervous
+  systems, resulting in reduced self-abusive behavior in this patient.
+raw_completion_output: |-
+  primary_disease: Lesch-Nyhan syndrome
+
+  medical_actions: repeated botulinum toxin A (BTX-A) injections
+
+  symptoms: abnormal metabolic and neurological manifestations; hyperuricemia; mental retardation*; spastic cerebral palsy (CP); dystonia; self-mutilation
+
+  chemicals: botulinum toxin A (BTX-A)
+
+  action_annotation_relationships: repeated botulinum toxin A (BTX-A) injections TREATS self-mutilation IN Lesch-Nyhan syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  repeated botulinum toxin A (BTX-A) injections TREATS self-mutilation IN Lesch-Nyhan syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010298
+  medical_actions:
+    - repeated botulinum toxin A (BTX-A) injections
+  symptoms:
+    - abnormal metabolic and neurological manifestations
+    - HP:0002149
+    - mental retardation*
+    - HP:0100021
+    - HP:0001332
+    - HP:0000742
+  chemicals:
+    - botulinum toxin A (BTX-A)
+  action_annotation_relationships:
+    - subject: repeated botulinum toxin A (BTX-A) injections
+      predicate: TREATS
+      object: HP:0000742
+      qualifier: MONDO:0010298
+      subject_qualifier: repeated
+      subject_extension: botulinum toxin A (BTX-A)
+named_entities:
+  - id: MONDO:0010298
+    label: Lesch-Nyhan syndrome
+  - id: HP:0002149
+    label: hyperuricemia
+  - id: HP:0100021
+    label: spastic cerebral palsy (CP)
+  - id: HP:0001332
+    label: dystonia
+  - id: HP:0000742
+    label: self-mutilation

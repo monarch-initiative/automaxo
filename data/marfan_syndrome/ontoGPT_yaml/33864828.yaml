@@ -1,0 +1,101 @@
+---
+input_text: 'In-hospital outcomes and long-term survival of women of childbearing
+  age with aortic dissection. OBJECTIVE: In the present study, we defined the outcomes
+  and effects of pregnancy in a cohort of women of childbearing age with acute aortic
+  dissection (AAD). METHODS: We reviewed our database of AAD to identify all eligible
+  female patients. Women aged <45 years were included. Data on pregnancy timing with
+  respect to the occurrence of dissection, the demographic data, dissection extent,
+  dissection treatment, dissection-related outcomes, overall maternal and fetal mortality,
+  and genetic testing results were analyzed. RESULTS: A total of 62 women aged <45
+  years had presented to us with AAD from 1999 to 2017. Of the 62 women, 37 (60%)
+  had had a history of pregnancy at AAD. Of these 37 patients, 10 (27%) had had a
+  peripartum aortic dissection, defined as dissection during pregnancy or within 12
+  months postpartum. Of the 10 AADs, 5 were type A and 5 were type B. Three patients
+  had presented with AAD during pregnancy (one in the second and two in the third
+  trimester). Five patients (50%) had developed AAD in the immediate postpartum period
+  (within 3 months) and two (20%) in the late postpartum period. For the immediate
+  postpartum AADs (<3 months), four of the five patients delivered via cesarean section.
+  Of these 10 peripartum AADs, 3 (30%) had occurred in patients with known Marfan
+  syndrome. In-hospital mortality for those with peripartum AAD was 10% (1 of 10).
+  Fetal mortality was 20% (2 of 10). CONCLUSIONS: The frequency of aortic dissection
+  in women of childbearing age at our institution was low. However, pregnancy might
+  increase the risk of those young women genetically predisposed to dissection events.
+  From these data, this risk appears to be greatest in the immediate postpartum period,
+  even for those who undergo cesarean section. Close clinical and radiographic surveillance
+  is required for all women with suspected aortopathy, especially in the third trimester
+  and early postpartum period.'
+raw_completion_output: |-
+  primary_disease: aortic dissection
+  medical_actions: cesarean section; close clinical and radiographic surveillance
+  symptoms: 
+  chemicals: 
+  action_annotation_relationships: cesarean section TREATS aortic dissection IN women of childbearing age with aortic dissection; close clinical and radiographic surveillance PREVENTS aortic dissection IN women of childbearing age with aortic dissection
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  close clinical and radiographic surveillance PREVENTS aortic dissection IN women of childbearing age with aortic dissection
+
+  ===
+
+extracted_object:
+  primary_disease: aortic dissection
+  medical_actions:
+    - cesarean section
+    - close clinical and radiographic surveillance
+  action_annotation_relationships:
+    - subject: cesarean section
+      predicate: TREATS
+      object: HP:0002647
+      qualifier: women of childbearing age with aortic dissection
+    - subject: close clinical and radiographic surveillance
+      predicate: PREVENTS
+      object: HP:0002647
+      qualifier: women of childbearing age with aortic dissection
+named_entities:
+  - id: MONDO:0007947
+    label: Marfan syndrome
+  - id: MAXO:0010203
+    label: echocardiography
+  - id: HP:0004942
+    label: aortic dilatation
+  - id: CHEBI:5959
+    label: irbesartan
+  - id: CHEBI:2904
+    label: atenolol
+  - id: CHEBI:6541
+    label: losartan
+  - id: HP:0002647
+    label: Aortic dissection
+  - id: HP:0004933
+    label: Type A aortic dissection
+  - id: MONDO:0018353
+    label: Rare cardiovascular diseases (RCDs)
+  - id: HP:0001657
+    label: Long QT syndrome (LQT)
+  - id: HP:0001071
+    label: Fabry disease (FD)
+  - id: MONDO:0020015
+    label: Rare cardiovascular diseases
+  - id: MONDO:0008213
+    label: Pectus Excavatum
+  - id: HP:0001634
+    label: Mitral valve prolapse
+  - id: HP:0002650
+    label: Scoliosis
+  - id: HP:0010550
+    label: Paraplegia
+  - id: HP:0012151
+    label: Hemothorax
+  - id: HP:0000767
+    label: Pectus Excavatum

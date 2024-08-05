@@ -1,0 +1,116 @@
+---
+input_text: 'The role of nitisinone in tyrosine pathway disorders. Nitisinone 2-(2-nitro-4-trifluoromethylbenzoyl)cyclohexane-1,3-dione
+  (NTBC), an effective herbicide, is the licensed treatment for the human condition,
+  hereditary tyrosinaemia type 1 (HT-1). Its mode of action interrupts tyrosine metabolism
+  through inhibition of 4-hydroxyphenylpyruvate dioxygenase (HPPD). Nitisinone is
+  a remarkable safe drug to use with few side effects reported. Therefore, we propose
+  that it should be investigated as a potential treatment for other disorders of tyrosine
+  metabolism. These include alkaptonuria (AKU), a rare disease resulting is severe,
+  early-onset osteoarthritis. We present a case study from the disease, and attempts
+  to use the drug both off-label and in clinical research through the DevelopAKUre
+  consortium. '
+raw_completion_output: |-
+  primary_disease: hereditary tyrosinaemia type 1 (HT-1)
+
+  medical_actions: licensed treatment with nitisinone; interruption of tyrosine metabolism; use off-label; investigation in clinical research
+
+  symptoms: severe, early-onset osteoarthritis
+
+  chemicals: nitisinone; 4-hydroxyphenylpyruvate dioxygenase (HPPD)
+
+  action_annotation_relationships: licensed treatment with nitisinone TREATS hereditary tyrosinaemia type 1 (HT-1) IN hereditary tyrosinaemia type 1 (HT-1); interruption of tyrosine metabolism (with nitisinone) TREATS hereditary tyrosinaemia type 1 (HT-1) IN hereditary tyrosinaemia type 1 (HT-1); use off-label (with nitisinone) TREATS severe, early-onset osteoarthritis IN alkaptonuria (AKU); investigation in clinical research (with nitisinone) TREATS severe, early-onset osteoarthritis IN alkaptonuria (AKU)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  investigation in clinical research (with nitisinone) TREATS severe, early-onset osteoarthritis IN alkaptonuria (AKU)
+
+  ===
+
+extracted_object:
+  primary_disease: hereditary tyrosinaemia type 1 (HT-1)
+  medical_actions:
+    - licensed treatment with nitisinone
+    - interruption of tyrosine metabolism
+    - use off-label
+    - investigation in clinical research
+  symptoms:
+    - severe, early-onset osteoarthritis
+  chemicals:
+    - CHEBI:50378
+    - 4-hydroxyphenylpyruvate dioxygenase (HPPD)
+  action_annotation_relationships:
+    - subject: licensed treatment
+      predicate: TREATS
+      object: hereditary tyrosinaemia type 1 (HT-1)
+      qualifier: hereditary tyrosinaemia type 1 (HT-1)
+      subject_extension: CHEBI:50378
+    - subject: use off-label
+      predicate: TREATS
+      object: severe, early-onset osteoarthritis
+      qualifier: MONDO:0008753
+      subject_qualifier: with nitisinone
+      object_qualifier: severe
+      subject_extension: CHEBI:50378
+      object_extension: early-onset
+    - subject: investigation in clinical research
+      predicate: TREATS
+      object: HP:0002758
+      qualifier: MONDO:0008753
+      subject_qualifier: with nitisinone
+      object_qualifier: severe, early-onset
+      subject_extension: CHEBI:50378
+      object_extension: severe, early-onset
+named_entities:
+  - id: MAXO:0001175
+    label: Liver transplantation
+  - id: HP:0030764
+    label: Ochronosis
+  - id: CHEBI:44747
+    label: Homogentisic acid
+  - id: MONDO:0008753
+    label: alkaptonuria
+  - id: HP:0002758
+    label: osteoarthritis
+  - id: CHEBI:50378
+    label: nitisinone
+  - id: CHEBI:18186
+    label: tyrosine
+  - id: CHEBI:28044
+    label: Phenylalanine
+  - id: CHEBI:18243
+    label: Dopamine
+  - id: CHEBI:1582
+    label: 3-methoxytyramine
+  - id: CHEBI:33569
+    label: Noradrenaline
+  - id: CHEBI:27897
+    label: Tryptophan
+  - id: CHEBI:28790
+    label: Serotonin
+  - id: CHEBI:29987
+    label: Glutamate
+  - id: CHEBI:15760
+    label: Tyramine
+  - id: MONDO:0023094
+    label: Exogenous ochronosis
+  - id: MAXO:0000423
+    label: Skin biopsy
+  - id: CHEBI:15854
+    label: Quinine
+  - id: CHEBI:15882
+    label: Phenol
+  - id: CHEBI:17594
+    label: Hydroquinone
+  - id: MAXO:0001046
+    label: discectomy

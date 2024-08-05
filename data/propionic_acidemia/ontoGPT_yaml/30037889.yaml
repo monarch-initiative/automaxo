@@ -1,0 +1,79 @@
+---
+input_text: 'Metabolic cardiomyopathy from propionic acidemia precipitating cardiac
+  arrest in a 25-year-old man. '
+raw_completion_output: |-
+  primary_disease: Metabolic cardiomyopathy
+
+  medical_actions: 
+
+  symptoms: cardiac arrest
+
+  chemicals: propionic acidemia
+
+  action_annotation_relationships: propionic acidemia PREVENTS cardiac arrest IN Metabolic cardiomyopathy
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  propionic acidemia PREVENTS cardiac arrest IN Metabolic cardiomyopathy
+
+  ===
+
+extracted_object:
+  primary_disease: Metabolic cardiomyopathy
+  symptoms:
+    - HP:0001695
+  chemicals:
+    - propionic acidemia
+  action_annotation_relationships:
+    - predicate: PREVENTS
+      object: HP:0001695
+      qualifier: Metabolic cardiomyopathy
+      subject_extension: propionic acidemia
+named_entities:
+  - id: MONDO:0010184
+    label: methylmalonic acidemia (MMA); propionic acidemia; cobalamin C (cblC) deficiency
+  - id: CHEBI:15603
+    label: leucine (Leu)
+  - id: CHEBI:16414
+    label: valine (Val)
+  - id: CHEBI:17191
+    label: isoleucine (Ile)
+  - id: CHEBI:16044
+    label: methionine (Met)
+  - id: MONDO:0002012
+    label: methylmalonic acidemia (MMA)
+  - id: MONDO:0011628
+    label: propionic acidemia
+  - id: CHEBI:25017
+    label: leucine
+  - id: MAXO:0001175
+    label: liver transplantation
+  - id: HP:0001638
+    label: cardiomyopathy
+  - id: HP:0100543
+    label: Cognitive impairment
+  - id: CHEBI:176843
+    label: Vitamin B12
+  - id: MONDO:0019052
+    label: Inborn errors of metabolism (IEMs)
+  - id: MAXO:0010039
+    label: organ transplantation
+  - id: HP:0001942
+    label: metabolic acidosis
+  - id: HP:0001987
+    label: hyperammonemia
+  - id: HP:0003571
+    label: Propionic acidemia
+  - id: HP:0001695
+    label: cardiac arrest

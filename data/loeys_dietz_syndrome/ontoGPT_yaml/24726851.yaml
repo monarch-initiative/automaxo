@@ -1,0 +1,122 @@
+---
+input_text: 'Aorta pathology and pregnancy. In addition to the haemodynamic changes
+  in pregnancy, hormones also induce changes in the aortic wall. Women with diseases
+  like Marfan syndrome, Ehlers-Danlo syndrome, or other aortic abnormalities, have
+  an increased risk of complications during pregnancy. Counselling and risk assessment
+  before pregnancy is mandatory for all women with known aortic disease. Proper information
+  should be provided about the risks of morbidity and mortality during pregnancy and
+  information on the risks for the fetus, including the potential recurrence of disease
+  in the offspring. Evaluation of past medical and family history, the aortic size
+  before conception, and any increase in size before and during pregnancy, is essential
+  to try and estimate the risk of aortic dissection. If the aorta is dilated, prophylactic
+  repair before pregnancy may be indicated. In some cases, elective surgery during
+  pregnancy may be warranted. In women with a severely dilated ascending aorta, caesarean
+  section is, at present, the advised mode of delivery. '
+raw_completion_output: |-
+  primary_disease: Aortic abnormalities in pregnancy
+
+  medical_actions: Counselling and risk assessment before pregnancy; Evaluation of past medical and family history; Evaluation of the aortic size before conception; Evaluation of any increase in size before and during pregnancy; Prophylactic repair before pregnancy; Elective surgery during pregnancy; Caesarean section
+
+  symptoms: Increased risk of complications during pregnancy; Dilated aorta
+
+  chemicals: 
+
+  action_annotation_relationships: Counselling and risk assessment before pregnancy PREVENTS Increased risk of complications during pregnancy IN Aortic abnormalities in pregnancy; Evaluation of past medical and family history PREVENTS Increased risk of complications during pregnancy IN Aortic abnormalities in pregnancy; Evaluation of the aortic size before conception PREVENTS Increased risk of complications during pregnancy IN Aortic abnormalities in pregnancy; Evaluation of any increase in size before and during pregnancy PREVENTS Increased risk of complications during pregnancy IN Aortic abnormalities in pregnancy; Prophylactic repair before pregnancy TREATS Dilated aorta IN Aortic abnormalities in pregnancy; Elective surgery during pregnancy TREATS Dilated aorta IN Aortic abnormalities in pregnancy; Caesarean section TREATS Increased risk of complications during pregnancy IN Aortic abnormalities in pregnancy
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Caesarean section TREATS Increased risk of complications during pregnancy IN Aortic abnormalities in pregnancy
+
+  ===
+
+extracted_object:
+  primary_disease: Aortic abnormalities in pregnancy
+  medical_actions:
+    - Counselling and risk assessment before pregnancy
+    - Evaluation of past medical and family history
+    - Evaluation of the aortic size before conception
+    - Evaluation of any increase in size before and during pregnancy
+    - Prophylactic repair before pregnancy
+    - Elective surgery during pregnancy
+    - Caesarean section
+  symptoms:
+    - Increased risk of complications during pregnancy
+    - Dilated aorta
+  action_annotation_relationships:
+    - subject: Counselling and risk assessment before pregnancy
+      predicate: PREVENTS
+      object: Increased risk of complications during pregnancy
+      qualifier: Aortic abnormalities in pregnancy
+    - subject: Evaluation of past medical and family history
+      predicate: PREVENTS
+      object: Increased risk of complications during pregnancy
+      qualifier: Aortic abnormalities in pregnancy
+    - subject: Evaluation of the aortic size before conception
+      predicate: PREVENTS
+      object: Increased risk of complications during pregnancy
+      qualifier: Aortic abnormalities in pregnancy
+    - subject: <Evaluation of any increase in size before and during pregnancy>
+      predicate: <PREVENTS>
+      object: <Increased risk of complications during pregnancy>
+      qualifier: <Aortic abnormalities in pregnancy>
+      subject_qualifier: <Not applicable>
+      object_qualifier: <Not applicable>
+      subject_extension: <Not applicable>
+      object_extension: <Not applicable>
+    - subject: Prophylactic repair before pregnancy
+      predicate: TREATS
+      object: Dilated aorta
+      qualifier: Aortic abnormalities in pregnancy
+    - subject: Elective surgery
+      predicate: TREATS
+      object: Dilated aorta
+      qualifier: Aortic abnormalities in pregnancy
+      subject_qualifier: during pregnancy
+    - subject: Caesarean section
+      predicate: TREATS
+      object: Increased risk of complications during pregnancy
+      qualifier: Aortic abnormalities in pregnancy
+named_entities:
+  - id: MONDO:0018954
+    label: Loeys-Dietz syndrome
+  - id: MAXO:0000945
+    label: Spinal cord stimulation (SCS)
+  - id: HP:0031625
+    label: Pseudoaneurysms
+  - id: MAXO:0000451
+    label: Implantation
+  - id: HP:0000978
+    label: Easy bruising
+  - id: HP:0002616
+    label: Aortic root dilatation
+  - id: HP:0001382
+    label: Joint laxity
+  - id: CHEBI:35530
+    label: Beta-blocker
+  - id: HP:0004942
+    label: Aortic aneurysms
+  - id: HP:0004944
+    label: Cerebral aneurysms
+  - id: HP:0002617
+    label: Vasculopathy
+  - id: MAXO:0010319
+    label: CT angiogram
+  - id: HP:0002138
+    label: Subarachnoid hemorrhage
+  - id: HP:0007185
+    label: Loss of consciousness
+  - id: CHEBI:35620
+    label: vasodilator
+  - id: HP:0025637
+    label: vasospasm

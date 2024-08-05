@@ -1,0 +1,71 @@
+---
+input_text: A Transient Inferolateral ST-Segment Elevation on the Electrocardiogram
+  Due to an Iatrogenic Left-Sided Pneumothorax After an Urgent Tracheostomy in a Patient
+  with Metastatic Hypopharynx Cancer. The presence of ST-segment elevation on the
+  electrocardiogram alerts physicians in patients with chest pain. Emergency coronary
+  angiography is usually performed in these patients. However, there are many conditions
+  that cause ST-segment elevation on the electrocardiogram, such as pericarditis,
+  hyperkalemia, Brugada syndrome, hypothermia, and early repolarization. Pneumothorax
+  is a rare complication of tracheostomy and its symptoms are sudden chest pain and
+  dyspnea. Also, it has been known that pneumothorax may cause ST-segment changes
+  on the electrocardiogram. We presented a transient inferolateral ST-segment elevation
+  on the electrocardiogram due to an iatrogenic left-sided pneumothorax after an urgent
+  tracheostomy in a patient with metastatic hypopharynx cancer and normal coronary
+  angiogram.
+raw_completion_output: |-
+  primary_disease: Pneumothorax
+
+  medical_actions: Emergency coronary angiography; Urgent tracheostomy
+
+  symptoms: Sudden chest pain; Dyspnea; ST-segment elevation on the electrocardiogram
+
+  chemicals: 
+
+  action_annotation_relationships: Urgent tracheostomy TREATS Metastatic hypopharynx cancer IN Pneumothorax; Emergency coronary angiography TREATS ST-segment elevation on the electrocardiogram IN Pneumothorax
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Emergency coronary angiography TREATS ST-segment elevation on the electrocardiogram IN Pneumothorax
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0002076
+  medical_actions:
+    - Emergency coronary angiography
+    - Urgent tracheostomy
+  symptoms:
+    - Sudden chest pain
+    - HP:0002094
+    - ST-segment elevation on the electrocardiogram
+  action_annotation_relationships:
+    - subject: Urgent tracheostomy
+      predicate: TREATS
+      object: Metastatic hypopharynx cancer
+      qualifier: MONDO:0002076
+    - subject: Emergency coronary angiography
+      predicate: TREATS
+      object: ST-segment elevation on the electrocardiogram
+      qualifier: MONDO:0002076
+named_entities:
+  - id: HP:0001663
+    label: ventricular fibrillation
+  - id: HP:0007760
+    label: sudden cardiac death (SCD)
+  - id: HP:0100543
+    label: cognitive impairment
+  - id: MONDO:0002076
+    label: Pneumothorax
+  - id: HP:0002094
+    label: Dyspnea

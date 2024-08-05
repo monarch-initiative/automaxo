@@ -1,0 +1,130 @@
+---
+input_text: 'Genotype-Phenotype Correlation in Children: The Impact of FBN1 Variants
+  on Pediatric Marfan Care. Currently, no reliable genotype-phenotype correlation
+  is available for pediatric Marfan patients in everyday clinical practice. We investigated
+  correlations of FBN1 variants with the prevalence and age of onset of Marfan manifestations
+  in childhood and differentiated three groups: missense/in-frame, splice, and nonsense/frameshift
+  variants. In addition, we differentiated missense variants destroying or generating
+  a cysteine (cys-missense) and alterations not affecting cysteine. We categorized
+  105 FBN1-positive pediatric patients. Patients with cys-missense more frequently
+  developed aortic dilatation (p = 0.03) requiring medication (p = 0.003), tricuspid
+  valve prolapse (p = 0.03), and earlier onset of myopia (p = 0.02) than those with
+  other missense variants. Missense variants correlated with a higher prevalence of
+  ectopia lentis (p = 0.002) and earlier onset of pulmonary artery dilatation (p =
+  0.03) than nonsense/frameshift, and dural ectasia was more common in the latter
+  (p = 0.005). Pectus excavatum (p = 0.007) appeared more often in patients with splice
+  compared with missense/in-frame variants, while hernia (p = 0.04) appeared earlier
+  in the latter. Findings on genotype-phenotype correlations in Marfan-affected children
+  can improve interdisciplinary therapy. In patients with cys-missense variants, early
+  medical treatment of aortic dilatation seems reasonable and early regular ophthalmologic
+  follow-up essential. Patients with nonsense/frameshift and splice variants require
+  early involvement of orthopedic specialists to support the growing child.'
+raw_completion_output: |-
+  primary_disease: Marfan Syndrome
+
+  medical_actions: Medication for aortic dilatation; regular ophthalmologic follow-up; involvement of orthopedic specialists
+
+  symptoms: Aortic dilatation; tricuspid valve prolapse; myopia; ectopia lentis; pulmonary artery dilatation; dural ectasia; pectus excavatum; hernia
+
+  chemicals: 
+
+  action_annotation_relationships: Medication TREATS aortic dilatation IN Marfan Syndrome; regular ophthalmologic follow-up PREVENTS complications from myopia IN Marfan Syndrome; involvement of orthopedic specialists PREVENTS/TREATS complications from dural ectasia IN Marfan Syndrome; involvement of orthopedic specialists PREVENTS/TREATS complications from pectus excavatum IN Marfan Syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  involvement of orthopedic specialists PREVENTS/TREATS complications from pectus excavatum IN Marfan Syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0007947
+  medical_actions:
+    - Medication for aortic dilatation
+    - regular ophthalmologic follow-up
+    - involvement of orthopedic specialists
+  symptoms:
+    - HP:0004942
+    - HP:0001704
+    - HP:0000545
+    - HP:0001083
+    - HP:0004927
+    - HP:0100775
+    - HP:0000767
+    - HP:0100790
+  action_annotation_relationships:
+    - subject: Medication
+      predicate: TREATS
+      object: HP:0004942
+      qualifier: MONDO:0007947
+    - subject: regular ophthalmologic follow-up
+      predicate: PREVENTS
+      object: complications from myopia
+      qualifier: MONDO:0007947
+    - subject: involvement of orthopedic specialists
+      predicate: PREVENTS/TREATS
+      object: complications from dural ectasia
+      qualifier: MONDO:0007947
+    - subject: involvement of orthopedic specialists
+      predicate: PREVENTS/TREATS
+      object: complications from pectus excavatum
+      qualifier: MONDO:0007947
+named_entities:
+  - id: MONDO:0007947
+    label: Marfan syndrome
+  - id: MAXO:0010203
+    label: echocardiography
+  - id: HP:0004942
+    label: aortic dilatation
+  - id: CHEBI:5959
+    label: irbesartan
+  - id: CHEBI:2904
+    label: atenolol
+  - id: CHEBI:6541
+    label: losartan
+  - id: HP:0002647
+    label: Aortic dissection
+  - id: HP:0004933
+    label: Type A aortic dissection
+  - id: MONDO:0018353
+    label: Rare cardiovascular diseases (RCDs)
+  - id: HP:0001657
+    label: Long QT syndrome (LQT)
+  - id: HP:0001071
+    label: Fabry disease (FD)
+  - id: MONDO:0020015
+    label: Rare cardiovascular diseases
+  - id: MONDO:0008213
+    label: Pectus Excavatum
+  - id: HP:0001634
+    label: Mitral valve prolapse
+  - id: HP:0002650
+    label: Scoliosis
+  - id: HP:0010550
+    label: Paraplegia
+  - id: HP:0012151
+    label: Hemothorax
+  - id: HP:0000767
+    label: Pectus Excavatum
+  - id: HP:0001704
+    label: tricuspid valve prolapse
+  - id: HP:0000545
+    label: myopia
+  - id: HP:0001083
+    label: ectopia lentis
+  - id: HP:0004927
+    label: pulmonary artery dilatation
+  - id: HP:0100775
+    label: dural ectasia
+  - id: HP:0100790
+    label: hernia

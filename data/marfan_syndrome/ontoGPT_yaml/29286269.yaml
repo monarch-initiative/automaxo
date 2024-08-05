@@ -1,0 +1,87 @@
+---
+input_text: 'Landmark lecture: Perloff lecture: Tribute to Professor Joseph Kayle
+  Perloff and lessons learned from him: aortopathy in adults with CHD. Marfan syndrome,
+  bicuspid aortic valve, and/or coarctation of the aorta are associated with medial
+  abnormalities of the ascending aortic or para-coarctation aorta. Medial abnormalities
+  in the ascending aorta are prevalent in other type of patients with a variety of
+  CHDs such as single ventricle, persistent truncus arteriosus, transposition of the
+  great arteries, hypoplastic left heart syndrome, and tetralogy of Fallot, encompassing
+  a wide age range and may predispose to dilatation, aneurysm, and rapture necessitating
+  aortic valve and root surgery. These CHDs exhibit ongoing dilatation of the aortic
+  root and reduced aortic elasticity and increased aortic stiffness that may relate
+  to intrinsic properties of the aortic root. These aortic dilatation and increased
+  stiffness can induce aortic aneurysm, rapture of the aorta, and aortic regurgitation,
+  but also provoke left ventricular hypertrophy, reduced coronary artery flow, and
+  left ventricular failure. Therefore, a new clinical entity can be used to call this
+  association of aortic pathophysiological abnormality, aortic dilation, and aorto-left
+  ventricular interaction - "aortopathy".'
+raw_completion_output: |-
+  primary_disease: aortopathy
+
+  medical_actions: aortic valve and root surgery
+
+  symptoms: dilatation; aneurysm; rupture; reduced aortic elasticity; increased aortic stiffness; aortic regurgitation; left ventricular hypertrophy; reduced coronary artery flow; left ventricular failure
+
+  chemicals: 
+
+  action_annotation_relationships: aortic valve and root surgery TREATS dilatation IN aortopathy; aortic valve and root surgery TREATS aneurysm IN aortopathy; aortic valve and root surgery TREATS rupture IN aortopathy
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  aortic valve and root surgery TREATS rupture IN aortopathy
+
+  ===
+
+extracted_object:
+  primary_disease: aortopathy
+  medical_actions:
+    - aortic valve and root surgery
+  symptoms:
+    - dilatation
+    - HP:0002617
+    - rupture
+    - reduced aortic elasticity
+    - HP:0030965
+    - HP:0001659
+    - HP:0001712
+    - reduced coronary artery flow
+    - HP:0005162
+  action_annotation_relationships:
+    - subject: aortic valve and root surgery
+      predicate: TREATS
+      object: dilatation
+      qualifier: aortopathy
+    - subject: aortic valve and root surgery
+      predicate: TREATS
+      object: HP:0002617
+      qualifier: aortopathy
+    - subject: aortic valve and root surgery
+      predicate: TREATS
+      object: rupture
+      qualifier: aortopathy
+named_entities:
+  - id: MONDO:0007947
+    label: Marfan syndrome
+  - id: HP:0032079
+    label: Medial degeneration
+  - id: HP:0002617
+    label: aneurysm
+  - id: HP:0030965
+    label: increased aortic stiffness
+  - id: HP:0001659
+    label: aortic regurgitation
+  - id: HP:0001712
+    label: left ventricular hypertrophy
+  - id: HP:0005162
+    label: left ventricular failure

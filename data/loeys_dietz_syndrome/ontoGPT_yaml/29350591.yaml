@@ -1,0 +1,70 @@
+---
+input_text: "Clip ligation for ruptured intracranial aneurysm in a child with Loeys-Dietz
+  syndrome: case report. The authors present the case of a pediatric patient with
+  Loeys-Dietz syndrome (LDS) who underwent craniotomy for clip ligation of a ruptured
+  intracranial aneurysm. To the authors' knowledge, this is the youngest reported
+  patient with LDS who has been treated for a ruptured intracranial aneurysm. The
+  patient presented with aneurysmal subarachnoid hemorrhage even though the results
+  of surveillance screening were negative, and the aneurysm arose from the wall of
+  the parent artery away from an arterial branch point. She was treated with open
+  clip ligation and recovered well. The authors review the other reported cases of
+  treated intracranial aneurysms in patients with LDS."
+raw_completion_output: |-
+  primary_disease: Loeys-Dietz syndrome (LDS)
+
+  medical_actions: craniotomy; clip ligation
+
+  symptoms: aneurysmal subarachnoid hemorrhage
+
+  chemicals: 
+
+  action_annotation_relationships: craniotomy TREATS ruptured intracranial aneurysm IN Loeys-Dietz syndrome (LDS); clip ligation TREATS ruptured intracranial aneurysm IN Loeys-Dietz syndrome (LDS)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  clip ligation TREATS ruptured intracranial aneurysm IN Loeys-Dietz syndrome (LDS)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0018954
+  medical_actions:
+    - MAXO:0000948
+    - clip ligation
+  symptoms:
+    - aneurysmal subarachnoid hemorrhage
+  action_annotation_relationships:
+    - subject: MAXO:0000948
+      predicate: TREATS
+      object: ruptured intracranial aneurysm
+      qualifier: MONDO:0018954
+    - subject: clip ligation
+      predicate: TREATS
+      object: ruptured intracranial aneurysm
+      qualifier: MONDO:0018954
+named_entities:
+  - id: MONDO:0018954
+    label: Loeys-Dietz syndrome
+  - id: HP:0012764
+    label: orthopnea
+  - id: HP:0001631
+    label: atrial septal defect
+  - id: HP:0012531
+    label: pain
+  - id: HP:0004942
+    label: aortic aneurysms
+  - id: HP:0001645
+    label: premature sudden cardiac death
+  - id: MAXO:0000948
+    label: craniotomy
