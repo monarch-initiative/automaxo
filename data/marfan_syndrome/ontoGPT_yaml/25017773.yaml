@@ -1,0 +1,123 @@
+---
+input_text: Hemobilia associated with a giant thrombosed aneurysm of the hepatic artery
+  requiring hepatectomy. Hemobilia is an unusual and potentially catastrophic cause
+  of gastrointestinal bleeding. Although hepatic artery aneurysm is a cause of hemobilia,
+  nontraumatic cases are infrequently reported. Herein, we describe the case of a
+  giant hepatic artery aneurysm requiring hepatectomy because of repeated hemobilia
+  in a patient with Marfan syndrome. A 53-year-old man presented to our hospital with
+  sudden epigastric pain and jaundice. Abdominal computed tomography showed a giant
+  hepatic arterial aneurysm in the porta hepatis, and emergency endoscopic retrograde
+  cholangiography revealed hemobilia. Assuming that the aneurysm caused the hemobilia,
+  we performed an abdominal angiogram for treatment. The study revealed a thrombosed
+  aneurysm along with tortuous abnormal vessels in the periphery of the left hepatic
+  artery, which appeared to surround the aneurysm. Therefore, we embolized the left
+  hepatic artery, and immediate hemostasis was achieved. Rebleeding occurred 3 times
+  thereafter, and each time, transarterial embolization was performed, resulting in
+  prompt but only temporary hemostasis. Then, emergency left hemihepatectomy and resection
+  of the aneurysm were performed. Pathologic examination of the resected specimen
+  revealed that the aneurysm was completely thrombosed and organized; however, abnormal
+  arterioles proliferated between the aneurysmal wall and the bile duct. The unique
+  feature of this case was that the abnormal arterioles induced by the organized hepatic
+  artery aneurysm, not the aneurysm itself, caused the hemobilia.
+raw_completion_output: |-
+  primary_disease: Hemobilia
+  medical_actions: Hepatectomy; Abdominal angiogram; Transarterial embolization; Emergency left hemihepatectomy and resection of the aneurysm
+  symptoms: Gastrointestinal bleeding; Sudden epigastric pain; Jaundice; Rebleeding
+  chemicals: 
+  action_annotation_relationships: Hepatectomy TREATS gastrointestinal bleeding IN Hemobilia; Abdominal angiogram TREATS gastrointestinal bleeding IN Hemobilia; Transarterial embolization TREATS rebleeding IN Hemobilia; Emergency left hemihepatectomy and resection of the aneurysm TREATS gastrointestinal bleeding IN Hemobilia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Emergency left hemihepatectomy and resection of the aneurysm TREATS gastrointestinal bleeding IN Hemobilia
+
+  ===
+
+extracted_object:
+  primary_disease: Hemobilia
+  medical_actions:
+    - MAXO:0001056
+    - Abdominal angiogram
+    - Transarterial embolization
+    - Emergency left hemihepatectomy and resection of the aneurysm
+  symptoms:
+    - HP:0002239
+    - Sudden epigastric pain
+    - HP:0000952
+    - Rebleeding
+  action_annotation_relationships:
+    - subject: MAXO:0001056
+      predicate: TREATS
+      object: HP:0002239
+      qualifier: Hemobilia
+    - subject: Abdominal angiogram
+      predicate: TREATS
+      object: HP:0002239
+      qualifier: Hemobilia
+    - subject: Transarterial embolization
+      predicate: TREATS
+      object: rebleeding
+      qualifier: Hemobilia
+    - subject: Emergency left hemihepatectomy and resection of the aneurysm
+      predicate: TREATS
+      object: HP:0002239
+      qualifier: Hemobilia
+named_entities:
+  - id: MONDO:0007947
+    label: Marfan Syndrome
+  - id: HP:0000768
+    label: Pectus carinatum
+  - id: HP:0002650
+    label: Scoliosis
+  - id: HP:0002108
+    label: Spontaneous pneumothorax
+  - id: HP:0003423
+    label: Thoracolumbar kyphoscoliosis
+  - id: HP:0000822
+    label: Hypertension
+  - id: HP:0001649
+    label: Tachycardia
+  - id: HP:0012531
+    label: pain
+  - id: MONDO:0009691
+    label: Marfan syndrome (MFS)
+  - id: CHEBI:6541
+    label: Losartan
+  - id: HP:0031625
+    label: Pseudoaneurysms
+  - id: MAXO:0000451
+    label: Implantation
+  - id: HP:0031649
+    label: Aortic rupture
+  - id: MAXO:0001061
+    label: Laminectomy
+  - id: MAXO:0000571
+    label: CT
+  - id: HP:0034267
+    label: Pelvic pain
+  - id: HP:0000139
+    label: Genital prolapse
+  - id: HP:0100518
+    label: Dysuria
+  - id: HP:0001297
+    label: stroke
+  - id: HP:0002615
+    label: Hypotension
+  - id: HP:0007185
+    label: Loss of consciousness
+  - id: MAXO:0001056
+    label: Hepatectomy
+  - id: HP:0002239
+    label: Gastrointestinal bleeding
+  - id: HP:0000952
+    label: Jaundice

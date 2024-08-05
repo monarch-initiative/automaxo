@@ -1,0 +1,99 @@
+---
+input_text: 'Unrelated donor marrow transplantation for congenital immunodeficiency
+  and metabolic disease: an update of the experience of the Japan Marrow Donor Program.
+  We retrospectively analyzed the clinical results of 81 patients with congenital
+  genetic diseases who were treated with bone marrow transplantation (BMT) from unrelated
+  donors identified through the Japan Marrow Donor Program. The patients were aged
+  between 1 and 38 years (median, 4 years). Thirty-five patients underwent transplantation
+  for metabolic disease (MD), ie, mucopolysaccharidosis (n = 25), adrenoleukodystrophy
+  (n = 7), and others (n = 3). The remaining 46 patients had Wiskott-Aldrich syndrome
+  (n = 16), hemophagocytic syndrome including the inherited type (n = 9), severe combined
+  immunodeficiency (n = 6), hyper-IgM syndrome (n = 4), Chediak-Higashi syndrome (n
+  = 3), Kostmann syndrome (n = 3), and others (n = 5). Fifty-two donor-patient pairs
+  were fully matched at HLA-A, HLA-B, and HLA-DRB1 alleles. The remaining 24 patients
+  received allele-mismatched grafts (20 matched at 5 of 6 loci and 4 matched at 4
+  of 6 loci). Engraftment occurred in 82.4% of the MD group and 90.7% of the other
+  genetic disease (OGD) group; however, 14 patients (18.2%) experienced either early
+  or late graft failure. The cumulative incidence of grade II to IV acute graft-versus-host
+  disease (GVHD) was 35.5% - 9.8% in the MD group and 47.3% - 9.5% in the OGD group,
+  and the rate of chronic GVHD was 20% in both groups. Forty-nine patients have survived
+  for 3 to 96 months (median, 20 months). The probabilities of 5-year overall survival
+  and event-free survival were 72.6% - 11.5% and 65.3% - 8.6%, respectively, for MD
+  (n = 35) and 72.5% - 7.3% and 63.6% - 7.3% for OGD (n = 46). Although patient status
+  before BMT and the occurrence of grade III to IV acute GVHD significantly affected
+  outcome, unrelated BMT is a curative therapeutic option for children with congenital
+  genetic diseases who have no HLA-matched family donors.'
+raw_completion_output: |-
+  primary_disease: Congenital genetic diseases
+  medical_actions: Bone marrow transplantation (BMT); HLA matching; Treatment for graft-versus-host disease; Survival analysis
+  symptoms: Early or late graft failure; Grade II to IV acute graft-versus-host disease (GVHD); Chronic GVHD
+  chemicals: 
+  action_annotation_relationships: Bone marrow transplantation (BMT) TREATS early or late graft failure IN Congenital genetic diseases; Bone marrow transplantation (BMT) TREATS Grade II to IV acute graft-versus-host disease (GVHD) IN Congenital genetic diseases; Bone marrow transplantation (BMT) TREATS Chronic GVHD IN Congenital genetic diseases; HLA matching PREVENTS early or late graft failure IN Congenital genetic diseases; HLA matching PREVENTS Grade II to IV acute graft-versus-host disease (GVHD) IN Congenital genetic diseases; Treatment for graft-versus-host disease TREATS Grade II to IV acute graft-versus-host disease (GVHD) IN Congenital genetic diseases; Treatment for graft-versus-host disease TREATS Chronic GVHD IN Congenital genetic diseases
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Treatment for graft-versus-host disease TREATS Chronic GVHD IN Congenital genetic diseases
+
+  ===
+
+extracted_object:
+  primary_disease: Congenital genetic diseases
+  medical_actions:
+    - MAXO:0010030
+    - HLA matching
+    - Treatment for graft-versus-host disease
+    - Survival analysis
+  symptoms:
+    - Early or late graft failure
+    - Grade II to IV acute graft-versus-host disease (GVHD)
+    - Chronic GVHD
+  action_annotation_relationships:
+    - subject: MAXO:0010030
+      predicate: TREATS
+      object: early or late graft failure
+      qualifier: Congenital genetic diseases
+      subject_extension: Bone marrow transplantation
+    - subject: <Bone marrow transplantation>
+      predicate: <TREATS>
+      object: <graft-versus-host disease>
+      qualifier: <Congenital genetic diseases>
+      subject_qualifier: <>
+      object_qualifier: <acute>
+      subject_extension: <Bone marrow transplantation>
+      object_extension: <Grade II to IV acute>
+    - subject: MAXO:0010030
+      predicate: TREATS
+      object: Chronic GVHD
+      qualifier: Congenital genetic diseases
+    - subject: <HLA matching>
+      predicate: <PREVENTS>
+      object: <early or late graft failure>
+      qualifier: <Congenital genetic diseases>
+      subject_extension: <HLA matching>
+    - subject: <HLA matching>
+      predicate: <PREVENTS>
+      object: <Grade II to IV acute graft-versus-host disease (GVHD)>
+      qualifier: <Congenital genetic diseases>
+      subject_extension: <HLA matching>
+    - subject: Treatment for graft-versus-host disease
+      predicate: TREATS
+      object: Grade II to IV acute graft-versus-host disease (GVHD)
+      qualifier: Congenital genetic diseases
+    - subject: Treatment for graft-versus-host disease
+      predicate: TREATS
+      object: Chronic GVHD
+      qualifier: Congenital genetic diseases
+named_entities:
+  - id: MAXO:0010030
+    label: Bone marrow transplantation (BMT)

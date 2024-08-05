@@ -1,0 +1,93 @@
+---
+input_text: '[Achondroplasia and hypochondroplasia in paediatric orthopaedics]. Achondroplasia
+  and hypochondroplasia are the most common forms of short stature. The leading sign
+  is the diminished body height. Most cases of achondroplasia can be detected by clinical
+  examination. Hypochondroplasia is more often not diagnosed until preschool age.In
+  achondroplasia many different orthopaedic problems can arise, which influence the
+  ADL. Mainly pathologic alterations of the occipitocervical region or a stenosis
+  of the medullary cavity should be expected. In the limbs a bow-leg deformity and
+  hyperlaxity of the ligaments often can be seen, which in some cases restrict walking
+  capacity. Even if many people of short stature contemplate a lengthening procedure,
+  the correction of deformities is much more important. The CORA method should be
+  used in planning any osteotomy.'
+raw_completion_output: |-
+  primary_disease: Achondroplasia and hypochondroplasia
+  medical_actions: Clinical examination; Correction of deformities; Using the CORA method in planning osteotomy
+  symptoms: Diminished body height; Pathologic alterations of the occipitocervical region; Stenosis of the medullary cavity; Bow-leg deformity; Hyperlaxity of the ligaments
+  chemicals: 
+  action_annotation_relationships: Clinical examination PREVENTS Misdiagnosis IN Achondroplasia and hypochondroplasia; Correction of deformities TREATS Bow-leg deformity IN Achondroplasia and hypochondroplasia; Using the CORA method in planning osteotomy TREATS Pathologic alterations of the occipitocervical region IN Achondroplasia and hypochondroplasia; Using the CORA method in planning osteotomy TREATS Stenosis of the medullary cavity IN Achondroplasia and hypochondroplasia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Using the CORA method in planning osteotomy TREATS Stenosis of the medullary cavity IN Achondroplasia and hypochondroplasia
+
+  ===
+
+extracted_object:
+  primary_disease: Achondroplasia and hypochondroplasia
+  medical_actions:
+    - MAXO:0000526
+    - Correction of deformities
+    - Using the CORA method in planning osteotomy
+  symptoms:
+    - Diminished body height
+    - Pathologic alterations of the occipitocervical region
+    - Stenosis of the medullary cavity
+    - Bow-leg deformity
+    - Hyperlaxity of the ligaments
+  action_annotation_relationships:
+    - subject: <Clinical examination>
+      predicate: <PREVENTS>
+      object: <Misdiagnosis>
+      qualifier: <Achondroplasia and hypochondroplasia>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: Correction of deformities
+      predicate: TREATS
+      object: Bow-leg deformity
+      qualifier: Achondroplasia and hypochondroplasia
+    - subject: <osteotomy>
+      predicate: <TREATS>
+      object: <Pathologic alterations of the occipitocervical region>
+      qualifier: <Achondroplasia and hypochondroplasia>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <CORA method>
+      object_extension: <Pathologic alterations of the occipitocervical region>
+    - subject: osteotomy
+      predicate: TREATS
+      object: Stenosis of the medullary cavity
+      qualifier: Achondroplasia and hypochondroplasia
+      subject_qualifier: CORA method
+named_entities:
+  - id: HP:0031846
+    label: Femoral fracture
+  - id: MAXO:0000745
+    label: cytogenetic analysis
+  - id: HP:0000256
+    label: macrocephaly
+  - id: MAXO:0000127
+    label: genetic testing
+  - id: HP:0003750
+    label: Muscle fatigue
+  - id: MONDO:0000050
+    label: Growth hormone deficiency
+  - id: MAXO:0000780
+    label: Growth hormone therapy
+  - id: CHEBI:37845
+    label: Growth hormone
+  - id: MAXO:0000526
+    label: Clinical examination

@@ -1,0 +1,108 @@
+---
+input_text: 'Economic and care considerations of Marfan syndrome. INTRODUCTION: Marfan
+  syndrome is a rare multisystem disease of the connective tissue, which affects multiple
+  organ systems. advances in healthcare have doubled the life-expectancy of patients
+  over the past three decades. to date, there is no comprehensive review that consolidates
+  economic considerations and care for marfan patients. Areas covered: Present research
+  suggests that there may be a link between treatment pattern, disease progression
+  and economic costs of Marfan syndrome. It indicates that an early detection of the
+  disease and preventive interventions achieve a dual aim. From a patient perspective,
+  it may reduce the amount of emergency surgery or intervention, and inpatient stays.
+  In addition, it slows disease progression, lowers lifestyle restrictions, reduces
+  psychological stress, and improves health-related quality of life. Expert commentary:
+  Early detection and preventive measures are likely to achieve a dual aim by simultaneously
+  containing costs and reducing the number and length of inpatient stays.'
+raw_completion_output: |-
+  primary_disease: Marfan syndrome
+  medical_actions: early detection; preventive interventions; emergency surgery; intervention; inpatient stays
+  symptoms: emergency surgery or intervention requirement; inpatient stays; disease progression; lifestyle restrictions; psychological stress
+  chemicals: 
+  action_annotation_relationships: early detection PREVENTS emergency surgery or intervention requirement IN Marfan syndrome; preventive interventions PREVENT emergency surgery or intervention requirement IN Marfan syndrome; preventive interventions PREVENT inpatient stays IN Marfan syndrome; preventive interventions SLOWS disease progression IN Marfan syndrome; preventive interventions REDUCES lifestyle restrictions IN Marfan syndrome; preventive interventions REDUCES psychological stress IN Marfan syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  preventive interventions REDUCES psychological stress IN Marfan syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0007947
+  medical_actions:
+    - early detection
+    - preventive interventions
+    - emergency surgery
+    - intervention
+    - inpatient stays
+  symptoms:
+    - emergency surgery or intervention requirement
+    - inpatient stays
+    - disease progression
+    - lifestyle restrictions
+    - psychological stress
+  action_annotation_relationships:
+    - subject: early detection
+      predicate: PREVENTS
+      object: emergency surgery or intervention requirement
+      qualifier: MONDO:0007947
+    - subject: preventive interventions
+      predicate: PREVENT
+      object: emergency surgery or intervention requirement
+      qualifier: MONDO:0007947
+    - subject: <preventive interventions>
+      predicate: <PREVENT>
+      object: <inpatient stays>
+      qualifier: <Marfan syndrome>
+      subject_qualifier: <N/A>
+      object_qualifier: <N/A>
+      subject_extension: <N/A>
+      object_extension: <N/A>
+    - subject: preventive interventions
+      predicate: SLOWS
+      object: disease progression
+      qualifier: MONDO:0007947
+    - subject: preventive interventions
+      predicate: REDUCES
+      object: lifestyle restrictions
+      qualifier: MONDO:0007947
+    - subject: preventive interventions
+      predicate: REDUCES
+      object: psychological stress
+      qualifier: MONDO:0007947
+named_entities:
+  - id: MONDO:0018954
+    label: Loeys-Dietz syndrome
+  - id: HP:0012764
+    label: orthopnea
+  - id: HP:0001631
+    label: atrial septal defect
+  - id: HP:0012531
+    label: pain
+  - id: HP:0004942
+    label: aortic aneurysms
+  - id: HP:0001645
+    label: premature sudden cardiac death
+  - id: MAXO:0000948
+    label: craniotomy
+  - id: MAXO:0000011
+    label: Physical therapy
+  - id: MAXO:0001351
+    label: Occupational therapy
+  - id: MAXO:0000930
+    label: Speech therapy
+  - id: HP:0001270
+    label: Motor delays
+  - id: HP:0001252
+    label: Hypotonia
+  - id: MONDO:0007947
+    label: Marfan syndrome

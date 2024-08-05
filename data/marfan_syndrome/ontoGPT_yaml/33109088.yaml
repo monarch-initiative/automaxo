@@ -1,0 +1,191 @@
+---
+input_text: "Myocardial ischemia 10 years after a modified Cabrol procedure in a 42-year-old
+  patient with Marfan syndrome. BACKGROUND: Marfan syndrome, a genetic disorder of
+  the connective tissue, may cause aortic root dilation with aortic insufficiency,
+  aortic dissection and mitral prolapse with mitral insufficiency. We present a case
+  of a late complication of the modified Cabrol procedure that included replacing
+  the ascending aorta with a composite graft. CASE PRESENTATION: In February 2019,
+  a 42-year-old female patient with Marfan syndrome who presented with chest pain
+  was sent to the Emergency Department. She had undergone the modified Cabrol procedure
+  10 years prior. Upon presenting, laboratory analysis revealed elevated troponin-I
+  levels. Electrocardiogram showed new inverted T waves over lead I, aVL and V4 to
+  V6. Contrast computed tomography (CT) revealed thrombosis in the Dacron graft. Percutaneous
+  coronary angiography was conducted, and a large thrombus in the graft was noted.
+  Thrombolytic therapy and percutaneous coronary intervention were performed, after
+  which the patient had no more symptoms and was discharged without complications.
+  CONCLUSIONS: Aortic root surgery, including the Cabrol or modified Cabrol procedure,
+  is necessary for complicated cases of aortic dilations, such as in patients with
+  Marfan syndrome, even though the Cabrol or modified Cabrol procedure has a high
+  complication rate. Regarding this case, we were surprised by the timing of the myocardial
+  ischemia and the position of the thrombus, which differed from other cases. To better
+  manage such a patient's condition and to detect the formation of thrombus early,
+  completeness of the graft and possible stenosis of the anastomosis site to avoid
+  preventable myocardial ischemia, we suggest that patients should have regular image
+  follow-up, even years after the Cabrol or modified Cabrol procedure."
+raw_completion_output: |-
+  primary_disease: Myocardial ischemia
+  medical_actions: Percutaneous coronary angiography; Thrombolytic therapy; Percutaneous coronary intervention; Aortic root surgery; Regular image follow-up
+  symptoms: Chest pain; Elevated troponin-I levels; New inverted T waves; Thrombosis in the Dacron graft
+  chemicals: 
+  action_annotation_relationships: Percutaneous coronary angiography TREATS Thrombosis in the Dacron graft IN Myocardial ischemia; Thrombolytic therapy TREATS Thrombosis in the Dacron graft IN Myocardial ischemia; Percutaneous coronary intervention TREATS Thrombosis in the Dacron graft IN Myocardial ischemia; Aortic root surgery PREVENTS Aortic root dilation IN Marfan syndrome; Regular image follow-up PREVENTS Myocardial ischemia IN Marfan syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Regular image follow-up PREVENTS Myocardial ischemia IN Marfan syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0024644
+  medical_actions:
+    - Percutaneous coronary angiography
+    - Thrombolytic therapy
+    - MAXO:0009038
+    - Aortic root surgery
+    - Regular image follow-up
+  symptoms:
+    - HP:0100749
+    - Elevated troponin-I levels
+    - New inverted T waves
+    - Thrombosis in the Dacron graft
+  action_annotation_relationships:
+    - subject: Percutaneous coronary angiography
+      predicate: TREATS
+      object: Thrombosis in the Dacron graft
+      qualifier: MONDO:0024644
+    - subject: <Thrombolytic therapy>
+      predicate: <TREATS>
+      object: <Thrombosis>
+      qualifier: <Myocardial ischemia>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <Thrombolytic>
+      object_extension: <in the Dacron graft>
+    - subject: <Percutaneous coronary intervention>
+      predicate: <TREATS>
+      object: <Thrombosis in the Dacron graft>
+      qualifier: <Myocardial ischemia>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <Percutaneous coronary intervention>
+      object_extension: <Thrombosis in the Dacron graft>
+    - subject: Aortic root surgery
+      predicate: PREVENTS
+      object: Aortic root dilation
+      qualifier: MONDO:0007947
+    - subject: Regular image follow-up
+      predicate: PREVENTS
+      object: Myocardial ischemia
+      qualifier: MONDO:0007947
+named_entities:
+  - id: MONDO:0007947
+    label: Marfan syndrome
+  - id: MAXO:0010203
+    label: echocardiography
+  - id: HP:0004942
+    label: aortic dilatation
+  - id: CHEBI:5959
+    label: irbesartan
+  - id: CHEBI:2904
+    label: atenolol
+  - id: CHEBI:6541
+    label: losartan
+  - id: HP:0002647
+    label: Aortic dissection
+  - id: HP:0004933
+    label: Type A aortic dissection
+  - id: MONDO:0018353
+    label: Rare cardiovascular diseases (RCDs)
+  - id: HP:0001657
+    label: Long QT syndrome (LQT)
+  - id: HP:0001071
+    label: Fabry disease (FD)
+  - id: MONDO:0020015
+    label: Rare cardiovascular diseases
+  - id: MONDO:0008213
+    label: Pectus Excavatum
+  - id: HP:0001634
+    label: Mitral valve prolapse
+  - id: HP:0002650
+    label: Scoliosis
+  - id: HP:0010550
+    label: Paraplegia
+  - id: HP:0012151
+    label: Hemothorax
+  - id: HP:0000767
+    label: Pectus Excavatum
+  - id: HP:0001704
+    label: tricuspid valve prolapse
+  - id: HP:0000545
+    label: myopia
+  - id: HP:0001083
+    label: ectopia lentis
+  - id: HP:0004927
+    label: pulmonary artery dilatation
+  - id: HP:0100775
+    label: dural ectasia
+  - id: HP:0100790
+    label: hernia
+  - id: HP:0001919
+    label: Acute kidney injury (AKI)
+  - id: HP:0012499
+    label: Type B aortic dissection (TBAD)
+  - id: CHEBI:35530
+    label: Beta-blockers
+  - id: MONDO:0009691
+    label: Marfan Syndrome (MFS)
+  - id: CHEBI:10033
+    label: Warfarin
+  - id: MAXO:0009006
+    label: whole-genome sequencing (WGS)
+  - id: MAXO:0009003
+    label: preimplantation genetic testing (PGT)
+  - id: CHEBI:74870
+    label: <whole-genome sequencing (WGS)>
+  - id: MONDO:0031421
+    label: Olmsted syndrome
+  - id: HP:0002140
+    label: Acute ischemic stroke
+  - id: HP:0001824
+    label: weight loss
+  - id: HP:0100898
+    label: Connective tissue nevus
+  - id: CHEBI:35341
+    label: steroid
+  - id: HP:0003302
+    label: spondylolisthesis
+  - id: HP:6000008
+    label: elevated hemidiaphragm
+  - id: CHEBI:86193
+    label: DAPT
+  - id: CHEBI:74925
+    label: gamma-secretase inhibitor
+  - id: CHEBI:10022
+    label: AP-1 neutralizing RNA hairpin decoy oligonucleotide (dON)
+  - id: MONDO:0010434
+    label: Syndromic Scoliosis (SS)
+  - id: MONDO:0005385
+    label: Vascular diseases
+  - id: HP:0002621
+    label: atherosclerosis
+  - id: HP:0025267
+    label: Snoring
+  - id: HP:0010535
+    label: Sleep-disordered breathing
+  - id: MONDO:0024644
+    label: Myocardial ischemia
+  - id: MAXO:0009038
+    label: Percutaneous coronary intervention
+  - id: HP:0100749
+    label: Chest pain

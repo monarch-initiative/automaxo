@@ -1,0 +1,124 @@
+---
+input_text: 'Complications in 54 frontofacial distraction procedures in patients with
+  syndromic craniosynostosis. Patients with syndromic craniosynostosis manifest midfacial
+  hypoplasia often treated by midfacial advancement. Benefits of midfacial advancement
+  by distraction osteogenesis have been well studied; little is known about the perioperative
+  morbidity of these procedures, specifically relating to device selection. This study
+  compares the perioperative complications between semiburied- and halo-type distraction
+  osteogenesis of the midface. A retrospective review was performed on all patients
+  with syndromic craniosynostosis who underwent midface distraction with semiburied-
+  or halo-type external distractors. Demographic information and operative/postoperative
+  course were reviewed. Complications were categorized as hardware-related, infectious,
+  and either as major (requiring additional intervention) or minor (requiring medication
+  only). Chi-squared and Fisher exact test were used to compare variables.From 1999
+  to 2012, a total of 54 patients underwent midface distraction osteogenesis, including
+  23 patients with Apert syndrome, 19 patients with Crouzon syndrome, 10 patients
+  with Pfeiffer syndrome, and 2 patients with other craniofacial syndromes. Thirty-three
+  patients underwent a total of 34 subcranial Le Fort III distraction procedures and
+  21 underwent 21 monobloc distraction procedures. The mean age during surgery was
+  8.0 (range, 4.0-17.7) years, whereas the mean time between distractor placement
+  and removal was 102.9 days. Thirty procedures were performed with external halo-type
+  distractors (18 Le Fort III and 12 monobloc distractions), whereas 25 were performed
+  with buried midface distractors (16 Le Fort III and 9 monobloc distractions). There
+  were no significant differences in diagnoses or interventions between the distraction
+  devices. Of the 19 distractor-related complications, there were a total of 10 (18.2%)
+  in the halo group including 5 (9.1%) requiring separate operative intervention as
+  well as 9 (16.4%) in the buried distractor group including 6 (10.1%) requiring separate
+  operative intervention. Major infections were more common in the buried distractor
+  group (n = 8) compared with the halo distractor group (n = 3) (P = 0.048). There
+  were 4 (7.3%) patients in the halo group who had malposition or transcranial pin
+  migration related to postoperative positioning or falls and required operative repositioning.
+  Frontofacial distraction is an important technique in patients with syndromic craniosynostosis.
+  Higher rates of halo displacement requiring surgery are offset with lower rates
+  of infections compared with buried distractors. '
+raw_completion_output: |-
+  primary_disease: syndromic craniosynostosis
+
+  medical_actions: midfacial advancement; distraction osteogenesis; retrospective review; operative intervention; medication; subcranial Le Fort III distraction procedure; monobloc distraction procedure; distractor placement; distractor removal; operative repositioning
+
+  symptoms: midfacial hypoplasia; hardware-related complications; infectious complications; malposition; transcranial pin migration
+
+  chemicals: 
+
+  action_annotation_relationships: distraction osteogenesis TREATS midfacial hypoplasia IN syndromic craniosynostosis; operative intervention TREATS hardware-related complications IN syndromic craniosynostosis; medication TREATS infectious complications IN syndromic craniosynostosis; operative repositioning TREATS malposition IN syndromic craniosynostosis; operative repositioning TREATS transcranial pin migration IN syndromic craniosynostosis
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  operative repositioning TREATS transcranial pin migration IN syndromic craniosynostosis
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0015338
+  medical_actions:
+    - midfacial advancement
+    - MAXO:0000486
+    - retrospective review
+    - operative intervention
+    - medication
+    - subcranial Le Fort III distraction procedure
+    - monobloc distraction procedure
+    - distractor placement
+    - distractor removal
+    - operative repositioning
+  symptoms:
+    - midfacial hypoplasia
+    - hardware-related complications
+    - infectious complications
+    - malposition
+    - transcranial pin migration
+  action_annotation_relationships:
+    - subject: MAXO:0000486
+      predicate: TREATS
+      object: midfacial hypoplasia
+      qualifier: MONDO:0015338
+    - subject: operative intervention
+      predicate: TREATS
+      object: complications
+      qualifier: MONDO:0015338
+      object_qualifier: hardware-related
+      object_extension: hardware-related
+    - subject: medication
+      predicate: TREATS
+      object: infectious complications
+      qualifier: MONDO:0015338
+    - subject: operative repositioning
+      predicate: TREATS
+      object: malposition
+      qualifier: MONDO:0015338
+    - subject: operative repositioning
+      predicate: TREATS
+      object: transcranial pin migration
+      qualifier: MONDO:0015338
+named_entities:
+  - id: HP:0011800
+    label: Midface hypoplasia
+  - id: MONDO:0007041
+    label: Apert syndrome
+  - id: MAXO:0000486
+    label: distraction osteogenesis
+  - id: HP:0012531
+    label: pain
+  - id: HP:0001288
+    label: gait disturbances
+  - id: MONDO:0003432
+    label: Strabismus
+  - id: HP:0001159
+    label: Syndactyly
+  - id: MAXO:0000004
+    label: surgical procedures
+  - id: HP:0001363
+    label: craniosynostosis
+  - id: MONDO:0015338
+    label: syndromic craniosynostosis

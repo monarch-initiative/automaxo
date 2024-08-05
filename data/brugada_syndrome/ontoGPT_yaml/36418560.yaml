@@ -1,0 +1,142 @@
+---
+input_text: 'Subcutaneous versus transvenous implantable cardioverter-defibrillator
+  among drug-induced type-1 ECG pattern Brugada syndrome: a propensity score matching
+  analysis from IBRYD study. No real-world data are available about the complications
+  rate in drug-induced type 1 Brugada Syndrome (BrS) patients with an implantable
+  cardioverter-defibrillator (ICD). Aim of our study is to compare the device-related
+  complications, infections, and inappropriate therapies among drug-induced type 1
+  BrS patients with transvenous- ICD (TV-ICD) versus subcutaneous-ICD (S-ICD). Data
+  for this study were sourced from the IBRYD (Italian BRugada sYnDrome) registry which
+  includes 619 drug-induced type-1 BrS patients followed at 20 Italian tertiary referral
+  hospitals. For the present analysis, we selected 258 consecutive BrS patients implanted
+  with ICD. 198 patients (76.7%) received a TV-ICD, while 60 a S-ICD (23.4%). And
+  were followed-up for a median time of 84.3 [46.5-147] months. ICD inappropriate
+  therapies were experienced by 16 patients (6.2%). 14 patients (7.1%) in the TVICD
+  group and 2 patients (3.3%) in S-ICD group (log-rank P = 0.64). ICD-related complications
+  occurred in 31 patients (12%); 29 (14.6%) in TV-ICD group and 2 (3.3%) in S-ICD
+  group (log-rank P = 0.41). ICD-related infections occurred in 10 patients (3.88%);
+  9 (4.5%) in TV-ICD group and 1 (1.8%) in S-ICD group (log-rank P = 0.80). After
+  balancing for potential confounders using the propensity score matching technique,
+  no differences were found in terms of clinical outcomes between the two groups.
+  In a real-world setting of drug-induced type-1 BrS patients with ICD, no significant
+  differences in inappropriate ICD therapies, device-related complications, and infections
+  were shown among S-ICD vs TV-ICD. However, a reduction in lead-related complications
+  was observed in the S-ICD group. In conclusion, our evidence suggests that S-ICD
+  is at least non-inferior to TV-ICD in this population and may also reduce the risk
+  of lead-related complications which can expose the patients to the necessity of
+  lead extractions.'
+raw_completion_output: |-
+  primary_disease: Brugada Syndrome (BrS)
+
+  medical_actions: propensity score matching analysis; implantation of implantable cardioverter-defibrillator (ICD); follow-up; reduction of lead-related complications
+
+  symptoms: inappropriate ICD therapies; device-related complications; ICD-related infections
+
+  chemicals: 
+
+  action_annotation_relationships: implantation of implantable cardioverter-defibrillator (ICD) TREATS inappropriate ICD therapies IN Brugada Syndrome (BrS); implantation of implantable cardioverter-defibrillator (ICD) TREATS device-related complications IN Brugada Syndrome (BrS); implantation of implantable cardioverter-defibrillator (ICD) TREATS ICD-related infections IN Brugada Syndrome (BrS); reduction of lead-related complications PREVENTS device-related complications IN Brugada Syndrome (BrS)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  reduction of lead-related complications PREVENTS device-related complications IN Brugada Syndrome (BrS)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0015263
+  medical_actions:
+    - propensity score matching analysis
+    - implantation of implantable cardioverter-defibrillator (ICD)
+    - follow-up
+    - reduction of lead-related complications
+  symptoms:
+    - inappropriate ICD therapies
+    - device-related complications
+    - ICD-related infections
+  action_annotation_relationships:
+    - subject: implantation of implantable cardioverter-defibrillator (ICD)
+      predicate: TREATS
+      object: inappropriate ICD therapies
+      qualifier: MONDO:0015263
+      subject_extension: implantable cardioverter-defibrillator
+      object_extension: inappropriate ICD therapies
+    - subject: implantation of implantable cardioverter-defibrillator
+      predicate: TREATS
+      object: complications
+      qualifier: MONDO:0015263
+      object_qualifier: device-related
+      subject_extension: implantable cardioverter-defibrillator (ICD)
+      object_extension: device-related
+    - subject: implantation of implantable cardioverter-defibrillator (ICD)
+      predicate: TREATS
+      object: ICD-related infections
+      qualifier: MONDO:0015263
+      subject_extension: implantable cardioverter-defibrillator
+    - subject: reduction
+      predicate: PREVENTS
+      object: complications
+      qualifier: MONDO:0015263
+      subject_extension: lead-related complications
+      object_extension: device-related complications
+named_entities:
+  - id: HP:0001663
+    label: ventricular fibrillation
+  - id: HP:0007760
+    label: sudden cardiac death (SCD)
+  - id: HP:0100543
+    label: cognitive impairment
+  - id: MONDO:0002076
+    label: Pneumothorax
+  - id: HP:0002094
+    label: Dyspnea
+  - id: HP:0001695
+    label: Cardiac arrest
+  - id: CHEBI:75984
+    label: Flecainide
+  - id: MAXO:0001017
+    label: Vaccination
+  - id: MONDO:0007264
+    label: Sudden Cardiac Death
+  - id: HP:0031628
+    label: Sudden cardiac arrest
+  - id: HP:0001657
+    label: Long QT syndrome
+  - id: HP:0001645
+    label: Sudden cardiac death
+  - id: MONDO:0015263
+    label: Brugada syndrome
+  - id: HP:0004308
+    label: Ventricular arrhythmias
+  - id: HP:0001945
+    label: Fever
+  - id: MONDO:0020745
+    label: Cardiac arrhythmias
+  - id: MAXO:0000900
+    label: Analysis of electrocardiograms (ECGs)
+  - id: MAXO:0000127
+    label: Genetic analyses
+  - id: HP:0011675
+    label: cardiac arrhythmias
+  - id: HP:0001699
+    label: sudden death
+  - id: HP:0005110
+    label: atrial fibrillation
+  - id: MAXO:0000474
+    label: Implantable cardioverter-defibrillator implantation
+  - id: HP:0001279
+    label: Syncope
+  - id: MONDO:0020575
+    label: Polymorphic Ventricular Tachycardia
+  - id: HP:0001289
+    label: confusion

@@ -1,0 +1,153 @@
+---
+input_text: 'Delayed emergence from propofol anesthesia in a patient with Lesch-Nyhan
+  syndrome: A case report. RATIONALE: Lesch-Nyhan syndrome (LNS) is an X-linked recessive
+  disorder presenting with uric acid overproduction, neurocognitive disability, and
+  behavioral disturbances. Inhalational anesthesia has been frequently used in LNS
+  patients undergoing surgery. Characteristic compulsive self-injurious behavior and
+  high risk of emesis may hinder inhalational induction. Propofol may be beneficial
+  for these patients because of its easy and rapid titration for anesthetic depth
+  during induction, early recovery from anesthesia, and antiemetic effect as well
+  as uricosuric effect. PATIENT CONCERNS: A 16-year-old male adolescent was scheduled
+  for percutaneous nephrolithotomy. He exhibited poorly controlled muscle, self-injurious
+  behaviors and intellectual disability. DIAGNOSIS: The patient presented with neurodevelopmental
+  delay in the first year of life, and was diagnosed with LNS, with a substitution
+  of phenylalanine to leucine in hypoxanthine-guanine phosphoribosyltransferase (HPRT)
+  1 gene on the X-chromosome at 3 years of age. INTERVENTIONS: Total intravenous anesthesia
+  was used for induction and maintenance of anesthesia with propofol and remifentanil
+  using target-controlled infusion. OUTCOMES: Time to recovery of consciousness was
+  prolonged after uneventful surgery. Serum uric acid levels gradually increased during
+  postoperative period. LESSONS: Propofol anesthesia using target-controlled infusion
+  does not provide significant clinical advantages in rapid emergence from anesthesia
+  and management of hyperuricemia in LNS patients undergoing urological surgery.'
+raw_completion_output: |-
+  primary_disease: Lesch-Nyhan syndrome (LNS)
+  medical_actions: Total intravenous anesthesia with propofol and remifentanil using target-controlled infusion
+  symptoms: Uric acid overproduction; Neurocognitive disability; Behavioral disturbances; Compulsive self-injurious behavior; High risk of emesis; Poorly controlled muscle movements; Intellectual disability; Neurodevelopmental delay
+  chemicals: Propofol; Remifentanil
+  action_annotation_relationships: Total intravenous anesthesia with propofol TREATS high risk of emesis IN Lesch-Nyhan syndrome; Total intravenous anesthesia with propofol and remifentanil TREATS poorly controlled muscle movements IN Lesch-Nyhan syndrome; Propofol (with antiemetic effect) TREATS high risk of emesis IN Lesch-Nyhan syndrome; Propofol (with uricosuric effect) PREVENTS uric acid overproduction IN Lesch-Nyhan syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Propofol (with uricosuric effect) PREVENTS uric acid overproduction IN Lesch-Nyhan syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0002486
+  medical_actions:
+    - Total intravenous anesthesia with propofol and remifentanil using target-controlled
+      infusion
+  symptoms:
+    - Uric acid overproduction
+    - Neurocognitive disability
+    - HP:0000708
+    - Compulsive self-injurious behavior
+    - High risk of emesis
+    - Poorly controlled muscle movements
+    - HP:0001249
+    - HP:0012758
+  chemicals:
+    - CHEBI:44915
+    - CHEBI:8802
+  action_annotation_relationships:
+    - subject: Total intravenous anesthesia
+      predicate: TREATS
+      object: high risk of emesis
+      qualifier: MONDO:0010298
+      subject_extension: CHEBI:44915
+    - subject: Total intravenous anesthesia
+      predicate: TREATS
+      object: poorly controlled muscle movements
+      qualifier: MONDO:0010298
+      subject_qualifier: with propofol and remifentanil
+      subject_extension: propofol and remifentanil
+    - subject: Propofol (with antiemetic effect)
+      predicate: TREATS
+      object: high risk of emesis
+      qualifier: MONDO:0010298
+      subject_extension: CHEBI:44915
+      object_extension: antiemetic
+    - subject: Propofol
+      predicate: PREVENTS
+      object: uric acid overproduction
+      qualifier: MONDO:0010298
+      subject_extension: CHEBI:44915
+      object_extension: uricosuric effect
+named_entities:
+  - id: MONDO:0010298
+    label: Lesch-Nyhan syndrome
+  - id: HP:0002149
+    label: hyperuricemia
+  - id: HP:0100021
+    label: spastic cerebral palsy (CP)
+  - id: HP:0001332
+    label: dystonia
+  - id: HP:0000742
+    label: self-mutilation
+  - id: HP:0001257
+    label: Spasticity
+  - id: HP:0001266
+    label: Choreoathetosis
+  - id: HP:0100716
+    label: Self-injurious behavior
+  - id: HP:0000718
+    label: Aggression
+  - id: HP:0002104
+    label: Apnea
+  - id: HP:0002013
+    label: Vomiting
+  - id: CHEBI:44915
+    label: Propofol
+  - id: MAXO:0000943
+    label: deep brain stimulation surgery (DBS)
+  - id: CHEBI:9130
+    label: sevoflurane
+  - id: MAXO:0009003
+    label: preimplantation genetic diagnosis (PGD)
+  - id: HP:0001249
+    label: mental retardation
+  - id: CHEBI:17368
+    label: Hypoxanthine
+  - id: CHEBI:15372
+    label: tetrahydrobiopterin
+  - id: CHEBI:35634
+    label: xanthine oxidase inhibitors
+  - id: CHEBI:3387
+    label: Carbamazepine
+  - id: HP:0007325
+    label: generalized dystonia
+  - id: HP:0100660
+    label: dyskinesia
+  - id: HP:0003149
+    label: Hyperuricosuria
+  - id: HP:0001997
+    label: Gouty arthritis
+  - id: CHEBI:28790
+    label: serotonin
+  - id: CHEBI:28683
+    label: kynurenine
+  - id: CHEBI:16675
+    label: quinolinic acid
+  - id: CHEBI:15318
+    label: xanthine
+  - id: HP:0001263
+    label: developmental retardation
+  - id: MONDO:0002486
+    label: Lesch-Nyhan syndrome (LNS)
+  - id: HP:0000708
+    label: Behavioral disturbances
+  - id: HP:0012758
+    label: Neurodevelopmental delay
+  - id: CHEBI:8802
+    label: Remifentanil

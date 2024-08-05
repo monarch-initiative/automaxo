@@ -1,0 +1,132 @@
+---
+input_text: 'Chediak-Higashi syndrome: neurocognitive and behavioral data from infancy
+  to adulthood after bone marrow transplantation. Chediak-Higashi syndrome (CHS) is
+  a rare autosomal disorder characterized by immunodeficiency, albinism, and progressive
+  neurologic abnormalities. While survivors of the childhood-onset disease are known
+  to exhibit learning disabilities and neuropsychiatric disorders followed by middle-age
+  dementia, we lack detailed data on the progression. We present the case of a young
+  adult with records from infancy to the first signs of deterioration. An early neuropsychological
+  and neuropsychiatric profiling is crucial to intervention selection as children
+  with CHS may not benefit from regular special education. Our patient never showed
+  neuropsychiatric symptoms but high levels of socioemotional adaptability.'
+raw_completion_output: |-
+  primary_disease: Chediak-Higashi syndrome
+
+  medical_actions: bone marrow transplantation; neuropsychological and neuropsychiatric profiling
+
+  symptoms: immunodeficiency; albinism; progressive neurologic abnormalities; learning disabilities; neuropsychiatric disorders; middle-age dementia; lack of socioemotional adaptability
+
+  chemicals: 
+
+  action_annotation_relationships: bone marrow transplantation TREATS immunodeficiency IN Chediak-Higashi syndrome; bone marrow transplantation PREVENTS progressive neurologic abnormalities IN Chediak-Higashi syndrome; neuropsychological and neuropsychiatric profiling PREVENTS learning disabilities IN Chediak-Higashi syndrome; neuropsychological and neuropsychiatric profiling PREVENTS neuropsychiatric disorders IN Chediak-Higashi syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  neuropsychological and neuropsychiatric profiling PREVENTS neuropsychiatric disorders IN Chediak-Higashi syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0008963
+  medical_actions:
+    - MAXO:0010030
+    - neuropsychological and neuropsychiatric profiling
+  symptoms:
+    - HP:0002721
+    - HP:0001022
+    - progressive neurologic abnormalities
+    - learning disabilities
+    - neuropsychiatric disorders
+    - middle-age dementia
+    - lack of socioemotional adaptability
+  action_annotation_relationships:
+    - subject: <bone marrow transplantation>
+      predicate: <TREATS>
+      object: <immunodeficiency>
+      qualifier: <Chediak-Higashi syndrome>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: MAXO:0010030
+      predicate: PREVENTS
+      object: progressive neurologic abnormalities
+      qualifier: MONDO:0008963
+    - subject: neuropsychological and neuropsychiatric profiling
+      predicate: PREVENTS
+      object: learning disabilities
+      qualifier: MONDO:0008963
+    - subject: neuropsychological and neuropsychiatric profiling
+      predicate: PREVENTS
+      object: neuropsychiatric disorders
+      qualifier: MONDO:0008963
+named_entities:
+  - id: MAXO:0010030
+    label: Bone marrow transplantation (BMT)
+  - id: MONDO:0008963
+    label: Chediak-Higashi syndrome
+  - id: MAXO:0010033
+    label: Unrelated cord blood transplantation (UCBT)
+  - id: MAXO:0000747
+    label: HSCT
+  - id: MAXO:0000750
+    label: Conditioning regimens
+  - id: CHEBI:41264
+    label: BU
+  - id: CHEBI:4027
+    label: Cyclophosphamide
+  - id: CHEBI:4911
+    label: Etoposide
+  - id: HP:0001433
+    label: hepatosplenomegaly
+  - id: HP:0003270
+    label: abdominal distention
+  - id: MONDO:0024686
+    label: Pigmented villonodular synovitis (PVNS)
+  - id: HP:0001945
+    label: fever
+  - id: MONDO:0003778
+    label: primary immunodeficiency
+  - id: HP:0025322
+    label: veno-occlusive disease
+  - id: CHEBI:28901
+    label: busulfan
+  - id: CHEBI:4031
+    label: cyclosporine
+  - id: CHEBI:44185
+    label: methotrexate
+  - id: MONDO:0008090
+    label: Chediak-Higashi Syndrome (CHS)
+  - id: HP:0002718
+    label: recurrent bacterial infections
+  - id: HP:0000613
+    label: photophobia
+  - id: CHEBI:82557
+    label: Treosulfan
+  - id: CHEBI:28876
+    label: Melphalan
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0001010
+    label: hypopigmentation of the skin
+  - id: HP:0006532
+    label: lung infection
+  - id: MONDO:0015540
+    label: Hemophagocytic Lymphohistiocytosis (HLH)
+  - id: HP:0003073
+    label: Hypoalbuminemia
+  - id: HP:0002721
+    label: immunodeficiency
+  - id: HP:0001022
+    label: albinism

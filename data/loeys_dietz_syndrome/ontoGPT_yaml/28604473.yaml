@@ -1,0 +1,91 @@
+---
+input_text: 'Perioperative Anesthetic Management for Cesarean Delivery in a Parturient
+  With Type IV Loeys-Dietz Syndrome: A Case Report. Loeys-Dietz syndrome (LDS) is
+  a rare connective tissue disorder predisposing to aortic and arterial aneurysms.
+  Presentations are classified into subtypes based on gene mutations. Pregnancy in
+  patients with LDS is considered very high risk due to the potential for aortic dissection
+  and uterine rupture. We report successful management of an elective cesarean delivery
+  in a 16-year-old patient with LDS type IV using epidural anesthesia. Perioperative
+  considerations and multidisciplinary management specific to taking care of parturients
+  with LDS are discussed.'
+raw_completion_output: |-
+  primary_disease: Loeys-Dietz syndrome (LDS)
+  medical_actions: epidural anesthesia;multidisciplinary management
+  symptoms: aortic and arterial aneurysms;aortic dissection;uterine rupture
+  chemicals: 
+  action_annotation_relationships: epidural anesthesia TREATS aortic dissection IN Loeys-Dietz syndrome (LDS);multidisciplinary management PREVENTS uterine rupture IN Loeys-Dietz syndrome (LDS);multidisciplinary management PREVENTS aortic dissection IN Loeys-Dietz syndrome (LDS)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  multidisciplinary management PREVENTS aortic dissection IN Loeys-Dietz syndrome (LDS)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0018954
+  medical_actions:
+    - epidural anesthesia
+    - multidisciplinary management
+  symptoms:
+    - aortic and arterial aneurysms
+    - HP:0002647
+    - HP:0100718
+  action_annotation_relationships:
+    - subject: <epidural anesthesia>
+      predicate: <TREATS>
+      object: <aortic dissection>
+      qualifier: <Loeys-Dietz syndrome>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <epidural anesthesia>
+      object_extension: <None>
+    - subject: multidisciplinary management
+      predicate: PREVENTS
+      object: HP:0100718
+      qualifier: MONDO:0018954
+    - subject: multidisciplinary management
+      predicate: PREVENTS
+      object: HP:0002647
+      qualifier: MONDO:0018954
+named_entities:
+  - id: MONDO:0018954
+    label: Loeys-Dietz syndrome
+  - id: HP:0012764
+    label: orthopnea
+  - id: HP:0001631
+    label: atrial septal defect
+  - id: HP:0012531
+    label: pain
+  - id: HP:0004942
+    label: aortic aneurysms
+  - id: HP:0001645
+    label: premature sudden cardiac death
+  - id: MAXO:0000948
+    label: craniotomy
+  - id: MAXO:0000011
+    label: Physical therapy
+  - id: MAXO:0001351
+    label: Occupational therapy
+  - id: MAXO:0000930
+    label: Speech therapy
+  - id: HP:0001270
+    label: Motor delays
+  - id: HP:0001252
+    label: Hypotonia
+  - id: MONDO:0007947
+    label: Marfan syndrome
+  - id: HP:0002647
+    label: aortic dissection
+  - id: HP:0100718
+    label: uterine rupture

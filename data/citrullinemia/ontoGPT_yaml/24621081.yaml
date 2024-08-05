@@ -1,0 +1,207 @@
+---
+input_text: 'Mucositis not neutropenia determines bacteremia among hematopoietic stem
+  cell transplant recipients. BACKGROUND: In the 1960s, it was reported that infectious
+  complications were the main cause of fever during neutropenia that followed hematopoietic
+  stem cell transplant (HSCT). More recently, mucositis has become recognized as an
+  important determinant of the inflammatory response and infectious complications.
+  METHODS: The objective of this prospective study was to determine the impact of
+  intestinal mucositis, as measured by plasma citrulline, and neutropenia on the systemic
+  inflammatory response (C-reactive protein) and the occurrence of bacteremia among
+  2 cohorts of HSCT recipients: 1 composed of 18 patients who had been treated with
+  a myeloablative (MA) regimen (high-dose melphalan) and the other involving 19 patients
+  who had received the non-myeloablative (NMA) regimen (fludarabine and cyclophosphamide).
+  Blood cultures were obtained for surveillance from admission onwards as well as
+  at the onset of fever. RESULTS: The MA regimen induced severe intestinal mucositis
+  manifest by citrullinemia <10 mumol/L, which was accompanied by an inflammatory
+  response, and bacteremia affected 8 (44%) of 18 patients and coincided with the
+  nadir of citrullinemia. By contrast, those who had been treated with the NMA regimen
+  did not develop severe intestinal mucositis, had a moderate inflammatory response,
+  and only 2 (11%) of the 19 patients developed bacteremia. However, both groups experienced
+  profound neutropenia and its duration was significantly longer for those receiving
+  the NMA regimen. CONCLUSION: This study suggests that severe intestinal mucositis,
+  i.e., citrullinemia <10 mumol/L, defines the period of risk of bacteremia better
+  than does neutropenia, and that measuring plasma citrulline may prove useful in
+  deciding who needs empirical antimicrobial therapy and when.'
+raw_completion_output: |-
+  primary_disease: Mucositis
+  medical_actions: Measurement of plasma citrulline; Administration of myeloablative regimen (high-dose melphalan); Administration of non-myeloablative regimen (fludarabine and cyclophosphamide); Obtaining blood cultures for surveillance; Empirical antimicrobial therapy
+  symptoms: Bacteremia; Inflammatory response; Neutropenia; Fever; Severe intestinal mucositis
+  chemicals: Melphalan; Fludarabine; Cyclophosphamide; Citrulline
+  action_annotation_relationships: Measurement of plasma citrulline TREATS severe intestinal mucositis IN Mucositis; Administration of myeloablative regimen (with Melphalan) TREATS severe intestinal mucositis IN Mucositis; Administration of non-myeloablative regimen (with Fludarabine and Cyclophosphamide) PREVENTS severe intestinal mucositis IN Mucositis; Obtaining blood cultures for surveillance TREATS bacteremia IN Mucositis; Empirical antimicrobial therapy TREATS bacteremia IN Mucositis
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Empirical antimicrobial therapy TREATS bacteremia IN Mucositis
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0020579
+  medical_actions:
+    - Measurement of plasma citrulline
+    - Administration of myeloablative regimen (high-dose melphalan)
+    - Administration of non-myeloablative regimen (fludarabine and cyclophosphamide)
+    - Obtaining blood cultures for surveillance
+    - Empirical antimicrobial therapy
+  symptoms:
+    - HP:0031864
+    - Inflammatory response
+    - HP:0001875
+    - HP:0001945
+    - Severe intestinal mucositis
+  chemicals:
+    - CHEBI:28876
+    - Fludarabine
+    - CHEBI:4027
+    - CHEBI:18211
+  action_annotation_relationships:
+    - subject: Measurement of plasma citrulline
+      predicate: TREATS
+      object: intestinal mucositis
+      qualifier: MONDO:0020579
+      object_qualifier: severe
+      subject_extension: plasma citrulline
+    - subject: Administration of myeloablative regimen
+      predicate: TREATS
+      object: intestinal mucositis
+      qualifier: MONDO:0020579
+      subject_qualifier: with Melphalan
+      object_qualifier: severe
+      subject_extension: CHEBI:28876
+      object_extension: severe
+    - subject: Administration of non-myeloablative regimen
+      predicate: PREVENTS
+      object: severe intestinal mucositis
+      qualifier: MONDO:0020579
+      subject_qualifier: with Fludarabine and Cyclophosphamide
+      object_qualifier: severe
+      subject_extension: Fludarabine and Cyclophosphamide
+    - subject: Obtaining blood cultures for surveillance
+      predicate: TREATS
+      object: HP:0031864
+      qualifier: MONDO:0020579
+    - subject: Empirical antimicrobial therapy
+      predicate: TREATS
+      object: HP:0031864
+      qualifier: MONDO:0020579
+      subject_extension: CHEBI:33281
+named_entities:
+  - id: MONDO:0019052
+    label: Inborn errors of metabolism (IEMs)
+  - id: MAXO:0001175
+    label: Liver transplantation
+  - id: MONDO:0016603
+    label: Adult-onset citrullinemia (CTLN2)
+  - id: MONDO:0016602
+    label: Citrin deficiency
+  - id: MONDO:0005311
+    label: atherosclerosis
+  - id: CHEBI:18211
+    label: citrulline
+  - id: CHEBI:29016
+    label: arginine
+  - id: CHEBI:16349
+    label: L-citrulline
+  - id: CHEBI:16467
+    label: L-arginine
+  - id: HP:0002621
+    label: atherosclerosis
+  - id: MONDO:0008988
+    label: Citrullinemia type 1
+  - id: MAXO:0000603
+    label: Peritoneal dialysis
+  - id: MAXO:0000127
+    label: Genetic analysis
+  - id: HP:0001987
+    label: Hyperammonemia
+  - id: CHEBI:22918
+    label: Branched-chain amino acids (BCAA)
+  - id: MONDO:0015991
+    label: Citrullinemia
+  - id: MAXO:0000602
+    label: Hemodialysis
+  - id: CHEBI:16150
+    label: Benzoate
+  - id: HP:0000739
+    label: Anxiety
+  - id: CHEBI:28938
+    label: Ammonia
+  - id: CHEBI:16199
+    label: Urea
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: HP:0001945
+    label: fever
+  - id: HP:0003270
+    label: abdominal distention
+  - id: HP:0001508
+    label: failure to thrive
+  - id: HP:0003119
+    label: dyslipidemia
+  - id: HP:0005206
+    label: pancreatic pseudocyst
+  - id: MAXO:0001298
+    label: therapy
+  - id: MONDO:0004992
+    label: Cancer
+  - id: HP:0001510
+    label: Growth failure
+  - id: CHEBI:16646
+    label: carbohydrates
+  - id: MONDO:0009563
+    label: Maple Syrup Urine Disease (MSUD)
+  - id: MONDO:0019542
+    label: Acute liver failure (ALF)
+  - id: HP:0000952
+    label: Jaundice
+  - id: HP:0001289
+    label: Confusion
+  - id: CHEBI:46195
+    label: Acetaminophen
+  - id: HP:0006554
+    label: Acute liver failure
+  - id: HP:0001943
+    label: hypoglycemia
+  - id: HP:0001397
+    label: fatty liver
+  - id: HP:0003388
+    label: easy fatigability
+  - id: HP:0001824
+    label: weight loss
+  - id: CHEBI:16374
+    label: vitamin K2
+  - id: CHEBI:9907
+    label: ursodeoxycholic acid
+  - id: CHEBI:50144
+    label: sodium pyruvate
+  - id: CHEBI:17754
+    label: glycerol
+  - id: CHEBI:28757
+    label: fructose
+  - id: HP:0001250
+    label: Seizures
+  - id: HP:0002480
+    label: hepatic encephalopathy
+  - id: MONDO:0020579
+    label: Mucositis
+  - id: HP:0031864
+    label: Bacteremia
+  - id: HP:0001875
+    label: Neutropenia
+  - id: CHEBI:28876
+    label: Melphalan
+  - id: CHEBI:4027
+    label: Cyclophosphamide
+  - id: CHEBI:33281
+    label: antimicrobial

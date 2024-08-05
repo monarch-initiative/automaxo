@@ -1,0 +1,158 @@
+---
+input_text: Recurrent liver failure in a 25-year-old female. Acute liver failure (ALF)
+  is defined as severe and sudden liver dysfunction leading to coagulopathy and encephalopathy
+  in a previously healthy person without preexisting liver disease. Almost half of
+  adult cases of ALF are due to acetaminophen toxicity, with 21% labeled indeterminate
+  or other. We present a patient with a second episode of ALF, both episodes being
+  initiated by catabolic stress. Elevated aminotransferases, jaundice, an elevated
+  international normalized ratio, and confusion were typical of idiopathic ALF, and
+  a low serum ceruloplasmin level initially led to a misdiagnosis of acute Wilson
+  disease. Citrullinemia type I, a urea cycle defect caused by a deficiency of argininosuccinate
+  synthetase, was diagnosed on the basis of plasma amino acids and was confirmed by
+  molecular testing. Urea cycle defects are not generally considered causes of ALF
+  in adults and are described rarely in children beyond the neonatal period. Our case
+  illustrates the importance of screening patients with idiopathic ALF for a metabolic
+  disorder. A prompt diagnosis and timely treatment enabled her to recover fully without
+  the need for liver transplantation.
+raw_completion_output: |-
+  primary_disease: Acute liver failure (ALF)
+
+  medical_actions: Screening for metabolic disorder; Plasma amino acids analysis; Molecular testing; Treatment without the need for liver transplantation
+
+  symptoms: Elevated aminotransferases; Jaundice; Elevated international normalized ratio; Confusion
+
+  chemicals: Acetaminophen; Ceruloplasmin
+
+  action_annotation_relationships: Screening for metabolic disorder PREVENTS misdiagnosis IN Acute liver failure (ALF); Plasma amino acids analysis TREATS diagnostic uncertainty IN Acute liver failure (ALF); Molecular testing CONFIRMS Citrullinemia type I IN Acute liver failure (ALF); Treatment without the need for liver transplantation TREATS Acute liver failure (ALF); Acetaminophen TOXICITY CAUSES Acute liver failure (ALF)
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Acetaminophen TOXICITY CAUSES Acute liver failure (ALF)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0019542
+  medical_actions:
+    - Screening for metabolic disorder
+    - Plasma amino acids analysis
+    - Molecular testing
+    - Treatment without the need for liver transplantation
+  symptoms:
+    - Elevated aminotransferases
+    - HP:0000952
+    - Elevated international normalized ratio
+    - HP:0001289
+  chemicals:
+    - CHEBI:46195
+    - Ceruloplasmin
+  action_annotation_relationships:
+    - subject: <Screening>
+      predicate: <PREVENTS>
+      object: <misdiagnosis>
+      qualifier: <Acute liver failure (ALF)>
+      subject_extension: <metabolic disorder>
+    - subject: Plasma amino acids analysis
+      predicate: TREATS
+      object: diagnostic uncertainty
+      qualifier: MONDO:0019542
+    - subject: <Molecular testing>
+      predicate: <CONFIRMS>
+      object: <Acute liver failure>
+      qualifier: <Citrullinemia type I>
+      object_qualifier: <ALF>
+      subject_extension: <Citrullinemia type I>
+    - subject: Treatment without the need for liver transplantation
+      predicate: TREATS
+      object: HP:0006554
+      qualifier: ALF
+    - subject: TOXICITY
+      predicate: CAUSES
+      object: HP:0006554
+      subject_extension: CHEBI:46195
+named_entities:
+  - id: MONDO:0019052
+    label: Inborn errors of metabolism (IEMs)
+  - id: MAXO:0001175
+    label: Liver transplantation
+  - id: MONDO:0016603
+    label: Adult-onset citrullinemia (CTLN2)
+  - id: MONDO:0016602
+    label: Citrin deficiency
+  - id: MONDO:0005311
+    label: atherosclerosis
+  - id: CHEBI:18211
+    label: citrulline
+  - id: CHEBI:29016
+    label: arginine
+  - id: CHEBI:16349
+    label: L-citrulline
+  - id: CHEBI:16467
+    label: L-arginine
+  - id: HP:0002621
+    label: atherosclerosis
+  - id: MONDO:0008988
+    label: Citrullinemia type 1
+  - id: MAXO:0000603
+    label: Peritoneal dialysis
+  - id: MAXO:0000127
+    label: Genetic analysis
+  - id: HP:0001987
+    label: Hyperammonemia
+  - id: CHEBI:22918
+    label: Branched-chain amino acids (BCAA)
+  - id: MONDO:0015991
+    label: Citrullinemia
+  - id: MAXO:0000602
+    label: Hemodialysis
+  - id: CHEBI:16150
+    label: Benzoate
+  - id: HP:0000739
+    label: Anxiety
+  - id: CHEBI:28938
+    label: Ammonia
+  - id: CHEBI:16199
+    label: Urea
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: HP:0001945
+    label: fever
+  - id: HP:0003270
+    label: abdominal distention
+  - id: HP:0001508
+    label: failure to thrive
+  - id: HP:0003119
+    label: dyslipidemia
+  - id: HP:0005206
+    label: pancreatic pseudocyst
+  - id: MAXO:0001298
+    label: therapy
+  - id: MONDO:0004992
+    label: Cancer
+  - id: HP:0001510
+    label: Growth failure
+  - id: CHEBI:16646
+    label: carbohydrates
+  - id: MONDO:0009563
+    label: Maple Syrup Urine Disease (MSUD)
+  - id: MONDO:0019542
+    label: Acute liver failure (ALF)
+  - id: HP:0000952
+    label: Jaundice
+  - id: HP:0001289
+    label: Confusion
+  - id: CHEBI:46195
+    label: Acetaminophen
+  - id: HP:0006554
+    label: Acute liver failure

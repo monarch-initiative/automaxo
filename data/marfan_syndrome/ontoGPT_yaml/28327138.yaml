@@ -1,0 +1,161 @@
+---
+input_text: 'Accuracy of pedicle screw placement in patients with Marfan syndrome.
+  BACKGROUND: There is no study concerning safety and accuracy of pedicle screw placement
+  in Marfan syndrome. The objective of this study is to investigate accuracy and safety
+  of pedicle screw placement in scoliosis associated with Marfan syndrome. METHODS:
+  CT scanning was performed to analyze accuracy of pedicle screw placement. Pedicle
+  perforations were classified as medial, lateral or anterior and categorized to four
+  grades: <= 2 mm as Grade 1, 2.1-4.0 mm as Grade 2, 4.1-6.0 mm as Grade 3, >=6.1
+  mm as Grade 4. Fully contained screws or with medial wall perforation <= 2 mm or
+  with lateral wall perforation <= 6 mm and without injury of visceral organs were
+  considered acceptable, otherwise were unacceptable. RESULTS: 976 pedicle screws
+  were placed, 713 screws (73.1%) were fully contained within the cortical boundaries
+  of the pedicle. 924 (94.7%) screws were considered as acceptable, and 52 (5.3%)
+  as unacceptable. The perforation rate was higher using free-hand technique than
+  O-arm navigation technique (30.8% VS. 11.4%, P < 0.05), higher in lumbar region
+  than in thoracic region (34.1% VS. 22.3%, P < 0.05) and higher in concave side than
+  in convex side (33.5% VS. 21.9%, P < 0.05). No injury of visceral organs especially
+  aorta erosion was noted in the series. 7 cases of dural tear caused by misplaced
+  screws occurred, and 4 cases developed cerebro-spinal fluid leak. Drainage and pressure
+  dressings were applied for these patients, and no infection was observed. Leg pain
+  was observed in 7 cases, and 2 cases simultaneously complained of leg weakness.
+  Revision surgery was conducted to remove the misplaced screws for these 2 patients.
+  Conservative treatment was applied for the 5 patients without leg weakness. Symptoms
+  of leg weakness and pain resolved in all patients. CONCLUSION: Placement of pedicle
+  screw in Marfan syndrome is accuracy and safe. O-arm navigation was an effective
+  modality to ensure the safety and accuracy of screw placement. Special attention
+  should be paid when screws were placed at the lumber spine and the concave side
+  of spine deformity to avoid the higher rate of complications.'
+raw_completion_output: |-
+  primary_disease: Marfan syndrome
+
+  medical_actions: CT scanning; Pedicle screw placement; Free-hand technique; O-arm navigation technique; Drainage; Pressure dressings; Revision surgery; Conservative treatment
+
+  symptoms: Pedicle perforations; Dural tear; Cerebro-spinal fluid leak; Leg pain; Leg weakness
+
+  chemicals: 
+
+  action_annotation_relationships: CT scanning PREVENTS Pedicle perforations IN Marfan syndrome; Pedicle screw placement (with O-arm navigation technique) TREATS scoliosis IN Marfan syndrome; Drainage and pressure dressings TREATS Dural tear IN Marfan syndrome; Drainage and pressure dressings TREATS Cerebro-spinal fluid leak IN Marfan syndrome; Revision surgery TREATS Leg weakness IN Marfan syndrome; Conservative treatment TREATS Leg pain IN Marfan syndrome
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Conservative treatment TREATS Leg pain IN Marfan syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0007947
+  medical_actions:
+    - CT scanning
+    - Pedicle screw placement
+    - Free-hand technique
+    - O-arm navigation technique
+    - Drainage
+    - Pressure dressings
+    - Revision surgery
+    - Conservative treatment
+  symptoms:
+    - Pedicle perforations
+    - Dural tear
+    - Cerebro-spinal fluid leak
+    - HP:0012514
+    - HP:0007340
+  action_annotation_relationships:
+    - subject: CT scanning
+      predicate: PREVENTS
+      object: Pedicle perforations
+      qualifier: MONDO:0007947
+    - subject: Pedicle screw placement
+      predicate: TREATS
+      object: HP:0002650
+      qualifier: MONDO:0007947
+      subject_qualifier: with O-arm navigation technique
+      subject_extension: O-arm navigation technique
+    - subject: Drainage and pressure dressings
+      predicate: TREATS
+      object: Dural tear
+      qualifier: MONDO:0007947
+    - subject: Drainage and pressure dressings
+      predicate: TREATS
+      object: Cerebro-spinal fluid leak
+      qualifier: MONDO:0007947
+    - subject: Revision surgery
+      predicate: TREATS
+      object: HP:0007340
+      qualifier: MONDO:0007947
+    - subject: Conservative treatment
+      predicate: TREATS
+      object: HP:0012514
+      qualifier: MONDO:0007947
+named_entities:
+  - id: MONDO:0007947
+    label: Marfan syndrome
+  - id: HP:0032079
+    label: Medial degeneration
+  - id: HP:0002617
+    label: aneurysm
+  - id: HP:0030965
+    label: increased aortic stiffness
+  - id: HP:0001659
+    label: aortic regurgitation
+  - id: HP:0001712
+    label: left ventricular hypertrophy
+  - id: HP:0005162
+    label: left ventricular failure
+  - id: MONDO:0020333
+    label: Anterior sacral meningocele (ASM)
+  - id: HP:0002315
+    label: headache
+  - id: HP:0002018
+    label: nausea
+  - id: HP:0002138
+    label: subarachnoid hemorrhage
+  - id: HP:0012531
+    label: Pain
+  - id: HP:0012378
+    label: Fatigue
+  - id: HP:0012332
+    label: Dysautonomia
+  - id: HP:0002659
+    label: Bone fragility
+  - id: HP:0025017
+    label: Capillary fragility
+  - id: HP:0001030
+    label: Skin fragility
+  - id: MONDO:0044632
+    label: Extracranial Carotid Artery Aneurysms (ECAAs)
+  - id: MAXO:0000448
+    label: Surgical resection
+  - id: HP:0001297
+    label: Stroke
+  - id: HP:0002616
+    label: aortic root aneurysms
+  - id: HP:0002090
+    label: Pneumonia
+  - id: HP:0000010
+    label: Urinary tract infections
+  - id: HP:0002140
+    label: ischemic stroke
+  - id: HP:0001342
+    label: hemorrhagic stroke
+  - id: HP:0004944
+    label: cerebral aneurysms
+  - id: HP:0012158
+    label: carotid artery dissection
+  - id: HP:0012514
+    label: Leg pain
+  - id: HP:0007340
+    label: Leg weakness
+  - id: HP:0002650
+    label: scoliosis

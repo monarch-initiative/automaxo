@@ -1,0 +1,54 @@
+---
+input_text: '[Roentgenogram and roentgenotherapy of arthrosis alkaptonurica; case
+  report]. '
+raw_completion_output: |-
+  primary_disease: Arthrosis Alkaptonurica
+  medical_actions: Roentgenogram; Roentgenotherapy
+  symptoms: 
+  chemicals: 
+  action_annotation_relationships: Roentgenogram TREATS Arthrosis Alkaptonurica; Roentgenotherapy TREATS Arthrosis Alkaptonurica
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Roentgenotherapy TREATS Arthrosis Alkaptonurica
+
+  ===
+
+extracted_object:
+  primary_disease: Arthrosis Alkaptonurica
+  medical_actions:
+    - Roentgenogram
+    - Roentgenotherapy
+  action_annotation_relationships:
+    - subject: Roentgenogram
+      predicate: TREATS
+      object: Arthrosis Alkaptonurica
+    - subject: Roentgenotherapy
+      predicate: TREATS
+      object: Arthrosis Alkaptonurica
+named_entities:
+  - id: MAXO:0001175
+    label: Liver transplantation
+  - id: HP:0030764
+    label: Ochronosis
+  - id: CHEBI:44747
+    label: Homogentisic acid
+  - id: MONDO:0008753
+    label: alkaptonuria
+  - id: HP:0002758
+    label: osteoarthritis
+  - id: CHEBI:50378
+    label: nitisinone
+  - id: CHEBI:18186
+    label: tyrosine

@@ -1,0 +1,139 @@
+---
+input_text: The mitochondrial carrier Citrin plays a role in regulating cellular energy
+  during carcinogenesis. Citrin, encoded by SLC25A13 gene, is an inner mitochondrial
+  transporter that is part of the malate-aspartate shuttle, which regulates the NAD+/NADH
+  ratio between the cytosol and mitochondria. Citrullinemia type II (CTLN-II) is an
+  inherited disorder caused by germline mutations in SLC25A13, manifesting clinically
+  in growth failure that can be alleviated by dietary restriction of carbohydrates.
+  The association of citrin with glycolysis and NAD+/NADH ratio led us to hypothesize
+  that it may play a role in carcinogenesis. Indeed, we find that citrin is upregulated
+  in multiple cancer types and is essential for supplementing NAD+ for glycolysis
+  and NADH for oxidative phosphorylation. Consequently, citrin deficiency associates
+  with autophagy, whereas its overexpression in cancer cells increases energy production
+  and cancer invasion. Furthermore, based on the human deleterious mutations in citrin,
+  we found a potential inhibitor of citrin that restricts cancerous phenotypes in
+  cells. Collectively, our findings suggest that targeting citrin may be of benefit
+  for cancer therapy.
+raw_completion_output: |-
+  primary_disease: Cancer
+  medical_actions: Dietary restriction of carbohydrates; Targeting citrin; Use of potential inhibitor
+  symptoms: Growth failure; Autophagy; Increased energy production; Cancer invasion
+  chemicals: potential inhibitor
+  action_annotation_relationships: Dietary restriction of carbohydrates TREATS growth failure IN Citrullinemia type II; Targeting citrin (with potential inhibitor) PREVENTS increased energy production IN Cancer; Targeting citrin (with potential inhibitor) PREVENTS cancer invasion IN Cancer; Use of potential inhibitor TREATS cancerous phenotypes IN Cancer
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Use of potential inhibitor TREATS cancerous phenotypes IN Cancer
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0004992
+  medical_actions:
+    - Dietary restriction of carbohydrates
+    - Targeting citrin
+    - Use of potential inhibitor
+  symptoms:
+    - HP:0001510
+    - Autophagy
+    - Increased energy production
+    - Cancer invasion
+  chemicals:
+    - potential inhibitor
+  action_annotation_relationships:
+    - subject: Dietary restriction
+      predicate: TREATS
+      object: HP:0001510
+      qualifier: MONDO:0016603
+      subject_extension: CHEBI:16646
+    - subject: Targeting
+      predicate: PREVENTS
+      object: increased energy production
+      qualifier: MONDO:0004992
+      subject_qualifier: with potential inhibitor
+      subject_extension: citrin
+      object_extension: increased energy production
+    - subject: Targeting citrin
+      predicate: PREVENTS
+      object: cancer invasion
+      qualifier: MONDO:0004992
+      subject_extension: citrin (with potential inhibitor)
+    - subject: Use
+      predicate: TREATS
+      object: cancerous phenotypes
+      qualifier: MONDO:0004992
+      subject_extension: potential inhibitor
+named_entities:
+  - id: MONDO:0019052
+    label: Inborn errors of metabolism (IEMs)
+  - id: MAXO:0001175
+    label: Liver transplantation
+  - id: MONDO:0016603
+    label: Adult-onset citrullinemia (CTLN2)
+  - id: MONDO:0016602
+    label: Citrin deficiency
+  - id: MONDO:0005311
+    label: atherosclerosis
+  - id: CHEBI:18211
+    label: citrulline
+  - id: CHEBI:29016
+    label: arginine
+  - id: CHEBI:16349
+    label: L-citrulline
+  - id: CHEBI:16467
+    label: L-arginine
+  - id: HP:0002621
+    label: atherosclerosis
+  - id: MONDO:0008988
+    label: Citrullinemia type 1
+  - id: MAXO:0000603
+    label: Peritoneal dialysis
+  - id: MAXO:0000127
+    label: Genetic analysis
+  - id: HP:0001987
+    label: Hyperammonemia
+  - id: CHEBI:22918
+    label: Branched-chain amino acids (BCAA)
+  - id: MONDO:0015991
+    label: Citrullinemia
+  - id: MAXO:0000602
+    label: Hemodialysis
+  - id: CHEBI:16150
+    label: Benzoate
+  - id: HP:0000739
+    label: Anxiety
+  - id: CHEBI:28938
+    label: Ammonia
+  - id: CHEBI:16199
+    label: Urea
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: HP:0001945
+    label: fever
+  - id: HP:0003270
+    label: abdominal distention
+  - id: HP:0001508
+    label: failure to thrive
+  - id: HP:0003119
+    label: dyslipidemia
+  - id: HP:0005206
+    label: pancreatic pseudocyst
+  - id: MAXO:0001298
+    label: therapy
+  - id: MONDO:0004992
+    label: Cancer
+  - id: HP:0001510
+    label: Growth failure
+  - id: CHEBI:16646
+    label: carbohydrates

@@ -1,0 +1,86 @@
+---
+input_text: 'Endovascular Repair of Bilateral Internal Mammary Artery Aneurysms in
+  a Patient with Marfan Syndrome. BACKGROUND: True internal mammary artery aneurysms
+  are rare but rupture has been described. CASE REPORT: A 39-year-old male patient
+  with Marfan syndrome was diagnosed with large asymptomatic bilateral internal mammary
+  artery aneurysms (IMAAs) on contrast-enhanced CT scan, without other arterial lesions.
+  Both aneurysms were coil embolized, a stent graft was deployed in the left subclavian
+  artery to cover a wide neck that precluded complete and safe embolization of the
+  left IMAA. Reintervention on the right side was performed 5 years later due to recanalization.
+  Eight years after the initial procedure, the patient presented with a type A aortic
+  dissection that was successfully repaired. CONCLUSIONS: Although extremely rare,
+  endovascular treatment should be considered to prevent rupture of internal mammary
+  artery aneurysms.'
+raw_completion_output: |-
+  primary_disease: Marfan Syndrome
+  medical_actions: Contrast-enhanced CT scan;Coil embolization;Stent graft deployment;Reintervention for recanalization;Repair of aortic dissection
+  symptoms: Large asymptomatic bilateral internal mammary artery aneurysms;Type A aortic dissection
+  chemicals: 
+  action_annotation_relationships: Contrast-enhanced CT scan TREATS Large asymptomatic bilateral internal mammary artery aneurysms IN Marfan Syndrome;Coil embolization PREVENTS Rupture IN Marfan Syndrome;Stent graft deployment PREVENTS Rupture IN Marfan Syndrome;Reintervention for recanalization TREATS Recanalization IN Marfan Syndrome;Repair of aortic dissection TREATS Type A aortic dissection IN Marfan Syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Repair of aortic dissection TREATS Type A aortic dissection IN Marfan Syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0007947
+  medical_actions:
+    - Contrast-enhanced CT scan
+    - Coil embolization
+    - Stent graft deployment
+    - Reintervention for recanalization
+    - Repair of aortic dissection
+  symptoms:
+    - Large asymptomatic bilateral internal mammary artery aneurysms
+    - HP:0004933
+  action_annotation_relationships:
+    - subject: Contrast-enhanced CT scan
+      predicate: TREATS
+      object: Large asymptomatic bilateral internal mammary artery aneurysms
+      qualifier: MONDO:0007947
+    - subject: Coil embolization
+      predicate: PREVENTS
+      object: Rupture
+      qualifier: MONDO:0007947
+    - subject: Stent graft deployment
+      predicate: PREVENTS
+      object: Rupture
+      qualifier: MONDO:0007947
+    - subject: Reintervention for recanalization
+      predicate: TREATS
+      object: Recanalization
+      qualifier: MONDO:0007947
+    - subject: Repair of aortic dissection
+      predicate: TREATS
+      object: HP:0004933
+      qualifier: MONDO:0007947
+named_entities:
+  - id: MONDO:0007947
+    label: Marfan syndrome
+  - id: MAXO:0010203
+    label: echocardiography
+  - id: HP:0004942
+    label: aortic dilatation
+  - id: CHEBI:5959
+    label: irbesartan
+  - id: CHEBI:2904
+    label: atenolol
+  - id: CHEBI:6541
+    label: losartan
+  - id: HP:0002647
+    label: Aortic dissection
+  - id: HP:0004933
+    label: Type A aortic dissection

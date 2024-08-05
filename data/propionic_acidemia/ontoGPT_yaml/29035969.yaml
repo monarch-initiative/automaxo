@@ -1,0 +1,102 @@
+---
+input_text: 'Effects of medical food leucine content in the management of methylmalonic
+  and propionic acidemias. PURPOSE OF REVIEW: The current review highlights the varied
+  effects of medical foods high in leucine (Leu) and devoid of valine (Val) and isoleucine
+  (Ile) in the management of methylmalonic acidemia (MMA) and propionic acidemia and
+  cobalamin C (cblC) deficiency, aiming to advance dietary practices. RECENT FINDINGS:
+  Leu is a key metabolic regulator with a multitude of effects on different organ
+  systems. Recent observational studies have demonstrated that these effects can have
+  unintended consequences in patients with MMA as a result of liberal use of medical
+  foods. The combination of protein restriction and medical food use in MMA and propionic
+  acidemia results in an imbalanced branched-chain amino acid (BCAA) dietary content
+  with a high Leu-to-Val and/or Ile ratio. This leads to decreased plasma levels of
+  Val and Ile and predicts impaired brain uptake of multiple essential amino acids.
+  Decreased transport of methionine (Met) across the blood-brain barrier due to high
+  circulating Leu levels is of particular concern in cblC deficiency in which endogenous
+  Met synthesis is impaired. SUMMARY: Investigations into the optimal composition
+  of medical foods for MMA and propionic acidemia, and potential scenarios in which
+  Leu supplementation may be beneficial are needed. Until then, MMA/propionic acidemia
+  medical foods should be used judiciously in the dietary management of these patients
+  and avoided altogether in cblC deficiency.'
+raw_completion_output: |-
+  primary_disease: methylmalonic acidemia (MMA); propionic acidemia; cobalamin C (cblC) deficiency
+
+  medical_actions: use of medical foods high in leucine; protein restriction; dietary management; Leu supplementation
+
+  symptoms: decreased plasma levels of Val and Ile; impaired brain uptake of multiple essential amino acids; decreased transport of methionine (Met) across the blood-brain barrier
+
+  chemicals: leucine (Leu); valine (Val); isoleucine (Ile); methionine (Met)
+
+  action_annotation_relationships: use of medical foods high in leucine PREVENTS decreased plasma levels of Val and Ile IN methylmalonic acidemia (MMA); protein restriction PREVENTS impaired brain uptake of multiple essential amino acids IN propionic acidemia; dietary management PREVENTS decreased transport of methionine (Met) across the blood-brain barrier IN cobalamin C (cblC) deficiency; Leu supplementation (with leucine) PREVENTS decreased plasma levels of Val and Ile IN methylmalonic acidemia (MMA)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Leu supplementation (with leucine) PREVENTS decreased plasma levels of Val and Ile IN methylmalonic acidemia (MMA)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010184
+  medical_actions:
+    - use of medical foods high in leucine
+    - protein restriction
+    - dietary management
+    - Leu supplementation
+  symptoms:
+    - decreased plasma levels of Val and Ile
+    - impaired brain uptake of multiple essential amino acids
+    - decreased transport of methionine (Met) across the blood-brain barrier
+  chemicals:
+    - CHEBI:15603
+    - CHEBI:16414
+    - CHEBI:17191
+    - CHEBI:16044
+  action_annotation_relationships:
+    - subject: use of medical foods high in leucine
+      predicate: PREVENTS
+      object: decreased plasma levels of Val and Ile
+      qualifier: MONDO:0002012
+      subject_extension: medical foods high in leucine
+    - subject: protein restriction
+      predicate: PREVENTS
+      object: impaired brain uptake of multiple essential amino acids
+      qualifier: MONDO:0011628
+      subject_extension: protein restriction
+    - subject: dietary management
+      predicate: PREVENTS
+      object: decreased transport of methionine (Met) across the blood-brain barrier
+      qualifier: MONDO:0010184
+    - subject: Leu supplementation
+      predicate: PREVENTS
+      object: decreased plasma levels of Val and Ile
+      qualifier: MONDO:0002012
+      subject_qualifier: with leucine
+      subject_extension: CHEBI:25017
+named_entities:
+  - id: MONDO:0010184
+    label: methylmalonic acidemia (MMA); propionic acidemia; cobalamin C (cblC) deficiency
+  - id: CHEBI:15603
+    label: leucine (Leu)
+  - id: CHEBI:16414
+    label: valine (Val)
+  - id: CHEBI:17191
+    label: isoleucine (Ile)
+  - id: CHEBI:16044
+    label: methionine (Met)
+  - id: MONDO:0002012
+    label: methylmalonic acidemia (MMA)
+  - id: MONDO:0011628
+    label: propionic acidemia
+  - id: CHEBI:25017
+    label: leucine

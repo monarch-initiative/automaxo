@@ -1,0 +1,77 @@
+---
+input_text: Exacerbation of the ochronosis of alkaptonuria due to renal insufficiency
+  and improvement after renal transplantation. In alkaptonuria, homogentisate 1,2-dioxygenase
+  deficiency causes tissue accumulation of homogentisic acid (HGA), followed by signs
+  and symptoms of ochronosis. These include massive urinary excretion of HGA, arthritis
+  and joint destruction, pigmentation of cartilage and connective tissue, and cardiac
+  valve deterioration. We describe a 46-year-old man with alkaptonuria and diabetic
+  renal failure whose plasma HGA concentration was twice that of any other alkaptonuria
+  patient, and whose ochronosis progressed much more rapidly than that of his two
+  alkaptonuric siblings. After renal transplantation, the plasma HGA normalized, and
+  the daily urinary excretion of HGA decreased by 2-3g. This case illustrates the
+  critical role of renal tubular secretion in eliminating HGA from the body, and suggests
+  that renal transplantation in a uremic patient not only restores HGA excretion,
+  but may also provide homogentisate 1,2-dioxygenase activity for the metabolism of
+  HGA.
+raw_completion_output: |-
+  primary_disease: alkaptonuria  
+  medical_actions: renal transplantation  
+  symptoms: massive urinary excretion of HGA; arthritis and joint destruction; pigmentation of cartilage and connective tissue; cardiac valve deterioration  
+  chemicals: homogentisic acid (HGA)  
+  action_annotation_relationships: renal transplantation TREATS massive urinary excretion of HGA IN alkaptonuria; renal transplantation TREATS arthritis and joint destruction IN alkaptonuria; renal transplantation TREATS pigmentation of cartilage and connective tissue IN alkaptonuria; renal transplantation TREATS cardiac valve deterioration IN alkaptonuria
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  renal transplantation TREATS cardiac valve deterioration IN alkaptonuria
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0008753
+  medical_actions:
+    - renal transplantation
+  symptoms:
+    - massive urinary excretion of HGA
+    - arthritis and joint destruction
+    - pigmentation of cartilage and connective tissue
+    - cardiac valve deterioration
+  chemicals:
+    - CHEBI:44747
+  action_annotation_relationships:
+    - subject: renal transplantation
+      predicate: TREATS
+      object: massive urinary excretion of HGA
+      qualifier: MONDO:0008753
+    - subject: renal transplantation
+      predicate: TREATS
+      object: arthritis and joint destruction
+      qualifier: MONDO:0008753
+      subject_extension: renal transplantation
+    - subject: renal transplantation
+      predicate: TREATS
+      object: pigmentation of cartilage and connective tissue
+      qualifier: MONDO:0008753
+    - subject: renal transplantation
+      predicate: TREATS
+      object: cardiac valve deterioration
+      qualifier: MONDO:0008753
+named_entities:
+  - id: MAXO:0001175
+    label: Liver transplantation
+  - id: HP:0030764
+    label: Ochronosis
+  - id: CHEBI:44747
+    label: Homogentisic acid
+  - id: MONDO:0008753
+    label: alkaptonuria

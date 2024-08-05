@@ -1,0 +1,140 @@
+---
+input_text: 'Aborted sudden cardiac death in patient with concealed Brugada syndrome
+  early after skin tattoo. We report a case of 40-year-old healthy patient presented
+  with aborted sudden cardiac death. Echocardiography and coronarography were normal.
+  ECG showed minimal non-specific changes in right precordial leads. A concealed Brugada
+  syndrome was considered. We performed a provocative ajmaline test with Brugada-specific
+  lead placement in 2nd, 3rd and 4th intercostal spaces at both parasternal sides.
+  The test has confirmed the supposed diagnose. Detailed history taking revealed that
+  the patient underwent a calf tattoo procedure on the same day. In this case report,
+  we describe a new mechanism in Brugada patients, possibly leading to sudden cardiac
+  death. The skin tattoo procedure is in more than 7 % of cases accompanied with a
+  "tattoo flu syndrome", manifesting with fever, headache and fatigue. The fever is
+  well described as a provoking factor for malignant arrhythmias in Brugada patients.
+  Thus, a simple and safe procedure like skin tattoo can potentially lead to death
+  in concealed Brugada syndrome population (Fig. 7, Ref. 9). Keywords: adical gastrectomy,
+  D2 lymph node dissection, neoadjuvant therapy.'
+raw_completion_output: |-
+  primary_disease: Brugada syndrome
+
+  medical_actions: provocative ajmaline test; Echocardiography; coronarography; history taking 
+
+  symptoms: aborted sudden cardiac death; fever; headache; fatigue; minimal non-specific changes in right precordial leads
+
+  chemicals: ajmaline
+
+  action_annotation_relationships: provocative ajmaline test TREATS aborted sudden cardiac death IN Brugada syndrome; fever TREATS sudden cardiac death IN Brugada syndrome; fever (related to tattoo flu syndrome) TREATS headache IN Brugada syndrome; fever (related to tattoo flu syndrome) TREATS fatigue IN Brugada syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  fever (related to tattoo flu syndrome) TREATS fatigue IN Brugada syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0015263
+  medical_actions:
+    - provocative ajmaline test
+    - MAXO:0010203
+    - coronarography
+    - history taking
+  symptoms:
+    - HP:0031628
+    - HP:0001945
+    - HP:0002315
+    - HP:0012378
+    - minimal non-specific changes in right precordial leads
+  chemicals:
+    - CHEBI:28462
+  action_annotation_relationships:
+    - subject: provocative ajmaline test
+      predicate: TREATS
+      object: HP:0031628
+      qualifier: MONDO:0015263
+      subject_extension: CHEBI:28462
+    - subject: fever
+      predicate: TREATS
+      object: HP:0001645
+      qualifier: MONDO:0015263
+    - subject: fever
+      predicate: TREATS
+      object: HP:0002315
+      qualifier: MONDO:0015263
+      subject_qualifier: related to tattoo flu syndrome
+    - subject: fever
+      predicate: TREATS
+      object: HP:0012378
+      qualifier: MONDO:0015263
+      subject_qualifier: related to tattoo flu syndrome
+named_entities:
+  - id: HP:0001663
+    label: ventricular fibrillation
+  - id: HP:0007760
+    label: sudden cardiac death (SCD)
+  - id: HP:0100543
+    label: cognitive impairment
+  - id: MONDO:0002076
+    label: Pneumothorax
+  - id: HP:0002094
+    label: Dyspnea
+  - id: HP:0001695
+    label: Cardiac arrest
+  - id: CHEBI:75984
+    label: Flecainide
+  - id: MAXO:0001017
+    label: Vaccination
+  - id: MONDO:0007264
+    label: Sudden Cardiac Death
+  - id: HP:0031628
+    label: Sudden cardiac arrest
+  - id: HP:0001657
+    label: Long QT syndrome
+  - id: HP:0001645
+    label: Sudden cardiac death
+  - id: MONDO:0015263
+    label: Brugada syndrome
+  - id: HP:0004308
+    label: Ventricular arrhythmias
+  - id: HP:0001945
+    label: Fever
+  - id: MONDO:0020745
+    label: Cardiac arrhythmias
+  - id: MAXO:0000900
+    label: Analysis of electrocardiograms (ECGs)
+  - id: MAXO:0000127
+    label: Genetic analyses
+  - id: HP:0011675
+    label: cardiac arrhythmias
+  - id: HP:0001699
+    label: sudden death
+  - id: HP:0005110
+    label: atrial fibrillation
+  - id: MAXO:0000474
+    label: Implantable cardioverter-defibrillator implantation
+  - id: HP:0001279
+    label: Syncope
+  - id: MONDO:0020575
+    label: Polymorphic Ventricular Tachycardia
+  - id: HP:0001289
+    label: confusion
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: MAXO:0010203
+    label: Echocardiography
+  - id: HP:0002315
+    label: headache
+  - id: HP:0012378
+    label: fatigue
+  - id: CHEBI:28462
+    label: ajmaline

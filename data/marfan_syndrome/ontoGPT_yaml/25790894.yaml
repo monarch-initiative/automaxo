@@ -1,0 +1,98 @@
+---
+input_text: 'Marfan syndrome presenting with postpartum aortic dissection following
+  dural puncture headache and epidural blood patch. '
+raw_completion_output: |-
+  primary_disease: Marfan syndrome
+  medical_actions: dural puncture; epidural blood patch
+  symptoms: postpartum aortic dissection; dural puncture headache
+  chemicals: 
+  action_annotation_relationships: dural puncture (with ) TREATS dural puncture headache IN Marfan syndrome; epidural blood patch (with ) TREATS dural puncture headache IN Marfan syndrome; dural puncture (with ) PREVENTS postpartum aortic dissection IN Marfan syndrome; epidural blood patch (with ) PREVENTS postpartum aortic dissection IN Marfan syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  epidural blood patch (with ) PREVENTS postpartum aortic dissection IN Marfan syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0007947
+  medical_actions:
+    - dural puncture
+    - epidural blood patch
+  symptoms:
+    - postpartum aortic dissection
+    - dural puncture headache
+  action_annotation_relationships:
+    - subject: dural puncture
+      predicate: TREATS
+      object: dural puncture headache
+      qualifier: MONDO:0007947
+      subject_qualifier: with
+    - subject: epidural blood patch
+      predicate: TREATS
+      object: dural puncture headache
+      qualifier: MONDO:0007947
+      subject_qualifier: with
+    - subject: dural puncture
+      predicate: PREVENTS
+      object: postpartum aortic dissection
+      qualifier: MONDO:0007947
+      subject_qualifier: with
+    - subject: <epidural blood patch>
+      predicate: <PREVENTS>
+      object: <postpartum aortic dissection>
+      qualifier: <Marfan syndrome>
+      subject_qualifier: <with >
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+named_entities:
+  - id: MONDO:0007947
+    label: Marfan Syndrome
+  - id: HP:0000768
+    label: Pectus carinatum
+  - id: HP:0002650
+    label: Scoliosis
+  - id: HP:0002108
+    label: Spontaneous pneumothorax
+  - id: HP:0003423
+    label: Thoracolumbar kyphoscoliosis
+  - id: HP:0000822
+    label: Hypertension
+  - id: HP:0001649
+    label: Tachycardia
+  - id: HP:0012531
+    label: pain
+  - id: MONDO:0009691
+    label: Marfan syndrome (MFS)
+  - id: CHEBI:6541
+    label: Losartan
+  - id: HP:0031625
+    label: Pseudoaneurysms
+  - id: MAXO:0000451
+    label: Implantation
+  - id: HP:0031649
+    label: Aortic rupture
+  - id: MAXO:0001061
+    label: Laminectomy
+  - id: MAXO:0000571
+    label: CT
+  - id: HP:0034267
+    label: Pelvic pain
+  - id: HP:0000139
+    label: Genital prolapse
+  - id: HP:0100518
+    label: Dysuria
+  - id: HP:0001297
+    label: stroke

@@ -1,0 +1,105 @@
+---
+input_text: Growth-promoting effect of human growth hormone on patients with achondroplasia.
+  To evaluate the effect of human growth hormone (hGH) on the growth of children with
+  achondroplasia, three patients with achondroplasia and one patient with hypochondroplasia
+  were treated with 0.5 IU/kg/W of pituitary-extracted hGH for 6-12 months. Mean height
+  velocity was significantly increased from 4.0 +/- 0.4 to 7.5 +/- 0.7 cm/year (P
+  less than 0.05) by hGH. The tibial index, defined as the length/width ratio of left
+  tibia, did not change during the treatment, indicating that hGH promotes growth
+  without exaggeration of tubular bone deformity. Case 2, who had atlantoaxial dislocation,
+  developed sleep apnea and neurological deficits during the second hGH treatment,
+  but these were cured by operation. Thus, hGH therapy is effective in promoting growth
+  in patients with achondroplasia, but the complication of atlantoaxial dislocation
+  should be explored and corrected before the treatment.
+raw_completion_output: |-
+  primary_disease: Achondroplasia
+
+  medical_actions: Administration of human growth hormone (hGH); Surgical operation to correct atlantoaxial dislocation
+
+  symptoms: Reduced height velocity; Tibial deformation; Sleep apnea; Neurological deficits
+
+  chemicals: Human growth hormone (hGH)
+
+  action_annotation_relationships: Administration of human growth hormone (hGH) TREATS reduced height velocity IN Achondroplasia; Administration of human growth hormone (hGH) PREVENTS tibial deformation IN Achondroplasia; Surgical operation to correct atlantoaxial dislocation TREATS sleep apnea IN Achondroplasia; Surgical operation to correct atlantoaxial dislocation TREATS neurological deficits IN Achondroplasia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Surgical operation to correct atlantoaxial dislocation TREATS neurological deficits IN Achondroplasia
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0007037
+  medical_actions:
+    - Administration of human growth hormone (hGH)
+    - Surgical operation to correct atlantoaxial dislocation
+  symptoms:
+    - Reduced height velocity
+    - Tibial deformation
+    - HP:0010535
+    - Neurological deficits
+  chemicals:
+    - Human growth hormone (hGH)
+  action_annotation_relationships:
+    - subject: Administration
+      predicate: TREATS
+      object: reduced height velocity
+      qualifier: MONDO:0007037
+      subject_extension: human growth hormone
+    - subject: Administration
+      predicate: PREVENTS
+      object: tibial deformation
+      qualifier: MONDO:0007037
+      subject_extension: human growth hormone
+    - subject: Surgical operation to correct atlantoaxial dislocation
+      predicate: TREATS
+      object: HP:0010535
+      qualifier: MONDO:0007037
+    - subject: Surgical operation to correct atlantoaxial dislocation
+      predicate: TREATS
+      object: neurological deficits
+      qualifier: MONDO:0007037
+named_entities:
+  - id: HP:0031846
+    label: Femoral fracture
+  - id: MAXO:0000745
+    label: cytogenetic analysis
+  - id: HP:0000256
+    label: macrocephaly
+  - id: MAXO:0000127
+    label: genetic testing
+  - id: HP:0003750
+    label: Muscle fatigue
+  - id: MONDO:0000050
+    label: Growth hormone deficiency
+  - id: MAXO:0000780
+    label: Growth hormone therapy
+  - id: CHEBI:37845
+    label: Growth hormone
+  - id: MAXO:0000526
+    label: Clinical examination
+  - id: MONDO:0005516
+    label: Skeletal dysplasia
+  - id: CHEBI:77383
+    label: bisphosphonates
+  - id: MAXO:0001298
+    label: therapy
+  - id: MONDO:0007037
+    label: Achondroplasia
+  - id: HP:0004322
+    label: Short stature
+  - id: MONDO:0007793
+    label: hypochondroplasia
+  - id: HP:0010535
+    label: Sleep apnea

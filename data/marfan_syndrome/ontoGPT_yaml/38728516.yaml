@@ -1,0 +1,90 @@
+---
+input_text: 'Acute ischemic stroke with a diagnosis of Marfan syndrome: A report of
+  3 cases in multifaceted settings. RATIONALE: Marfan syndrome (MFS), which is a dominantly
+  inherited connective tissue disease resulting from a mutation in the FBN1 gene,
+  exhibits variable manifestations affecting the cardiovascular, musculoskeletal,
+  ophthalmologic, and pulmonary systems. Notably, neurologic deficiency, which involves
+  ischemic or hemorrhagic stroke, is a rare but severe manifestation. The safety of
+  rt-PA treatment for ischemic stroke caused by MFS is still under discussion. PATIENT
+  CONCERNS: In the current report, we discuss 3 atypical MFS cases presented as acute
+  ischemic stroke, compared to those exhibiting cardiovascular and musculoskeletal
+  abnormalities. DIAGNOSES: Three patients were diagnosed with acute ischemic stroke
+  accompanied by MFS based on clinical manifestations, imaging examinations, and genetic
+  testings. INTERVENTIONS: The first case underwent intravenous thrombolytic therapy
+  with rt-PA, the second case received antiplatelet therapy, and the third case received
+  anticoagulant therapy and perfusion therapy. OUTCOMES: The neurologic deficiency
+  of all three patients showed improvement upon discharge, and there were no symptoms
+  of recurrence observed during the follow-up period. LESSONS SUBSECTIONS: MFS is
+  a rare etiology in young people with embolic stroke of undetermined source. Physicians
+  should take MFS into consideration when they observe the characteristic symptoms
+  during a consultation. The potential pathogenesis of ischemic stroke secondary to
+  MFS may include cardio-embolism, arterial dissection, and hypoperfusion. Although
+  intravenous thrombolysis is a promising therapy to treat acute ischemic stroke,
+  further examinations should be conducted to rule out contraindications in patients
+  with a suspicion of MFS.'
+raw_completion_output: |-
+  primary_disease: Marfan syndrome (MFS)
+
+  medical_actions: Intravenous thrombolytic therapy with rt-PA; Antiplatelet therapy; Anticoagulant therapy; Perfusion therapy
+
+  symptoms: Neurologic deficiency; Ischemic stroke
+
+  chemicals: rt-PA
+
+  action_annotation_relationships: Intravenous thrombolytic therapy (with rt-PA) TREATS ischemic stroke IN Marfan syndrome (MFS); Antiplatelet therapy TREATS ischemic stroke IN Marfan syndrome (MFS); Anticoagulant therapy TREATS ischemic stroke IN Marfan syndrome (MFS); Perfusion therapy TREATS ischemic stroke IN Marfan syndrome (MFS)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Perfusion therapy TREATS ischemic stroke IN Marfan syndrome (MFS)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009691
+  medical_actions:
+    - Intravenous thrombolytic therapy with rt-PA
+    - Antiplatelet therapy
+    - Anticoagulant therapy
+    - Perfusion therapy
+  symptoms:
+    - Neurologic deficiency
+    - HP:0002140
+  chemicals:
+    - rt-PA
+  action_annotation_relationships:
+    - subject: Intravenous thrombolytic therapy
+      predicate: TREATS
+      object: HP:0002140
+      qualifier: MONDO:0009691
+      subject_qualifier: with rt-PA
+      subject_extension: rt-PA
+    - subject: Antiplatelet therapy
+      predicate: TREATS
+      object: HP:0002140
+      qualifier: MONDO:0007947
+    - subject: Anticoagulant therapy
+      predicate: TREATS
+      object: HP:0002140
+      qualifier: MONDO:0007947
+    - subject: Perfusion therapy
+      predicate: TREATS
+      object: HP:0002140
+      qualifier: MONDO:0007947
+named_entities:
+  - id: MONDO:0009691
+    label: Marfan syndrome (MFS)
+  - id: HP:0002140
+    label: Ischemic stroke
+  - id: MONDO:0007947
+    label: Marfan syndrome
