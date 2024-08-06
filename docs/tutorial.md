@@ -35,8 +35,8 @@ The default format for `mesh_target_ids` in the project is as follows:
 
 Sample output for `mesh_sets`:
 
-| label        | mesh.id | mesh set                             |
-|--------------|---------|--------------------------------------|
+| label        | mesh.id | mesh set                                  |
+|--------------|---------|-------------------------------------------|
 | Therapeutics | D013812 | 061645;D000075162;D000161;D000203;D019050 |
 
 ## Step 2: Retrieve MeSH IDs
@@ -74,11 +74,19 @@ For example:
 
 ```shell
 python article_data_extractor.py -i ../../data/sickle_cell/pubtator3_json/ -n ../../data/sickle_cell/sickle_cell_no_replaced.tsv
+
 ```
+If you would like to extract annotations from custom texts, including full PubMed Central texts, websites, or other text collections, you need to format your text into a TSV (Tab-Separated Values) file. This file must contain three columns: PMID, Title, and Abstract. The PMID column can be left empty or populated with unique identifiers if available. The format should match the output format required by the processing function.
+
+
+
+| PMID         | Title                                                    | Abstract                                                      |
+|--------------|----------------------------------------------------------|---------------------------------------------------------------|
+| 28669521     | Management of delayed hemolytic transfusion reaction ... | Transfusion remains a key treatment of sickle cell disease... |
 
 ## Step 4: Integrate OntoGPT
 
-The script, `ontogpt_article_processor.py`, processes the text data from the pre-processed .tsv file using OntoGPT. Each row in the .tsv file is treated as an input text for OntoGPT. For more information about OntoGPT, please refer to <a href="https://github.com/monarch-initiative/ontogpt" target="_blank">this repo</a>.
+The script, `ontogpt_article_processor.py`, processes the text data from the pre-processed .tsv file using OntoGPT. Each row in the .tsv file is treated as an input text for OntoGPT. For more information about OntoGPT, please refer to <a href="https://github.com/monarch-initiative/ontogpt" target="_blank">this repo</a>. 
 
 
 | Option     | Meaning                                                            |
