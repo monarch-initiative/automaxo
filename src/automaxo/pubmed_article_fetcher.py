@@ -1,3 +1,4 @@
+import sys
 import click
 from Bio import Entrez
 import requests
@@ -126,8 +127,15 @@ def search_mesh_info_existing_pmids(mesh_list_path: str, existing_pmids: set):
     df = pd.read_csv(mesh_list_path, sep='\t', header=None)
     combined_mesh_ids = {mesh_id for mesh_ids in df.iloc[:, 2] for mesh_id in mesh_ids.split(';')}
 
+    # Ensure the list of PMIDs is not empty
+    # If so, don't search for MeSH IDs
+    if len(existing_pmids) == 0:
+        logger.info("No MeSH IDs to search for as no PubMed IDs already retrieved.")
+        existing_pmid_mesh_info = {}
+
     # Retrieve MeSH information for existing PubMed IDs
-    existing_pmid_mesh_info = {pmid: fetch_mesh_ids(pmid) for pmid in tqdm(existing_pmids, desc="Retrieving MeSH info for existing PMIDs")}
+    else:   
+        existing_pmid_mesh_info = {pmid: fetch_mesh_ids(pmid) for pmid in tqdm(existing_pmids, desc="Retrieving MeSH info for existing PMIDs")}
 
     # Filter the MeSH information based on the combined mesh IDs
     filtered_existing_pmid_mesh_info = {}
@@ -163,6 +171,9 @@ def search_articles_with_mesh_info(disease_name: str, mesh_list_path: str, max_a
             record = Entrez.read(handle)
             handle.close()
 
+            if 'ErrorList' in record:
+                raise Exception(f"Unresolvable error retrieving articles: {record['ErrorList']}")
+
             for pmid in record["IdList"]:
                 if pmid in existing_pmids:
                     continue
@@ -179,7 +190,10 @@ def search_articles_with_mesh_info(disease_name: str, mesh_list_path: str, max_a
             retstart += max_articles_to_save
         except Exception as e:
             logger.error(f"Error processing batch starting at {retstart}: {e}")
-            break
+            if len(record['IdList']) == 0:
+                sys.exit("No more articles to retrieve. Exiting...")
+            else:
+                break
 
     return pmid_mesh_info
 
