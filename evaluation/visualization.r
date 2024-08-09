@@ -23,24 +23,20 @@ custom_colors <- c("MAXO" = "skyblue", "HPO" = "lightgreen", "MONDO" = "salmon")
 plot <- ggplot(data_long, aes(x = Value_Types, y = Counts, fill = Source)) +
   geom_bar(stat = 'identity', position = position_dodge(width = 0.5), width = 0.5) +
   scale_fill_manual(values = custom_colors) +
-  theme_minimal(base_size = 15) +
-  labs(
-    title = "Summary of Extracted Values for MAXO, HPO, and MONDO",
-    x = "Value Types",
-    y = "Counts"
-  ) +
+  theme_minimal(base_size = 20) +  # Increase the base size
   geom_text(aes(label = scales::comma(Counts)), 
             position = position_dodge(width = 0.75), 
-            vjust = -0.5, size = 6) +  # Increased text size for bar labels
+            vjust = -0.5, size = 8) +  # Increased text size for bar labels
   theme(
-    plot.title = element_text(hjust = 0.5, face = "bold", size = 22),  # Increased title size
-    axis.title.x = element_text(face = "bold", size = 18),  # Increased x-axis title size
-    axis.title.y = element_text(face = "bold", size = 18),  # Increased y-axis title size
-    axis.text.x = element_text(face = "bold", size = 16, angle = 0, hjust = 0.5),  # Increased x-axis text size
-    axis.text.y = element_text(face = "bold", size = 16),  # Increased y-axis text size
+    plot.title = element_blank(),  # Removed title
+    axis.title.x = element_blank(),  # Removed x-axis title
+    axis.title.y = element_blank(),  # Removed y-axis title
+    axis.text.x = element_text(face = "bold", size = 22, angle = 0, hjust = 0.5),  # Increased x-axis text size
+    axis.text.y = element_text(face = "bold", size = 25),  # Increased y-axis text size
     legend.title = element_blank(),
-    legend.text = element_text(size = 16),  # Increased legend text size
-    legend.position = "top",
+    legend.text = element_text(size = 25),  # Increased legend text size
+    legend.position = c(0.02, 0.98),  # Moved legend to top left corner
+    legend.justification = c(0, 1),  # Adjust legend justification
     panel.background = element_rect(fill = "#f7f7f7"),
     panel.grid.major.x = element_line(color = "gray", linetype = "dashed"),
     panel.grid.minor.x = element_line(color = "gray", linetype = "dashed")
