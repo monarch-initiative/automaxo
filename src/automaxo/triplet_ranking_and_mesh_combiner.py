@@ -387,6 +387,7 @@ def get_potential_ontologies(df, adapter, ontology_prefix, text_column, new_colu
                     for i, (label, score) in enumerate(choices_results)
                 ]
                 # Sort the combined results by their fuzzy matching score in descending order.
+                # TODO: won't have scores to sort by so just use list
                 sorted_results = sorted(
                     combined_results, key=lambda x: x[2], reverse=True
                 )
