@@ -1,15 +1,18 @@
-import os
-import yaml
-import json
-import pandas as pd
 import csv
+import json
+import os
 from collections import defaultdict
-import click
-from typing import List, Tuple, DefaultDict
-from oaklib import get_adapter
-from fuzzywuzzy import process
+from typing import DefaultDict, List, Tuple
 
+import click
+import pandas as pd
+import yaml
+from fuzzywuzzy import process
+from oaklib import get_adapter
 from tqdm import tqdm
+
+from automaxo.vector_search import ground_ontology_text
+
 tqdm.pandas()
 
 
