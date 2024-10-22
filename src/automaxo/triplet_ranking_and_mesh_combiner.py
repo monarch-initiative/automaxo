@@ -371,6 +371,8 @@ def get_potential_ontologies(df, adapter, ontology_prefix, text_column, new_colu
                 # choices_results = process.extract(
                 #     text, [label for _, label in filtered_annotations]
                 # )
+
+                # Use the combined OAK and vector search to ground further
                 choices_results = ground_ontology_text(
                     annotator=adapter,
                     input_text=text,
@@ -388,14 +390,15 @@ def get_potential_ontologies(df, adapter, ontology_prefix, text_column, new_colu
                 ]
                 # Sort the combined results by their fuzzy matching score in descending order.
                 # TODO: won't have scores to sort by so just use list
-                sorted_results = sorted(
-                    combined_results, key=lambda x: x[2], reverse=True
-                )
+                #sorted_results = sorted(
+                #    combined_results, key=lambda x: x[2], reverse=True
+                #)
                 # Select the top two choices.
-                top_two_choices = [
-                    (identifier, label) for identifier, label, _ in sorted_results[:2]
-                ]
-                annotation_results.extend(top_two_choices)
+                #top_two_choices = [
+                #    (identifier, label) for identifier, label, _ in sorted_results[:2]
+                #]
+
+                annotation_results.extend(combined_results)
             return annotation_results
         except Exception as e:
             # Print an error message if there's an issue during the annotation process.

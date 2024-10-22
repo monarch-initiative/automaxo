@@ -24,7 +24,7 @@ from oaklib.interfaces.text_annotator_interface import (
 
 
 def perform_curategpt_grounding(
-    diagnosis: str,
+    input_text: str,
     path: str,
     collection: str,
     database_type: str = "chromadb",
@@ -36,7 +36,7 @@ def perform_curategpt_grounding(
     Use curategpt to perform grounding for a given text when initial attempts fail.
 
     Parameters:
-    - diagnosis: The text to ground.
+    - input_text: The text to ground.
     - path: The path to the database. You'll need to create an index of the target ontology using curategpt in this db
     - collection: The collection to search within curategpt. Name of target ontology collection in the db
     NB: You can make this collection by running curategpt thusly (e.g., for MONDO):
@@ -53,7 +53,7 @@ def perform_curategpt_grounding(
     db = get_store(database_type, path)
 
     # Perform the search using the provided diagnosis
-    results = db.search(diagnosis, collection=collection)
+    results = db.search(input_text, collection=collection)
 
     # Filter results based on relevance factor (distance)
     if relevance_factor is not None:
@@ -83,7 +83,7 @@ def perform_curategpt_grounding(
     # Return as a list of tuples (ID, Label)
     if len(pred_ids) == 0:
         if verbose:
-            print(f"No grounded IDs found for {diagnosis}")
+            print(f"No grounded IDs found for {input_text}")
         return None
 
     return list(zip(pred_ids, pred_labels))
