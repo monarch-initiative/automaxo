@@ -379,7 +379,7 @@ def get_potential_ontologies(df, adapter, ontology_prefix, text_column, new_colu
                     verbose=True,
                     include_list=[ontology_prefix + ":"],
                     use_ontogpt_grounding=True,
-                    curategpt_path="../../stagedb/",  # Needs adjustment
+                    curategpt_path="stagedb/",
                     curategpt_collection="ont_maxo",  # Change based on ontology_prefix
                     curategpt_database_type="chromadb",
                 )
@@ -398,7 +398,7 @@ def get_potential_ontologies(df, adapter, ontology_prefix, text_column, new_colu
                 #    (identifier, label) for identifier, label, _ in sorted_results[:2]
                 #]
 
-                annotation_results.extend(combined_results)
+                annotation_results.append(combined_results)
             return annotation_results
         except Exception as e:
             # Print an error message if there's an issue during the annotation process.

@@ -10,6 +10,7 @@ from typing import List, Tuple
 
 from curategpt.store import get_store
 from oaklib import get_adapter
+import os
 from oaklib.interfaces.text_annotator_interface import (
     TextAnnotationConfiguration,
     TextAnnotatorInterface,
@@ -25,8 +26,8 @@ from oaklib.interfaces.text_annotator_interface import (
 
 def perform_curategpt_grounding(
     input_text: str,
-    path: str,
-    collection: str,
+    path: str = "stagedb/",
+    collection: str = "ont_maxo",
     database_type: str = "chromadb",
     limit: int = 1,
     relevance_factor: float = 1000000.0,
@@ -50,6 +51,7 @@ def perform_curategpt_grounding(
     - List of tuples: [(CURIE, Label), ...]
     """
     # Initialize the database store
+    # TODO: just initialize this once so we can re-use it
     db = get_store(database_type, path)
 
     # Perform the search using the provided diagnosis
@@ -131,7 +133,7 @@ def ground_ontology_text(
     verbose: bool = False,
     include_list: List[str] = [""],
     use_ontogpt_grounding: bool = True,
-    curategpt_path: str = "../../curate-gpt/stagedb/",
+    curategpt_path: str = "stagedb/",
     curategpt_collection: str = "ont_maxo",
     curategpt_database_type: str = "chromadb",
 ) -> List[Tuple[str, List[Tuple[str, str]]]]:
