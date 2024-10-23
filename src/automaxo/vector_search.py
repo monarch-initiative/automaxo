@@ -66,7 +66,12 @@ def perform_curategpt_grounding(
         ]
 
     # Limit the results to the specified number (limit)
-    limited_results = results[:limit]
+    if results:
+        print(results)
+        limited_results = results[:limit]
+    else:
+        print(f"Found no results for {input_text}")
+        limited_results = []
 
     # Extract CURIEs and labels
     pred_ids = []
