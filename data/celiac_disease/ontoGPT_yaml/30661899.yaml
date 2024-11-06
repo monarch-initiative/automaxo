@@ -1,0 +1,228 @@
+---
+input_text: 'Liver Transplantation for Fulminant Hepatic Failure Due to Heat Stroke:
+  A Case Report. Heat stroke is a condition caused by an excessive increase in body
+  temperature in a relatively short period of time, and is clinically characterized
+  by central nervous system dysfunction, including delirium, seizures, coma, and severe
+  hyperthermia. In this context, the resulting fulminant hepatic failure makes liver
+  transplant the best choice when there are no guarantees of better results with conservative
+  treatment. We present our experience in this case, possible alternative choices,
+  and the current role of liver transplantation in the resolution of fulminant liver
+  failure due to heat stroke. CASE REPORT: We report the case of a 32-year-old man
+  with a history of malabsorption syndrome and unconfirmed celiac disease controlled
+  with a gluten-free diet, who, while working on a typical summer midday in southern
+  Spain (approximately 40 C), abruptly presented with loss of consciousness, coma,
+  and a temperature of 42 C, as well as seizures at the initial medical assessment
+  that subsided after the administration of diazepam. On the third day, the patient
+  presented with multiple organ dysfunction syndrome, requiring mechanical ventilation,
+  hemodialysis, and inotropic support. He did not improve with the support of conservative
+  treatment, therefore it was decided to perform an urgent liver transplant, after
+  which he recovered completely. CONCLUSIONS: Liver transplantation should be a main
+  choice of treatment for cases in which, despite intensive medical treatment, there
+  is still clinical and analytical evidence of massive and/or irreversible hepatocellular
+  damage.'
+raw_completion_output: |-
+  primary_disease: Heat Stroke
+  medical_actions: Liver transplantation; Administration of diazepam; Mechanical ventilation; Hemodialysis; Inotropic support
+  symptoms: Delirium; Seizures; Coma; Severe hyperthermia; Loss of consciousness; Multiple organ dysfunction syndrome
+  chemicals: Diazepam
+  action_annotation_relationships: Administration of diazepam TREATS Seizures IN Heat Stroke; Liver transplantation TREATS Fulminant hepatic failure IN Heat Stroke; Mechanical ventilation TREATS Multiple organ dysfunction syndrome IN Heat Stroke; Hemodialysis TREATS Multiple organ dysfunction syndrome IN Heat Stroke; Inotropic support TREATS Multiple organ dysfunction syndrome IN Heat Stroke
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Inotropic support TREATS Multiple organ dysfunction syndrome IN Heat Stroke
+
+  ===
+
+extracted_object:
+  primary_disease: Heat Stroke
+  medical_actions:
+    - MAXO:0001175
+    - Administration of diazepam
+    - MAXO:0000503
+    - MAXO:0000602
+    - Inotropic support
+  symptoms:
+    - HP:0031258
+    - HP:0001250
+    - HP:0001259
+    - Severe hyperthermia
+    - HP:0007185
+    - Multiple organ dysfunction syndrome
+  chemicals:
+    - CHEBI:49575
+  action_annotation_relationships:
+    - subject: Administration of diazepam
+      predicate: TREATS
+      object: HP:0001250
+      qualifier: Heat Stroke
+      subject_extension: CHEBI:49575
+    - subject: <Liver transplantation>
+      predicate: <TREATS>
+      object: <Fulminant hepatic failure>
+      qualifier: <Heat Stroke>
+      subject_qualifier: <NA>
+      object_qualifier: <NA>
+      subject_extension: <NA>
+      object_extension: <NA>
+    - subject: MAXO:0000503
+      predicate: TREATS
+      object: Multiple organ dysfunction syndrome
+      qualifier: Heat Stroke
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: MAXO:0000602
+      predicate: TREATS
+      object: Multiple organ dysfunction syndrome
+      qualifier: Heat Stroke
+    - subject: Inotropic support
+      predicate: TREATS
+      object: Multiple organ dysfunction syndrome
+      qualifier: Heat Stroke
+named_entities:
+  - id: MONDO:0005130
+    label: Celiac Disease
+  - id: HP:0011473
+    label: villous atrophy
+  - id: MAXO:0000088
+    label: diet
+  - id: HP:0002014
+    label: diarrhea
+  - id: HP:0001903
+    label: anemia
+  - id: HP:0000939
+    label: osteoporosis
+  - id: HP:0002608
+    label: Celiac Disease
+  - id: MAXO:0010200
+    label: Abdominal ultrasonography
+  - id: HP:0003270
+    label: Abdominal distension
+  - id: HP:0002748
+    label: Rickets
+  - id: HP:0002576
+    label: intussusception
+  - id: CHEBI:72716
+    label: TG2 inhibitors
+  - id: MAXO:0000130
+    label: endoscopy
+  - id: MONDO:0016063
+    label: Celiac disease (CD)
+  - id: CHEBI:73291
+    label: Anti-deamidated gliadin peptides (DGP)
+  - id: HP:0011107
+    label: Aphthous stomatitis
+  - id: HP:0002019
+    label: Constipation
+  - id: HP:0002020
+    label: Gastroesophageal reflux disease
+  - id: CHEBI:18163
+    label: GD1a
+  - id: CHEBI:28175
+    label: GD1b
+  - id: CHEBI:28424
+    label: GD3
+  - id: CHEBI:27691
+    label: GT1a
+  - id: CHEBI:28058
+    label: GT1b
+  - id: CHEBI:27515
+    label: GQ1b
+  - id: CHEBI:8382
+    label: prednisone
+  - id: CHEBI:2948
+    label: azathioprine
+  - id: CHEBI:4031
+    label: cyclosporine
+  - id: HP:0410281
+    label: Indigestion
+  - id: HP:0002027
+    label: Abdominal pain
+  - id: HP:0025502
+    label: overweight
+  - id: HP:0001513
+    label: obesity
+  - id: MONDO:0018353
+    label: Refractory Celiac Disease (RCD)
+  - id: MAXO:0000757
+    label: Infusions
+  - id: HP:0000739
+    label: anxiety
+  - id: HP:0002315
+    label: Headache
+  - id: HP:0100785
+    label: Insomnia
+  - id: HP:0004396
+    label: Loss of appetite
+  - id: CHEBI:63623
+    label: Dimercaptosuccinic acid
+  - id: CHEBI:25140
+    label: Maltodextrin
+  - id: CHEBI:27300
+    label: Vitamin D
+  - id: CHEBI:22984
+    label: Calcium
+  - id: MAXO:0001610
+    label: Transcranial Magnetic Stimulation
+  - id: CHEBI:29987
+    label: glutamate
+  - id: HP:0000988
+    label: Rash
+  - id: MONDO:0009032
+    label: Celiac disease (CeD)
+  - id: HP:0002013
+    label: vomiting
+  - id: HP:0002024
+    label: malabsorption
+  - id: CHEBI:48416
+    label: Olmesartan
+  - id: CHEBI:35457
+    label: ACE inhibitors (ACEIs)
+  - id: MAXO:0000824
+    label: Hemoglobin measurement
+  - id: HP:0002102
+    label: pleurisy
+  - id: HP:0001701
+    label: pericarditis
+  - id: HP:0001541
+    label: ascites
+  - id: HP:0000238
+    label: hydrocephalus
+  - id: HP:0002018
+    label: Nausea
+  - id: CHEBI:74859
+    label: anti-tissue transglutaminase IgA (TG)
+  - id: CHEBI:6541
+    label: Losartan
+  - id: MAXO:0035049
+    label: Endoscopic retrograde cholangiopancreatography
+  - id: HP:0005214
+    label: intestinal obstruction
+  - id: MAXO:0001175
+    label: Liver transplantation
+  - id: MAXO:0000503
+    label: Mechanical ventilation
+  - id: MAXO:0000602
+    label: Hemodialysis
+  - id: HP:0031258
+    label: Delirium
+  - id: HP:0001250
+    label: Seizures
+  - id: HP:0001259
+    label: Coma
+  - id: HP:0007185
+    label: Loss of consciousness
+  - id: CHEBI:49575
+    label: Diazepam

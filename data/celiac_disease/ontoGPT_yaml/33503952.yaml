@@ -1,0 +1,175 @@
+---
+input_text: 'Rationale for Timing of Follow-Up Visits to Assess Gluten-Free Diet in
+  Celiac Disease Patients Based on Data Mining. The assessment of compliance of gluten-free
+  diet (GFD) is a keystone in the supervision of celiac disease (CD) patients. Few
+  data are available documenting evidence-based follow-up frequency for CD patients.
+  In this work we aim at creating a criterion for timing of clinical follow-up for
+  CD patients using data mining. We have applied data mining to a dataset with 188
+  CD patients on GFD (75% of them are children below 14 years old), evaluating the
+  presence of gluten immunogenic peptides (GIP) in stools as an adherence to diet
+  marker. The variables considered are gender, age, years following GFD and adherence
+  to the GFD by fecal GIP. The results identify patients on GFD for more than two
+  years (41.5% of the patients) as more prone to poor compliance and so needing more
+  frequent follow-up than patients with less than 2 years on GFD. This is against
+  the usual clinical practice of following less patients on long term GFD, as they
+  are supposed to perform better. Our results support different timing follow-up frequency
+  taking into consideration the number of years on GFD, age and gender. Patients on
+  long term GFD should have a more frequent monitoring as they show a higher level
+  of gluten exposure. A gender perspective should also be considered as non-compliance
+  is partially linked to gender in our results: Males tend to get more gluten exposure,
+  at least in the cultural context where our study was carried out. Children tend
+  to perform better than teenagers or adults.'
+raw_completion_output: |-
+  primary_disease: Celiac Disease
+  medical_actions: Assessing compliance of gluten-free diet; Monitoring for gluten exposure; Data mining for patient follow-up criteria; Evaluating the presence of gluten immunogenic peptides in stools
+  symptoms: Poor compliance to gluten-free diet; Higher level of gluten exposure
+  chemicals: Gluten immunogenic peptides
+  action_annotation_relationships: Assessing compliance of gluten-free diet TREATS poor compliance to gluten-free diet IN Celiac Disease; Monitoring for gluten exposure TREATS higher level of gluten exposure IN Celiac Disease; Evaluating the presence of gluten immunogenic peptides in stools (with Gluten immunogenic peptides) TREATS poor compliance to gluten-free diet IN Celiac Disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Evaluating the presence of gluten immunogenic peptides in stools (with Gluten immunogenic peptides) TREATS poor compliance to gluten-free diet IN Celiac Disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005130
+  medical_actions:
+    - Assessing compliance of gluten-free diet
+    - Monitoring for gluten exposure
+    - Data mining for patient follow-up criteria
+    - Evaluating the presence of gluten immunogenic peptides in stools
+  symptoms:
+    - Poor compliance to gluten-free diet
+    - Higher level of gluten exposure
+  chemicals:
+    - Gluten immunogenic peptides
+  action_annotation_relationships:
+    - subject: <Assessing compliance of gluten-free diet>
+      predicate: <TREATS>
+      object: <poor compliance to gluten-free diet>
+      qualifier: <Celiac Disease>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <gluten-free diet>
+      object_extension: <poor compliance to gluten-free diet>
+    - subject: <Monitoring for gluten exposure>
+      predicate: <TREATS>
+      object: <higher level of gluten exposure>
+      qualifier: <Celiac Disease>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <gluten exposure>
+      object_extension: <higher level of gluten exposure>
+    - subject: Evaluating the presence of gluten immunogenic peptides in stools
+      predicate: TREATS
+      object: poor compliance to gluten-free diet
+      qualifier: MONDO:0005130
+      subject_qualifier: with Gluten immunogenic peptides
+      subject_extension: Gluten immunogenic peptides
+named_entities:
+  - id: MONDO:0005130
+    label: Celiac Disease
+  - id: HP:0011473
+    label: villous atrophy
+  - id: MAXO:0000088
+    label: diet
+  - id: HP:0002014
+    label: diarrhea
+  - id: HP:0001903
+    label: anemia
+  - id: HP:0000939
+    label: osteoporosis
+  - id: HP:0002608
+    label: Celiac Disease
+  - id: MAXO:0010200
+    label: Abdominal ultrasonography
+  - id: HP:0003270
+    label: Abdominal distension
+  - id: HP:0002748
+    label: Rickets
+  - id: HP:0002576
+    label: intussusception
+  - id: CHEBI:72716
+    label: TG2 inhibitors
+  - id: MAXO:0000130
+    label: endoscopy
+  - id: MONDO:0016063
+    label: Celiac disease (CD)
+  - id: CHEBI:73291
+    label: Anti-deamidated gliadin peptides (DGP)
+  - id: HP:0011107
+    label: Aphthous stomatitis
+  - id: HP:0002019
+    label: Constipation
+  - id: HP:0002020
+    label: Gastroesophageal reflux disease
+  - id: CHEBI:18163
+    label: GD1a
+  - id: CHEBI:28175
+    label: GD1b
+  - id: CHEBI:28424
+    label: GD3
+  - id: CHEBI:27691
+    label: GT1a
+  - id: CHEBI:28058
+    label: GT1b
+  - id: CHEBI:27515
+    label: GQ1b
+  - id: CHEBI:8382
+    label: prednisone
+  - id: CHEBI:2948
+    label: azathioprine
+  - id: CHEBI:4031
+    label: cyclosporine
+  - id: HP:0410281
+    label: Indigestion
+  - id: HP:0002027
+    label: Abdominal pain
+  - id: HP:0025502
+    label: overweight
+  - id: HP:0001513
+    label: obesity
+  - id: MONDO:0018353
+    label: Refractory Celiac Disease (RCD)
+  - id: MAXO:0000757
+    label: Infusions
+  - id: HP:0000739
+    label: anxiety
+  - id: HP:0002315
+    label: Headache
+  - id: HP:0100785
+    label: Insomnia
+  - id: HP:0004396
+    label: Loss of appetite
+  - id: CHEBI:63623
+    label: Dimercaptosuccinic acid
+  - id: CHEBI:25140
+    label: Maltodextrin
+  - id: CHEBI:27300
+    label: Vitamin D
+  - id: CHEBI:22984
+    label: Calcium
+  - id: MAXO:0001610
+    label: Transcranial Magnetic Stimulation
+  - id: CHEBI:29987
+    label: glutamate
+  - id: HP:0000988
+    label: Rash
+  - id: MONDO:0009032
+    label: Celiac disease (CeD)
+  - id: HP:0002013
+    label: vomiting
+  - id: HP:0002024
+    label: malabsorption

@@ -1,0 +1,135 @@
+---
+input_text: 'Outcome in pediatric celiac disease is independent of the diagnostic
+  approach in patients with high antibody levels. OBJECTIVES: European Society for
+  Paediatric Gastroenterology, Hepatology and Nutrition guidelines enable the diagnosis
+  of celiac disease (CD) without biopsies in patients with immunoglobulin A (IgA)-antibodies
+  against tissue transglutaminase (TGA-IgA) >= 10x the upper limit of normal (ULN)
+  and positivity of endomysial antibodies in a second blood sample. Limited data exist
+  comparing the biopsy versus the nonbiopsy diagnostic approach regarding long-term
+  outcomes in CD patients. Our study aimed to investigate the influence of the diagnostic
+  approach on adherence to gluten-free diet (GFD), serological remission (defined
+  as normalization of TGA-IgA during follow-up (FU)) and clinical remission in CD
+  patients with TGA-IgA >= 10x ULN. METHODS: Retrospective multicenter study. Patients
+  with CD and TGA-IgA >= 10x ULN at diagnosis were included in the study. Patients
+  with confirmed diagnosis by biopsy were compared to patients diagnosed by nonbiopsy
+  approach using univariate analysis, Kaplan-Meier survival curve, and logistic regression
+  models. RESULTS: A total of 282 CD patients (192 [68.1%] in the biopsy group; 90
+  [31.9%] in the nonbiopsy group) were analyzed. The median time to normalization
+  of TGA-IgA was 16.5 months [interquartile range, IQR: 13, 28] in the biopsy and
+  15 months [IQR: 12, 26] in the nonbiopsy group; p = 0.14). Rates of normalized TGA-IgA
+  at first to third-year FU were comparable between both groups. Adherence to GFD
+  did not seem to be influenced by the diagnostic approach. CONCLUSIONS: The nonbiopsy
+  approach is not inferior to the biopsy approach in terms of adherence to GFD and
+  serological remission in patients with CD.'
+raw_completion_output: |-
+  primary_disease: Celiac Disease (CD)
+
+  medical_actions: biopsy; nonbiopsy diagnostic approach; adherence to gluten-free diet (GFD); serological remission
+
+  symptoms: high antibody levels; positivity of endomysial antibodies
+
+  chemicals: immunoglobulin A (IgA); tissue transglutaminase (TGA-IgA)
+
+  action_annotation_relationships: biopsy TREATS high antibody levels IN Celiac Disease; nonbiopsy diagnostic approach TREATS high antibody levels IN Celiac Disease; adherence to gluten-free diet (GFD) PREVENTS symptoms IN Celiac Disease; serological remission (with immunoglobulin A (IgA)) TREATS high antibody levels IN Celiac Disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  serological remission (with immunoglobulin A (IgA)) TREATS high antibody levels IN Celiac Disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0016063
+  medical_actions:
+    - biopsy
+    - nonbiopsy diagnostic approach
+    - adherence to gluten-free diet (GFD)
+    - serological remission
+  symptoms:
+    - high antibody levels
+    - positivity of endomysial antibodies
+  chemicals:
+    - immunoglobulin A (IgA)
+    - tissue transglutaminase (TGA-IgA)
+  action_annotation_relationships:
+    - subject: biopsy
+      predicate: TREATS
+      object: high antibody levels
+      qualifier: MONDO:0005130
+    - subject: nonbiopsy diagnostic approach
+      predicate: TREATS
+      object: high antibody levels
+      qualifier: MONDO:0005130
+    - subject: adherence to gluten-free diet
+      predicate: PREVENTS
+      object: symptoms
+      qualifier: MONDO:0005130
+      subject_extension: gluten-free diet
+    - subject: serological remission
+      predicate: TREATS
+      object: high antibody levels
+      qualifier: MONDO:0005130
+      subject_qualifier: with
+      subject_extension: immunoglobulin A (IgA)
+named_entities:
+  - id: MONDO:0044092
+    label: Collagenous sprue
+  - id: HP:0002014
+    label: diarrhea
+  - id: CHEBI:50858
+    label: corticosteroids
+  - id: HP:0004395
+    label: malnutrition
+  - id: MONDO:0005130
+    label: Celiac disease
+  - id: HP:0000870
+    label: Hyperprolactinemia
+  - id: CHEBI:81580
+    label: Prolactin (PRL)
+  - id: HP:0000938
+    label: Bone loss
+  - id: CHEBI:22984
+    label: Calcium
+  - id: CHEBI:27300
+    label: Vitamin D
+  - id: HP:0001369
+    label: Arthritis
+  - id: HP:0002608
+    label: Celiac Disease
+  - id: MONDO:0019473
+    label: Enteropathy-associated T-cell lymphoma (EATL)
+  - id: HP:0002242
+    label: enteropathy
+  - id: HP:0012378
+    label: fatigue
+  - id: HP:0002039
+    label: anorexia
+  - id: HP:0000823
+    label: delayed puberty
+  - id: HP:0004322
+    label: short stature
+  - id: HP:0000789
+    label: infertility
+  - id: MONDO:0016063
+    label: Celiac Disease (CD)
+  - id: MAXO:0000058
+    label: pharmacological treatment
+  - id: HP:0002027
+    label: abdominal pain
+  - id: HP:0003270
+    label: bloating
+  - id: HP:0001903
+    label: anemia
+  - id: MAXO:0000088
+    label: diet

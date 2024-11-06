@@ -1,0 +1,82 @@
+---
+input_text: 'Prolactin may be increased in newly diagnosed celiac children and adolescents
+  and decreases after 6 months of gluten-free diet. BACKGROUND/AIMS: Prolactin (PRL)
+  is produced by the anterior pituitary gland. It exerts its role on the breast gland
+  but also plays a modulatory role in autoimmune mechanisms. Celiac disease (CD) is
+  a gluten-sensitive autoimmune enteropathy sometimes associated with autoimmune endocrinopathies.
+  No data on PRL levels in CD patients are available at diagnosis, and no conclusive
+  data are reported. METHODS: We aimed to evaluate PRL secretion in newly diagnosed
+  CD pediatric patients and, in the case of hyperprolactinemia, any changes in its
+  levels while the patients were on a gluten-free diet (GFD). We recruited 67 patients
+  and 39 healthy controls. RESULTS: PRL was statistically higher in the CD patients
+  (13.5+-9.2 ng/ml) than in the controls (8.5+-5.0 ng/ml). In the CD group, PRL was
+  inversely correlated with the age at diagnosis (r=-0.326; p=0.007). In patients
+  with hyperprolactinemia at diagnosis, PRL decreased after 6 months of GFD. CONCLUSION:
+  This paper confirms that PRL may be increased at diagnosis of CD and shows, for
+  the first time, that it decreases after a short course of GFD. Changes in the levels
+  of inflammatory cytokines in CD may account for changes in PRL levels. Younger patients
+  seem more prone to develop hyperprolactinemia than older ones.'
+raw_completion_output: |-
+  primary_disease: Celiac disease
+
+  medical_actions: Evaluate PRL secretion; Gluten-free diet
+
+  symptoms: Hyperprolactinemia
+
+  chemicals: Prolactin (PRL)
+
+  action_annotation_relationships: Gluten-free diet TREATS Hyperprolactinemia IN Celiac disease; Evaluate PRL secretion (with Prolactin) TREATS Hyperprolactinemia IN Celiac disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Evaluate PRL secretion (with Prolactin) TREATS Hyperprolactinemia IN Celiac disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005130
+  medical_actions:
+    - Evaluate PRL secretion
+    - Gluten-free diet
+  symptoms:
+    - HP:0000870
+  chemicals:
+    - CHEBI:81580
+  action_annotation_relationships:
+    - subject: Gluten-free diet
+      predicate: TREATS
+      object: HP:0000870
+      qualifier: MONDO:0005130
+      subject_extension: Gluten
+    - subject: Evaluate PRL secretion
+      predicate: TREATS
+      object: HP:0000870
+      qualifier: MONDO:0005130
+      subject_qualifier: with Prolactin
+      subject_extension: CHEBI:81580
+named_entities:
+  - id: MONDO:0044092
+    label: Collagenous sprue
+  - id: HP:0002014
+    label: diarrhea
+  - id: CHEBI:50858
+    label: corticosteroids
+  - id: HP:0004395
+    label: malnutrition
+  - id: MONDO:0005130
+    label: Celiac disease
+  - id: HP:0000870
+    label: Hyperprolactinemia
+  - id: CHEBI:81580
+    label: Prolactin (PRL)

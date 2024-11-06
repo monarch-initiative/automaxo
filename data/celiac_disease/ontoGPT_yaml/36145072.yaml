@@ -1,0 +1,73 @@
+---
+input_text: 'Mucosal Healing in Celiac Disease: Villous Architecture and Immunohistochemical
+  Features in Children on a Long-Term Gluten Free Diet. Considerable heterogeneity
+  exists across studies assessing intestinal mucosal recovery in celiac (CD) patients
+  on a gluten-free diet (GFD). We aimed at investigating histological and immunohistochemical
+  features in CD patients on a long-term GFD and to correlate them to the GFD duration.
+  Morphometrical and immunohistochemical analysis were retrospectively performed on
+  duodenal biopsies in three groups of children: 33 on a long-term (>2 years) GFD
+  (GFD-group), four of which remained seropositive despite dietary adherence, 31 with
+  villous atrophy (ACD-group) and 76 heathy, non-celiac (CTR-group). Moreover, in
+  the GFD-group, we correlated immunohistochemical alterations to the GFD duration.
+  The villous to crypt (V/C) ratio significantly improved after the GFD and completely
+  normalized in all patients, becoming even higher than in the CTR-group (median value
+  3.2 vs. 3, p = 0.007). In parallel, the number of CD3+ and TCRgammadelta+ cells
+  in the epithelium were significantly reduced in the GFD compared to ACD patients,
+  even if they remained higher than in the CTR-group (p < 0.05). In contrast, CD25+
+  cells in the lamina propria significantly decreased after the GFD (p < 0.05) and
+  become comparable to the CTR-group (p = 0.9). In the GFD-group there was no difference
+  in the immunohistochemical parameters between seropositive and seronegative patients
+  and alterations did not correlate to GFD length. In conclusion, a GFD is able to
+  both restore a normal V/C ratio and reduce inflammation, but the epithelium maintains
+  some stigmata of the disorder, such as an increased number of CD3+ and TCRgammadelta+
+  cells. These alterations persist regardless of the duration of the GFD.'
+raw_completion_output: |-
+  primary_disease: Celiac Disease
+  medical_actions: gluten-free diet; morphometrical and immunohistochemical analysis on duodenal biopsies
+  symptoms: villous atrophy; inflammation
+  chemicals: 
+  action_annotation_relationships: gluten-free diet TREATS villous atrophy IN Celiac Disease; gluten-free diet TREATS inflammation IN Celiac Disease
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  gluten-free diet TREATS inflammation IN Celiac Disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005130
+  medical_actions:
+    - gluten-free diet
+    - morphometrical and immunohistochemical analysis on duodenal biopsies
+  symptoms:
+    - HP:0011473
+    - inflammation
+  action_annotation_relationships:
+    - subject: MAXO:0000088
+      predicate: TREATS
+      object: HP:0011473
+      qualifier: MONDO:0005130
+      subject_qualifier: gluten-free
+      subject_extension: gluten-free
+    - subject: gluten-free diet
+      predicate: TREATS
+      object: inflammation
+      qualifier: MONDO:0005130
+named_entities:
+  - id: MONDO:0005130
+    label: Celiac Disease
+  - id: HP:0011473
+    label: villous atrophy
+  - id: MAXO:0000088
+    label: diet

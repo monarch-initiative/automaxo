@@ -1,0 +1,92 @@
+---
+input_text: Diagnosis and Treatment Patterns in Celiac Disease. Celiac disease (CD)
+  is an immune-mediated gastrointestinal (GI) disorder driven by innate and adaptive
+  immune responses to gluten. Presentation of CD has changed over time, with non-GI
+  symptoms, such as anemia and osteoporosis, presenting more commonly. With improved
+  screening and diagnostic methods, the reported prevalence of CD has increased globally,
+  and there is considerable global variation in diagnostic and treatment practices.
+  The objective of this study was to describe the current state of CD diagnosis and
+  treatment patterns. A targeted review of literature from MEDLINE, Embase, the Cochrane
+  Library, and screening of relevant conference abstracts was performed. The generally
+  recommended diagnostic approach is GI endoscopy with small bowel biopsy; however,
+  in selected patients, biopsy may be avoided and diagnosis based on positive serology
+  and clinical symptoms. Diagnosis often is delayed; the average diagnostic delay
+  after symptom onset is highly variable and can last up to 12 years. Barriers to
+  accurate and timely diagnosis include atypical presentation, lack of physician awareness
+  about current diagnostic criteria, misdiagnosis, and limited access to specialists.
+  Currently, strict adherence to a gluten-free diet (GFD) is the only recommended
+  treatment, which is not successful in all patients. Only one-third of patients are
+  monitored regularly following diagnosis. Unmet needs for CD include improvements
+  in the accuracy and timeliness of diagnosis, and the development of treatments for
+  both refractory CD and GFD nonresponsive CD. Further research should investigate
+  the impact of education about gluten-free eating and the availability of gluten-free
+  foods support adherence and improve outcomes in patients with CD.
+raw_completion_output: |-
+  primary_disease: Celiac Disease
+
+  medical_actions: GI endoscopy with small bowel biopsy; strict adherence to a gluten-free diet (GFD)
+
+  symptoms: anemia; osteoporosis
+
+  chemicals: gluten
+
+  action_annotation_relationships: GI endoscopy with small bowel biopsy TREATS Celiac Disease; strict adherence to a gluten-free diet (with gluten) PREVENTS anemia IN Celiac Disease; strict adherence to a gluten-free diet (with gluten) PREVENTS osteoporosis IN Celiac Disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  strict adherence to a gluten-free diet (with gluten) PREVENTS osteoporosis IN Celiac Disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005130
+  medical_actions:
+    - GI endoscopy with small bowel biopsy
+    - strict adherence to a gluten-free diet (GFD)
+  symptoms:
+    - HP:0001903
+    - HP:0000939
+  chemicals:
+    - gluten
+  action_annotation_relationships:
+    - subject: GI endoscopy with small bowel biopsy
+      predicate: TREATS
+      object: HP:0002608
+    - subject: strict adherence to a gluten-free diet
+      predicate: PREVENTS
+      object: HP:0001903
+      qualifier: MONDO:0005130
+      subject_qualifier: with gluten
+      subject_extension: gluten-free diet
+    - subject: strict adherence to a gluten-free diet
+      predicate: PREVENTS
+      object: HP:0000939
+      qualifier: MONDO:0005130
+      subject_qualifier: with gluten
+      subject_extension: gluten-free diet
+named_entities:
+  - id: MONDO:0005130
+    label: Celiac Disease
+  - id: HP:0011473
+    label: villous atrophy
+  - id: MAXO:0000088
+    label: diet
+  - id: HP:0002014
+    label: diarrhea
+  - id: HP:0001903
+    label: anemia
+  - id: HP:0000939
+    label: osteoporosis
+  - id: HP:0002608
+    label: Celiac Disease

@@ -1,0 +1,237 @@
+---
+input_text: 'Female Patients with Dermatitis Herpetiformis Show a Reduced Diagnostic
+  Delay and Have Higher Sensitivity Rates at Autoantibody Testing for Celiac Disease.
+  OBJECTIVE: Our objective was to characterize the demographic information, clinical
+  features, and laboratory data of patients with dermatitis herpetiformis (DH). METHODS:
+  In this multicentre cross-sectional study, consecutive patients with a new diagnosis
+  of DH that referred to nine different Italian centers between 2011 and 2016 were
+  characterized assessing demographic, clinical and laboratory findings, and evaluating
+  gender and age differences across selected variables. RESULTS: A total of 151 patients
+  were included. Among them, 81 (53.6%) were males and 70 (46.4%) were females, with
+  a male to female ratio of 1.2 : 1. The median age at the time of diagnosis was 41
+  years (range 0-85). Males had a significant longer diagnostic delay if compared
+  to females (9 vs. 3 months, respectively; p = 0.01). Direct immunofluorescence was
+  positive in 94.7% of the patients, while duodenal biopsy showed partial to total
+  villous atrophy in 70.1% of patients. All the females resulted positive to at least
+  one of the antibodies tested, while a total of 12 male patients (10.5%) tested negative
+  to celiac-specific antibodies. Female patients had a high rate (14.1%) of autoimmune
+  thyroiditis. CONCLUSIONS: Our study confirmed some of the most relevant data regarding
+  DH that have been previously reported in the literature. In addition, we found a
+  reduced diagnostic delay in females with respect to males, possibly related to the
+  higher sensitivity of serologic testing in females with DH compared to males. Finally,
+  we demonstrated that intestinal involvement could be severe in patients with DH
+  and that females should be tested for thyroiditis.'
+raw_completion_output: |-
+  primary_disease: Dermatitis Herpetiformis
+  medical_actions: Direct immunofluorescence; Duodenal biopsy; Autoantibody testing for Celiac Disease; Testing for thyroiditis
+  symptoms: Diagnostic delay; Positive to antibodies; Partial to total villous atrophy; Autoimmune thyroiditis
+  chemicals: 
+  action_annotation_relationships: Direct immunofluorescence TREATS Diagnostic delay IN Dermatitis Herpetiformis; Duodenal biopsy TREATS Partial to total villous atrophy IN Dermatitis Herpetiformis; Autoantibody testing for Celiac Disease PREVENTS Positive to antibodies IN Dermatitis Herpetiformis; Testing for thyroiditis PREVENTS Autoimmune thyroiditis IN Dermatitis Herpetiformis
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Testing for thyroiditis PREVENTS Autoimmune thyroiditis IN Dermatitis Herpetiformis
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0015614
+  medical_actions:
+    - Direct immunofluorescence
+    - Duodenal biopsy
+    - Autoantibody testing for Celiac Disease
+    - Testing for thyroiditis
+  symptoms:
+    - Diagnostic delay
+    - Positive to antibodies
+    - Partial to total villous atrophy
+    - HP:0000872
+  action_annotation_relationships:
+    - subject: Direct immunofluorescence
+      predicate: TREATS
+      object: Diagnostic delay
+      qualifier: MONDO:0015614
+    - subject: Duodenal biopsy
+      predicate: TREATS
+      object: Partial to total villous atrophy
+      qualifier: MONDO:0015614
+    - subject: Autoantibody testing
+      predicate: PREVENTS
+      object: Positive to antibodies
+      qualifier: MONDO:0015614
+      subject_extension: Autoantibody testing
+      object_extension: Positive to antibodies
+    - subject: Testing for thyroiditis
+      predicate: PREVENTS
+      object: HP:0000872
+      qualifier: MONDO:0015614
+named_entities:
+  - id: HP:0001251
+    label: ataxia
+  - id: CHEBI:21547
+    label: N-acetylaspartate (NAA)
+  - id: CHEBI:157802
+    label: creatine (Cr)
+  - id: MONDO:0005130
+    label: Celiac disease
+  - id: HP:0001394
+    label: Cirrhosis
+  - id: HP:0002608
+    label: Celiac disease
+  - id: MONDO:0005340
+    label: Alopecia areata
+  - id: HP:0001596
+    label: Hair loss
+  - id: HP:0002014
+    label: Diarrhea
+  - id: HP:0002027
+    label: Abdominal pain
+  - id: HP:0012378
+    label: Fatigue
+  - id: HP:0011473
+    label: Villous atrophy
+  - id: CHEBI:3207
+    label: Budesonide
+  - id: HP:0000951
+    label: skin abnormalities
+  - id: HP:0001595
+    label: hair abnormalities
+  - id: HP:0000112
+    label: kidney diseases
+  - id: MAXO:0000088
+    label: Diet
+  - id: MONDO:0009032
+    label: Celiac Disease (CeD)
+  - id: HP:0100252
+    label: Celiac Disease (CeD)
+  - id: CHEBI:18332
+    label: T4
+  - id: CHEBI:30660
+    label: thyroxine
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0002028
+    label: recurrent diarrhea
+  - id: HP:0001824
+    label: weight loss
+  - id: HP:0001891
+    label: iron deficiency anemia
+  - id: CHEBI:6909
+    label: metronidazole
+  - id: MAXO:0001017
+    label: Vaccination
+  - id: HP:0002242
+    label: Enteropathy
+  - id: MONDO:0400005
+    label: Refeeding syndrome
+  - id: HP:0003111
+    label: Electrolyte disturbances
+  - id: HP:0000713
+    label: Psychomotor agitation
+  - id: HP:0002098
+    label: Respiratory distress
+  - id: HP:0030149
+    label: Cardiogenic shock
+  - id: CHEBI:28796
+    label: Fructans
+  - id: HP:0031955
+    label: antalgic gait
+  - id: CHEBI:18248
+    label: Iron
+  - id: CHEBI:27470
+    label: Folate
+  - id: CHEBI:176843
+    label: Vitamin B12
+  - id: HP:0000716
+    label: Depression
+  - id: MAXO:0000106
+    label: Nutritional supplementation
+  - id: CHEBI:22984
+    label: Ca
+  - id: CHEBI:25107
+    label: Mg
+  - id: CHEBI:27363
+    label: Zn
+  - id: MAXO:0000130
+    label: Endoscopy
+  - id: CHEBI:80165
+    label: Gluten immunogenic peptides (GIP)
+  - id: MONDO:0015924
+    label: Porto-pulmonary hypertension (PPH)
+  - id: MAXO:0001490
+    label: platelet transfusion
+  - id: HP:0006517
+    label: mean pulmonary artery pressure (PAP) 49 mm Hg
+  - id: MAXO:0000757
+    label: infusions
+  - id: HP:0011107
+    label: recurrent aphthous stomatitis
+  - id: HP:0002315
+    label: Headache
+  - id: HP:0002018
+    label: Nausea
+  - id: CHEBI:231614
+    label: nivolumab
+  - id: CHEBI:231679
+    label: ipilimumab
+  - id: HP:0002607
+    label: fecal incontinence
+  - id: HP:0000708
+    label: behavioral disturbances
+  - id: HP:0000739
+    label: anxiety
+  - id: MONDO:0015614
+    label: Dermatitis Herpetiformis
+  - id: MONDO:0016063
+    label: Celiac Disease (CD)
+  - id: CHEBI:37165
+    label: Galactans
+  - id: HP:0033589
+    label: Flatulence
+  - id: HP:0000939
+    label: Osteoporosis
+  - id: HP:0001903
+    label: Anaemia
+  - id: HP:0002901
+    label: Hypocalcaemia
+  - id: HP:0033748
+    label: Numbness
+  - id: CHEBI:50443
+    label: Hematopoietic stem cells (HSC)
+  - id: HP:0025502
+    label: overweight
+  - id: HP:0001513
+    label: obesity
+  - id: HP:0200063
+    label: colorectal polyps
+  - id: HP:0002664
+    label: cancer
+  - id: HP:0025464
+    label: oxidative stress
+  - id: HP:0003270
+    label: Abdominal distention
+  - id: HP:0000989
+    label: Itchy skin
+  - id: HP:0002019
+    label: Constipation
+  - id: HP:0033834
+    label: Malaise
+  - id: HP:0001508
+    label: failure to thrive
+  - id: MAXO:0000138
+    label: contrast enhanced ultrasound (CEUS)
+  - id: MAXO:0000376
+    label: Liver biopsy
+  - id: HP:0000872
+    label: Autoimmune thyroiditis

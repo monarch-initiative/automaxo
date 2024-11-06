@@ -1,0 +1,163 @@
+---
+input_text: 'Iron Deficiency in Celiac Disease: Prevalence, Health Impact, and Clinical
+  Management. Iron is an essential nutrient to life and is required for erythropoiesis,
+  oxidative, metabolism, and enzymatic activities. It is a cofactor for mitochondrial
+  respiratory chain enzymes, the citric acid cycle, and DNA synthesis, and it promotes
+  the growth of immune system cells. Thus, iron deficiency (ID) leads to deleterious
+  effects on the overall health of individuals, causing significant morbidity. Iron
+  deficiency anemia (IDA) is the most recognized type of anemia in patients with celiac
+  disease (CD) and may be present in over half of patients at the time of diagnosis.
+  Folate and vitamin B12 malabsorption, nutritional deficiencies, inflammation, blood
+  loss, development of refractory CD, and concomitant Heliobacter pylori infection
+  are other causes of anemia in such patients. The decision to replenish iron stores
+  and the route of administration (oral or intravenous) are controversial due, in
+  part, to questions surrounding the optimal formulation and route of administration.
+  This paper provides an algorithm based on the severity of symptoms; its impact on
+  the health-related quality of life (HRQL); the tolerance and efficiency of oral
+  iron; and other factors that predict a poor response to oral iron, such as the severity
+  of histological damage, poor adherence to GFD, and blood loss due to mucosal lesions.'
+raw_completion_output: |-
+  primary_disease: Iron Deficiency in Celiac Disease
+
+  medical_actions: Replenish iron stores; Oral iron administration; Intravenous iron administration
+
+  symptoms: Iron deficiency; Iron deficiency anemia; Folate and vitamin B12 malabsorption; Nutritional deficiencies; Inflammation; Blood loss
+
+  chemicals: Iron; Folate; Vitamin B12
+
+  action_annotation_relationships: Replenish iron stores TREATS Iron deficiency IN Iron Deficiency in Celiac Disease; Oral iron administration TREATS Iron deficiency anemia IN Iron Deficiency in Celiac Disease; Intravenous iron administration TREATS Iron deficiency IN Iron Deficiency in Celiac Disease; Oral iron administration (with Iron) TREATS Nutritional deficiencies IN Iron Deficiency in Celiac Disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Oral iron administration (with Iron) TREATS Nutritional deficiencies IN Iron Deficiency in Celiac Disease
+
+  ===
+
+extracted_object:
+  primary_disease: Iron Deficiency in Celiac Disease
+  medical_actions:
+    - Replenish iron stores
+    - Oral iron administration
+    - Intravenous iron administration
+  symptoms:
+    - Iron deficiency
+    - HP:0001891
+    - Folate and vitamin B12 malabsorption
+    - Nutritional deficiencies
+    - Inflammation
+    - Blood loss
+  chemicals:
+    - CHEBI:18248
+    - CHEBI:27470
+    - CHEBI:176843
+  action_annotation_relationships:
+    - subject: Replenish iron stores
+      predicate: TREATS
+      object: Iron deficiency
+      qualifier: MONDO:0005130
+    - subject: Oral iron administration
+      predicate: TREATS
+      object: HP:0001891
+      qualifier: Iron Deficiency in Celiac Disease
+      subject_extension: CHEBI:18248
+    - subject: Intravenous iron administration
+      predicate: TREATS
+      object: Iron deficiency
+      qualifier: Iron Deficiency in Celiac Disease
+      subject_extension: CHEBI:18248
+    - subject: Oral iron administration
+      predicate: TREATS
+      object: deficiencies
+      qualifier: Iron Deficiency in Celiac Disease
+      subject_qualifier: with Iron
+      object_qualifier: Nutritional
+      subject_extension: CHEBI:18248
+      object_extension: Nutritional
+named_entities:
+  - id: HP:0001251
+    label: ataxia
+  - id: CHEBI:21547
+    label: N-acetylaspartate (NAA)
+  - id: CHEBI:157802
+    label: creatine (Cr)
+  - id: MONDO:0005130
+    label: Celiac disease
+  - id: HP:0001394
+    label: Cirrhosis
+  - id: HP:0002608
+    label: Celiac disease
+  - id: MONDO:0005340
+    label: Alopecia areata
+  - id: HP:0001596
+    label: Hair loss
+  - id: HP:0002014
+    label: Diarrhea
+  - id: HP:0002027
+    label: Abdominal pain
+  - id: HP:0012378
+    label: Fatigue
+  - id: HP:0011473
+    label: Villous atrophy
+  - id: CHEBI:3207
+    label: Budesonide
+  - id: HP:0000951
+    label: skin abnormalities
+  - id: HP:0001595
+    label: hair abnormalities
+  - id: HP:0000112
+    label: kidney diseases
+  - id: MAXO:0000088
+    label: Diet
+  - id: MONDO:0009032
+    label: Celiac Disease (CeD)
+  - id: HP:0100252
+    label: Celiac Disease (CeD)
+  - id: CHEBI:18332
+    label: T4
+  - id: CHEBI:30660
+    label: thyroxine
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0002028
+    label: recurrent diarrhea
+  - id: HP:0001824
+    label: weight loss
+  - id: HP:0001891
+    label: iron deficiency anemia
+  - id: CHEBI:6909
+    label: metronidazole
+  - id: MAXO:0001017
+    label: Vaccination
+  - id: HP:0002242
+    label: Enteropathy
+  - id: MONDO:0400005
+    label: Refeeding syndrome
+  - id: HP:0003111
+    label: Electrolyte disturbances
+  - id: HP:0000713
+    label: Psychomotor agitation
+  - id: HP:0002098
+    label: Respiratory distress
+  - id: HP:0030149
+    label: Cardiogenic shock
+  - id: CHEBI:28796
+    label: Fructans
+  - id: HP:0031955
+    label: antalgic gait
+  - id: CHEBI:18248
+    label: Iron
+  - id: CHEBI:27470
+    label: Folate
+  - id: CHEBI:176843
+    label: Vitamin B12

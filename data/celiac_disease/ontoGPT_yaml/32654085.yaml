@@ -1,0 +1,118 @@
+---
+input_text: 'Enteric-Release Budesonide May Be Useful in the Management of Non-Responsive
+  Celiac Disease. BACKGROUND: Non-responsive celiac disease (NRCD) has many aetiologies,
+  including gluten exposure. Budesonide may be used for refractory celiac disease
+  (RCD) and celiac crisis. AIMS: We reviewed the effectiveness of budesonide to induce
+  clinical and histologic response in NRCD with villous atrophy (VA). METHODS: Case
+  series of adult cases with NRCD and VA prescribed budesonide at two celiac centers.
+  Clinical variables and mucosal recovery (i.e., normal villous architecture within
+  1 year of treatment) were evaluated. RESULTS: Forty-two cases [77% female, median
+  age 45.0 (IQR 28.3-60.0) years] were included. Most common symptoms were diarrhea
+  (64%) and abdominal pain (62%). Budesonide was initiated at 9 mg (83%) for a median
+  duration of 16.0 weeks (IQR 6.8-25.0 weeks). In total, 57% exhibited a clinical
+  response, positively associated with diarrhea (adjusted OR 6.08 95% CI 1.04-35.47)
+  and negatively with fatigue (adjusted OR 0.18 95% CI 0.03-0.98). Clinical response
+  was higher among those with dietitian counseling prior to budesonide (n = 29, 70
+  vs. 23%, p < 0.01). Mucosal recovery was observed in 11/24 with follow-up duodenal
+  biopsies. There was no association between clinical response and mucosal recovery,
+  and 79% of clinical responders had a symptomatic relapse. RCD (48%) and chronic
+  gluten exposure (24%) were the main suspected aetiologies of NRCD. Most individuals
+  without a clinical response subsequently received an IBS-related diagnosis. CONCLUSIONS:
+  Budesonide may be effective to induce clinical response in NRCD presenting with
+  diarrhea and VA, but clinical recurrence and lack of mucosal recovery are frequent
+  after tapering. Other diagnoses, including coexisting IBS, may be considered in
+  non-responders to budesonide therapy.'
+raw_completion_output: |-
+  primary_disease: Non-responsive celiac disease (NRCD)
+
+  medical_actions: Enteric-Release Budesonide administration; Dietitian counseling; Duodenal biopsies
+
+  symptoms: Diarrhea; Abdominal pain; Fatigue; Villous atrophy; Symptomatic relapse
+
+  chemicals: Budesonide
+
+  action_annotation_relationships: Enteric-Release Budesonide administration TREATS diarrhea IN Non-responsive celiac disease (NRCD); Dietitian counseling PREVENTS symptomatic relapse IN Non-responsive celiac disease (NRCD); Enteric-Release Budesonide administration (with Budesonide) TREATS Villous atrophy IN Non-responsive celiac disease (NRCD); Duodenal biopsies TREATS villous atrophy IN Non-responsive celiac disease (NRCD); Enteric-Release Budesonide administration NEGATIVELY CORRELATED WITH Fatigue IN Non-responsive celiac disease (NRCD)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Enteric-Release Budesonide administration NEGATIVELY CORRELATED WITH Fatigue IN Non-responsive celiac disease (NRCD)
+
+  ===
+
+extracted_object:
+  primary_disease: Non-responsive celiac disease (NRCD)
+  medical_actions:
+    - Enteric-Release Budesonide administration
+    - Dietitian counseling
+    - Duodenal biopsies
+  symptoms:
+    - HP:0002014
+    - HP:0002027
+    - HP:0012378
+    - HP:0011473
+    - Symptomatic relapse
+  chemicals:
+    - CHEBI:3207
+  action_annotation_relationships:
+    - subject: Enteric-Release Budesonide administration
+      predicate: TREATS
+      object: HP:0002014
+      qualifier: Non-responsive celiac disease (NRCD)
+      subject_extension: CHEBI:3207
+    - subject: Dietitian counseling
+      predicate: PREVENTS
+      object: symptomatic relapse
+      qualifier: Non-responsive celiac disease (NRCD)
+    - subject: Enteric-Release Budesonide administration
+      predicate: TREATS
+      object: HP:0011473
+      qualifier: Non-responsive celiac disease (NRCD)
+      subject_qualifier: with Budesonide
+      subject_extension: CHEBI:3207
+    - subject: Duodenal biopsies
+      predicate: TREATS
+      object: HP:0011473
+      qualifier: Non-responsive celiac disease (NRCD)
+    - subject: Enteric-Release Budesonide administration
+      predicate: NEGATIVELY CORRELATED WITH
+      object: HP:0012378
+      qualifier: Non-responsive celiac disease (NRCD)
+      subject_extension: CHEBI:3207
+named_entities:
+  - id: HP:0001251
+    label: ataxia
+  - id: CHEBI:21547
+    label: N-acetylaspartate (NAA)
+  - id: CHEBI:157802
+    label: creatine (Cr)
+  - id: MONDO:0005130
+    label: Celiac disease
+  - id: HP:0001394
+    label: Cirrhosis
+  - id: HP:0002608
+    label: Celiac disease
+  - id: MONDO:0005340
+    label: Alopecia areata
+  - id: HP:0001596
+    label: Hair loss
+  - id: HP:0002014
+    label: Diarrhea
+  - id: HP:0002027
+    label: Abdominal pain
+  - id: HP:0012378
+    label: Fatigue
+  - id: HP:0011473
+    label: Villous atrophy
+  - id: CHEBI:3207
+    label: Budesonide

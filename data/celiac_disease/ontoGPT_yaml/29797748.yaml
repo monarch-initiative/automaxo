@@ -1,0 +1,84 @@
+---
+input_text: "When your patient's parent asks: \"My child's alopecia areata is not
+  getting better. Should he or she get tested for celiac disease?\" The relationship
+  between alopecia areata and celiac disease has been suspected for more than 20 years.
+  For a particular individual with alopecia areata, the risk of coexisting celiac
+  disease and the potential benefit of a gluten-free diet on hair loss or regrowth
+  is known. Despite this limited information, patients often aske dermatologists whether
+  they should undergo celiac disease testing or begin a gluten-free diet. We reviewed
+  all available studies of the relationship between alopecia areata and celiac disease
+  to provide guidance to practicing clinicians."
+raw_completion_output: |-
+  primary_disease: Alopecia areata
+
+  medical_actions: Celiac disease testing; Gluten-free diet
+
+  symptoms: Hair loss; Regrowth of hair
+
+  chemicals: 
+
+  action_annotation_relationships: Celiac disease testing TREATS hair loss IN Alopecia areata; Gluten-free diet PREVENTS hair loss IN Alopecia areata; Gluten-free diet TREATS regrowth of hair IN Alopecia areata
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Gluten-free diet TREATS regrowth of hair IN Alopecia areata
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005340
+  medical_actions:
+    - Celiac disease testing
+    - Gluten-free diet
+  symptoms:
+    - HP:0001596
+    - Regrowth of hair
+  action_annotation_relationships:
+    - subject: Celiac disease testing
+      predicate: TREATS
+      object: HP:0001596
+      qualifier: MONDO:0005340
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: Gluten-free diet
+      predicate: PREVENTS
+      object: HP:0001596
+      qualifier: MONDO:0005340
+    - subject: <Gluten-free diet>
+      predicate: <TREATS>
+      object: <regrowth of hair>
+      qualifier: <Alopecia areata>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+named_entities:
+  - id: HP:0001251
+    label: ataxia
+  - id: CHEBI:21547
+    label: N-acetylaspartate (NAA)
+  - id: CHEBI:157802
+    label: creatine (Cr)
+  - id: MONDO:0005130
+    label: Celiac disease
+  - id: HP:0001394
+    label: Cirrhosis
+  - id: HP:0002608
+    label: Celiac disease
+  - id: MONDO:0005340
+    label: Alopecia areata
+  - id: HP:0001596
+    label: Hair loss

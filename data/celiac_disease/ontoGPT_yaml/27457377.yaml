@@ -1,0 +1,125 @@
+---
+input_text: 'Type 1 and type 2 diabetes in celiac disease: prevalence and effect on
+  clinical and histological presentation. BACKGROUND: Association between celiac disease
+  and type 1 diabetes in adults is still somewhat unclear, and that between celiac
+  disease and type 2 diabetes even less known. We studied these issues in a large
+  cohort of adult celiac disease patients. METHODS: The prevalence of type 1 and type
+  2 diabetes in 1358 celiac patients was compared with the population-based values.
+  Furthermore, patients with celiac disease and concomitant type 1 or type 2 diabetes
+  and those with celiac disease only underwent comparisons of clinical and histological
+  features and adherence to gluten-free diet. RESULTS: The prevalence of type 1 diabetes
+  (men/women) was 8.0 % /1.8 % in celiac patients and 0.7 % /0.3 % in the population,
+  and that of type 2 diabetes 4.3 % /2.5 % and 4.4 % /3.0 %, respectively. Celiac
+  patients with concomitant type 1 diabetes were younger (45 years vs 65 years and
+  52 years, P < 0.001) and more often screen-detected (43 % vs 13 % and 14 %, P <
+  0.001), had less other gastrointestinal diseases (8 % vs 40 % and 25 %, P = 0.028),
+  more thyroidal diseases (18 % vs 16 % and 13 %, P = 0.043) and lower dietary adherence
+  (71 % vs 95 % and 96 %, P < 0.001) compared with celiac patients with concomitant
+  type 2 diabetes and patients with celiac disease only. Patients with concomitant
+  type 2 diabetes had more hypercholesterolemia than the other groups (8 % vs 6 %
+  and 4 %, P = 0.024), and both diabetes groups more hypertension (47 % and 31 % vs
+  15 %, P < 0.001) and coronary artery disease (29 % and 18 % vs 3 %, P < 0.001) than
+  the patients with celiac disease only. CONCLUSIONS: Type 1 diabetes was markedly
+  overrepresented in celiac disease, especially in men, whereas the prevalence of
+  type 2 diabetes was comparable with the population. Concomitant type 1 or type 2
+  diabetes predisposes celiac patients to severe co-morbidities and type 1 diabetes
+  also to poor dietary adherence.'
+raw_completion_output: |-
+  primary_disease: celiac disease
+  medical_actions: gluten-free diet; screen-detected
+  symptoms: hypercholesterolemia; hypertension; coronary artery disease
+  chemicals: 
+  action_annotation_relationships: gluten-free diet PREVENTS hypercholesterolemia IN celiac disease; gluten-free diet TREATS hypertension IN celiac disease; gluten-free diet TREATS coronary artery disease IN celiac disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  gluten-free diet TREATS coronary artery disease IN celiac disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005130
+  medical_actions:
+    - gluten-free diet
+    - screen-detected
+  symptoms:
+    - HP:0003124
+    - HP:0000822
+    - HP:0001677
+  action_annotation_relationships:
+    - subject: gluten-free diet
+      predicate: PREVENTS
+      object: HP:0003124
+      qualifier: MONDO:0005130
+      subject_extension: gluten
+    - subject: gluten-free diet
+      predicate: TREATS
+      object: HP:0000822
+      qualifier: MONDO:0005130
+    - subject: <gluten-free diet>
+      predicate: <TREATS>
+      object: <coronary artery disease>
+      qualifier: <celiac disease>
+      subject_extension: <gluten-free diet>
+named_entities:
+  - id: MONDO:0005130
+    label: Celiac disease
+  - id: CHEBI:64357
+    label: Rituximab
+  - id: HP:0002608
+    label: Celiac disease
+  - id: HP:0003326
+    label: Myalgias
+  - id: HP:0002829
+    label: Arthralgias
+  - id: HP:0000988
+    label: Rash
+  - id: HP:0002027
+    label: Abdominal pain
+  - id: HP:0002018
+    label: Nausea
+  - id: HP:0002014
+    label: Diarrhea
+  - id: MAXO:0000021
+    label: Symptom management
+  - id: MAXO:0000640
+    label: corticosteroid treatment
+  - id: HP:0012735
+    label: cough
+  - id: HP:0000980
+    label: paleness
+  - id: HP:0002094
+    label: dyspnea
+  - id: HP:0001649
+    label: tachycardia
+  - id: CHEBI:50858
+    label: corticosteroid
+  - id: HP:0002242
+    label: Enteropathy
+  - id: CHEBI:190522
+    label: Gluten protein (gliadin)
+  - id: CHEBI:80165
+    label: GIPs
+  - id: CHEBI:145810
+    label: Insulin
+  - id: MAXO:0000259
+    label: Insulin therapy
+  - id: HP:0011473
+    label: Villous atrophy
+  - id: HP:0003124
+    label: hypercholesterolemia
+  - id: HP:0000822
+    label: hypertension
+  - id: HP:0001677
+    label: coronary artery disease

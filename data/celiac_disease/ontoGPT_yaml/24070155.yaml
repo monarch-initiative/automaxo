@@ -1,0 +1,105 @@
+---
+input_text: 'Diagnostic dilemmas in celiac disease. Celiac disease (CD) is an immune-mediated
+  systemic condition triggered by dietary gluten occurring in genetically susceptible
+  individuals. Our understanding of its numerous and varied clinical presentations
+  has evolved over time, which has contributed to the incidence of CD increasing.
+  In most cases, the diagnosis is readily established and patients promptly improve
+  after commencing a gluten-free diet (GFD). However, in some, the diagnosis is not
+  straightforward and presents a challenge to clinicians. Potential dilemmas include
+  those with positive serology but normal histology, negative serology but abnormal
+  duodenal mucosal histology, failure to respond to a GFD or response to a GFD without
+  evidence of CD. In recent years, development of new assays and modifications to
+  existing diagnostic algorithms for CD has also challenged the traditional role of
+  small-bowel histology as critical in CD diagnosis. '
+raw_completion_output: |-
+  primary_disease: Celiac disease
+  medical_actions: Commencing a gluten-free diet; Development of new assays; Modifications to existing diagnostic algorithms
+  symptoms: Positive serology; Normal histology; Negative serology; Abnormal duodenal mucosal histology; Failure to respond to a gluten-free diet
+  chemicals: Gluten
+  action_annotation_relationships: Commencing a gluten-free diet (without gluten) PREVENTS symptoms IN Celiac disease; Development of new assays TREATS diagnostic dilemmas IN Celiac disease; Modifications to existing diagnostic algorithms TREATS diagnostic dilemmas IN Celiac disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Modifications to existing diagnostic algorithms TREATS diagnostic dilemmas IN Celiac disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005130
+  medical_actions:
+    - Commencing a gluten-free diet
+    - Development of new assays
+    - Modifications to existing diagnostic algorithms
+  symptoms:
+    - Positive serology
+    - Normal histology
+    - Negative serology
+    - Abnormal duodenal mucosal histology
+    - Failure to respond to a gluten-free diet
+  chemicals:
+    - Gluten
+  action_annotation_relationships:
+    - subject: Commencing a gluten-free diet
+      predicate: PREVENTS
+      object: symptoms
+      qualifier: MONDO:0005130
+      subject_qualifier: without gluten
+      subject_extension: gluten-free diet
+    - subject: <Development of new assays>
+      predicate: <TREATS>
+      object: <diagnostic dilemmas>
+      qualifier: <Celiac disease>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <assays>
+      object_extension: <None>
+    - subject: Modifications to existing diagnostic algorithms
+      predicate: TREATS
+      object: diagnostic dilemmas
+      qualifier: MONDO:0005130
+named_entities:
+  - id: HP:0001251
+    label: ataxia
+  - id: CHEBI:21547
+    label: N-acetylaspartate (NAA)
+  - id: CHEBI:157802
+    label: creatine (Cr)
+  - id: MONDO:0005130
+    label: Celiac disease
+  - id: HP:0001394
+    label: Cirrhosis
+  - id: HP:0002608
+    label: Celiac disease
+  - id: MONDO:0005340
+    label: Alopecia areata
+  - id: HP:0001596
+    label: Hair loss
+  - id: HP:0002014
+    label: Diarrhea
+  - id: HP:0002027
+    label: Abdominal pain
+  - id: HP:0012378
+    label: Fatigue
+  - id: HP:0011473
+    label: Villous atrophy
+  - id: CHEBI:3207
+    label: Budesonide
+  - id: HP:0000951
+    label: skin abnormalities
+  - id: HP:0001595
+    label: hair abnormalities
+  - id: HP:0000112
+    label: kidney diseases
+  - id: MAXO:0000088
+    label: Diet

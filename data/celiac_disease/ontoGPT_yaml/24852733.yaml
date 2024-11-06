@@ -1,0 +1,139 @@
+---
+input_text: "Histopathological findings in the oral mucosa of celiac patients. BACKGROUND:
+  Celiac disease (CD) is an immune-mediated enteropathy triggered by the ingestion
+  of gluten in genetically susceptible subjects. Although the small intestinal mucosa
+  is the main site of the gut's involvement in CD, other mucosal surfaces belonging
+  to the gastrointestinal tract and the gut-associated lymphoid tissue are known to
+  be affected. AIM: Assuming that the oral mucosa could reflect the histopathological
+  inflammatory alterations of the intestine in CD patients, this study wishes to assess
+  the pattern of T-cell subsets in the oral mucosa of young adults with CD. METHODS:
+  A group of 37 patients (age range 20-38 years; female: male ratio 28:9) with CD
+  were enrolled. Out of 37 patients, 19 patients (group A) followed a gluten free
+  diet (GFD) -2 patients from less than one year; 6 patients between 1 and 5 years;
+  11 patients more than 5 years- while 18 patients (group B) were still untreated.
+  Fifteen healthy volunteers (age range 18-35 years, female: Male ratio 11:4) served
+  as controls for the CD patients. Ethical approval for the research was granted by
+  the Ethics Committee. Biopsy specimens were taken from normal looking oral mucosa.
+  The immunohistochemical investigation was performed with monoclonal antibodies to
+  CD3, CD4, CD8, and gamma/delta-chains T cell receptor (TCR). RESULTS: The T-lymphocytic
+  inflammatory infiltrate was significantly (p < 0.0001) increased in group B (both
+  compared with group A and with the control group). CONCLUSION: This study confirms
+  the oral cavity to be a site of involvement of CD and its possible diagnostic potentiality
+  in this disease."
+raw_completion_output: |-
+  primary_disease: Celiac disease
+  medical_actions: gluten-free diet; biopsy; immunohistochemical investigation
+  symptoms: T-lymphocytic inflammatory infiltrate
+  chemicals: CD3; CD4; CD8; gamma/delta-chains T cell receptor (TCR)
+  action_annotation_relationships: gluten-free diet PREVENTS T-lymphocytic inflammatory infiltrate IN Celiac disease; biopsy (with CD3) TREATS Celiac disease; biopsy (with CD4) TREATS Celiac disease; biopsy (with CD8) TREATS Celiac disease; biopsy (with gamma/delta-chains T cell receptor (TCR)) TREATS Celiac disease; immunohistochemical investigation TREATS Celiac disease
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  immunohistochemical investigation TREATS Celiac disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005130
+  medical_actions:
+    - gluten-free diet
+    - biopsy
+    - immunohistochemical investigation
+  symptoms:
+    - T-lymphocytic inflammatory infiltrate
+  chemicals:
+    - CD3
+    - CD4
+    - CD8
+    - gamma/delta-chains T cell receptor (TCR)
+  action_annotation_relationships:
+    - subject: gluten-free diet
+      predicate: PREVENTS
+      object: T-lymphocytic inflammatory infiltrate
+      qualifier: MONDO:0005130
+      subject_extension: gluten-free diet
+    - subject: biopsy
+      predicate: TREATS
+      object: HP:0002608
+      subject_qualifier: with CD3
+    - subject: biopsy
+      predicate: TREATS
+      object: HP:0002608
+      subject_qualifier: with CD4
+    - subject: biopsy
+      predicate: TREATS
+      object: HP:0002608
+      subject_qualifier: with CD8
+    - subject: <biopsy>
+      predicate: <TREATS>
+      object: <Celiac disease>
+      qualifier: <>
+      subject_qualifier: <with gamma/delta-chains T cell receptor (TCR)>
+      object_qualifier: <>
+      subject_extension: <gamma/delta-chains T cell receptor (TCR)>
+      object_extension: <>
+    - subject: immunohistochemical investigation
+      predicate: TREATS
+      object: HP:0002608
+named_entities:
+  - id: MONDO:0044092
+    label: Collagenous sprue
+  - id: HP:0002014
+    label: diarrhea
+  - id: CHEBI:50858
+    label: corticosteroids
+  - id: HP:0004395
+    label: malnutrition
+  - id: MONDO:0005130
+    label: Celiac disease
+  - id: HP:0000870
+    label: Hyperprolactinemia
+  - id: CHEBI:81580
+    label: Prolactin (PRL)
+  - id: HP:0000938
+    label: Bone loss
+  - id: CHEBI:22984
+    label: Calcium
+  - id: CHEBI:27300
+    label: Vitamin D
+  - id: HP:0001369
+    label: Arthritis
+  - id: HP:0002608
+    label: Celiac Disease
+  - id: MONDO:0019473
+    label: Enteropathy-associated T-cell lymphoma (EATL)
+  - id: HP:0002242
+    label: enteropathy
+  - id: HP:0012378
+    label: fatigue
+  - id: HP:0002039
+    label: anorexia
+  - id: HP:0000823
+    label: delayed puberty
+  - id: HP:0004322
+    label: short stature
+  - id: HP:0000789
+    label: infertility
+  - id: MONDO:0016063
+    label: Celiac Disease (CD)
+  - id: MAXO:0000058
+    label: pharmacological treatment
+  - id: HP:0002027
+    label: abdominal pain
+  - id: HP:0003270
+    label: bloating
+  - id: HP:0001903
+    label: anemia
+  - id: MAXO:0000088
+    label: diet

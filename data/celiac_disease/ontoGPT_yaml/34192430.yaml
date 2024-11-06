@@ -1,0 +1,219 @@
+---
+input_text: 'A Randomized Trial of a Transglutaminase 2 Inhibitor for Celiac Disease.
+  BACKGROUND: In celiac disease, small intestinal transglutaminase 2 causes deamidation
+  of glutamine residues in gluten peptides, which enhances stimulation of T cells
+  and leads to mucosal injury. Inhibition of transglutaminase 2 is a potential treatment
+  for celiac disease. METHODS: In a proof-of-concept trial, we assessed the efficacy
+  and safety of a 6-week treatment with ZED1227, a selective oral transglutaminase
+  2 inhibitor, at three dose levels as compared with placebo, in adults with well-controlled
+  celiac disease who underwent a daily gluten challenge. The primary end point was
+  the attenuation of gluten-induced mucosal damage, as measured by the ratio of villus
+  height to crypt depth. Secondary end points included intraepithelial lymphocyte
+  density, the Celiac Symptom Index score, and the Celiac Disease Questionnaire score
+  (for assessment of health-related quality of life). RESULTS: Of the 41 patients
+  assigned to the 10-mg ZED1227 group, the 41 assigned to the 50-mg group, the 41
+  assigned to the 100-mg group, and the 40 assigned to the placebo group, 35, 39,
+  38, and 30 patients, respectively, had adequate duodenal-biopsy samples for the
+  assessment of the primary end point. Treatment with ZED1227 at all three dose levels
+  attenuated gluten-induced duodenal mucosal injury. The estimated difference from
+  placebo in the change in the mean ratio of villus height to crypt depth from baseline
+  to week 6 was 0.44 (95% confidence interval [CI], 0.15 to 0.73) in the 10-mg group
+  (P = 0.001), 0.49 (95% CI, 0.20 to 0.77) in the 50-mg group (P<0.001), and 0.48
+  (95% CI, 0.20 to 0.77) in the 100-mg group (P<0.001). The estimated differences
+  from placebo in the change in intraepithelial lymphocyte density were -2.7 cells
+  per 100 epithelial cells (95% CI, -7.6 to 2.2) in the 10-mg group, -4.2 cells per
+  100 epithelial cells (95% CI, -8.9 to 0.6) in the 50-mg group, and -9.6 cells per
+  100 epithelial cells (95% CI, -14.4 to -4.8) in the 100-mg group. Use of the 100-mg
+  dose may have improved symptom and quality-of-life scores. The most common adverse
+  events, the incidences of which were similar across all groups, were headache, nausea,
+  diarrhea, vomiting, and abdominal pain. Rash developed in 3 of 40 patients (8%)
+  in the 100-mg group. CONCLUSIONS: In this preliminary trial, treatment with ZED1227
+  attenuated gluten-induced duodenal mucosal damage in patients with celiac disease.
+  (Funded by Dr. Falk Pharma; CEC-3 EudraCT number, 2017-002241-30.).'
+raw_completion_output: |-
+  primary_disease: Celiac Disease
+  medical_actions: Treatment with ZED1227;Inhibition of transglutaminase 2;Daily gluten challenge;Assessment of duodenal-biopsy samples
+  symptoms: Gluten-induced duodenal mucosal injury;Increased intraepithelial lymphocyte density;Headache;Nausea;Diarrhea;Vomiting;Abdominal pain;Rash
+  chemicals: ZED1227;Gluten
+  action_annotation_relationships: Treatment with ZED1227 TREATS Gluten-induced duodenal mucosal injury IN Celiac Disease;Inhibition of transglutaminase 2 TREATS Gluten-induced duodenal mucosal injury IN Celiac Disease;Treatment with ZED1227 TREATS Increased intraepithelial lymphocyte density IN Celiac Disease;Daily gluten challenge PREVENTS Well-controlled celiac disease STATE IN Celiac Disease;Treatment with ZED1227 (with Gluten) PREVENTS Gluten-induced duodenal mucosal injury IN Celiac Disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Treatment with ZED1227 (with Gluten) PREVENTS Gluten-induced duodenal mucosal injury IN Celiac Disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005130
+  medical_actions:
+    - Treatment with ZED1227
+    - Inhibition of transglutaminase 2
+    - Daily gluten challenge
+    - Assessment of duodenal-biopsy samples
+  symptoms:
+    - Gluten-induced duodenal mucosal injury
+    - Increased intraepithelial lymphocyte density
+    - HP:0002315
+    - HP:0002018
+    - HP:0002014
+    - HP:0002013
+    - HP:0002027
+    - HP:0000988
+  chemicals:
+    - ZED1227
+    - Gluten
+  action_annotation_relationships:
+    - subject: Treatment
+      predicate: TREATS
+      object: duodenal mucosal injury
+      qualifier: MONDO:0005130
+      subject_extension: ZED1227
+      object_extension: Gluten-induced
+    - subject: Inhibition of transglutaminase 2
+      predicate: TREATS
+      object: Gluten-induced duodenal mucosal injury
+      qualifier: MONDO:0005130
+      subject_extension: transglutaminase 2
+    - subject: Treatment
+      predicate: TREATS
+      object: Increased intraepithelial lymphocyte density
+      qualifier: MONDO:0005130
+      subject_qualifier: with ZED1227
+      subject_extension: ZED1227
+    - subject: Daily gluten challenge
+      predicate: PREVENTS
+      object: HP:0002608
+      qualifier: MONDO:0005130
+      subject_qualifier: Daily
+      object_qualifier: Well-controlled
+      subject_extension: gluten challenge
+      object_extension: Well-controlled
+    - subject: Treatment
+      predicate: PREVENTS
+      object: duodenal mucosal injury
+      qualifier: MONDO:0005130
+      subject_qualifier: with Gluten
+      subject_extension: ZED1227
+      object_extension: Gluten-induced
+named_entities:
+  - id: MONDO:0005130
+    label: Celiac Disease
+  - id: HP:0011473
+    label: villous atrophy
+  - id: MAXO:0000088
+    label: diet
+  - id: HP:0002014
+    label: diarrhea
+  - id: HP:0001903
+    label: anemia
+  - id: HP:0000939
+    label: osteoporosis
+  - id: HP:0002608
+    label: Celiac Disease
+  - id: MAXO:0010200
+    label: Abdominal ultrasonography
+  - id: HP:0003270
+    label: Abdominal distension
+  - id: HP:0002748
+    label: Rickets
+  - id: HP:0002576
+    label: intussusception
+  - id: CHEBI:72716
+    label: TG2 inhibitors
+  - id: MAXO:0000130
+    label: endoscopy
+  - id: MONDO:0016063
+    label: Celiac disease (CD)
+  - id: CHEBI:73291
+    label: Anti-deamidated gliadin peptides (DGP)
+  - id: HP:0011107
+    label: Aphthous stomatitis
+  - id: HP:0002019
+    label: Constipation
+  - id: HP:0002020
+    label: Gastroesophageal reflux disease
+  - id: CHEBI:18163
+    label: GD1a
+  - id: CHEBI:28175
+    label: GD1b
+  - id: CHEBI:28424
+    label: GD3
+  - id: CHEBI:27691
+    label: GT1a
+  - id: CHEBI:28058
+    label: GT1b
+  - id: CHEBI:27515
+    label: GQ1b
+  - id: CHEBI:8382
+    label: prednisone
+  - id: CHEBI:2948
+    label: azathioprine
+  - id: CHEBI:4031
+    label: cyclosporine
+  - id: HP:0410281
+    label: Indigestion
+  - id: HP:0002027
+    label: Abdominal pain
+  - id: HP:0025502
+    label: overweight
+  - id: HP:0001513
+    label: obesity
+  - id: MONDO:0018353
+    label: Refractory Celiac Disease (RCD)
+  - id: MAXO:0000757
+    label: Infusions
+  - id: HP:0000739
+    label: anxiety
+  - id: HP:0002315
+    label: Headache
+  - id: HP:0100785
+    label: Insomnia
+  - id: HP:0004396
+    label: Loss of appetite
+  - id: CHEBI:63623
+    label: Dimercaptosuccinic acid
+  - id: CHEBI:25140
+    label: Maltodextrin
+  - id: CHEBI:27300
+    label: Vitamin D
+  - id: CHEBI:22984
+    label: Calcium
+  - id: MAXO:0001610
+    label: Transcranial Magnetic Stimulation
+  - id: CHEBI:29987
+    label: glutamate
+  - id: HP:0000988
+    label: Rash
+  - id: MONDO:0009032
+    label: Celiac disease (CeD)
+  - id: HP:0002013
+    label: vomiting
+  - id: HP:0002024
+    label: malabsorption
+  - id: CHEBI:48416
+    label: Olmesartan
+  - id: CHEBI:35457
+    label: ACE inhibitors (ACEIs)
+  - id: MAXO:0000824
+    label: Hemoglobin measurement
+  - id: HP:0002102
+    label: pleurisy
+  - id: HP:0001701
+    label: pericarditis
+  - id: HP:0001541
+    label: ascites
+  - id: HP:0000238
+    label: hydrocephalus
+  - id: HP:0002018
+    label: Nausea

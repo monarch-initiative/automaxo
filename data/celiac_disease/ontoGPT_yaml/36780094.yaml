@@ -1,0 +1,128 @@
+---
+input_text: 'Patterns of practice in the diagnosis, dietary counselling and follow-up
+  of patients with celiac disease- A patient-based survey. BACKGROUND: The pattern
+  of practice regarding the diagnosis, dietary counselling and follow-up of patients
+  with celiac disease (CeD) varies between practice to practice. METHODS: A web-based
+  questionnaire based on review of literature, group discussions and expert group
+  meetings was developed to understand the practice of CeD in India. The questionnaire
+  was administered through social media (WhatsApp) to 18 Indian celiac support groups
+  comprising 2980 patients with CeD. RESULTS: Overall, 970 (32.5%) patients responded
+  to the questionnaire (median age: 21 years; females 63.9%). While 679 (71.1%) patients
+  were diagnosed based on a combination of serology and biopsy, 214 (22.4%) were diagnosed
+  based on serology alone. After diagnosis, 875 (91%) patients were counselled initially
+  by physician and only 585 (61%) were referred to a dietician for dietary counselling.
+  In a majority of cases, the time spent by doctors and dietitians during first counselling
+  was between 10 and 20 minutes only. After first counselling, 191 (20%) and 355 (37.3%)
+  patients did not re-visit the physician and the dietitian, respectively. Among those
+  who followed up, structured follow-up was conducted in only 515 (53.8%) patients.
+  Overall, 232 (24.3%) patients were self-monitoring their serological parameters,
+  while 495 (51.8%) patients did not receive a formal assessment of dietary adherence
+  during follow-up. CONCLUSION: The practice of diagnosis, dietary counselling and
+  follow-up of patients with CeD in India is not as per standard guidelines. Most
+  of the patients are not referred to a dietitian. There is a need for reinforcement
+  of guidelines for proper care and management of patients with CeD.'
+raw_completion_output: |-
+  primary_disease: Celiac Disease (CeD)
+
+  medical_actions: Diagnosis based on a combination of serology and biopsy; Diagnosis based on serology alone; Dietary counselling by physician; Referral to a dietician for dietary counselling; Self-monitoring of serological parameters; Formal assessment of dietary adherence
+
+  symptoms: Not directly mentioned
+
+  chemicals: Not mentioned
+
+  action_annotation_relationships: Diagnosis based on a combination of serology and biopsy TREATS Celiac Disease (CeD); Diagnosis based on serology alone TREATS Celiac Disease (CeD); Dietary counselling by physician PREVENTS complications IN Celiac Disease (CeD); Referral to a dietician for dietary counselling PREVENTS complications IN Celiac Disease (CeD); Self-monitoring of serological parameters ENABLES management IN Celiac Disease (CeD); Formal assessment of dietary adherence ENABLES management IN Celiac Disease (CeD)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Formal assessment of dietary adherence ENABLES management IN Celiac Disease (CeD)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009032
+  medical_actions:
+    - Diagnosis based on a combination of serology and biopsy
+    - Diagnosis based on serology alone
+    - Dietary counselling by physician
+    - Referral to a dietician for dietary counselling
+    - Self-monitoring of serological parameters
+    - Formal assessment of dietary adherence
+  symptoms:
+    - Not directly mentioned
+  chemicals:
+    - Not mentioned
+  action_annotation_relationships:
+    - subject: Diagnosis based on a combination of serology and biopsy
+      predicate: TREATS
+      object: HP:0100252
+    - subject: <Diagnosis>
+      predicate: <TREATS>
+      object: HP:0100252
+      subject_qualifier: <based on serology alone>
+      subject_extension: <serology>
+    - subject: Dietary counselling by physician
+      predicate: PREVENTS
+      object: complications
+      qualifier: MONDO:0009032
+    - subject: Referral to a dietician for dietary counselling
+      predicate: PREVENTS
+      object: complications
+      qualifier: MONDO:0009032
+    - subject: Self-monitoring of serological parameters
+      predicate: ENABLES
+      object: management
+      qualifier: MONDO:0009032
+    - subject: Formal assessment of dietary adherence
+      predicate: ENABLES
+      object: management
+      qualifier: MONDO:0009032
+named_entities:
+  - id: HP:0001251
+    label: ataxia
+  - id: CHEBI:21547
+    label: N-acetylaspartate (NAA)
+  - id: CHEBI:157802
+    label: creatine (Cr)
+  - id: MONDO:0005130
+    label: Celiac disease
+  - id: HP:0001394
+    label: Cirrhosis
+  - id: HP:0002608
+    label: Celiac disease
+  - id: MONDO:0005340
+    label: Alopecia areata
+  - id: HP:0001596
+    label: Hair loss
+  - id: HP:0002014
+    label: Diarrhea
+  - id: HP:0002027
+    label: Abdominal pain
+  - id: HP:0012378
+    label: Fatigue
+  - id: HP:0011473
+    label: Villous atrophy
+  - id: CHEBI:3207
+    label: Budesonide
+  - id: HP:0000951
+    label: skin abnormalities
+  - id: HP:0001595
+    label: hair abnormalities
+  - id: HP:0000112
+    label: kidney diseases
+  - id: MAXO:0000088
+    label: Diet
+  - id: MONDO:0009032
+    label: Celiac Disease (CeD)
+  - id: HP:0100252
+    label: Celiac Disease (CeD)

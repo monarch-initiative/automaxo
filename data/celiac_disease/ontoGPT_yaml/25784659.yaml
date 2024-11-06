@@ -1,0 +1,108 @@
+---
+input_text: 'High rate of spontaneous normalization of celiac serology in a cohort
+  of 446 children with type 1 diabetes: a prospective study. OBJECTIVE: In children
+  with type 1 diabetes mellitus (T1DM), elevated levels of antitissue transglutaminase
+  (anti-tTG) antibody may spontaneously normalize, despite continued consumption of
+  gluten. We aimed to investigate the prevalence of spontaneous normalization of anti-tTG
+  levels and the existence of factors predictive for this outcome. RESEARCH DESIGN
+  AND METHODS: All children referred from 2002 to 2012 were screened for celiac disease
+  (CD) at diabetes onset and at specific intervals. In the presence of a high anti-tTG
+  titer or clinical symptoms, children were offered endoscopy, and asymptomatic patients
+  with a low anti-tTG titer were invited to a second serological test after 6 months
+  of eating a gluten-containing diet. RESULTS: The study included 446 children. Of
+  these, 65 (14.5%) became positive for celiac serology: 38 (58%) had a persistently
+  elevated anti-tTG titer and 27 (41%) fluctuating anti-tTG titer; 18 (28%) became
+  negative. The prevalence of positive CD autoimmunity and overt CD was 14.3% (95%
+  CI 11-17) and 8.5% (95% CI 5-10), 15- and 8-times higher than the general pediatric
+  population, respectively. Asymptomatic children older than 9.1 years at T1DM onset
+  had the lowest risk to develop CD. CONCLUSIONS: Serum anti-tTG levels decreased
+  spontaneously in 40% of children with T1DM and became negative in 20%, despite gluten
+  consumption. This finding supports the hypothesis of a state of temporary positivity
+  of celiac serology in children with diabetes. In absence of clinical symptoms or
+  signs of CD, histological confirmation of the disease and the gluten-free diet should
+  be postponed to avoid unnecessary procedures and reduce an additional psychological
+  burden.'
+raw_completion_output: |-
+  primary_disease: celiac disease
+  medical_actions: screening for celiac disease; endoscopy; serological test; gluten-free diet
+  symptoms: elevated levels of antitissue transglutaminase antibody
+  chemicals: antitissue transglutaminase (anti-tTG) antibody
+  action_annotation_relationships: screening for celiac disease PREVENTS elevated levels of antitissue transglutaminase antibody IN celiac disease; endoscopy TREATS elevated levels of antitissue transglutaminase antibody IN celiac disease; serological test TREATS elevated levels of antitissue transglutaminase antibody IN celiac disease; gluten-free diet PREVENTS elevated levels of antitissue transglutaminase antibody IN celiac disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  gluten-free diet PREVENTS elevated levels of antitissue transglutaminase antibody IN celiac disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005130
+  medical_actions:
+    - screening for celiac disease
+    - MAXO:0000130
+    - serological test
+    - gluten-free diet
+  symptoms:
+    - elevated levels of antitissue transglutaminase antibody
+  chemicals:
+    - antitissue transglutaminase (anti-tTG) antibody
+  action_annotation_relationships:
+    - subject: screening for celiac disease
+      predicate: PREVENTS
+      object: elevated levels of antitissue transglutaminase antibody
+      qualifier: MONDO:0005130
+    - subject: MAXO:0000130
+      predicate: TREATS
+      object: elevated levels of antitissue transglutaminase antibody
+      qualifier: MONDO:0005130
+    - subject: <serological test>
+      predicate: <TREATS>
+      object: <elevated levels of antitissue transglutaminase antibody>
+      qualifier: <celiac disease>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: gluten-free diet
+      predicate: PREVENTS
+      object: elevated levels of antitissue transglutaminase antibody
+      qualifier: MONDO:0005130
+      subject_extension: gluten-free diet
+named_entities:
+  - id: MONDO:0005130
+    label: Celiac Disease
+  - id: HP:0011473
+    label: villous atrophy
+  - id: MAXO:0000088
+    label: diet
+  - id: HP:0002014
+    label: diarrhea
+  - id: HP:0001903
+    label: anemia
+  - id: HP:0000939
+    label: osteoporosis
+  - id: HP:0002608
+    label: Celiac Disease
+  - id: MAXO:0010200
+    label: Abdominal ultrasonography
+  - id: HP:0003270
+    label: Abdominal distension
+  - id: HP:0002748
+    label: Rickets
+  - id: HP:0002576
+    label: intussusception
+  - id: CHEBI:72716
+    label: TG2 inhibitors
+  - id: MAXO:0000130
+    label: endoscopy

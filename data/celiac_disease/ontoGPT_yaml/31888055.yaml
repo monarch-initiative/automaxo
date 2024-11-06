@@ -1,0 +1,108 @@
+---
+input_text: 'Celiac Disease: A Common Unrecognized Health Problem with a Very Delayed
+  Diagnosis. Celiac disease (CD) is a clinical entity of autoimmune nature, related
+  to the presence of a permanent gluten intolerance that affects genetically predisposed
+  individuals, producing a chronic inflammation process that usually occurs in the
+  small bowel [...].'
+raw_completion_output: |-
+  primary_disease: Celiac Disease
+  medical_actions: 
+  symptoms: chronic inflammation
+  chemicals: gluten
+  action_annotation_relationships: gluten PREVENTS chronic inflammation IN Celiac Disease
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  gluten PREVENTS chronic inflammation IN Celiac Disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005130
+  symptoms:
+    - chronic inflammation
+  chemicals:
+    - gluten
+  action_annotation_relationships:
+    - predicate: PREVENTS
+      object: chronic inflammation
+      qualifier: MONDO:0005130
+      subject_extension: gluten
+named_entities:
+  - id: HP:0001251
+    label: ataxia
+  - id: CHEBI:21547
+    label: N-acetylaspartate (NAA)
+  - id: CHEBI:157802
+    label: creatine (Cr)
+  - id: MONDO:0005130
+    label: Celiac disease
+  - id: HP:0001394
+    label: Cirrhosis
+  - id: HP:0002608
+    label: Celiac disease
+  - id: MONDO:0005340
+    label: Alopecia areata
+  - id: HP:0001596
+    label: Hair loss
+  - id: HP:0002014
+    label: Diarrhea
+  - id: HP:0002027
+    label: Abdominal pain
+  - id: HP:0012378
+    label: Fatigue
+  - id: HP:0011473
+    label: Villous atrophy
+  - id: CHEBI:3207
+    label: Budesonide
+  - id: HP:0000951
+    label: skin abnormalities
+  - id: HP:0001595
+    label: hair abnormalities
+  - id: HP:0000112
+    label: kidney diseases
+  - id: MAXO:0000088
+    label: Diet
+  - id: MONDO:0009032
+    label: Celiac Disease (CeD)
+  - id: HP:0100252
+    label: Celiac Disease (CeD)
+  - id: CHEBI:18332
+    label: T4
+  - id: CHEBI:30660
+    label: thyroxine
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0002028
+    label: recurrent diarrhea
+  - id: HP:0001824
+    label: weight loss
+  - id: HP:0001891
+    label: iron deficiency anemia
+  - id: CHEBI:6909
+    label: metronidazole
+  - id: MAXO:0001017
+    label: Vaccination
+  - id: HP:0002242
+    label: Enteropathy
+  - id: MONDO:0400005
+    label: Refeeding syndrome
+  - id: HP:0003111
+    label: Electrolyte disturbances
+  - id: HP:0000713
+    label: Psychomotor agitation
+  - id: HP:0002098
+    label: Respiratory distress
+  - id: HP:0030149
+    label: Cardiogenic shock

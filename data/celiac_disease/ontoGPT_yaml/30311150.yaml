@@ -1,0 +1,87 @@
+---
+input_text: 'Ultra-short Celiac Disease Is a Distinct and Milder Phenotype of the
+  Disease in Children. BACKGROUND AND AIMS: Approximately 10% of children with celiac
+  disease (CD) have ultra-short celiac disease (USCD), where histological abnormalities
+  are limited to the duodenal bulb. The aim of our retrospective study was to identify
+  clinical and serological characteristics at baseline and at follow-up of children
+  with USCD. METHODS: All children that were diagnosed with CD in our unit during
+  7/2010-12/2017, in whom biopsies were taken from duodenal bulb and second part,
+  were included. We compared disease characteristics and course between children with
+  USCD and children with involvement in the second part of the duodenum. RESULTS:
+  Out of 3740 children who underwent upper gastrointestinal endoscopies, 648 were
+  diagnosed with CD. Seventy-one (11%) of those children had limited involvement in
+  the duodenal bulb. The USCD group included more females (P = 0.021), were older
+  (P = 0.005), had a lower prevalence of diarrhea (P = 0.003), anemia (P = 0.007),
+  anti-tissue transglutaminase (TTG) antibodies count (P < 0.001) at presentation,
+  lower frequency of endoscopic abnormality, lower Marsh score, and a trend toward
+  shorter time to the normalization of anti-TTG antibodies under a gluten-free diet
+  compared to the extensive CD. There were no differences in body mass index or duration
+  of symptoms before diagnosis. CONCLUSION: Children with USCD presented with a distinct
+  phenotype of milder symptoms, lower celiac serology, and milder endoscopic and histological
+  findings, with a trend toward faster normalization under a gluten-free diet compared
+  to those with extensive CD. Further studies are needed to determine the long-term
+  course and prognosis of USCD.'
+raw_completion_output: |-
+  primary_disease: Ultra-short Celiac Disease (USCD)
+
+  medical_actions: gluten-free diet
+
+  symptoms: diarrhea; anemia
+
+  chemicals: anti-tissue transglutaminase (TTG) antibodies
+
+  action_annotation_relationships: gluten-free diet TREATS diarrhea IN Ultra-short Celiac Disease (USCD); gluten-free diet TREATS anemia IN Ultra-short Celiac Disease (USCD); gluten-free diet TREATS high levels of anti-tissue transglutaminase (TTG) antibodies IN Ultra-short Celiac Disease (USCD)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  gluten-free diet TREATS high levels of anti-tissue transglutaminase (TTG) antibodies IN Ultra-short Celiac Disease (USCD)
+
+  ===
+
+extracted_object:
+  primary_disease: Ultra-short Celiac Disease (USCD)
+  medical_actions:
+    - gluten-free diet
+  symptoms:
+    - HP:0002014
+    - HP:0001903
+  chemicals:
+    - anti-tissue transglutaminase (TTG) antibodies
+  action_annotation_relationships:
+    - subject: gluten-free diet
+      predicate: TREATS
+      object: HP:0002014
+      qualifier: Ultra-short Celiac Disease (USCD)
+      subject_extension: gluten-free diet
+    - subject: gluten-free diet
+      predicate: TREATS
+      object: HP:0001903
+      qualifier: Ultra-short Celiac Disease (USCD)
+      subject_extension: gluten-free diet
+    - subject: gluten-free diet
+      predicate: TREATS
+      object: high levels of anti-tissue transglutaminase (TTG) antibodies
+      qualifier: Ultra-short Celiac Disease (USCD)
+      subject_extension: gluten-free diet
+named_entities:
+  - id: MONDO:0005130
+    label: Celiac Disease
+  - id: HP:0011473
+    label: villous atrophy
+  - id: MAXO:0000088
+    label: diet
+  - id: HP:0002014
+    label: diarrhea
+  - id: HP:0001903
+    label: anemia

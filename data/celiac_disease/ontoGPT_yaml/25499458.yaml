@@ -1,0 +1,149 @@
+---
+input_text: 'Celiac disease: an immune dysregulation syndrome. Celiac disease is a
+  chronic immune-mediated condition that develops in genetically predisposed individuals.
+  It is characterized by the presence of circulating auto-antibodies in addition to
+  an enteropathy and at times, other extra-intestinal manifestations triggered by
+  exposure to the gliadin fraction of gluten, a family of proteins found in wheat,
+  barley, and rye. There seems to be a rise in reported adverse reactions to gluten,
+  an entity currently termed non-celiac gluten (or perhaps more accurately, wheat)
+  sensitivity, where neither the enteropathy nor the auto-antibodies are present.
+  Celiac disease has protean extra-intestinal manifestations, and an accurate diagnosis
+  should be sought in people suffering from seemingly unrelated complaints, such as
+  fatigue, anorexia, delayed puberty, short stature, decreased bone density, unusual
+  skin rashes, unexplained iron deficiency, and infertility. The presence of an enteropathy,
+  in conjunction with the positive serology, is considered the diagnostic gold standard
+  for making the diagnosis of celiac disease. It is important to stress that the elimination
+  of gluten, even in asymptomatic patients, brings about health benefits, particularly
+  in relation to bone health, as well as a decrease in the incidence of small bowel
+  malignancy, especially lymphoma. Better understanding of the pathophysiology of
+  celiac disease and the molecular mechanisms involved in antigen recognition and
+  processing has provided the impetus for the development of pharmacologic agents
+  that might block the recognition of gluten and its conversion to a toxic antigenic
+  target. Inhibition of tight junction dysregulation could also prevent or minimize
+  the damage triggered by gluten. Work on genetically modified wheat cultivars has
+  progressed, and the possibility of a vaccine to block the immune mediated trigger
+  is being actively investigated. Education and guidance by a knowledgeable nutritionist
+  or registered dietitian can go a long way in minimizing the stress and facilitating
+  the acceptance of the diet and the life-style changes that it represents. '
+raw_completion_output: |-
+  primary_disease: Celiac disease
+
+  medical_actions: elimination of gluten; pharmacologic agents that might block the recognition of gluten; inhibition of tight junction dysregulation; genetically modified wheat cultivars; vaccine to block the immune mediated trigger; education and guidance by a knowledgeable nutritionist or registered dietitian
+
+  symptoms: circulating auto-antibodies; enteropathy; extra-intestinal manifestations; fatigue; anorexia; delayed puberty; short stature; decreased bone density; unusual skin rashes; unexplained iron deficiency; infertility
+
+  chemicals: gluten
+
+  action_annotation_relationships: elimination of gluten PREVENTS circulating auto-antibodies IN Celiac disease; elimination of gluten PREVENTS enteropathy IN Celiac disease; pharmacologic agents (that might block the recognition of gluten) TREATS circulating auto-antibodies IN Celiac disease; inhibition of tight junction dysregulation TREATS enteropathy IN Celiac disease; vaccine to block the immune mediated trigger PREVENTS circulating auto-antibodies IN Celiac disease; education and guidance by a knowledgeable nutritionist or registered dietitian SUPPORTS management of Celiac disease symptoms IN Celiac disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  education and guidance by a knowledgeable nutritionist or registered dietitian SUPPORTS management of Celiac disease symptoms IN Celiac disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005130
+  medical_actions:
+    - elimination of gluten
+    - pharmacologic agents that might block the recognition of gluten
+    - inhibition of tight junction dysregulation
+    - genetically modified wheat cultivars
+    - vaccine to block the immune mediated trigger
+    - education and guidance by a knowledgeable nutritionist or registered dietitian
+  symptoms:
+    - circulating auto-antibodies
+    - HP:0002242
+    - extra-intestinal manifestations
+    - HP:0012378
+    - HP:0002039
+    - HP:0000823
+    - HP:0004322
+    - decreased bone density
+    - unusual skin rashes
+    - unexplained iron deficiency
+    - HP:0000789
+  chemicals:
+    - gluten
+  action_annotation_relationships:
+    - subject: elimination
+      predicate: PREVENTS
+      object: circulating auto-antibodies
+      qualifier: MONDO:0005130
+      subject_extension: gluten
+    - subject: elimination of gluten
+      predicate: PREVENTS
+      object: HP:0002242
+      qualifier: MONDO:0005130
+      subject_extension: gluten
+    - subject: pharmacologic agents
+      predicate: TREATS
+      object: circulating auto-antibodies
+      qualifier: MONDO:0005130
+      subject_qualifier: that might block the recognition of gluten
+      subject_extension: pharmacologic agents
+    - subject: inhibition of tight junction dysregulation
+      predicate: TREATS
+      object: HP:0002242
+      qualifier: MONDO:0005130
+    - subject: vaccine
+      predicate: PREVENTS
+      object: circulating auto-antibodies
+      qualifier: MONDO:0005130
+      object_qualifier: immune mediated trigger
+      subject_extension: vaccine
+    - subject: education and guidance by a knowledgeable nutritionist or registered
+        dietitian
+      predicate: SUPPORTS
+      object: management of Celiac disease symptoms
+      qualifier: MONDO:0005130
+named_entities:
+  - id: MONDO:0044092
+    label: Collagenous sprue
+  - id: HP:0002014
+    label: diarrhea
+  - id: CHEBI:50858
+    label: corticosteroids
+  - id: HP:0004395
+    label: malnutrition
+  - id: MONDO:0005130
+    label: Celiac disease
+  - id: HP:0000870
+    label: Hyperprolactinemia
+  - id: CHEBI:81580
+    label: Prolactin (PRL)
+  - id: HP:0000938
+    label: Bone loss
+  - id: CHEBI:22984
+    label: Calcium
+  - id: CHEBI:27300
+    label: Vitamin D
+  - id: HP:0001369
+    label: Arthritis
+  - id: HP:0002608
+    label: Celiac Disease
+  - id: MONDO:0019473
+    label: Enteropathy-associated T-cell lymphoma (EATL)
+  - id: HP:0002242
+    label: enteropathy
+  - id: HP:0012378
+    label: fatigue
+  - id: HP:0002039
+    label: anorexia
+  - id: HP:0000823
+    label: delayed puberty
+  - id: HP:0004322
+    label: short stature
+  - id: HP:0000789
+    label: infertility

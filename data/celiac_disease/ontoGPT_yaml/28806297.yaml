@@ -1,0 +1,66 @@
+---
+input_text: 'Adherence to a Gluten-free Diet: Assessment by Dietician Interview and
+  Serology. We aimed to determine whether tissue transglutaminase (tTG) autoantibody
+  positivity was associated with dietitian-assessed adherence to a gluten-free diet
+  in pediatric patients with celiac disease and identify areas where adherence falters.
+  We reviewed the records of children with celiac disease who had a standardized evaluation
+  of adherence by a registered dietitian. A negative tTG value was not associated
+  with good adherence (P = NS). Adherent and nonadherent children differed with respect
+  to purposeful and accidental gluten exposure (P < 0.0001), knowledge (P = 0.003),
+  cross-contact (P = 0.003), potential exposure via medications and cosmetics (P =
+  0.004), and potential exposure while at restaurants (P < 0.0001), but not with respect
+  to potential exposure at school (P = NS). Based on our findings, we suggest that
+  negative tTG levels are not necessarily indicative of good adherence to a gluten-free
+  diet in pediatric patients with celiac disease. A separate assessment of adherence
+  is needed focusing on knowledge, behavior while dining out, and intent to adhere.'
+raw_completion_output: |-
+  primary_disease: Celiac disease
+  medical_actions: Assessment by Dietician; Serology
+  symptoms: Tissue transglutaminase (tTG) autoantibody positivity
+  chemicals: 
+  action_annotation_relationships: Assessment by Dietician PREVENTS Tissue transglutaminase (tTG) autoantibody positivity IN Celiac disease; Serology PREVENTS Tissue transglutaminase (tTG) autoantibody positivity IN Celiac disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Serology PREVENTS Tissue transglutaminase (tTG) autoantibody positivity IN Celiac disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005130
+  medical_actions:
+    - Assessment by Dietician
+    - Serology
+  symptoms:
+    - Tissue transglutaminase (tTG) autoantibody positivity
+  action_annotation_relationships:
+    - subject: Assessment by Dietician
+      predicate: PREVENTS
+      object: Tissue transglutaminase (tTG) autoantibody positivity
+      qualifier: MONDO:0005130
+    - subject: <Serology>
+      predicate: <PREVENTS>
+      object: <Tissue transglutaminase (tTG) autoantibody positivity>
+      qualifier: <Celiac disease>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <Serology>
+      object_extension: <Tissue transglutaminase (tTG) autoantibody positivity>
+named_entities:
+  - id: MONDO:0005130
+    label: Celiac Disease
+  - id: HP:0011473
+    label: villous atrophy
+  - id: MAXO:0000088
+    label: diet

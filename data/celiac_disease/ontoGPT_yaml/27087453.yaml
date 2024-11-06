@@ -1,0 +1,158 @@
+---
+input_text: "A Refractory Celiac Patient Successfully Treated With Mesenchymal Stem
+  Cell Infusions. Type II refractory celiac disease (RCD), as defined according to
+  the amount of aberrant intraepithelial lymphocytes, is a condition characterized
+  by severe malabsorption syndrome and poor prognosis, with no effective treatment.
+  Based on the regenerative and immunomodulatory properties of mesenchymal stem cells
+  (MSCs), we investigated the feasibility, safety, and efficacy of serial infusions
+  of autologous bone marrow-derived MSCs in a 51-year-old woman with type II RCD.
+  Mesenchymal stem cells were isolated, expanded, and characterized following standard
+  protocols. Monitoring of the patient's malabsorption indexes, mucosal architecture,
+  and percentage of aberrant intraepithelial lymphocytes was scheduled for the time
+  of enrollment, at each infusion, and after 6 months. Determination of mucosal expression
+  of interleukin (IL)-15 and its receptor was also performed. Expansion of MSCs was
+  feasible, and the patient underwent 4 systemic infusions of 2 x 10(6) MSCs/kg body
+  weight 4 months apart, without adverse effects. During the treatment period, she
+  experienced gradual and durable amelioration of her general condition, with normalization
+  of stool frequency, body mass index, laboratory test results, and mucosal architecture.
+  Remarkably, the expression of IL-15 and its receptor almost completely disappeared.
+  Thus, treatment of RCD with serial MSC infusions seems promising, leading to recovery
+  from the life-threatening condition while blocking the IL-15 pathogenic pathway. "
+raw_completion_output: |-
+  primary_disease: Refractory Celiac Disease (RCD)
+
+  medical_actions: Mesenchymal Stem Cell Infusions; Monitoring of malabsorption indexes, mucosal architecture, and percentage of aberrant intraepithelial lymphocytes; Determination of mucosal expression of interleukin-15 and its receptor
+
+  symptoms: Severe malabsorption syndrome; Poor prognosis
+
+  chemicals: Mesenchymal Stem Cells; Interleukin-15
+
+  action_annotation_relationships: Mesenchymal Stem Cell Infusions TREATS Severe malabsorption syndrome IN Refractory Celiac Disease (RCD); Mesenchymal Stem Cell Infusions TREATS Poor prognosis IN Refractory Celiac Disease (RCD); Monitoring of malabsorption indexes, mucosal architecture, and percentage of aberrant intraepithelial lymphocytes PREVENTS Severe malabsorption syndrome IN Refractory Celiac Disease (RCD); Determination of mucosal expression of interleukin-15 and its receptor TREATS Severe malabsorption syndrome IN Refractory Celiac Disease (RCD); Mesenchymal Stem Cell Infusions (with Mesenchymal Stem Cells) BLOCKS IL-15 pathogenic pathway IN Refractory Celiac Disease (RCD)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Mesenchymal Stem Cell Infusions (with Mesenchymal Stem Cells) BLOCKS IL-15 pathogenic pathway IN Refractory Celiac Disease (RCD)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0018353
+  medical_actions:
+    - Mesenchymal Stem Cell Infusions
+    - Monitoring of malabsorption indexes, mucosal architecture, and percentage of
+      aberrant intraepithelial lymphocytes
+    - Determination of mucosal expression of interleukin-15 and its receptor
+  symptoms:
+    - Severe malabsorption syndrome
+    - Poor prognosis
+  chemicals:
+    - Mesenchymal Stem Cells
+    - Interleukin-15
+  action_annotation_relationships:
+    - subject: Mesenchymal Stem Cell Infusions
+      predicate: TREATS
+      object: Severe malabsorption syndrome
+      qualifier: MONDO:0018353
+      object_qualifier: Severe
+    - subject: MAXO:0000757
+      predicate: TREATS
+      object: Poor prognosis
+      qualifier: MONDO:0018353
+      subject_extension: Mesenchymal Stem Cell
+    - subject: Monitoring of malabsorption indexes, mucosal architecture, and percentage
+        of aberrant intraepithelial lymphocytes
+      predicate: PREVENTS
+      object: Severe malabsorption syndrome
+      qualifier: MONDO:0018353
+      object_qualifier: Severe
+    - subject: Determination of mucosal expression
+      predicate: TREATS
+      object: Severe malabsorption syndrome
+      qualifier: MONDO:0018353
+      object_qualifier: Severe
+      subject_extension: interleukin-15 and its receptor
+    - subject: Mesenchymal Stem Cell Infusions
+      predicate: BLOCKS
+      object: IL-15 pathogenic pathway
+      qualifier: MONDO:0018353
+      subject_qualifier: with Mesenchymal Stem Cells
+      subject_extension: Mesenchymal Stem Cells
+      object_extension: IL-15 pathogenic pathway
+named_entities:
+  - id: MONDO:0005130
+    label: Celiac Disease
+  - id: HP:0011473
+    label: villous atrophy
+  - id: MAXO:0000088
+    label: diet
+  - id: HP:0002014
+    label: diarrhea
+  - id: HP:0001903
+    label: anemia
+  - id: HP:0000939
+    label: osteoporosis
+  - id: HP:0002608
+    label: Celiac Disease
+  - id: MAXO:0010200
+    label: Abdominal ultrasonography
+  - id: HP:0003270
+    label: Abdominal distension
+  - id: HP:0002748
+    label: Rickets
+  - id: HP:0002576
+    label: intussusception
+  - id: CHEBI:72716
+    label: TG2 inhibitors
+  - id: MAXO:0000130
+    label: endoscopy
+  - id: MONDO:0016063
+    label: Celiac disease (CD)
+  - id: CHEBI:73291
+    label: Anti-deamidated gliadin peptides (DGP)
+  - id: HP:0011107
+    label: Aphthous stomatitis
+  - id: HP:0002019
+    label: Constipation
+  - id: HP:0002020
+    label: Gastroesophageal reflux disease
+  - id: CHEBI:18163
+    label: GD1a
+  - id: CHEBI:28175
+    label: GD1b
+  - id: CHEBI:28424
+    label: GD3
+  - id: CHEBI:27691
+    label: GT1a
+  - id: CHEBI:28058
+    label: GT1b
+  - id: CHEBI:27515
+    label: GQ1b
+  - id: CHEBI:8382
+    label: prednisone
+  - id: CHEBI:2948
+    label: azathioprine
+  - id: CHEBI:4031
+    label: cyclosporine
+  - id: HP:0410281
+    label: Indigestion
+  - id: HP:0002027
+    label: Abdominal pain
+  - id: HP:0025502
+    label: overweight
+  - id: HP:0001513
+    label: obesity
+  - id: MONDO:0018353
+    label: Refractory Celiac Disease (RCD)
+  - id: MAXO:0000757
+    label: Infusions

@@ -1,0 +1,126 @@
+---
+input_text: 'Celiac disease diagnosis and management: a 46-year-old woman with anemia.
+  Celiac disease is one of the most prevalent autoimmune gastrointestinal disorders,
+  but as the case of Ms J illustrates, diagnosis is often delayed or missed. Based
+  on serologic studies, the prevalence of celiac disease in many populations is estimated
+  to be approximately 1% and has been increasing steadily over the last 50 years.
+  Evaluation for celiac disease is generally straightforward and uses commonly available
+  serologic tests; however, the signs and symptoms of celiac disease are nonspecific
+  and highly heterogeneous, making diagnosis difficult. Although celiac disease is
+  often considered a mild disorder treatable with simple dietary changes, in reality
+  celiac disease imparts considerable risks, including reduced bone mineral density,
+  impaired quality of life, and increased overall mortality. In addition, a gluten-free
+  diet is highly burdensome and can profoundly affect patients and their families.
+  For these reasons, care of individuals with celiac disease requires prompt diagnosis
+  and ongoing multidisciplinary management.'
+raw_completion_output: |-
+  primary_disease: Celiac disease
+
+  medical_actions: Evaluation for celiac disease; gluten-free diet
+
+  symptoms: Anemia; reduced bone mineral density; impaired quality of life
+
+  chemicals: 
+
+  action_annotation_relationships: Evaluation for celiac disease TREATS Anemia IN Celiac disease; gluten-free diet PREVENTS reduced bone mineral density IN Celiac disease; gluten-free diet PREVENTS impaired quality of life IN Celiac disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  gluten-free diet PREVENTS impaired quality of life IN Celiac disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005130
+  medical_actions:
+    - Evaluation for celiac disease
+    - gluten-free diet
+  symptoms:
+    - HP:0001903
+    - HP:0004349
+    - impaired quality of life
+  action_annotation_relationships:
+    - subject: <Evaluation for celiac disease>
+      predicate: <TREATS>
+      object: <Anemia>
+      qualifier: <Celiac disease>
+      subject_qualifier: <N/A>
+      object_qualifier: <N/A>
+      subject_extension: <N/A>
+      object_extension: <N/A>
+    - subject: gluten-free diet
+      predicate: PREVENTS
+      object: HP:0004349
+      qualifier: MONDO:0005130
+      subject_extension: gluten
+    - subject: <gluten-free diet>
+      predicate: <PREVENTS>
+      object: <impaired quality of life>
+      qualifier: <Celiac disease>
+      subject_extension: <gluten>
+named_entities:
+  - id: MONDO:0005130
+    label: Celiac disease
+  - id: CHEBI:64357
+    label: Rituximab
+  - id: HP:0002608
+    label: Celiac disease
+  - id: HP:0003326
+    label: Myalgias
+  - id: HP:0002829
+    label: Arthralgias
+  - id: HP:0000988
+    label: Rash
+  - id: HP:0002027
+    label: Abdominal pain
+  - id: HP:0002018
+    label: Nausea
+  - id: HP:0002014
+    label: Diarrhea
+  - id: MAXO:0000021
+    label: Symptom management
+  - id: MAXO:0000640
+    label: corticosteroid treatment
+  - id: HP:0012735
+    label: cough
+  - id: HP:0000980
+    label: paleness
+  - id: HP:0002094
+    label: dyspnea
+  - id: HP:0001649
+    label: tachycardia
+  - id: CHEBI:50858
+    label: corticosteroid
+  - id: HP:0002242
+    label: Enteropathy
+  - id: CHEBI:190522
+    label: Gluten protein (gliadin)
+  - id: CHEBI:80165
+    label: GIPs
+  - id: CHEBI:145810
+    label: Insulin
+  - id: MAXO:0000259
+    label: Insulin therapy
+  - id: HP:0011473
+    label: Villous atrophy
+  - id: HP:0003124
+    label: hypercholesterolemia
+  - id: HP:0000822
+    label: hypertension
+  - id: HP:0001677
+    label: coronary artery disease
+  - id: HP:0001903
+    label: Anemia
+  - id: HP:0004349
+    label: reduced bone mineral density

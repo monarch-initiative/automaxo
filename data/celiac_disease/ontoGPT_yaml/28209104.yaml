@@ -1,0 +1,160 @@
+---
+input_text: 'Impact of gluten-free diet on quality of life in celiac patients. BACKGROUND
+  AND AIM: Celiac disease (CD) is a common gluten-related disorder, whose only treatment
+  is a gluten-free diet (GFD). Since a unique view on psychological consequences of
+  a GFD still lacks, our aim was to assess the quality of life (QoL) and the depression
+  state in symptomatic CD patients after GFD. Socio-demographic features were considered.
+  PATIENTS AND METHODS: 210 adult CD patients were recruited and divided into 3 groups
+  : 70 newly diagnosed patients (Group A),70 patients who have been on GFD for 6-12
+  months (Group B), and 70 patients who have been on GFD for more than 12 months (Group
+  C). We recruited 210 healthy controls (Group D). Psychological General Well-Being
+  Index (PGWBI) and Beck Depression Inventory (BDI) questionnaires were administered.
+  Each group was evaluated according to age, gender and school ranking. RESULTS: Groups
+  A and B showed lower PGWBI scores compared with both Group C and D (p <0.001 for
+  each comparison). Moreover, Groups A and B showed higher BDI scores compared with
+  both Group C and D (p <0.001 for each comparison).Women, the elderly and the poorly
+  educated seemed to suffer more psychological stress. CONCLUSION: GFD induces an
+  improvement of well-being and a decrease of depression state after 12 months of
+  strict GFD. Negative psychological implications were observed only in specific risk
+  categories. (Acta gastroenterol. belg., 2016, 79, 447-453).'
+raw_completion_output: |-
+  primary_disease: Celiac disease
+
+  medical_actions: Gluten-free diet; Psychological General Well-Being Index (PGWBI) evaluation; Beck Depression Inventory (BDI) evaluation
+
+  symptoms: Psychological stress; Depression; Poor quality of life
+
+  chemicals: 
+
+  action_annotation_relationships: Gluten-free diet TREATS Psychological stress IN Celiac disease; Gluten-free diet TREATS Depression IN Celiac disease; Gluten-free diet TREATS Poor quality of life IN Celiac disease; Psychological General Well-Being Index (PGWBI) evaluation MONITORS Psychological stress IN Celiac disease; Beck Depression Inventory (BDI) evaluation MONITORS Depression IN Celiac disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Beck Depression Inventory (BDI) evaluation MONITORS Depression IN Celiac disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005130
+  medical_actions:
+    - Gluten-free diet
+    - Psychological General Well-Being Index (PGWBI) evaluation
+    - Beck Depression Inventory (BDI) evaluation
+  symptoms:
+    - Psychological stress
+    - HP:0000716
+    - Poor quality of life
+  action_annotation_relationships:
+    - subject: <Gluten-free diet>
+      predicate: <TREATS>
+      object: <Psychological stress>
+      qualifier: <Celiac disease>
+      subject_extension: <gluten-free diet>
+    - subject: Gluten-free diet
+      predicate: TREATS
+      object: HP:0000716
+      qualifier: MONDO:0005130
+      subject_extension: Gluten-free diet
+    - subject: <Gluten-free diet>
+      predicate: <TREATS>
+      object: <Poor quality of life>
+      qualifier: <Celiac disease>
+      subject_extension: <Gluten-free diet>
+    - subject: Psychological General Well-Being Index (PGWBI) evaluation
+      predicate: MONITORS
+      object: Psychological stress
+      qualifier: MONDO:0005130
+    - subject: Beck Depression Inventory (BDI) evaluation
+      predicate: MONITORS
+      object: HP:0000716
+      qualifier: MONDO:0005130
+named_entities:
+  - id: HP:0001251
+    label: ataxia
+  - id: CHEBI:21547
+    label: N-acetylaspartate (NAA)
+  - id: CHEBI:157802
+    label: creatine (Cr)
+  - id: MONDO:0005130
+    label: Celiac disease
+  - id: HP:0001394
+    label: Cirrhosis
+  - id: HP:0002608
+    label: Celiac disease
+  - id: MONDO:0005340
+    label: Alopecia areata
+  - id: HP:0001596
+    label: Hair loss
+  - id: HP:0002014
+    label: Diarrhea
+  - id: HP:0002027
+    label: Abdominal pain
+  - id: HP:0012378
+    label: Fatigue
+  - id: HP:0011473
+    label: Villous atrophy
+  - id: CHEBI:3207
+    label: Budesonide
+  - id: HP:0000951
+    label: skin abnormalities
+  - id: HP:0001595
+    label: hair abnormalities
+  - id: HP:0000112
+    label: kidney diseases
+  - id: MAXO:0000088
+    label: Diet
+  - id: MONDO:0009032
+    label: Celiac Disease (CeD)
+  - id: HP:0100252
+    label: Celiac Disease (CeD)
+  - id: CHEBI:18332
+    label: T4
+  - id: CHEBI:30660
+    label: thyroxine
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0002028
+    label: recurrent diarrhea
+  - id: HP:0001824
+    label: weight loss
+  - id: HP:0001891
+    label: iron deficiency anemia
+  - id: CHEBI:6909
+    label: metronidazole
+  - id: MAXO:0001017
+    label: Vaccination
+  - id: HP:0002242
+    label: Enteropathy
+  - id: MONDO:0400005
+    label: Refeeding syndrome
+  - id: HP:0003111
+    label: Electrolyte disturbances
+  - id: HP:0000713
+    label: Psychomotor agitation
+  - id: HP:0002098
+    label: Respiratory distress
+  - id: HP:0030149
+    label: Cardiogenic shock
+  - id: CHEBI:28796
+    label: Fructans
+  - id: HP:0031955
+    label: antalgic gait
+  - id: CHEBI:18248
+    label: Iron
+  - id: CHEBI:27470
+    label: Folate
+  - id: CHEBI:176843
+    label: Vitamin B12
+  - id: HP:0000716
+    label: Depression

@@ -1,0 +1,312 @@
+---
+input_text: 'Clinical characteristics of hospitalized and home isolated COVID-19 patients
+  with type 1 diabetes. BACKGROUND AND AIMS: To elucidate the clinical features of
+  COVID-19 patients with type 1 diabetes (T1D) under hospitalization and home isolation
+  conditions. METHOD: This retrospective study was conducted among 32 patients with
+  COVID-19 and T1D, who sought treatment at the Prince Sultan Military Medical City,
+  Riyadh, Saudi Arabia between May 01, 2020 and July 30, 2020. Patients data were
+  extracted from electronic medical records. RESULTS: Of the total of 32 COVID-19
+  patients with T1D, 21.9% required hospitalization, while 78.1% underwent home isolation.
+  Among the study population, 9.4% (3/32) were reported to have hypertension, 21.9%
+  (7/32) had chronic pulmonary disease (CPD), 18.8% (6/32) had thyroid disorders,
+  and 18.8% (6/32) had the celiac disease. Of the 32 studied patients, 68.8% (22/32)
+  of them were reported as normal, while 28.1% (9/32) had chronic kidney disease (CKD)
+  II and 3.1% (1/32) had end-stage renal failure. The most common symptoms observed
+  among the hospitalized patients were nausea and vomiting (71.4%; 5/7), followed
+  by fever (57.1%; 4/7), cough (42.8%; 3/7), sore throat (42.8%; 3/7), abdominal pain
+  (42.8%; 3/7) and dyspnea (42.%; 3/7). The most common reasons for hospitalization
+  were diabetic ketoacidosis (71.4%; 5/7) followed by bacterial pneumonia (14.3%;
+  1/7), fever (14.3%; 1/7), sore throat (14.3%; 1/7), severe hyperglycemia (14.3%;
+  1/7) and COVID-19 pneumonia (14.3%; 1/7). Except the severity of COVID-19 (p = 0.0001),
+  none of the demographic and clinical parameters indicated statistically significant
+  differences between patients requiring hospitalization and home isolation. CONCLUSION:
+  Majority of the COVID-19 patients with T1D recovered with conservative treatment
+  at home. Diabetic ketoacidosis was the most common reason for hospitalization.'
+raw_completion_output: |-
+  primary_disease: COVID-19
+
+  medical_actions: Hospitalization; Home isolation; Conservative treatment
+
+  symptoms: Nausea; Vomiting; Fever; Cough; Sore throat; Abdominal pain; Dyspnea; Diabetic ketoacidosis; Bacterial pneumonia; Severe hyperglycemia
+
+  chemicals: 
+
+  action_annotation_relationships: Conservative treatment TREATS COVID-19 IN COVID-19; Hospitalization TREATS Diabetic ketoacidosis IN COVID-19; Hospitalization TREATS Bacterial pneumonia IN COVID-19; Hospitalization TREATS Fever IN COVID-19; Hospitalization TREATS Sore throat IN COVID-19; Hospitalization TREATS Severe hyperglycemia IN COVID-19; Hospitalization TREATS COVID-19 pneumonia IN COVID-19
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Hospitalization TREATS COVID-19 pneumonia IN COVID-19
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0100096
+  medical_actions:
+    - Hospitalization
+    - Home isolation
+    - Conservative treatment
+  symptoms:
+    - HP:0002018
+    - HP:0002013
+    - HP:0001945
+    - HP:0012735
+    - HP:0033050
+    - HP:0002027
+    - HP:0002094
+    - HP:0001953
+    - Bacterial pneumonia
+    - Severe hyperglycemia
+  action_annotation_relationships:
+    - subject: <Conservative treatment>
+      predicate: <TREATS>
+      object: <COVID-19>
+      qualifier: <COVID-19>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: Hospitalization
+      predicate: TREATS
+      object: HP:0001953
+      qualifier: MONDO:0100096
+    - subject: Hospitalization
+      predicate: TREATS
+      object: Bacterial pneumonia
+      qualifier: MONDO:0100096
+    - subject: Hospitalization
+      predicate: TREATS
+      object: HP:0001945
+      qualifier: MONDO:0100096
+    - subject: Hospitalization
+      predicate: TREATS
+      object: HP:0033050
+      qualifier: MONDO:0100096
+    - subject: Hospitalization
+      predicate: TREATS
+      object: Severe hyperglycemia
+      qualifier: MONDO:0100096
+      object_qualifier: Severe
+    - subject: Hospitalization
+      predicate: TREATS
+      object: COVID-19 pneumonia
+      qualifier: MONDO:0100096
+named_entities:
+  - id: MONDO:0005130
+    label: Celiac Disease
+  - id: HP:0011473
+    label: villous atrophy
+  - id: MAXO:0000088
+    label: diet
+  - id: HP:0002014
+    label: diarrhea
+  - id: HP:0001903
+    label: anemia
+  - id: HP:0000939
+    label: osteoporosis
+  - id: HP:0002608
+    label: Celiac Disease
+  - id: MAXO:0010200
+    label: Abdominal ultrasonography
+  - id: HP:0003270
+    label: Abdominal distension
+  - id: HP:0002748
+    label: Rickets
+  - id: HP:0002576
+    label: intussusception
+  - id: CHEBI:72716
+    label: TG2 inhibitors
+  - id: MAXO:0000130
+    label: endoscopy
+  - id: MONDO:0016063
+    label: Celiac disease (CD)
+  - id: CHEBI:73291
+    label: Anti-deamidated gliadin peptides (DGP)
+  - id: HP:0011107
+    label: Aphthous stomatitis
+  - id: HP:0002019
+    label: Constipation
+  - id: HP:0002020
+    label: Gastroesophageal reflux disease
+  - id: CHEBI:18163
+    label: GD1a
+  - id: CHEBI:28175
+    label: GD1b
+  - id: CHEBI:28424
+    label: GD3
+  - id: CHEBI:27691
+    label: GT1a
+  - id: CHEBI:28058
+    label: GT1b
+  - id: CHEBI:27515
+    label: GQ1b
+  - id: CHEBI:8382
+    label: prednisone
+  - id: CHEBI:2948
+    label: azathioprine
+  - id: CHEBI:4031
+    label: cyclosporine
+  - id: HP:0410281
+    label: Indigestion
+  - id: HP:0002027
+    label: Abdominal pain
+  - id: HP:0025502
+    label: overweight
+  - id: HP:0001513
+    label: obesity
+  - id: MONDO:0018353
+    label: Refractory Celiac Disease (RCD)
+  - id: MAXO:0000757
+    label: Infusions
+  - id: HP:0000739
+    label: anxiety
+  - id: HP:0002315
+    label: Headache
+  - id: HP:0100785
+    label: Insomnia
+  - id: HP:0004396
+    label: Loss of appetite
+  - id: CHEBI:63623
+    label: Dimercaptosuccinic acid
+  - id: CHEBI:25140
+    label: Maltodextrin
+  - id: CHEBI:27300
+    label: Vitamin D
+  - id: CHEBI:22984
+    label: Calcium
+  - id: MAXO:0001610
+    label: Transcranial Magnetic Stimulation
+  - id: CHEBI:29987
+    label: glutamate
+  - id: HP:0000988
+    label: Rash
+  - id: MONDO:0009032
+    label: Celiac disease (CeD)
+  - id: HP:0002013
+    label: vomiting
+  - id: HP:0002024
+    label: malabsorption
+  - id: CHEBI:48416
+    label: Olmesartan
+  - id: CHEBI:35457
+    label: ACE inhibitors (ACEIs)
+  - id: MAXO:0000824
+    label: Hemoglobin measurement
+  - id: HP:0002102
+    label: pleurisy
+  - id: HP:0001701
+    label: pericarditis
+  - id: HP:0001541
+    label: ascites
+  - id: HP:0000238
+    label: hydrocephalus
+  - id: HP:0002018
+    label: Nausea
+  - id: CHEBI:74859
+    label: anti-tissue transglutaminase IgA (TG)
+  - id: CHEBI:6541
+    label: Losartan
+  - id: MAXO:0035049
+    label: Endoscopic retrograde cholangiopancreatography
+  - id: HP:0005214
+    label: intestinal obstruction
+  - id: MAXO:0001175
+    label: Liver transplantation
+  - id: MAXO:0000503
+    label: Mechanical ventilation
+  - id: MAXO:0000602
+    label: Hemodialysis
+  - id: HP:0031258
+    label: Delirium
+  - id: HP:0001250
+    label: Seizures
+  - id: HP:0001259
+    label: Coma
+  - id: HP:0007185
+    label: Loss of consciousness
+  - id: CHEBI:49575
+    label: Diazepam
+  - id: HP:0100753
+    label: Schizophrenia
+  - id: MAXO:0001193
+    label: Upper gastrointestinal endoscopy
+  - id: MAXO:0000108
+    label: Iron supplementations
+  - id: MAXO:0001129
+    label: Vitamin supplementations
+  - id: HP:0001891
+    label: Iron deficiency anemia
+  - id: HP:0001889
+    label: Megaloblastic anemia
+  - id: HP:0002028
+    label: Chronic diarrhea
+  - id: CHEBI:18248
+    label: Iron
+  - id: CHEBI:176843
+    label: Vitamin B12
+  - id: MONDO:0005344
+    label: Hepatitis B
+  - id: MAXO:0000610
+    label: enzyme-linked immunosorbent assays (ELISA)
+  - id: CHEBI:80165
+    label: GIPs
+  - id: MONDO:0023605
+    label: Lane-Hamilton syndrome (LHS)
+  - id: HP:4000055
+    label: Intestinal inflammation
+  - id: CHEBI:16301
+    label: Nitrite
+  - id: CHEBI:17632
+    label: Nitrate
+  - id: HP:0011793
+    label: malignancy
+  - id: CHEBI:50249
+    label: anticoagulants
+  - id: HP:0002639
+    label: Budd-Chiari syndrome
+  - id: MONDO:0010947
+    label: Budd-Chiari syndrome
+  - id: HP:0100512
+    label: Vitamin D deficiency
+  - id: CHEBI:82594
+    label: Ferritin
+  - id: CHEBI:27363
+    label: Zinc
+  - id: HP:0001824
+    label: weight loss
+  - id: CHEBI:8499
+    label: propranolol
+  - id: CHEBI:46195
+    label: acetaminophen
+  - id: CHEBI:258351
+    label: practolol
+  - id: CHEBI:18332
+    label: levothyroxine
+  - id: CHEBI:33281
+    label: antibiotics
+  - id: MONDO:0010138
+    label: Gluten-related disorders (GRD)
+  - id: CHEBI:75769
+    label: B vitamins
+  - id: MONDO:0100096
+    label: COVID-19
+  - id: HP:0001945
+    label: Fever
+  - id: HP:0012735
+    label: Cough
+  - id: HP:0033050
+    label: Sore throat
+  - id: HP:0002094
+    label: Dyspnea
+  - id: HP:0001953
+    label: Diabetic ketoacidosis

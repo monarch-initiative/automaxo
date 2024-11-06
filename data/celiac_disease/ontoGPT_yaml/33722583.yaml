@@ -1,0 +1,154 @@
+---
+input_text: 'TAK-101 Nanoparticles Induce Gluten-Specific Tolerance in Celiac Disease:
+  A Randomized, Double-Blind, Placebo-Controlled Study. BACKGROUND & AIMS: In celiac
+  disease (CeD), gluten induces immune activation, leading to enteropathy. TAK-101,
+  gluten protein (gliadin) encapsulated in negatively charged poly(dl-lactide-co-glycolic
+  acid) nanoparticles, is designed to induce gluten-specific tolerance. METHODS: TAK-101
+  was evaluated in phase 1 dose escalation safety and phase 2a double-blind, randomized,
+  placebo-controlled studies. Primary endpoints included pharmacokinetics, safety,
+  and tolerability of TAK-101 (phase 1) and change from baseline in circulating gliadin-specific
+  interferon-gamma-producing cells at day 6 of gluten challenge, in patients with
+  CeD (phase 2a). Secondary endpoints in the phase 2a study included changes from
+  baseline in enteropathy (villus height to crypt depth ratio [Vh:Cd]), and frequency
+  of intestinal intraepithelial lymphocytes and peripheral gut-homing T cells. RESULTS:
+  In phase 2a, 33 randomized patients completed the 14-day gluten challenge. TAK-101
+  induced an 88% reduction in change from baseline in interferon-gamma spot-forming
+  units vs placebo (2.01 vs 17.58, P = .006). Vh:Cd deteriorated in the placebo group
+  (-0.63, P = .002), but not in the TAK-101 group (-0.18, P = .110), although the
+  intergroup change from baseline was not significant (P = .08). Intraepithelial lymphocyte
+  numbers remained equal. TAK-101 reduced changes in circulating alpha4beta7+CD4+
+  (0.26 vs 1.05, P = .032), alphaEbeta7+CD8+ (0.69 vs 3.64, P = .003), and gammadelta
+  (0.15 vs 1.59, P = .010) effector memory T cells. TAK-101 (up to 8 mg/kg) induced
+  no clinically meaningful changes in vital signs or routine clinical laboratory evaluations.
+  No serious adverse events occurred. CONCLUSIONS: TAK-101 was well tolerated and
+  prevented gluten-induced immune activation in CeD. The findings from the present
+  clinical trial suggest that antigen-specific tolerance was induced and represent
+  a novel approach translatable to other immune-mediated diseases. ClinicalTrials.gov
+  identifiers: NCT03486990 and NCT03738475.'
+raw_completion_output: |-
+  primary_disease: Celiac Disease
+
+  medical_actions: Administering TAK-101; Gluten challenge; Measuring Vh:Cd ratio; Counting intraepithelial lymphocytes; Counting circulating alpha4beta7+CD4+, alphaEbeta7+CD8+, and gammadelta effector memory T cells; Monitoring vital signs; Conducting routine clinical laboratory evaluations
+
+  symptoms: Immune activation; Enteropathy; Increased interferon-gamma spot-forming units; Deterioration in Vh:Cd ratio
+
+  chemicals: TAK-101; Gluten protein (gliadin); Poly(dl-lactide-co-glycolic acid)
+
+  action_annotation_relationships: Administering TAK-101 PREVENTS immune activation IN Celiac Disease; Administering TAK-101 (with poly(dl-lactide-co-glycolic acid)) PREVENTS enteropathy IN Celiac Disease; Gluten challenge TREATS increased interferon-gamma spot-forming units IN Celiac Disease; Measuring Vh:Cd ratio PREVENTS deterioration in Vh:Cd ratio IN Celiac Disease; Counting intraepithelial lymphocytes PREVENTS enteropathy IN Celiac Disease; Monitoring vital signs PREVENTS adverse effects IN Celiac Disease; Conducting routine clinical laboratory evaluations PREVENTS adverse effects IN Celiac Disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Conducting routine clinical laboratory evaluations PREVENTS adverse effects IN Celiac Disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005130
+  medical_actions:
+    - Administering TAK-101
+    - Gluten challenge
+    - Measuring Vh:Cd ratio
+    - Counting intraepithelial lymphocytes
+    - Counting circulating alpha4beta7+CD4+, alphaEbeta7+CD8+, and gammadelta effector
+      memory T cells
+    - Monitoring vital signs
+    - Conducting routine clinical laboratory evaluations
+  symptoms:
+    - Immune activation
+    - HP:0002242
+    - Increased interferon-gamma spot-forming units
+    - Deterioration in Vh:Cd ratio
+  chemicals:
+    - TAK-101
+    - CHEBI:190522
+    - Poly(dl-lactide-co-glycolic acid)
+  action_annotation_relationships:
+    - subject: Administering
+      predicate: PREVENTS
+      object: immune activation
+      qualifier: MONDO:0005130
+      subject_extension: TAK-101
+    - subject: Administering TAK-101 (with poly(dl-lactide-co-glycolic acid))
+      predicate: PREVENTS
+      object: HP:0002242
+      qualifier: MONDO:0005130
+      subject_qualifier: with poly(dl-lactide-co-glycolic acid)
+      subject_extension: TAK-101
+      object_extension: enteropathy
+    - subject: <Gluten challenge>
+      predicate: <TREATS>
+      object: <interferon-gamma spot-forming units>
+      qualifier: <Celiac Disease>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <gluten challenge>
+      object_extension: <increased>
+    - subject: <Measuring Vh:Cd ratio>
+      predicate: <PREVENTS>
+      object: <deterioration in Vh:Cd ratio>
+      qualifier: <Celiac Disease>
+      subject_extension: <Vh:Cd ratio>
+    - subject: Counting intraepithelial lymphocytes
+      predicate: PREVENTS
+      object: HP:0002242
+      qualifier: MONDO:0005130
+    - subject: <Monitoring vital signs>
+      predicate: <PREVENTS>
+      object: <adverse effects>
+      qualifier: <Celiac Disease>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: routine clinical laboratory evaluations
+      predicate: PREVENTS
+      object: adverse effects
+      qualifier: MONDO:0005130
+named_entities:
+  - id: MONDO:0005130
+    label: Celiac disease
+  - id: CHEBI:64357
+    label: Rituximab
+  - id: HP:0002608
+    label: Celiac disease
+  - id: HP:0003326
+    label: Myalgias
+  - id: HP:0002829
+    label: Arthralgias
+  - id: HP:0000988
+    label: Rash
+  - id: HP:0002027
+    label: Abdominal pain
+  - id: HP:0002018
+    label: Nausea
+  - id: HP:0002014
+    label: Diarrhea
+  - id: MAXO:0000021
+    label: Symptom management
+  - id: MAXO:0000640
+    label: corticosteroid treatment
+  - id: HP:0012735
+    label: cough
+  - id: HP:0000980
+    label: paleness
+  - id: HP:0002094
+    label: dyspnea
+  - id: HP:0001649
+    label: tachycardia
+  - id: CHEBI:50858
+    label: corticosteroid
+  - id: HP:0002242
+    label: Enteropathy
+  - id: CHEBI:190522
+    label: Gluten protein (gliadin)

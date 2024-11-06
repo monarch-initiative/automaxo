@@ -1,0 +1,53 @@
+---
+input_text: 'Cirrhosis and intestinal B-cell lymphoma: two entities that are rarely
+  associated with celiac disease. '
+raw_completion_output: |-
+  primary_disease: Celiac disease
+  medical_actions: 
+  symptoms: Cirrhosis; intestinal B-cell lymphoma
+  chemicals: 
+  action_annotation_relationships: Cirrhosis TREATS Celiac disease; intestinal B-cell lymphoma TREATS Celiac disease
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  intestinal B-cell lymphoma TREATS Celiac disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005130
+  symptoms:
+    - HP:0001394
+    - intestinal B-cell lymphoma
+  action_annotation_relationships:
+    - subject: Cirrhosis
+      predicate: TREATS
+      object: HP:0002608
+    - subject: intestinal B-cell lymphoma
+      predicate: TREATS
+      object: HP:0002608
+      subject_extension: B-cell lymphoma
+named_entities:
+  - id: HP:0001251
+    label: ataxia
+  - id: CHEBI:21547
+    label: N-acetylaspartate (NAA)
+  - id: CHEBI:157802
+    label: creatine (Cr)
+  - id: MONDO:0005130
+    label: Celiac disease
+  - id: HP:0001394
+    label: Cirrhosis
+  - id: HP:0002608
+    label: Celiac disease

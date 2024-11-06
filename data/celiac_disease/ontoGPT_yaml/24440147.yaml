@@ -1,0 +1,106 @@
+---
+input_text: 'Diagnosis and classification of celiac disease and gluten sensitivity.
+  Celiac disease is a complex disorder, the development of which is controlled by
+  a combination of genetic (HLA alleles) and environmental (gluten ingestion) factors.
+  New diagnostic guidelines developed by ESPGHAN emphasize the crucial role of serological
+  tests in the diagnostic process of symptomatic subjects, and of the detection of
+  HLA DQ2/DQ8 alleles in defining a diagnosis in asymptomatic subjects belonging to
+  at-risk groups. The serological diagnosis of CD is based on the detection of class
+  IgA anti-tissue transglutaminase (anti-tTG) and anti-endomysial antibodies. In patients
+  with IgA deficiency, anti-tTG or anti-deamidated gliadin peptide antibody assays
+  of the IgG class are used. When anti-tTG antibody levels are very high, antibody
+  specificity is absolute and CD can be diagnosed without performing a duodenum biopsy.
+  Non-celiac gluten sensitivity is a gluten reaction in which both allergic and autoimmune
+  mechanisms have been ruled out. Diagnostic criteria include the presence of symptoms
+  similar to those of celiac or allergic patients; negative allergological tests and
+  absence of anti-tTG and EMA antibodies; normal duodenal histology; evidence of disappearance
+  of the symptoms with a gluten-free diet; relapse of the symptoms when gluten is
+  reintroduced. '
+raw_completion_output: |-
+  primary_disease: Celiac disease
+  medical_actions: Diagnosis with serological tests; Detection of HLA DQ2/DQ8 alleles; Detection of IgA anti-tissue transglutaminase (anti-tTG) antibodies; Detection of anti-endomysial (EMA) antibodies; Use of anti-tTG or anti-deamidated gliadin peptide antibody assays of the IgG class for patients with IgA deficiency; Avoiding duodenum biopsy when anti-tTG antibody levels are very high; Implementing a gluten-free diet
+  symptoms: Symptoms similar to those of celiac or allergic patients; Relapse of the symptoms when gluten is reintroduced
+  chemicals: IgA anti-tissue transglutaminase (anti-tTG); Anti-endomysial antibodies; Anti-deamidated gliadin peptide antibody
+  action_annotation_relationships: Diagnosis with serological tests DETECTS Celiac disease; Detection of HLA DQ2/DQ8 alleles DETECTS risk IN Celiac disease; Detection of IgA anti-tissue transglutaminase (anti-tTG) antibodies DIAGNOSES Celiac disease; Detection of anti-endomysial (EMA) antibodies DIAGNOSES Celiac disease; Use of anti-tTG or anti-deamidated gliadin peptide antibody assays of the IgG class for patients with IgA deficiency DIAGNOSES Celiac disease; Avoiding duodenum biopsy when anti-tTG antibody levels are very high TREATS Diagnosis process IN Celiac disease; Implementing a gluten-free diet TREATS Symptoms IN Celiac disease; Implementing a gluten-free diet PREVENTS Relapse of the symptoms IN Celiac disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Implementing a gluten-free diet PREVENTS Relapse of the symptoms IN Celiac disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005130
+  medical_actions:
+    - Diagnosis with serological tests
+    - Detection of HLA DQ2/DQ8 alleles
+    - Detection of IgA anti-tissue transglutaminase (anti-tTG) antibodies
+    - Detection of anti-endomysial (EMA) antibodies
+    - Use of anti-tTG or anti-deamidated gliadin peptide antibody assays of the IgG
+      class for patients with IgA deficiency
+    - Avoiding duodenum biopsy when anti-tTG antibody levels are very high
+    - Implementing a gluten-free diet
+  symptoms:
+    - Symptoms similar to those of celiac or allergic patients
+    - Relapse of the symptoms when gluten is reintroduced
+  chemicals:
+    - IgA anti-tissue transglutaminase (anti-tTG)
+    - Anti-endomysial antibodies
+    - Anti-deamidated gliadin peptide antibody
+  action_annotation_relationships:
+    - subject: Diagnosis with serological tests
+      predicate: DETECTS
+      object: HP:0002608
+    - subject: <Detection>
+      predicate: <DETECTS>
+      object: <risk>
+      qualifier: <Celiac disease>
+      subject_extension: <HLA DQ2/DQ8 alleles>
+    - subject: Detection of IgA anti-tissue transglutaminase antibodies
+      predicate: DIAGNOSES
+      object: HP:0002608
+      subject_extension: IgA anti-tissue transglutaminase antibodies
+    - subject: Detection
+      predicate: DIAGNOSES
+      object: HP:0002608
+      subject_extension: anti-endomysial (EMA) antibodies
+    - subject: Use of anti-tTG or anti-deamidated gliadin peptide antibody assays
+      predicate: DIAGNOSES
+      object: HP:0002608
+      qualifier: patients with IgA deficiency
+      subject_qualifier: of the IgG class
+      subject_extension: anti-tTG or anti-deamidated gliadin peptide antibody assays
+      object_extension: IgG class
+    - subject: Avoiding duodenum biopsy
+      predicate: TREATS
+      object: Diagnosis process
+      qualifier: MONDO:0005130
+      subject_qualifier: when anti-tTG antibody levels are very high
+    - subject: <Implementing a gluten-free diet>
+      predicate: <TREATS>
+      object: <Symptoms>
+      qualifier: <Celiac disease>
+      subject_extension: <gluten-free diet>
+    - subject: Implementing a gluten-free diet
+      predicate: PREVENTS
+      object: Relapse of the symptoms
+      qualifier: MONDO:0005130
+      subject_extension: gluten-free diet
+named_entities:
+  - id: MONDO:0005130
+    label: Celiac disease
+  - id: CHEBI:64357
+    label: Rituximab
+  - id: HP:0002608
+    label: Celiac disease

@@ -1,0 +1,54 @@
+---
+input_text: 'Antituberculosis Treatment in a Patient with Celiac Disease. '
+raw_completion_output: |-
+  primary_disease: Celiac Disease
+  medical_actions: Antituberculosis Treatment
+  symptoms: 
+  chemicals: 
+  action_annotation_relationships: Antituberculosis Treatment TREATS IN Celiac Disease
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Antituberculosis Treatment TREATS IN Celiac Disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005130
+  medical_actions:
+    - Antituberculosis Treatment
+  action_annotation_relationships:
+    - subject: Treatment
+      predicate: TREATS
+      qualifier: MONDO:0005130
+      subject_extension: Antituberculosis
+named_entities:
+  - id: MONDO:0005130
+    label: Celiac disease
+  - id: CHEBI:64357
+    label: Rituximab
+  - id: HP:0002608
+    label: Celiac disease
+  - id: HP:0003326
+    label: Myalgias
+  - id: HP:0002829
+    label: Arthralgias
+  - id: HP:0000988
+    label: Rash
+  - id: HP:0002027
+    label: Abdominal pain
+  - id: HP:0002018
+    label: Nausea
+  - id: HP:0002014
+    label: Diarrhea

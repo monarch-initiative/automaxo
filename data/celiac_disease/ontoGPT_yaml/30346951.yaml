@@ -1,0 +1,157 @@
+---
+input_text: 'Pancreatic autoimmunity: An unknown etiology on patients with assisted
+  reproductive techniques (ART)-recurrent reproductive failure. Pancreatic Autoimmunity
+  is defined as the presence of autoantibodies and more frequent need for insulin
+  treatment. Affected women presenting recurrent implantation failure (RIF) or recurrent
+  miscarriage (RM) are often misdiagnosed. The objective of thestudy was to describe
+  clinical and metabolic profiles suggestive of Pancreatic Autoimmunity and therapeutic
+  strategy in patients with RIF/RM. We analyzed retrospectively 735 patients, and
+  have identified a subset (N = 20) with similar metabolic characteristics. At the
+  same time, we included a control group (n = 39), with similar demographic characteristics
+  and negative for pancreatic, thyroid or celiac disease autoimmunity. The patients
+  identified with autoimmune metabolic problem (N = 20) had relatives with diabetes
+  mellitus. At 120 minutes after Oral Glucose Tolerance Test (OGTT) low level of insulin
+  secretion (<2 IU/ml) was found in 70% of patients. Glutamic acid decarboxylase 65
+  (GAD 65) antibodies, with or without other autoantibodies, were positive in80% of
+  patients and anti-IA2 alone were positive I the rest. Since pregestational period,
+  insulin administration was recommended for 10 patients, metformin for 4 patients
+  and exclusively diet control in 5 of them. Significantly increased live bith rates
+  (LBR) per cycle were observed after metabolic control (52%) compared with live birth
+  rate (LBR) after cycles without control (7.5%) (p<0.0001). We noticed 2 cases of
+  pre-eclampsia and 6 low-birth weights. Insulin administration was needed during
+  the pregnancy in 68% of patients and after childbirth in 31.57% of them. In our
+  control group, all of patients (n = 39) underwent ART (53.8% SET and 46.1% DET)
+  with a 50% (SET) and 61.9% (DET) live birth rate (LBR) per cycle. Patients with
+  RIF/RM, normal BMI, low insulin levels after OGTT could benefit from additional
+  metabolic immune testing. A correct diagnosis and treatment could have a positive
+  impact on their reproductive results and live birth rate.'
+raw_completion_output: |-
+  primary_disease: Pancreatic Autoimmunity
+  medical_actions: insulin treatment; Oral Glucose Tolerance Test (OGTT); insulin administration; metformin administration; diet control
+  symptoms: recurrent implantation failure (RIF); recurrent miscarriage (RM); low level of insulin secretion; positive Glutamic acid decarboxylase 65 (GAD 65) antibodies; positive anti-IA2 antibodies
+  chemicals: insulin; metformin
+  action_annotation_relationships: insulin treatment TREATS low level of insulin secretion IN Pancreatic Autoimmunity; insulin administration TREATS recurrent implantation failure (RIF) IN Pancreatic Autoimmunity; insulin administration (with insulin) TREATS recurrent miscarriage (RM) IN Pancreatic Autoimmunity; metformin administration TREATS low level of insulin secretion IN Pancreatic Autoimmunity; diet control PREVENTS low level of insulin secretion IN Pancreatic Autoimmunity
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  diet control PREVENTS low level of insulin secretion IN Pancreatic Autoimmunity
+
+  ===
+
+extracted_object:
+  primary_disease: Pancreatic Autoimmunity
+  medical_actions:
+    - MAXO:0000259
+    - Oral Glucose Tolerance Test (OGTT)
+    - insulin administration
+    - metformin administration
+    - diet control
+  symptoms:
+    - HP:0033712
+    - recurrent miscarriage (RM)
+    - low level of insulin secretion
+    - positive Glutamic acid decarboxylase 65 (GAD 65) antibodies
+    - positive anti-IA2 antibodies
+  chemicals:
+    - CHEBI:145810
+    - CHEBI:6801
+  action_annotation_relationships:
+    - subject: treatment
+      predicate: TREATS
+      object: low level of insulin secretion
+      qualifier: Pancreatic Autoimmunity
+      subject_extension: CHEBI:145810
+    - subject: insulin administration
+      predicate: TREATS
+      object: HP:0033712
+      qualifier: Pancreatic Autoimmunity
+      object_qualifier: RIF
+      subject_extension: CHEBI:145810
+    - subject: insulin administration
+      predicate: TREATS
+      object: recurrent miscarriage
+      qualifier: Pancreatic Autoimmunity
+      subject_qualifier: with insulin
+      object_qualifier: RM
+      subject_extension: CHEBI:145810
+    - subject: administration
+      predicate: TREATS
+      object: low level of insulin secretion
+      qualifier: Pancreatic Autoimmunity
+      subject_extension: CHEBI:6801
+    - subject: diet control
+      predicate: PREVENTS
+      object: low level of insulin secretion
+      qualifier: Pancreatic Autoimmunity
+named_entities:
+  - id: MONDO:0044092
+    label: Collagenous sprue
+  - id: HP:0002014
+    label: diarrhea
+  - id: CHEBI:50858
+    label: corticosteroids
+  - id: HP:0004395
+    label: malnutrition
+  - id: MONDO:0005130
+    label: Celiac disease
+  - id: HP:0000870
+    label: Hyperprolactinemia
+  - id: CHEBI:81580
+    label: Prolactin (PRL)
+  - id: HP:0000938
+    label: Bone loss
+  - id: CHEBI:22984
+    label: Calcium
+  - id: CHEBI:27300
+    label: Vitamin D
+  - id: HP:0001369
+    label: Arthritis
+  - id: HP:0002608
+    label: Celiac Disease
+  - id: MONDO:0019473
+    label: Enteropathy-associated T-cell lymphoma (EATL)
+  - id: HP:0002242
+    label: enteropathy
+  - id: HP:0012378
+    label: fatigue
+  - id: HP:0002039
+    label: anorexia
+  - id: HP:0000823
+    label: delayed puberty
+  - id: HP:0004322
+    label: short stature
+  - id: HP:0000789
+    label: infertility
+  - id: MONDO:0016063
+    label: Celiac Disease (CD)
+  - id: MAXO:0000058
+    label: pharmacological treatment
+  - id: HP:0002027
+    label: abdominal pain
+  - id: HP:0003270
+    label: bloating
+  - id: HP:0001903
+    label: anemia
+  - id: MAXO:0000088
+    label: diet
+  - id: MONDO:0005298
+    label: Osteoporosis
+  - id: MAXO:0000259
+    label: insulin treatment
+  - id: HP:0033712
+    label: recurrent implantation failure (RIF)
+  - id: CHEBI:145810
+    label: insulin
+  - id: CHEBI:6801
+    label: metformin

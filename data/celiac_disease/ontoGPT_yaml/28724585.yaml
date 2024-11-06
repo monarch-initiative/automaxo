@@ -1,0 +1,83 @@
+---
+input_text: 'Effect of gluten-free diet on cerebellar MR spectroscopy in gluten ataxia.
+  OBJECTIVE: To evaluate the effect of gluten free diet (GFD) on magnetic resonance
+  spectroscopy (MRS) of the cerebellum in patients with gluten ataxia (GA). METHODS:
+  Patients with GA, defined as sporadic ataxia with positive antigliadin antibodies
+  in the absence of an alternative cause, routinely undergo MRS at baseline and after
+  the introduction of GFD as part of their clinical care. We present our experience
+  of the effect of GFD on MRS of the cerebellum. RESULTS: A total of 117 consecutive
+  patients with GA were included in this report. Sixty-three were on strict GFD with
+  elimination of antigliadin antibodies, 35 were on GFD but were still positive for
+  antigliadin antibodies, and 19 patients opted not to go on GFD. The N-acetylaspartate
+  (NAA)/creatine (Cr) area ratio from the cerebellar vermis increased in 62 out of
+  63 (98%) patients on strict GFD, in 9 of 35 (26%) patients on GFD but positive antibodies,
+  and in only 1 of 19 (5%) patients not on GFD. The NAA/Cr ratio decreased in all
+  14 ataxia control patients (cerebellar variant of multisystem atrophy). There were
+  no differences in the MRS results between those patients who had and those who did
+  not have enteropathy (celiac disease) within each group. CONCLUSIONS: The demonstration
+  of increased NAA/Cr ratio on repeat scanning following strict GFD strengthens previous
+  findings of clinical improvement of the ataxia in patients with GA. The presence
+  of enteropathy is not a prerequisite for such improvement; therefore patients with
+  positive serology and negative duodenal biopsy should still be treated with strict
+  GFD.'
+raw_completion_output: |-
+  primary_disease: gluten ataxia
+
+  medical_actions: gluten free diet (GFD); magnetic resonance spectroscopy (MRS)
+
+  symptoms: ataxia; positive antigliadin antibodies
+
+  chemicals: N-acetylaspartate (NAA); creatine (Cr); antigliadin antibodies
+
+  action_annotation_relationships: gluten free diet (GFD) TREATS ataxia IN gluten ataxia; gluten free diet (GFD) PREVENTS positive antigliadin antibodies IN gluten ataxia; magnetic resonance spectroscopy (MRS) MONITORS ataxia IN gluten ataxia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  magnetic resonance spectroscopy (MRS) MONITORS ataxia IN gluten ataxia
+
+  ===
+
+extracted_object:
+  primary_disease: gluten ataxia
+  medical_actions:
+    - gluten free diet (GFD)
+    - magnetic resonance spectroscopy (MRS)
+  symptoms:
+    - HP:0001251
+    - positive antigliadin antibodies
+  chemicals:
+    - CHEBI:21547
+    - CHEBI:157802
+    - antigliadin antibodies
+  action_annotation_relationships:
+    - subject: gluten free diet (GFD)
+      predicate: TREATS
+      object: HP:0001251
+      qualifier: gluten ataxia
+    - subject: gluten free diet
+      predicate: PREVENTS
+      object: positive antigliadin antibodies
+      qualifier: gluten ataxia
+      subject_extension: gluten free diet
+    - subject: magnetic resonance spectroscopy (MRS)
+      predicate: MONITORS
+      object: HP:0001251
+      qualifier: gluten ataxia
+named_entities:
+  - id: HP:0001251
+    label: ataxia
+  - id: CHEBI:21547
+    label: N-acetylaspartate (NAA)
+  - id: CHEBI:157802
+    label: creatine (Cr)

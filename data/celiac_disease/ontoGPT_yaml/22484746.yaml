@@ -1,0 +1,104 @@
+---
+input_text: 'Lane-Hamilton syndrome: association or coincidence. The combination of
+  idiopathic pulmonary hemosiderosis (IPH) and celiac disease (CD) is rare. The clinical
+  importance of this association is that a significant improvement can be obtained
+  with gluten free diet not only in intestinal but also in pulmonary symptoms. A four
+  and half-years old girl was admitted with complaints of cough, difficulty in breathing
+  and paleness. She had intermittent episodes of abdominal pain and diarrhea. She
+  had dyspnea and tachycardia, and oxygen saturation 88%. The patient was diagnosed
+  with CD and concomitant IPH. With gluten-free diet and corticosteroid treatment,
+  both intestinal and pulmonary symptoms were controlled.'
+raw_completion_output: |-
+  primary_disease: Lane-Hamilton syndrome
+
+  medical_actions: gluten-free diet; corticosteroid treatment
+
+  symptoms: cough; difficulty in breathing; paleness; intermittent episodes of abdominal pain; diarrhea; dyspnea; tachycardia; oxygen saturation 88%
+
+  chemicals: corticosteroid
+
+  action_annotation_relationships: gluten-free diet TREATS intestinal symptoms IN Lane-Hamilton syndrome; gluten-free diet TREATS pulmonary symptoms IN Lane-Hamilton syndrome; corticosteroid treatment (with corticosteroid) TREATS pulmonary symptoms IN Lane-Hamilton syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  corticosteroid treatment (with corticosteroid) TREATS pulmonary symptoms IN Lane-Hamilton syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: Lane-Hamilton syndrome
+  medical_actions:
+    - gluten-free diet
+    - MAXO:0000640
+  symptoms:
+    - HP:0012735
+    - difficulty in breathing
+    - HP:0000980
+    - intermittent episodes of abdominal pain
+    - HP:0002014
+    - HP:0002094
+    - HP:0001649
+    - oxygen saturation 88%
+  chemicals:
+    - CHEBI:50858
+  action_annotation_relationships:
+    - subject: gluten-free diet
+      predicate: TREATS
+      object: intestinal symptoms
+      qualifier: Lane-Hamilton syndrome
+      subject_extension: gluten-free diet
+    - subject: gluten-free diet
+      predicate: TREATS
+      object: pulmonary symptoms
+      qualifier: Lane-Hamilton syndrome
+      subject_extension: gluten-free diet
+    - subject: MAXO:0000640
+      predicate: TREATS
+      object: pulmonary symptoms
+      qualifier: Lane-Hamilton syndrome
+      subject_qualifier: with corticosteroid
+      subject_extension: CHEBI:50858
+named_entities:
+  - id: MONDO:0005130
+    label: Celiac disease
+  - id: CHEBI:64357
+    label: Rituximab
+  - id: HP:0002608
+    label: Celiac disease
+  - id: HP:0003326
+    label: Myalgias
+  - id: HP:0002829
+    label: Arthralgias
+  - id: HP:0000988
+    label: Rash
+  - id: HP:0002027
+    label: Abdominal pain
+  - id: HP:0002018
+    label: Nausea
+  - id: HP:0002014
+    label: Diarrhea
+  - id: MAXO:0000021
+    label: Symptom management
+  - id: MAXO:0000640
+    label: corticosteroid treatment
+  - id: HP:0012735
+    label: cough
+  - id: HP:0000980
+    label: paleness
+  - id: HP:0002094
+    label: dyspnea
+  - id: HP:0001649
+    label: tachycardia
+  - id: CHEBI:50858
+    label: corticosteroid

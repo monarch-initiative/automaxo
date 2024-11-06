@@ -1,0 +1,121 @@
+---
+input_text: New Developments in Celiac Disease Treatment. Celiac disease (CD) is a
+  common autoimmune disease affecting around 1% of the population. It consists of
+  an immune-mediated enteropathy, triggered by gluten exposure in susceptible patients.
+  All patients with CD, irrespective of the presence of symptoms, must endure a lifelong
+  gluten-free diet (GFD). This is not an easy task due to a lack of awareness of the
+  gluten content in foods and the extensive incorporation of gluten in processed foods.
+  Furthermore, a GFD imposes a sense of limitation and might be associated with decreased
+  quality of life in CD patients. This results in gluten contamination in the diet
+  of four out of five celiac patients adhering to a GFD. Furthermore, one in three
+  adult patients will report persistent symptoms and two in three will not achieve
+  full histological recovery when on a GFD. In recent years, there has been extensive
+  research conducted in the quest to find the holy grail of pharmacological treatment
+  for CD. This review will present a concise description of the current rationale
+  and main clinical trials related to CD drug therapy.
+raw_completion_output: |-
+  primary_disease: Celiac Disease (CD)
+
+  medical_actions: gluten-free diet (GFD); pharmacological treatment
+
+  symptoms: immune-mediated enteropathy; gluten contamination; persistent symptoms; lack of histological recovery
+
+  chemicals: gluten
+
+  action_annotation_relationships: gluten-free diet (GFD) TREATS immune-mediated enteropathy IN Celiac Disease (CD); gluten-free diet (GFD) PREVENTS gluten contamination IN Celiac Disease (CD); pharmacological treatment TREATS persistent symptoms IN Celiac Disease (CD); pharmacological treatment TREATS lack of histological recovery IN Celiac Disease (CD)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  pharmacological treatment TREATS lack of histological recovery IN Celiac Disease (CD)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0016063
+  medical_actions:
+    - gluten-free diet (GFD)
+    - MAXO:0000058
+  symptoms:
+    - immune-mediated enteropathy
+    - gluten contamination
+    - persistent symptoms
+    - lack of histological recovery
+  chemicals:
+    - gluten
+  action_annotation_relationships:
+    - subject: gluten-free diet
+      predicate: TREATS
+      object: immune-mediated enteropathy
+      qualifier: MONDO:0005130
+      subject_extension: gluten-free diet
+    - subject: gluten-free diet
+      predicate: PREVENTS
+      object: gluten contamination
+      qualifier: MONDO:0005130
+      subject_extension: gluten-free diet
+    - subject: MAXO:0000058
+      predicate: TREATS
+      object: persistent symptoms
+      qualifier: MONDO:0016063
+    - subject: <pharmacological treatment>
+      predicate: <TREATS>
+      object: <lack of histological recovery>
+      qualifier: MONDO:0016063
+      subject_qualifier: N/A
+      object_qualifier: N/A
+      subject_extension: <pharmacological treatment>
+      object_extension: N/A
+named_entities:
+  - id: MONDO:0044092
+    label: Collagenous sprue
+  - id: HP:0002014
+    label: diarrhea
+  - id: CHEBI:50858
+    label: corticosteroids
+  - id: HP:0004395
+    label: malnutrition
+  - id: MONDO:0005130
+    label: Celiac disease
+  - id: HP:0000870
+    label: Hyperprolactinemia
+  - id: CHEBI:81580
+    label: Prolactin (PRL)
+  - id: HP:0000938
+    label: Bone loss
+  - id: CHEBI:22984
+    label: Calcium
+  - id: CHEBI:27300
+    label: Vitamin D
+  - id: HP:0001369
+    label: Arthritis
+  - id: HP:0002608
+    label: Celiac Disease
+  - id: MONDO:0019473
+    label: Enteropathy-associated T-cell lymphoma (EATL)
+  - id: HP:0002242
+    label: enteropathy
+  - id: HP:0012378
+    label: fatigue
+  - id: HP:0002039
+    label: anorexia
+  - id: HP:0000823
+    label: delayed puberty
+  - id: HP:0004322
+    label: short stature
+  - id: HP:0000789
+    label: infertility
+  - id: MONDO:0016063
+    label: Celiac Disease (CD)
+  - id: MAXO:0000058
+    label: pharmacological treatment

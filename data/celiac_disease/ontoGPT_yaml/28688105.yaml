@@ -1,0 +1,97 @@
+---
+input_text: 'Intussusception in celiac disease: Is it a common feature in children?
+  BACKGROUND AND AIM: There are sporadic reports of occurrence of intussusception
+  in celiac disease (CD) but no systematic study yet. We prospectively studied the
+  prevalence and natural history of intussusception in newly diagnosed CD. METHODS:
+  From January 2010 to October 2013, 150 children, diagnosed to have CD on the basis
+  of positive serology and duodenal biopsy, were recruited in this study. Abdominal
+  ultrasonography was carried out before starting gluten-free diet (GFD) and repeated
+  in those who had intussusception, on day 3 and then weekly till the resolution of
+  intussusception. RESULTS: The median age was 72 (range, 16-204) months, and 79 (53%)
+  were boys. Diarrhea was the presenting symptom in 119 (79%) cases. A total of 45
+  intussusceptions were detected in 37 (25%) children. Out of 45 intussusceptions,
+  95% involved small bowel. All but one had asymptomatic intussusception. On GFD,
+  intussusception resolved spontaneously within 7 days in 65%, within 14 days in 84%,
+  and within 28 days in 92% of cases, and none required surgical or hydrostatic reduction.
+  On univariate analysis, younger age, low weight z score, presentation with diarrhea,
+  abdominal distension, rickets, lower serum albumin, more severe villous atrophy,
+  and refeeding syndrome were more common in children with intussusception. On multivariate
+  analysis, abdominal distension and hypoalbuminemia were found to be significantly
+  associated with intussusception. CONCLUSIONS: Intussusception is frequently (25%)
+  seen in children with newly diagnosed CD, generally asymptomatic and resolves spontaneously
+  on GFD. It is often associated with more severe disease. Children with CD and intussusception
+  should not be subjected to surgical/radiological intervention.'
+raw_completion_output: |-
+  primary_disease: Intussusception in celiac disease
+  medical_actions: Gluten-free diet;Abdominal ultrasonography;Surgical or hydrostatic reduction
+  symptoms: Diarrhea;Abdominal distension;Rickets;Lower serum albumin;More severe villous atrophy;Refeeding syndrome
+  chemicals: 
+  action_annotation_relationships: Gluten-free diet TREATS intussusception IN Intussusception in celiac disease;Abdominal ultrasonography TREATS none IN Intussusception in celiac disease but is used for diagnosis;Surgical or hydrostatic reduction PREVENTS intussusception IN Intussusception in celiac disease but was not required
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Surgical or hydrostatic reduction PREVENTS intussusception IN Intussusception in celiac disease but was not required
+
+  ===
+
+extracted_object:
+  primary_disease: Intussusception in celiac disease
+  medical_actions:
+    - Gluten-free diet
+    - MAXO:0010200
+    - Surgical or hydrostatic reduction
+  symptoms:
+    - HP:0002014
+    - HP:0003270
+    - HP:0002748
+    - Lower serum albumin
+    - More severe villous atrophy
+    - Refeeding syndrome
+  action_annotation_relationships:
+    - subject: Gluten-free diet
+      predicate: TREATS
+      object: HP:0002576
+      qualifier: Intussusception in celiac disease
+      subject_extension: Gluten-free diet
+    - subject: MAXO:0010200
+      predicate: TREATS
+      object: none
+      qualifier: Intussusception in celiac disease
+    - subject: Surgical or hydrostatic reduction
+      predicate: PREVENTS
+      object: HP:0002576
+      qualifier: Intussusception in celiac disease
+named_entities:
+  - id: MONDO:0005130
+    label: Celiac Disease
+  - id: HP:0011473
+    label: villous atrophy
+  - id: MAXO:0000088
+    label: diet
+  - id: HP:0002014
+    label: diarrhea
+  - id: HP:0001903
+    label: anemia
+  - id: HP:0000939
+    label: osteoporosis
+  - id: HP:0002608
+    label: Celiac Disease
+  - id: MAXO:0010200
+    label: Abdominal ultrasonography
+  - id: HP:0003270
+    label: Abdominal distension
+  - id: HP:0002748
+    label: Rickets
+  - id: HP:0002576
+    label: intussusception

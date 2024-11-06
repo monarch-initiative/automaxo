@@ -1,0 +1,170 @@
+---
+input_text: 'Tooth Wear Is Frequent in Adult Patients with Celiac Disease. (1) Background:
+  Celiac disease (CD) patients can be affected by mouth and tooth disorders, which
+  are influenced by their gluten-free diet. The aim of our research was to evaluate
+  the pathological conditions of the stomatognathic system observed in celiac patients
+  on a gluten-free diet. (2) Methods: we consecutively recruited celiac patients on
+  a gluten-free diet at our celiac center, as well as healthy volunteers. Two dentists
+  examined all patients/controls and checked them for any mouth disorder. (3) Results:
+  Forty-nine patients affected by celiac disease (age at test 31.8 +- 11.58, time
+  on GFD 8.73 +- 7.7) and 51 healthy volunteers (age at test 30.5 +- 8.7) were included.
+  Recurrent aphthous stomatitis was reported in 26 patients (53.0%) and in 13 (25.5%)
+  controls (p = 0.005). Dental enamel disorders were reported in 7 patients (14.3%)
+  and in 0 controls (p = 0.002), with none having geographic tongue. We found non-specific
+  tooth wear, characterized by loss of the mineralized tissue of the teeth, in 9 patients
+  (18.3%) and in 3 (5.9%) controls (p = 0.05). (4) Conclusion: Recurrent aphthous
+  stomatitis and enamel hypoplasia are "risk indicators" that may suggest that an
+  individual has CD. We detected a high prevalence of non-specific tooth wear that
+  can be caused by several factors such as malocclusion, sleep bruxism, parafunctional
+  activity, and age.'
+raw_completion_output: |-
+  primary_disease: Celiac Disease
+  medical_actions: gluten-free diet
+  symptoms: recurrent aphthous stomatitis; dental enamel disorders; non-specific tooth wear
+  chemicals: 
+  action_annotation_relationships: gluten-free diet PREVENTS recurrent aphthous stomatitis IN Celiac Disease; gluten-free diet PREVENTS dental enamel disorders IN Celiac Disease; gluten-free diet PREVENTS non-specific tooth wear IN Celiac Disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  gluten-free diet PREVENTS non-specific tooth wear IN Celiac Disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005130
+  medical_actions:
+    - gluten-free diet
+  symptoms:
+    - HP:0011107
+    - dental enamel disorders
+    - non-specific tooth wear
+  action_annotation_relationships:
+    - subject: gluten-free diet
+      predicate: PREVENTS
+      object: HP:0011107
+      qualifier: MONDO:0005130
+      object_qualifier: recurrent
+      subject_extension: gluten-free diet
+      object_extension: recurrent
+    - subject: <gluten-free diet>
+      predicate: <PREVENTS>
+      object: <dental enamel disorders>
+      qualifier: <Celiac Disease>
+      subject_extension: <gluten-free diet>
+    - subject: gluten-free diet
+      predicate: PREVENTS
+      object: non-specific tooth wear
+      qualifier: MONDO:0005130
+      subject_extension: gluten-free diet
+named_entities:
+  - id: HP:0001251
+    label: ataxia
+  - id: CHEBI:21547
+    label: N-acetylaspartate (NAA)
+  - id: CHEBI:157802
+    label: creatine (Cr)
+  - id: MONDO:0005130
+    label: Celiac disease
+  - id: HP:0001394
+    label: Cirrhosis
+  - id: HP:0002608
+    label: Celiac disease
+  - id: MONDO:0005340
+    label: Alopecia areata
+  - id: HP:0001596
+    label: Hair loss
+  - id: HP:0002014
+    label: Diarrhea
+  - id: HP:0002027
+    label: Abdominal pain
+  - id: HP:0012378
+    label: Fatigue
+  - id: HP:0011473
+    label: Villous atrophy
+  - id: CHEBI:3207
+    label: Budesonide
+  - id: HP:0000951
+    label: skin abnormalities
+  - id: HP:0001595
+    label: hair abnormalities
+  - id: HP:0000112
+    label: kidney diseases
+  - id: MAXO:0000088
+    label: Diet
+  - id: MONDO:0009032
+    label: Celiac Disease (CeD)
+  - id: HP:0100252
+    label: Celiac Disease (CeD)
+  - id: CHEBI:18332
+    label: T4
+  - id: CHEBI:30660
+    label: thyroxine
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0002028
+    label: recurrent diarrhea
+  - id: HP:0001824
+    label: weight loss
+  - id: HP:0001891
+    label: iron deficiency anemia
+  - id: CHEBI:6909
+    label: metronidazole
+  - id: MAXO:0001017
+    label: Vaccination
+  - id: HP:0002242
+    label: Enteropathy
+  - id: MONDO:0400005
+    label: Refeeding syndrome
+  - id: HP:0003111
+    label: Electrolyte disturbances
+  - id: HP:0000713
+    label: Psychomotor agitation
+  - id: HP:0002098
+    label: Respiratory distress
+  - id: HP:0030149
+    label: Cardiogenic shock
+  - id: CHEBI:28796
+    label: Fructans
+  - id: HP:0031955
+    label: antalgic gait
+  - id: CHEBI:18248
+    label: Iron
+  - id: CHEBI:27470
+    label: Folate
+  - id: CHEBI:176843
+    label: Vitamin B12
+  - id: HP:0000716
+    label: Depression
+  - id: MAXO:0000106
+    label: Nutritional supplementation
+  - id: CHEBI:22984
+    label: Ca
+  - id: CHEBI:25107
+    label: Mg
+  - id: CHEBI:27363
+    label: Zn
+  - id: MAXO:0000130
+    label: Endoscopy
+  - id: CHEBI:80165
+    label: Gluten immunogenic peptides (GIP)
+  - id: MONDO:0015924
+    label: Porto-pulmonary hypertension (PPH)
+  - id: MAXO:0001490
+    label: platelet transfusion
+  - id: HP:0006517
+    label: mean pulmonary artery pressure (PAP) 49 mm Hg
+  - id: MAXO:0000757
+    label: infusions
+  - id: HP:0011107
+    label: recurrent aphthous stomatitis

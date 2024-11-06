@@ -1,0 +1,119 @@
+---
+input_text: 'Unrecognized Celiac Disease in Children Presenting for Rheumatology Evaluation.
+  BACKGROUND AND OBJECTIVES: Current clinical guidelines do not consider patients
+  with rheumatic conditions to be at high risk for celiac disease (CD) despite numerous
+  reported associations between the two in adults and children. The objective of this
+  study was to evaluate the prevalence of CD among patients presenting for pediatric
+  rheumatology evaluation. METHODS: A total of 2125 patients presenting for initial
+  evaluation by the Division of Pediatric Rheumatology at the Hospital for Special
+  Surgery between June 2006 and December 2013 were screened for CD as a part of the
+  standard initial serologic evaluation. The charts of these patients were evaluated
+  retrospectively at the end of this period. RESULTS: 36 patients (30 girls, 6 boys,
+  mean age 9.4 +- 4.3 years, range 2-16 years) received a diagnosis of CD after serologic
+  testing and evaluation by pediatric gastroenterology. Eight additional patients
+  with known diagnoses of CD presented during this time period. The total prevalence
+  of CD over this 6.5-year period was 2.0%. The most common presenting complaints
+  among patients diagnosed with CD were myalgias, arthralgias, and rash. Less frequently,
+  patients reported gastrointestinal complaints including abdominal pain, nausea,
+  and diarrhea. All patients reported improvement or complete resolution of their
+  musculoskeletal symptoms after initiation of a gluten-free diet. CONCLUSIONS: This
+  study identified 36 new cases of CD among children presenting for rheumatology evaluation,
+  for an overall prevalence rate of 2.0%. The majority of patients who ultimately
+  received a diagnosis of CD presented with extraintestinal manifestations. These
+  results underscore the importance of screening children presenting for rheumatology
+  evaluation for CD.'
+raw_completion_output: |-
+  primary_disease: Celiac Disease
+  medical_actions: Serologic testing; Evaluation by pediatric gastroenterology; Initiation of a gluten-free diet
+  symptoms: Myalgias; Arthralgias; Rash; Abdominal pain; Nausea; Diarrhea
+  chemicals: 
+  action_annotation_relationships: Serologic testing TREATS Unrecognized diagnosis IN Celiac Disease; Evaluation by pediatric gastroenterology TREATS Unrecognized diagnosis IN Celiac Disease; Initiation of a gluten-free diet TREATS Myalgias IN Celiac Disease; Initiation of a gluten-free diet TREATS Arthralgias IN Celiac Disease; Initiation of a gluten-free diet TREATS Rash IN Celiac Disease; Initiation of a gluten-free diet TREATS Abdominal pain IN Celiac Disease; Initiation of a gluten-free diet TREATS Nausea IN Celiac Disease; Initiation of a gluten-free diet TREATS Diarrhea IN Celiac Disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Initiation of a gluten-free diet TREATS Diarrhea IN Celiac Disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005130
+  medical_actions:
+    - Serologic testing
+    - Evaluation by pediatric gastroenterology
+    - Initiation of a gluten-free diet
+  symptoms:
+    - HP:0003326
+    - HP:0002829
+    - HP:0000988
+    - HP:0002027
+    - HP:0002018
+    - HP:0002014
+  action_annotation_relationships:
+    - subject: Serologic testing
+      predicate: TREATS
+      object: Unrecognized diagnosis
+      qualifier: MONDO:0005130
+    - subject: Evaluation by pediatric gastroenterology
+      predicate: TREATS
+      object: Unrecognized diagnosis
+      qualifier: MONDO:0005130
+    - subject: <Initiation of a gluten-free diet>
+      predicate: <TREATS>
+      object: <Myalgias>
+      qualifier: <Celiac Disease>
+      subject_extension: <gluten-free diet>
+    - subject: Initiation of a gluten-free diet
+      predicate: TREATS
+      object: HP:0002829
+      qualifier: MONDO:0005130
+      subject_extension: gluten-free diet
+    - subject: Initiation of a gluten-free diet
+      predicate: TREATS
+      object: HP:0000988
+      qualifier: MONDO:0005130
+      subject_extension: gluten-free diet
+    - subject: Initiation of a gluten-free diet
+      predicate: TREATS
+      object: HP:0002027
+      qualifier: MONDO:0005130
+      subject_extension: gluten-free diet
+    - subject: Initiation of a gluten-free diet
+      predicate: TREATS
+      object: HP:0002018
+      qualifier: MONDO:0005130
+      subject_extension: gluten-free diet
+    - subject: <Initiation of a gluten-free diet>
+      predicate: <TREATS>
+      object: <Diarrhea>
+      qualifier: <Celiac Disease>
+      subject_extension: <gluten-free diet>
+named_entities:
+  - id: MONDO:0005130
+    label: Celiac disease
+  - id: CHEBI:64357
+    label: Rituximab
+  - id: HP:0002608
+    label: Celiac disease
+  - id: HP:0003326
+    label: Myalgias
+  - id: HP:0002829
+    label: Arthralgias
+  - id: HP:0000988
+    label: Rash
+  - id: HP:0002027
+    label: Abdominal pain
+  - id: HP:0002018
+    label: Nausea
+  - id: HP:0002014
+    label: Diarrhea

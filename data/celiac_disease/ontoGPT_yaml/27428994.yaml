@@ -1,0 +1,152 @@
+---
+input_text: 'Gastrointestinal Symptoms in Celiac Disease Patients on a Long-Term Gluten-Free
+  Diet. Experience suggests that many celiac patients suffer from persistent symptoms
+  despite a long-term gluten-free diet (GFD). We investigated the prevalence and severity
+  of these symptoms in patients with variable duration of GFD. Altogether, 856 patients
+  were classified into untreated (n = 128), short-term GFD (1-2 years, n = 93) and
+  long-term GFD (>=3 years, n = 635) groups. Analyses were made of clinical and histological
+  data and dietary adherence. Symptoms were evaluated by the validated GSRS questionnaire.
+  One-hundred-sixty healthy subjects comprised the control group. Further, the severity
+  of symptoms was compared with that in peptic ulcer, reflux disease, inflammatory
+  bowel disease (IBD) and irritable bowel syndrome (IBS). Altogether, 93% of the short-term
+  and 94% of the long-term treated patients had a strict GFD and recovered mucosa.
+  Untreated patients had more diarrhea, indigestion and abdominal pain than those
+  on GFD and controls. There were no differences in symptoms between the short- and
+  long-term GFD groups, but both yielded poorer GSRS total score than controls (p
+  = 0.03 and p = 0.05, respectively). Furthermore, patients treated 1-2 years had
+  more diarrhea (p = 0.03) and those treated >10 years more reflux (p = 0.04) than
+  controls. Long-term treated celiac patients showed relatively mild symptoms compared
+  with other gastrointestinal diseases. Based on our results, good response to GFD
+  sustained in long-term follow-up, but not all patients reach the level of healthy
+  individuals. '
+raw_completion_output: |-
+  primary_disease: Celiac Disease
+
+  medical_actions: Gluten-Free Diet; Dietary adherence evaluation
+
+  symptoms: Persistent symptoms; Diarrhea; Indigestion; Abdominal pain; Reflux
+
+  chemicals: 
+
+  action_annotation_relationships: Gluten-Free Diet TREATS Persistent symptoms IN Celiac Disease; Gluten-Free Diet (with strict adherence) PREVENTS Diarrhea IN Celiac Disease; Gluten-Free Diet (with strict adherence) PREVENTS Indigestion IN Celiac Disease; Gluten-Free Diet (with strict adherence) PREVENTS Abdominal pain IN Celiac Disease; Gluten-Free Diet (long-term >10 years) PREVENTS Reflux IN Celiac Disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Gluten-Free Diet (long-term >10 years) PREVENTS Reflux IN Celiac Disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005130
+  medical_actions:
+    - Gluten-Free Diet
+    - Dietary adherence evaluation
+  symptoms:
+    - Persistent symptoms
+    - HP:0002014
+    - HP:0410281
+    - HP:0002027
+    - HP:0002020
+  action_annotation_relationships:
+    - subject: <Gluten-Free Diet>
+      predicate: <TREATS>
+      object: <symptoms>
+      qualifier: <Celiac Disease>
+      subject_qualifier: <>
+      object_qualifier: <Persistent>
+      subject_extension: <Gluten-Free Diet>
+      object_extension: <Persistent>
+    - subject: Gluten-Free Diet
+      predicate: PREVENTS
+      object: HP:0002014
+      qualifier: MONDO:0005130
+      subject_qualifier: with strict adherence
+      subject_extension: Gluten-Free Diet
+    - subject: Gluten-Free Diet
+      predicate: PREVENTS
+      object: HP:0410281
+      qualifier: MONDO:0005130
+      subject_qualifier: with strict adherence
+      subject_extension: Gluten-Free Diet
+    - subject: Gluten-Free Diet
+      predicate: PREVENTS
+      object: HP:0002027
+      qualifier: MONDO:0005130
+      subject_qualifier: with strict adherence
+      subject_extension: Gluten-Free Diet
+    - subject: Gluten-Free Diet (long-term >10 years)
+      predicate: PREVENTS
+      object: HP:0002020
+      qualifier: MONDO:0005130
+      subject_qualifier: long-term >10 years
+      subject_extension: Gluten-Free Diet
+named_entities:
+  - id: MONDO:0005130
+    label: Celiac Disease
+  - id: HP:0011473
+    label: villous atrophy
+  - id: MAXO:0000088
+    label: diet
+  - id: HP:0002014
+    label: diarrhea
+  - id: HP:0001903
+    label: anemia
+  - id: HP:0000939
+    label: osteoporosis
+  - id: HP:0002608
+    label: Celiac Disease
+  - id: MAXO:0010200
+    label: Abdominal ultrasonography
+  - id: HP:0003270
+    label: Abdominal distension
+  - id: HP:0002748
+    label: Rickets
+  - id: HP:0002576
+    label: intussusception
+  - id: CHEBI:72716
+    label: TG2 inhibitors
+  - id: MAXO:0000130
+    label: endoscopy
+  - id: MONDO:0016063
+    label: Celiac disease (CD)
+  - id: CHEBI:73291
+    label: Anti-deamidated gliadin peptides (DGP)
+  - id: HP:0011107
+    label: Aphthous stomatitis
+  - id: HP:0002019
+    label: Constipation
+  - id: HP:0002020
+    label: Gastroesophageal reflux disease
+  - id: CHEBI:18163
+    label: GD1a
+  - id: CHEBI:28175
+    label: GD1b
+  - id: CHEBI:28424
+    label: GD3
+  - id: CHEBI:27691
+    label: GT1a
+  - id: CHEBI:28058
+    label: GT1b
+  - id: CHEBI:27515
+    label: GQ1b
+  - id: CHEBI:8382
+    label: prednisone
+  - id: CHEBI:2948
+    label: azathioprine
+  - id: CHEBI:4031
+    label: cyclosporine
+  - id: HP:0410281
+    label: Indigestion
+  - id: HP:0002027
+    label: Abdominal pain
