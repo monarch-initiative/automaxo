@@ -1,0 +1,132 @@
+---
+input_text: 'Catastrophic Delayed Hemolytic Transfusion Reaction in a Patient With
+  Sickle Cell Disease Without Alloantibodies: Case Report and Review of Literature.
+  While packed red blood cell (PRBC) transfusion therapy is a mainstay in the treatment
+  of certain patients with sickle cell disease (SCD) and the standard of care for
+  preoperative management, there are associated risks. Delayed hemolytic transfusion
+  reaction (DHTR) is a risk of PRBC transfusion occurring 2 to 20 days from transfusion
+  and typically presents with severe pain characteristic of vaso-occlusive crisis,
+  fever, and hemolytic anemia. DHTRs are uncommon, occurring in only 4% to 11% of
+  transfused patients with SCD, but may be catastrophic in nature with progression
+  to multiorgan failure within hours. Here, we describe a case of a 20-year-old female
+  with sickle cell SS disease who developed a severe DHTR 5 days following an elective
+  preoperative PRBC transfusion, and rapidly progressed to multiorgan failure and
+  death. This is the first reported case of a catastrophic DHTR in a patient with
+  SCD without any detectable known or new alloantibodies.'
+raw_completion_output: |-
+  primary_disease: Catastrophic Delayed Hemolytic Transfusion Reaction (DHTR)
+
+  medical_actions: Packed red blood cell (PRBC) transfusion therapy
+
+  symptoms: Severe pain characteristic of vaso-occlusive crisis; Fever; Hemolytic anemia; Multiorgan failure
+
+  chemicals: 
+
+  action_annotation_relationships: Packed red blood cell (PRBC) transfusion therapy TREATS severe pain characteristic of vaso-occlusive crisis IN Catastrophic Delayed Hemolytic Transfusion Reaction; Packed red blood cell (PRBC) transfusion therapy TREATS hemolytic anemia IN Catastrophic Delayed Hemolytic Transfusion Reaction; Packed red blood cell (PRBC) transfusion therapy PREVENTS multiorgan failure IN Catastrophic Delayed Hemolytic Transfusion Reaction
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Packed red blood cell (PRBC) transfusion therapy PREVENTS multiorgan failure IN Catastrophic Delayed Hemolytic Transfusion Reaction
+
+  ===
+
+extracted_object:
+  primary_disease: Catastrophic Delayed Hemolytic Transfusion Reaction (DHTR)
+  medical_actions:
+    - Packed red blood cell (PRBC) transfusion therapy
+  symptoms:
+    - Severe pain characteristic of vaso-occlusive crisis
+    - HP:0001945
+    - HP:0001878
+    - Multiorgan failure
+  action_annotation_relationships:
+    - subject: <Packed red blood cell transfusion therapy>
+      predicate: <TREATS>
+      object: <pain>
+      qualifier: <Catastrophic Delayed Hemolytic Transfusion Reaction>
+      subject_qualifier: <>
+      object_qualifier: <characteristic of vaso-occlusive crisis>
+      subject_extension: <PRBC transfusion therapy>
+      object_extension: <severe>
+    - subject: transfusion therapy
+      predicate: TREATS
+      object: HP:0001878
+      qualifier: Catastrophic Delayed Hemolytic Transfusion Reaction
+      subject_extension: Packed red blood cell (PRBC)
+    - subject: transfusion therapy
+      predicate: PREVENTS
+      object: multiorgan failure
+      qualifier: Catastrophic Delayed Hemolytic Transfusion Reaction
+      subject_extension: Packed red blood cell
+named_entities:
+  - id: MONDO:0007374
+    label: Sickle Cell Disease (SCD)
+  - id: MAXO:0001479
+    label: Allogeneic hematopoietic stem cell transplantation (allo-HSCT)
+  - id: HP:0001923
+    label: Increased reticulocyte counts
+  - id: CHEBI:80240
+    label: Endothelin-1
+  - id: MONDO:0011382
+    label: Sickle Cell Disease
+  - id: HP:0001945
+    label: fever
+  - id: HP:0002754
+    label: osteomyelitis
+  - id: CHEBI:17334
+    label: penicillin
+  - id: MAXO:0000118
+    label: immunization
+  - id: MAXO:0000747
+    label: Hematopoietic stem cell transplantation
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: MAXO:0009101
+    label: Early intervention
+  - id: HP:0000989
+    label: pruritus
+  - id: HP:0012393
+    label: allergic reactions
+  - id: HP:0012532
+    label: chronic pain
+  - id: HP:0007760
+    label: SCD
+  - id: MAXO:0001298
+    label: therapy
+  - id: CHEBI:6807
+    label: Methadone
+  - id: CHEBI:4027
+    label: Cyclophosphamide
+  - id: CHEBI:82557
+    label: Treosulfan
+  - id: MAXO:0000756
+    label: Blood transfusions
+  - id: HP:0012531
+    label: Pain
+  - id: CHEBI:44423
+    label: Hydroxyurea
+  - id: MONDO:0005632
+    label: Acute Chest Syndrome
+  - id: CHEBI:35480
+    label: analgesics
+  - id: CHEBI:49005
+    label: Deferasirox
+  - id: MONDO:0100096
+    label: COVID-19
+  - id: HP:0030157
+    label: Flank pain
+  - id: HP:0100749
+    label: Chest pain
+  - id: HP:0001878
+    label: Hemolytic anemia

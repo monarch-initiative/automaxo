@@ -1,0 +1,128 @@
+---
+input_text: Knowledge to date on secondary malignancy following hematopoietic cell
+  transplantation for sickle cell disease. Allogeneic hematopoietic cell transplantation,
+  gene therapy, and gene editing offer a potential cure for sickle cell disease (SCD).
+  Unfortunately, myelodysplastic syndrome and acute myeloid leukemia development have
+  been higher than expected after graft rejection following nonmyeloablative conditioning
+  and lentivirus-based gene therapy employing myeloablative busulfan for SCD. Somatic
+  mutations discovered in 2 of 76 patients who rejected their grafts were identified
+  at baseline at much lower levels. While a whole-genome sequencing analysis reported
+  no difference between patients with SCD and controls, a study including whole-exome
+  sequencing revealed a higher prevalence of clonal hematopoiesis in individuals with
+  SCD compared with controls. Genetic risk factors for myeloid malignancy development
+  after curative therapy for SCD are currently being explored. Once discovered, decisions
+  could be made about whether gene therapy may be feasible vs allogeneic hematopoietic
+  cell transplant, which results in full donor chimerism. In the meantime, care should
+  be taken to perform a benefit/risk assessment to help patients identify the best
+  curative approach for them. Long-term follow-up is necessary to monitor for myeloid
+  malignancies and other adverse effects of curative therapies for SCD.
+raw_completion_output: |-
+  primary_disease: sickle cell disease (SCD)
+
+  medical_actions: Allogeneic hematopoietic cell transplantation; Gene therapy; Gene editing; Nonmyeloablative conditioning; Lentivirus-based gene therapy using myeloablative busulfan; Benefit/risk assessment; Long-term follow-up
+
+  symptoms: Myelodysplastic syndrome; Acute myeloid leukemia development; Graft rejection
+
+  chemicals: Busulfan
+
+  action_annotation_relationships: Allogeneic hematopoietic cell transplantation TREATS sickle cell disease; Gene therapy TREATS sickle cell disease; Gene editing TREATS sickle cell disease; Nonmyeloablative conditioning TREATS sickle cell disease; Lentivirus-based gene therapy using myeloablative busulfan TREATS sickle cell disease; Benefit/risk assessment PREVENTS adverse effects IN sickle cell disease; Long-term follow-up PREVENTS myeloid malignancies IN sickle cell disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Long-term follow-up PREVENTS myeloid malignancies IN sickle cell disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0007374
+  medical_actions:
+    - Allogeneic hematopoietic cell transplantation
+    - MAXO:0001001
+    - Gene editing
+    - Nonmyeloablative conditioning
+    - Lentivirus-based gene therapy using myeloablative busulfan
+    - Benefit/risk assessment
+    - Long-term follow-up
+  symptoms:
+    - HP:0002863
+    - Acute myeloid leukemia development
+    - Graft rejection
+  chemicals:
+    - CHEBI:28901
+  action_annotation_relationships:
+    - subject: Allogeneic hematopoietic cell transplantation
+      predicate: TREATS
+      object: sickle cell disease
+    - subject: MAXO:0001001
+      predicate: TREATS
+      object: sickle cell disease
+    - subject: Gene editing
+      predicate: TREATS
+      object: sickle cell disease
+    - subject: Nonmyeloablative conditioning
+      predicate: TREATS
+      object: sickle cell disease
+    - subject: MAXO:0001001
+      predicate: TREATS
+      object: sickle cell disease
+      subject_qualifier: Lentivirus-based
+      object_qualifier: myeloablative
+      subject_extension: Lentivirus-based gene therapy
+      object_extension: myeloablative busulfan
+    - subject: <Benefit/risk assessment>
+      predicate: <PREVENTS>
+      object: <adverse effects>
+      qualifier: <sickle cell disease>
+      subject_extension: <Benefit/risk assessment>
+    - subject: Long-term follow-up
+      predicate: PREVENTS
+      object: myeloid malignancies
+      qualifier: MONDO:0011382
+named_entities:
+  - id: MONDO:0011382
+    label: sickle cell disease
+  - id: CHEBI:64357
+    label: rituximab
+  - id: CHEBI:35341
+    label: steroids
+  - id: CHEBI:81579
+    label: erythropoietin
+  - id: MAXO:0001017
+    label: Vaccination
+  - id: MONDO:0007374
+    label: Sickle Cell Disease (SCD)
+  - id: MAXO:0000747
+    label: Allogeneic hematopoietic stem cell transplantation (HSCT)
+  - id: HP:0007760
+    label: Sickle Cell Disease (SCD)
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: CHEBI:35480
+    label: analgesics
+  - id: CHEBI:33281
+    label: antibiotics
+  - id: MAXO:0001077
+    label: Splenectomy
+  - id: MAXO:0000756
+    label: Blood transfusion
+  - id: MONDO:0044348
+    label: Hemoglobinopathies
+  - id: CHEBI:44423
+    label: Hydroxyurea
+  - id: HP:0001297
+    label: Stroke
+  - id: HP:0002863
+    label: Myelodysplastic syndrome
+  - id: CHEBI:28901
+    label: Busulfan

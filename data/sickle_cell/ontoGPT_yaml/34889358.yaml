@@ -1,0 +1,91 @@
+---
+input_text: 'Gene therapy for sickle cell disease: where we are now? The landscape
+  of sickle cell disease (SCD) treatment continues to evolve rapidly, with new disease-modifying
+  therapies in development and potentially curative options on the horizon. Until
+  recently, allogeneic stem cell transplant has been the only proven cure for SCD.
+  Gene therapy is rising to the forefront of the discussion as a potentially curative
+  or highly disease- modifying option for abating the complications of the disease.
+  Understanding the different types of gene therapy in use, the differences in their
+  end points, and their potential risks and benefits will be key to optimizing the
+  long-term use of this therapy.'
+raw_completion_output: |-
+  primary_disease: Sickle cell disease (SCD)
+
+  medical_actions: Gene therapy; Allogeneic stem cell transplant
+
+  symptoms: Complications of the disease
+
+  chemicals: 
+
+  action_annotation_relationships: Gene therapy TREATS Complications of the disease IN Sickle cell disease (SCD); Allogeneic stem cell transplant TREATS Sickle cell disease (SCD)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Allogeneic stem cell transplant TREATS Sickle cell disease (SCD)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0007374
+  medical_actions:
+    - MAXO:0001001
+    - Allogeneic stem cell transplant
+  symptoms:
+    - Complications of the disease
+  action_annotation_relationships:
+    - subject: MAXO:0001001
+      predicate: TREATS
+      object: Complications of the disease
+      qualifier: MONDO:0007374
+    - subject: Allogeneic stem cell transplant
+      predicate: TREATS
+      object: Sickle cell disease
+      qualifier: MONDO:0007374
+named_entities:
+  - id: MONDO:0007374
+    label: Sickle Cell Disease (SCD)
+  - id: MAXO:0001479
+    label: Allogeneic hematopoietic stem cell transplantation (allo-HSCT)
+  - id: HP:0001923
+    label: Increased reticulocyte counts
+  - id: CHEBI:80240
+    label: Endothelin-1
+  - id: MONDO:0011382
+    label: Sickle Cell Disease
+  - id: HP:0001945
+    label: fever
+  - id: HP:0002754
+    label: osteomyelitis
+  - id: CHEBI:17334
+    label: penicillin
+  - id: MAXO:0000118
+    label: immunization
+  - id: MAXO:0000747
+    label: Hematopoietic stem cell transplantation
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: MAXO:0009101
+    label: Early intervention
+  - id: HP:0000989
+    label: pruritus
+  - id: HP:0012393
+    label: allergic reactions
+  - id: HP:0012532
+    label: chronic pain
+  - id: HP:0007760
+    label: SCD
+  - id: MAXO:0001298
+    label: therapy
+  - id: CHEBI:6807
+    label: Methadone

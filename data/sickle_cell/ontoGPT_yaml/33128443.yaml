@@ -1,0 +1,101 @@
+---
+input_text: 'Emergence of gram-negative organisms as the cause of infections in patients
+  with sickle cell disease. BACKGROUND: Patients with sickle cell disease are at higher
+  risk of infections with encapsulated bacteria due to immature immune responses and
+  functional asplenia. We aimed to study our patient population for the emergence
+  of gram-negative organisms other than Salmonella as the cause of osteomyelitis and
+  document a vast decrease in Streptococcus pneumoniae bacteremia rates. METHODS:
+  We conducted a retrospective chart review of 158 patients with sickle cell disease
+  registered at our hospital. Over a period of 13 years, every patient presenting
+  to the emergency department (ED) with fever had their medical record reviewed for
+  blood cultures, wound cultures, and magnetic resonance imaging results for osteomyelitis.
+  RESULTS: The number of patients presenting to the ED with fever was 105, with 581
+  febrile episodes and 893 blood cultures. Among those, no culture grew Streptococcus
+  pneumoniae, 14 grew coagulase-negative staphylococci (1.5%), one grew Salmonella
+  enterica Paratyphi B, and three grew Salmonella enterica group C (in the same patient).
+  The total number of osteomyelitis episodes in patients with sickle cell disease
+  presenting with fever and documented by imaging was nine (1.5%). In patients with
+  osteomyelitis, organisms were isolated in four patients (44%), including Enterobacter
+  cloacae, Bacteroides, Pseudomonas aeruginosa, and Salmonella enterica group C. CONCLUSIONS:
+  Immunization against Streptococcus pneumoniae and the use of prophylactic penicillin
+  has virtually eliminated pneumococcal bacteremia among our patients. We observed
+  the emergence of gram-negative organisms other than Salmonella as the cause of osteomyelitis
+  in patients with sickle cell disease.'
+raw_completion_output: |-
+  primary_disease: sickle cell disease
+
+  medical_actions: immunization against Streptococcus pneumoniae; use of prophylactic penicillin; retrospective chart review; blood cultures; wound cultures; magnetic resonance imaging for osteomyelitis
+
+  symptoms: fever; osteomyelitis
+
+  chemicals: penicillin
+
+  action_annotation_relationships: immunization against Streptococcus pneumoniae PREVENTS pneumococcal bacteremia IN sickle cell disease; use of prophylactic penicillin (with penicillin) PREVENTS pneumococcal bacteremia IN sickle cell disease; magnetic resonance imaging for osteomyelitis TREATS osteomyelitis IN sickle cell disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  magnetic resonance imaging for osteomyelitis TREATS osteomyelitis IN sickle cell disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0011382
+  medical_actions:
+    - immunization against Streptococcus pneumoniae
+    - use of prophylactic penicillin
+    - retrospective chart review
+    - blood cultures
+    - wound cultures
+    - magnetic resonance imaging for osteomyelitis
+  symptoms:
+    - HP:0001945
+    - HP:0002754
+  chemicals:
+    - CHEBI:17334
+  action_annotation_relationships:
+    - subject: MAXO:0000118
+      predicate: PREVENTS
+      object: pneumococcal bacteremia
+      qualifier: MONDO:0011382
+      subject_qualifier: against
+      subject_extension: Streptococcus pneumoniae
+    - subject: use of prophylactic penicillin
+      predicate: PREVENTS
+      object: pneumococcal bacteremia
+      qualifier: MONDO:0011382
+      subject_qualifier: with penicillin
+      subject_extension: CHEBI:17334
+    - subject: magnetic resonance imaging
+      predicate: TREATS
+      object: HP:0002754
+      qualifier: MONDO:0011382
+named_entities:
+  - id: MONDO:0007374
+    label: Sickle Cell Disease (SCD)
+  - id: MAXO:0001479
+    label: Allogeneic hematopoietic stem cell transplantation (allo-HSCT)
+  - id: HP:0001923
+    label: Increased reticulocyte counts
+  - id: CHEBI:80240
+    label: Endothelin-1
+  - id: MONDO:0011382
+    label: Sickle Cell Disease
+  - id: HP:0001945
+    label: fever
+  - id: HP:0002754
+    label: osteomyelitis
+  - id: CHEBI:17334
+    label: penicillin
+  - id: MAXO:0000118
+    label: immunization

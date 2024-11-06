@@ -1,0 +1,206 @@
+---
+input_text: 'Bone marrow transplantation for adolescents and young adults with sickle
+  cell disease: Results of a prospective multicenter pilot study. We conducted a multicenter
+  pilot investigation of the safety and feasibility of bone marrow transplantation
+  (BMT) in adults with severe sickle cell disease (SCD) (NCT 01565616) using a reduced
+  toxicity preparative regimen of busulfan (13.2 mg/kg), fludarabine (175 mg/m2 )
+  and thymoglobulin (6 mg/kg) and cyclosporine or tacrolimus and methotrexate for
+  graft-vs-host disease (GVHD) prophylaxis. Twenty-two patients (median age 22 years;
+  range 17-36) were enrolled at eight centers. Seventeen patients received marrow
+  from an HLA-identical sibling donor and five patients received marrow from an 8/8
+  HLA-allele matched unrelated donor. Before BMT, patients had stroke, acute chest
+  syndrome, recurrent pain events, were receiving regular red blood cell transfusions,
+  or had an elevated tricuspid regurgitant jet (TRJ) velocity, which fulfilled eligibility
+  criteria. Four patients developed grades II-III acute GVHD (18%) and six developed
+  chronic GVHD (27%) that was moderate in two and severe in one patient. One patient
+  died of intracranial hemorrhage and one of GVHD. Nineteen patients had stable donor
+  chimerism, 1-year post-transplant. One patient who developed secondary graft failure
+  survives disease-free after a second BMT. The one-year overall survival and event-free
+  survival (EFS) are 91% (95% CI 68%-98%) and 86% (95% CI, 63%-95%), respectively,
+  and 3-year EFS is 82%. Statistically significant improvements in the pain interference
+  and physical function domains of health-related quality of life were observed. The
+  study satisfied the primary endpoint of 1-year EFS >=70%. This regimen is being
+  studied in a prospective clinical trial comparing HLA-matched donor BMT with standard
+  of care in adults with severe SCD (NCT02766465).'
+raw_completion_output: |-
+  primary_disease: Sickle Cell Disease (SCD)
+  medical_actions: Bone marrow transplantation (BMT);Reduced toxicity preparative regimen;Use of busulfan, fludarabine, and thymoglobulin;Cyclosporine or tacrolimus and methotrexate for GVHD prophylaxis;Regular red blood cell transfusions
+  symptoms: Stroke;Acute chest syndrome;Recurrent pain events;Elevated tricuspid regurgitant jet (TRJ) velocity
+  chemicals: Busulfan;Fludarabine;Thymoglobulin;Cyclosporine;Tacrolimus;Methotrexate
+  action_annotation_relationships: Bone marrow transplantation (BMT) TREATS stroke IN Sickle Cell Disease (SCD);Bone marrow transplantation (BMT) TREATS acute chest syndrome IN Sickle Cell Disease (SCD);Bone marrow transplantation (BMT) TREATS recurrent pain events IN Sickle Cell Disease (SCD);Bone marrow transplantation (BMT) with busulfan, fludarabine, and thymoglobulin TREATS elevated tricuspid regurgitant jet (TRJ) velocity IN Sickle Cell Disease (SCD);Cyclosporine or tacrolimus and methotrexate TREATS GVHD IN Sickle Cell Disease (SCD)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Cyclosporine or tacrolimus and methotrexate TREATS GVHD IN Sickle Cell Disease (SCD)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0007374
+  medical_actions:
+    - MAXO:0010030
+    - Reduced toxicity preparative regimen
+    - Use of busulfan, fludarabine, and thymoglobulin
+    - Cyclosporine or tacrolimus and methotrexate for GVHD prophylaxis
+    - Regular red blood cell transfusions
+  symptoms:
+    - HP:0001297
+    - Acute chest syndrome
+    - Recurrent pain events
+    - Elevated tricuspid regurgitant jet (TRJ) velocity
+  chemicals:
+    - CHEBI:28901
+    - Fludarabine
+    - Thymoglobulin
+    - CHEBI:4031
+    - CHEBI:61049
+    - CHEBI:44185
+  action_annotation_relationships:
+    - subject: MAXO:0010030
+      predicate: TREATS
+      object: HP:0001297
+      qualifier: MONDO:0011382
+    - subject: MAXO:0010030
+      predicate: TREATS
+      object: acute chest syndrome
+      qualifier: MONDO:0011382
+    - subject: <Bone marrow transplantation>
+      predicate: <TREATS>
+      object: <recurrent pain events>
+      qualifier: <Sickle Cell Disease>
+      subject_extension: <Bone marrow transplantation>
+    - subject: MAXO:0010030
+      predicate: TREATS
+      object: elevated tricuspid regurgitant jet (TRJ) velocity
+      qualifier: MONDO:0007374
+      subject_qualifier: with busulfan, fludarabine, and thymoglobulin
+      subject_extension: busulfan, fludarabine, and thymoglobulin
+    - subject: Cyclosporine or tacrolimus and methotrexate
+      predicate: TREATS
+      object: GVHD
+      qualifier: MONDO:0007374
+      subject_extension: Cyclosporine, tacrolimus, methotrexate
+named_entities:
+  - id: MONDO:0007374
+    label: Sickle Cell Disease (SCD)
+  - id: MAXO:0001479
+    label: Allogeneic hematopoietic stem cell transplantation (allo-HSCT)
+  - id: HP:0001923
+    label: Increased reticulocyte counts
+  - id: CHEBI:80240
+    label: Endothelin-1
+  - id: MONDO:0011382
+    label: Sickle Cell Disease
+  - id: HP:0001945
+    label: fever
+  - id: HP:0002754
+    label: osteomyelitis
+  - id: CHEBI:17334
+    label: penicillin
+  - id: MAXO:0000118
+    label: immunization
+  - id: MAXO:0000747
+    label: Hematopoietic stem cell transplantation
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: MAXO:0009101
+    label: Early intervention
+  - id: HP:0000989
+    label: pruritus
+  - id: HP:0012393
+    label: allergic reactions
+  - id: HP:0012532
+    label: chronic pain
+  - id: HP:0007760
+    label: SCD
+  - id: MAXO:0001298
+    label: therapy
+  - id: CHEBI:6807
+    label: Methadone
+  - id: CHEBI:4027
+    label: Cyclophosphamide
+  - id: CHEBI:82557
+    label: Treosulfan
+  - id: MAXO:0000756
+    label: Blood transfusions
+  - id: HP:0012531
+    label: Pain
+  - id: CHEBI:44423
+    label: Hydroxyurea
+  - id: MONDO:0005632
+    label: Acute Chest Syndrome
+  - id: CHEBI:35480
+    label: analgesics
+  - id: CHEBI:49005
+    label: Deferasirox
+  - id: MONDO:0100096
+    label: COVID-19
+  - id: HP:0030157
+    label: Flank pain
+  - id: HP:0100749
+    label: Chest pain
+  - id: HP:0001878
+    label: Hemolytic anemia
+  - id: MONDO:0005570
+    label: Hematological diseases
+  - id: HP:0004444
+    label: Spherocytosis
+  - id: HP:0001028
+    label: Hemangioma
+  - id: HP:0001871
+    label: Hematological diseases
+  - id: MONDO:0017014
+    label: children
+  - id: HP:0030830
+    label: crackles
+  - id: HP:0002617
+    label: Vasculopathy
+  - id: MONDO:0005380
+    label: Avascular necrosis
+  - id: HP:0002829
+    label: Joint pain
+  - id: MAXO:0000586
+    label: Invasive ventilation (not used)
+  - id: MONDO:0006502
+    label: Severe COVID-19 with acute respiratory distress syndrome (ARDS)
+  - id: HP:0002094
+    label: dyspnea
+  - id: HP:0001873
+    label: thrombocytopenia
+  - id: MONDO:0003664
+    label: Haemolytic anaemia
+  - id: HP:0025435
+    label: increased lactate dehydrogenase levels
+  - id: HP:0011981
+    label: pigment gallstones
+  - id: HP:0001907
+    label: thromboembolism
+  - id: CHEBI:35341
+    label: steroids
+  - id: HP:0001890
+    label: autoimmune haemolytic anaemia
+  - id: MAXO:0000457
+    label: Pain management
+  - id: MAXO:0010030
+    label: Bone marrow transplantation (BMT)
+  - id: HP:0001297
+    label: Stroke
+  - id: CHEBI:28901
+    label: Busulfan
+  - id: CHEBI:4031
+    label: Cyclosporine
+  - id: CHEBI:61049
+    label: Tacrolimus
+  - id: CHEBI:44185
+    label: Methotrexate

@@ -1,0 +1,157 @@
+---
+input_text: 'Pre-transplant myeloid and immune suppression, upfront plerixafor mobilization
+  and post-transplant cyclophosphamide: novel strategy for haploidentical transplant
+  in sickle cell disease. Allogenic hematopoietic stem cell transplant is the only
+  curative option for symptomatic sickle cell disease (SCD). HLA haploidentical related
+  donor transplants are associated with high graft failure rates. We conceptualized
+  a novel protocol (APOLLO protocol) using pre-transplant immune and myelosuppression
+  (PTIS) using fludarabine, cyclophosphamide, and dexamethasone followed by augmented
+  John Hopkins protocol by adding thiotepa to conditioning. Twenty-five consecutive
+  patients suffering from symptomatic SCD were enrolled into the study. We added upfront
+  plerixafor to granulocyte colony stimulating factor (GCSF) for mobilization of healthy
+  donors. Graft versus host disease (GvHD) prophylaxis was done using post-transplant
+  cyclophosphamide, sirolimus, and mycophenolate mofetil. Graft failure was not seen
+  in any of our patients. Five patients developed acute grade II/IV GvHD (4 classical
+  acute, 1 late onset), 3 had limited chronic GvHD. Out of 25 evaluable patients,
+  22 are alive and disease free, making an overall survival (OS) and disease-free
+  survival (DFS) of 88% with a median follow up of 485 days (range 198-802). T-cell-replete
+  haploidentical transplant with PTIS, augmented John Hopkins conditioning and plerixafor
+  based mobilization is a safe and effective way of treating patients suffering from
+  SCD with minimal or no risk of graft failure and acceptable GvHD rates.'
+raw_completion_output: |-
+  primary_disease: sickle cell disease (SCD)
+
+  medical_actions: pre-transplant immune and myelosuppression (PTIS) using fludarabine, cyclophosphamide, and dexamethasone; augmented John Hopkins protocol by adding thiotepa to conditioning; upfront plerixafor to granulocyte colony stimulating factor (GCSF) for mobilization; graft versus host disease (GvHD) prophylaxis using post-transplant cyclophosphamide, sirolimus, and mycophenolate mofetil
+
+  symptoms: acute grade II/IV GvHD; limited chronic GvHD
+
+  chemicals: fludarabine; cyclophosphamide; dexamethasone; thiotepa; plerixafor; sirolimus; mycophenolate mofetil
+
+  action_annotation_relationships: pre-transplant immune and myelosuppression (with fludarabine, cyclophosphamide, dexamethasone) TREATS sickle cell disease (SCD); augmented John Hopkins protocol (with thiotepa) TREATS sickle cell disease (SCD); upfront plerixafor to granulocyte colony stimulating factor (GCSF) for mobilization TREATS sickle cell disease (SCD); graft versus host disease (GvHD) prophylaxis (with post-transplant cyclophosphamide, sirolimus, and mycophenolate mofetil) PREVENTS acute and chronic GvHD IN sickle cell disease (SCD)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  graft versus host disease (GvHD) prophylaxis (with post-transplant cyclophosphamide, sirolimus, and mycophenolate mofetil) PREVENTS acute and chronic GvHD IN sickle cell disease (SCD)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0007374
+  medical_actions:
+    - pre-transplant immune and myelosuppression (PTIS) using fludarabine, cyclophosphamide,
+      and dexamethasone
+    - augmented John Hopkins protocol by adding thiotepa to conditioning
+    - upfront plerixafor to granulocyte colony stimulating factor (GCSF) for mobilization
+    - graft versus host disease (GvHD) prophylaxis using post-transplant cyclophosphamide,
+      sirolimus, and mycophenolate mofetil
+  symptoms:
+    - acute grade II/IV GvHD
+    - limited chronic GvHD
+  chemicals:
+    - fludarabine
+    - CHEBI:4027
+    - CHEBI:41879
+    - CHEBI:9570
+    - CHEBI:125354
+    - CHEBI:9168
+    - CHEBI:8764
+  action_annotation_relationships:
+    - subject: pre-transplant immune and myelosuppression
+      predicate: TREATS
+      object: HP:0007760
+      subject_extension: fludarabine, cyclophosphamide, dexamethasone
+    - subject: augmented John Hopkins protocol
+      predicate: TREATS
+      object: sickle cell disease
+      qualifier: MONDO:0007374
+      subject_qualifier: with thiotepa
+      subject_extension: CHEBI:9570
+    - subject: <mobilization>
+      predicate: <TREATS>
+      object: HP:0007760
+      subject_qualifier: <upfront>
+      subject_extension: <plerixafor>
+    - subject: graft versus host disease (GvHD) prophylaxis
+      predicate: PREVENTS
+      object: GvHD
+      qualifier: MONDO:0007374
+      subject_qualifier: with post-transplant cyclophosphamide, sirolimus, and mycophenolate
+        mofetil
+      object_qualifier: acute and chronic
+      subject_extension: post-transplant cyclophosphamide, sirolimus, and mycophenolate
+        mofetil
+      object_extension: acute and chronic
+named_entities:
+  - id: MONDO:0011382
+    label: sickle cell disease
+  - id: CHEBI:64357
+    label: rituximab
+  - id: CHEBI:35341
+    label: steroids
+  - id: CHEBI:81579
+    label: erythropoietin
+  - id: MAXO:0001017
+    label: Vaccination
+  - id: MONDO:0007374
+    label: Sickle Cell Disease (SCD)
+  - id: MAXO:0000747
+    label: Allogeneic hematopoietic stem cell transplantation (HSCT)
+  - id: HP:0007760
+    label: Sickle Cell Disease (SCD)
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: CHEBI:35480
+    label: analgesics
+  - id: CHEBI:33281
+    label: antibiotics
+  - id: MAXO:0001077
+    label: Splenectomy
+  - id: MAXO:0000756
+    label: Blood transfusion
+  - id: MONDO:0044348
+    label: Hemoglobinopathies
+  - id: CHEBI:44423
+    label: Hydroxyurea
+  - id: HP:0001297
+    label: Stroke
+  - id: HP:0002863
+    label: Myelodysplastic syndrome
+  - id: CHEBI:28901
+    label: Busulfan
+  - id: CHEBI:82594
+    label: Ferritin
+  - id: MONDO:0000984
+    label: thalassemia
+  - id: MONDO:0018881
+    label: myelodysplastic syndrome
+  - id: HP:0002140
+    label: Ischemic Stroke
+  - id: MONDO:0005380
+    label: avascular necrosis
+  - id: MAXO:0009047
+    label: total hip replacement
+  - id: HP:0010885
+    label: avascular necrosis
+  - id: CHEBI:4027
+    label: cyclophosphamide
+  - id: CHEBI:41879
+    label: dexamethasone
+  - id: CHEBI:9570
+    label: thiotepa
+  - id: CHEBI:125354
+    label: plerixafor
+  - id: CHEBI:9168
+    label: sirolimus
+  - id: CHEBI:8764
+    label: mycophenolate mofetil

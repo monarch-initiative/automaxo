@@ -1,0 +1,97 @@
+---
+input_text: Management of severe chronic pain with methadone in pediatric patients
+  with sickle cell disease. Vasocclusive pain crises are common among pediatric patients
+  with sickle cell disease (SCD). Some patients with repeated pain crises develop
+  chronic pain. We performed a retrospective cohort study of pediatric patients with
+  SCD with chronic pain treated with methadone. We identified a significant reduction
+  in pain hospitalizations following methadone treatment (0.35 +- 0.19 vs. 0.19 +-
+  0.17 hospitalizations/month, P = 0.016). In addition, we did not observe overt organ
+  toxicity nor symptoms of opioid withdrawal during methadone wean. We suggest that
+  methadone is safe and has some clinical benefit, which should be proven in prospective
+  randomized trials for pediatric patients with SCD and chronic pain.
+raw_completion_output: |-
+  primary_disease: Sickle cell disease
+  medical_actions: Retrospective cohort study; Methadone treatment; Pain hospitalization analysis; Observation of organ toxicity and opioid withdrawal symptoms
+  symptoms: Vasocclusive pain crises; Chronic pain; Opioid withdrawal
+  chemicals: Methadone
+  action_annotation_relationships: Methadone treatment TREATS chronic pain IN Sickle cell disease; Methadone treatment PREVENTS opioid withdrawal IN Sickle cell disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Methadone treatment PREVENTS opioid withdrawal IN Sickle cell disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0011382
+  medical_actions:
+    - Retrospective cohort study
+    - Methadone treatment
+    - Pain hospitalization analysis
+    - Observation of organ toxicity and opioid withdrawal symptoms
+  symptoms:
+    - Vasocclusive pain crises
+    - HP:0012532
+    - Opioid withdrawal
+  chemicals:
+    - CHEBI:6807
+  action_annotation_relationships:
+    - subject: treatment
+      predicate: TREATS
+      object: HP:0012532
+      qualifier: MONDO:0011382
+      subject_extension: CHEBI:6807
+    - subject: treatment
+      predicate: PREVENTS
+      object: opioid withdrawal
+      qualifier: MONDO:0011382
+      subject_extension: CHEBI:6807
+      object_extension: opioid withdrawal
+named_entities:
+  - id: MONDO:0007374
+    label: Sickle Cell Disease (SCD)
+  - id: MAXO:0001479
+    label: Allogeneic hematopoietic stem cell transplantation (allo-HSCT)
+  - id: HP:0001923
+    label: Increased reticulocyte counts
+  - id: CHEBI:80240
+    label: Endothelin-1
+  - id: MONDO:0011382
+    label: Sickle Cell Disease
+  - id: HP:0001945
+    label: fever
+  - id: HP:0002754
+    label: osteomyelitis
+  - id: CHEBI:17334
+    label: penicillin
+  - id: MAXO:0000118
+    label: immunization
+  - id: MAXO:0000747
+    label: Hematopoietic stem cell transplantation
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: MAXO:0009101
+    label: Early intervention
+  - id: HP:0000989
+    label: pruritus
+  - id: HP:0012393
+    label: allergic reactions
+  - id: HP:0012532
+    label: chronic pain
+  - id: HP:0007760
+    label: SCD
+  - id: MAXO:0001298
+    label: therapy
+  - id: CHEBI:6807
+    label: Methadone
