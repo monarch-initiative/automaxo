@@ -26,10 +26,14 @@ input_text: 'Suitability Of Nitisinone In Alkaptonuria 1 (SONIA 1): an internati
   EudraCT number: 2012-005340-24. Registered at ClinicalTrials.gov: NCTO1828463.'
 raw_completion_output: |-
   primary_disease: Alkaptonuria (AKU)
-  medical_actions: administration of nitisinone; monitoring of 24-h urinary homogentisic acid excretion; monitoring of tyrosine levels
-  symptoms: premature spondyloarthropathy
-  chemicals: nitisinone; homogentisic acid; tyrosine
-  action_annotation_relationships: administration of nitisinone TREATS premature spondyloarthropathy IN Alkaptonuria (AKU); administration of nitisinone (with nitisinone) TREATS increased homogentisic acid IN Alkaptonuria (AKU); monitoring of 24-h urinary homogentisic acid excretion MANAGES homogentisic acid levels IN Alkaptonuria (AKU); monitoring of tyrosine levels MONITORS side effects IN Alkaptonuria (AKU)
+
+  medical_actions: administering nitisinone; dose-response study; monitoring 24-h urinary HGA excretion; adjusting doses of nitisinone
+
+  symptoms: premature spondyloarthropathy; increased tyrosine levels 
+
+  chemicals: nitisinone; homogentisic acid
+
+  action_annotation_relationships: administering nitisinone TREATS increased homogentisic acid IN Alkaptonuria (AKU); dose-response study TREATS urine HGA excretion IN Alkaptonuria (AKU); monitoring 24-h urinary HGA excretion TREATS homogentisic acid excretion IN Alkaptonuria (AKU); adjusting doses of nitisinone TREATS homogentisic acid excretion IN Alkaptonuria (AKU)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -44,55 +48,55 @@ prompt: |+
 
 
   Text:
-  monitoring of tyrosine levels MONITORS side effects IN Alkaptonuria (AKU)
+  adjusting doses of nitisinone TREATS homogentisic acid excretion IN Alkaptonuria (AKU)
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0008753
   medical_actions:
-    - administration of nitisinone
-    - monitoring of 24-h urinary homogentisic acid excretion
-    - monitoring of tyrosine levels
+    - administering nitisinone
+    - dose-response study
+    - monitoring 24-h urinary HGA excretion
+    - adjusting doses of nitisinone
   symptoms:
     - premature spondyloarthropathy
+    - increased tyrosine levels
   chemicals:
     - CHEBI:50378
     - CHEBI:44747
-    - CHEBI:18186
   action_annotation_relationships:
-    - subject: administration of nitisinone
-      predicate: TREATS
-      object: premature spondyloarthropathy
-      qualifier: MONDO:0008753
-      subject_extension: CHEBI:50378
-    - subject: administration of nitisinone
+    - subject: administering nitisinone
       predicate: TREATS
       object: increased homogentisic acid
       qualifier: MONDO:0008753
-      subject_qualifier: with nitisinone
       subject_extension: CHEBI:50378
-    - subject: monitoring of 24-h urinary homogentisic acid excretion
-      predicate: MANAGES
-      object: homogentisic acid levels
+    - subject: dose-response study
+      predicate: TREATS
+      object: urine HGA excretion
       qualifier: MONDO:0008753
-    - subject: monitoring
-      predicate: MONITORS
-      object: side effects
+      subject_extension: dose-response study
+    - subject: monitoring 24-h urinary HGA excretion
+      predicate: TREATS
+      object: homogentisic acid excretion
       qualifier: MONDO:0008753
-      subject_extension: tyrosine levels
+    - subject: adjusting doses
+      predicate: TREATS
+      object: homogentisic acid excretion
+      qualifier: MONDO:0008753
+      subject_extension: CHEBI:50378
 named_entities:
   - id: MAXO:0001175
-    label: Liver transplantation
-  - id: HP:0030764
-    label: Ochronosis
+    label: liver transplantation
   - id: CHEBI:44747
-    label: Homogentisic acid
+    label: homogentisic acid
   - id: MONDO:0008753
     label: alkaptonuria
-  - id: HP:0002758
-    label: osteoarthritis
+  - id: MONDO:0009861
+    label: phenylketonuria
+  - id: MONDO:0010163
+    label: tyrosinosis
+  - id: HP:0030764
+    label: ochronosis
   - id: CHEBI:50378
     label: nitisinone
-  - id: CHEBI:18186
-    label: tyrosine

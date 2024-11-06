@@ -1,0 +1,137 @@
+---
+input_text: "Combined liver-kidney transplant in polycystic diseases: a case report.
+  Polycystic liver disease, a hereditary pathology, usually manifests as autosomal
+  dominant polycystic kidney disease. The many cysts in the liver cause massive hepatomegaly,
+  majorly affecting the patient's quality of life. In cases of refractory symptoms,
+  liver transplantation is the only treatment choice. A 43-year-old woman was followed
+  up as a hepatology outpatient in August 2020, with a progressive increase in abdominal
+  volume, lower limb edema, and cachexia. The patient was diagnosed with polycystic
+  renal and liver disease with massive hepatomegaly in March 2021, a combined kidney-liver
+  transplant. Liver size represented 13% of the patient's corporal composition, weighing
+  8.6kg. The patient was discharged on the 7th postoperative day with no complications.
+  Only 10-20% of patients with polycystic liver disease have clinical manifestations,
+  most of which result from hepatomegaly. An increase in liver volume deteriorates
+  liver function until the condition becomes end-stage liver disease, as kidney function
+  is already compromised; liver-kidney transplantation remains the only treatment
+  choice. The case described drew significant attention to the massive hepatomegaly
+  presented in the patient, with the liver representing over 10% of the patient's
+  body weight, approximately five to six times larger than a normal-sized liver."
+raw_completion_output: |-
+  primary_disease: Polycystic liver and kidney disease
+
+  medical_actions: Liver transplantation; Kidney-liver transplant
+
+  symptoms: Massive hepatomegaly; Increase in abdominal volume; Lower limb edema; Cachexia; Deterioration of liver function
+
+  chemicals: 
+
+  action_annotation_relationships: Liver transplantation TREATS massive hepatomegaly IN Polycystic liver and kidney disease; Kidney-liver transplant TREATS massive hepatomegaly IN Polycystic liver and kidney disease; Kidney-liver transplant TREATS deterioration of liver function IN Polycystic liver and kidney disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Kidney-liver transplant TREATS deterioration of liver function IN Polycystic liver and kidney disease
+
+  ===
+
+extracted_object:
+  primary_disease: Polycystic liver and kidney disease
+  medical_actions:
+    - MAXO:0001175
+    - Kidney-liver transplant
+  symptoms:
+    - Massive hepatomegaly
+    - Increase in abdominal volume
+    - Lower limb edema
+    - HP:0004326
+    - Deterioration of liver function
+  action_annotation_relationships:
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: massive hepatomegaly
+      qualifier: Polycystic liver and kidney disease
+    - subject: <Kidney-liver transplant>
+      predicate: <TREATS>
+      object: <massive hepatomegaly>
+      qualifier: <Polycystic liver and kidney disease>
+      subject_extension: <Kidney-liver transplant>
+    - subject: <Kidney-liver transplant>
+      predicate: <TREATS>
+      object: <deterioration of liver function>
+      qualifier: <Polycystic liver and kidney disease>
+      subject_extension: <kidney-liver transplant>
+named_entities:
+  - id: CHEBI:35341
+    label: Steroids
+  - id: MAXO:0001017
+    label: Vaccination
+  - id: HP:0002089
+    label: Pulmonary hypoplasia
+  - id: HP:0002092
+    label: Pulmonary hypertension
+  - id: MONDO:0100096
+    label: COVID-19
+  - id: MAXO:0000602
+    label: hemodialysis
+  - id: HP:0003774
+    label: end-stage renal failure
+  - id: CHEBI:61049
+    label: tacrolimus
+  - id: CHEBI:8764
+    label: mycophenolate mofetil
+  - id: CHEBI:6888
+    label: methylprednisolone
+  - id: CHEBI:63583
+    label: basiliximab
+  - id: CHEBI:64357
+    label: rituximab
+  - id: HP:0000121
+    label: nephrocalcinosis
+  - id: CHEBI:50858
+    label: corticosteroids
+  - id: CHEBI:68481
+    label: mammalian target of rapamycin inhibitor
+  - id: MONDO:0004375
+    label: End-stage renal disease
+  - id: MAXO:0001065
+    label: Nephrectomy
+  - id: HP:0000010
+    label: Recurrent urinary tract infections
+  - id: MONDO:0004691
+    label: Autosomal Dominant Polycystic Kidney Disease (ADPKD)
+  - id: MAXO:0001001
+    label: gene therapy
+  - id: HP:0000083
+    label: kidney failure
+  - id: MONDO:0005300
+    label: Chronic Kidney Disease (CKD)
+  - id: CHEBI:50218
+    label: phosphodiesterase inhibitors
+  - id: CHEBI:50568
+    label: PDE inhibitors
+  - id: MAXO:0000603
+    label: Peritoneal dialysis
+  - id: HP:0001882
+    label: Leukopenia
+  - id: HP:0004313
+    label: Hypogammaglobulinemia
+  - id: HP:0001996
+    label: chronic metabolic acidosis
+  - id: HP:0001513
+    label: obesity
+  - id: MONDO:0005148
+    label: type 2 diabetes
+  - id: MAXO:0001175
+    label: Liver transplantation
+  - id: HP:0004326
+    label: Cachexia

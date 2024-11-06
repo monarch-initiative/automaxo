@@ -21,10 +21,14 @@ input_text: 'Out-of-hospital cardiac arrest and survival in a patient with Noona
   risk of out-of-hospital cardiac arrest.'
 raw_completion_output: |-
   primary_disease: Noonan syndrome with multiple lentigines
-  medical_actions: cardiopulmonary resuscitation; implantable cardioverter defibrillator implantation
+
+  medical_actions: cardiopulmonary resuscitation; implantable cardioverter defibrillator implantation; cardiovascular magnetic resonance imaging; Holter electrocardiographic monitoring
+
   symptoms: out-of-hospital cardiac arrest; ventricular fibrillation; asymmetric septal hypertrophy; non-sustained ventricular tachycardia
+
   chemicals: 
-  action_annotation_relationships: cardiopulmonary resuscitation TREATS out-of-hospital cardiac arrest IN Noonan syndrome with multiple lentigines; implantable cardioverter defibrillator implantation PREVENTS out-of-hospital cardiac arrest IN Noonan syndrome with multiple lentigines; implantable cardioverter defibrillator implantation PREVENTS ventricular fibrillation IN Noonan syndrome with multiple lentigines
+
+  action_annotation_relationships: cardiopulmonary resuscitation TREATS out-of-hospital cardiac arrest IN Noonan syndrome with multiple lentigines; implantable cardioverter defibrillator implantation PREVENTS out-of-hospital cardiac arrest IN Noonan syndrome with multiple lentigines; cardiovascular magnetic resonance imaging IDENTIFIES asymmetric septal hypertrophy IN Noonan syndrome with multiple lentigines; Holter electrocardiographic monitoring IDENTIFIES ventricular fibrillation IN Noonan syndrome with multiple lentigines; Holter electrocardiographic monitoring IDENTIFIES non-sustained ventricular tachycardia IN Noonan syndrome with multiple lentigines
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -39,7 +43,7 @@ prompt: |+
 
 
   Text:
-  implantable cardioverter defibrillator implantation PREVENTS ventricular fibrillation IN Noonan syndrome with multiple lentigines
+  Holter electrocardiographic monitoring IDENTIFIES non-sustained ventricular tachycardia IN Noonan syndrome with multiple lentigines
 
   ===
 
@@ -48,6 +52,8 @@ extracted_object:
   medical_actions:
     - cardiopulmonary resuscitation
     - implantable cardioverter defibrillator implantation
+    - cardiovascular magnetic resonance imaging
+    - Holter electrocardiographic monitoring
   symptoms:
     - out-of-hospital cardiac arrest
     - HP:0001663
@@ -62,27 +68,41 @@ extracted_object:
       predicate: PREVENTS
       object: out-of-hospital cardiac arrest
       qualifier: MONDO:0007893
-    - subject: implantable cardioverter defibrillator implantation
-      predicate: PREVENTS
+    - subject: cardiovascular magnetic resonance imaging
+      predicate: IDENTIFIES
+      object: HP:0001670
+      qualifier: MONDO:0007893
+    - subject: Holter electrocardiographic monitoring
+      predicate: IDENTIFIES
       object: HP:0001663
+      qualifier: MONDO:0007893
+    - subject: Holter electrocardiographic monitoring
+      predicate: IDENTIFIES
+      object: non-sustained ventricular tachycardia
       qualifier: MONDO:0007893
 named_entities:
   - id: CHEBI:33281
-    label: Antibiotics
+    label: antibiotics
   - id: MONDO:0006936
     label: pulmonary valve stenosis
   - id: MAXO:0009072
     label: surgical repair
+  - id: HP:0001642
+    label: pulmonary valve stenosis
   - id: MONDO:0018997
     label: Noonan syndrome
-  - id: MAXO:0010203
-    label: echocardiography
   - id: HP:0004322
     label: short stature
+  - id: CHEBI:37845
+    label: GH
   - id: MONDO:0011908
     label: Juvenile myelomonocytic leukemia (JMML)
   - id: MAXO:0000747
     label: hematopoietic stem cell transplantation (HSCT)
+  - id: HP:0012209
+    label: Juvenile myelomonocytic leukemia (JMML)
+  - id: MAXO:0010203
+    label: echocardiography
   - id: HP:0001663
     label: ventricular fibrillation
   - id: HP:0001639
@@ -92,26 +112,35 @@ named_entities:
   - id: HP:0030828
     label: Wheezing
   - id: CHEBI:90960
-    label: Tiotropium (Tio)
+    label: Tiotropium
+  - id: HP:0002099
+    label: bronchial asthma
   - id: MONDO:0007037
     label: Achondroplasia
-  - id: CHEBI:37845
-    label: Growth hormone (GH)
+  - id: MAXO:0000014
+    label: radiotherapy
+  - id: MAXO:0035118
+    label: Cardiac catheterization
+  - id: HP:0001659
+    label: Aortic regurgitation
+  - id: HP:0001004
+    label: Lymphedema
+  - id: CHEBI:17347
+    label: Testosterone
+  - id: MONDO:0005516
+    label: osteochondrodysplasias
+  - id: MONDO:0008300
+    label: Prader-Willi syndrome
   - id: MONDO:0000050
     label: Growth Hormone Deficiency (GHD)
   - id: HP:0001510
     label: Poor growth
   - id: MONDO:0007414
     label: Gorham disease
-  - id: MAXO:0000014
-    label: Radiation therapy
   - id: HP:0012531
     label: Pain
   - id: HP:0010310
     label: Chylothorax
-  - id: MONDO:0009735
-    label: Tumorigenesis; Noonan syndrome (NS); LEOPARD syndrome (LS); Hematological
-      malignancies; Solid tumors
   - id: MONDO:0007893
     label: Noonan syndrome with multiple lentigines
   - id: HP:0001670

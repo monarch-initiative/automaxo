@@ -28,13 +28,13 @@ input_text: 'Improved Quality of Life of Patients With Sickle Cell Disease after
 raw_completion_output: |-
   primary_disease: Sickle Cell Disease (SCD)
 
-  medical_actions: Allogeneic stem cell transplant; Quality of life assessment; ER visit frequency reduction
+  medical_actions: Allogeneic hematopoietic cell transplantation (HCT); Conducting an analytical cross-sectional study; Assessing quality of life with the FACT-G questionnaire
 
   symptoms: Pulmonary hypertension; Stroke; Recurrent vaso-occlusive crises; End-organ damage; Increased mortality risk
 
   chemicals: 
 
-  action_annotation_relationships: Allogeneic stem cell transplant TREATS recurrent vaso-occlusive crises IN Sickle Cell Disease (SCD); Quality of life assessment MEASURES impact of allogeneic stem cell transplant IN Sickle Cell Disease (SCD); ER visit frequency reduction INDICATES effectiveness of allogeneic stem cell transplant IN Sickle Cell Disease (SCD)
+  action_annotation_relationships: Allogeneic hematopoietic cell transplantation (HCT) TREATS pulmonary hypertension IN Sickle Cell Disease (SCD); Allogeneic hematopoietic cell transplantation (HCT) TREATS stroke IN Sickle Cell Disease (SCD); Allogeneic hematopoietic cell transplantation (HCT) TREATS recurrent vaso-occlusive crises IN Sickle Cell Disease (SCD); Allogeneic hematopoietic cell transplantation (HCT) TREATS end-organ damage IN Sickle Cell Disease (SCD); Allogeneic hematopoietic cell transplantation (HCT) REDUCES increased mortality risk IN Sickle Cell Disease (SCD)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -49,16 +49,16 @@ prompt: |+
 
 
   Text:
-  ER visit frequency reduction INDICATES effectiveness of allogeneic stem cell transplant IN Sickle Cell Disease (SCD)
+  Allogeneic hematopoietic cell transplantation (HCT) REDUCES increased mortality risk IN Sickle Cell Disease (SCD)
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0007374
   medical_actions:
-    - Allogeneic stem cell transplant
-    - Quality of life assessment
-    - ER visit frequency reduction
+    - MAXO:0000149
+    - Conducting an analytical cross-sectional study
+    - Assessing quality of life with the FACT-G questionnaire
   symptoms:
     - HP:0002092
     - HP:0001297
@@ -66,133 +66,200 @@ extracted_object:
     - End-organ damage
     - Increased mortality risk
   action_annotation_relationships:
-    - subject: Allogeneic stem cell transplant
+    - subject: MAXO:0000149
+      predicate: TREATS
+      object: HP:0002092
+      qualifier: MONDO:0007374
+    - subject: MAXO:0000149
+      predicate: TREATS
+      object: HP:0001297
+      qualifier: MONDO:0007374
+    - subject: MAXO:0000149
       predicate: TREATS
       object: recurrent vaso-occlusive crises
       qualifier: MONDO:0007374
-    - subject: <Quality of life assessment>
-      predicate: <MEASURES>
-      object: <impact of allogeneic stem cell transplant>
+    - subject: <Allogeneic hematopoietic cell transplantation>
+      predicate: <TREATS>
+      object: <end-organ damage>
+      qualifier: <Sickle Cell Disease>
+      subject_qualifier: <allogeneic>
+      object_qualifier: <N/A>
+      subject_extension: <Hematopoietic cell transplantation>
+      object_extension: <N/A>
+    - subject: MAXO:0000149
+      predicate: REDUCES
+      object: increased mortality risk
       qualifier: MONDO:0007374
-      subject_qualifier: <None>
-      object_qualifier: <None>
-      subject_extension: <None>
-      object_extension: <None>
-    - subject: ER visit frequency reduction
-      predicate: INDICATES
-      object: effectiveness
-      qualifier: MONDO:0007374
-      subject_extension: allogeneic stem cell transplant
 named_entities:
   - id: MONDO:0007374
-    label: Sickle cell disease (SCD)
-  - id: MAXO:0000457
-    label: pain management
-  - id: HP:0001903
-    label: anemia
-  - id: CHEBI:44423
-    label: hydroxyurea
-  - id: CHEBI:18050
-    label: L-glutamine
-  - id: MAXO:0000058
-    label: pharmacotherapy
-  - id: HP:0100602
-    label: preeclampsia
-  - id: HP:0001622
-    label: preterm delivery
-  - id: HP:0001511
-    label: intrauterine growth restriction
-  - id: CHEBI:50858
-    label: corticosteroids
-  - id: HP:0001907
-    label: thromboembolism
-  - id: MAXO:0000503
-    label: Mechanical ventilation
+    label: Sickle Cell Disease (SCD)
+  - id: MAXO:0001479
+    label: Allogeneic hematopoietic stem cell transplantation (allo-HSCT)
+  - id: HP:0001923
+    label: Increased reticulocyte counts
+  - id: CHEBI:80240
+    label: Endothelin-1
   - id: MONDO:0011382
     label: Sickle Cell Disease
-  - id: MAXO:0001001
-    label: Gene therapies
-  - id: HP:0025322
-    label: VOD
-  - id: CHEBI:82557
-    label: Treosulfan
-  - id: MAXO:0000750
-    label: conditioning regimen
-  - id: MONDO:0007885
-    label: Osteonecrosis of the femoral head (AVNFH)
-  - id: HP:0012531
-    label: Pain
-  - id: HP:0000969
-    label: Oedema
-  - id: MONDO:0018660
-    label: hemophilia
-  - id: HP:0012532
-    label: Chronic pain
-  - id: CHEBI:3216
-    label: Buprenorphine
+  - id: HP:0001945
+    label: fever
+  - id: HP:0002754
+    label: osteomyelitis
+  - id: CHEBI:17334
+    label: penicillin
+  - id: MAXO:0000118
+    label: immunization
   - id: MAXO:0000747
     label: Hematopoietic stem cell transplantation
-  - id: HP:0100543
-    label: cognitive dysfunction
-  - id: HP:0000739
-    label: anxiety
-  - id: CHEBI:50131
-    label: Decitabine
-  - id: CHEBI:29548
-    label: Cytidine deaminase (CDA)
-  - id: MONDO:0009693
-    label: Multiple Myeloma
-  - id: CHEBI:145536
-    label: Motixafortide
-  - id: MAXO:0000601
-    label: Dialysis
-  - id: HP:0000083
-    label: Kidney failure
-  - id: MONDO:0100096
-    label: COVID-19
-  - id: MAXO:0001017
-    label: vaccination
-  - id: CHEBI:28901
-    label: busulfan
-  - id: CHEBI:9570
-    label: thiotepa
-  - id: MAXO:0000952
-    label: Hydration therapy
-  - id: HP:0006775
-    label: Myeloma
-  - id: MAXO:0000756
-    label: blood transfusions
-  - id: MONDO:0005570
-    label: Hematologic diseases
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: MAXO:0009101
+    label: Early intervention
+  - id: HP:0000989
+    label: pruritus
+  - id: HP:0012393
+    label: allergic reactions
+  - id: HP:0012532
+    label: chronic pain
   - id: HP:0007760
-    label: Sickle cell disease (SCD)
-  - id: MAXO:0010203
-    label: echocardiography
-  - id: CHEBI:31980
-    label: Definity
-  - id: MAXO:0000149
-    label: Hematopoietic stem cell transplantation (HCT)
-  - id: HP:0001297
-    label: stroke
-  - id: CHEBI:6716
-    label: Depot medroxyprogesterone acetate
-  - id: CHEBI:50114
-    label: Estrogen
-  - id: CHEBI:59826
-    label: Progestin
-  - id: MONDO:0005161
-    label: Human papillomavirus (HPV)
-  - id: MAXO:0000759
-    label: HPV vaccination
-  - id: MAXO:0000194
-    label: opioid therapy
-  - id: MAXO:0000882
-    label: behavioral modification
+    label: SCD
   - id: MAXO:0001298
     label: therapy
-  - id: MAXO:0010041
-    label: skin grafting
+  - id: CHEBI:6807
+    label: Methadone
+  - id: CHEBI:4027
+    label: Cyclophosphamide
+  - id: CHEBI:82557
+    label: Treosulfan
+  - id: MAXO:0000756
+    label: Blood transfusions
+  - id: HP:0012531
+    label: Pain
+  - id: CHEBI:44423
+    label: Hydroxyurea
+  - id: MONDO:0005632
+    label: Acute Chest Syndrome
+  - id: CHEBI:35480
+    label: analgesics
+  - id: CHEBI:49005
+    label: Deferasirox
+  - id: MONDO:0100096
+    label: COVID-19
+  - id: HP:0030157
+    label: Flank pain
+  - id: HP:0100749
+    label: Chest pain
+  - id: HP:0001878
+    label: Hemolytic anemia
+  - id: MONDO:0005570
+    label: Hematological diseases
+  - id: HP:0004444
+    label: Spherocytosis
+  - id: HP:0001028
+    label: Hemangioma
+  - id: HP:0001871
+    label: Hematological diseases
+  - id: MONDO:0017014
+    label: children
+  - id: HP:0030830
+    label: crackles
+  - id: HP:0002617
+    label: Vasculopathy
+  - id: MONDO:0005380
+    label: Avascular necrosis
+  - id: HP:0002829
+    label: Joint pain
+  - id: MAXO:0000586
+    label: Invasive ventilation (not used)
+  - id: MONDO:0006502
+    label: Severe COVID-19 with acute respiratory distress syndrome (ARDS)
+  - id: HP:0002094
+    label: dyspnea
+  - id: HP:0001873
+    label: thrombocytopenia
+  - id: MONDO:0003664
+    label: Haemolytic anaemia
+  - id: HP:0025435
+    label: increased lactate dehydrogenase levels
+  - id: HP:0011981
+    label: pigment gallstones
+  - id: HP:0001907
+    label: thromboembolism
+  - id: CHEBI:35341
+    label: steroids
+  - id: HP:0001890
+    label: autoimmune haemolytic anaemia
+  - id: MAXO:0000457
+    label: Pain management
+  - id: MAXO:0010030
+    label: Bone marrow transplantation (BMT)
+  - id: HP:0001297
+    label: Stroke
+  - id: CHEBI:28901
+    label: Busulfan
+  - id: CHEBI:4031
+    label: Cyclosporine
+  - id: CHEBI:61049
+    label: Tacrolimus
+  - id: CHEBI:44185
+    label: Methotrexate
+  - id: HP:0001903
+    label: Anemia
+  - id: MONDO:0021200
+    label: rare diseases
+  - id: CHEBI:8093
+    label: Phenylephrine
+  - id: CHEBI:50858
+    label: corticosteroids
+  - id: HP:0002902
+    label: Hyponatremia
+  - id: CHEBI:26708
+    label: Sodium
+  - id: MAXO:0001175
+    label: Liver transplantation
+  - id: MAXO:0001394
+    label: oral administration
+  - id: MONDO:0004992
+    label: Cancer
+  - id: CHEBI:125354
+    label: plerixafor
+  - id: MAXO:0000149
+    label: Hematopoietic cell transplantation (HCT)
+  - id: MAXO:0000087
+    label: Massage
+  - id: MAXO:0000010
+    label: Cognitive behavioral therapy
+  - id: HP:0012432
+    label: Chronic fatigue
+  - id: HP:0000739
+    label: Anxiety
+  - id: HP:0000716
+    label: Depression
   - id: MONDO:0044348
     label: Hemoglobinopathies
+  - id: HP:0000083
+    label: Renal failure
+  - id: HP:0004395
+    label: Malnutrition
+  - id: HP:0100806
+    label: Sepsis
+  - id: HP:0002090
+    label: Pneumonia
+  - id: HP:0002878
+    label: Respiratory failure
+  - id: CHEBI:50443
+    label: Autologous hematopoietic stem cell (HSC)-based gene therapy
+  - id: MONDO:0005775
+    label: Glucose-6-phosphate dehydrogenase deficiency
+  - id: CHEBI:29016
+    label: arginine
+  - id: CHEBI:68554
+    label: deferiprone
+  - id: HP:0012649
+    label: Increased inflammatory response
+  - id: CHEBI:9570
+    label: Thiotepa
+  - id: MONDO:0020380
+    label: Sickle cell anemia (SCA)
   - id: HP:0002092
     label: Pulmonary hypertension

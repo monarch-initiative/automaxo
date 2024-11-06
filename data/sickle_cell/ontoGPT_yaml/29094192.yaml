@@ -20,11 +20,15 @@ input_text: Changes in Bi-ventricular Function After Hematopoietic Stem Cell Tra
   followed by improvement to baseline levels by 1 year. Insufficient data exist on
   whether pulmonary hypertension improves after HSCT.
 raw_completion_output: |-
-  primary_disease: sickle cell disease (SCD) and severe acquired aplastic anemia (SAA)
-  medical_actions: Hematopoietic stem cell transplant (HSCT); strain echocardiography; retrospective cohort analysis
-  symptoms: decreased ventricular function; pulmonary hypertension; abnormal myocardial systolic function
+  primary_disease: Hematopoietic stem cell transplant (HSCT) related complications
+
+  medical_actions: Hematopoietic stem cell transplant (HSCT); Speckle Tracking Echocardiography; Strain echocardiography
+
+  symptoms: Abnormal myocardial systolic function; Decreased left ventricular global longitudinal strain; Pulmonary hypertension; Tricuspid regurgitation velocities
+
   chemicals: 
-  action_annotation_relationships: Hematopoietic stem cell transplant (HSCT) TREATS decreased ventricular function IN sickle cell disease (SCD) and severe acquired aplastic anemia (SAA); Hematopoietic stem cell transplant (HSCT) TREATS pulmonary hypertension IN sickle cell disease (SCD) and severe acquired aplastic anemia (SAA); strain echocardiography ASSESSES decreased ventricular function IN sickle cell disease (SCD) and severe acquired aplastic anemia (SAA); retrospective cohort analysis ASSESSES abnormal myocardial systolic function IN sickle cell disease (SCD) and severe acquired aplastic anemia (SAA)
+
+  action_annotation_relationships: Hematopoietic stem cell transplant (HSCT) TREATS abnormal myocardial systolic function IN HSCT related complications; Speckle Tracking Echocardiography ASSESSES decreased left ventricular global longitudinal strain IN HSCT related complications; Strain echocardiography ASSESSES abnormal myocardial systolic function IN HSCT related complications; Hematopoietic stem cell transplant (HSCT) TREATS pulmonary hypertension IN HSCT related complications; Speckle Tracking Echocardiography ASSESSES tricuspid regurgitation velocities IN HSCT related complications
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -39,327 +43,450 @@ prompt: |+
 
 
   Text:
-  retrospective cohort analysis ASSESSES abnormal myocardial systolic function IN sickle cell disease (SCD) and severe acquired aplastic anemia (SAA)
+  Speckle Tracking Echocardiography ASSESSES tricuspid regurgitation velocities IN HSCT related complications
 
   ===
 
 extracted_object:
-  primary_disease: MONDO:0007374
+  primary_disease: Hematopoietic stem cell transplant (HSCT) related complications
   medical_actions:
     - MAXO:0000747
-    - strain echocardiography
-    - retrospective cohort analysis
+    - Speckle Tracking Echocardiography
+    - Strain echocardiography
   symptoms:
-    - decreased ventricular function
+    - Abnormal myocardial systolic function
+    - Decreased left ventricular global longitudinal strain
     - HP:0002092
-    - abnormal myocardial systolic function
+    - Tricuspid regurgitation velocities
   action_annotation_relationships:
-    - subject: MAXO:0000747
+    - subject: <Hematopoietic stem cell transplant>
       predicate: <TREATS>
-      object: <severe acquired aplastic anemia (SAA)>
-      qualifier: MONDO:0007374
-      subject_extension: <Hematopoietic stem cell>
-    - subject: strain echocardiography
+      object: <abnormal myocardial systolic function>
+      qualifier: <HSCT related complications>
+      subject_extension: <Hematopoietic stem cell transplant (HSCT)>
+    - subject: Speckle Tracking Echocardiography
       predicate: ASSESSES
-      object: decreased ventricular function
-      qualifier: MONDO:0007374
-    - subject: retrospective cohort analysis
+      object: decreased left ventricular global longitudinal strain
+      qualifier: HSCT related complications
+    - subject: Strain echocardiography
       predicate: ASSESSES
       object: abnormal myocardial systolic function
-      qualifier: MONDO:0007374
+      qualifier: HSCT related complications
+    - subject: Hematopoietic stem cell transplant
+      predicate: TREATS
+      object: HP:0002092
+      qualifier: HSCT related complications
+    - subject: Speckle Tracking Echocardiography
+      predicate: ASSESSES
+      object: tricuspid regurgitation velocities
+      qualifier: HSCT related complications
 named_entities:
-  - id: MAXO:0000756
-    label: transfusion
+  - id: MONDO:0011382
+    label: sickle cell disease
   - id: CHEBI:64357
     label: rituximab
   - id: CHEBI:35341
     label: steroids
   - id: CHEBI:81579
     label: erythropoietin
-  - id: MONDO:0011382
-    label: sickle cell disease
-  - id: MAXO:0001077
-    label: splenectomy
+  - id: MAXO:0001017
+    label: Vaccination
+  - id: MONDO:0007374
+    label: Sickle Cell Disease (SCD)
+  - id: MAXO:0000747
+    label: Allogeneic hematopoietic stem cell transplantation (HSCT)
+  - id: HP:0007760
+    label: Sickle Cell Disease (SCD)
   - id: MAXO:0001001
-    label: gene therapy
+    label: Gene therapy
+  - id: CHEBI:35480
+    label: analgesics
+  - id: CHEBI:33281
+    label: antibiotics
+  - id: MAXO:0001077
+    label: Splenectomy
+  - id: MAXO:0000756
+    label: Blood transfusion
+  - id: MONDO:0044348
+    label: Hemoglobinopathies
+  - id: CHEBI:44423
+    label: Hydroxyurea
+  - id: HP:0001297
+    label: Stroke
+  - id: HP:0002863
+    label: Myelodysplastic syndrome
+  - id: CHEBI:28901
+    label: Busulfan
+  - id: CHEBI:82594
+    label: Ferritin
+  - id: MONDO:0000984
+    label: thalassemia
+  - id: MONDO:0018881
+    label: myelodysplastic syndrome
+  - id: HP:0002140
+    label: Ischemic Stroke
+  - id: MONDO:0005380
+    label: avascular necrosis
+  - id: MAXO:0009047
+    label: total hip replacement
+  - id: HP:0010885
+    label: avascular necrosis
   - id: CHEBI:4027
     label: cyclophosphamide
-  - id: MONDO:0000984
-    label: Thalassemia
-  - id: HP:0001903
-    label: anemia
-  - id: MAXO:0001479
-    label: allogeneic hematopoietic stem cell transplantation
+  - id: CHEBI:41879
+    label: dexamethasone
+  - id: CHEBI:9570
+    label: thiotepa
+  - id: CHEBI:125354
+    label: plerixafor
+  - id: CHEBI:9168
+    label: sirolimus
+  - id: CHEBI:8764
+    label: mycophenolate mofetil
+  - id: HP:0012531
+    label: Pain
+  - id: MAXO:0000515
+    label: Extracorporeal life support
+  - id: HP:0001708
+    label: Right ventricular failure
+  - id: HP:0033515
+    label: opioid dependence
+  - id: MONDO:0005632
+    label: Acute chest syndrome in sickle cell disease
+  - id: HP:0001945
+    label: fever
+  - id: HP:0001878
+    label: Hemolytic anemia
+  - id: CHEBI:6121
+    label: ketamine
+  - id: CHEBI:17303
+    label: morphine
   - id: HP:0001744
     label: splenomegaly
   - id: HP:0031274
     label: hypovolemic shock
-  - id: CHEBI:44423
-    label: hydroxyurea
-  - id: MONDO:0007374
-    label: Sickle Cell Disease (SCD)
-  - id: MAXO:0001017
-    label: Vaccination
-  - id: MAXO:0010030
-    label: Bone marrow transplantation
-  - id: HP:0001596
-    label: hair loss
-  - id: HP:0000789
-    label: infertility
-  - id: MAXO:0000647
-    label: chemotherapy
-  - id: MONDO:0000001
-    label: disease
-  - id: CHEBI:15422
-    label: Adenosine triphosphate
-  - id: CHEBI:19324
-    label: 2,3-diphosphoglycerate
-  - id: CHEBI:16856
-    label: Glutathione
-  - id: CHEBI:176783
-    label: Vitamin C
+  - id: MAXO:0000110
+    label: Vitamin D supplementation
+  - id: HP:0100512
+    label: Vitamin D deficiency
+  - id: CHEBI:27300
+    label: Vitamin D
+  - id: CHEBI:28940
+    label: Cholecalciferol
+  - id: CHEBI:29016
+    label: arginine
+  - id: CHEBI:18211
+    label: citrulline
+  - id: CHEBI:3638
+    label: chloroquine
+  - id: CHEBI:50733
+    label: nutritional supplements
+  - id: MONDO:0005570
+    label: Blood disorders
+  - id: MONDO:0013517
+    label: beta-thalassemia
+  - id: HP:0002204
+    label: Pulmonary embolus
+  - id: HP:0100626
+    label: end-stage liver disease
+  - id: MONDO:0016363
+    label: Iron overload diseases
+  - id: HP:0012532
+    label: Chronic pain
+  - id: HP:0012432
+    label: Chronic fatigue
   - id: MAXO:0010203
-    label: Echocardiography
+    label: echocardiography
   - id: HP:0002870
-    label: Obstructive sleep apnoea (OSA)
-  - id: HP:0012531
-    label: Pain
+    label: obstructive sleep apnoea (OSA)
+  - id: HP:0000520
+    label: Proptosis
+  - id: MAXO:0000004
+    label: surgery
+  - id: MAXO:0000058
+    label: pharmacological treatment
   - id: MAXO:0000149
     label: Hematopoietic cell transplantation (HCT)
-  - id: HP:0000112
-    label: Kidney disease
+  - id: MONDO:0006079
+    label: Acute chest syndrome (ACS)
+  - id: HP:0002878
+    label: Acute respiratory failure
   - id: HP:0012594
     label: Microalbuminuria
   - id: HP:0000093
     label: Proteinuria
   - id: HP:0003774
     label: End-stage renal disease
-  - id: HP:0000716
-    label: depression
-  - id: HP:0000739
-    label: anxiety
-  - id: HP:0007760
-    label: Sickle cell disease (SCD)
+  - id: CHEBI:35457
+    label: angiotensin-converting enzyme inhibitor
+  - id: MAXO:0000652
+    label: angiotensin-converting enzyme inhibitor therapy
+  - id: HP:0000112
+    label: kidney disease
+  - id: MAXO:0000457
+    label: Pain management
+  - id: HP:0001903
+    label: Anemia
+  - id: CHEBI:18050
+    label: L-glutamine
+  - id: MAXO:0000827
+    label: serum ferritin measurement
   - id: HP:0001875
     label: neutropenia
-  - id: HP:0012234
-    label: agranulocytosis
   - id: CHEBI:4356
-    label: desferrioxamine (DFO)
+    label: <desferrioxamine (DFO)
   - id: CHEBI:17941
     label: deferiprone (DFP)
   - id: CHEBI:49005
     label: deferasirox (DFX)
-  - id: CHEBI:9144
-    label: silymarin
-  - id: CHEBI:50453
-    label: desferrioxamine
+  - id: CHEBI:38157
+    label: iron chelators
   - id: CHEBI:68554
     label: deferiprone
-  - id: MONDO:0019402
-    label: Thalassemia major
-  - id: HP:0012532
-    label: chronic pain
+  - id: CHEBI:9144
+    label: silymarin
+  - id: MAXO:0000750
+    label: conditioning regimens (fludarabine-thiotepa-treosulfan, busulfan-cyclophosphamide)
+  - id: CHEBI:82557
+    label: treosulfan
+  - id: HP:0100602
+    label: preeclampsia
+  - id: HP:0001622
+    label: preterm delivery
+  - id: HP:0001511
+    label: intrauterine growth restriction
+  - id: CHEBI:50858
+    label: corticosteroids
+  - id: MAXO:0000618
+    label: fluid replacement therapy
+  - id: HP:0001919
+    label: acute kidney injury
   - id: HP:0100639
     label: erectile dysfunction
   - id: CHEBI:71940
     label: Tadalafil
-  - id: HP:0001297
-    label: stroke
-  - id: HP:0000083
-    label: Renal failure
-  - id: HP:0000488
-    label: Retinopathy
-  - id: HP:0001081
-    label: Cholelithiasis
-  - id: HP:0200023
-    label: Priapism
-  - id: MONDO:0044348
-    label: Hemoglobinopathies
-  - id: CHEBI:15551
-    label: Prostaglandin E2
+  - id: CHEBI:71942
+    label: PDE5 inhibitors
+  - id: MONDO:0019740
+    label: Acquired thrombotic thrombocytopenic purpura (aTTP)
+  - id: CHEBI:24261
+    label: Glucocorticoids
+  - id: MAXO:0000194
+    label: Opioid therapy
+  - id: MAXO:0001298
+    label: therapy
+  - id: CHEBI:35705
+    label: immunosuppressive agents
+  - id: HP:0003326
+    label: Myalgia
+  - id: HP:0002027
+    label: Abdominal pain
+  - id: HP:0002315
+    label: Headache
+  - id: MAXO:0001479
+    label: allogeneic hematopoietic stem cell transplantation
+  - id: HP:0002360
+    label: Sleep disturbances
+  - id: HP:0012378
+    label: Fatigue
+  - id: HP:0001873
+    label: Thrombocytopenia
+  - id: CHEBI:28876
+    label: Melphalan
+  - id: CHEBI:61049
+    label: Tacrolimus
+  - id: CHEBI:44185
+    label: Methotrexate
+  - id: CHEBI:46195
+    label: Acetaminophen
+  - id: CHEBI:47381
+    label: Diclofenac
+  - id: HP:0000832
+    label: Primary hypothyroidism
+  - id: HP:0011787
+    label: Central hypothyroidism
   - id: CHEBI:18248
     label: Iron
   - id: CHEBI:30660
     label: Thyroxine
+  - id: HP:0001342
+    label: Hemorrhagic strokes
+  - id: HP:0002326
+    label: Transient ischemic attack
   - id: MONDO:0044033
     label: Posterior reversible encephalopathy syndrome
-  - id: MAXO:0000747
-    label: Hematopoietic stem cell transplantation
   - id: HP:0001923
-    label: Hemolysis (reticulocytosis)
-  - id: MAXO:0000068
-    label: transplantation
-  - id: CHEBI:16467
-    label: arginine (Arg)
-  - id: CHEBI:18211
-    label: citrulline (Citr)
-  - id: CHEBI:3638
-    label: chloroquine
-  - id: CHEBI:17929
-    label: asymmetric dimethylarginine
+    label: hemolysis (reticulocytosis)
   - id: MONDO:0800385
     label: Iron overload
   - id: CHEBI:6456
     label: Lidocaine
-  - id: CHEBI:30413
-    label: heme
-  - id: MAXO:0000819
-    label: Blood collection
-  - id: MONDO:0013517
-    label: beta-thalassemia
-  - id: CHEBI:18050
-    label: L-Glutamine
-  - id: CHEBI:28901
-    label: Busulfan
-  - id: MONDO:0044753
-    label: Lumbar spinal stenosis
-  - id: HP:0001945
-    label: Fever
+  - id: CHEBI:75008
+    label: <visual analog pain scale (VAS)>
+  - id: CHEBI:41264
+    label: busulfan (Bu)
+  - id: HP:0025322
+    label: Venous occlusive disease (VOD)
+  - id: MONDO:0005399
+    label: Venous thromboembolism (VTE)
   - id: HP:0002094
-    label: Dyspnea
-  - id: CHEBI:33281
-    label: Antibiotics
+    label: dyspnea
+  - id: MONDO:0007885
+    label: Osteonecrosis of the Femoral Head (AVNFH)
+  - id: HP:0000969
+    label: Oedema
   - id: HP:0006554
     label: Acute Liver Failure
-  - id: HP:0001919
-    label: Acute Kidney Injury
-  - id: MONDO:0800198
-    label: Antibodies of unknown specificity (AUS)
-  - id: HP:0002289
-    label: Antibodies of unknown specificity (AUS)
+  - id: HP:0002098
+    label: Respiratory distress
+  - id: MAXO:0001175
+    label: liver transplantation
   - id: MAXO:0010033
     label: umbilical cord blood transplantation
-  - id: CHEBI:16480
-    label: Nitric Oxide
-  - id: CHEBI:65308
-    label: S-nitrosothiol (SNO)
+  - id: MAXO:0000068
+    label: transplantation
   - id: CHEBI:17334
-    label: Penicillin
-  - id: HP:0003287
-    label: Mitochondrial dysfunction
-  - id: HP:0025464
-    label: Oxidative stress
-  - id: CHEBI:17287
-    label: Phosphocreatine
-  - id: CHEBI:24838
-    label: Inorganic phosphate
-  - id: CHEBI:27226
-    label: Uric acid
-  - id: CHEBI:50443
-    label: hematopoietic stem cell (HSC) transplantation
-  - id: CHEBI:32599
-    label: magnesium sulphate
+    label: penicillin
+  - id: MAXO:0000066
+    label: oxygen supplementation
+  - id: HP:0002202
+    label: pleural effusions
+  - id: CHEBI:25805
+    label: oxygen
+  - id: HP:0002791
+    label: alveolar hypoventilation
+  - id: HP:0001395
+    label: Liver fibrosis
+  - id: MAXO:0035078
+    label: Pulmonary function testing
+  - id: HP:0001944
+    label: dehydration
+  - id: HP:0011105
+    label: fluid overload
   - id: CHEBI:25107
-    label: magnesium
-  - id: MAXO:0000601
-    label: Dialysis
-  - id: HP:0100820
-    label: Glomerulopathy
-  - id: HP:0000790
-    label: Hematuria
-  - id: HP:0001635
-    label: heart failure
-  - id: HP:0100543
-    label: Cognitive deficits
-  - id: MONDO:0004979
+    label: Magnesium
+  - id: CHEBI:32599
+    label: Magnesium sulphate
+  - id: HP:0008209
+    label: Premature ovarian insufficiency (POI)
+  - id: HP:0011675
+    label: Arrhythmias
+  - id: HP:0012418
+    label: Hypoxia
+  - id: MAXO:0000118
+    label: immunizations
+  - id: MONDO:0100470
     label: Asthma
+  - id: HP:0001627
+    label: Cardiac abnormalities
   - id: CHEBI:119915
     label: fentanyl
-  - id: CHEBI:29016
-    label: arginine
-  - id: MAXO:0000618
-    label: Fluid replacement therapy
-  - id: CHEBI:35480
-    label: analgesics
-  - id: CHEBI:135949
-    label: Ambrisentan
-  - id: CHEBI:80240
-    label: Endothelin-1
-  - id: MONDO:0003778
-    label: primary immunodeficiencies
-  - id: HP:0032148
-    label: Episodic pain
-  - id: MONDO:0005328
-    label: Eye disease
+  - id: CHEBI:16480
+    label: nitric oxide
+  - id: CHEBI:63533
+    label: GnRH agonist
+  - id: MAXO:0010314
+    label: lung computed tomography
+  - id: MAXO:0001490
+    label: platelet transfusions
+  - id: MAXO:0009003
+    label: preimplantation genetic testing
+  - id: MONDO:0011549
+    label: Hyperhemolytic syndrome (HHS)
+  - id: HP:0001896
+    label: Reticulocytopenia
   - id: MONDO:0020380
-    label: pediatric sickle cell anemia (SCA)
+    label: Sickle cell anemia (SCA)
+  - id: HP:0001900
+    label: Increased hemoglobin
   - id: CHEBI:35143
-    label: hemoglobin (Hb)
-  - id: CHEBI:125354
-    label: Plerixafor
-  - id: HP:0002204
-    label: Pulmonary embolism
+    label: Hemoglobin (Hb)
+  - id: HP:0000739
+    label: anxiety
+  - id: HP:0100806
+    label: Sepsis
+  - id: MONDO:0018585
+    label: Pediatric Arterial Ischemic Stroke
   - id: HP:0003270
-    label: Abdominal distension
-  - id: HP:0002027
-    label: Abdominal pain
+    label: abdominal distension
   - id: HP:0002014
-    label: Diarrhoea
+    label: diarrhoea
   - id: HP:0002573
-    label: Rectal bleeding
-  - id: HP:0000952
-    label: jaundice
-  - id: HP:0001878
-    label: hemolytic anemia
-  - id: MONDO:0005920
-    label: Plasmodium falciparum malaria
-  - id: CHEBI:17303
-    label: Morphine
+    label: rectal bleeding
+  - id: CHEBI:50249
+    label: anticoagulant
   - id: CHEBI:5855
     label: Ibuprofen
-  - id: MAXO:0000457
-    label: Pain management
-  - id: CHEBI:16335
-    label: Adenosine
-  - id: CHEBI:37550
-    label: S1P
-  - id: HP:0002140
-    label: ischemic stroke
-  - id: CHEBI:9570
-    label: thiotepa
-  - id: MONDO:0013150
-    label: Invasive Pneumococcal Disease (IPD)
-  - id: HP:0031864
-    label: bacteremia
-  - id: HP:0011947
-    label: respiratory tract infection
+  - id: MONDO:0000001
+    label: disease
+  - id: CHEBI:32026
+    label: Poloxamer 188
+  - id: MONDO:0004745
+    label: Priapism
+  - id: MAXO:0000527
+    label: Physical examination
+  - id: CHEBI:44915
+    label: Propofol
+  - id: CHEBI:28304
+    label: Heparin
+  - id: CHEBI:9449
+    label: Terbutaline
+  - id: HP:0004749
+    label: atrial flutter
+  - id: MAXO:0000503
+    label: mechanical ventilation
+  - id: MAXO:0000600
+    label: renal replacement therapy
+  - id: MONDO:0005098
+    label: Stroke
+  - id: MAXO:0000955
+    label: noninvasive, bi-level positive airway pressure ventilation (BiPAP)
+  - id: HP:0012592
+    label: Albuminuria
+  - id: HP:0001649
+    label: Elevated heart rate
+  - id: CHEBI:8455
+    label: proguanil
+  - id: MAXO:0001075
+    label: Circumcision
+  - id: HP:0100543
+    label: cognitive dysfunction
   - id: HP:0001139
     label: High transcranial Doppler (TCD) velocities
+  - id: HP:0000572
+    label: Visual loss
+  - id: HP:0007902
+    label: Vitreous haemorrhage
+  - id: HP:0011958
+    label: Retinal tear
+  - id: HP:0000541
+    label: Retinal detachment
+  - id: HP:0011506
+    label: Choroidal neovascularization
   - id: MONDO:0019542
     label: Acute Liver Failure
   - id: HP:0001399
-    label: Hepatic failure
-  - id: MONDO:0018585
-    label: Childhood arterial ischemic stroke
-  - id: HP:0001269
-    label: Hemiparesis
-  - id: HP:0002381
-    label: Aphasia
-  - id: HP:0011153
-    label: Partial motor seizures
+    label: hepatic failure
+  - id: HP:0025085
+    label: Bloody stools
+  - id: MAXO:0000855
+    label: hemoglobin fractionation
+  - id: CHEBI:15956
+    label: biotin
   - id: HP:0000822
     label: Hypertension
-  - id: CHEBI:9168
-    label: Sirolimus
-  - id: MAXO:0000750
-    label: Conditioning regimen
-  - id: MAXO:0001298
-    label: therapy
   - id: MAXO:0009012
-    label: Intrauterine transfusions
+    label: intrauterine transfusions
   - id: HP:0001941
     label: acidosis
-  - id: HP:0012418
-    label: hypoxemia
   - id: MONDO:0006978
     label: Splenic Infarct
   - id: HP:0012223
     label: Splenic rupture
+  - id: HP:0034336
+    label: Splenic Infarct
   - id: HP:0100749
     label: chest pain
-  - id: HP:0002098
-    label: respiratory distress
   - id: HP:0004870
     label: Chronic hemolytic anemia
   - id: MAXO:0010026
@@ -370,140 +497,172 @@ named_entities:
     label: skin rash
   - id: CHEBI:27363
     label: zinc
-  - id: CHEBI:50858
-    label: corticosteroid
-  - id: HP:0010885
-    label: avascular necrosis
-  - id: CHEBI:28918
-    label: epinephrine
+  - id: HP:0040319
+    label: Dark urine
+  - id: CHEBI:50131
+    label: decitabine
+  - id: CHEBI:29548
+    label: cytidine deaminase (CDA)
+  - id: MONDO:0009693
+    label: Multiple Myeloma
+  - id: CHEBI:145536
+    label: Motixafortide
+  - id: HP:0006775
+    label: Multiple Myeloma
   - id: HP:0003281
     label: increased serum ferritin levels
+  - id: HP:0003259
+    label: increased serum creatinine
   - id: CHEBI:68478
     label: Everolimus
   - id: CHEBI:63597
     label: leuprolide acetate
-  - id: CHEBI:138789
-    label: fertility preservation treatment (FPT)
-  - id: CHEBI:48706
-    label: antagonist
-  - id: HP:0001250
-    label: Seizures
-  - id: CHEBI:37153
-    label: Calcineurin inhibitors
+  - id: HP:0000789
+    label: infertility
+  - id: HP:0002092
+    label: pulmonary hypertension
+  - id: CHEBI:51451
+    label: endothelin receptor antagonists
   - id: CHEBI:24526
     label: Haptoglobin (Hp)
   - id: CHEBI:16042
     label: Hemopexin (Hx)
-  - id: CHEBI:82557
-    label: Treosulfan
-  - id: CHEBI:8764
-    label: Mycophenolate mofetil
-  - id: CHEBI:61049
-    label: Tacrolimus
+  - id: CHEBI:30413
+    label: Heme
+  - id: CHEBI:176783
+    label: Vitamin C
+  - id: CHEBI:33234
+    label: Vitamin E
+  - id: CHEBI:28939
+    label: N-acetylcysteine
+  - id: CHEBI:16467
+    label: L-arginine
+  - id: HP:0025464
+    label: oxidative stress
   - id: CHEBI:64360
     label: Tocilizumab
-  - id: HP:0004936
-    label: venous thromboembolism
-  - id: CHEBI:9765
-    label: trypsin
-  - id: HP:0002326
-    label: transient ischemic attacks
+  - id: HP:0025143
+    label: chills
+  - id: HP:0000790
+    label: hematuria
+  - id: HP:0000716
+    label: Low mood
   - id: HP:0032654
-    label: endothelial dysfunction
-  - id: HP:0100806
-    label: Sepsis
+    label: Endothelial dysfunction
+  - id: HP:0000819
+    label: diabetes mellitus
+  - id: HP:0040049
+    label: macular oedema
   - id: HP:0033578
-    label: pre-capillary pulmonary hypertension
+    label: Pre-capillary pulmonary hypertension
   - id: HP:0004944
-    label: Intracranial aneurysms
-  - id: MAXO:0000571
-    label: chronic blood transfusions (CT)
-  - id: MONDO:0005136
-    label: Malaria
-  - id: MONDO:0006079
-    label: Acute chest syndrome (ACS)
+    label: intracranial aneurysms
+  - id: HP:0000083
+    label: Renal failure
   - id: HP:0002090
-    label: pneumonia (PNA)
+    label: Pneumonia (PNA)
+  - id: CHEBI:25106
+    label: macrolide
   - id: HP:0001268
-    label: Cognitive decline
-  - id: HP:0002791
-    label: Hypoventilation
-  - id: MAXO:0000825
-    label: Reticulocyte counts
-  - id: HP:0005518
-    label: Increased mean corpuscular volume (MCV)
+    label: cognitive decline
+  - id: CHEBI:35482
+    label: Narcotics
+  - id: CHEBI:6888
+    label: Methylprednisolone
+  - id: CHEBI:17650
+    label: Hydrocortisone
   - id: MONDO:0005109
     label: HIV
   - id: MONDO:0018948
     label: Moyamoya disease (MMD)
   - id: HP:0002138
     label: Subarachnoid hemorrhage (SAH)
-  - id: HP:0001342
-    label: Intracerebral hemorrhage (ICH)
+  - id: HP:0001250
+    label: epilepsy
   - id: HP:0100309
-    label: Subdural hemorrhage
-  - id: HP:0002315
-    label: Headache
+    label: subdural hemorrhage
   - id: MONDO:0016820
     label: Moyamoya disease
-  - id: MAXO:0000016
-    label: Cellular therapy
-  - id: HP:0002092
-    label: Pulmonary hypertension
-  - id: HP:0012378
-    label: Fatigue
+  - id: CHEBI:6129
+    label: ketorolac
+  - id: CHEBI:6128
+    label: ketoprofen
+  - id: CHEBI:6807
+    label: methadone
+  - id: CHEBI:24859
+    label: iodine
+  - id: MONDO:0016264
+    label: Autoimmune hepatitis (AIH)
+  - id: CHEBI:8378
+    label: prednisolone
+  - id: CHEBI:2948
+    label: azathioprine
+  - id: HP:0001392
+    label: liver disease
+  - id: HP:0002018
+    label: nausea
   - id: CHEBI:15846
-    label: Nicotinamide adenine dinucleotides
-  - id: CHEBI:59826
-    label: Progestin
+    label: nicotinamide adenine dinucleotides
+  - id: MAXO:0001128
+    label: Folic acid supplementation
+  - id: CHEBI:27470
+    label: Folic acid
   - id: HP:0032008
     label: fat embolism
-  - id: MAXO:0001006
-    label: Complete blood count
   - id: CHEBI:15702
     label: tPA (tissue-type plasminogen activator)
-  - id: MAXO:0000600
-    label: renal replacement therapy
+  - id: MAXO:0000647
+    label: chemotherapy
+  - id: MONDO:0018874
+    label: Acute Myeloid Leukemia
+  - id: HP:0002013
+    label: vomiting
+  - id: HP:0002019
+    label: constipation
+  - id: HP:0100785
+    label: insomnia
+  - id: HP:0100526
+    label: lung
+  - id: HP:0001894
+    label: thrombocytosis
+  - id: MONDO:0004375
+    label: End-stage renal disease (ESRD)
   - id: MAXO:0000602
     label: hemodialysis
   - id: MAXO:0000603
     label: peritoneal dialysis
   - id: CHEBI:66894
-    label: erythropoiesis-stimulating agents
-  - id: HP:0003641
-    label: hemoglobinuria
-  - id: HP:0003259
-    label: Increased creatinine
+    label: erythropoiesis-stimulating agents (ESA)
+  - id: HP:0001394
+    label: cirrhosis
+  - id: HP:0000952
+    label: Jaundice
   - id: MAXO:0000950
     label: Supportive care
+  - id: HP:0100845
+    label: Anaphylaxis
   - id: CHEBI:465284
     label: Ganciclovir
   - id: CHEBI:127780
     label: Foscarnet
-  - id: MONDO:0013189
-    label: Transfusion-transmitted malaria (TTM)
-  - id: HP:0012167
-    label: Transfusion-transmitted malaria (TTM)
-  - id: MAXO:0000827
-    label: Serum ferritin level measurements
-  - id: CHEBI:67194
-    label: Cannabinoid
-  - id: CHEBI:80266
-    label: Nociceptin
+  - id: MONDO:0010100
+    label: Tay-Sachs disease
   - id: MONDO:0009061
     label: cystic fibrosis
-  - id: CHEBI:137741
-    label: Thyroid Stimulating Hormone (TSH)
-  - id: CHEBI:566274
-    label: Malondialdehyde
+  - id: MONDO:0100096
+    label: COVID-19
+  - id: CHEBI:66919
+    label: Ruxolitinib
+  - id: MAXO:0000571
+    label: Chronic transfusion (CT)
   - id: HP:0012587
-    label: gross hematuria
-  - id: HP:0032169
-    label: severe infection
+    label: Gross hematuria
+  - id: HP:0002719
+    label: Susceptibility to infections
   - id: MONDO:0005096
     label: Sickle Cell Crisis (SCC)
-  - id: CHEBI:134514
-    label: Cidofovir
+  - id: MAXO:0010030
+    label: Bone marrow transplantation
   - id: CHEBI:7459
     label: Naloxone
   - id: MONDO:0006260
@@ -514,131 +673,129 @@ named_entities:
     label: weight loss
   - id: HP:0012735
     label: cough
-  - id: CHEBI:46195
-    label: Acetaminophen
-  - id: CHEBI:25106
-    label: Macrolides
-  - id: CHEBI:23066
-    label: Cephalosporins
-  - id: HP:0002240
-    label: hepatomegaly
-  - id: CHEBI:35475
-    label: Nonsteroidal anti-inflammatory drugs (NSAIDs)
-  - id: CHEBI:35482
-    label: opioid analgesics
+  - id: HP:0005541
+    label: Sickle Cell Nephropathy (SCN)
+  - id: MAXO:0000487
+    label: Clinical assessment
+  - id: MAXO:0001121
+    label: kidney biopsy
+  - id: MAXO:0000387
+    label: muscle biopsy
+  - id: MONDO:0013730
+    label: Graft-versus-host disease (GVHD)
+  - id: CHEBI:55379
+    label: Cyclosporine (CsA)
+  - id: CHEBI:4031
+    label: Cyclosporine
   - id: CHEBI:47564
     label: Mometasone furoate
-  - id: HP:0020060
-    label: Decreased red blood cell counts
-  - id: CHEBI:17245
-    label: Carbon monoxide (CO)
   - id: CHEBI:474180
     label: caspofungin
-  - id: HP:0033726
-    label: lupus nephritis
-  - id: CHEBI:6121
-    label: Ketamine
-  - id: CHEBI:16000
-    label: Human Erythrocyte Antigen (HEA) BeadChip
-  - id: CHEBI:82594
-    label: Ferritin
-  - id: MONDO:0005632
-    label: Acute chest syndrome
-  - id: CHEBI:6807
-    label: Methadone
+  - id: HP:0200023
+    label: Priapism
+  - id: MAXO:0000336
+    label: bone marrow biopsy
+  - id: HP:0033667
+    label: altered mental status
+  - id: HP:0001876
+    label: pancytopenia
+  - id: HP:0002615
+    label: Hypotension
+  - id: HP:0001662
+    label: Bradycardia
   - id: CHEBI:35523
-    label: bronchodilators
-  - id: MONDO:0004992
-    label: cancer
-  - id: MONDO:0004975
-    label: Alzheimer's disease
-  - id: MONDO:0010679
-    label: Duchenne muscular dystrophy
-  - id: CHEBI:18059
-    label: lipids
-  - id: HP:0001871
-    label: hematopoietic diseases
+    label: Bronchodilator
+  - id: MONDO:0006497
+    label: Chronic Pancreatitis (CP)
+  - id: MAXO:0000088
+    label: Dietary interventions
+  - id: MAXO:0035049
+    label: Endoscopic retrograde cholangiopancreatography
+  - id: MONDO:0005003
+    label: Chronic Pancreatitis
+  - id: CHEBI:22586
+    label: Antioxidants
+  - id: CHEBI:50443
+    label: autologous hematopoietic stem cells (HSCs) transduction
   - id: HP:0002625
-    label: Lower extremity deep-vein thrombosis (DVT)
+    label: deep-vein thrombosis (DVT)
+  - id: CHEBI:51371
+    label: Muscle relaxants
   - id: MAXO:0001081
     label: Tonsillectomy
+  - id: HP:0001971
+    label: Hypersplenism
+  - id: MONDO:0019180
+    label: Hereditary Hemorrhagic Telangiectasia (HHT)
+  - id: MAXO:0009065
+    label: Intravenous push (IVP) analgesia
   - id: CHEBI:53205
     label: Polymethylmethacrylate (PMMA)
-  - id: MONDO:0003847
-    label: Genetic disorders
+  - id: CHEBI:5790
+    label: hydromorphone
   - id: MONDO:0002280
-    label: anaemia
+    label: Anaemia
   - id: CHEBI:68558
-    label: ticagrelor
+    label: Ticagrelor
   - id: MAXO:0000138
     label: Contrast-enhanced ultrasound (CEUS)
-  - id: CHEBI:48669
-    label: tranexamic acid
-  - id: MAXO:0000004
-    label: Surgical intervention
+  - id: CHEBI:16704
+    label: <B-mode ultrasound (US)>
+  - id: CHEBI:35623
+    label: anticonvulsants
+  - id: CHEBI:35469
+    label: antidepressants
   - id: HP:0031520
     label: Groin pain
   - id: HP:0034805
     label: Buttock pain
-  - id: CHEBI:22720
-    label: Benzodiazepines
+  - id: HP:0010972
+    label: Ineffective erythropoiesis
+  - id: HP:0003077
+    label: hyperlipidemia
+  - id: HP:0004936
+    label: Venous thromboembolism
   - id: CHEBI:55347
-    label: Vitamin K Antagonist
-  - id: HP:0001622
-    label: Preterm delivery
-  - id: HP:0100602
-    label: Preeclampsia
-  - id: HP:0001511
-    label: Intrauterine growth restriction
-  - id: CHEBI:24996
-    label: Lactate
-  - id: CHEBI:26806
-    label: Succinate
-  - id: CHEBI:132941
-    label: 2-hydroxyglutarate
-  - id: CHEBI:33709
-    label: Amino acids
-  - id: CHEBI:35366
-    label: Fatty acids
-  - id: CHEBI:26092
-    label: Phthalates
-  - id: MONDO:0005570
-    label: hematological diseases
-  - id: HP:0001394
-    label: liver cirrhosis
-  - id: HP:0000819
-    label: diabetes mellitus
+    label: Vitamin K antagonist
+  - id: HP:0003811
+    label: Neonatal death
+  - id: HP:0012330
+    label: Pyelonephritis
   - id: HP:0001369
     label: arthritis
-  - id: HP:0011675
-    label: arrhythmias
   - id: HP:0001638
     label: cardiomyopathy
+  - id: HP:0001635
+    label: heart failure
   - id: HP:0000044
     label: hypogonadotropic hypogonadism
-  - id: MAXO:0000118
-    label: Immunization
-  - id: CHEBI:5790
-    label: hydromorphone
-  - id: CHEBI:28876
-    label: Melphalan
-  - id: HP:0001873
-    label: low platelet count
-  - id: CHEBI:4875
-    label: etanercept
-  - id: MONDO:0007294
-    label: Complex Chronic Disease (CCD)
+  - id: HP:0000026
+    label: Testicular failure
+  - id: CHEBI:37153
+    label: Calcineurin inhibitor
+  - id: HP:0001907
+    label: Thromboembolism (TE)
+  - id: CHEBI:6716
+    label: Depot medroxyprogesterone acetate
+  - id: CHEBI:50114
+    label: Estrogen
+  - id: CHEBI:59826
+    label: Progestin
+  - id: HP:0002516
+    label: Intracranial hypertension
+  - id: CHEBI:16526
+    label: Carbon dioxide
+  - id: MAXO:0001259
+    label: angiography
+  - id: MONDO:0005300
+    label: Chronic Kidney Disease
   - id: CHEBI:15365
     label: Aspirin
   - id: CHEBI:100241
     label: ciprofloxacin
-  - id: CHEBI:35703
-    label: Xenobiotics
   - id: HP:0001518
-    label: Low birth weight
-  - id: HP:0032149
-    label: Breakthrough pain
-  - id: MONDO:0005502
-    label: Dengue
-  - id: CHEBI:35705
-    label: immunosuppressive agents
+    label: low birth weight
+  - id: HP:0000407
+    label: sensorineural hearing loss
+  - id: MONDO:0005661
+    label: Babesiosis

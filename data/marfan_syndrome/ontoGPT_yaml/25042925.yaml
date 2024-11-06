@@ -21,10 +21,10 @@ input_text: '[Effect of native aortic valve sparing aortic root reconstruction s
   syndrome.'
 raw_completion_output: |-
   primary_disease: Marfan syndrome
-  medical_actions: valve sparing aortic root reconstruction surgery;composite valve graft surgery;re-exploration
-  symptoms: re-exploration need;thromboembolism;endocarditis;long-term death
+  medical_actions: Valve sparing aortic root reconstruction surgery; Composite valve graft surgery; Re-exploration; Treatment for thromboembolism; Treatment for endocarditis
+  symptoms: Re-exploration; Thromboembolism; Endocarditis
   chemicals: 
-  action_annotation_relationships: valve sparing aortic root reconstruction surgery TREATS re-exploration need IN Marfan syndrome;valve sparing aortic root reconstruction surgery PREVENTS thromboembolism IN Marfan syndrome;valve sparing aortic root reconstruction surgery PREVENTS endocarditis IN Marfan syndrome;valve sparing aortic root reconstruction surgery PREVENTS long-term death IN Marfan syndrome
+  action_annotation_relationships: Valve sparing aortic root reconstruction surgery PREVENTS re-exploration IN Marfan syndrome; Valve sparing aortic root reconstruction surgery PREVENTS thromboembolism IN Marfan syndrome; Valve sparing aortic root reconstruction surgery PREVENTS endocarditis IN Marfan syndrome; Valve sparing aortic root reconstruction surgery TREATS long-term death rate IN Marfan syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -39,42 +39,39 @@ prompt: |+
 
 
   Text:
-  valve sparing aortic root reconstruction surgery PREVENTS long-term death IN Marfan syndrome
+  Valve sparing aortic root reconstruction surgery TREATS long-term death rate IN Marfan syndrome
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0007947
   medical_actions:
-    - valve sparing aortic root reconstruction surgery
-    - composite valve graft surgery
-    - re-exploration
+    - Valve sparing aortic root reconstruction surgery
+    - Composite valve graft surgery
+    - Re-exploration
+    - Treatment for thromboembolism
+    - Treatment for endocarditis
   symptoms:
-    - re-exploration need
+    - Re-exploration
     - HP:0001907
     - HP:0100584
-    - long-term death
   action_annotation_relationships:
-    - subject: valve sparing aortic root reconstruction surgery
-      predicate: TREATS
-      object: re-exploration need
+    - subject: Valve sparing aortic root reconstruction surgery
+      predicate: PREVENTS
+      object: re-exploration
       qualifier: MONDO:0007947
-    - subject: valve sparing aortic root reconstruction surgery
+    - subject: Valve sparing aortic root reconstruction surgery
       predicate: PREVENTS
       object: HP:0001907
       qualifier: MONDO:0007947
-    - subject: valve sparing aortic root reconstruction surgery
+    - subject: Valve sparing aortic root reconstruction surgery
       predicate: PREVENTS
       object: HP:0100584
       qualifier: MONDO:0007947
-    - subject: <valve sparing aortic root reconstruction surgery>
-      predicate: <PREVENTS>
-      object: <long-term death>
-      qualifier: <Marfan syndrome>
-      subject_qualifier: <None>
-      object_qualifier: <None>
-      subject_extension: <None>
-      object_extension: <None>
+    - subject: Valve sparing aortic root reconstruction surgery
+      predicate: TREATS
+      object: long-term death rate
+      qualifier: MONDO:0007947
 named_entities:
   - id: MONDO:0007947
     label: Marfan Syndrome
@@ -86,24 +83,64 @@ named_entities:
     label: Spontaneous pneumothorax
   - id: HP:0003423
     label: Thoracolumbar kyphoscoliosis
+  - id: CHEBI:33281
+    label: Antibiotic
+  - id: HP:0002107
+    label: pneumothorax
+  - id: MAXO:0010203
+    label: Echocardiography
+  - id: MAXO:0000494
+    label: Blood pressure monitoring
+  - id: HP:0004942
+    label: Aortic dilatation
+  - id: CHEBI:5959
+    label: Irbesartan
+  - id: HP:0004950
+    label: Peripheral artery disease
+  - id: HP:0002617
+    label: aneurysm
+  - id: HP:0030965
+    label: increased aortic stiffness
+  - id: HP:0001659
+    label: aortic regurgitation
+  - id: HP:0001712
+    label: left ventricular hypertrophy
+  - id: HP:0005162
+    label: left ventricular failure
   - id: HP:0000822
-    label: Hypertension
-  - id: HP:0001649
-    label: Tachycardia
-  - id: HP:0012531
-    label: pain
-  - id: MONDO:0009691
-    label: Marfan syndrome (MFS)
+    label: high blood pressure
   - id: CHEBI:6541
     label: Losartan
+  - id: CHEBI:35530
+    label: beta-blocker
+  - id: MAXO:0001298
+    label: therapy
+  - id: MONDO:0020333
+    label: Anterior sacral meningocele (ASM)
+  - id: HP:0002315
+    label: headache
+  - id: HP:0002018
+    label: nausea
+  - id: HP:0002138
+    label: subarachnoid hemorrhage
   - id: HP:0031625
     label: Pseudoaneurysms
   - id: MAXO:0000451
     label: Implantation
-  - id: HP:0031649
-    label: Aortic rupture
-  - id: MAXO:0001061
-    label: Laminectomy
+  - id: MAXO:0000457
+    label: pain management
+  - id: HP:0012531
+    label: pain
+  - id: HP:0012378
+    label: fatigue
+  - id: HP:0012332
+    label: dysautonomia
+  - id: HP:0002659
+    label: bone fragility
+  - id: HP:0025017
+    label: capillary fragility
+  - id: HP:0001030
+    label: skin fragility
   - id: MAXO:0000571
     label: CT
   - id: HP:0034267
@@ -112,53 +149,93 @@ named_entities:
     label: Genital prolapse
   - id: HP:0100518
     label: Dysuria
+  - id: MONDO:0044632
+    label: Extracranial Carotid Artery Aneurysms (ECAAs)
+  - id: MAXO:0000448
+    label: Surgical resection
   - id: HP:0001297
-    label: stroke
+    label: Stroke
+  - id: HP:0012163
+    label: Extracranial Carotid Artery Aneurysms
+  - id: HP:0002616
+    label: aortic root aneurysms
+  - id: HP:0031649
+    label: aortic rupture
+  - id: HP:0002090
+    label: pneumonia
+  - id: CHEBI:50249
+    label: Anticoagulants
+  - id: HP:0012514
+    label: Leg pain
+  - id: HP:0007340
+    label: Leg weakness
+  - id: HP:0200146
+    label: annuloaortic ectasia
+  - id: MAXO:0009072
+    label: Surgical repair
+  - id: MONDO:0009691
+    label: Marfan syndrome (MFS)
+  - id: HP:0002140
+    label: acute ischemic stroke
   - id: HP:0002615
     label: Hypotension
   - id: HP:0007185
     label: Loss of consciousness
-  - id: MAXO:0001056
-    label: Hepatectomy
   - id: HP:0002239
     label: Gastrointestinal bleeding
   - id: HP:0000952
     label: Jaundice
+  - id: MAXO:0000004
+    label: surgery
+  - id: MONDO:0004737
+    label: Homocystinuria
+  - id: HP:0004933
+    label: type A aortic dissection
+  - id: MONDO:0008213
+    label: Pectus Excavatum
+  - id: HP:0010550
+    label: Paraplegia
+  - id: HP:0012151
+    label: Hemothorax
+  - id: HP:0000767
+    label: Pectus Excavatum
   - id: MONDO:0009352
     label: Cystathionine beta-Synthase Deficiency
-  - id: MAXO:0010092
-    label: methionine restriction
   - id: HP:0000545
-    label: myopia
+    label: Myopia
   - id: HP:0001083
-    label: ectopia lentis
+    label: Ectopia lentis
   - id: HP:0001249
-    label: mental retardation
+    label: Mental retardation
   - id: HP:0000924
-    label: skeletal anomalies
+    label: Skeletal anomalies
   - id: HP:0001907
-    label: thromboembolic events
+    label: Thromboembolic events
   - id: HP:0003235
-    label: hypermethioninemia
+    label: Hypermethioninemia
   - id: CHEBI:17750
-    label: betaine
+    label: Betaine
   - id: CHEBI:16811
-    label: methionine
-  - id: MAXO:0001298
-    label: therapy
+    label: Methionine
   - id: MAXO:0001085
     label: Vitrectomy
-  - id: HP:0012109
-    label: Angle closure glaucoma
   - id: HP:0000572
     label: Visual loss
+  - id: HP:0012109
+    label: angle closure glaucoma
   - id: HP:0002092
     label: Pulmonary hypertension
-  - id: CHEBI:50249
-    label: Anticoagulants
-  - id: HP:0000973
-    label: elastolysis
-  - id: MAXO:0001001
-    label: gene therapy
+  - id: MAXO:0000079
+    label: Genetic counseling
+  - id: HP:0030961
+    label: Microspherophakia
+  - id: HP:0001704
+    label: tricuspid valve prolapse
+  - id: HP:0004927
+    label: pulmonary artery dilatation
+  - id: HP:0100775
+    label: dural ectasia
+  - id: HP:0100790
+    label: hernia
   - id: HP:0100584
-    label: endocarditis
+    label: Endocarditis

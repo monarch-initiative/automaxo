@@ -16,16 +16,12 @@ input_text: 'Aborted sudden cardiac death in patient with concealed Brugada synd
   D2 lymph node dissection, neoadjuvant therapy.'
 raw_completion_output: |-
   primary_disease: Brugada syndrome
-
-  medical_actions: provocative ajmaline test; Echocardiography; coronarography; history taking 
-
-  symptoms: aborted sudden cardiac death; fever; headache; fatigue; minimal non-specific changes in right precordial leads
-
+  medical_actions: provocative ajmaline test; history taking
+  symptoms: aborted sudden cardiac death; fever; headache; fatigue
   chemicals: ajmaline
-
-  action_annotation_relationships: provocative ajmaline test TREATS aborted sudden cardiac death IN Brugada syndrome; fever TREATS sudden cardiac death IN Brugada syndrome; fever (related to tattoo flu syndrome) TREATS headache IN Brugada syndrome; fever (related to tattoo flu syndrome) TREATS fatigue IN Brugada syndrome
+  action_annotation_relationships: provocative ajmaline test TREATS aborted sudden cardiac death IN Brugada syndrome; history taking TREATS aborted sudden cardiac death IN Brugada syndrome; fever (due to tattoo flu syndrome) TREATS fever IN Brugada syndrome; fever PREVENTS sudden cardiac death IN Brugada syndrome
 prompt: |+
-  From the text below, extract the following entities in the following format:
+  Split the following piece of text into fields in the following format:
 
   subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
   object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
@@ -38,7 +34,7 @@ prompt: |+
 
 
   Text:
-  fever (related to tattoo flu syndrome) TREATS fatigue IN Brugada syndrome
+  fever PREVENTS sudden cardiac death IN Brugada syndrome
 
   ===
 
@@ -46,15 +42,12 @@ extracted_object:
   primary_disease: MONDO:0015263
   medical_actions:
     - provocative ajmaline test
-    - MAXO:0010203
-    - coronarography
     - history taking
   symptoms:
     - HP:0031628
     - HP:0001945
     - HP:0002315
     - HP:0012378
-    - minimal non-specific changes in right precordial leads
   chemicals:
     - CHEBI:28462
   action_annotation_relationships:
@@ -63,20 +56,19 @@ extracted_object:
       object: HP:0031628
       qualifier: MONDO:0015263
       subject_extension: CHEBI:28462
+    - subject: history taking
+      predicate: TREATS
+      object: HP:0031628
+      qualifier: MONDO:0015263
     - subject: fever
       predicate: TREATS
+      object: HP:0001945
+      qualifier: MONDO:0015263
+      subject_qualifier: due to tattoo flu syndrome
+    - subject: fever
+      predicate: PREVENTS
       object: HP:0001645
       qualifier: MONDO:0015263
-    - subject: fever
-      predicate: TREATS
-      object: HP:0002315
-      qualifier: MONDO:0015263
-      subject_qualifier: related to tattoo flu syndrome
-    - subject: fever
-      predicate: TREATS
-      object: HP:0012378
-      qualifier: MONDO:0015263
-      subject_qualifier: related to tattoo flu syndrome
 named_entities:
   - id: HP:0001663
     label: ventricular fibrillation
@@ -86,40 +78,40 @@ named_entities:
     label: cognitive impairment
   - id: MONDO:0002076
     label: Pneumothorax
+  - id: MAXO:0000504
+    label: Tracheostomy
   - id: HP:0002094
     label: Dyspnea
+  - id: MONDO:0015263
+    label: Brugada Syndrome
   - id: HP:0001695
-    label: Cardiac arrest
+    label: cardiac arrest
   - id: CHEBI:75984
-    label: Flecainide
-  - id: MAXO:0001017
-    label: Vaccination
+    label: flecainide
   - id: MONDO:0007264
     label: Sudden Cardiac Death
-  - id: HP:0031628
-    label: Sudden cardiac arrest
+  - id: HP:0001639
+    label: Hypertrophic cardiomyopathy (HCM)
+  - id: HP:0001644
+    label: Dilated cardiomyopathy (DCM)
+  - id: HP:0007263
+    label: Sudden cardiac arrest (SCA)
   - id: HP:0001657
-    label: Long QT syndrome
+    label: Long QT syndrome (LQTS)
+  - id: MONDO:0019315
+    label: <Dilated cardiomyopathy (DCM)>
+  - id: MONDO:0016587
+    label: <Arrhythmogenic right ventricular cardiomyopathy (ARVC)>
   - id: HP:0001645
-    label: Sudden cardiac death
-  - id: MONDO:0015263
-    label: Brugada syndrome
+    label: Sudden Cardiac Death
+  - id: MAXO:0000127
+    label: Genetic testing
   - id: HP:0004308
     label: Ventricular arrhythmias
-  - id: HP:0001945
-    label: Fever
-  - id: MONDO:0020745
-    label: Cardiac arrhythmias
-  - id: MAXO:0000900
-    label: Analysis of electrocardiograms (ECGs)
-  - id: MAXO:0000127
-    label: Genetic analyses
   - id: HP:0011675
-    label: cardiac arrhythmias
-  - id: HP:0001699
-    label: sudden death
-  - id: HP:0005110
-    label: atrial fibrillation
+    label: arrhythmia
+  - id: MAXO:0000900
+    label: Electrocardiogram (ECG)
   - id: MAXO:0000474
     label: Implantable cardioverter-defibrillator implantation
   - id: HP:0001279
@@ -130,8 +122,12 @@ named_entities:
     label: confusion
   - id: MAXO:0001001
     label: Gene therapy
-  - id: MAXO:0010203
-    label: Echocardiography
+  - id: MONDO:0020745
+    label: Cardiac Arrhythmias
+  - id: HP:0031628
+    label: aborted sudden cardiac death
+  - id: HP:0001945
+    label: fever
   - id: HP:0002315
     label: headache
   - id: HP:0012378

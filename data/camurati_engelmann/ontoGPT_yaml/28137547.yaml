@@ -30,13 +30,13 @@ input_text: "Repeat Intracranial Expansion After Skull Regrowth in Hyperostotic 
 raw_completion_output: |-
   primary_disease: Camurati-Engelmann disease (CED)
 
-  medical_actions: Surgical decompression; Ventriculoperitoneal shunting; Posterior fossa decompression; Multiple craniotomies; Radical craniectomy; Titanium mesh cranioplasties
+  medical_actions: Surgical decompression; Bilateral frontal and parietal craniotomy; Ventriculoperitoneal shunting; Posterior fossa decompression; Multiple craniotomies; Radical craniectomy; Titanium mesh cranioplasties
 
-  symptoms: Cranial nerve dysfunction; Increased intracranial pressure; Recurrence of symptoms; Rethickening of cranial bones; Severely decreased intracranial volume
+  symptoms: Cranial nerve dysfunction; Increased intracranial pressure; Recurrence of symptoms due to reossification
 
   chemicals: 
 
-  action_annotation_relationships: Surgical decompression TREATS cranial nerve dysfunction IN Camurati-Engelmann disease (CED); Surgical decompression TREATS increased intracranial pressure IN Camurati-Engelmann disease (CED); Ventriculoperitoneal shunting TREATS increased intracranial pressure IN Camurati-Engelmann disease (CED); Posterior fossa decompression TREATS increased intracranial pressure IN Camurati-Engelmann disease (CED); Multiple craniotomies TREATS increased intracranial pressure IN Camurati-Engelmann disease (CED); Radical craniectomy TREATS recurring symptoms IN Camurati-Engelmann disease (CED); Radical craniectomy TREATS rethickening of cranial bones IN Camurati-Engelmann disease (CED); Titanium mesh cranioplasties TREATS rethickening of cranial bones IN Camurati-Engelmann disease (CED); Titanium mesh cranioplasties PREVENTS recurrence of symptoms IN Camurati-Engelmann disease (CED)
+  action_annotation_relationships: Surgical decompression TREATS cranial nerve dysfunction IN Camurati-Engelmann disease (CED); Surgical decompression TREATS increased intracranial pressure IN Camurati-Engelmann disease (CED); Bilateral frontal and parietal craniotomy TREATS recurrence of symptoms due to reossification IN Camurati-Engelmann disease (CED); Ventriculoperitoneal shunting TREATS increased intracranial pressure IN Camurati-Engelmann disease (CED); Posterior fossa decompression TREATS increased intracranial pressure IN Camurati-Engelmann disease (CED); Multiple craniotomies TREATS increased intracranial pressure IN Camurati-Engelmann disease (CED); Radical craniectomy TREATS recurrence of symptoms due to reossification IN Camurati-Engelmann disease (CED); Titanium mesh cranioplasties PREVENTS recurrence of symptoms due to cranial hyperostosis IN Camurati-Engelmann disease (CED)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -51,7 +51,7 @@ prompt: |+
 
 
   Text:
-  Titanium mesh cranioplasties PREVENTS recurrence of symptoms IN Camurati-Engelmann disease (CED)
+  Titanium mesh cranioplasties PREVENTS recurrence of symptoms due to cranial hyperostosis IN Camurati-Engelmann disease (CED)
 
   ===
 
@@ -59,6 +59,7 @@ extracted_object:
   primary_disease: MONDO:0009032
   medical_actions:
     - Surgical decompression
+    - Bilateral frontal and parietal craniotomy
     - Ventriculoperitoneal shunting
     - Posterior fossa decompression
     - Multiple craniotomies
@@ -67,9 +68,7 @@ extracted_object:
   symptoms:
     - Cranial nerve dysfunction
     - HP:0002516
-    - Recurrence of symptoms
-    - Rethickening of cranial bones
-    - Severely decreased intracranial volume
+    - Recurrence of symptoms due to reossification
   action_annotation_relationships:
     - subject: Surgical decompression
       predicate: TREATS
@@ -79,40 +78,41 @@ extracted_object:
       predicate: TREATS
       object: HP:0002516
       qualifier: MONDO:0009032
+    - subject: Bilateral frontal and parietal craniotomy
+      predicate: TREATS
+      object: recurrence of symptoms due to reossification
+      qualifier: MONDO:0009032
     - subject: Ventriculoperitoneal shunting
       predicate: TREATS
       object: HP:0002516
       qualifier: MONDO:0009032
-    - subject: Posterior fossa decompression
-      predicate: TREATS
-      object: HP:0002516
+    - subject: <Posterior fossa decompression>
+      predicate: <TREATS>
+      object: <Increased intracranial pressure>
       qualifier: MONDO:0009032
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
     - subject: Multiple craniotomies
       predicate: TREATS
       object: HP:0002516
       qualifier: MONDO:0009032
     - subject: Radical craniectomy
       predicate: TREATS
-      object: recurring symptoms
+      object: recurrence of symptoms due to reossification
       qualifier: MONDO:0009032
-    - subject: Radical craniectomy
-      predicate: TREATS
-      object: rethickening of cranial bones
-      qualifier: MONDO:0007542
-    - subject: MAXO:0001291
-      predicate: TREATS
-      object: rethickening of cranial bones
+    - subject: <cranioplasties>
+      predicate: <PREVENTS>
+      object: <recurrence of symptoms>
       qualifier: MONDO:0009032
-      subject_extension: Titanium mesh
-    - subject: Titanium mesh cranioplasties
-      predicate: PREVENTS
-      object: recurrence of symptoms
-      qualifier: MONDO:0009032
+      object_qualifier: <due to cranial hyperostosis>
+      subject_extension: <Titanium mesh>
 named_entities:
-  - id: MONDO:0007542
-    label: Camurati-Engelmann disease
+  - id: MONDO:0009032
+    label: Camurati-Engelmann disease (CED)
   - id: HP:0000939
-    label: Osteoporosis
+    label: osteoporosis
   - id: HP:0100512
     label: vitamin D deficiency
   - id: HP:0000823
@@ -131,15 +131,15 @@ named_entities:
     label: vitamin D
   - id: MAXO:0000127
     label: Genetic analysis
-  - id: HP:0000365
-    label: hearing loss
+  - id: MONDO:0007542
+    label: Camurati-Engelmann disease
   - id: HP:0010628
     label: facial nerve palsy
+  - id: HP:0000365
+    label: hearing loss
+  - id: HP:0000407
+    label: sensorineural hearing loss
   - id: HP:0030038
     label: enchondroma
-  - id: MONDO:0009032
-    label: Camurati-Engelmann disease (CED)
   - id: HP:0002516
     label: Increased intracranial pressure
-  - id: MAXO:0001291
-    label: cranioplasties

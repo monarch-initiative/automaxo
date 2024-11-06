@@ -1,0 +1,134 @@
+---
+input_text: 'Allogeneic Kidney Transplantation After COVID-19: A Case Report. BACKGROUND:
+  Patients undergoing organ transplantation are immunosuppressed and already at risk
+  of various diseases. We report about a patient who underwent ABO-incompatible kidney
+  transplantation after coronavirus disease 2019 (COVID-19) without a recurrence of
+  infection. CASE REPORT: A 68-year-old woman presented with end-stage renal failure
+  owing to primary autosomal dominant polycystic kidney disease; accordingly, hemodialysis
+  was initiated in September 2020. Her medical history included bilateral osteoarthritis,
+  lumbar spinal stenosis, hypertension, and hyperuricemia. In mid-January 2021, she
+  contracted severe acute respiratory syndrome coronavirus 2 infection from her husband.
+  Both of them were hospitalized and received conservative treatment. Because their
+  symptoms were mild, they were discharged after 10 days. The patient subsequently
+  underwent ABO-incompatible kidney transplantation from her husband who recovered
+  from COVID-19 in March 2021. Before kidney transplantation, her COVID-19 polymerase
+  chain reaction test was negative, confirming the absence of pre-existing COVID-19
+  immediately before the procedure. Computed tomography revealed no pneumonia. Initial
+  immunosuppression was induced by administering tacrolimus, mycophenolate mofetil,
+  methylprednisolone, basiliximab, rituximab, and 30 g of intravenous immunoglobulin.
+  Double-filtration plasmapheresis and plasma exchange were performed once before
+  ABO-incompatible kidney transplantation. The renal allograft functioned immediately,
+  and the postoperative course was normal without rejection. COVID-19 did not recur.
+  In addition, her serum creatinine levels and renal function had otherwise remained
+  stable. CONCLUSION: Living kidney transplantation was safely performed in a patient
+  with COVID-19 without postoperative complications or rejection. During the COVID-19
+  pandemic, the possibility of severe acute respiratory syndrome coronavirus 2 infection
+  during transplantation surgery must be considered.'
+raw_completion_output: |-
+  primary_disease: COVID-19
+
+  medical_actions: ABO-incompatible kidney transplantation; conservative treatment; hemodialysis; computed tomography; administering tacrolimus; administering mycophenolate mofetil; administering methylprednisolone; administering basiliximab; administering rituximab; intravenous immunoglobulin administration; double-filtration plasmapheresis; plasma exchange
+
+  symptoms: end-stage renal failure; mild COVID-19 symptoms
+
+  chemicals: tacrolimus; mycophenolate mofetil; methylprednisolone; basiliximab; rituximab
+
+  action_annotation_relationships: hemodialysis TREATS end-stage renal failure IN primary autosomal dominant polycystic kidney disease; conservative treatment TREATS mild COVID-19 symptoms IN COVID-19; ABO-incompatible kidney transplantation (with tacrolimus, mycophenolate mofetil, methylprednisolone, basiliximab, rituximab, intravenous immunoglobulin) PREVENTS end-stage renal failure IN primary autosomal dominant polycystic kidney disease; double-filtration plasmapheresis PREVENTS rejection IN ABO-incompatible kidney transplantation; plasma exchange PREVENTS rejection IN ABO-incompatible kidney transplantation
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  plasma exchange PREVENTS rejection IN ABO-incompatible kidney transplantation
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0100096
+  medical_actions:
+    - ABO-incompatible kidney transplantation
+    - conservative treatment
+    - MAXO:0000602
+    - computed tomography
+    - administering tacrolimus
+    - administering mycophenolate mofetil
+    - administering methylprednisolone
+    - administering basiliximab
+    - administering rituximab
+    - intravenous immunoglobulin administration
+    - double-filtration plasmapheresis
+    - plasma exchange
+  symptoms:
+    - HP:0003774
+    - mild COVID-19 symptoms
+  chemicals:
+    - CHEBI:61049
+    - CHEBI:8764
+    - CHEBI:6888
+    - CHEBI:63583
+    - CHEBI:64357
+  action_annotation_relationships:
+    - subject: <hemodialysis>
+      predicate: <TREATS>
+      object: <end-stage renal failure>
+      qualifier: <primary autosomal dominant polycystic kidney disease>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <hemodialysis>
+      object_extension: <>
+    - subject: <conservative treatment>
+      predicate: <TREATS>
+      object: <mild COVID-19 symptoms>
+      qualifier: <COVID-19>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: <ABO-incompatible kidney transplantation>
+      predicate: <PREVENTS>
+      object: <end-stage renal failure>
+      qualifier: <primary autosomal dominant polycystic kidney disease>
+      subject_extension: <tacrolimus, mycophenolate mofetil, methylprednisolone, basiliximab,
+        rituximab, intravenous immunoglobulin>
+    - subject: double-filtration plasmapheresis
+      predicate: PREVENTS
+      object: rejection
+      qualifier: ABO-incompatible kidney transplantation
+    - subject: plasma exchange
+      predicate: PREVENTS
+      object: rejection
+      qualifier: ABO-incompatible kidney transplantation
+named_entities:
+  - id: CHEBI:35341
+    label: Steroids
+  - id: MAXO:0001017
+    label: Vaccination
+  - id: HP:0002089
+    label: Pulmonary hypoplasia
+  - id: HP:0002092
+    label: Pulmonary hypertension
+  - id: MONDO:0100096
+    label: COVID-19
+  - id: MAXO:0000602
+    label: hemodialysis
+  - id: HP:0003774
+    label: end-stage renal failure
+  - id: CHEBI:61049
+    label: tacrolimus
+  - id: CHEBI:8764
+    label: mycophenolate mofetil
+  - id: CHEBI:6888
+    label: methylprednisolone
+  - id: CHEBI:63583
+    label: basiliximab
+  - id: CHEBI:64357
+    label: rituximab

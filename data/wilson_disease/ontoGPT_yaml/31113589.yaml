@@ -23,13 +23,13 @@ input_text: "Acute Liver Failure due to Wilson Disease: Eight Years of the Natio
 raw_completion_output: |-
   primary_disease: Wilson's disease (WD)
 
-  medical_actions: d-penicillamine treatment; urgent liver transplantation listing; Prometheus procedure; blood tests for total bilirubin, alkaline phosphatase, AST, and ALT; measurement of ceruloplasmin levels; urinary copper tests; identification of Kayser-Fleischer rings; histological examination for copper and fibrosis; calculation of MELD score
+  medical_actions: liver transplantation (LT); d-penicillamine treatment; Prometheus procedure; urgent listing for liver transplantation
 
-  symptoms: jaundice; hyperacute liver failure; acute liver failure; Coombs-negative hemolytic anemia; acute kidney injury; low ceruloplasmin levels; high urinary copper; Kayser-Fleischer rings; advanced fibrosis on liver histology
+  symptoms: jaundice; hyperacute liver failure; acute liver failure; low ceruloplasmin levels; high urinary copper; Kayser-Fleischer rings; Coombs-negative hemolytic anemia; acute kidney injury; histochemical identifiable copper; advanced fibrosis on liver histology
 
   chemicals: d-penicillamine
 
-  action_annotation_relationships: d-penicillamine TREATS Wilson's disease; urgent liver transplantation listing TREATS acute liver failure IN Wilson's disease; Prometheus procedure TREATS acute liver failure IN Wilson's disease; blood tests for total bilirubin, alkaline phosphatase, AST, and ALT INVESTIGATES jaundice IN Wilson's disease; measurement of ceruloplasmin levels INVESTIGATES low ceruloplasmin levels IN Wilson's disease; urinary copper tests INVESTIGATES high urinary copper IN Wilson's disease; identification of Kayser-Fleischer rings INVESTIGATES Kayser-Fleischer rings IN Wilson's disease; histological examination for copper and fibrosis CONFIRMS advanced fibrosis on liver histology IN Wilson's disease; calculation of MELD score ASSESSES severity of acute liver failure IN Wilson's disease
+  action_annotation_relationships: d-penicillamine TREATS Wilson's disease; urgent listing for liver transplantation TREATS acute liver failure IN Wilson's disease; Prometheus procedure TREATS acute liver failure IN Wilson's disease; liver transplantation (LT) TREATS acute liver failure IN Wilson's disease
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -44,31 +44,27 @@ prompt: |+
 
 
   Text:
-  calculation of MELD score ASSESSES severity of acute liver failure IN Wilson's disease
+  liver transplantation (LT) TREATS acute liver failure IN Wilson's disease
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0010200
   medical_actions:
+    - MAXO:0001175
     - d-penicillamine treatment
-    - urgent liver transplantation listing
     - Prometheus procedure
-    - blood tests for total bilirubin, alkaline phosphatase, AST, and ALT
-    - measurement of ceruloplasmin levels
-    - urinary copper tests
-    - identification of Kayser-Fleischer rings
-    - histological examination for copper and fibrosis
-    - calculation of MELD score
+    - urgent listing for liver transplantation
   symptoms:
     - HP:0000952
     - hyperacute liver failure
     - HP:0006554
-    - Coombs-negative hemolytic anemia
-    - HP:0001919
     - low ceruloplasmin levels
     - high urinary copper
     - HP:0200032
+    - Coombs-negative hemolytic anemia
+    - HP:0001919
+    - histochemical identifiable copper
     - advanced fibrosis on liver histology
   chemicals:
     - CHEBI:7959
@@ -76,120 +72,162 @@ extracted_object:
     - subject: d-penicillamine
       predicate: TREATS
       object: Wilson's disease
-    - subject: urgent liver transplantation listing
-      predicate: TREATS
-      object: HP:0006554
-      qualifier: MONDO:0010200
     - subject: Prometheus procedure
       predicate: TREATS
       object: HP:0006554
-    - subject: blood tests for total bilirubin, alkaline phosphatase, AST, and ALT
-      predicate: INVESTIGATES
-      object: HP:0000952
       qualifier: MONDO:0010200
-    - subject: measurement of ceruloplasmin levels
-      predicate: INVESTIGATES
-      object: low ceruloplasmin levels
-      qualifier: MONDO:0010200
-      subject_extension: ceruloplasmin
-    - subject: urinary copper tests
-      predicate: INVESTIGATES
-      object: high urinary copper
-      qualifier: MONDO:0010200
-    - subject: identification of Kayser-Fleischer rings
-      predicate: INVESTIGATES
-      object: HP:0200032
-      qualifier: MONDO:0010200
-    - subject: <histological examination>
-      predicate: <CONFIRMS>
-      object: <fibrosis on liver histology>
-      qualifier: <Wilson's disease>
-      subject_qualifier: <>
-      object_qualifier: <>
-      subject_extension: <copper and fibrosis>
-      object_extension: <advanced>
-    - subject: calculation of MELD score
-      predicate: ASSESSES
-      object: severity of acute liver failure
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: HP:0006554
       qualifier: MONDO:0010200
 named_entities:
   - id: MONDO:0010200
     label: Wilson's disease
   - id: MAXO:0001175
-    label: liver transplantation
+    label: Liver transplantation
   - id: HP:0001695
-    label: cardiac arrest
+    label: Cardiac arrest
   - id: HP:0001685
-    label: myocardial fibrosis
+    label: Myocardial fibrosis
   - id: HP:0001663
-    label: ventricular fibrillation
+    label: Ventricular fibrillation
+  - id: CHEBI:28694
+    label: Copper
+  - id: CHEBI:18248
+    label: Iron
+  - id: HP:0002910
+    label: abnormal liver functions
+  - id: HP:0001394
+    label: cirrhosis
+  - id: CHEBI:27363
+    label: zinc
+  - id: CHEBI:50868
+    label: penicillamine
+  - id: MAXO:0000016
+    label: Cell therapy
+  - id: MAXO:0001001
+    label: Gene therapy
   - id: CHEBI:30703
-    label: tetrathiomolybdate (TTM)
+    label: Tetrathiomolybdate (TTM)
+  - id: HP:0006554
+    label: acute liver failure
   - id: CHEBI:35176
     label: Zinc sulphate
   - id: CHEBI:35475
     label: NSAIDs
-  - id: MAXO:0001001
-    label: Gene therapy
-  - id: HP:0006554
-    label: acute liver failure
+  - id: MAXO:0009095
+    label: zinc therapy
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0006579
+    label: neonatal jaundice
+  - id: HP:0001409
+    label: portal hypertension
+  - id: HP:0030151
+    label: cholangitis
+  - id: HP:0002612
+    label: congenital hepatic fibrosis
+  - id: MONDO:0013282
+    label: alpha-1-antitrypsin deficiency
+  - id: HP:0001903
+    label: anemia
+  - id: HP:0001410
+    label: liver dysfunction
+  - id: CHEBI:39501
+    label: trientine
+  - id: MAXO:0000070
+    label: Hepatic transplantation
+  - id: HP:0001399
+    label: Hepatic failure
+  - id: HP:0004448
+    label: fulminant hepatic failure
   - id: HP:0003256
-    label: coagulopathy
+    label: coagulopathy (international normalized ratio >2.0)
+  - id: HP:0004445
+    label: hepatic encephalopathy (HE)
   - id: HP:0002480
     label: hepatic encephalopathy
+  - id: CHEBI:35341
+    label: Steroids
+  - id: CHEBI:33281
+    label: Antibiotics
+  - id: MONDO:0100193
+    label: End-stage liver disease
+  - id: HP:0100626
+    label: End-stage liver disease
+  - id: HP:0100660
+    label: dyskinesia
+  - id: HP:0100022
+    label: Movement disorders
   - id: HP:0001337
     label: Tremor
   - id: HP:0001332
     label: Dystonia
-  - id: CHEBI:28694
-    label: Copper
-  - id: HP:0001395
-    label: Liver fibrosis
-  - id: HP:0001394
-    label: Cirrhosis
-  - id: CHEBI:39501
-    label: trientine
-  - id: CHEBI:27363
-    label: zinc
-  - id: HP:0001410
-    label: hepatic dysfunction
+  - id: MONDO:0019542
+    label: Acute liver failure (ALF)
+  - id: CHEBI:27385
+    label: CCL4
+  - id: MAXO:0000127
+    label: Genetic testing
   - id: CHEBI:7959
     label: D-penicillamine
+  - id: MAXO:0001017
+    label: Vaccination
+  - id: HP:0001541
+    label: Ascites
+  - id: HP:0012398
+    label: Peripheral edema
+  - id: HP:0001260
+    label: dysarthria
+  - id: HP:0000708
+    label: psychiatric disorders
+  - id: HP:0200123
+    label: chronic hepatitis
+  - id: CHEBI:38161
+    label: chelators
   - id: MAXO:0000376
-    label: Liver biopsy
+    label: liver biopsy
   - id: HP:0001404
-    label: Hepatocellular necrosis
+    label: hepatocellular necrosis
   - id: CHEBI:61049
     label: Tacrolimus
-  - id: CHEBI:50868
-    label: Penicillamine
   - id: HP:0001744
-    label: splenomegaly
-  - id: HP:0001541
-    label: ascites
-  - id: HP:0001260
-    label: Dysarthria
+    label: Splenomegaly
+  - id: MAXO:0000603
+    label: Peritoneal dialysis
+  - id: HP:0200032
+    label: Kayser-Fleischer rings
+  - id: HP:0002172
+    label: impaired balance
   - id: HP:0001347
-    label: Hyperreflexia
+    label: hyperreflexia
   - id: HP:0031843
-    label: Bradyphrenia
+    label: bradyphrenia
   - id: HP:0002362
-    label: Shuffling gait
-  - id: HP:0002300
-    label: Mutism
+    label: shuffling gait
   - id: HP:0001621
-    label: Hypophonia
+    label: hypophonia
   - id: CHEBI:37153
     label: Calcineurin inhibitors
   - id: CHEBI:8356
-    label: Pramipexole
+    label: pramipexole
   - id: CHEBI:2618
-    label: Amantadine
-  - id: HP:0001399
-    label: liver failure
+    label: amantadine
+  - id: HP:0000093
+    label: proteinuria
+  - id: CHEBI:231592
+    label: zinc salts
+  - id: MAXO:0000167
+    label: antiepileptic therapy
+  - id: CHEBI:9168
+    label: rapamycin
+  - id: CHEBI:55379
+    label: cyclosporine (CsA)
+  - id: CHEBI:35623
+    label: antiepileptic
+  - id: HP:0000083
+    label: renal failure
   - id: HP:0000952
     label: jaundice
   - id: HP:0001919
     label: acute kidney injury
-  - id: HP:0200032
-    label: Kayser-Fleischer rings

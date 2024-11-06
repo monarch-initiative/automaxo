@@ -27,17 +27,17 @@ input_text: 'What are the outcomes of core decompression in patients with avascu
   in the International Prospective Register for Systematic Reviews and Meta-analysis
   (PROSPERO) under the registration number:  CRD42018100596.'
 raw_completion_output: |-
-  primary_disease: avascular necrosis (AVN)
+  primary_disease: avascular necrosis
 
-  medical_actions: core decompression; total hip replacement (THR); systematic review
+  medical_actions: core decompression; systematic review; total hip replacement; risk of bias assessment; quality assessment; evidence assessment using GRADE tool
 
   symptoms: 
 
   chemicals: 
 
-  action_annotation_relationships: core decompression TREATS avascular necrosis (AVN); total hip replacement (THR) TREATS avascular necrosis (AVN)
+  action_annotation_relationships: core decompression TREATS avascular necrosis IN avascular necrosis; total hip replacement TREATS avascular necrosis IN avascular necrosis; risk of bias assessment PREVENTS biased outcomes IN avascular necrosis; quality assessment PREVENTS low quality data inclusion IN avascular necrosis; evidence assessment using GRADE tool PREVENTS unreliable evidence inclusion IN avascular necrosis
 prompt: |+
-  Split the following piece of text into fields in the following format:
+  From the text below, extract the following entities in the following format:
 
   subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
   object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
@@ -50,46 +50,94 @@ prompt: |+
 
 
   Text:
-  total hip replacement (THR) TREATS avascular necrosis (AVN)
+  evidence assessment using GRADE tool PREVENTS unreliable evidence inclusion IN avascular necrosis
 
   ===
 
 extracted_object:
-  primary_disease: MONDO:0018373
+  primary_disease: MONDO:0005380
   medical_actions:
     - core decompression
-    - MAXO:0009047
     - systematic review
+    - MAXO:0009047
+    - risk of bias assessment
+    - quality assessment
+    - evidence assessment using GRADE tool
   action_annotation_relationships:
     - subject: core decompression
       predicate: TREATS
       object: HP:0010885
-      qualifier: MONDO:0018373
+      qualifier: MONDO:0005380
     - subject: MAXO:0009047
       predicate: TREATS
       object: HP:0010885
+      qualifier: MONDO:0005380
+    - subject: risk of bias assessment
+      predicate: PREVENTS
+      object: biased outcomes
+      qualifier: MONDO:0005380
+    - subject: <quality assessment>
+      predicate: <PREVENTS>
+      object: <low quality data inclusion>
+      qualifier: <avascular necrosis>
+      subject_qualifier: <Not applicable>
+      object_qualifier: <Not applicable>
+      subject_extension: <Not applicable>
+      object_extension: <Not applicable>
+    - subject: evidence assessment
+      predicate: PREVENTS
+      object: unreliable evidence inclusion
+      qualifier: MONDO:0005380
+      subject_qualifier: using
+      subject_extension: GRADE tool
 named_entities:
   - id: MONDO:0011382
-    label: Sickle Cell Disease
-  - id: MAXO:0000457
-    label: Pain Management
-  - id: HP:0012531
-    label: Pain
-  - id: HP:0000739
-    label: anxiety
-  - id: MONDO:0005812
-    label: Influenza
+    label: sickle cell disease
+  - id: CHEBI:64357
+    label: rituximab
+  - id: CHEBI:35341
+    label: steroids
+  - id: CHEBI:81579
+    label: erythropoietin
   - id: MAXO:0001017
-    label: vaccination
+    label: Vaccination
+  - id: MONDO:0007374
+    label: Sickle Cell Disease (SCD)
+  - id: MAXO:0000747
+    label: Allogeneic hematopoietic stem cell transplantation (HSCT)
+  - id: HP:0007760
+    label: Sickle Cell Disease (SCD)
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: CHEBI:35480
+    label: analgesics
+  - id: CHEBI:33281
+    label: antibiotics
+  - id: MAXO:0001077
+    label: Splenectomy
   - id: MAXO:0000756
-    label: transfusion
-  - id: MONDO:0018881
-    label: Myelodysplasia
+    label: Blood transfusion
+  - id: MONDO:0044348
+    label: Hemoglobinopathies
+  - id: CHEBI:44423
+    label: Hydroxyurea
+  - id: HP:0001297
+    label: Stroke
+  - id: HP:0002863
+    label: Myelodysplastic syndrome
+  - id: CHEBI:28901
+    label: Busulfan
+  - id: CHEBI:82594
+    label: Ferritin
   - id: MONDO:0000984
-    label: Thalassemia
-  - id: MONDO:0018373
-    label: avascular necrosis (AVN)
+    label: thalassemia
+  - id: MONDO:0018881
+    label: myelodysplastic syndrome
+  - id: HP:0002140
+    label: Ischemic Stroke
+  - id: MONDO:0005380
+    label: avascular necrosis
   - id: MAXO:0009047
-    label: total hip replacement (THR)
+    label: total hip replacement
   - id: HP:0010885
     label: avascular necrosis

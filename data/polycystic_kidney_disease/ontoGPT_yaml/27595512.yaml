@@ -1,0 +1,106 @@
+---
+input_text: Renal angiomyolipoma bleeding in a patient with TSC2/PKD1 contiguous gene
+  syndrome after 17 years of renal replacement therapy. We report the case of a 32-year-old
+  male diagnosed with TSC2/PKD1 contiguous gene syndrome, presenting with tuberous
+  sclerosis (TS) and autosomal dominant polycystic kidney disease simultaneously.
+  He progressed to end-stage renal disease and received a kidney transplant at the
+  age of 12. The native kidneys presented angiomyolipomas (AML), which are common
+  benign tumours in patients with TS. Seventeen years after transplantation, he presented
+  with abdominal pain, anaemia and a retroperitoneal haematoma, the latter caused
+  by renal AML bleeding. Selective embolisation was performed. Our patient could have
+  benefited from the administration of mTOR inhibitors at transplant. This therapy
+  is immunosuppressive and reduces the size of benign tumours in TS as well as the
+  risk of rupture and bleeding. This patient did not receive mTOR inhibitors at the
+  time of the transplant because the relationship between mTOR inhibitors and TS was
+  unknown at that time. This case confirms the persistent risk of renal AML bleeding
+  for both transplanted patients and patients on dialysis. As a result, we would recommend
+  routine check-ups of native kidneys and nephrectomy assessment.
+raw_completion_output: |-
+  primary_disease: Tuberous sclerosis (TS) and autosomal dominant polycystic kidney disease (ADPKD)
+
+  medical_actions: Selective embolisation; Administration of mTOR inhibitors; Routine check-ups of native kidneys; Nephrectomy assessment
+
+  symptoms: Abdominal pain; Anaemia; Retroperitoneal haematoma
+
+  chemicals: mTOR inhibitors
+
+  action_annotation_relationships: Selective embolisation TREATS renal AML bleeding IN tuberous sclerosis (TS) and autosomal dominant polycystic kidney disease (ADPKD); Administration of mTOR inhibitors PREVENTS size of benign tumours IN tuberous sclerosis (TS) and autosomal dominant polycystic kidney disease (ADPKD); Administration of mTOR inhibitors (with mTOR inhibitors) PREVENTS risk of rupture and bleeding IN tuberous sclerosis (TS) and autosomal dominant polycystic kidney disease (ADPKD); Routine check-ups of native kidneys PREVENTS renal AML bleeding IN tuberous sclerosis (TS) and autosomal dominant polycystic kidney disease (ADPKD); Nephrectomy assessment PREVENTS renal AML bleeding IN tuberous sclerosis (TS) and autosomal dominant polycystic kidney disease (ADPKD)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Nephrectomy assessment PREVENTS renal AML bleeding IN tuberous sclerosis (TS) and autosomal dominant polycystic kidney disease (ADPKD)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010979
+  medical_actions:
+    - Selective embolisation
+    - Administration of mTOR inhibitors
+    - Routine check-ups of native kidneys
+    - Nephrectomy assessment
+  symptoms:
+    - HP:0002027
+    - HP:0001903
+    - Retroperitoneal haematoma
+  chemicals:
+    - CHEBI:68481
+  action_annotation_relationships:
+    - subject: Selective embolisation
+      predicate: TREATS
+      object: renal AML bleeding
+      qualifier: MONDO:0010979
+    - subject: Administration
+      predicate: PREVENTS
+      object: size of benign tumours
+      qualifier: tuberous sclerosis, autosomal dominant polycystic kidney disease
+      subject_extension: CHEBI:68481
+    - subject: Administration of mTOR inhibitors
+      predicate: PREVENTS
+      object: risk of rupture and bleeding
+      qualifier: tuberous sclerosis, autosomal dominant polycystic kidney disease
+      subject_qualifier: with mTOR inhibitors
+      subject_extension: CHEBI:68481
+    - subject: Routine check-ups of native kidneys
+      predicate: PREVENTS
+      object: renal AML bleeding
+      qualifier: MONDO:0010979
+    - subject: Nephrectomy assessment
+      predicate: PREVENTS
+      object: renal AML bleeding
+      qualifier: tuberous sclerosis, autosomal dominant polycystic kidney disease
+named_entities:
+  - id: MONDO:0004691
+    label: Autosomal Dominant Polycystic Kidney Disease (ADPKD)
+  - id: HP:0003774
+    label: end-stage renal disease
+  - id: MAXO:0000601
+    label: Dialysis
+  - id: MAXO:0000756
+    label: Transfusion
+  - id: HP:0012531
+    label: Pain
+  - id: HP:0001824
+    label: Weight loss
+  - id: HP:0012158
+    label: Carotid artery dissection
+  - id: MONDO:0010979
+    label: Tuberous sclerosis (TS) and autosomal dominant polycystic kidney disease
+      (ADPKD)
+  - id: HP:0002027
+    label: Abdominal pain
+  - id: HP:0001903
+    label: Anaemia
+  - id: CHEBI:68481
+    label: mTOR inhibitors

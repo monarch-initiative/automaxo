@@ -1,0 +1,74 @@
+---
+input_text: "Acute Cellular Rejection in A Kidney Transplant Recipient Following Vaccination
+  with Inactivated SARS-CoV-2 Vaccine. SARS-CoV-2 vaccines are being administered
+  worldwide. Most of the reported side effects are mild and self-limiting with few
+  reported cases of severe adverse reactions. Here we report a case of acute cellular
+  rejection in a kidney transplant recipient following vaccination with an inactivated
+  SARS-CoV-2 vaccine. fifty- one years old man with autosomal dominant polycystic
+  kidney disease, who had received a kidney transplantation from a living related
+  donor, 3 years ago, presented with an impaired kidney function seven days after
+  receiving the first dose of Sinovac's COVID-19 vaccine. Kidney transplant biopsy
+  revealed acute cellular rejection. The allograft function completely recovered after
+  treatment with steroids. The analysis and investigation of the complications and
+  adverse reactions induced by anti-COVID-19 vaccines, could increase our understanding
+  of the underlying pathogenesis.  DOI: 10.52547/ijkd.6915."
+raw_completion_output: |-
+  primary_disease: Acute Cellular Rejection
+
+  medical_actions: Vaccination with Inactivated SARS-CoV-2 Vaccine; Kidney transplant biopsy; Treatment with steroids
+
+  symptoms: Impaired kidney function
+
+  chemicals: Steroids; Sinovac's COVID-19 vaccine
+
+  action_annotation_relationships: Vaccination with Inactivated SARS-CoV-2 Vaccine PREVENTS SARS-CoV-2 infection IN Acute Cellular Rejection; Kidney transplant biopsy DETECTS Acute Cellular Rejection IN Acute Cellular Rejection; Treatment with steroids (with Steroids) TREATS Impaired kidney function IN Acute Cellular Rejection
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Treatment with steroids (with Steroids) TREATS Impaired kidney function IN Acute Cellular Rejection
+
+  ===
+
+extracted_object:
+  primary_disease: Acute Cellular Rejection
+  medical_actions:
+    - Vaccination with Inactivated SARS-CoV-2 Vaccine
+    - Kidney transplant biopsy
+    - Treatment with steroids
+  symptoms:
+    - Impaired kidney function
+  chemicals:
+    - CHEBI:35341
+    - Sinovac's COVID-19 vaccine
+  action_annotation_relationships:
+    - subject: MAXO:0001017
+      predicate: PREVENTS
+      object: SARS-CoV-2 infection
+      qualifier: Acute Cellular Rejection
+      subject_extension: Inactivated SARS-CoV-2 Vaccine
+    - subject: Kidney transplant biopsy
+      predicate: DETECTS
+      object: Acute Cellular Rejection
+      qualifier: Acute Cellular Rejection
+    - subject: Treatment with steroids
+      predicate: TREATS
+      object: Impaired kidney function
+      qualifier: Acute Cellular Rejection
+      subject_qualifier: with Steroids
+      subject_extension: CHEBI:35341
+named_entities:
+  - id: CHEBI:35341
+    label: Steroids
+  - id: MAXO:0001017
+    label: Vaccination

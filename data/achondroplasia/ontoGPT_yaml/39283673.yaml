@@ -1,0 +1,184 @@
+---
+input_text: 'Musculoskeletal Issues in Children and Adolescents: Genetic Musculoskeletal
+  Disorders. Duchenne muscular dystrophy (DMD) is an X-linked recessive genetic disorder
+  with progressive proximal weakness as the principal sign. Glucocorticoids and physical
+  therapy are the mainstay of treatment. Exercise intolerance is the hallmark of metabolic
+  myopathies, which require a combination of laboratory testing, electrodiagnostic
+  testing, and muscle biopsy for diagnosis. Joint hypermobility may be an isolated
+  finding or be associated with hypermobility Ehlers-Danlos syndrome (EDS), other
+  variants of EDS, or marfanoid syndromes. The latter conditions are associated with
+  aortic and cardiac valvular abnormalities. Osteogenesis imperfecta encompasses a
+  group of disorders characterized by bone fragility presenting with a low-impact
+  fracture as a result of minimal trauma. Management includes multidiscipline specialists.
+  Down syndrome (DS), or trisomy 21, is the most common chromosome abnormality identified
+  in live births. Routine evaluation of atlantoaxial instability with x-ray is no
+  longer recommended for children with DS without symptoms of atlantoaxial instability;
+  however, clinical evaluation of symptoms is required for sports preparticipation.
+  Achondroplasia is the most common skeletal dysplasia. Clinical signs are macrocephaly,
+  short limb, short stature with disproportionately shorter humerus and femur, along
+  with characteristic findings in pelvis and lumbar spine x-rays. Caregivers should
+  be educated on proper positioning and handling to avoid complications, including
+  car seat-related deaths.'
+raw_completion_output: |-
+  primary_disease: Duchenne muscular dystrophy (DMD); Metabolic myopathies; Hypermobility; Ehlers-Danlos syndrome (EDS); Osteogenesis imperfecta; Down syndrome (DS); Achondroplasia
+
+  medical_actions: Glucocorticoids; Physical therapy; Laboratory testing; Electrodiagnostic testing; Muscle biopsy; Multidiscipline specialist management; Routine evaluation with x-ray for atlantoaxial instability; Clinical evaluation for symptoms; Education on proper positioning and handling
+
+  symptoms: Progressive proximal weakness; Exercise intolerance; Joint hypermobility; Aortic and cardiac valvular abnormalities; Bone fragility presenting with a low-impact fracture; Macrocephaly; Short limb; Short stature with disproportionately shorter humerus and femur
+
+  chemicals: Glucocorticoids
+
+  action_annotation_relationships: Glucocorticoids TREATS Progressive proximal weakness IN Duchenne muscular dystrophy (DMD); Physical therapy TREATS Progressive proximal weakness IN Duchenne muscular dystrophy (DMD); Laboratory testing PREVENTS misdiagnosis IN Metabolic myopathies; Electrodiagnostic testing PREVENTS misdiagnosis IN Metabolic myopathies; Muscle biopsy PREVENTS misdiagnosis IN Metabolic myopathies; Multidiscipline specialist management TREATS Bone fragility presenting with a low-impact fracture IN Osteogenesis imperfecta; Education on proper positioning and handling PREVENTS car seat-related deaths IN Achondroplasia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Education on proper positioning and handling PREVENTS car seat-related deaths IN Achondroplasia
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010679
+  medical_actions:
+    - Glucocorticoids
+    - MAXO:0000011
+    - Laboratory testing
+    - Electrodiagnostic testing
+    - MAXO:0000387
+    - Multidiscipline specialist management
+    - Routine evaluation with x-ray for atlantoaxial instability
+    - Clinical evaluation for symptoms
+    - Education on proper positioning and handling
+  symptoms:
+    - Progressive proximal weakness
+    - HP:0003546
+    - HP:0001382
+    - Aortic and cardiac valvular abnormalities
+    - Bone fragility presenting with a low-impact fracture
+    - HP:0000256
+    - HP:0009826
+    - Short stature with disproportionately shorter humerus and femur
+  chemicals:
+    - CHEBI:24261
+  action_annotation_relationships:
+    - subject: TREATS
+      predicate: TREATS
+      object: Progressive proximal weakness
+      qualifier: MONDO:0010679
+      subject_extension: CHEBI:24261
+    - subject: <Physical therapy>
+      predicate: <TREATS>
+      object: <Progressive proximal weakness>
+      qualifier: MONDO:0010679
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <Physical therapy>
+      object_extension: <Progressive proximal weakness>
+    - subject: Laboratory testing
+      predicate: PREVENTS
+      object: misdiagnosis
+      qualifier: MONDO:0020123
+    - subject: Electrodiagnostic testing
+      predicate: PREVENTS
+      object: misdiagnosis
+      qualifier: MONDO:0020123
+    - subject: MAXO:0000387
+      predicate: PREVENTS
+      object: misdiagnosis
+      qualifier: MONDO:0020123
+    - subject: Multidiscipline specialist management
+      predicate: TREATS
+      object: Bone fragility presenting with a low-impact fracture
+      qualifier: MONDO:0019019
+    - subject: Education on proper positioning and handling
+      predicate: PREVENTS
+      object: car seat-related deaths
+      qualifier: MONDO:0007037
+named_entities:
+  - id: MONDO:0007037
+    label: Achondroplasia
+  - id: HP:0001513
+    label: Obesity
+  - id: HP:0005667
+    label: os odontoideum
+  - id: CHEBI:31805
+    label: Meclizine hydrochloride
+  - id: CHEBI:6709
+    label: meclizine
+  - id: MAXO:0001394
+    label: Oral administration
+  - id: HP:0031846
+    label: Femoral fracture
+  - id: CHEBI:37845
+    label: Growth hormone
+  - id: CHEBI:31324
+    label: Buserelin acetate
+  - id: HP:0004839
+    label: Hypophosphatasia
+  - id: HP:0004322
+    label: short stature
+  - id: HP:0000256
+    label: macrocephaly
+  - id: MAXO:0000127
+    label: Genetic testing
+  - id: MONDO:0007793
+    label: Hypochondroplasia
+  - id: HP:0012531
+    label: pain
+  - id: MONDO:0017014
+    label: children
+  - id: HP:0009102
+    label: Anterior open bite
+  - id: HP:0001558
+    label: Decreased fetal activity
+  - id: HP:0009826
+    label: Limb shortening
+  - id: MAXO:0001061
+    label: Laminectomy
+  - id: HP:0002104
+    label: Apnea
+  - id: HP:0002196
+    label: Myelopathy
+  - id: HP:0002194
+    label: Delayed motor skills
+  - id: HP:0031952
+    label: Neurogenic claudication
+  - id: HP:0003418
+    label: Back pain
+  - id: HP:0011868
+    label: Sciatica
+  - id: HP:0007100
+    label: Progressive ventriculomegaly
+  - id: HP:0002315
+    label: Headaches
+  - id: HP:0001263
+    label: Delayed cognitive development
+  - id: MAXO:0000004
+    label: Surgical procedures
+  - id: MONDO:0010679
+    label: Duchenne muscular dystrophy (DMD); Metabolic myopathies; Hypermobility;
+      Ehlers-Danlos syndrome (EDS); Osteogenesis imperfecta; Down syndrome (DS); Achondroplasia
+  - id: MAXO:0000011
+    label: Physical therapy
+  - id: MAXO:0000387
+    label: Muscle biopsy
+  - id: HP:0003546
+    label: Exercise intolerance
+  - id: HP:0001382
+    label: Joint hypermobility
+  - id: CHEBI:24261
+    label: Glucocorticoids
+  - id: MONDO:0020123
+    label: Metabolic myopathies
+  - id: MONDO:0019019
+    label: Osteogenesis imperfecta

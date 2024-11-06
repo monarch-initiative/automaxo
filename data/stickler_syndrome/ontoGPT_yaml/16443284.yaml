@@ -1,0 +1,113 @@
+---
+input_text: "Robin sequence: a retrospective review of 115 patients. OBJECTIVES: Review
+  a large series of patients with Robin sequence to document the incidence of (1)
+  associated syndromic diagnoses; (2) co-morbid conditions; (3) frequency and type
+  of operative management for airway compromise and feeding difficulties; and (4)
+  possible differences in treatment between syndromic and nonsyndromic infants. METHODS:
+  Retrospective case-review of 115 patients with Robin sequence managed between 1962
+  and 2002 at two tertiary-care teaching hospitals for evaluation of demographic information,
+  clinical findings, and treatment interventions. RESULTS: Fifty-four percent (N=63)
+  of patients were nonsyndromic. Syndromic patients included: Stickler syndrome (18%),
+  velocardiofacial syndrome (7%), Treacher-Collins (5%), facial and hemifacial microsomia
+  (3%), and other defined (3.5%) and undefined (9%) disorders. There was no statistical
+  difference between the syndromic and nonsyndromic patients with regard to need for
+  operative airway management (Fisher's exact test, p=0.264). Forty-two percent of
+  patients required a feeding gastrostomy tube to correct feeding difficulties. Patients
+  with a syndromic diagnosis were more likely to be developmentally delayed. Fifty-one
+  (44%) patients underwent operative airway management: 61% underwent tongue-lip adhesion
+  and 39% underwent tracheotomy. Fifteen percent of patients initially had tongue-lip
+  adhesion subsequently required tracheotomy. While the preferred treatment for respiratory
+  compromise differed between the two institutions, the percentage of patients requiring
+  operative intervention was similar. CONCLUSIONS: The pathogenesis of Robin sequence
+  is multifactorial and syndromic in nearly half of the patients. Operative treatment
+  of respiratory failure was required in 44% of infants; the rate was similar in both
+  hospitals. The operative approach differed significantly between the institutions,
+  however, based on the philosophy and training of the managing surgical specialty.
+  Co-morbid factors such as baseline cardiopulmonary and neurologic status did not
+  play a significant role in surgical decision making."
+raw_completion_output: |-
+  primary_disease: Robin sequence
+  medical_actions: operative airway management; tongue-lip adhesion; tracheotomy; feeding gastrostomy tube
+  symptoms: airway compromise; feeding difficulties; respiratory failure
+  chemicals: 
+  action_annotation_relationships: operative airway management TREATS airway compromise IN Robin sequence; tongue-lip adhesion TREATS airway compromise IN Robin sequence; tracheotomy TREATS airway compromise IN Robin sequence; feeding gastrostomy tube TREATS feeding difficulties IN Robin sequence; operative airway management TREATS respiratory failure IN Robin sequence
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  operative airway management TREATS respiratory failure IN Robin sequence
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009869
+  medical_actions:
+    - operative airway management
+    - tongue-lip adhesion
+    - MAXO:0000504
+    - feeding gastrostomy tube
+  symptoms:
+    - airway compromise
+    - HP:0011968
+    - HP:0002878
+  action_annotation_relationships:
+    - subject: operative airway management
+      predicate: TREATS
+      object: airway compromise
+      qualifier: MONDO:0009869
+    - subject: tongue-lip adhesion
+      predicate: TREATS
+      object: airway compromise
+      qualifier: MONDO:0009869
+    - subject: MAXO:0000504
+      predicate: TREATS
+      object: airway compromise
+      qualifier: MONDO:0009869
+    - subject: <feeding gastrostomy tube>
+      predicate: <TREATS>
+      object: <feeding difficulties>
+      qualifier: <Robin sequence>
+      subject_extension: <feeding gastrostomy tube>
+    - subject: operative airway management
+      predicate: TREATS
+      object: HP:0002878
+      qualifier: MONDO:0009869
+named_entities:
+  - id: MONDO:0009869
+    label: Pierre Robin sequence
+  - id: HP:0006536
+    label: airway obstruction
+  - id: HP:0011968
+    label: feeding difficulties
+  - id: HP:0040262
+    label: serous otitis media
+  - id: HP:0000405
+    label: conductive hearing loss
+  - id: MONDO:0019354
+    label: Stickler syndrome
+  - id: MAXO:0000505
+    label: Mask ventilation
+  - id: MAXO:0000502
+    label: Endotracheal intubation
+  - id: HP:0011800
+    label: Midface hypoplasia
+  - id: HP:0000308
+    label: Retromicrognathia
+  - id: HP:0000175
+    label: Cleft palate
+  - id: HP:0000546
+    label: Retinal degeneration
+  - id: MAXO:0000504
+    label: tracheotomy
+  - id: HP:0002878
+    label: respiratory failure

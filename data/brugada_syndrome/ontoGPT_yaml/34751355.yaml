@@ -9,10 +9,10 @@ input_text: '[Sudden cardiac death during exercise due to Brugada syndrome. Repo
   exercise in this channelopathy.'
 raw_completion_output: |-
   primary_disease: Brugada syndrome
-  medical_actions: cardiopulmonary resuscitation; automatic external defibrillator use; subcutaneous implantable cardioverter defibrillator implantation
-  symptoms: sudden death; ventricular fibrillation
+  medical_actions: cardiopulmonary resuscitation maneuvers;automatic external defibrillator;subcutaneous implantable cardioverter defibrillator indication
+  symptoms: sudden cardiac death;ventricular fibrillation
   chemicals: 
-  action_annotation_relationships: cardiopulmonary resuscitation TREATS sudden death IN Brugada syndrome; automatic external defibrillator use TREATS ventricular fibrillation IN Brugada syndrome; subcutaneous implantable cardioverter defibrillator implantation PREVENTS sudden death IN Brugada syndrome
+  action_annotation_relationships: cardiopulmonary resuscitation maneuvers TREATS sudden cardiac death IN Brugada syndrome;automatic external defibrillator TREATS ventricular fibrillation IN Brugada syndrome;subcutaneous implantable cardioverter defibrillator indication PREVENTS sudden cardiac death IN Brugada syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -27,36 +27,35 @@ prompt: |+
 
 
   Text:
-  subcutaneous implantable cardioverter defibrillator implantation PREVENTS sudden death IN Brugada syndrome
+  subcutaneous implantable cardioverter defibrillator indication PREVENTS sudden cardiac death IN Brugada syndrome
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0015263
   medical_actions:
-    - cardiopulmonary resuscitation
-    - automatic external defibrillator use
-    - subcutaneous implantable cardioverter defibrillator implantation
+    - cardiopulmonary resuscitation maneuvers
+    - automatic external defibrillator
+    - subcutaneous implantable cardioverter defibrillator indication
   symptoms:
-    - HP:0001699
+    - HP:0001645
     - HP:0001663
   action_annotation_relationships:
-    - subject: cardiopulmonary resuscitation
+    - subject: cardiopulmonary resuscitation maneuvers
       predicate: TREATS
-      object: HP:0001699
+      object: HP:0001645
       qualifier: MONDO:0015263
-    - subject: <automatic external defibrillator use>
-      predicate: <TREATS>
-      object: <ventricular fibrillation>
-      qualifier: <Brugada syndrome>
-      subject_qualifier: <>
-      object_qualifier: <>
-      subject_extension: <automatic external defibrillator>
-      object_extension: <ventricular fibrillation>
-    - subject: subcutaneous implantable cardioverter defibrillator implantation
+    - subject: automatic external defibrillator
+      predicate: TREATS
+      object: HP:0001663
+      qualifier: MONDO:0015263
+      subject_extension: automatic external defibrillator
+    - subject: indication
       predicate: PREVENTS
-      object: HP:0001699
+      object: HP:0001645
       qualifier: MONDO:0015263
+      subject_qualifier: subcutaneous implantable cardioverter defibrillator
+      subject_extension: subcutaneous implantable cardioverter defibrillator
 named_entities:
   - id: HP:0001663
     label: ventricular fibrillation
@@ -66,35 +65,37 @@ named_entities:
     label: cognitive impairment
   - id: MONDO:0002076
     label: Pneumothorax
+  - id: MAXO:0000504
+    label: Tracheostomy
   - id: HP:0002094
     label: Dyspnea
+  - id: MONDO:0015263
+    label: Brugada Syndrome
   - id: HP:0001695
-    label: Cardiac arrest
+    label: cardiac arrest
   - id: CHEBI:75984
-    label: Flecainide
-  - id: MAXO:0001017
-    label: Vaccination
+    label: flecainide
   - id: MONDO:0007264
     label: Sudden Cardiac Death
-  - id: HP:0031628
-    label: Sudden cardiac arrest
+  - id: HP:0001639
+    label: Hypertrophic cardiomyopathy (HCM)
+  - id: HP:0001644
+    label: Dilated cardiomyopathy (DCM)
+  - id: HP:0007263
+    label: Sudden cardiac arrest (SCA)
   - id: HP:0001657
-    label: Long QT syndrome
+    label: Long QT syndrome (LQTS)
+  - id: MONDO:0019315
+    label: <Dilated cardiomyopathy (DCM)>
+  - id: MONDO:0016587
+    label: <Arrhythmogenic right ventricular cardiomyopathy (ARVC)>
   - id: HP:0001645
-    label: Sudden cardiac death
-  - id: MONDO:0015263
-    label: Brugada syndrome
+    label: Sudden Cardiac Death
+  - id: MAXO:0000127
+    label: Genetic testing
   - id: HP:0004308
     label: Ventricular arrhythmias
-  - id: HP:0001945
-    label: Fever
-  - id: MONDO:0020745
-    label: Cardiac arrhythmias
-  - id: MAXO:0000900
-    label: Analysis of electrocardiograms (ECGs)
-  - id: MAXO:0000127
-    label: Genetic analyses
   - id: HP:0011675
-    label: cardiac arrhythmias
-  - id: HP:0001699
-    label: sudden death
+    label: arrhythmia
+  - id: MAXO:0000900
+    label: Electrocardiogram (ECG)

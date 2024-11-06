@@ -8,16 +8,12 @@ input_text: 'Sickle Cell Disease: Monitoring, Current Treatment, and Therapeutic
   investigation in clinical trials are also reviewed.'
 raw_completion_output: |-
   primary_disease: Sickle Cell Disease
-
-  medical_actions: Screening and early detection of organ injury;Red cell transfusion;Hydroxyurea;Review of screening recommendations;Disease monitoring;Approach to treatment;Novel pharmacologic agents under investigation in clinical trials
-
+  medical_actions: Screening and early detection of organ injury; Red cell transfusion; Hydroxyurea use; Disease monitoring; Review of screening recommendations; Approach to treatment; Review of novel pharmacologic agents
   symptoms: Organ injury
-
   chemicals: Hydroxyurea
-
-  action_annotation_relationships: Screening and early detection of organ injury PREVENTS Organ injury IN Sickle Cell Disease;Red cell transfusion TREATS Organ injury IN Sickle Cell Disease;Hydroxyurea TREATS Organ injury IN Sickle Cell Disease
+  action_annotation_relationships: Screening and early detection of organ injury PREVENTS Organ injury IN Sickle Cell Disease; Red cell transfusion TREATS Organ injury IN Sickle Cell Disease; Hydroxyurea use (with Hydroxyurea) TREATS Organ injury IN Sickle Cell Disease
 prompt: |+
-  Split the following piece of text into fields in the following format:
+  From the text below, extract the following entities in the following format:
 
   subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
   object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
@@ -30,7 +26,7 @@ prompt: |+
 
 
   Text:
-  Hydroxyurea TREATS Organ injury IN Sickle Cell Disease
+  Hydroxyurea use (with Hydroxyurea) TREATS Organ injury IN Sickle Cell Disease
 
   ===
 
@@ -39,11 +35,11 @@ extracted_object:
   medical_actions:
     - Screening and early detection of organ injury
     - Red cell transfusion
-    - Hydroxyurea
-    - Review of screening recommendations
+    - Hydroxyurea use
     - Disease monitoring
+    - Review of screening recommendations
     - Approach to treatment
-    - Novel pharmacologic agents under investigation in clinical trials
+    - Review of novel pharmacologic agents
   symptoms:
     - Organ injury
   chemicals:
@@ -57,25 +53,40 @@ extracted_object:
       predicate: TREATS
       object: Organ injury
       qualifier: MONDO:0011382
-    - subject: Hydroxyurea
+    - subject: Hydroxyurea use
       predicate: TREATS
       object: Organ injury
       qualifier: MONDO:0011382
+      subject_qualifier: with Hydroxyurea
       subject_extension: CHEBI:44423
 named_entities:
-  - id: MONDO:0007374
-    label: Sickle Cell Disease (SCD)
+  - id: MONDO:0011382
+    label: sickle cell disease
+  - id: CHEBI:64357
+    label: rituximab
+  - id: CHEBI:35341
+    label: steroids
+  - id: CHEBI:81579
+    label: erythropoietin
   - id: MAXO:0001017
     label: Vaccination
-  - id: MAXO:0000756
-    label: Blood transfusion
+  - id: MONDO:0007374
+    label: Sickle Cell Disease (SCD)
+  - id: MAXO:0000747
+    label: Allogeneic hematopoietic stem cell transplantation (HSCT)
+  - id: HP:0007760
+    label: Sickle Cell Disease (SCD)
   - id: MAXO:0001001
     label: Gene therapy
-  - id: HP:0012824
-    label: severity
+  - id: CHEBI:35480
+    label: analgesics
+  - id: CHEBI:33281
+    label: antibiotics
+  - id: MAXO:0001077
+    label: Splenectomy
+  - id: MAXO:0000756
+    label: Blood transfusion
   - id: MONDO:0044348
-    label: hemoglobinopathies
-  - id: MONDO:0011382
-    label: Sickle Cell Disease
+    label: Hemoglobinopathies
   - id: CHEBI:44423
     label: Hydroxyurea

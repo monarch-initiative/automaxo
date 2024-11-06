@@ -13,7 +13,7 @@ raw_completion_output: |-
   medical_actions: Excess copper chelating therapy; Proper monitoring of copper status
   symptoms: anemia; liver dysfunction; neurological manifestations
   chemicals: trientine
-  action_annotation_relationships: Excess copper chelating therapy TREATS copper accumulation IN Wilson disease; Excess copper chelating therapy (with trientine) INDUCES anemia IN Wilson disease; Excess copper chelating therapy (with trientine) INDUCES liver dysfunction IN Wilson disease; Proper monitoring of copper status PREVENTS copper accumulation IN Wilson disease
+  action_annotation_relationships: Excess copper chelating therapy TREATS excess copper IN Wilson disease; trientine (with trientine) TREATS neurological manifestations IN Wilson disease; Excess copper chelating therapy INDUCES anemia IN Wilson disease; Excess copper chelating therapy INDUCES liver dysfunction IN Wilson disease; Proper monitoring of copper status PREVENTS anemia IN Wilson disease; Proper monitoring of copper status PREVENTS liver dysfunction IN Wilson disease
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -28,7 +28,7 @@ prompt: |+
 
 
   Text:
-  Proper monitoring of copper status PREVENTS copper accumulation IN Wilson disease
+  Proper monitoring of copper status PREVENTS liver dysfunction IN Wilson disease
 
   ===
 
@@ -46,34 +46,57 @@ extracted_object:
   action_annotation_relationships:
     - subject: Excess copper chelating therapy
       predicate: TREATS
-      object: copper accumulation
+      object: excess copper
       qualifier: MONDO:0010200
       subject_extension: copper chelating therapy
-    - subject: Excess copper chelating therapy
-      predicate: INDUCES
-      object: HP:0001903
+      object_extension: excess copper
+    - subject: trientine
+      predicate: TREATS
+      object: neurological manifestations
       qualifier: MONDO:0010200
       subject_qualifier: with trientine
       subject_extension: CHEBI:39501
+      object_extension: neurological manifestations
+    - subject: copper chelating therapy
+      predicate: INDUCES
+      object: HP:0001903
+      qualifier: MONDO:0010200
+      subject_qualifier: excess
+      subject_extension: copper chelating therapy
     - subject: Excess copper chelating therapy
       predicate: INDUCES
       object: HP:0001410
       qualifier: MONDO:0010200
-      subject_qualifier: with trientine
-      subject_extension: CHEBI:39501
-    - subject: Proper monitoring of copper status
+      subject_qualifier: Excess
+      subject_extension: copper chelating therapy
+    - subject: Proper monitoring
       predicate: PREVENTS
-      object: copper accumulation
+      object: HP:0001903
       qualifier: MONDO:0010200
-      subject_extension: CHEBI:28694
+      subject_extension: copper status
+    - subject: Proper monitoring
+      predicate: PREVENTS
+      object: HP:0001410
+      qualifier: MONDO:0010200
+      subject_qualifier: 'NULL'
+      object_qualifier: 'NULL'
+      subject_extension: copper status
+      object_extension: 'NULL'
 named_entities:
   - id: MONDO:0010200
-    label: Wilson disease
+    label: Wilson's disease
   - id: MAXO:0001175
-    label: liver transplantation
-  - id: MAXO:0000004
-    label: surgery (laparotomy, rectal mobilization, rectopexy, the partial sigmoid
-      colon resection with the primary anastomosis)
+    label: Liver transplantation
+  - id: HP:0001695
+    label: Cardiac arrest
+  - id: HP:0001685
+    label: Myocardial fibrosis
+  - id: HP:0001663
+    label: Ventricular fibrillation
+  - id: CHEBI:28694
+    label: Copper
+  - id: CHEBI:18248
+    label: Iron
   - id: HP:0002910
     label: abnormal liver functions
   - id: HP:0001394
@@ -82,43 +105,35 @@ named_entities:
     label: zinc
   - id: CHEBI:50868
     label: penicillamine
-  - id: CHEBI:51232
-    label: Hoechst 33342
+  - id: MAXO:0000016
+    label: Cell therapy
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: CHEBI:30703
+    label: Tetrathiomolybdate (TTM)
   - id: HP:0006554
     label: acute liver failure
-  - id: MAXO:0000068
-    label: transplantation
+  - id: CHEBI:35176
+    label: Zinc sulphate
+  - id: CHEBI:35475
+    label: NSAIDs
   - id: MAXO:0009095
-    label: Zinc therapy
-  - id: HP:0002344
-    label: Neurologic deterioration
+    label: zinc therapy
   - id: MAXO:0001298
     label: therapy
-  - id: HP:0001392
-    label: liver disease
   - id: HP:0006579
     label: neonatal jaundice
-  - id: HP:0002612
-    label: congenital hepatic fibrosis
   - id: HP:0001409
     label: portal hypertension
   - id: HP:0030151
     label: cholangitis
+  - id: HP:0002612
+    label: congenital hepatic fibrosis
   - id: MONDO:0013282
     label: alpha-1-antitrypsin deficiency
-  - id: MONDO:0009061
-    label: cystic fibrosis
-  - id: MONDO:0009044
-    label: Crigler-Najjar syndrome
-  - id: MAXO:0000376
-    label: liver biopsy
-  - id: MAXO:0000127
-    label: genetic testing
   - id: HP:0001903
     label: anemia
   - id: HP:0001410
     label: liver dysfunction
   - id: CHEBI:39501
     label: trientine
-  - id: CHEBI:28694
-    label: copper

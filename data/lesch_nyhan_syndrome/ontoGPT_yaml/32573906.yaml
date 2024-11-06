@@ -25,15 +25,15 @@ input_text: "Deep Brain Stimulation of the Internal Pallidum in Lesch-Nyhan Synd
   to achieve functional improvement and alleviate the overall disease burden for patients
   and caregivers."
 raw_completion_output: |-
-  primary_disease: Lesch-Nyhan syndrome
+  primary_disease: Lesch-Nyhan syndrome (LNS)
 
-  medical_actions: bilateral deep brain stimulation of the globus pallidus internus; preoperative assessment; postoperative functional assessment; neuropsychology evaluation; neurophysiology evaluation; imaging
+  medical_actions: Deep brain stimulation (DBS) of the globus pallidus internus (GPi); Multidisciplinary team-based approach; Functional assessment; Imaging; Neuropsychology evaluations; Neurophysiology evaluations
 
-  symptoms: compulsive self-mutilation behavior; generalized dystonia; dyskinesia
+  symptoms: Compulsive self-mutilation behavior; Disabling generalized dystonia; Dyskinesia
 
   chemicals: 
 
-  action_annotation_relationships: bilateral deep brain stimulation of the globus pallidus internus TREATS generalized dystonia IN Lesch-Nyhan syndrome; bilateral deep brain stimulation of the globus pallidus internus TREATS dyskinesia IN Lesch-Nyhan syndrome; bilateral deep brain stimulation of the globus pallidus internus TREATS compulsive self-mutilation behavior IN Lesch-Nyhan syndrome
+  action_annotation_relationships: Deep brain stimulation (DBS) of the globus pallidus internus (GPi) TREATS compulsive self-mutilation behavior IN Lesch-Nyhan syndrome (LNS); Deep brain stimulation (DBS) of the globus pallidus internus (GPi) TREATS disabling generalized dystonia IN Lesch-Nyhan syndrome (LNS); Deep brain stimulation (DBS) of the globus pallidus internus (GPi) TREATS dyskinesia IN Lesch-Nyhan syndrome (LNS)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -48,50 +48,51 @@ prompt: |+
 
 
   Text:
-  bilateral deep brain stimulation of the globus pallidus internus TREATS compulsive self-mutilation behavior IN Lesch-Nyhan syndrome
+  Deep brain stimulation (DBS) of the globus pallidus internus (GPi) TREATS dyskinesia IN Lesch-Nyhan syndrome (LNS)
 
   ===
 
 extracted_object:
-  primary_disease: MONDO:0010298
+  primary_disease: MONDO:0002486
   medical_actions:
-    - bilateral deep brain stimulation of the globus pallidus internus
-    - preoperative assessment
-    - postoperative functional assessment
-    - neuropsychology evaluation
-    - neurophysiology evaluation
-    - imaging
+    - MAXO:0000943
+    - Multidisciplinary team-based approach
+    - Functional assessment
+    - Imaging
+    - Neuropsychology evaluations
+    - Neurophysiology evaluations
   symptoms:
-    - compulsive self-mutilation behavior
-    - HP:0007325
+    - Compulsive self-mutilation behavior
+    - Disabling generalized dystonia
     - HP:0100660
   action_annotation_relationships:
-    - subject: bilateral deep brain stimulation of the globus pallidus internus
+    - subject: MAXO:0000943
       predicate: TREATS
-      object: HP:0007325
-      qualifier: MONDO:0010298
-      subject_extension: deep brain stimulation
-    - subject: bilateral deep brain stimulation of the globus pallidus internus
+      object: compulsive self-mutilation behavior
+      qualifier: MONDO:0002486
+    - subject: MAXO:0000943
+      predicate: <TREATS>
+      object: <disabling generalized dystonia>
+      qualifier: MONDO:0002486
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: MAXO:0000943
       predicate: TREATS
       object: HP:0100660
-      qualifier: MONDO:0010298
-    - subject: <deep brain stimulation>
-      predicate: <TREATS>
-      object: <compulsive self-mutilation behavior>
-      qualifier: <Lesch-Nyhan syndrome>
-      subject_qualifier: <bilateral>
-      subject_extension: <globus pallidus internus>
+      qualifier: MONDO:0002486
 named_entities:
   - id: MONDO:0010298
     label: Lesch-Nyhan syndrome
-  - id: HP:0002149
-    label: hyperuricemia
-  - id: HP:0100021
-    label: spastic cerebral palsy (CP)
-  - id: HP:0001332
-    label: dystonia
   - id: HP:0000742
-    label: self-mutilation
+    label: Self-mutilation
+  - id: HP:0002149
+    label: Hyperuricemia
+  - id: HP:0001249
+    label: Mental retardation
+  - id: HP:0001332
+    label: Dystonia
   - id: HP:0001257
     label: Spasticity
   - id: HP:0001266
@@ -102,27 +103,25 @@ named_entities:
     label: Aggression
   - id: HP:0002104
     label: Apnea
-  - id: HP:0002013
-    label: Vomiting
   - id: CHEBI:44915
     label: Propofol
+  - id: HP:0002835
+    label: pulmonary aspiration
   - id: MAXO:0000943
     label: deep brain stimulation surgery (DBS)
   - id: CHEBI:9130
     label: sevoflurane
-  - id: MAXO:0009003
-    label: preimplantation genetic diagnosis (PGD)
-  - id: HP:0001249
-    label: mental retardation
   - id: CHEBI:17368
     label: Hypoxanthine
   - id: CHEBI:15372
-    label: tetrahydrobiopterin
+    label: Tetrahydrobiopterin
   - id: CHEBI:35634
-    label: xanthine oxidase inhibitors
+    label: Xanthine oxidase inhibitors
+  - id: MAXO:0000004
+    label: surgical procedures
   - id: CHEBI:3387
-    label: Carbamazepine
-  - id: HP:0007325
-    label: generalized dystonia
+    label: carbamazepine
+  - id: MONDO:0002486
+    label: Lesch-Nyhan syndrome (LNS)
   - id: HP:0100660
-    label: dyskinesia
+    label: Dyskinesia

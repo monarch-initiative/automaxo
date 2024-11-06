@@ -18,10 +18,14 @@ input_text: Successful preimplantation genetic diagnosis for sex Link Lesch--Nyh
   pregnancy was achieved resulting in the birth of a healthy unaffected baby girl.
 raw_completion_output: |-
   primary_disease: Lesch-Nyhan Syndrome
-  medical_actions: preimplantation genetic diagnosis (PGD); DNA amplification; restriction digestion
+
+  medical_actions: preimplantation genetic diagnosis; therapeutic terminations; amniocentesis; DNA amplification; nested PCR protocol; restriction digestion
+
   symptoms: hyperuricaemia; self-mutilation; choreothetosis; spasticity; mental retardation
+
   chemicals: 
-  action_annotation_relationships: preimplantation genetic diagnosis (PGD) PREVENTS Lesch-Nyhan Syndrome IN Lesch-Nyhan Syndrome; DNA amplification TREATS non-specified genetic diagnosis IN Lesch-Nyhan Syndrome; restriction digestion TREATS non-specified genetic diagnosis IN Lesch-Nyhan Syndrome
+
+  action_annotation_relationships: preimplantation genetic diagnosis (with nested PCR protocol) PREVENTS Lesch-Nyhan Syndrome IN Lesch-Nyhan Syndrome; therapeutic terminations PREVENTS Lesch-Nyhan Syndrome IN Lesch-Nyhan Syndrome; amniocentesis PREVENTS Lesch-Nyhan Syndrome IN Lesch-Nyhan Syndrome; DNA amplification PREVENTS Lesch-Nyhan Syndrome IN Lesch-Nyhan Syndrome; restriction digestion PREVENTS Lesch-Nyhan Syndrome IN Lesch-Nyhan Syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -36,15 +40,18 @@ prompt: |+
 
 
   Text:
-  restriction digestion TREATS non-specified genetic diagnosis IN Lesch-Nyhan Syndrome
+  restriction digestion PREVENTS Lesch-Nyhan Syndrome IN Lesch-Nyhan Syndrome
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0010298
   medical_actions:
-    - MAXO:0009003
+    - preimplantation genetic diagnosis
+    - therapeutic terminations
+    - amniocentesis
     - DNA amplification
+    - nested PCR protocol
     - restriction digestion
   symptoms:
     - HP:0002149
@@ -53,37 +60,43 @@ extracted_object:
     - HP:0001257
     - HP:0001249
   action_annotation_relationships:
-    - subject: MAXO:0009003
+    - subject: <preimplantation genetic diagnosis>
       predicate: <PREVENTS>
       object: <Lesch-Nyhan Syndrome>
       qualifier: <Lesch-Nyhan Syndrome>
-      subject_qualifier: <None>
+      subject_qualifier: <with nested PCR protocol>
       object_qualifier: <None>
-      subject_extension: <None>
-      object_extension: <None>
-    - subject: <DNA amplification>
-      predicate: <TREATS>
-      object: <non-specified genetic diagnosis>
-      qualifier: <Lesch-Nyhan Syndrome>
-      subject_qualifier: <>
-      object_qualifier: <>
-      subject_extension: <DNA amplification>
-      object_extension: <non-specified genetic diagnosis>
-    - subject: restriction digestion
-      predicate: TREATS
-      object: non-specified genetic diagnosis
+      subject_extension: <preimplantation genetic diagnosis>
+      object_extension: <Lesch-Nyhan Syndrome>
+    - subject: therapeutic terminations
+      predicate: PREVENTS
+      object: Lesch-Nyhan Syndrome
       qualifier: MONDO:0010298
+    - subject: amniocentesis
+      predicate: PREVENTS
+      object: Lesch-Nyhan Syndrome
+      qualifier: MONDO:0010298
+    - subject: DNA amplification
+      predicate: PREVENTS
+      object: Lesch-Nyhan Syndrome
+      qualifier: MONDO:0010298
+      subject_extension: DNA amplification
+    - subject: <restriction digestion>
+      predicate: <PREVENTS>
+      object: <Lesch-Nyhan Syndrome>
+      qualifier: <Lesch-Nyhan Syndrome>
+      subject_extension: <restriction digestion>
 named_entities:
   - id: MONDO:0010298
     label: Lesch-Nyhan syndrome
-  - id: HP:0002149
-    label: hyperuricemia
-  - id: HP:0100021
-    label: spastic cerebral palsy (CP)
-  - id: HP:0001332
-    label: dystonia
   - id: HP:0000742
-    label: self-mutilation
+    label: Self-mutilation
+  - id: HP:0002149
+    label: Hyperuricemia
+  - id: HP:0001249
+    label: Mental retardation
+  - id: HP:0001332
+    label: Dystonia
   - id: HP:0001257
     label: Spasticity
   - id: HP:0001266
@@ -94,15 +107,11 @@ named_entities:
     label: Aggression
   - id: HP:0002104
     label: Apnea
-  - id: HP:0002013
-    label: Vomiting
   - id: CHEBI:44915
     label: Propofol
+  - id: HP:0002835
+    label: pulmonary aspiration
   - id: MAXO:0000943
     label: deep brain stimulation surgery (DBS)
   - id: CHEBI:9130
     label: sevoflurane
-  - id: MAXO:0009003
-    label: preimplantation genetic diagnosis (PGD)
-  - id: HP:0001249
-    label: mental retardation

@@ -27,11 +27,11 @@ raw_completion_output: |-
 
   medical_actions: Enteric-Release Budesonide administration; Dietitian counseling; Duodenal biopsies
 
-  symptoms: Diarrhea; Abdominal pain; Fatigue; Villous atrophy
+  symptoms: Diarrhea; Abdominal pain; Fatigue; Villous atrophy; Symptomatic relapse
 
   chemicals: Budesonide
 
-  action_annotation_relationships: Enteric-Release Budesonide administration (with Budesonide) TREATS diarrhea IN Non-responsive celiac disease; Enteric-Release Budesonide administration (with Budesonide) TREATS villous atrophy IN Non-responsive celiac disease; Dietitian counseling PREVENTS diarrhea IN Non-responsive celiac disease; Duodenal biopsies TREATS villous atrophy IN Non-responsive celiac disease
+  action_annotation_relationships: Enteric-Release Budesonide administration TREATS diarrhea IN Non-responsive celiac disease (NRCD); Dietitian counseling PREVENTS symptomatic relapse IN Non-responsive celiac disease (NRCD); Enteric-Release Budesonide administration (with Budesonide) TREATS Villous atrophy IN Non-responsive celiac disease (NRCD); Duodenal biopsies TREATS villous atrophy IN Non-responsive celiac disease (NRCD); Enteric-Release Budesonide administration NEGATIVELY CORRELATED WITH Fatigue IN Non-responsive celiac disease (NRCD)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -46,7 +46,7 @@ prompt: |+
 
 
   Text:
-  Duodenal biopsies TREATS villous atrophy IN Non-responsive celiac disease
+  Enteric-Release Budesonide administration NEGATIVELY CORRELATED WITH Fatigue IN Non-responsive celiac disease (NRCD)
 
   ===
 
@@ -61,118 +61,55 @@ extracted_object:
     - HP:0002027
     - HP:0012378
     - HP:0011473
+    - Symptomatic relapse
   chemicals:
     - CHEBI:3207
   action_annotation_relationships:
     - subject: Enteric-Release Budesonide administration
       predicate: TREATS
       object: HP:0002014
-      qualifier: Non-responsive celiac disease
-      subject_qualifier: with Budesonide
-      subject_extension: CHEBI:3207
-    - subject: Enteric-Release Budesonide administration
-      predicate: TREATS
-      object: HP:0011473
-      qualifier: Non-responsive celiac disease
-      subject_qualifier: with Budesonide
+      qualifier: Non-responsive celiac disease (NRCD)
       subject_extension: CHEBI:3207
     - subject: Dietitian counseling
       predicate: PREVENTS
-      object: HP:0002014
-      qualifier: Non-responsive celiac disease
+      object: symptomatic relapse
+      qualifier: Non-responsive celiac disease (NRCD)
+    - subject: Enteric-Release Budesonide administration
+      predicate: TREATS
+      object: HP:0011473
+      qualifier: Non-responsive celiac disease (NRCD)
+      subject_qualifier: with Budesonide
+      subject_extension: CHEBI:3207
     - subject: Duodenal biopsies
       predicate: TREATS
       object: HP:0011473
-      qualifier: Non-responsive celiac disease
+      qualifier: Non-responsive celiac disease (NRCD)
+    - subject: Enteric-Release Budesonide administration
+      predicate: NEGATIVELY CORRELATED WITH
+      object: HP:0012378
+      qualifier: Non-responsive celiac disease (NRCD)
+      subject_extension: CHEBI:3207
 named_entities:
+  - id: HP:0001251
+    label: ataxia
+  - id: CHEBI:21547
+    label: N-acetylaspartate (NAA)
+  - id: CHEBI:157802
+    label: creatine (Cr)
   - id: MONDO:0005130
-    label: celiac disease
-  - id: MAXO:0000259
-    label: Insulin treatment
-  - id: HP:0033712
-    label: Recurrent implantation failure (RIF)
-  - id: CHEBI:145810
-    label: Insulin
-  - id: CHEBI:6801
-    label: Metformin
-  - id: HP:0002024
-    label: malabsorption
-  - id: HP:0012050
-    label: anasarca
-  - id: HP:0003111
-    label: electrolyte disorders
-  - id: MAXO:0000088
-    label: diet
-  - id: HP:0025502
-    label: Overweight
-  - id: HP:0001513
-    label: Obesity
-  - id: HP:0012393
-    label: Allergic diseases
+    label: Celiac disease
+  - id: HP:0001394
+    label: Cirrhosis
   - id: HP:0002608
     label: Celiac disease
-  - id: HP:0000819
-    label: Diabetes
-  - id: HP:0030016
-    label: dyspareunia
-  - id: HP:0012786
-    label: recurrent cystitis
-  - id: HP:0400007
-    label: menstrual disorders
-  - id: MONDO:0100096
-    label: COVID-19
-  - id: MONDO:0005147
-    label: Type 1 diabetes mellitus
-  - id: HP:0000821
-    label: Hypothyroidism
-  - id: HP:0000822
-    label: Hypertension
-  - id: HP:0003119
-    label: Dyslipidemia
-  - id: HP:0009830
-    label: Neuropathy
-  - id: HP:0001626
-    label: Cardiovascular diseases
-  - id: HP:0005268
-    label: Miscarriage
-  - id: HP:0030991
-    label: primary sclerosing cholangitis
-  - id: MONDO:0005265
-    label: Inflammatory bowel disease
-  - id: CHEBI:18248
-    label: Iron
-  - id: HP:0002014
-    label: diarrhea
-  - id: HP:0012538
-    label: Gluten sensitivity
-  - id: MONDO:0016063
-    label: Celiac Disease (CD)
-  - id: MAXO:0001193
-    label: esophagogastroduodenoscopy
-  - id: HP:0002027
-    label: abdominal pain
-  - id: HP:0003270
-    label: bloating
-  - id: HP:0001903
-    label: anaemia
-  - id: HP:0001944
-    label: Dehydration
-  - id: HP:0002239
-    label: Gastrointestinal bleeding
-  - id: HP:0001942
-    label: Metabolic acidosis
-  - id: CHEBI:28384
-    label: Vitamin K
-  - id: CHEBI:35341
-    label: Steroids
-  - id: HP:0000855
-    label: Insulin resistance
   - id: MONDO:0005340
-    label: Alopecia Areata
+    label: Alopecia areata
   - id: HP:0001596
-    label: hair loss
-  - id: HP:0002232
-    label: Alopecia Areata
+    label: Hair loss
+  - id: HP:0002014
+    label: Diarrhea
+  - id: HP:0002027
+    label: Abdominal pain
   - id: HP:0012378
     label: Fatigue
   - id: HP:0011473

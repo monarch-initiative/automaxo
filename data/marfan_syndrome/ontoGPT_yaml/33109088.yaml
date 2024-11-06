@@ -24,10 +24,14 @@ input_text: "Myocardial ischemia 10 years after a modified Cabrol procedure in a
   follow-up, even years after the Cabrol or modified Cabrol procedure."
 raw_completion_output: |-
   primary_disease: Myocardial ischemia
-  medical_actions: Percutaneous coronary angiography; Thrombolytic therapy; Percutaneous coronary intervention; Aortic root surgery; Regular image follow-up
-  symptoms: Chest pain; Elevated troponin-I levels; New inverted T waves; Thrombosis in the Dacron graft
+
+  medical_actions: Modified Cabrol procedure; Laboratory analysis; Electrocardiogram; Contrast computed tomography; Percutaneous coronary angiography; Thrombolytic therapy; Percutaneous coronary intervention; Regular image follow-up
+
+  symptoms: Chest pain; Elevated troponin-I levels; Inverted T waves; Thrombosis in the Dacron graft
+
   chemicals: 
-  action_annotation_relationships: Percutaneous coronary angiography TREATS Thrombosis in the Dacron graft IN Myocardial ischemia; Thrombolytic therapy TREATS Thrombosis in the Dacron graft IN Myocardial ischemia; Percutaneous coronary intervention TREATS Thrombosis in the Dacron graft IN Myocardial ischemia; Aortic root surgery PREVENTS Aortic root dilation IN Marfan syndrome; Regular image follow-up PREVENTS Myocardial ischemia IN Marfan syndrome
+
+  action_annotation_relationships: Modified Cabrol procedure TREATS aortic root dilation IN Marfan syndrome; Laboratory analysis TREATS Elevated troponin-I levels IN Myocardial ischemia; Electrocardiogram TREATS Inverted T waves IN Myocardial ischemia; Contrast computed tomography TREATS Thrombosis in the Dacron graft IN Myocardial ischemia; Percutaneous coronary angiography TREATS Thrombosis in the Dacron graft IN Myocardial ischemia; Thrombolytic therapy TREATS Thrombosis in the Dacron graft IN Myocardial ischemia; Percutaneous coronary intervention TREATS Thrombosis in the Dacron graft IN Myocardial ischemia; Regular image follow-up PREVENTS Thrombosis in the Dacron graft IN Myocardial ischemia
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -42,147 +46,154 @@ prompt: |+
 
 
   Text:
-  Regular image follow-up PREVENTS Myocardial ischemia IN Marfan syndrome
+  Regular image follow-up PREVENTS Thrombosis in the Dacron graft IN Myocardial ischemia
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0024644
   medical_actions:
+    - Modified Cabrol procedure
+    - Laboratory analysis
+    - Electrocardiogram
+    - Contrast computed tomography
     - Percutaneous coronary angiography
     - Thrombolytic therapy
     - MAXO:0009038
-    - Aortic root surgery
     - Regular image follow-up
   symptoms:
     - HP:0100749
     - Elevated troponin-I levels
-    - New inverted T waves
+    - Inverted T waves
     - Thrombosis in the Dacron graft
   action_annotation_relationships:
-    - subject: Percutaneous coronary angiography
+    - subject: Modified Cabrol procedure
       predicate: TREATS
-      object: Thrombosis in the Dacron graft
+      object: aortic root dilation
+      qualifier: MONDO:0007947
+      subject_qualifier: Modified
+      subject_extension: Cabrol procedure
+    - subject: Laboratory analysis
+      predicate: TREATS
+      object: Elevated troponin-I levels
       qualifier: MONDO:0024644
-    - subject: <Thrombolytic therapy>
+    - subject: Electrocardiogram
+      predicate: TREATS
+      object: Inverted T waves
+      qualifier: MONDO:0024644
+    - subject: <Contrast computed tomography>
       predicate: <TREATS>
-      object: <Thrombosis>
+      object: <Thrombosis in the Dacron graft>
       qualifier: <Myocardial ischemia>
-      subject_qualifier: <>
-      object_qualifier: <>
-      subject_extension: <Thrombolytic>
-      object_extension: <in the Dacron graft>
-    - subject: <Percutaneous coronary intervention>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: <Percutaneous coronary angiography>
       predicate: <TREATS>
       object: <Thrombosis in the Dacron graft>
       qualifier: <Myocardial ischemia>
       subject_qualifier: <>
       object_qualifier: <>
-      subject_extension: <Percutaneous coronary intervention>
+      subject_extension: <Percutaneous coronary angiography>
       object_extension: <Thrombosis in the Dacron graft>
-    - subject: Aortic root surgery
-      predicate: PREVENTS
-      object: Aortic root dilation
-      qualifier: MONDO:0007947
-    - subject: Regular image follow-up
-      predicate: PREVENTS
-      object: Myocardial ischemia
-      qualifier: MONDO:0007947
+    - subject: <Thrombolytic therapy>
+      predicate: <TREATS>
+      object: <Thrombosis>
+      qualifier: <Myocardial ischemia>
+      subject_qualifier: <>
+      object_qualifier: <in the Dacron graft>
+      subject_extension: <Thrombolytic>
+      object_extension: <in the Dacron graft>
+    - subject: MAXO:0009038
+      predicate: TREATS
+      object: Thrombosis in the Dacron graft
+      qualifier: MONDO:0024644
+    - subject: <Regular image follow-up>
+      predicate: <PREVENTS>
+      object: <Thrombosis in the Dacron graft>
+      qualifier: <Myocardial ischemia>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
 named_entities:
-  - id: MONDO:0007947
-    label: Marfan syndrome
-  - id: MAXO:0010203
-    label: echocardiography
-  - id: HP:0004942
-    label: aortic dilatation
-  - id: CHEBI:5959
-    label: irbesartan
-  - id: CHEBI:2904
-    label: atenolol
-  - id: CHEBI:6541
-    label: losartan
-  - id: HP:0002647
-    label: Aortic dissection
-  - id: HP:0004933
-    label: Type A aortic dissection
-  - id: MONDO:0018353
-    label: Rare cardiovascular diseases (RCDs)
-  - id: HP:0001657
-    label: Long QT syndrome (LQT)
-  - id: HP:0001071
-    label: Fabry disease (FD)
-  - id: MONDO:0020015
-    label: Rare cardiovascular diseases
-  - id: MONDO:0008213
-    label: Pectus Excavatum
-  - id: HP:0001634
-    label: Mitral valve prolapse
-  - id: HP:0002650
-    label: Scoliosis
-  - id: HP:0010550
-    label: Paraplegia
-  - id: HP:0012151
-    label: Hemothorax
-  - id: HP:0000767
-    label: Pectus Excavatum
-  - id: HP:0001704
-    label: tricuspid valve prolapse
-  - id: HP:0000545
-    label: myopia
-  - id: HP:0001083
-    label: ectopia lentis
-  - id: HP:0004927
-    label: pulmonary artery dilatation
-  - id: HP:0100775
-    label: dural ectasia
-  - id: HP:0100790
-    label: hernia
-  - id: HP:0001919
-    label: Acute kidney injury (AKI)
-  - id: HP:0012499
-    label: Type B aortic dissection (TBAD)
-  - id: CHEBI:35530
-    label: Beta-blockers
+  - id: MAXO:0000011
+    label: Physiotherapy
+  - id: MAXO:0000004
+    label: Surgical interventions
+  - id: HP:0012531
+    label: Pain
+  - id: HP:0001513
+    label: Obesity
   - id: MONDO:0009691
     label: Marfan Syndrome (MFS)
-  - id: CHEBI:10033
-    label: Warfarin
-  - id: MAXO:0009006
-    label: whole-genome sequencing (WGS)
-  - id: MAXO:0009003
-    label: preimplantation genetic testing (PGT)
-  - id: CHEBI:74870
-    label: <whole-genome sequencing (WGS)>
-  - id: MONDO:0031421
-    label: Olmsted syndrome
-  - id: HP:0002140
-    label: Acute ischemic stroke
-  - id: HP:0001824
-    label: weight loss
-  - id: HP:0100898
-    label: Connective tissue nevus
-  - id: CHEBI:35341
-    label: steroid
+  - id: HP:0002647
+    label: Aortic dissection
+  - id: HP:0004942
+    label: Aortic aneurysm
+  - id: MONDO:0007947
+    label: Marfan syndrome
   - id: HP:0003302
     label: spondylolisthesis
-  - id: HP:6000008
-    label: elevated hemidiaphragm
-  - id: CHEBI:86193
-    label: DAPT
-  - id: CHEBI:74925
-    label: gamma-secretase inhibitor
-  - id: CHEBI:10022
-    label: AP-1 neutralizing RNA hairpin decoy oligonucleotide (dON)
-  - id: MONDO:0010434
-    label: Syndromic Scoliosis (SS)
-  - id: MONDO:0005385
-    label: Vascular diseases
-  - id: HP:0002621
-    label: atherosclerosis
+  - id: MONDO:0018954
+    label: Loeys-Dietz syndrome
+  - id: HP:0001083
+    label: ectopia lentis
+  - id: HP:0030961
+    label: microspherophakia
+  - id: MONDO:0015290
+    label: Neurotrophic Keratopathy
+  - id: HP:0100699
+    label: scarring
+  - id: CHEBI:6716
+    label: medroxyprogesterone acetate
+  - id: CHEBI:33281
+    label: antibiotics
+  - id: CHEBI:35341
+    label: steroid
+  - id: HP:0003419
+    label: low back pain
+  - id: HP:0025309
+    label: irregular pupil
+  - id: MONDO:0005392
+    label: Scoliosis
+  - id: HP:0001659
+    label: aortic insufficiency
+  - id: HP:0001297
+    label: stroke
+  - id: HP:0002093
+    label: respiratory insufficiency
+  - id: HP:0001259
+    label: coma
+  - id: MAXO:0000127
+    label: Genetic testing
+  - id: HP:0012727
+    label: Thoracic aortic aneurysms
+  - id: HP:0005268
+    label: miscarriages
+  - id: CHEBI:35530
+    label: beta-blockers
+  - id: MAXO:0000653
+    label: angiotensin receptor blocker therapy
+  - id: CHEBI:6541
+    label: losartan
+  - id: MAXO:0001298
+    label: therapy
   - id: HP:0025267
-    label: Snoring
+    label: snoring
   - id: HP:0010535
-    label: Sleep-disordered breathing
+    label: sleep-disordered breathing
+  - id: HP:0002616
+    label: Aortic root aneurysms
+  - id: HP:0012378
+    label: fatigue
+  - id: MAXO:0000900
+    label: Electrocardiography
+  - id: HP:0001649
+    label: Increased heart rates
+  - id: MAXO:0009004
+    label: Whole-exome sequencing (WES)
   - id: MONDO:0024644
     label: Myocardial ischemia
   - id: MAXO:0009038

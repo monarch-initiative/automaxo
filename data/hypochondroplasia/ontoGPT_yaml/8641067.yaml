@@ -18,10 +18,14 @@ input_text: Oblique proximal tibial osteotomy for the correction of tibia vara i
   physis or neurovascular compromise.
 raw_completion_output: |-
   primary_disease: Blount's disease
-  medical_actions: Oblique proximal tibial osteotomy; Lateral tension plate fixation; Weight bearing
-  symptoms: Tibia vara; Varus deformity of the proximal tibia
+
+  medical_actions: valgus proximal tibial osteotomy; tension plate fixation; weight bearing
+
+  symptoms: varus deformity of the proximal tibia
+
   chemicals: 
-  action_annotation_relationships: Oblique proximal tibial osteotomy TREATS tibia vara IN Blount's disease; Lateral tension plate fixation TREATS varus deformity of the proximal tibia IN Blount's disease; Weight bearing PREVENTS neurovascular compromise IN Blount's disease
+
+  action_annotation_relationships: valgus proximal tibial osteotomy TREATS varus deformity of the proximal tibia IN Blount's disease; tension plate fixation TREATS varus deformity of the proximal tibia IN Blount's disease; weight bearing PREVENTS neurovascular complications IN Blount's disease
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -36,64 +40,79 @@ prompt: |+
 
 
   Text:
-  Weight bearing PREVENTS neurovascular compromise IN Blount's disease
+  weight bearing PREVENTS neurovascular complications IN Blount's disease
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0017194
   medical_actions:
-    - Oblique proximal tibial osteotomy
-    - Lateral tension plate fixation
-    - Weight bearing
+    - valgus proximal tibial osteotomy
+    - tension plate fixation
+    - weight bearing
   symptoms:
-    - Tibia vara
-    - Varus deformity of the proximal tibia
+    - varus deformity of the proximal tibia
   action_annotation_relationships:
-    - subject: Oblique proximal tibial osteotomy
-      predicate: TREATS
-      object: tibia vara
-      qualifier: MONDO:0017194
-    - subject: Lateral tension plate fixation
+    - subject: valgus proximal tibial osteotomy
       predicate: TREATS
       object: varus deformity of the proximal tibia
       qualifier: MONDO:0017194
-    - subject: Weight bearing
+    - subject: tension plate fixation
+      predicate: TREATS
+      object: varus deformity of the proximal tibia
+      qualifier: MONDO:0017194
+    - subject: weight bearing
       predicate: PREVENTS
-      object: neurovascular compromise
+      object: neurovascular complications
       qualifier: MONDO:0017194
 named_entities:
   - id: HP:0031846
     label: Femoral fracture
-  - id: MAXO:0000745
-    label: cytogenetic analysis
   - id: HP:0000256
     label: macrocephaly
   - id: MAXO:0000127
-    label: genetic testing
+    label: Genetic testing
+  - id: MONDO:0007793
+    label: Hypochondroplasia
   - id: HP:0003750
     label: Muscle fatigue
+  - id: MAXO:0000486
+    label: distraction osteogenesis
+  - id: MAXO:0000068
+    label: transplantation
   - id: MONDO:0000050
     label: Growth hormone deficiency
-  - id: MAXO:0000780
-    label: Growth hormone therapy
   - id: CHEBI:37845
     label: Growth hormone
+  - id: MONDO:0001106
+    label: renal insufficiency
+  - id: MONDO:0005030
+    label: intrauterine growth retardation
+  - id: MONDO:0008383
+    label: rheumatoid arthritis
   - id: MAXO:0000526
     label: Clinical examination
   - id: MONDO:0005516
     label: Skeletal dysplasia
   - id: CHEBI:77383
-    label: bisphosphonates
+    label: bisphosphonate
   - id: MAXO:0001298
     label: therapy
   - id: MONDO:0007037
-    label: Achondroplasia
+    label: Skeletal dysplasia (achondroplasia)
+  - id: MONDO:0019019
+    label: Skeletal dysplasia (osteogenesis imperfecta)
+  - id: MONDO:0018570
+    label: Skeletal dysplasia (hypophosphatasia)
+  - id: MAXO:0000780
+    label: growth hormone therapy
   - id: HP:0004322
-    label: Short stature
-  - id: MONDO:0007793
-    label: hypochondroplasia
+    label: short stature
+  - id: HP:0003414
+    label: Atlantoaxial dislocation
   - id: HP:0010535
     label: Sleep apnea
+  - id: MAXO:0000004
+    label: Operation
   - id: MONDO:0017194
     label: Blount's disease

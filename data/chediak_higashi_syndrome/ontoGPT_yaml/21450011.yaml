@@ -17,14 +17,10 @@ input_text: Unrelated cord blood transplantation can restore hematologic and imm
   benefits of using UCBT in patients with CHS.
 raw_completion_output: |-
   primary_disease: Chediak-Higashi syndrome
-
-  medical_actions: Unrelated cord blood transplantation (UCBT); HSCT; Conditioning regimens; Close monitoring
-
-  symptoms: Hematologic and immunologic defects; Recurrences of APs
-
-  chemicals: BU; Cyclophosphamide; Horse ATG; Etoposide
-
-  action_annotation_relationships: Unrelated cord blood transplantation (UCBT) TREATS Hematologic and immunologic defects IN Chediak-Higashi syndrome; HSCT PREVENTS Recurrences of APs IN Chediak-Higashi syndrome; Conditioning regimens (with BU) TREATS Hematologic and immunologic defects IN Chediak-Higashi syndrome; Conditioning regimens (with Cyclophosphamide) TREATS Hematologic and immunologic defects IN Chediak-Higashi syndrome; Conditioning regimens (with Horse ATG) TREATS Hematologic and immunologic defects IN Chediak-Higashi syndrome; Conditioning regimens (with Etoposide) TREATS Hematologic and immunologic defects IN Chediak-Higashi syndrome
+  medical_actions: unrelated cord blood transplantation (UCBT); HSCT; conditioning regimens; administration of BU; administration of cyclophosphamide; administration of horse ATG; administration of etoposide
+  symptoms: hematologic defects; immunologic defects; APs
+  chemicals: BU; cyclophosphamide; horse ATG; etoposide
+  action_annotation_relationships: unrelated cord blood transplantation (UCBT) TREATS hematologic defects IN Chediak-Higashi syndrome; unrelated cord blood transplantation (UCBT) TREATS immunologic defects IN Chediak-Higashi syndrome; HSCT PREVENTS APs IN Chediak-Higashi syndrome; conditioning regimens (with BU) TREATS hematologic defects IN Chediak-Higashi syndrome; conditioning regimens (with cyclophosphamide) TREATS immunologic defects IN Chediak-Higashi syndrome; conditioning regimens (with horse ATG) TREATS hematologic defects IN Chediak-Higashi syndrome; conditioning regimens (with etoposide) TREATS immunologic defects IN Chediak-Higashi syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -39,7 +35,7 @@ prompt: |+
 
 
   Text:
-  Conditioning regimens (with Etoposide) TREATS Hematologic and immunologic defects IN Chediak-Higashi syndrome
+  conditioning regimens (with etoposide) TREATS immunologic defects IN Chediak-Higashi syndrome
 
   ===
 
@@ -49,66 +45,72 @@ extracted_object:
     - MAXO:0010033
     - MAXO:0000747
     - MAXO:0000750
-    - Close monitoring
+    - administration of BU
+    - administration of cyclophosphamide
+    - administration of horse ATG
+    - administration of etoposide
   symptoms:
-    - Hematologic and immunologic defects
-    - Recurrences of APs
+    - hematologic defects
+    - immunologic defects
+    - APs
   chemicals:
     - CHEBI:41264
     - CHEBI:4027
-    - Horse ATG
+    - horse ATG
     - CHEBI:4911
   action_annotation_relationships:
-    - subject: <Unrelated cord blood transplantation>
-      predicate: <TREATS>
-      object: <Hematologic and immunologic defects>
-      qualifier: <Chediak-Higashi syndrome>
-      subject_qualifier: <>
-      object_qualifier: <>
-      subject_extension: <Unrelated cord blood transplantation>
-      object_extension: <Hematologic and immunologic defects>
+    - subject: MAXO:0010033
+      predicate: TREATS
+      object: hematologic defects
+      qualifier: MONDO:0008963
+    - subject: MAXO:0010033
+      predicate: TREATS
+      object: immunologic defects
+      qualifier: MONDO:0008963
     - subject: MAXO:0000747
       predicate: PREVENTS
-      object: Recurrences of APs
+      object: APs
       qualifier: MONDO:0008963
+    - subject: <conditioning regimens>
+      predicate: <TREATS>
+      object: <hematologic defects>
+      qualifier: <Chediak-Higashi syndrome>
+      subject_qualifier: <with BU>
+      subject_extension: <BU>
     - subject: MAXO:0000750
       predicate: TREATS
-      object: Hematologic and immunologic defects
+      object: immunologic defects
       qualifier: MONDO:0008963
-      subject_qualifier: with BU
-      subject_extension: CHEBI:41264
-    - subject: MAXO:0000750
-      predicate: TREATS
-      object: Hematologic and immunologic defects
-      qualifier: MONDO:0008963
-      subject_qualifier: with Cyclophosphamide
+      subject_qualifier: with cyclophosphamide
       subject_extension: CHEBI:4027
     - subject: MAXO:0000750
       predicate: TREATS
-      object: Hematologic and immunologic defects
+      object: hematologic defects
       qualifier: MONDO:0008963
-      subject_qualifier: with Horse ATG
-      subject_extension: Horse ATG
+      subject_qualifier: with horse ATG
+      subject_extension: horse ATG
     - subject: MAXO:0000750
       predicate: TREATS
-      object: Hematologic and immunologic defects
+      object: immunologic defects
       qualifier: MONDO:0008963
-      subject_qualifier: with Etoposide
+      subject_qualifier: with etoposide
       subject_extension: CHEBI:4911
 named_entities:
+  - id: HP:0012531
+    label: pain
   - id: MAXO:0010030
-    label: Bone marrow transplantation (BMT)
+    label: bone marrow transplantation (BMT)
   - id: MONDO:0008963
     label: Chediak-Higashi syndrome
   - id: MAXO:0010033
-    label: Unrelated cord blood transplantation (UCBT)
+    label: unrelated cord blood transplantation (UCBT)
   - id: MAXO:0000747
     label: HSCT
   - id: MAXO:0000750
-    label: Conditioning regimens
+    label: conditioning regimens
   - id: CHEBI:41264
     label: BU
   - id: CHEBI:4027
-    label: Cyclophosphamide
+    label: cyclophosphamide
   - id: CHEBI:4911
-    label: Etoposide
+    label: etoposide

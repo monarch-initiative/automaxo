@@ -21,14 +21,10 @@ input_text: 'Pharmacological resources, diagnostic approach and coordination of 
   for optimal coordination of care in systemic phenotypes.'
 raw_completion_output: |-
   primary_disease: Joint hypermobility-related disorders
-
-  medical_actions: Pharmacological resources; Diagnostic approach; Coordination of care; Molecular tests; Multispecialty, hierarchical approach
-
-  symptoms: Pain; Cardiovascular and respiratory issues; Fatigue; Dysautonomia; Bone fragility; Capillary fragility; Skin fragility; Soft tissue fragility
-
+  medical_actions: pain management; cardiovascular and respiratory issue management; fatigue and dysautonomia management; bone fragility management; capillary, skin and soft tissue fragility management; pharmacological approach; molecular tests; multispecialty, hierarchical approach
+  symptoms: pain; cardiovascular and respiratory issues; fatigue; dysautonomia; bone fragility; capillary fragility; skin fragility; soft tissue fragility
   chemicals: 
-
-  action_annotation_relationships: Pharmacological resources TREATS Pain IN Joint hypermobility-related disorders; Pharmacological resources TREATS Cardiovascular and respiratory issues IN Joint hypermobility-related disorders; Pharmacological resources TREATS Fatigue IN Joint hypermobility-related disorders; Pharmacological resources TREATS Dysautonomia IN Joint hypermobility-related disorders; Pharmacological resources TREATS Bone fragility IN Joint hypermobility-related disorders; Pharmacological resources TREATS Capillary fragility IN Joint hypermobility-related disorders; Pharmacological resources TREATS Skin fragility IN Joint hypermobility-related disorders; Pharmacological resources TREATS Soft tissue fragility IN Joint hypermobility-related disorders; Diagnostic approach PREVENTS Misclassification IN Joint hypermobility-related disorders; Coordination of care TREATS Systemic phenotypes IN Joint hypermobility-related disorders; Molecular tests PREVENTS Misclassification IN Joint hypermobility-related disorders; Multispecialty, hierarchical approach PREVENTS Care fragmentation IN Joint hypermobility-related disorders
+  action_annotation_relationships: pain management TREATS pain IN Joint hypermobility-related disorders; cardiovascular and respiratory issue management TREATS cardiovascular and respiratory issues IN Joint hypermobility-related disorders; fatigue and dysautonomia management TREATS fatigue IN Joint hypermobility-related disorders; fatigue and dysautonomia management TREATS dysautonomia IN Joint hypermobility-related disorders; bone fragility management TREATS bone fragility IN Joint hypermobility-related disorders; capillary, skin and soft tissue fragility management TREATS capillary fragility IN Joint hypermobility-related disorders; capillary, skin and soft tissue fragility management TREATS skin fragility IN Joint hypermobility-related disorders; capillary, skin and soft tissue fragility management TREATS soft tissue fragility IN Joint hypermobility-related disorders
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -43,88 +39,92 @@ prompt: |+
 
 
   Text:
-  Multispecialty, hierarchical approach PREVENTS Care fragmentation IN Joint hypermobility-related disorders
+  capillary, skin and soft tissue fragility management TREATS soft tissue fragility IN Joint hypermobility-related disorders
 
   ===
 
 extracted_object:
   primary_disease: Joint hypermobility-related disorders
   medical_actions:
-    - Pharmacological resources
-    - Diagnostic approach
-    - Coordination of care
-    - Molecular tests
-    - Multispecialty, hierarchical approach
+    - MAXO:0000457
+    - cardiovascular and respiratory issue management
+    - fatigue and dysautonomia management
+    - bone fragility management
+    - capillary, skin and soft tissue fragility management
+    - pharmacological approach
+    - molecular tests
+    - multispecialty, hierarchical approach
   symptoms:
     - HP:0012531
-    - Cardiovascular and respiratory issues
+    - cardiovascular and respiratory issues
     - HP:0012378
     - HP:0012332
     - HP:0002659
     - HP:0025017
     - HP:0001030
-    - Soft tissue fragility
+    - soft tissue fragility
   action_annotation_relationships:
-    - subject: TREATS
+    - subject: MAXO:0000457
       predicate: TREATS
       object: HP:0012531
       qualifier: Joint hypermobility-related disorders
-      subject_extension: Pharmacological resources
-    - predicate: TREATS
-      object: Cardiovascular and respiratory issues
+    - subject: cardiovascular and respiratory issue management
+      predicate: TREATS
+      object: cardiovascular and respiratory issues
       qualifier: Joint hypermobility-related disorders
-      subject_extension: Pharmacological resources
-    - subject: Pharmacological resources
+    - subject: fatigue and dysautonomia management
       predicate: TREATS
       object: HP:0012378
       qualifier: Joint hypermobility-related disorders
-      subject_extension: Pharmacological resources
-    - subject: Pharmacological resources
+    - subject: fatigue and dysautonomia management
       predicate: TREATS
       object: HP:0012332
       qualifier: Joint hypermobility-related disorders
-      subject_extension: Pharmacological resources
-    - subject: Pharmacological resources
+    - subject: bone fragility management
       predicate: TREATS
       object: HP:0002659
       qualifier: Joint hypermobility-related disorders
-      subject_extension: Pharmacological resources
-    - subject: Pharmacological resources
-      predicate: TREATS
-      object: HP:0025017
-      qualifier: Joint hypermobility-related disorders
-      subject_extension: Pharmacological resources
-    - subject: Pharmacological resources
+    - subject: <capillary, skin and soft tissue fragility management>
+      predicate: <TREATS>
+      object: <capillary fragility>
+      qualifier: <Joint hypermobility-related disorders>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <capillary, skin and soft tissue fragility management>
+      object_extension: <capillary fragility>
+    - subject: capillary, skin and soft tissue fragility management
       predicate: TREATS
       object: HP:0001030
       qualifier: Joint hypermobility-related disorders
-      subject_extension: Pharmacological resources
-    - subject: <Pharmacological resources>
-      predicate: <TREATS>
-      object: <Soft tissue fragility>
-      qualifier: <Joint hypermobility-related disorders>
-      subject_extension: <Pharmacological resources>
-    - subject: Diagnostic approach
-      predicate: PREVENTS
-      object: Misclassification
-      qualifier: Joint hypermobility-related disorders
-    - subject: Coordination of care
+    - subject: capillary, skin and soft tissue fragility management
       predicate: TREATS
-      object: Systemic phenotypes
-      qualifier: Joint hypermobility-related disorders
-    - subject: Molecular tests
-      predicate: PREVENTS
-      object: Misclassification
-      qualifier: Joint hypermobility-related disorders
-    - subject: Multispecialty, hierarchical approach
-      predicate: PREVENTS
-      object: Care fragmentation
+      object: soft tissue fragility
       qualifier: Joint hypermobility-related disorders
 named_entities:
   - id: MONDO:0007947
-    label: Marfan syndrome
-  - id: HP:0032079
-    label: Medial degeneration
+    label: Marfan Syndrome
+  - id: HP:0000768
+    label: Pectus carinatum
+  - id: HP:0002650
+    label: Scoliosis
+  - id: HP:0002108
+    label: Spontaneous pneumothorax
+  - id: HP:0003423
+    label: Thoracolumbar kyphoscoliosis
+  - id: CHEBI:33281
+    label: Antibiotic
+  - id: HP:0002107
+    label: pneumothorax
+  - id: MAXO:0010203
+    label: Echocardiography
+  - id: MAXO:0000494
+    label: Blood pressure monitoring
+  - id: HP:0004942
+    label: Aortic dilatation
+  - id: CHEBI:5959
+    label: Irbesartan
+  - id: HP:0004950
+    label: Peripheral artery disease
   - id: HP:0002617
     label: aneurysm
   - id: HP:0030965
@@ -135,6 +135,14 @@ named_entities:
     label: left ventricular hypertrophy
   - id: HP:0005162
     label: left ventricular failure
+  - id: HP:0000822
+    label: high blood pressure
+  - id: CHEBI:6541
+    label: Losartan
+  - id: CHEBI:35530
+    label: beta-blocker
+  - id: MAXO:0001298
+    label: therapy
   - id: MONDO:0020333
     label: Anterior sacral meningocele (ASM)
   - id: HP:0002315
@@ -143,15 +151,21 @@ named_entities:
     label: nausea
   - id: HP:0002138
     label: subarachnoid hemorrhage
+  - id: HP:0031625
+    label: Pseudoaneurysms
+  - id: MAXO:0000451
+    label: Implantation
+  - id: MAXO:0000457
+    label: pain management
   - id: HP:0012531
-    label: Pain
+    label: pain
   - id: HP:0012378
-    label: Fatigue
+    label: fatigue
   - id: HP:0012332
-    label: Dysautonomia
+    label: dysautonomia
   - id: HP:0002659
-    label: Bone fragility
+    label: bone fragility
   - id: HP:0025017
-    label: Capillary fragility
+    label: capillary fragility
   - id: HP:0001030
-    label: Skin fragility
+    label: skin fragility

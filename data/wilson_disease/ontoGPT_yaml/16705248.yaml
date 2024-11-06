@@ -26,13 +26,13 @@ input_text: Treatment of toxic liver damage by antihepatocytotoxic serum. Acute 
 raw_completion_output: |-
   primary_disease: Acute liver failure (ALF)
 
-  medical_actions: Treatment of toxic liver damage with antihepatocytotoxic serum; Administration of antihepatocytotoxic serum; Inducing liver toxic damage; Investigating liver regeneration cellular mechanisms; Stimulating liver reparative regeneration; Performing hepatectomy; Injections of hepatotoxic agent CCL4
+  medical_actions: administration of antihepatocytotoxic serum; injections of hepatotoxic agent CCL4; performing 70% hepatectomy; stimulation of liver reparative regeneration
 
-  symptoms: Hepatic encephalopathy; Decompensation; Liver failure
+  symptoms: toxic liver damage; hypertrophy and moderate hyperplasia of hepatocyte organelles
 
-  chemicals: CCL4
+  chemicals: antihepatocytotoxic serum; CCL4
 
-  action_annotation_relationships: Administration of antihepatocytotoxic serum TREATS toxic liver damage IN Acute liver failure (ALF); Inducing liver toxic damage PREVENTS hepatic encephalopathy IN Acute liver failure (ALF); Stimulating liver reparative regeneration TREATS liver failure IN Acute liver failure (ALF); Injections of hepatotoxic agent CCL4 (with CCL4) PREVENTS Decompensation IN Acute liver failure (ALF)
+  action_annotation_relationships: administration of antihepatocytotoxic serum TREATS toxic liver damage IN Acute liver failure (ALF); injections of hepatotoxic agent CCL4 TREATS toxic liver damage IN Acute liver failure (ALF) (with CCL4); stimulation of liver reparative regeneration TREATS toxic liver damage IN Acute liver failure (ALF)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -47,58 +47,55 @@ prompt: |+
 
 
   Text:
-  Injections of hepatotoxic agent CCL4 (with CCL4) PREVENTS Decompensation IN Acute liver failure (ALF)
+  stimulation of liver reparative regeneration TREATS toxic liver damage IN Acute liver failure (ALF)
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0019542
   medical_actions:
-    - Treatment of toxic liver damage with antihepatocytotoxic serum
-    - Administration of antihepatocytotoxic serum
-    - Inducing liver toxic damage
-    - Investigating liver regeneration cellular mechanisms
-    - Stimulating liver reparative regeneration
-    - Performing hepatectomy
-    - Injections of hepatotoxic agent CCL4
+    - administration of antihepatocytotoxic serum
+    - injections of hepatotoxic agent CCL4
+    - performing 70% hepatectomy
+    - stimulation of liver reparative regeneration
   symptoms:
-    - HP:0002480
-    - Decompensation
-    - HP:0001399
+    - toxic liver damage
+    - hypertrophy and moderate hyperplasia of hepatocyte organelles
   chemicals:
+    - antihepatocytotoxic serum
     - CHEBI:27385
   action_annotation_relationships:
-    - subject: Administration
+    - subject: administration
       predicate: TREATS
       object: toxic liver damage
       qualifier: MONDO:0019542
       subject_extension: antihepatocytotoxic serum
-    - subject: Inducing liver toxic damage
-      predicate: PREVENTS
-      object: HP:0002480
+    - subject: injections
+      predicate: TREATS
+      object: toxic liver damage
       qualifier: MONDO:0019542
-    - subject: <Stimulating liver reparative regeneration>
-      predicate: <TREATS>
-      object: <liver failure>
-      qualifier: <Acute liver failure (ALF)>
-      subject_qualifier: <None>
-      object_qualifier: <None>
-      subject_extension: <None>
-      object_extension: <None>
-    - subject: Injections
-      predicate: PREVENTS
-      object: Decompensation
-      qualifier: MONDO:0019542
-      subject_qualifier: with CCL4
+      object_qualifier: with CCL4
       subject_extension: hepatotoxic agent CCL4
+      object_extension: toxic liver damage
+    - subject: stimulation of liver reparative regeneration
+      predicate: TREATS
+      object: toxic liver damage
+      qualifier: MONDO:0019542
 named_entities:
   - id: MONDO:0010200
-    label: Wilson disease
+    label: Wilson's disease
   - id: MAXO:0001175
-    label: liver transplantation
-  - id: MAXO:0000004
-    label: surgery (laparotomy, rectal mobilization, rectopexy, the partial sigmoid
-      colon resection with the primary anastomosis)
+    label: Liver transplantation
+  - id: HP:0001695
+    label: Cardiac arrest
+  - id: HP:0001685
+    label: Myocardial fibrosis
+  - id: HP:0001663
+    label: Ventricular fibrillation
+  - id: CHEBI:28694
+    label: Copper
+  - id: CHEBI:18248
+    label: Iron
   - id: HP:0002910
     label: abnormal liver functions
   - id: HP:0001394
@@ -107,71 +104,67 @@ named_entities:
     label: zinc
   - id: CHEBI:50868
     label: penicillamine
-  - id: CHEBI:51232
-    label: Hoechst 33342
+  - id: MAXO:0000016
+    label: Cell therapy
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: CHEBI:30703
+    label: Tetrathiomolybdate (TTM)
   - id: HP:0006554
     label: acute liver failure
-  - id: MAXO:0000068
-    label: transplantation
+  - id: CHEBI:35176
+    label: Zinc sulphate
+  - id: CHEBI:35475
+    label: NSAIDs
   - id: MAXO:0009095
-    label: Zinc therapy
-  - id: HP:0002344
-    label: Neurologic deterioration
+    label: zinc therapy
   - id: MAXO:0001298
     label: therapy
-  - id: HP:0001392
-    label: liver disease
   - id: HP:0006579
     label: neonatal jaundice
-  - id: HP:0002612
-    label: congenital hepatic fibrosis
   - id: HP:0001409
     label: portal hypertension
   - id: HP:0030151
     label: cholangitis
+  - id: HP:0002612
+    label: congenital hepatic fibrosis
   - id: MONDO:0013282
     label: alpha-1-antitrypsin deficiency
-  - id: MONDO:0009061
-    label: cystic fibrosis
-  - id: MONDO:0009044
-    label: Crigler-Najjar syndrome
-  - id: MAXO:0000376
-    label: liver biopsy
-  - id: MAXO:0000127
-    label: genetic testing
   - id: HP:0001903
     label: anemia
   - id: HP:0001410
     label: liver dysfunction
   - id: CHEBI:39501
     label: trientine
-  - id: CHEBI:28694
-    label: copper
+  - id: MAXO:0000070
+    label: Hepatic transplantation
   - id: HP:0001399
-    label: hepatic failure
+    label: Hepatic failure
   - id: HP:0004448
     label: fulminant hepatic failure
+  - id: HP:0003256
+    label: coagulopathy (international normalized ratio >2.0)
+  - id: HP:0004445
+    label: hepatic encephalopathy (HE)
+  - id: HP:0002480
+    label: hepatic encephalopathy
   - id: CHEBI:35341
     label: Steroids
   - id: CHEBI:33281
     label: Antibiotics
   - id: MONDO:0100193
-    label: end-stage liver disease
+    label: End-stage liver disease
   - id: HP:0100626
-    label: end-stage liver disease
+    label: End-stage liver disease
   - id: HP:0100660
     label: dyskinesia
-  - id: HP:0004787
-    label: fulminant hepatitis
-  - id: HP:0031811
-    label: bilirubinuria
-  - id: HP:0001397
-    label: hepatic steatosis
-  - id: CHEBI:16359
-    label: cholic acid
+  - id: HP:0100022
+    label: Movement disorders
+  - id: HP:0001337
+    label: Tremor
+  - id: HP:0001332
+    label: Dystonia
   - id: MONDO:0019542
     label: Acute liver failure (ALF)
-  - id: HP:0002480
-    label: Hepatic encephalopathy
   - id: CHEBI:27385
     label: CCL4

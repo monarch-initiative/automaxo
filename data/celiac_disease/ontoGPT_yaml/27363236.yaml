@@ -12,11 +12,11 @@ input_text: 'Contemporary Dietary Practices: FODMAPs and Beyond. There is no die
   diet is not warranted for the health, safety, and desired quality of life of the
   individual, it should not be implemented.'
 raw_completion_output: |-
-  primary_disease: Celiac disease
-  medical_actions: Consideration of dietary practices; Implementation of gluten-free diet; Consideration of adolescents' growth and development; Evaluation of restrictive diets; Assessment of nutrient inadequacies; Evaluation of diet adherence
-  symptoms: Nutrient inadequacies; Poor growth
-  chemicals: Gluten
-  action_annotation_relationships: Implementation of gluten-free diet (with Gluten) PREVENTS Nutrient inadequacies IN Celiac disease; Implementation of gluten-free diet (with Gluten) PREVENTS Poor growth IN Celiac disease
+  primary_disease: Not specifically stated, but the context suggests dietary-related health issues and conditions such as celiac disease
+  medical_actions: gluten-free diet (for celiac disease); short-term LFD
+  symptoms: nutrient inadequacies; poor growth
+  chemicals: None explicitly mentioned
+  action_annotation_relationships: gluten-free diet TREATS celiac disease symptoms IN celiac disease; short-term LFD (Low FODMAP Diet) TREATS symptom relief IN dietary-related health issues
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -31,71 +31,108 @@ prompt: |+
 
 
   Text:
-  Implementation of gluten-free diet (with Gluten) PREVENTS Poor growth IN Celiac disease
+  short-term LFD (Low FODMAP Diet) TREATS symptom relief IN dietary-related health issues
 
   ===
 
 extracted_object:
-  primary_disease: MONDO:0005130
+  primary_disease: Not specifically stated, but the context suggests dietary-related
+    health issues and conditions such as celiac disease
   medical_actions:
-    - Consideration of dietary practices
-    - Implementation of gluten-free diet
-    - Consideration of adolescents' growth and development
-    - Evaluation of restrictive diets
-    - Assessment of nutrient inadequacies
-    - Evaluation of diet adherence
+    - gluten-free diet (for celiac disease)
+    - short-term LFD
   symptoms:
-    - Nutrient inadequacies
+    - nutrient inadequacies
     - HP:0001510
   chemicals:
-    - Gluten
+    - None explicitly mentioned
   action_annotation_relationships:
-    - subject: Implementation of gluten-free diet
-      predicate: PREVENTS
-      object: Nutrient inadequacies
+    - subject: gluten-free diet
+      predicate: TREATS
+      object: celiac disease symptoms
       qualifier: MONDO:0005130
-      subject_qualifier: with Gluten
-      subject_extension: Gluten
-    - subject: Implementation of gluten-free diet
-      predicate: PREVENTS
-      object: HP:0001510
-      qualifier: MONDO:0005130
-      subject_qualifier: with Gluten
-      subject_extension: Gluten
+      subject_extension: gluten-free diet
+    - subject: short-term LFD
+      predicate: TREATS
+      object: symptom relief
+      qualifier: dietary-related health issues
+      subject_extension: Low FODMAP Diet
 named_entities:
   - id: MONDO:0044092
     label: Collagenous sprue
   - id: HP:0002014
-    label: Diarrhea
+    label: diarrhea
   - id: CHEBI:50858
-    label: Corticosteroids
+    label: corticosteroids
+  - id: HP:0004395
+    label: malnutrition
+  - id: MONDO:0005130
+    label: Celiac disease
+  - id: HP:0000870
+    label: Hyperprolactinemia
+  - id: CHEBI:81580
+    label: Prolactin (PRL)
+  - id: HP:0000938
+    label: Bone loss
+  - id: CHEBI:22984
+    label: Calcium
+  - id: CHEBI:27300
+    label: Vitamin D
+  - id: HP:0001369
+    label: Arthritis
+  - id: HP:0002608
+    label: Celiac Disease
+  - id: MONDO:0019473
+    label: Enteropathy-associated T-cell lymphoma (EATL)
+  - id: HP:0002242
+    label: enteropathy
+  - id: HP:0012378
+    label: fatigue
+  - id: HP:0002039
+    label: anorexia
+  - id: HP:0000823
+    label: delayed puberty
+  - id: HP:0004322
+    label: short stature
+  - id: HP:0000789
+    label: infertility
   - id: MONDO:0016063
     label: Celiac Disease (CD)
-  - id: HP:0004395
-    label: Malnutrition
-  - id: MONDO:0005130
-    label: Celiac Disease
-  - id: HP:0020110
-    label: fractures
-  - id: HP:0012378
-    label: Fatigue
-  - id: HP:0002039
-    label: Anorexia
-  - id: HP:0000823
-    label: Delayed puberty
-  - id: HP:0004322
-    label: Short stature
-  - id: HP:0000789
-    label: Infertility
-  - id: HP:0002242
-    label: Enteropathy
+  - id: MAXO:0000058
+    label: pharmacological treatment
+  - id: HP:0002027
+    label: abdominal pain
   - id: HP:0003270
-    label: Abdominal bloating
+    label: bloating
+  - id: HP:0001903
+    label: anemia
+  - id: MAXO:0000088
+    label: diet
+  - id: MONDO:0005298
+    label: Osteoporosis
+  - id: MAXO:0000259
+    label: insulin treatment
+  - id: HP:0033712
+    label: recurrent implantation failure (RIF)
+  - id: CHEBI:145810
+    label: insulin
+  - id: CHEBI:6801
+    label: metformin
   - id: HP:0012531
     label: Pain
   - id: HP:0000716
     label: Depression
   - id: HP:0011107
     label: Aphthous stomatitis
+  - id: MONDO:0013626
+    label: Acrodermatitis continua of Hallopeau
+  - id: HP:0002024
+    label: Malabsorption
+  - id: HP:0012050
+    label: Anasarca
+  - id: HP:0003111
+    label: Electrolyte disorders
+  - id: CHEBI:60027
+    label: Polymers
   - id: HP:0001510
-    label: Poor growth
+    label: poor growth

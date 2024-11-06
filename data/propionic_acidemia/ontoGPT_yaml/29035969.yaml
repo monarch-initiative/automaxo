@@ -19,15 +19,15 @@ input_text: 'Effects of medical food leucine content in the management of methyl
   medical foods should be used judiciously in the dietary management of these patients
   and avoided altogether in cblC deficiency.'
 raw_completion_output: |-
-  primary_disease: methylmalonic acidemia (MMA); propionic acidemia; cobalamin C (cblC) deficiency
+  primary_disease: Methylmalonic acidemia (MMA); Propionic acidemia; Cobalamin C (cblC) deficiency
 
-  medical_actions: use of medical foods high in leucine; protein restriction; dietary management; Leu supplementation
+  medical_actions: Use of medical foods high in leucine; Protein restriction; Leucine supplementation; Dietary management
 
-  symptoms: decreased plasma levels of Val and Ile; impaired brain uptake of multiple essential amino acids; decreased transport of methionine (Met) across the blood-brain barrier
+  symptoms: Decreased plasma levels of Val and Ile; Impaired brain uptake of essential amino acids; Decreased transport of Met across the blood-brain barrier
 
-  chemicals: leucine (Leu); valine (Val); isoleucine (Ile); methionine (Met)
+  chemicals: Leucine (Leu); Valine (Val); Isoleucine (Ile); Methionine (Met)
 
-  action_annotation_relationships: use of medical foods high in leucine PREVENTS decreased plasma levels of Val and Ile IN methylmalonic acidemia (MMA); protein restriction PREVENTS impaired brain uptake of multiple essential amino acids IN propionic acidemia; dietary management PREVENTS decreased transport of methionine (Met) across the blood-brain barrier IN cobalamin C (cblC) deficiency; Leu supplementation (with leucine) PREVENTS decreased plasma levels of Val and Ile IN methylmalonic acidemia (MMA)
+  action_annotation_relationships: Use of medical foods high in leucine (with Leucine) TREATS MMA IN Methylmalonic acidemia (MMA); Use of medical foods high in leucine (with Leucine) TREATS Propionic acidemia IN Propionic acidemia; Dietary management TREATS symptoms IN Cobalamin C (cblC) deficiency; Protein restriction PREVENTS Impaired brain uptake of essential amino acids IN Methylmalonic acidemia (MMA); Protein restriction PREVENTS Impaired brain uptake of essential amino acids IN Propionic acidemia; Leucine supplementation PREVENTS Decreased plasma levels of Val and Ile IN Methylmalonic acidemia (MMA); Leucine supplementation PREVENTS Decreased plasma levels of Val and Ile IN Propionic acidemia
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -42,61 +42,81 @@ prompt: |+
 
 
   Text:
-  Leu supplementation (with leucine) PREVENTS decreased plasma levels of Val and Ile IN methylmalonic acidemia (MMA)
+  Leucine supplementation PREVENTS Decreased plasma levels of Val and Ile IN Propionic acidemia
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0010184
   medical_actions:
-    - use of medical foods high in leucine
-    - protein restriction
-    - dietary management
-    - Leu supplementation
+    - Use of medical foods high in leucine
+    - Protein restriction
+    - Leucine supplementation
+    - Dietary management
   symptoms:
-    - decreased plasma levels of Val and Ile
-    - impaired brain uptake of multiple essential amino acids
-    - decreased transport of methionine (Met) across the blood-brain barrier
+    - Decreased plasma levels of Val and Ile
+    - Impaired brain uptake of essential amino acids
+    - Decreased transport of Met across the blood-brain barrier
   chemicals:
     - CHEBI:15603
     - CHEBI:16414
     - CHEBI:17191
     - CHEBI:16044
   action_annotation_relationships:
-    - subject: use of medical foods high in leucine
-      predicate: PREVENTS
-      object: decreased plasma levels of Val and Ile
+    - subject: Use of medical foods high in leucine
+      predicate: TREATS
+      object: MMA
       qualifier: MONDO:0002012
-      subject_extension: medical foods high in leucine
-    - subject: protein restriction
-      predicate: PREVENTS
-      object: impaired brain uptake of multiple essential amino acids
-      qualifier: MONDO:0011628
-      subject_extension: protein restriction
-    - subject: dietary management
-      predicate: PREVENTS
-      object: decreased transport of methionine (Met) across the blood-brain barrier
-      qualifier: MONDO:0010184
-    - subject: Leu supplementation
-      predicate: PREVENTS
-      object: decreased plasma levels of Val and Ile
-      qualifier: MONDO:0002012
-      subject_qualifier: with leucine
+      subject_qualifier: with Leucine
       subject_extension: CHEBI:25017
+    - subject: Use of medical foods high in leucine
+      predicate: TREATS
+      object: HP:0003571
+      qualifier: MONDO:0011628
+      subject_qualifier: with Leucine
+      subject_extension: CHEBI:25017
+    - subject: Dietary management
+      predicate: TREATS
+      object: symptoms
+      qualifier: MONDO:0010184
+    - subject: Protein restriction
+      predicate: PREVENTS
+      object: Impaired brain uptake of essential amino acids
+      qualifier: MONDO:0002012
+      subject_extension: Protein restriction
+    - subject: Protein restriction
+      predicate: PREVENTS
+      object: Impaired brain uptake of essential amino acids
+      qualifier: MONDO:0011628
+      subject_extension: Protein restriction
+      object_extension: essential amino acids
+    - subject: supplementation
+      predicate: PREVENTS
+      object: Decreased plasma levels of Val and Ile
+      qualifier: MONDO:0002012
+      subject_extension: CHEBI:25017
+    - subject: supplementation
+      predicate: PREVENTS
+      object: Decreased plasma levels
+      qualifier: MONDO:0011628
+      subject_extension: CHEBI:25017
+      object_extension: Val and Ile
 named_entities:
   - id: MONDO:0010184
-    label: methylmalonic acidemia (MMA); propionic acidemia; cobalamin C (cblC) deficiency
+    label: Methylmalonic acidemia (MMA); Propionic acidemia; Cobalamin C (cblC) deficiency
   - id: CHEBI:15603
-    label: leucine (Leu)
+    label: Leucine (Leu)
   - id: CHEBI:16414
-    label: valine (Val)
+    label: Valine (Val)
   - id: CHEBI:17191
-    label: isoleucine (Ile)
+    label: Isoleucine (Ile)
   - id: CHEBI:16044
-    label: methionine (Met)
-  - id: MONDO:0002012
-    label: methylmalonic acidemia (MMA)
-  - id: MONDO:0011628
-    label: propionic acidemia
+    label: Methionine (Met)
   - id: CHEBI:25017
     label: leucine
+  - id: MONDO:0002012
+    label: Methylmalonic acidemia
+  - id: HP:0003571
+    label: Propionic acidemia
+  - id: MONDO:0011628
+    label: Propionic acidemia

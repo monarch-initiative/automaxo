@@ -24,15 +24,15 @@ input_text: Patients at Risk for Aortic Rupture Often Exposed to Fluoroquinolone
   with aortic disorders will become an urgent safety issue for antibiotic stewardship
   programs.
 raw_completion_output: |-
-  primary_disease: Aortic Aneurysm or Dissection (AAD)
+  primary_disease: Aortic aneurysm or dissection (AAD)
 
-  medical_actions: Retrospective cohort study;Systemic fluoroquinolone exposure assessment;Aortic repair
+  medical_actions: retrospective cohort study; systemic fluoroquinolone exposure; predictors of fluoroquinolone use; antibiotic stewardship programs
 
-  symptoms: Increased risk of aortic aneurysm or dissection;Pneumonia;Urinary tract infections
+  symptoms: aortic rupture; pneumonia; urinary tract infection
 
-  chemicals: Fluoroquinolones
+  chemicals: fluoroquinolones
 
-  action_annotation_relationships: Systemic fluoroquinolone exposure assessment TREATS Increased risk of aortic aneurysm or dissection IN Aortic Aneurysm or Dissection (AAD);Retrospective cohort study PREVENTS Increased risk of aortic aneurysm or dissection IN Aortic Aneurysm or Dissection (AAD);Aortic repair TREATS Increased risk of aortic aneurysm or dissection IN Aortic Aneurysm or Dissection (AAD);Systemic fluoroquinolone exposure assessment (with Fluoroquinolones) TREATS Pneumonia IN Aortic Aneurysm or Dissection (AAD);Systemic fluoroquinolone exposure assessment (with Fluoroquinolones) TREATS Urinary tract infections IN Aortic Aneurysm or Dissection (AAD)
+  action_annotation_relationships: retrospective cohort study PREVENTS aortic rupture IN Aortic aneurysm or dissection (AAD); systemic fluoroquinolone exposure TREATS pneumonia IN Aortic aneurysm or dissection (AAD); systemic fluoroquinolone exposure TREATS urinary tract infection IN Aortic aneurysm or dissection (AAD); antibiotic stewardship programs PREVENT aortic rupture IN Aortic aneurysm or dissection (AAD)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -47,57 +47,68 @@ prompt: |+
 
 
   Text:
-  Systemic fluoroquinolone exposure assessment (with Fluoroquinolones) TREATS Urinary tract infections IN Aortic Aneurysm or Dissection (AAD)
+  antibiotic stewardship programs PREVENT aortic rupture IN Aortic aneurysm or dissection (AAD)
 
   ===
 
 extracted_object:
-  primary_disease: Aortic Aneurysm or Dissection (AAD)
+  primary_disease: Aortic aneurysm or dissection (AAD)
   medical_actions:
-    - Retrospective cohort study
-    - Systemic fluoroquinolone exposure assessment
-    - Aortic repair
+    - retrospective cohort study
+    - systemic fluoroquinolone exposure
+    - predictors of fluoroquinolone use
+    - antibiotic stewardship programs
   symptoms:
-    - Increased risk of aortic aneurysm or dissection
+    - HP:0031649
     - HP:0002090
-    - HP:0000010
+    - urinary tract infection
   chemicals:
-    - Fluoroquinolones
+    - fluoroquinolones
   action_annotation_relationships:
-    - subject: Systemic fluoroquinolone exposure assessment
-      predicate: TREATS
-      object: Increased risk of aortic aneurysm or dissection
-      qualifier: Aortic Aneurysm or Dissection (AAD)
-      subject_extension: fluoroquinolone
-    - subject: <Retrospective cohort study>
-      predicate: <PREVENTS>
-      object: <Increased risk of aortic aneurysm or dissection>
-      qualifier: <Aortic Aneurysm or Dissection (AAD)>
-      subject_qualifier: <Not applicable>
-      object_qualifier: <Not applicable>
-      subject_extension: <Not applicable>
-      object_extension: <Not applicable>
-    - subject: Aortic repair
-      predicate: TREATS
-      object: Increased risk of aortic aneurysm or dissection
-      qualifier: Aortic Aneurysm or Dissection (AAD)
-    - subject: Systemic fluoroquinolone exposure assessment
+    - subject: retrospective cohort study
+      predicate: PREVENTS
+      object: HP:0031649
+      qualifier: Aortic aneurysm or dissection (AAD)
+    - subject: systemic fluoroquinolone exposure
       predicate: TREATS
       object: HP:0002090
-      qualifier: Aortic Aneurysm or Dissection (AAD)
-      subject_qualifier: with Fluoroquinolones
-      subject_extension: Fluoroquinolones
-    - subject: Systemic fluoroquinolone exposure assessment
+      qualifier: Aortic aneurysm or dissection (AAD)
+      subject_extension: fluoroquinolone
+    - subject: systemic fluoroquinolone exposure
       predicate: TREATS
-      object: HP:0000010
-      qualifier: Aortic Aneurysm or Dissection (AAD)
-      subject_qualifier: with Fluoroquinolones
-      subject_extension: Fluoroquinolones
+      object: urinary tract infection
+      qualifier: Aortic aneurysm or dissection (AAD)
+      subject_extension: fluoroquinolone
+    - subject: antibiotic stewardship programs
+      predicate: PREVENTS
+      object: HP:0031649
+      qualifier: Aortic aneurysm or dissection (AAD)
+      subject_extension: antibiotic stewardship programs
 named_entities:
   - id: MONDO:0007947
-    label: Marfan syndrome
-  - id: HP:0032079
-    label: Medial degeneration
+    label: Marfan Syndrome
+  - id: HP:0000768
+    label: Pectus carinatum
+  - id: HP:0002650
+    label: Scoliosis
+  - id: HP:0002108
+    label: Spontaneous pneumothorax
+  - id: HP:0003423
+    label: Thoracolumbar kyphoscoliosis
+  - id: CHEBI:33281
+    label: Antibiotic
+  - id: HP:0002107
+    label: pneumothorax
+  - id: MAXO:0010203
+    label: Echocardiography
+  - id: MAXO:0000494
+    label: Blood pressure monitoring
+  - id: HP:0004942
+    label: Aortic dilatation
+  - id: CHEBI:5959
+    label: Irbesartan
+  - id: HP:0004950
+    label: Peripheral artery disease
   - id: HP:0002617
     label: aneurysm
   - id: HP:0030965
@@ -108,6 +119,14 @@ named_entities:
     label: left ventricular hypertrophy
   - id: HP:0005162
     label: left ventricular failure
+  - id: HP:0000822
+    label: high blood pressure
+  - id: CHEBI:6541
+    label: Losartan
+  - id: CHEBI:35530
+    label: beta-blocker
+  - id: MAXO:0001298
+    label: therapy
   - id: MONDO:0020333
     label: Anterior sacral meningocele (ASM)
   - id: HP:0002315
@@ -116,27 +135,43 @@ named_entities:
     label: nausea
   - id: HP:0002138
     label: subarachnoid hemorrhage
+  - id: HP:0031625
+    label: Pseudoaneurysms
+  - id: MAXO:0000451
+    label: Implantation
+  - id: MAXO:0000457
+    label: pain management
   - id: HP:0012531
-    label: Pain
+    label: pain
   - id: HP:0012378
-    label: Fatigue
+    label: fatigue
   - id: HP:0012332
-    label: Dysautonomia
+    label: dysautonomia
   - id: HP:0002659
-    label: Bone fragility
+    label: bone fragility
   - id: HP:0025017
-    label: Capillary fragility
+    label: capillary fragility
   - id: HP:0001030
-    label: Skin fragility
+    label: skin fragility
+  - id: MAXO:0000571
+    label: CT
+  - id: HP:0034267
+    label: Pelvic pain
+  - id: HP:0000139
+    label: Genital prolapse
+  - id: HP:0100518
+    label: Dysuria
   - id: MONDO:0044632
     label: Extracranial Carotid Artery Aneurysms (ECAAs)
   - id: MAXO:0000448
     label: Surgical resection
   - id: HP:0001297
     label: Stroke
+  - id: HP:0012163
+    label: Extracranial Carotid Artery Aneurysms
   - id: HP:0002616
     label: aortic root aneurysms
+  - id: HP:0031649
+    label: aortic rupture
   - id: HP:0002090
-    label: Pneumonia
-  - id: HP:0000010
-    label: Urinary tract infections
+    label: pneumonia

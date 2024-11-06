@@ -24,17 +24,17 @@ input_text: 'Axillary vs Femoral Arterial Cannulation in Acute Type A Dissection
   Both have equivalent early mortality, stroke, tamponade, and malperfusion outcomes
   after statistical adjustment.'
 raw_completion_output: |-
-  primary_disease: Acute Type A Dissection (ATAD)
+  primary_disease: Acute Type A dissection (ATAD)
 
-  medical_actions: Axillary cannulation; Femoral cannulation; Total arch; Valve-sparing root replacements; Commissural resuspension; Valve replacement; Cardiopulmonary bypass
+  medical_actions: Axillary cannulation; Femoral cannulation; total arch replacements; valve-sparing root replacements; commissural resuspension; cardiopulmonary bypass
 
-  symptoms: Early mortality; Neurologic complications; Respiratory complications; Renal complications; Malperfusion; Tamponade; Aortic insufficiency; Coronary involvement; Stroke; Visceral ischemia; Respiratory insufficiency; Coma; Spinal cord ischemia
+  symptoms: early mortality; neurologic complications; respiratory complications; renal complications; malperfusion; tamponade; aortic insufficiency; coronary involvement; stroke; visceral ischemia; respiratory insufficiency; coma; spinal cord ischemia
 
   chemicals: 
 
-  action_annotation_relationships: Axillary cannulation TREATS malperfusion IN Acute Type A Dissection; Femoral cannulation TREATS malperfusion IN Acute Type A Dissection; Total arch TREATS Acute Type A Dissection; Valve-sparing root replacements TREATS Acute Type A Dissection; Commissural resuspension TREATS Acute Type A Dissection; Valve replacement TREATS Acute Type A Dissection; Cardiopulmonary bypass TREATS Acute Type A Dissection
+  action_annotation_relationships: Axillary cannulation TREATS malperfusion IN Acute Type A dissection (ATAD); Axillary cannulation TREATS tamponade IN Acute Type A dissection (ATAD); Femoral cannulation TREATS malperfusion IN Acute Type A dissection (ATAD); Femoral cannulation TREATS tamponade IN Acute Type A dissection (ATAD); total arch replacements TREATS malperfusion IN Acute Type A dissection (ATAD); valve-sparing root replacements TREATS malperfusion IN Acute Type A dissection (ATAD); commissural resuspension TREATS aortic insufficiency IN Acute Type A dissection (ATAD); cardiopulmonary bypass TREATS early mortality IN Acute Type A dissection (ATAD)
 prompt: |+
-  Split the following piece of text into fields in the following format:
+  From the text below, extract the following entities in the following format:
 
   subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
   object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
@@ -47,82 +47,120 @@ prompt: |+
 
 
   Text:
-  Cardiopulmonary bypass TREATS Acute Type A Dissection
+  cardiopulmonary bypass TREATS early mortality IN Acute Type A dissection (ATAD)
 
   ===
 
 extracted_object:
-  primary_disease: Acute Type A Dissection (ATAD)
+  primary_disease: Acute Type A dissection (ATAD)
   medical_actions:
     - Axillary cannulation
     - Femoral cannulation
-    - Total arch
-    - Valve-sparing root replacements
-    - Commissural resuspension
-    - Valve replacement
-    - Cardiopulmonary bypass
+    - total arch replacements
+    - valve-sparing root replacements
+    - commissural resuspension
+    - cardiopulmonary bypass
   symptoms:
-    - Early mortality
-    - Neurologic complications
-    - Respiratory complications
-    - Renal complications
-    - Malperfusion
-    - Tamponade
+    - early mortality
+    - neurologic complications
+    - respiratory complications
+    - renal complications
+    - malperfusion
+    - tamponade
     - HP:0001659
-    - Coronary involvement
+    - coronary involvement
     - HP:0001297
-    - Visceral ischemia
+    - visceral ischemia
     - HP:0002093
     - HP:0001259
-    - Spinal cord ischemia
+    - spinal cord ischemia
   action_annotation_relationships:
     - subject: Axillary cannulation
       predicate: TREATS
       object: malperfusion
-      qualifier: Acute Type A Dissection
+      qualifier: Acute Type A dissection (ATAD)
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: Axillary cannulation
+      predicate: TREATS
+      object: tamponade
+      qualifier: Acute Type A dissection (ATAD)
     - subject: Femoral cannulation
       predicate: TREATS
       object: malperfusion
-      qualifier: Acute Type A Dissection
-    - subject: Total arch
+      qualifier: Acute Type A dissection (ATAD)
+    - subject: Femoral cannulation
       predicate: TREATS
-      object: Acute Type A Discretion
-    - subject: Valve-sparing root replacements
+      object: tamponade
+      qualifier: Acute Type A dissection (ATAD)
+    - subject: total arch replacements
       predicate: TREATS
-      object: Acute Type A Dissection
-    - subject: Commissural resuspension
+      object: malperfusion
+      qualifier: Acute Type A dissection (ATAD)
+    - subject: valve-sparing root replacements
       predicate: TREATS
-      object: Acute Type A Dissection
-    - subject: Valve replacement
+      object: malperfusion
+      qualifier: Acute Type A dissection (ATAD)
+    - subject: commissural resuspension
       predicate: TREATS
-      object: Acute Type A Dissection
-    - subject: Cardiopulmonary bypass
-      predicate: TREATS
-      object: Acute Type A Dissection
+      object: HP:0001659
+      qualifier: Acute Type A dissection
+    - subject: <cardiopulmonary bypass>
+      predicate: <TREATS>
+      object: <early mortality>
+      qualifier: <Acute Type A dissection (ATAD)>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
 named_entities:
+  - id: MAXO:0000011
+    label: Physiotherapy
+  - id: MAXO:0000004
+    label: Surgical interventions
+  - id: HP:0012531
+    label: Pain
+  - id: HP:0001513
+    label: Obesity
   - id: MONDO:0009691
-    label: Marfan syndrome (MFS)
-  - id: HP:0002140
-    label: Ischemic stroke
+    label: Marfan Syndrome (MFS)
+  - id: HP:0002647
+    label: Aortic dissection
+  - id: HP:0004942
+    label: Aortic aneurysm
   - id: MONDO:0007947
     label: Marfan syndrome
-  - id: MAXO:0000004
-    label: surgery
-  - id: MONDO:0004975
-    label: Aortic Dissection (AD)
-  - id: HP:0100602
-    label: preeclampsia/eclampsia
+  - id: HP:0003302
+    label: spondylolisthesis
+  - id: MONDO:0018954
+    label: Loeys-Dietz syndrome
+  - id: HP:0001083
+    label: ectopia lentis
+  - id: HP:0030961
+    label: microspherophakia
   - id: MONDO:0015290
     label: Neurotrophic Keratopathy
   - id: HP:0100699
-    label: Scarring
+    label: scarring
   - id: CHEBI:6716
-    label: Medroxyprogesterone acetate
+    label: medroxyprogesterone acetate
+  - id: CHEBI:33281
+    label: antibiotics
+  - id: CHEBI:35341
+    label: steroid
+  - id: HP:0003419
+    label: low back pain
+  - id: HP:0025309
+    label: irregular pupil
+  - id: MONDO:0005392
+    label: Scoliosis
   - id: HP:0001659
-    label: Aortic insufficiency
+    label: aortic insufficiency
   - id: HP:0001297
-    label: Stroke
+    label: stroke
   - id: HP:0002093
-    label: Respiratory insufficiency
+    label: respiratory insufficiency
   - id: HP:0001259
-    label: Coma
+    label: coma

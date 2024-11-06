@@ -1,0 +1,103 @@
+---
+input_text: 'Multidisciplinary management of congenital giant head and neck masses:
+  Our experience and review of the literature. BACKGROUND: Large fetal head and neck
+  (HN) masses can be life-threatening at birth and postnatally owing to airway obstruction.
+  The two most frequent congenital masses that may obstruct the airway are lymphatic
+  malformation (LM) and teratoma. The aim of this paper was to evaluate the results
+  of our experience in the management of giant congenital HN masses and to conduct
+  a literature review. METHODS: The study involved a consecutive series of 13 newborns
+  (7 females) affected by giant HN masses. Prenatal diagnosis was achieved by means
+  of ultrasound (US) and fetal magnetic resonance imaging (MRI). Delivery was performed
+  by means of EXIT procedure in case of radiological evidence of airway obstruction.
+  In the postnatal period all feasible therapeutic options (surgery, sclerotherapy,
+  medical therapy) were discussed and adopted by a multidisciplinary team. Twelve
+  patients underwent surgery and one received Rapamycin for one month, with consequent
+  surgical resection owing to increasing size of the mass. RESULTS: The histopathological
+  diagnosis was LM in 11 cases and teratoma in 2 cases. Airway obstruction was solved
+  in 11 cases; 2 LM patients required a tracheotomy because of persistent airway obstruction.
+  Major complications were flap necrosis (one patient) and facial nerve palsy (2 cases).
+  Recurrence occurred in 5 patients. CONCLUSIONS: The management of congenital HN
+  masses is always challenging and necessarily requires an interdisciplinary approach.
+  Current therapeutic options include surgery, sclerotherapy, medical therapy or a
+  combination of them. When they are large enough to obstruct the airway, a patient-centered
+  approach should guide timing and modality of treatment. LEVEL OF EVIDENCE: IV.'
+raw_completion_output: |-
+  primary_disease: congenital giant head and neck masses
+  medical_actions: ultrasound; fetal magnetic resonance imaging; EXIT procedure; surgery; sclerotherapy; medical therapy; tracheotomy
+  symptoms: airway obstruction; flap necrosis; facial nerve palsy
+  chemicals: Rapamycin
+  action_annotation_relationships: ultrasound PREVENTS airway obstruction IN congenital giant head and neck masses; fetal magnetic resonance imaging PREVENTS airway obstruction IN congenital giant head and neck masses; EXIT procedure TREATS airway obstruction IN congenital giant head and neck masses; surgery TREATS airway obstruction IN congenital giant head and neck masses; sclerotherapy TREATS congenital giant head and neck masses; medical therapy (with Rapamycin) TREATS congenital giant head and neck masses; tracheotomy TREATS airway obstruction IN congenital giant head and neck masses
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  tracheotomy TREATS airway obstruction IN congenital giant head and neck masses
+
+  ===
+
+extracted_object:
+  primary_disease: congenital giant head and neck masses
+  medical_actions:
+    - ultrasound
+    - fetal magnetic resonance imaging
+    - EXIT procedure
+    - MAXO:0000004
+    - sclerotherapy
+    - medical therapy
+    - MAXO:0000504
+  symptoms:
+    - HP:0006536
+    - flap necrosis
+    - HP:0010628
+  chemicals:
+    - CHEBI:9168
+  action_annotation_relationships:
+    - subject: ultrasound
+      predicate: PREVENTS
+      object: HP:0006536
+      qualifier: congenital giant head and neck masses
+    - subject: fetal magnetic resonance imaging
+      predicate: PREVENTS
+      object: HP:0006536
+      qualifier: congenital giant head and neck masses
+    - subject: EXIT procedure
+      predicate: TREATS
+      object: HP:0006536
+      qualifier: congenital giant head and neck masses
+    - subject: MAXO:0000004
+      predicate: TREATS
+      object: HP:0006536
+      qualifier: congenital giant head and neck masses
+    - subject: sclerotherapy
+      predicate: TREATS
+      object: congenital giant head and neck masses
+    - subject: medical therapy
+      predicate: TREATS
+      object: congenital giant head and neck masses
+      subject_qualifier: with Rapamycin
+      subject_extension: CHEBI:9168
+    - subject: MAXO:0000504
+      predicate: TREATS
+      object: HP:0006536
+      qualifier: congenital giant head and neck masses
+named_entities:
+  - id: MAXO:0000004
+    label: Surgery
+  - id: MAXO:0000504
+    label: tracheotomy
+  - id: HP:0006536
+    label: airway obstruction
+  - id: HP:0010628
+    label: facial nerve palsy
+  - id: CHEBI:9168
+    label: Rapamycin

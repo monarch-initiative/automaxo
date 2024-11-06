@@ -23,12 +23,16 @@ input_text: 'Effect of hookworm infection on wheat challenge in celiac disease--
   benefit on pathology. TRIAL REGISTRATION: ClinicalTrials.gov NCT00671138.'
 raw_completion_output: |-
   primary_disease: celiac disease
-  medical_actions: hookworm infection with Necator americanus; oral wheat challenge; quantification of alpha-gliadin peptide-specific systemic interferon-gamma-producing cells by ELISpot; duodenal Marsh score assessment
-  symptoms: transiently painful enteritis; deterioration in duodenal Marsh score; eosinophilia
+
+  medical_actions: staged cutaneous inoculations with hookworm larvae; oral wheat challenge; quantification of the immunodominant alpha-gliadin peptide-specific systemic interferon-gamma-producing cells by ELISpot
+
+  symptoms: painful enteritis; deterioration in both primary and several secondary outcomes
+
   chemicals: 
-  action_annotation_relationships: hookworm infection with Necator americanus PREVENTS transiently painful enteritis IN celiac disease; oral wheat challenge TREATS deterioration in duodenal Marsh score IN celiac disease; oral wheat challenge PREVENTS eosinophilia IN celiac disease
+
+  action_annotation_relationships: staged cutaneous inoculations with hookworm larvae TREATS painful enteritis IN celiac disease; oral wheat challenge TREATS deterioration in both primary and several secondary outcomes IN celiac disease
 prompt: |+
-  Split the following piece of text into fields in the following format:
+  From the text below, extract the following entities in the following format:
 
   subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
   object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
@@ -41,125 +45,151 @@ prompt: |+
 
 
   Text:
-  oral wheat challenge PREVENTS eosinophilia IN celiac disease
+  oral wheat challenge TREATS deterioration in both primary and several secondary outcomes IN celiac disease
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0005130
   medical_actions:
-    - hookworm infection with Necator americanus
+    - staged cutaneous inoculations with hookworm larvae
     - oral wheat challenge
-    - quantification of alpha-gliadin peptide-specific systemic interferon-gamma-producing
-      cells by ELISpot
-    - duodenal Marsh score assessment
+    - quantification of the immunodominant alpha-gliadin peptide-specific systemic
+      interferon-gamma-producing cells by ELISpot
   symptoms:
-    - transiently painful enteritis
-    - deterioration in duodenal Marsh score
-    - HP:0001880
+    - painful enteritis
+    - deterioration in both primary and several secondary outcomes
   action_annotation_relationships:
-    - subject: hookworm infection
-      predicate: PREVENTS
-      object: enteritis
-      qualifier: MONDO:0005130
-      subject_extension: Necator americanus
-      object_extension: transiently painful
-    - subject: oral challenge
+    - subject: staged cutaneous inoculations
       predicate: TREATS
-      object: deterioration
+      object: painful enteritis
+      qualifier: MONDO:0005130
+      subject_extension: hookworm larvae
+    - subject: oral wheat challenge
+      predicate: TREATS
+      object: deterioration in both primary and several secondary outcomes
       qualifier: MONDO:0005130
       subject_qualifier: oral
-      object_qualifier: in duodenal Marsh score
-      subject_extension: wheat
-      object_extension: duodenal Marsh score
-    - subject: oral wheat challenge
-      predicate: PREVENTS
-      object: HP:0001880
-      qualifier: MONDO:0005130
-      subject_extension: wheat
+      subject_extension: wheat challenge
 named_entities:
+  - id: MONDO:0044092
+    label: Collagenous sprue
+  - id: HP:0002014
+    label: diarrhea
+  - id: CHEBI:50858
+    label: corticosteroids
+  - id: HP:0004395
+    label: malnutrition
   - id: MONDO:0005130
     label: Celiac disease
-  - id: CHEBI:81580
-    label: Prolactin
   - id: HP:0000870
     label: Hyperprolactinemia
+  - id: CHEBI:81580
+    label: Prolactin (PRL)
   - id: HP:0000938
     label: Bone loss
   - id: CHEBI:22984
     label: Calcium
   - id: CHEBI:27300
     label: Vitamin D
+  - id: HP:0001369
+    label: Arthritis
+  - id: HP:0002608
+    label: Celiac Disease
   - id: MONDO:0019473
     label: Enteropathy-associated T-cell lymphoma (EATL)
+  - id: HP:0002242
+    label: enteropathy
+  - id: HP:0012378
+    label: fatigue
+  - id: HP:0002039
+    label: anorexia
+  - id: HP:0000823
+    label: delayed puberty
+  - id: HP:0004322
+    label: short stature
+  - id: HP:0000789
+    label: infertility
+  - id: MONDO:0016063
+    label: Celiac Disease (CD)
+  - id: MAXO:0000058
+    label: pharmacological treatment
   - id: HP:0002027
     label: abdominal pain
   - id: HP:0003270
     label: bloating
-  - id: HP:0002014
-    label: diarrhea
   - id: HP:0001903
     label: anemia
+  - id: MAXO:0000088
+    label: diet
   - id: MONDO:0005298
     label: Osteoporosis
-  - id: MONDO:0016063
-    label: Celiac Disease (CD)
-  - id: HP:0012538
-    label: Gluten sensitivity
+  - id: MAXO:0000259
+    label: insulin treatment
+  - id: HP:0033712
+    label: recurrent implantation failure (RIF)
+  - id: CHEBI:145810
+    label: insulin
+  - id: CHEBI:6801
+    label: metformin
+  - id: HP:0012531
+    label: Pain
+  - id: HP:0000716
+    label: Depression
+  - id: HP:0011107
+    label: Aphthous stomatitis
+  - id: MONDO:0013626
+    label: Acrodermatitis continua of Hallopeau
+  - id: HP:0002024
+    label: Malabsorption
+  - id: HP:0012050
+    label: Anasarca
+  - id: HP:0003111
+    label: Electrolyte disorders
   - id: CHEBI:60027
-    label: polymers
+    label: Polymers
+  - id: HP:0001510
+    label: poor growth
+  - id: CHEBI:77383
+    label: Bisphosphonates
   - id: HP:0002019
     label: Constipation
   - id: HP:0001919
     label: Acute kidney failure
   - id: HP:0000126
     label: Hydronephrosis
-  - id: HP:0500093
-    label: food allergies
-  - id: CHEBI:16737
-    label: Creatinine
-  - id: MAXO:0000355
-    label: duodenum biopsy
   - id: HP:0002013
     label: vomiting
   - id: HP:0001508
     label: failure to thrive
-  - id: HP:0002240
-    label: hepatomegaly
-  - id: HP:0001744
-    label: splenomegaly
-  - id: HP:0000872
-    label: autoimmune thyroiditis
-  - id: HP:0100651
-    label: type 1 diabetes mellitus
-  - id: HP:0002099
-    label: bronchial asthma
-  - id: HP:0002232
-    label: alopecia areata
-  - id: HP:0005764
-    label: polyarthritis
+  - id: HP:0000988
+    label: rash
+  - id: HP:0001083
+    label: Intraepithelial lymphocytes (IELs) count
+  - id: HP:0004313
+    label: Immunoglobulin deficiencies
   - id: MONDO:0004699
     label: Primary gastrointestinal lymphoma
-  - id: CHEBI:190522
-    label: Gliadins
-  - id: HP:0002608
-    label: Celiac disease
-  - id: MAXO:0001321
-    label: scintigraphy
+  - id: MONDO:0009032
+    label: Coeliac Disease (CeD)
+  - id: HP:0000739
+    label: Anxiety
   - id: HP:0001824
-    label: weight loss
+    label: Weight loss
   - id: HP:0033842
-    label: early satiety
+    label: Early satiety
   - id: CHEBI:6888
-    label: methylprednisolone
+    label: Methylprednisolone
   - id: MAXO:0000448
-    label: Surgical resection
+    label: surgical resection
   - id: MAXO:0000015
-    label: Biologic therapies
+    label: biologic therapies
   - id: HP:0001945
-    label: Fever
+    label: fever
   - id: HP:0030166
-    label: Night sweating
+    label: night sweating
+  - id: MONDO:0005147
+    label: type 1 diabetes mellitus
   - id: MAXO:0000004
     label: surgery
   - id: CHEBI:48120
@@ -182,15 +212,19 @@ named_entities:
     label: prednisone
   - id: MAXO:0000647
     label: chemotherapy
-  - id: HP:0001047
-    label: atopic dermatitis
   - id: MONDO:0017278
     label: Autoimmune polyglandular syndrome
-  - id: MONDO:0007179
-    label: Autoimmune disease
-  - id: HP:0002960
-    label: autoimmune disease
-  - id: HP:0012537
-    label: Food intolerance
-  - id: HP:0001880
-    label: eosinophilia
+  - id: HP:0000821
+    label: Hypothyroidism
+  - id: HP:0000822
+    label: Hypertension
+  - id: HP:0003119
+    label: Dyslipidemia
+  - id: HP:0009830
+    label: Neuropathy
+  - id: HP:0001626
+    label: Cardiovascular diseases
+  - id: MONDO:0013209
+    label: nonalcoholic fatty liver disease
+  - id: HP:0001397
+    label: hepatic steatosis

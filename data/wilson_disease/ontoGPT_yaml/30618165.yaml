@@ -13,10 +13,10 @@ input_text: "Cardiac arrest in Wilson's disease after curative liver transplanta
   follow-up of these patients."
 raw_completion_output: |-
   primary_disease: Wilson's disease
-  medical_actions: liver transplantation;mass spectrometry;cardiovascular magnetic resonance;endomyocardial biopsy
-  symptoms: cardiac arrest;myocardial copper and iron accumulation;myocardial fibrosis;ventricular fibrillation;sustained ventricular tachycardia
-  chemicals: 
-  action_annotation_relationships: liver transplantation TREATS Wilson's disease;mass spectrometry IDENTIFIES myocardial copper and iron accumulation IN Wilson's disease;cardiovascular magnetic resonance VISUALIZES myocardial fibrosis IN Wilson's disease;endomyocardial biopsy CONFIRMS myocardial fibrosis IN Wilson's disease
+  medical_actions: Liver transplantation; Clinical work-up; Mass spectrometry; Cardiovascular magnetic resonance; Endomyocardial biopsy
+  symptoms: Cardiac arrest; Myocardial fibrosis; Ventricular fibrillation; Sustained ventricular tachycardia
+  chemicals: Copper; Iron
+  action_annotation_relationships: Liver transplantation TREATS Wilson's disease; Clinical work-up (with mass spectrometry) TREATS Cardiac arrest IN Wilson's disease; Cardiovascular magnetic resonance TREATS Myocardial fibrosis IN Wilson's disease; Endomyocardial biopsy TREATS Myocardial fibrosis IN Wilson's disease
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -31,7 +31,7 @@ prompt: |+
 
 
   Text:
-  endomyocardial biopsy CONFIRMS myocardial fibrosis IN Wilson's disease
+  Endomyocardial biopsy TREATS Myocardial fibrosis IN Wilson's disease
 
   ===
 
@@ -39,47 +39,48 @@ extracted_object:
   primary_disease: MONDO:0010200
   medical_actions:
     - MAXO:0001175
-    - mass spectrometry
-    - cardiovascular magnetic resonance
-    - endomyocardial biopsy
+    - Clinical work-up
+    - Mass spectrometry
+    - Cardiovascular magnetic resonance
+    - Endomyocardial biopsy
   symptoms:
     - HP:0001695
-    - myocardial copper and iron accumulation
     - HP:0001685
     - HP:0001663
-    - sustained ventricular tachycardia
+    - Sustained ventricular tachycardia
+  chemicals:
+    - CHEBI:28694
+    - CHEBI:18248
   action_annotation_relationships:
     - subject: MAXO:0001175
       predicate: TREATS
       object: Wilson's disease
-    - subject: <mass spectrometry>
-      predicate: <IDENTIFIES>
-      object: <myocardial accumulation>
-      qualifier: <Wilson's disease>
-      subject_qualifier: <>
-      object_qualifier: <>
-      subject_extension: <mass spectrometry>
-      object_extension: <copper and iron>
-    - subject: <cardiovascular magnetic resonance>
-      predicate: <VISUALIZES>
-      object: <myocardial fibrosis>
-      qualifier: <Wilson's disease>
-      subject_qualifier: <None>
-      object_qualifier: <None>
-      subject_extension: <None>
-      object_extension: <None>
-    - subject: endomyocardial biopsy
-      predicate: CONFIRMS
+    - subject: Clinical work-up
+      predicate: TREATS
+      object: HP:0001695
+      qualifier: MONDO:0010200
+      subject_qualifier: with mass spectrometry
+      subject_extension: mass spectrometry
+    - subject: Cardiovascular magnetic resonance
+      predicate: TREATS
+      object: HP:0001685
+      qualifier: MONDO:0010200
+    - subject: Endomyocardial biopsy
+      predicate: TREATS
       object: HP:0001685
       qualifier: MONDO:0010200
 named_entities:
   - id: MONDO:0010200
     label: Wilson's disease
   - id: MAXO:0001175
-    label: liver transplantation
+    label: Liver transplantation
   - id: HP:0001695
-    label: cardiac arrest
+    label: Cardiac arrest
   - id: HP:0001685
-    label: myocardial fibrosis
+    label: Myocardial fibrosis
   - id: HP:0001663
-    label: ventricular fibrillation
+    label: Ventricular fibrillation
+  - id: CHEBI:28694
+    label: Copper
+  - id: CHEBI:18248
+    label: Iron

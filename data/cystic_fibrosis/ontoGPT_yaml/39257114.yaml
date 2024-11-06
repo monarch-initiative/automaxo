@@ -1,0 +1,157 @@
+---
+input_text: "Influenza A (H1N1) in Hospitalized Children. BACKGROUND: Influenza A
+  (H1N1) is a contagious respiratory infection caused by the influenza A virus. In
+  the majority of cases, H1N1 influenza is benign. However, it can be dangerous for
+  infants and children with underlying chronic diseases. The severity of influenza
+  depends on various factors, including the virulence of the virus strain, preexisting
+  immunity level, and individual health conditions. The aim of this study is to describe
+  the clinical profile of H1N1 influenza in hospitalized infants and children. METHODS:
+  This is a prospective and descriptive study conducted from November 1, 2018, to
+  January 31, 2024. In this study, we included all children under 14 years old hospitalized
+  for suspected severe lower respiratory infection who had gone through virological
+  testing. We used a multiplex polymerase chain reaction (PCR) kit: the Film Array-Respiratory
+  Panel. Due to the depletion of multiplex PCR kits, this study continued using rapid
+  influenza diagnostic tests based on immunochromatographic technique. RESULTS: We
+  report 45 confirmed cases of H1N1 influenza, collected during the period from November
+  1, 2018, to January 31, 2024. The average age was 2 years and 4 months. The main
+  reason for admission was respiratory distress found in all patients. In 53% of the
+  cases, there was an associated comorbidity, including asthma (17 cases), prematurity
+  (2 cases), congenital adrenal hyperplasia (2 cases), cystic fibrosis (1 case), undetermined
+  etiology bronchial dilation (1 case), and Basedow's disease (1 case). The clinical
+  presentation included viral bronchiolitis (17 cases), moderate asthma exacerbation
+  (10 cases), severe asthma exacerbation (7 cases), pneumonia (9 cases), bronchial
+  dilation exacerbation (1 case), and flu-like syndrome with adrenal insufficiency
+  (1 case). Fever was present in 31 patients. Gastrointestinal symptoms such as diarrhea
+  and vomiting were present in 20 cases. Three patients required intensive care, with
+  2 children being intubated and ventilated (one severe acute asthma and one severe
+  viral bronchiolitis). Two cases were treated with oseltamivir. The average length
+  of hospital stay was 7.5 days, ranging from 3 to 20 days. All cases showed favorable
+  evolution. CONCLUSIONS: We conclude that preventive measures remain crucial, and
+  influenza vaccination is highly recommended in cases of underlying morbidity."
+raw_completion_output: |-
+  primary_disease: Influenza A (H1N1)
+
+  medical_actions: hospitalization; virological testing; use of multiplex polymerase chain reaction (PCR) kit; use of rapid influenza diagnostic tests; intensive care; intubation and ventilation; treatment with oseltamivir; influenza vaccination
+
+  symptoms: respiratory distress; fever; diarrhea; vomiting; viral bronchiolitis; moderate asthma exacerbation; severe asthma exacerbation; pneumonia; bronchial dilation exacerbation; flu-like syndrome with adrenal insufficiency
+
+  chemicals: oseltamivir
+
+  action_annotation_relationships: hospitalization TREATS respiratory distress IN Influenza A (H1N1); virological testing TREATS Influenza A (H1N1); use of multiplex polymerase chain reaction (PCR) kit TREATS Influenza A (H1N1); use of rapid influenza diagnostic tests TREATS Influenza A (H1N1); intensive care TREATS severe asthma exacerbation IN Influenza A (H1N1); intensive care TREATS severe viral bronchiolitis IN Influenza A (H1N1); intubation and ventilation TREATS severe asthma exacerbation IN Influenza A (H1N1); intubation and ventilation TREATS severe viral bronchiolitis IN Influenza A (H1N1); treatment with oseltamivir TREATS Influenza A (H1N1); influenza vaccination PREVENTS Influenza A (H1N1)
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  influenza vaccination PREVENTS Influenza A (H1N1)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005460
+  medical_actions:
+    - hospitalization
+    - virological testing
+    - use of multiplex polymerase chain reaction (PCR) kit
+    - use of rapid influenza diagnostic tests
+    - intensive care
+    - intubation and ventilation
+    - treatment with oseltamivir
+    - influenza vaccination
+  symptoms:
+    - HP:0002098
+    - HP:0001945
+    - HP:0002014
+    - HP:0002013
+    - HP:0011950
+    - moderate asthma exacerbation
+    - severe asthma exacerbation
+    - HP:0002090
+    - bronchial dilation exacerbation
+    - flu-like syndrome with adrenal insufficiency
+  chemicals:
+    - CHEBI:7798
+  action_annotation_relationships:
+    - subject: hospitalization
+      predicate: TREATS
+      object: HP:0002098
+      qualifier: MONDO:0005460
+    - subject: virological testing
+      predicate: TREATS
+      object: Influenza A (H1N1)
+    - subject: use of multiplex polymerase chain reaction (PCR) kit
+      predicate: TREATS
+      object: Influenza A (H1N1)
+      subject_extension: multiplex polymerase chain reaction (PCR) kit
+    - subject: <use of rapid influenza diagnostic tests>
+      predicate: <TREATS>
+      object: <Influenza A (H1N1)>
+      qualifier: <>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <rapid influenza diagnostic tests>
+      object_extension: <>
+    - subject: intensive care
+      predicate: TREATS
+      object: severe asthma exacerbation
+      qualifier: MONDO:0005460
+      object_qualifier: severe
+    - subject: intensive care
+      predicate: TREATS
+      object: severe viral bronchiolitis
+      qualifier: MONDO:0005460
+      object_qualifier: severe
+    - subject: intubation and ventilation
+      predicate: TREATS
+      object: severe asthma exacerbation
+      qualifier: MONDO:0005460
+      object_qualifier: severe
+    - subject: intubation and ventilation
+      predicate: TREATS
+      object: severe viral bronchiolitis
+      qualifier: MONDO:0005460
+      object_qualifier: severe
+    - subject: treatment
+      predicate: TREATS
+      object: Influenza A (H1N1)
+      subject_qualifier: with oseltamivir
+      subject_extension: CHEBI:7798
+    - subject: MAXO:0001017
+      predicate: PREVENTS
+      object: Influenza A (H1N1)
+      subject_qualifier: influenza
+      subject_extension: influenza vaccination
+named_entities:
+  - id: MONDO:0009061
+    label: Cystic Fibrosis
+  - id: CHEBI:22507
+    label: Aminoglycoside antibiotics
+  - id: CHEBI:28864
+    label: Tobramycin
+  - id: MONDO:0005460
+    label: Influenza A (H1N1)
+  - id: HP:0002098
+    label: respiratory distress
+  - id: HP:0001945
+    label: fever
+  - id: HP:0002014
+    label: diarrhea
+  - id: HP:0002013
+    label: vomiting
+  - id: HP:0011950
+    label: viral bronchiolitis
+  - id: HP:0002090
+    label: pneumonia
+  - id: CHEBI:7798
+    label: oseltamivir
+  - id: MAXO:0001017
+    label: vaccination

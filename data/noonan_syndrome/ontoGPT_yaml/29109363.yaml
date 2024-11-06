@@ -25,15 +25,15 @@ input_text: "Efficacy and safety of two doses of Norditropin  (somatropin) in sh
 raw_completion_output: |-
   primary_disease: Noonan syndrome
 
-  medical_actions: administration of Norditropin (somatropin); height standard deviation score (HSDS) analysis; insulin-like growth factor-I SDS measurement; HbA1c measurement; glucose profile analysis; insulin profile analysis in the oral glucose tolerance test; electrocardiogram; echocardiography
+  medical_actions: randomized double-blind multicenter trial; receive GH 0.033 mg/kg/day; receive GH 0.066 mg/kg/day; ANCOVA model analysis; oral glucose tolerance test
 
-  symptoms: short stature
+  symptoms: short stature; insulin-like growth factor-I SDS; HbA1c; glucose profiles; insulin profiles
 
-  chemicals: Norditropin (somatropin)
+  chemicals: Norditropin (somatropin); GH
 
-  action_annotation_relationships: administration of Norditropin (somatropin) TREATS short stature IN Noonan syndrome; height standard deviation score (HSDS) analysis TREATS short stature IN Noonan syndrome; insulin-like growth factor-I SDS measurement PREVENTS complications IN Noonan syndrome; HbA1c measurement PREVENTS complications IN Noonan syndrome; glucose profile analysis PREVENTS complications IN Noonan syndrome; insulin profile analysis in the oral glucose tolerance test PREVENTS complications IN Noonan syndrome; electrocardiogram PREVENTS complications IN Noonan syndrome; echocardiography PREVENTS complications IN Noonan syndrome
+  action_annotation_relationships: receive GH 0.033 mg/kg/day TREATS short stature IN Noonan syndrome; receive GH 0.066 mg/kg/day TREATS short stature IN Noonan syndrome; Norditropin (somatropin) TREATS short stature IN Noonan syndrome
 prompt: |+
-  Split the following piece of text into fields in the following format:
+  From the text below, extract the following entities in the following format:
 
   subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
   object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
@@ -46,75 +46,57 @@ prompt: |+
 
 
   Text:
-  echocardiography PREVENTS complications IN Noonan syndrome
+  Norditropin (somatropin) TREATS short stature IN Noonan syndrome
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0018997
   medical_actions:
-    - administration of Norditropin (somatropin)
-    - height standard deviation score (HSDS) analysis
-    - insulin-like growth factor-I SDS measurement
-    - HbA1c measurement
-    - glucose profile analysis
-    - insulin profile analysis in the oral glucose tolerance test
-    - electrocardiogram
-    - MAXO:0010203
+    - randomized double-blind multicenter trial
+    - receive GH 0.033 mg/kg/day
+    - receive GH 0.066 mg/kg/day
+    - ANCOVA model analysis
+    - oral glucose tolerance test
   symptoms:
     - HP:0004322
+    - insulin-like growth factor-I SDS
+    - HbA1c
+    - glucose profiles
+    - insulin profiles
   chemicals:
     - Norditropin (somatropin)
+    - CHEBI:37845
   action_annotation_relationships:
-    - subject: administration of Norditropin
+    - subject: receive GH
+      predicate: TREATS
+      object: HP:0004322
+      qualifier: MONDO:0018997
+      subject_qualifier: 0.033 mg/kg/day
+      subject_extension: CHEBI:37845
+    - subject: receive
+      predicate: TREATS
+      object: HP:0004322
+      qualifier: MONDO:0018997
+      subject_qualifier: 0.066 mg/kg/day
+      subject_extension: CHEBI:37845
+    - subject: Norditropin
       predicate: TREATS
       object: HP:0004322
       qualifier: MONDO:0018997
       subject_extension: somatropin
-    - subject: <HSDS analysis>
-      predicate: <TREATS>
-      object: <short stature>
-      qualifier: <Noonan syndrome>
-      subject_extension: <HSDS analysis>
-    - subject: insulin-like growth factor-I SDS measurement
-      predicate: PREVENTS
-      object: complications
-      qualifier: MONDO:0018997
-      subject_qualifier: <None>
-      object_qualifier: <None>
-      subject_extension: insulin-like growth Bfactor-I
-      object_extension: <None>
-    - subject: HbA1c measurement
-      predicate: PREVENTS
-      object: complications
-      qualifier: MONDO:0018997
-    - subject: glucose profile analysis
-      predicate: PREVENTS
-      object: complications
-      qualifier: MONDO:0018997
-      subject_extension: glucose profile analysis
-    - subject: insulin profile analysis in the oral glucose tolerance test
-      predicate: PREVENTS
-      object: complications
-      qualifier: MONDO:0018997
-    - subject: electrocardiogram
-      predicate: PREVENTS
-      object: complications
-      qualifier: MONDO:0018997
-    - subject: MAXO:0010203
-      predicate: PREVENTS
-      object: complications
-      qualifier: MONDO:0018997
 named_entities:
   - id: CHEBI:33281
-    label: Antibiotics
+    label: antibiotics
   - id: MONDO:0006936
     label: pulmonary valve stenosis
   - id: MAXO:0009072
     label: surgical repair
+  - id: HP:0001642
+    label: pulmonary valve stenosis
   - id: MONDO:0018997
     label: Noonan syndrome
-  - id: MAXO:0010203
-    label: echocardiography
   - id: HP:0004322
     label: short stature
+  - id: CHEBI:37845
+    label: GH

@@ -1,0 +1,114 @@
+---
+input_text: 'Sirolimus is efficacious in treatment for extensive and/or complex slow-flow
+  vascular malformations: a monocentric prospective phase II study. BACKGROUND: Extensive
+  and complex vascular malformations often cause chronic pain and severe functional
+  restraint. Conventional treatments, such as surgery and/or sclerotherapy, are rarely
+  curative, underscoring the great need for new therapeutic modalities. Recent preclinical
+  and clinical data demonstrated that sirolimus could offset the progression of vascular
+  malformations and significantly improve quality of life of patients through inhibition
+  of the Phosphatidylinositol-3-kinase (PI3K)/AKT/mammalian Target of Rapamycin (mTOR)
+  pathway. The purpose of this prospective study was to assess the efficacy and safety
+  of this treatment in patients with extensive or complex slow-flow vascular malformations.
+  METHODS: Sirolimus was administered orally on a continuous dosing schedule with
+  pharmacokinetic-guided target serum concentration level of 10 to 15 ng/ml. Patients
+  were seen every month for the first three months and subsequently every three months.
+  The primary endpoints were safety and efficacy, based on clinical, biological and
+  radiological evaluations, as well as a quality of life questionnaire. RESULTS: Nineteen
+  patients, from 3 to 64 years old, with lymphatic (LM), venous (VM) or complex slow-flow
+  malformations, refractory to standard care, were enrolled and received sirolimus
+  continuously. After 12 months of follow-up, 16 patients were available for assessment
+  of efficacy and safety: all had a significant and rapid improvement of their symptoms
+  and quality of life. In two patients, sirolimus treatment permitted sclerotherapy
+  and surgery, initially evaluated unfeasible. Sirolimus was well tolerated, with
+  mucositis as the most common (10% of patients) grade 3 adverse event. CONCLUSIONS:
+  Sirolimus was efficient in extensive LM, VM and/or complex malformations that were
+  refractory to conventional treatments and was well tolerated.'
+raw_completion_output: |-
+  primary_disease: Slow-flow vascular malformations
+
+  medical_actions: Administered sirolimus orally; Pharmacokinetic-guided target serum concentration level monitoring; Clinical, biological and radiological evaluations; Quality of life questionnaire assessment; Sclerotherapy; Surgery
+
+  symptoms: Chronic pain; Severe functional restraint
+
+  chemicals: Sirolimus; Phosphatidylinositol-3-kinase (PI3K); AKT; mammalian Target of Rapamycin (mTOR)
+
+  action_annotation_relationships: Administered sirolimus orally (with Sirolimus) TREATS chronic pain IN Slow-flow vascular malformations; Administered sirolimus orally (with Sirolimus) TREATS severe functional restraint IN Slow-flow vascular malformations; Sclerotherapy TREATS chronic pain IN Slow-flow vascular malformations; Surgery TREATS severe functional restraint IN Slow-flow vascular malformations
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Surgery TREATS severe functional restraint IN Slow-flow vascular malformations
+
+  ===
+
+extracted_object:
+  primary_disease: Slow-flow vascular malformations
+  medical_actions:
+    - Administered sirolimus orally
+    - Pharmacokinetic-guided target serum concentration level monitoring
+    - Clinical, biological and radiological evaluations
+    - Quality of life questionnaire assessment
+    - Sclerotherapy
+    - MAXO:0000004
+  symptoms:
+    - HP:0012532
+    - Severe functional restraint
+  chemicals:
+    - CHEBI:9168
+    - Phosphatidylinositol-3-kinase (PI3K)
+    - AKT
+    - mammalian Target of Rapamycin (mTOR)
+  action_annotation_relationships:
+    - subject: Administered sirolimus orally
+      predicate: TREATS
+      object: HP:0012532
+      qualifier: Slow-flow vascular malformations
+      subject_qualifier: with Sirolimus
+      subject_extension: CHEBI:9168
+    - subject: Administered sirolimus orally
+      predicate: TREATS
+      object: severe functional restraint
+      qualifier: Slow-flow vascular malformations
+      subject_qualifier: with Sirolimus
+      object_qualifier: severe
+      subject_extension: CHEBI:9168
+    - subject: <Sclerotherapy>
+      predicate: <TREATS>
+      object: <chronic pain>
+      qualifier: <Slow-flow vascular malformations>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: MAXO:0000004
+      predicate: TREATS
+      object: severe functional restraint
+      qualifier: Slow-flow vascular malformations
+      object_qualifier: severe
+named_entities:
+  - id: MAXO:0000004
+    label: Surgery
+  - id: MAXO:0000504
+    label: tracheotomy
+  - id: HP:0006536
+    label: airway obstruction
+  - id: HP:0010628
+    label: facial nerve palsy
+  - id: CHEBI:9168
+    label: Rapamycin
+  - id: MAXO:0000448
+    label: Surgical resection
+  - id: MONDO:0002013
+    label: lymphatic malformation (LM)
+  - id: HP:0012532
+    label: Chronic pain

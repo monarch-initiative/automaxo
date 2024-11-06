@@ -19,15 +19,15 @@ input_text: Lentiviral and genome-editing strategies for the treatment of beta-h
   clinical outcomes of current LV-based gene addition trials and the promising advantages
   of novel alternative therapeutic strategies.
 raw_completion_output: |-
-  primary_disease: <beta-thalasemia and sickle cell disease (SCD)>
+  primary_disease: beta-Thalassemia and sickle cell disease (SCD)
 
-  medical_actions: <Gene therapy; HSC transduction; Patient conditioning; HSC harvesting; Reactivating endogenous fetal hemoglobin (HbF); Genome-editing>
+  medical_actions: Gene therapy; HSC transduction; Patient conditioning; HSC harvesting; Reactivating endogenous fetal hemoglobin (HbF); Genome-editing
 
-  symptoms: <defects in the production of adult hemoglobin; lower transfusion requirement>
+  symptoms: Defects in the production of adult hemoglobin; Lower transfusion requirement
 
-  chemicals: <beta-globin-like gene>
+  chemicals: 
 
-  action_annotation_relationships: <Gene therapy TREATS defects in the production of adult hemoglobin IN beta-thalasemia and sickle cell disease (SCD); HSC transduction (with beta-globin-like gene) TREATS defects in the production of adult hemoglobin IN beta-thalasemia and sickle cell disease (SCD); Reactivating endogenous fetal hemoglobin (HbF) PREVENTS severity IN beta-thalasemia and sickle cell disease (SCD); Genome-editing TREATS defects in the production of adult hemoglobin IN beta-thalasemia and sickle cell disease (SCD)>
+  action_annotation_relationships: Gene therapy TREATS defects in the production of adult hemoglobin IN beta-Thalassemia and sickle cell disease (SCD); HSC transduction TREATS defects in the production of adult hemoglobin IN beta-Thalassemia and sickle cell disease (SCD); Reactivating endogenous fetal hemoglobin (HbF) TREATS defects in the production of adult hemoglobin IN beta-Thalassemia and sickle cell disease (SCD); Genome-editing TREATS defects in the production of adult hemoglobin IN beta-Thalassemia and sickle cell disease (SCD); Gene therapy IMPROVES lower transfusion requirement IN beta-Thalassemia and sickle cell disease (SCD)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -42,52 +42,66 @@ prompt: |+
 
 
   Text:
-  Genome-editing TREATS defects in the production of adult hemoglobin IN beta-thalasemia and sickle cell disease (SCD)>
+  Gene therapy IMPROVES lower transfusion requirement IN beta-Thalassemia and sickle cell disease (SCD)
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0007374
   medical_actions:
-    - <Gene therapy
+    - MAXO:0001001
     - HSC transduction
     - Patient conditioning
     - HSC harvesting
     - Reactivating endogenous fetal hemoglobin (HbF)
-    - Genome-editing>
+    - Genome-editing
   symptoms:
-    - <defects in the production of adult hemoglobin
-    - lower transfusion requirement>
-  chemicals:
-    - <beta-globin-like gene>
+    - Defects in the production of adult hemoglobin
+    - Lower transfusion requirement
   action_annotation_relationships:
-    - subject: MAXO:0001001
-      predicate: TREATS
-      object: defects in the production of adult hemoglobin
+    - subject: <Gene therapy>
+      predicate: <TREATS>
+      object: <defects in the production of adult hemoglobin>
       qualifier: MONDO:0007374
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <Gene therapy>
+      object_extension: <defects in the production of adult hemoglobin>
     - subject: HSC transduction
       predicate: TREATS
       object: defects in the production of adult hemoglobin
       qualifier: MONDO:0007374
-      subject_qualifier: with beta-globin-like gene
-      subject_extension: beta-globin-like gene
     - subject: Reactivating endogenous fetal hemoglobin (HbF)
-      predicate: PREVENTS
-      object: HP:0012824
+      predicate: TREATS
+      object: defects in the production of adult hemoglobin
       qualifier: MONDO:0007374
+      subject_extension: endogenous fetal hemoglobin (HbF)
     - subject: Genome-editing
       predicate: TREATS
       object: defects in the production of adult hemoglobin
       qualifier: MONDO:0007374
       subject_extension: Genome-editing
+    - subject: MAXO:0001001
+      predicate: IMPROVES
+      object: lower transfusion requirement
+      qualifier: MONDO:0007374
+      subject_extension: Gene therapy
 named_entities:
-  - id: MONDO:0007374
-    label: Sickle Cell Disease (SCD)
+  - id: MONDO:0011382
+    label: sickle cell disease
+  - id: CHEBI:64357
+    label: rituximab
+  - id: CHEBI:35341
+    label: steroids
+  - id: CHEBI:81579
+    label: erythropoietin
   - id: MAXO:0001017
     label: Vaccination
-  - id: MAXO:0000756
-    label: Blood transfusion
+  - id: MONDO:0007374
+    label: Sickle Cell Disease (SCD)
+  - id: MAXO:0000747
+    label: Allogeneic hematopoietic stem cell transplantation (HSCT)
+  - id: HP:0007760
+    label: Sickle Cell Disease (SCD)
   - id: MAXO:0001001
     label: Gene therapy
-  - id: HP:0012824
-    label: severity

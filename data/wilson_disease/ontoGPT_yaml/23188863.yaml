@@ -15,15 +15,15 @@ input_text: Is blinking of the eyes affected in extrapyramidal disorders? An int
 raw_completion_output: |-
   primary_disease: Wilson disease
 
-  medical_actions: therapy with D-penicillamine; zinc sulphate; levodopa-carbidopa; trihexiphenidyl
+  medical_actions: Therapy with D-penicillamine; zinc sulphate supplementation; levodopa-carbidopa administration; trihexiphenidyl administration
 
-  symptoms: increased spontaneous blink rate; tremulousness of both upper limbs and head; dysphagia; difficulty in speaking; abnormal behaviour
+  symptoms: Increased spontaneous blink rate; tremulousness of both upper limbs and head; dysphagia; difficulty in speaking; abnormal behaviour; low serum ceruloplasmin level
 
   chemicals: D-penicillamine; zinc sulphate; levodopa-carbidopa; trihexiphenidyl
 
-  action_annotation_relationships: therapy with D-penicillamine TREATS increased spontaneous blink rate IN Wilson disease; therapy with D-penicillamine TREATS tremulousness of both upper limbs and head IN Wilson disease; zinc sulphate TREATS increased spontaneous blink rate IN Wilson disease; levodopa-carbidopa TREATS tremulousness of both upper limbs and head IN Wilson disease; trihexiphenidyl TREATS abnormal behaviour IN Wilson disease
+  action_annotation_relationships: Therapy with D-penicillamine TREATS increased spontaneous blink rate IN Wilson disease; Therapy with D-penicillamine TREATS tremulousness of both upper limbs and head IN Wilson disease; Zinc sulphate supplementation TREATS low serum ceruloplasmin level IN Wilson disease; Levodopa-carbidopa administration TREATS tremulousness of both upper limbs and head IN Wilson disease; Trihexiphenidyl administration TREATS tremulousness of both upper limbs and head IN Wilson disease
 prompt: |+
-  Split the following piece of text into fields in the following format:
+  From the text below, extract the following entities in the following format:
 
   subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
   object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
@@ -36,23 +36,24 @@ prompt: |+
 
 
   Text:
-  trihexiphenidyl TREATS abnormal behaviour IN Wilson disease
+  Trihexiphenidyl administration TREATS tremulousness of both upper limbs and head IN Wilson disease
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0010200
   medical_actions:
-    - therapy with D-penicillamine
-    - zinc sulphate
-    - levodopa-carbidopa
-    - trihexiphenidyl
+    - Therapy with D-penicillamine
+    - zinc sulphate supplementation
+    - levodopa-carbidopa administration
+    - trihexiphenidyl administration
   symptoms:
-    - increased spontaneous blink rate
+    - Increased spontaneous blink rate
     - tremulousness of both upper limbs and head
     - HP:0002015
     - difficulty in speaking
     - abnormal behaviour
+    - low serum ceruloplasmin level
   chemicals:
     - CHEBI:7959
     - CHEBI:35176
@@ -69,27 +70,36 @@ extracted_object:
       object: tremulousness of both upper limbs and head
       qualifier: MONDO:0010200
       subject_extension: CHEBI:7959
-    - subject: zinc sulphate
+    - subject: supplementation
       predicate: TREATS
-      object: increased spontaneous blink rate
+      object: low serum ceruloplasmin level
       qualifier: MONDO:0010200
       subject_extension: CHEBI:35176
-    - predicate: TREATS
+    - subject: administration
+      predicate: TREATS
       object: tremulousness of both upper limbs and head
       qualifier: MONDO:0010200
-      subject_extension: levodopa-carbidopa
-    - predicate: TREATS
-      object: abnormal behaviour
+      subject_extension: Levodopa-carbidopa
+    - subject: administration
+      predicate: TREATS
+      object: tremulousness of both upper limbs and head
       qualifier: MONDO:0010200
-      subject_extension: trihexiphenidyl
+      subject_extension: Trihexiphenidyl
 named_entities:
   - id: MONDO:0010200
-    label: Wilson disease
+    label: Wilson's disease
   - id: MAXO:0001175
-    label: liver transplantation
-  - id: MAXO:0000004
-    label: surgery (laparotomy, rectal mobilization, rectopexy, the partial sigmoid
-      colon resection with the primary anastomosis)
+    label: Liver transplantation
+  - id: HP:0001695
+    label: Cardiac arrest
+  - id: HP:0001685
+    label: Myocardial fibrosis
+  - id: HP:0001663
+    label: Ventricular fibrillation
+  - id: CHEBI:28694
+    label: Copper
+  - id: CHEBI:18248
+    label: Iron
   - id: HP:0002910
     label: abnormal liver functions
   - id: HP:0001394
@@ -98,82 +108,80 @@ named_entities:
     label: zinc
   - id: CHEBI:50868
     label: penicillamine
-  - id: CHEBI:51232
-    label: Hoechst 33342
+  - id: MAXO:0000016
+    label: Cell therapy
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: CHEBI:30703
+    label: Tetrathiomolybdate (TTM)
   - id: HP:0006554
     label: acute liver failure
-  - id: MAXO:0000068
-    label: transplantation
+  - id: CHEBI:35176
+    label: Zinc sulphate
+  - id: CHEBI:35475
+    label: NSAIDs
   - id: MAXO:0009095
-    label: Zinc therapy
-  - id: HP:0002344
-    label: Neurologic deterioration
+    label: zinc therapy
   - id: MAXO:0001298
     label: therapy
-  - id: HP:0001392
-    label: liver disease
   - id: HP:0006579
     label: neonatal jaundice
-  - id: HP:0002612
-    label: congenital hepatic fibrosis
   - id: HP:0001409
     label: portal hypertension
   - id: HP:0030151
     label: cholangitis
+  - id: HP:0002612
+    label: congenital hepatic fibrosis
   - id: MONDO:0013282
     label: alpha-1-antitrypsin deficiency
-  - id: MONDO:0009061
-    label: cystic fibrosis
-  - id: MONDO:0009044
-    label: Crigler-Najjar syndrome
-  - id: MAXO:0000376
-    label: liver biopsy
-  - id: MAXO:0000127
-    label: genetic testing
   - id: HP:0001903
     label: anemia
   - id: HP:0001410
     label: liver dysfunction
   - id: CHEBI:39501
     label: trientine
-  - id: CHEBI:28694
-    label: copper
+  - id: MAXO:0000070
+    label: Hepatic transplantation
   - id: HP:0001399
-    label: hepatic failure
+    label: Hepatic failure
   - id: HP:0004448
     label: fulminant hepatic failure
+  - id: HP:0003256
+    label: coagulopathy (international normalized ratio >2.0)
+  - id: HP:0004445
+    label: hepatic encephalopathy (HE)
+  - id: HP:0002480
+    label: hepatic encephalopathy
   - id: CHEBI:35341
     label: Steroids
   - id: CHEBI:33281
     label: Antibiotics
   - id: MONDO:0100193
-    label: end-stage liver disease
+    label: End-stage liver disease
   - id: HP:0100626
-    label: end-stage liver disease
+    label: End-stage liver disease
   - id: HP:0100660
     label: dyskinesia
-  - id: HP:0004787
-    label: fulminant hepatitis
-  - id: HP:0031811
-    label: bilirubinuria
-  - id: HP:0001397
-    label: hepatic steatosis
-  - id: CHEBI:16359
-    label: cholic acid
+  - id: HP:0100022
+    label: Movement disorders
+  - id: HP:0001337
+    label: Tremor
+  - id: HP:0001332
+    label: Dystonia
   - id: MONDO:0019542
     label: Acute liver failure (ALF)
-  - id: HP:0002480
-    label: Hepatic encephalopathy
   - id: CHEBI:27385
     label: CCL4
+  - id: MAXO:0000127
+    label: Genetic testing
+  - id: CHEBI:7959
+    label: D-penicillamine
   - id: MAXO:0001017
     label: Vaccination
   - id: HP:0001541
     label: Ascites
   - id: HP:0012398
     label: Peripheral edema
-  - id: HP:0001337
-    label: tremor
   - id: HP:0001260
     label: dysarthria
   - id: HP:0000708
@@ -182,45 +190,79 @@ named_entities:
     label: chronic hepatitis
   - id: CHEBI:38161
     label: chelators
+  - id: MAXO:0000376
+    label: liver biopsy
+  - id: HP:0001404
+    label: hepatocellular necrosis
+  - id: CHEBI:61049
+    label: Tacrolimus
+  - id: HP:0001744
+    label: Splenomegaly
   - id: MAXO:0000603
-    label: peritoneal dialysis
-  - id: CHEBI:7959
-    label: D-penicillamine
+    label: Peritoneal dialysis
   - id: HP:0200032
     label: Kayser-Fleischer rings
   - id: HP:0002172
-    label: imbalance
+    label: impaired balance
+  - id: HP:0001347
+    label: hyperreflexia
+  - id: HP:0031843
+    label: bradyphrenia
+  - id: HP:0002362
+    label: shuffling gait
+  - id: HP:0001621
+    label: hypophonia
+  - id: CHEBI:37153
+    label: Calcineurin inhibitors
+  - id: CHEBI:8356
+    label: pramipexole
+  - id: CHEBI:2618
+    label: amantadine
   - id: HP:0000093
     label: proteinuria
-  - id: HP:0032199
-    label: abnormal prothrombin time
+  - id: CHEBI:231592
+    label: zinc salts
   - id: MAXO:0000167
-    label: Antiepileptic therapy
-  - id: CHEBI:61049
-    label: Tacrolimus
+    label: antiepileptic therapy
   - id: CHEBI:9168
-    label: Rapamycin
+    label: rapamycin
   - id: CHEBI:55379
-    label: Cyclosporine (CsA)
+    label: cyclosporine (CsA)
   - id: CHEBI:35623
     label: antiepileptic
-  - id: CHEBI:4031
-    label: Cyclosporine
   - id: HP:0000083
     label: renal failure
-  - id: CHEBI:26708
-    label: NA
-  - id: CHEBI:35176
-    label: zinc sulphate
+  - id: HP:0000952
+    label: jaundice
+  - id: HP:0001919
+    label: acute kidney injury
+  - id: HP:0001342
+    label: intracerebral hemorrhage
+  - id: MAXO:0000533
+    label: molecular genetic testing
+  - id: HP:0001873
+    label: thrombocytopenia
+  - id: HP:0001298
+    label: Encephalopathy
+  - id: MAXO:0009070
+    label: SPECT
   - id: HP:0001251
     label: ataxia
   - id: CHEBI:166831
     label: copper chelators
+  - id: MAXO:0035064
+    label: electron microscopic studies
+  - id: MAXO:0000139
+    label: autopsy
   - id: HP:0006577
     label: macronodular cirrhosis
   - id: CHEBI:8830
     label: rhodanine
-  - id: CHEBI:18248
-    label: iron
+  - id: HP:0001272
+    label: Cerebellar Atrophy
+  - id: HP:0007263
+    label: Spinocerebellar Ataxia
+  - id: MAXO:0001610
+    label: transcranial magnetic stimulation
   - id: HP:0002015
     label: dysphagia

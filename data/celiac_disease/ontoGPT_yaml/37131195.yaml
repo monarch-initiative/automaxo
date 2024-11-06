@@ -31,11 +31,15 @@ input_text: 'Clinical features, treatment, and outcomes of celiac-associated art
   indicator of higher likelihood of disease control off medications. Outcomes are
   promising with a combination of diet and medical therapy.'
 raw_completion_output: |-
-  primary_disease: celiac-associated arthritis
-  medical_actions: systemic therapy with DMARDs; systemic therapy with biologics; gluten-free diet
-  symptoms: joint complaints; oligoarticular arthritis; asymmetric arthritis; concomitant GI symptoms; BMI z-scores <-1.64; impaired linear growth
-  chemicals: DMARDs; biologics
-  action_annotation_relationships: systemic therapy with DMARDs TREATS joint complaints IN celiac-associated arthritis; systemic therapy with biologics TREATS joint complaints IN celiac-associated arthritis; gluten-free diet PREVENTS concomitant GI symptoms IN celiac-associated arthritis
+  primary_disease: Celiac-associated arthritis
+
+  medical_actions: Systemic therapy with DMARDs; Systemic therapy with biologics; Gluten-free diet
+
+  symptoms: Arthritis; Joint complaints; GI symptoms; Impaired linear growth; Oligoarticular and asymmetric arthritis presentation
+
+  chemicals: DMARDs; Biologics
+
+  action_annotation_relationships: Systemic therapy with DMARDs TREATS arthritis IN Celiac-associated arthritis; Systemic therapy with biologics TREATS arthritis IN Celiac-associated arthritis; Gluten-free diet TREATS GI symptoms IN Celiac-associated arthritis
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -50,45 +54,64 @@ prompt: |+
 
 
   Text:
-  gluten-free diet PREVENTS concomitant GI symptoms IN celiac-associated arthritis
+  Gluten-free diet TREATS GI symptoms IN Celiac-associated arthritis
 
   ===
 
 extracted_object:
-  primary_disease: celiac-associated arthritis
+  primary_disease: Celiac-associated arthritis
   medical_actions:
-    - systemic therapy with DMARDs
-    - systemic therapy with biologics
-    - gluten-free diet
+    - Systemic therapy with DMARDs
+    - Systemic therapy with biologics
+    - Gluten-free diet
   symptoms:
-    - joint complaints
-    - HP:0040313
-    - asymmetric arthritis
-    - concomitant GI symptoms
-    - BMI z-scores <-1.64
-    - impaired linear growth
+    - HP:0001369
+    - Joint complaints
+    - GI symptoms
+    - Impaired linear growth
+    - Oligoarticular and asymmetric arthritis presentation
   chemicals:
     - DMARDs
-    - biologics
+    - Biologics
   action_annotation_relationships:
-    - subject: systemic therapy
+    - subject: Systemic therapy
       predicate: TREATS
-      object: joint complaints
-      qualifier: celiac-associated arthritis
+      object: HP:0001369
+      qualifier: Celiac-associated arthritis
       subject_extension: DMARDs
-    - subject: systemic therapy
+    - subject: Systemic therapy
       predicate: TREATS
-      object: joint complaints
-      qualifier: celiac-associated arthritis
+      object: HP:0001369
+      qualifier: Celiac-associated arthritis
       subject_extension: biologics
-    - subject: <diet>
-      predicate: <PREVENTS>
-      object: <concomitant symptoms>
-      qualifier: <celiac-associated arthritis>
-      subject_qualifier: <gluten-free>
-      object_qualifier: <concomitant>
-      subject_extension: <gluten>
+    - subject: <Gluten-free diet>
+      predicate: <TREATS>
+      object: <GI symptoms>
+      qualifier: <Celiac-associated arthritis>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <Gluten-free diet>
       object_extension: <GI symptoms>
 named_entities:
-  - id: HP:0040313
-    label: oligoarticular arthritis
+  - id: MONDO:0044092
+    label: Collagenous sprue
+  - id: HP:0002014
+    label: diarrhea
+  - id: CHEBI:50858
+    label: corticosteroids
+  - id: HP:0004395
+    label: malnutrition
+  - id: MONDO:0005130
+    label: Celiac disease
+  - id: HP:0000870
+    label: Hyperprolactinemia
+  - id: CHEBI:81580
+    label: Prolactin (PRL)
+  - id: HP:0000938
+    label: Bone loss
+  - id: CHEBI:22984
+    label: Calcium
+  - id: CHEBI:27300
+    label: Vitamin D
+  - id: HP:0001369
+    label: Arthritis

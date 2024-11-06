@@ -13,10 +13,10 @@ input_text: '[Wilson disease as the significant risk factor of surgical treatmen
   with WD should be least invasive.'
 raw_completion_output: |-
   primary_disease: Wilson Disease
-  medical_actions: conservative treatment with zinc; penicillamine; surgery (laparotomy, rectal mobilization, rectopexy, the partial sigmoid colon resection with the primary anastomosis); relaparotomy; treatment in the intensive therapy unit
-  symptoms: abnormal liver functions; hepatic inflammation; cirrhosis; insufficiency; anastomotic leakage; diffuse peritonitis
+  medical_actions: conservative treatment; laparotomy; rectal mobilization; rectopexy; partial sigmoid colon resection with primary anastomosis; relaparotomy; treatment in the intensive therapy unit
+  symptoms: abnormal liver functions; hepatic inflammation; cirrhosis; insufficiency; advanced rectal prolapse; anastomotic leakage; diffuse peritonitis
   chemicals: zinc; penicillamine
-  action_annotation_relationships: conservative treatment with zinc TREATS abnormal liver functions IN Wilson Disease; conservative treatment with zinc TREATS hepatic inflammation IN Wilson Disease; conservative treatment with zinc TREATS cirrhosis IN Wilson Disease; conservative treatment with zinc TREATS insufficiency IN Wilson Disease; conservative treatment with penicillamine TREATS abnormal liver functions IN Wilson Disease; conservative treatment with penicillamine TREATS hepatic inflammation IN Wilson Disease; conservative treatment with penicillamine TREATS cirrhosis IN Wilson Disease; conservative treatment with penicillamine TREATS insufficiency IN Wilson Disease; surgery PREVENTS advanced rectal prolapse IN Wilson Disease; treatment in the intensive therapy unit TREATS anastomotic leakage IN Wilson Disease; treatment in the intensive therapy unit TREATS diffuse peritonitis IN Wilson Disease
+  action_annotation_relationships: conservative treatment (with zinc) TREATS abnormal liver functions IN Wilson Disease; conservative treatment (with penicillamine) TREATS abnormal liver functions IN Wilson Disease; laparotomy TREATS advanced rectal prolapse IN Wilson Disease; rectal mobilization TREATS advanced rectal prolapse IN Wilson Disease; rectopexy TREATS advanced rectal prolapse IN Wilson Disease; partial sigmoid colon resection with primary anastomosis TREATS advanced rectal prolapse IN Wilson Disease; relaparotomy TREATS anastomotic leakage IN Wilson Disease; treatment in the intensive therapy unit TREATS diffuse peritonitis IN Wilson Disease
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -38,9 +38,11 @@ prompt: |+
 extracted_object:
   primary_disease: MONDO:0010200
   medical_actions:
-    - conservative treatment with zinc
-    - penicillamine
-    - MAXO:0000004
+    - conservative treatment
+    - laparotomy
+    - rectal mobilization
+    - rectopexy
+    - partial sigmoid colon resection with primary anastomosis
     - relaparotomy
     - treatment in the intensive therapy unit
   symptoms:
@@ -48,6 +50,7 @@ extracted_object:
     - hepatic inflammation
     - HP:0001394
     - insufficiency
+    - advanced rectal prolapse
     - anastomotic leakage
     - diffuse peritonitis
   chemicals:
@@ -58,22 +61,7 @@ extracted_object:
       predicate: TREATS
       object: HP:0002910
       qualifier: MONDO:0010200
-      subject_extension: CHEBI:27363
-    - subject: conservative treatment
-      predicate: TREATS
-      object: hepatic inflammation
-      qualifier: MONDO:0010200
       subject_qualifier: with zinc
-      subject_extension: CHEBI:27363
-    - subject: conservative treatment
-      predicate: TREATS
-      object: HP:0001394
-      qualifier: MONDO:0010200
-      subject_extension: CHEBI:27363
-    - subject: conservative treatment
-      predicate: TREATS
-      object: insuffancy
-      qualifier: MONDO:0010200
       subject_extension: CHEBI:27363
     - subject: conservative treatment
       predicate: TREATS
@@ -81,42 +69,49 @@ extracted_object:
       qualifier: MONDO:0010200
       subject_qualifier: with penicillamine
       subject_extension: CHEBI:50868
-    - subject: conservative treatment
+    - subject: laparotomy
       predicate: TREATS
-      object: hepatic inflammation
-      qualifier: MONDO:0010200
-      subject_extension: CHEBI:50868
-    - subject: conservative treatment
-      predicate: TREATS
-      object: HP:0001394
-      qualifier: MONDO:0010200
-      subject_extension: CHEBI:50868
-    - subject: conservative treatment
-      predicate: TREATS
-      object: insufficiency
-      qualifier: MONDO:0010200
-      subject_extension: CHEBI:50868
-    - subject: MAXO:0000004
-      predicate: PREVENTS
       object: advanced rectal prolapse
       qualifier: MONDO:0010200
-    - subject: treatment
+    - subject: rectal mobilization
+      predicate: TREATS
+      object: advanced rectal prolapse
+      qualifier: MONDO:0010200
+    - subject: rectopexy
+      predicate: TREATS
+      object: advanced rectal prolapse
+      qualifier: MONDO:0010200
+    - subject: <partial sigmoid colon resection with primary anastomosis>
+      predicate: <TREATS>
+      object: <advanced rectal prolapse>
+      qualifier: <Wilson Disease>
+      subject_qualifier: <Not applicable>
+      object_qualifier: <Not applicable>
+      subject_extension: <Not applicable>
+      object_extension: <Not applicable>
+    - subject: relaparotomy
       predicate: TREATS
       object: anastomotic leakage
       qualifier: MONDO:0010200
-      subject_extension: intensive therapy unit
     - subject: treatment in the intensive therapy unit
       predicate: TREATS
       object: diffuse peritonitis
       qualifier: MONDO:0010200
 named_entities:
   - id: MONDO:0010200
-    label: Wilson disease
+    label: Wilson's disease
   - id: MAXO:0001175
-    label: liver transplantation
-  - id: MAXO:0000004
-    label: surgery (laparotomy, rectal mobilization, rectopexy, the partial sigmoid
-      colon resection with the primary anastomosis)
+    label: Liver transplantation
+  - id: HP:0001695
+    label: Cardiac arrest
+  - id: HP:0001685
+    label: Myocardial fibrosis
+  - id: HP:0001663
+    label: Ventricular fibrillation
+  - id: CHEBI:28694
+    label: Copper
+  - id: CHEBI:18248
+    label: Iron
   - id: HP:0002910
     label: abnormal liver functions
   - id: HP:0001394

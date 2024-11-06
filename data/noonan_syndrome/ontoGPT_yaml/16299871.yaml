@@ -20,10 +20,14 @@ input_text: 'Growth hormone treatment in 35 prepubertal children with achondropl
   in Turner and Noonan syndrome and in idiopathic short stature.'
 raw_completion_output: |-
   primary_disease: Achondroplasia
-  medical_actions: Growth hormone treatment; Randomized dose assignment; Interruption of treatment; Measurement of growth velocity; Measurement of height SDS (HSDS); Measurement of sitting height SDS
-  symptoms: Extreme, disproportionate short stature; Short stature; Trunk-leg disproportion
-  chemicals: Growth hormone (GH)
-  action_annotation_relationships: Growth hormone treatment (with Growth hormone) TREATS short stature IN Achondroplasia; Interruption of treatment PREVENTS adverse effect on trunk-leg disproportion IN Achondroplasia
+
+  medical_actions: Growth hormone treatment; Interruption of growth hormone treatment
+
+  symptoms: extreme, disproportionate, short stature; decreased growth velocity; trunk-leg disproportion
+
+  chemicals: Growth hormone
+
+  action_annotation_relationships: Growth hormone treatment TREATS extreme, disproportionate, short stature IN Achondroplasia; Growth hormone treatment TREATS decreased growth velocity IN Achondroplasia; Interruption of growth hormone treatment PREVENTS trunk-leg disproportion IN Achondroplasia
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -38,7 +42,7 @@ prompt: |+
 
 
   Text:
-  Interruption of treatment PREVENTS adverse effect on trunk-leg disproportion IN Achondroplasia
+  Interruption of growth hormone treatment PREVENTS trunk-leg disproportion IN Achondroplasia
 
   ===
 
@@ -46,45 +50,52 @@ extracted_object:
   primary_disease: MONDO:0007037
   medical_actions:
     - Growth hormone treatment
-    - Randomized dose assignment
-    - Interruption of treatment
-    - Measurement of growth velocity
-    - Measurement of height SDS (HSDS)
-    - Measurement of sitting height SDS
+    - Interruption of growth hormone treatment
   symptoms:
-    - Extreme, disproportionate short stature
-    - HP:0004322
-    - Trunk-leg disproportion
+    - extreme, disproportionate, short stature
+    - decreased growth velocity
+    - trunk-leg disproportion
   chemicals:
     - CHEBI:37845
   action_annotation_relationships:
     - subject: Growth hormone treatment
       predicate: TREATS
-      object: HP:0004322
+      object: extreme, disproportionate, short stature
       qualifier: MONDO:0007037
-      subject_qualifier: with Growth hormone
+    - subject: treatment
+      predicate: TREATS
+      object: decreased growth velocity
+      qualifier: MONDO:0007037
       subject_extension: CHEBI:37845
-    - subject: Interruption of treatment
+    - subject: Interruption of growth hormone treatment
       predicate: PREVENTS
-      object: adverse effect on trunk-leg disproportion
+      object: trunk-leg disproportion
       qualifier: MONDO:0007037
+      subject_extension: CHEBI:37845
+      object_extension: trunk-leg disproportion
 named_entities:
   - id: CHEBI:33281
-    label: Antibiotics
+    label: antibiotics
   - id: MONDO:0006936
     label: pulmonary valve stenosis
   - id: MAXO:0009072
     label: surgical repair
+  - id: HP:0001642
+    label: pulmonary valve stenosis
   - id: MONDO:0018997
     label: Noonan syndrome
-  - id: MAXO:0010203
-    label: echocardiography
   - id: HP:0004322
     label: short stature
+  - id: CHEBI:37845
+    label: GH
   - id: MONDO:0011908
     label: Juvenile myelomonocytic leukemia (JMML)
   - id: MAXO:0000747
     label: hematopoietic stem cell transplantation (HSCT)
+  - id: HP:0012209
+    label: Juvenile myelomonocytic leukemia (JMML)
+  - id: MAXO:0010203
+    label: echocardiography
   - id: HP:0001663
     label: ventricular fibrillation
   - id: HP:0001639
@@ -94,8 +105,8 @@ named_entities:
   - id: HP:0030828
     label: Wheezing
   - id: CHEBI:90960
-    label: Tiotropium (Tio)
+    label: Tiotropium
+  - id: HP:0002099
+    label: bronchial asthma
   - id: MONDO:0007037
     label: Achondroplasia
-  - id: CHEBI:37845
-    label: Growth hormone (GH)

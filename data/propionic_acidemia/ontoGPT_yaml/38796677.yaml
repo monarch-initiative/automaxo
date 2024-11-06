@@ -27,15 +27,15 @@ input_text: 'An Early Cost-Utility Model of mRNA-Based Therapies for the Treatme
   therapies. Our analyses also identified areas for research that will have the greatest
   value in reducing uncertainty in future health economic evaluations of such treatments.'
 raw_completion_output: |-
-  primary_disease: Methylmalonic and Propionic Acidemia
+  primary_disease: Methylmalonic Acidemia (MMA); Propionic Acidemia (PA)
 
-  medical_actions: mRNA-based therapies; dietary management; organ transplantation
+  medical_actions: Markov model simulation; Dietary management; Organ transplantation; mRNA-based therapy; Price threshold analysis; Cost-utility model construction
 
-  symptoms: life-threatening and life-limiting complications
+  symptoms: N/A
 
-  chemicals: 
+  chemicals: N/A
 
-  action_annotation_relationships: mRNA-based therapies TREAT Methylmalonic and Propionic Acidemia; dietary management TREATS life-threatening and life-limiting complications IN Methylmalonic and Propionic Acidemia; organ transplantation TREATS life-threatening and life-limiting complications IN Methylmalonic and Propionic Acidemia
+  action_annotation_relationships: mRNA-based therapy TREATS MMA IN Methylmalonic Acidemia (MMA); mRNA-based therapy TREATS PA IN Propionic Acidemia (PA); Dietary management PREVENTS complications IN Methylmalonic Acidemia (MMA); Dietary management PREVENTS complications IN Propionic Acidemia (PA); Organ transplantation TREATS complications IN Methylmalonic Acidemia (MMA); Organ transplantation TREATS complications IN Propionic Acidemia (PA)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -50,58 +50,79 @@ prompt: |+
 
 
   Text:
-  organ transplantation TREATS life-threatening and life-limiting complications IN Methylmalonic and Propionic Acidemia
+  Organ transplantation TREATS complications IN Propionic Acidemia (PA)
 
   ===
 
 extracted_object:
-  primary_disease: Methylmalonic and Propionic Acidemia
+  primary_disease: Methylmalonic Acidemia (MMA); Propionic Acidemia (PA)
   medical_actions:
-    - mRNA-based therapies
-    - dietary management
+    - Markov model simulation
+    - Dietary management
     - MAXO:0010039
+    - mRNA-based therapy
+    - Price threshold analysis
+    - Cost-utility model construction
   symptoms:
-    - life-threatening and life-limiting complications
+    - N/A
+  chemicals:
+    - N/A
   action_annotation_relationships:
-    - subject: mRNA-based therapies
+    - subject: mRNA-based therapy
       predicate: TREATS
-      object: Methylmalonic and Propionic Acidemia
-      subject_extension: mRNA-based therapies
-    - subject: dietary management
+      object: MMA
+      qualifier: MONDO:0002012
+      subject_extension: mRNA-based therapy
+    - subject: MAXO:0001298
       predicate: TREATS
-      object: life-threatening and life-limiting complications
-      qualifier: Methylmalonic and Propionic Acidemia
-      subject_extension: dietary management
+      object: PA
+      qualifier: MONDO:0011628
+      subject_extension: mRNA-based
+    - subject: Dietary management
+      predicate: PREVENTS
+      object: complications
+      qualifier: MONDO:0002012
+    - subject: <Dietary management>
+      predicate: <PREVENTS>
+      object: <complications>
+      qualifier: <Propionic Acidemia>
+      subject_extension: <Dietary management>
     - subject: MAXO:0010039
       predicate: TREATS
-      object: life-threatening and life-limiting complications
-      qualifier: Methylmalonic and Propionic Acidemia
+      object: complications
+      qualifier: MONDO:0002012
+    - subject: MAXO:0010039
+      predicate: TREATS
+      object: complications
+      qualifier: MONDO:0011628
 named_entities:
   - id: MONDO:0010184
-    label: methylmalonic acidemia (MMA); propionic acidemia; cobalamin C (cblC) deficiency
+    label: Methylmalonic acidemia (MMA); Propionic acidemia; Cobalamin C (cblC) deficiency
   - id: CHEBI:15603
-    label: leucine (Leu)
+    label: Leucine (Leu)
   - id: CHEBI:16414
-    label: valine (Val)
+    label: Valine (Val)
   - id: CHEBI:17191
-    label: isoleucine (Ile)
+    label: Isoleucine (Ile)
   - id: CHEBI:16044
-    label: methionine (Met)
-  - id: MONDO:0002012
-    label: methylmalonic acidemia (MMA)
-  - id: MONDO:0011628
-    label: propionic acidemia
+    label: Methionine (Met)
   - id: CHEBI:25017
     label: leucine
+  - id: MONDO:0002012
+    label: Methylmalonic acidemia
+  - id: HP:0003571
+    label: Propionic acidemia
+  - id: MONDO:0011628
+    label: Propionic acidemia
   - id: MAXO:0001175
-    label: liver transplantation
+    label: Liver transplantation
   - id: HP:0001638
-    label: cardiomyopathy
-  - id: HP:0100543
-    label: Cognitive impairment
+    label: Cardiomyopathy
   - id: CHEBI:176843
     label: Vitamin B12
   - id: MONDO:0019052
     label: Inborn errors of metabolism (IEMs)
   - id: MAXO:0010039
-    label: organ transplantation
+    label: Organ transplantation
+  - id: MAXO:0001298
+    label: therapy

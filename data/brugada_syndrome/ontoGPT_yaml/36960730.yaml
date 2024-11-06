@@ -33,13 +33,13 @@ input_text: 'Long-Term Outcomes of Brugada Substrate Ablation: A Report from BRA
 raw_completion_output: |-
   primary_disease: Brugada syndrome (BrS)
 
-  medical_actions: Catheter ablation; Percutaneous epicardial substrate ablation with electroanatomical mapping; Open-thoracotomy ablation; Implantable cardioverter-defibrillator implantation
+  medical_actions: Catheter ablation; Percutaneous epicardial substrate ablation with electroanatomical mapping; Open-thoracotomy ablation; Implantable cardioverter-defibrillator implantation; Sodium-channel blockade
 
-  symptoms: Recurrent ventricular fibrillation (VF); Early repolarization pattern; Cardiac arrest; Syncope
+  symptoms: Recurrent ventricular fibrillation; Early repolarization pattern; Cardiac arrest; Syncope
 
-  chemicals: Sodium-channel blockade
+  chemicals: 
 
-  action_annotation_relationships: Catheter ablation TREATS recurrent ventricular fibrillation IN Brugada syndrome (BrS); Percutaneous epicardial substrate ablation with electroanatomical mapping TREATS recurrent ventricular fibrillation IN Brugada syndrome (BrS); Open-thoracotomy ablation TREATS recurrent ventricular fibrillation IN Brugada syndrome (BrS); Implantable cardioverter-defibrillator implantation PREVENTS cardiac arrest IN Brugada syndrome (BrS); Ablation treatment (with sodium-channel blockade) TREATS recurrent ventricular fibrillation IN Brugada syndrome (BrS); Ablation treatment PREVENTS recurrent ventricular fibrillation IN Brugada syndrome (BrS)
+  action_annotation_relationships: Catheter ablation TREATS recurrent ventricular fibrillation IN Brugada syndrome (BrS); Percutaneous epicardial substrate ablation with electroanatomical mapping TREATS recurrent ventricular fibrillation IN Brugada syndrome (BrS); Open-thoracotomy ablation TREATS recurrent ventricular fibrillation IN Brugada syndrome (BrS); Implantable cardioverter-defibrillator implantation PREVENTS cardiac arrest IN Brugada syndrome (BrS); Sodium-channel blockade TREATS early repolarization pattern IN Brugada syndrome (BrS)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -54,7 +54,7 @@ prompt: |+
 
 
   Text:
-  Ablation treatment PREVENTS recurrent ventricular fibrillation IN Brugada syndrome (BrS)
+  Sodium-channel blockade TREATS early repolarization pattern IN Brugada syndrome (BrS)
 
   ===
 
@@ -65,45 +65,41 @@ extracted_object:
     - Percutaneous epicardial substrate ablation with electroanatomical mapping
     - Open-thoracotomy ablation
     - MAXO:0000474
+    - Sodium-channel blockade
   symptoms:
-    - HP:0001663
+    - Recurrent ventricular fibrillation
     - Early repolarization pattern
     - HP:0001695
     - HP:0001279
-  chemicals:
-    - Sodium-channel blockade
   action_annotation_relationships:
     - subject: Catheter ablation
       predicate: TREATS
       object: recurrent ventricular fibrillation
       qualifier: MONDO:0015263
-    - subject: Percutaneous epicardial substrate ablation with electroanatomical mapping
+      subject_qualifier: <null>
+      object_qualifier: <null>
+      subject_extension: <null>
+      object_extension: <null>
+    - subject: <Percutaneous epicardial substrate ablation>
+      predicate: <TREATS>
+      object: <recurrent ventricular fibrillation>
+      qualifier: <Brugada syndrome>
+      subject_extension: <electroanatomical mapping>
+    - subject: Open-thoracotomy ablation
       predicate: TREATS
       object: recurrent ventricular fibrillation
       qualifier: MONDO:0015263
-    - subject: <Open-thoracotomy ablation>
-      predicate: <TREATS>
-      object: <recurrent ventricular fibrillation>
-      qualifier: <Brugada syndrome (BrS)>
-      subject_qualifier: <None>
-      object_qualifier: <None>
-      subject_extension: <None>
-      object_extension: <None>
     - subject: <Implantable cardioverter-defibrillator implantation>
       predicate: <PREVENTS>
       object: <cardiac arrest>
-      qualifier: <Brugada syndrome>
+      qualifier: <Brugada syndrome (BrS)>
       subject_extension: <Implantable cardioverter-defibrillator>
-    - subject: Ablation treatment
+    - subject: Sodium-channel blockade
       predicate: TREATS
-      object: recurrent ventricular fibrillation
+      object: early repolarization pattern
       qualifier: MONDO:0015263
-      subject_qualifier: with sodium-channel blockade
-      subject_extension: sodium-channel blockade
-    - subject: Ablation treatment
-      predicate: PREVENTS
-      object: recurrent ventricular fibrillation
-      qualifier: MONDO:0015263
+      subject_extension: Sodium-channel blockade
+      object_extension: early repolarization pattern
 named_entities:
   - id: HP:0001663
     label: ventricular fibrillation
@@ -113,40 +109,40 @@ named_entities:
     label: cognitive impairment
   - id: MONDO:0002076
     label: Pneumothorax
+  - id: MAXO:0000504
+    label: Tracheostomy
   - id: HP:0002094
     label: Dyspnea
+  - id: MONDO:0015263
+    label: Brugada Syndrome
   - id: HP:0001695
-    label: Cardiac arrest
+    label: cardiac arrest
   - id: CHEBI:75984
-    label: Flecainide
-  - id: MAXO:0001017
-    label: Vaccination
+    label: flecainide
   - id: MONDO:0007264
     label: Sudden Cardiac Death
-  - id: HP:0031628
-    label: Sudden cardiac arrest
+  - id: HP:0001639
+    label: Hypertrophic cardiomyopathy (HCM)
+  - id: HP:0001644
+    label: Dilated cardiomyopathy (DCM)
+  - id: HP:0007263
+    label: Sudden cardiac arrest (SCA)
   - id: HP:0001657
-    label: Long QT syndrome
+    label: Long QT syndrome (LQTS)
+  - id: MONDO:0019315
+    label: <Dilated cardiomyopathy (DCM)>
+  - id: MONDO:0016587
+    label: <Arrhythmogenic right ventricular cardiomyopathy (ARVC)>
   - id: HP:0001645
-    label: Sudden cardiac death
-  - id: MONDO:0015263
-    label: Brugada syndrome
+    label: Sudden Cardiac Death
+  - id: MAXO:0000127
+    label: Genetic testing
   - id: HP:0004308
     label: Ventricular arrhythmias
-  - id: HP:0001945
-    label: Fever
-  - id: MONDO:0020745
-    label: Cardiac arrhythmias
-  - id: MAXO:0000900
-    label: Analysis of electrocardiograms (ECGs)
-  - id: MAXO:0000127
-    label: Genetic analyses
   - id: HP:0011675
-    label: cardiac arrhythmias
-  - id: HP:0001699
-    label: sudden death
-  - id: HP:0005110
-    label: atrial fibrillation
+    label: arrhythmia
+  - id: MAXO:0000900
+    label: Electrocardiogram (ECG)
   - id: MAXO:0000474
     label: Implantable cardioverter-defibrillator implantation
   - id: HP:0001279

@@ -18,10 +18,10 @@ input_text: 'The influence of Marfans and bicuspid valves on outcomes following 
   clinical and functional outcomes at short and mid-term follow-up.'
 raw_completion_output: |-
   primary_disease: Marfan syndrome and bicuspid aortic valve
-  medical_actions: aortic valve reimplantation surgery; anticoagulation therapy
-  symptoms: aortic regurgitation; aortic root aneurysms
+  medical_actions: aortic valve reimplantation surgery
+  symptoms: aortic root aneurysms; moderate/severe aortic regurgitation
   chemicals: 
-  action_annotation_relationships: aortic valve reimplantation surgery TREATS aortic regurgitation IN Marfan syndrome and bicuspid aortic valve; aortic valve reimplantation surgery TREATS aortic root aneurysms IN Marfan syndrome and bicuspid aortic valve
+  action_annotation_relationships: aortic valve reimplantation surgery TREATS aortic root aneurysms IN Marfan syndrome and bicuspid aortic valve; aortic valve reimplantation surgery TREATS moderate/severe aortic regurgitation IN Marfan syndrome and bicuspid aortic valve
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -36,7 +36,7 @@ prompt: |+
 
 
   Text:
-  aortic valve reimplantation surgery TREATS aortic root aneurysms IN Marfan syndrome and bicuspid aortic valve
+  aortic valve reimplantation surgery TREATS moderate/severe aortic regurgitation IN Marfan syndrome and bicuspid aortic valve
 
   ===
 
@@ -44,24 +44,44 @@ extracted_object:
   primary_disease: Marfan syndrome and bicuspid aortic valve
   medical_actions:
     - aortic valve reimplantation surgery
-    - anticoagulation therapy
   symptoms:
-    - HP:0001659
     - HP:0002616
+    - moderate/severe aortic regurgitation
   action_annotation_relationships:
-    - subject: aortic valve reimplantation surgery
-      predicate: TREATS
-      object: HP:0001659
-      qualifier: Marfan syndrome, bicuspid aortic valve
     - subject: aortic valve reimplantation surgery
       predicate: TREATS
       object: HP:0002616
       qualifier: Marfan syndrome, bicuspid aortic valve
+    - subject: aortic valve reimplantation surgery
+      predicate: TREATS
+      object: moderate/severe aortic regurgitation
+      qualifier: Marfan syndrome, bicuspid aortic valve
+      object_qualifier: moderate/severe
 named_entities:
   - id: MONDO:0007947
-    label: Marfan syndrome
-  - id: HP:0032079
-    label: Medial degeneration
+    label: Marfan Syndrome
+  - id: HP:0000768
+    label: Pectus carinatum
+  - id: HP:0002650
+    label: Scoliosis
+  - id: HP:0002108
+    label: Spontaneous pneumothorax
+  - id: HP:0003423
+    label: Thoracolumbar kyphoscoliosis
+  - id: CHEBI:33281
+    label: Antibiotic
+  - id: HP:0002107
+    label: pneumothorax
+  - id: MAXO:0010203
+    label: Echocardiography
+  - id: MAXO:0000494
+    label: Blood pressure monitoring
+  - id: HP:0004942
+    label: Aortic dilatation
+  - id: CHEBI:5959
+    label: Irbesartan
+  - id: HP:0004950
+    label: Peripheral artery disease
   - id: HP:0002617
     label: aneurysm
   - id: HP:0030965
@@ -72,6 +92,14 @@ named_entities:
     label: left ventricular hypertrophy
   - id: HP:0005162
     label: left ventricular failure
+  - id: HP:0000822
+    label: high blood pressure
+  - id: CHEBI:6541
+    label: Losartan
+  - id: CHEBI:35530
+    label: beta-blocker
+  - id: MAXO:0001298
+    label: therapy
   - id: MONDO:0020333
     label: Anterior sacral meningocele (ASM)
   - id: HP:0002315
@@ -80,23 +108,39 @@ named_entities:
     label: nausea
   - id: HP:0002138
     label: subarachnoid hemorrhage
+  - id: HP:0031625
+    label: Pseudoaneurysms
+  - id: MAXO:0000451
+    label: Implantation
+  - id: MAXO:0000457
+    label: pain management
   - id: HP:0012531
-    label: Pain
+    label: pain
   - id: HP:0012378
-    label: Fatigue
+    label: fatigue
   - id: HP:0012332
-    label: Dysautonomia
+    label: dysautonomia
   - id: HP:0002659
-    label: Bone fragility
+    label: bone fragility
   - id: HP:0025017
-    label: Capillary fragility
+    label: capillary fragility
   - id: HP:0001030
-    label: Skin fragility
+    label: skin fragility
+  - id: MAXO:0000571
+    label: CT
+  - id: HP:0034267
+    label: Pelvic pain
+  - id: HP:0000139
+    label: Genital prolapse
+  - id: HP:0100518
+    label: Dysuria
   - id: MONDO:0044632
     label: Extracranial Carotid Artery Aneurysms (ECAAs)
   - id: MAXO:0000448
     label: Surgical resection
   - id: HP:0001297
     label: Stroke
+  - id: HP:0012163
+    label: Extracranial Carotid Artery Aneurysms
   - id: HP:0002616
     label: aortic root aneurysms

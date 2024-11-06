@@ -25,11 +25,11 @@ input_text: 'Valve-Sparing Root Replacement Compared With Composite Valve Graft 
   AVS is the treatment of choice for young patients with aortic root aneurysm and
   normal or near-normal aortic cusps.'
 raw_completion_output: |-
-  primary_disease: aortic root aneurysm
-  medical_actions: Valve-Sparing Root Replacement (AVS); Composite Valve Graft procedures with a bioprothesis (bio-CVG); Composite Valve Graft procedures with a mechanical prosthesis (m-CVG); propensity score adjustment; reoperations; anticoagulant-related hemorrhage management
-  symptoms: in-hospital mortality; stroke; major adverse valve-related events; cardiac mortality; risk of reoperations; anticoagulant-related hemorrhage
-  chemicals: 
-  action_annotation_relationships: Valve-Sparing Root Replacement (AVS) TREATS major adverse valve-related events IN aortic root aneurysm; Valve-Sparing Root Replacement (AVS) TREATS cardiac mortality IN aortic root aneurysm; Composite Valve Graft procedures with a bioprosthesis (bio-CVG) INCREASES risk of reoperations IN aortic root aneurysm; Composite Valve Graft procedures with a mechanical prosthesis (m-CVG) INCREASES risk of anticoagulant-related hemorrhage IN aortic root aneurysm
+  primary_disease: Aortic root aneurysm
+  medical_actions: Valve-Sparing Root Replacement;Composite Valve Graft with a bioprosthesis;Composite Valve Graft with a mechanical prosthesis;Use of anticoagulants
+  symptoms: Cardiac mortality;Major adverse valve-related events;Reoperations;Anticoagulant-related hemorrhage
+  chemicals: Anticoagulants
+  action_annotation_relationships: Valve-Sparing Root Replacement TREATS cardiac mortality IN Aortic root aneurysm;Valve-Sparing Root Replacement TREATS major adverse valve-related events IN Aortic root aneurysm;Composite Valve Graft with a bioprosthesis INCREASES risk of reoperations IN Aortic root aneurysm;Composite Valve Graft with a mechanical prosthesis INCREASES risk of anticoagulant-related hemorrhage IN Aortic root aneurysm;Use of anticoagulants INCREASES risk of anticoagulant-related hemorrhage IN Aortic root aneurysm
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -44,45 +44,51 @@ prompt: |+
 
 
   Text:
-  Composite Valve Graft procedures with a mechanical prosthesis (m-CVG) INCREASES risk of anticoagulant-related hemorrhage IN aortic root aneurysm
+  Use of anticoagulants INCREASES risk of anticoagulant-related hemorrhage IN Aortic root aneurysm
 
   ===
 
 extracted_object:
-  primary_disease: aortic root aneurysm
+  primary_disease: Aortic root aneurysm
   medical_actions:
-    - Valve-Sparing Root Replacement (AVS)
-    - Composite Valve Graft procedures with a bioprothesis (bio-CVG)
-    - Composite Valve Graft procedures with a mechanical prosthesis (m-CVG)
-    - propensity score adjustment
-    - reoperations
-    - anticoagulant-related hemorrhage management
+    - Valve-Sparing Root Replacement
+    - Composite Valve Graft with a bioprosthesis
+    - Composite Valve Graft with a mechanical prosthesis
+    - Use of anticoagulants
   symptoms:
-    - in-hospital mortality
-    - HP:0001297
-    - major adverse valve-related events
-    - cardiac mortality
-    - risk of reoperations
-    - anticoagulant-related hemorrhage
+    - Cardiac mortality
+    - Major adverse valve-related events
+    - Reoperations
+    - Anticoagulant-related hemorrhage
+  chemicals:
+    - CHEBI:50249
   action_annotation_relationships:
-    - subject: Valve-Sparing Root Replacement (AVS)
-      predicate: TREATS
-      object: major adverse valve-related events
-      qualifier: aortic root aneurysm
-    - subject: Valve-Sparing Root Replacement (AVS)
+    - subject: Valve-Sparing Root Replacement
       predicate: TREATS
       object: cardiac mortality
-      qualifier: aortic root aneurysm
-    - subject: Composite Valve Graft procedures
-      predicate: INCREASES
-      object: risk of reoperations
-      qualifier: aortic root aneurysm
-      subject_qualifier: with a bioprosthesis
-      subject_extension: bioprosthesis
-    - subject: Composite Valve Graft procedures with a mechanical prosthesis
-      predicate: INCREASES
-      object: risk of anticoagulant-related hemorrhage
-      qualifier: aortic root aneurysm
+      qualifier: Aortic root aneurysm
+    - subject: Valve-Sparing Root Replacement
+      predicate: TREATS
+      object: major adverse valve-related events
+      qualifier: Aortic root aneurysm
+    - subject: <Composite Valve Graft>
+      predicate: <INCREASES risk of>
+      object: <reoperations>
+      qualifier: <Aortic root aneurysm>
+      subject_qualifier: <with a bioprosthesis>
+      subject_extension: <Composite Valve Graft with a bioprosthesis>
+    - subject: Composite Valve Graft
+      predicate: INCREASES risk of
+      object: hemorrhage
+      qualifier: Aortic root aneurysm
+      subject_extension: mechanical prosthesis
+      object_extension: anticoagulant-related
+    - subject: Use of anticoagulants
+      predicate: INCREASES risk of
+      object: hemorrhage
+      qualifier: Aortic root aneurysm
+      subject_extension: CHEBI:50249
+      object_extension: anticoagulant-related
 named_entities:
   - id: MONDO:0007947
     label: Marfan Syndrome
@@ -94,24 +100,64 @@ named_entities:
     label: Spontaneous pneumothorax
   - id: HP:0003423
     label: Thoracolumbar kyphoscoliosis
+  - id: CHEBI:33281
+    label: Antibiotic
+  - id: HP:0002107
+    label: pneumothorax
+  - id: MAXO:0010203
+    label: Echocardiography
+  - id: MAXO:0000494
+    label: Blood pressure monitoring
+  - id: HP:0004942
+    label: Aortic dilatation
+  - id: CHEBI:5959
+    label: Irbesartan
+  - id: HP:0004950
+    label: Peripheral artery disease
+  - id: HP:0002617
+    label: aneurysm
+  - id: HP:0030965
+    label: increased aortic stiffness
+  - id: HP:0001659
+    label: aortic regurgitation
+  - id: HP:0001712
+    label: left ventricular hypertrophy
+  - id: HP:0005162
+    label: left ventricular failure
   - id: HP:0000822
-    label: Hypertension
-  - id: HP:0001649
-    label: Tachycardia
-  - id: HP:0012531
-    label: pain
-  - id: MONDO:0009691
-    label: Marfan syndrome (MFS)
+    label: high blood pressure
   - id: CHEBI:6541
     label: Losartan
+  - id: CHEBI:35530
+    label: beta-blocker
+  - id: MAXO:0001298
+    label: therapy
+  - id: MONDO:0020333
+    label: Anterior sacral meningocele (ASM)
+  - id: HP:0002315
+    label: headache
+  - id: HP:0002018
+    label: nausea
+  - id: HP:0002138
+    label: subarachnoid hemorrhage
   - id: HP:0031625
     label: Pseudoaneurysms
   - id: MAXO:0000451
     label: Implantation
-  - id: HP:0031649
-    label: Aortic rupture
-  - id: MAXO:0001061
-    label: Laminectomy
+  - id: MAXO:0000457
+    label: pain management
+  - id: HP:0012531
+    label: pain
+  - id: HP:0012378
+    label: fatigue
+  - id: HP:0012332
+    label: dysautonomia
+  - id: HP:0002659
+    label: bone fragility
+  - id: HP:0025017
+    label: capillary fragility
+  - id: HP:0001030
+    label: skin fragility
   - id: MAXO:0000571
     label: CT
   - id: HP:0034267
@@ -120,5 +166,19 @@ named_entities:
     label: Genital prolapse
   - id: HP:0100518
     label: Dysuria
+  - id: MONDO:0044632
+    label: Extracranial Carotid Artery Aneurysms (ECAAs)
+  - id: MAXO:0000448
+    label: Surgical resection
   - id: HP:0001297
-    label: stroke
+    label: Stroke
+  - id: HP:0012163
+    label: Extracranial Carotid Artery Aneurysms
+  - id: HP:0002616
+    label: aortic root aneurysms
+  - id: HP:0031649
+    label: aortic rupture
+  - id: HP:0002090
+    label: pneumonia
+  - id: CHEBI:50249
+    label: Anticoagulants

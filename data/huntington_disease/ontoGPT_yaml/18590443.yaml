@@ -13,10 +13,14 @@ input_text: Long-term follow-up of Huntington disease treated by bilateral deep 
   improvement in daily quality of life.
 raw_completion_output: |-
   primary_disease: Huntington disease
-  medical_actions: bilateral deep brain stimulation of the internal globus pallidus; chronic stimulation of the internal globus pallidus
-  symptoms: choreic movements; movement disorders; progressive cognitive impairment; psychiatric symptoms
+
+  medical_actions: bilateral deep brain stimulation of the internal globus pallidus; chronic deep brain stimulation
+
+  symptoms: movement disorders; progressive cognitive impairment; psychiatric symptoms; choreic movements
+
   chemicals: 
-  action_annotation_relationships: bilateral deep brain stimulation of the internal globus pallidus TREATS choreic movements IN Huntington disease; chronic stimulation of the internal globus pallidus TREATS choreic movements IN Huntington disease
+
+  action_annotation_relationships: bilateral deep brain stimulation of the internal globus pallidus TREATS choreic movements IN Huntington disease; chronic deep brain stimulation TREATS choreic movements IN Huntington disease
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -31,7 +35,7 @@ prompt: |+
 
 
   Text:
-  chronic stimulation of the internal globus pallidus TREATS choreic movements IN Huntington disease
+  chronic deep brain stimulation TREATS choreic movements IN Huntington disease
 
   ===
 
@@ -39,29 +43,39 @@ extracted_object:
   primary_disease: MONDO:0007739
   medical_actions:
     - bilateral deep brain stimulation of the internal globus pallidus
-    - chronic stimulation of the internal globus pallidus
+    - chronic deep brain stimulation
   symptoms:
-    - HP:0002072
     - HP:0100022
     - progressive cognitive impairment
     - psychiatric symptoms
+    - HP:0002072
   action_annotation_relationships:
-    - subject: bilateral deep brain stimulation of the internal globus pallidus
-      predicate: TREATS
-      object: HP:0002072
-      qualifier: MONDO:0007739
-    - subject: chronic stimulation of the internal globus pallidus
-      predicate: TREATS
-      object: HP:0002072
-      qualifier: MONDO:0007739
+    - subject: <deep brain stimulation>
+      predicate: <TREATS>
+      object: <choreic movements>
+      qualifier: <Huntington disease>
+      subject_qualifier: <bilateral, internal globus pallidus>
+      object_qualifier: <NA>
+      subject_extension: <bilateral deep brain stimulation>
+      object_extension: <NA>
+    - subject: <chronic deep brain stimulation>
+      predicate: <TREATS>
+      object: <choreic movements>
+      qualifier: <Huntington disease>
+      subject_qualifier: <chronic>
+      object_qualifier: <None>
+      subject_extension: <deep brain stimulation>
+      object_extension: <choreic movements>
 named_entities:
   - id: MONDO:0007739
-    label: Huntington Disease
-  - id: MONDO:0013310
-    label: P450 oxidoreductase deficiency
-  - id: CHEBI:78757
-    label: Cystamine
-  - id: HP:0002072
-    label: choreic movements
+    label: Huntington disease
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0002180
+    label: neurodegeneration
+  - id: HP:0001268
+    label: cognitive decline
   - id: HP:0100022
     label: movement disorders
+  - id: HP:0002072
+    label: choreic movements

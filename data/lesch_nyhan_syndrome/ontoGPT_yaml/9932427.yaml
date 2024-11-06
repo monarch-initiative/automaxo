@@ -3,51 +3,38 @@ input_text: 'Gene therapy for inherited neurological disorders: towards therapeu
   intervention in the Lesch-Nyhan syndrome. '
 raw_completion_output: |-
   primary_disease: Lesch-Nyhan syndrome
-  medical_actions: Gene therapy
-  symptoms: Inherited neurological disorders
+  medical_actions: 
+  symptoms: 
   chemicals: 
-  action_annotation_relationships: Gene therapy TREATS inherited neurological disorders IN Lesch-Nyhan syndrome
+  action_annotation_relationships: 
 prompt: |+
   From the text below, extract the following entities in the following format:
 
-  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
-  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
-  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
-  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
-  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
-  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
-  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
-  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+  primary_disease: <The main disease the text is about, or its central disease topic. This is often the disease mentioned in an article's title or in its first few sentences.>
+  medical_actions: <Semicolon-separated list of medical actions, where each is a clinically prescribed procedure, therapy, intervention, or recommendation.>
+  symptoms: <Semicolon-separated list of signs or symptoms.>
+  chemicals: <Semicolon-separated list of chemicals or drugs>
+  action_annotation_relationships: <Semicolon-separated list of relationships between a disease, the mentioned signs and symptoms associated with that disease, the medical actions relating to each symptom, and the type of relationship between each action and symptom (usually TREATS or PREVENTS). The disease name must be included in the relationship, for example, "treatment TREATS symptom IN disease". If the medical action includes a specific chemical or drug, include the chemical or drug name in the relationship, for example, "treatment (with chemical) TREATS symptom IN disease".>
 
 
   Text:
-  Gene therapy TREATS inherited neurological disorders IN Lesch-Nyhan syndrome
+  Gene therapy for inherited neurological disorders: towards therapeutic intervention in the Lesch-Nyhan syndrome. 
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0010298
-  medical_actions:
-    - MAXO:0001001
-  symptoms:
-    - Inherited neurological disorders
-  action_annotation_relationships:
-    - subject: <Gene therapy>
-      predicate: <TREATS>
-      object: <inherited neurological disorders>
-      qualifier: <Lesch-Nyhan syndrome>
-      subject_extension: <Gene therapy>
 named_entities:
   - id: MONDO:0010298
     label: Lesch-Nyhan syndrome
-  - id: HP:0002149
-    label: hyperuricemia
-  - id: HP:0100021
-    label: spastic cerebral palsy (CP)
-  - id: HP:0001332
-    label: dystonia
   - id: HP:0000742
-    label: self-mutilation
+    label: Self-mutilation
+  - id: HP:0002149
+    label: Hyperuricemia
+  - id: HP:0001249
+    label: Mental retardation
+  - id: HP:0001332
+    label: Dystonia
   - id: HP:0001257
     label: Spasticity
   - id: HP:0001266
@@ -58,46 +45,42 @@ named_entities:
     label: Aggression
   - id: HP:0002104
     label: Apnea
-  - id: HP:0002013
-    label: Vomiting
   - id: CHEBI:44915
     label: Propofol
+  - id: HP:0002835
+    label: pulmonary aspiration
   - id: MAXO:0000943
     label: deep brain stimulation surgery (DBS)
   - id: CHEBI:9130
     label: sevoflurane
-  - id: MAXO:0009003
-    label: preimplantation genetic diagnosis (PGD)
-  - id: HP:0001249
-    label: mental retardation
   - id: CHEBI:17368
     label: Hypoxanthine
   - id: CHEBI:15372
-    label: tetrahydrobiopterin
+    label: Tetrahydrobiopterin
   - id: CHEBI:35634
-    label: xanthine oxidase inhibitors
+    label: Xanthine oxidase inhibitors
+  - id: MAXO:0000004
+    label: surgical procedures
   - id: CHEBI:3387
-    label: Carbamazepine
-  - id: HP:0007325
-    label: generalized dystonia
+    label: carbamazepine
+  - id: MONDO:0002486
+    label: Lesch-Nyhan syndrome (LNS)
   - id: HP:0100660
-    label: dyskinesia
+    label: Dyskinesia
   - id: HP:0003149
-    label: Hyperuricosuria
+    label: hyperuricosuria
   - id: HP:0001997
-    label: Gouty arthritis
-  - id: CHEBI:28790
-    label: serotonin
+    label: gouty arthritis
   - id: CHEBI:28683
     label: kynurenine
   - id: CHEBI:16675
     label: quinolinic acid
+  - id: CHEBI:28790
+    label: serotonin
   - id: CHEBI:15318
     label: xanthine
   - id: HP:0001263
     label: developmental retardation
-  - id: MONDO:0002486
-    label: Lesch-Nyhan syndrome (LNS)
   - id: HP:0000708
     label: Behavioral disturbances
   - id: HP:0012758
@@ -105,15 +88,15 @@ named_entities:
   - id: CHEBI:8802
     label: Remifentanil
   - id: MAXO:0010033
-    label: Umbilical cord blood transplant (UCBT)
+    label: Umbilical Cord Blood Transplant (UCBT)
   - id: MAXO:0000139
     label: Autopsy
   - id: HP:0033006
     label: Diffuse alveolar damage
   - id: HP:6000716
     label: Hepatic veno-occlusive disease
-  - id: HP:0011793
-    label: malignant neoplasm
+  - id: HP:0002721
+    label: immunodeficiencies
   - id: MAXO:0000882
     label: behavioral interventions
   - id: MAXO:0000894
@@ -122,67 +105,41 @@ named_entities:
     label: allopurinol
   - id: MAXO:0001298
     label: therapy
-  - id: HP:0030050
-    label: Catalepsy
-  - id: CHEBI:73297
-    label: SCH 23390
-  - id: CHEBI:5123
-    label: fluphenazine
-  - id: CHEBI:32168
-    label: (+/-) sulpiride
-  - id: MONDO:0010100
-    label: Tay-Sachs disease
+  - id: MAXO:0009003
+    label: preimplantation genetic diagnosis (PGD)
+  - id: CHEBI:26337
+    label: <preimplantation genetic diagnosis (PGD)>
   - id: MAXO:0000058
     label: Pharmacological treatment
+  - id: HP:0000739
+    label: Anxiety
   - id: CHEBI:15414
     label: S-adenosylmethionine (SAMe)
   - id: CHEBI:18406
     label: AICAR
   - id: HP:0004305
     label: involuntary movements
-  - id: MAXO:0010030
-    label: Bone marrow transplantation
-  - id: HP:0012169
-    label: self-biting
-  - id: CHEBI:78741
-    label: 6-hydroxydopamine (6-OHDA)
-  - id: CHEBI:53704
-    label: apomorphine (APO)
-  - id: CHEBI:17256
-    label: dopamine (DA)
-  - id: CHEBI:1582
-    label: 3-methoxytyramine (3-MT)
-  - id: CHEBI:33310
-    label: norepinephrine (NE)
-  - id: CHEBI:48538
-    label: apomorphine
+  - id: MONDO:0003847
+    label: Inherited diseases
   - id: HP:0001276
-    label: hypertonia
+    label: Hypertonia
   - id: CHEBI:2972
-    label: baclofen
+    label: Baclofen
   - id: CHEBI:545959
     label: homovanillic acid (HVA)
   - id: CHEBI:27823
     label: 5-hydroxyindoleacetic acid (5-HIAA)
-  - id: MAXO:0001001
-    label: Gene therapy
-  - id: CHEBI:15996
-    label: GTP
-  - id: CHEBI:16708
-    label: Adenine
   - id: MAXO:0000504
-    label: tracheostomy
+    label: Tracheostomy
   - id: MAXO:0001183
-    label: bronchoscopy
+    label: Bronchoscopy
   - id: HP:0002094
-    label: dyspnea
+    label: Dyspnea
   - id: HP:0001824
-    label: loss of weight
+    label: Weight loss
   - id: HP:0000083
-    label: renal failure
+    label: Renal failure
   - id: HP:0001250
-    label: convulsions
+    label: Convulsions
   - id: HP:0001699
-    label: sudden death
-  - id: HP:0002779
-    label: tracheomalacia
+    label: Sudden death

@@ -22,10 +22,10 @@ input_text: 'ESPGHAN Position Paper on Management and Follow-up of Children and 
   should be investigated to further improve management.'
 raw_completion_output: |-
   primary_disease: Celiac Disease
-  medical_actions: perform follow-up; assess adherence to the gluten-free diet; treat anemia; manage children with associated type 1 diabetes or IgA deficiency; approach persistent high serum levels of antibodies against tissue-transglutaminase; indication to perform biopsies; improve the communication to patients and their parents/caregivers; transition from pediatric to adult health care.
+  medical_actions: perform follow-up; assess adherence to the gluten-free diet; treat anemia; manage persistent high serum levels of antibodies against tissue-transglutaminase; perform biopsies; assessment of quality of life; gluten-challenge; manage children with associated type 1 diabetes or IgA deficiency; manage cases of potential celiac disease; improve communication to patients and their parents/caregivers; transition from pediatric to adult health care
   symptoms: anemia; persistent high serum levels of antibodies against tissue-transglutaminase
   chemicals: gluten-free diet
-  action_annotation_relationships: perform follow-up TREATS anemia IN Celiac Disease; assess adherence to the gluten-free diet (with gluten-free diet) PREVENTS symptoms IN Celiac Disease; treat anemia TREATs anemia IN Celiac Disease; manage children with associated type 1 diabetes or IgA deficiency PREVENTS complications IN Celiac Disease; approach persistent high serum levels of antibodies against tissue-transglutaminase TREATS persistent high serum levels of antibodies against tissue-transglutaminase IN Celiac Disease; indication to perform biopsies TREATS diagnosis uncertainty IN Celiac Disease; improve the communication to patients and their parents/caregivers TREATS patient support IN Celiac Disease; transition from pediatric to adult health care PREVENTS care discontinuity IN Celiac Disease
+  action_annotation_relationships: assess adherence to the gluten-free diet PREVENTS symptoms IN Celiac Disease; treat anemia TREATS anemia IN Celiac Disease; manage persistent high serum levels of antibodies against tissue-transglutaminase TREATS persistent high serum levels of antibodies against tissue-transglutaminase IN Celiac Disease
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -40,7 +40,7 @@ prompt: |+
 
 
   Text:
-  transition from pediatric to adult health care PREVENTS care discontinuity IN Celiac Disease
+  manage persistent high serum levels of antibodies against tissue-transglutaminase TREATS persistent high serum levels of antibodies against tissue-transglutaminase IN Celiac Disease
 
   ===
 
@@ -50,228 +50,138 @@ extracted_object:
     - perform follow-up
     - assess adherence to the gluten-free diet
     - treat anemia
+    - manage persistent high serum levels of antibodies against tissue-transglutaminase
+    - perform biopsies
+    - assessment of quality of life
+    - gluten-challenge
     - manage children with associated type 1 diabetes or IgA deficiency
-    - approach persistent high serum levels of antibodies against tissue-transglutaminase
-    - indication to perform biopsies
-    - improve the communication to patients and their parents/caregivers
-    - transition from pediatric to adult health care.
+    - manage cases of potential celiac disease
+    - improve communication to patients and their parents/caregivers
+    - transition from pediatric to adult health care
   symptoms:
     - HP:0001903
     - persistent high serum levels of antibodies against tissue-transglutaminase
   chemicals:
     - gluten-free diet
   action_annotation_relationships:
-    - subject: perform follow-up
-      predicate: TREATS
-      object: HP:0001903
-      qualifier: MONDO:0005130
-    - subject: assess adherence to the gluten-free diet
-      predicate: PREVENTS
-      object: symptoms
-      qualifier: MONDO:0005130
-      subject_qualifier: with gluten-free diet
-      subject_extension: gluten-free diet
+    - subject: <assess adherence to>
+      predicate: <PREVENTS>
+      object: <symptoms>
+      qualifier: <Celiac Disease>
+      subject_extension: <gluten-free diet>
     - subject: treat anemia
       predicate: TREATS
       object: HP:0001903
       qualifier: MONDO:0005130
-    - subject: manage children
-      predicate: PREVENTS
-      object: complications
-      qualifier: MONDO:0005130
-      subject_qualifier: associated type 1 diabetes or IgA deficiency
-    - subject: approach
-      predicate: TREATS
-      object: persistent high serum levels of antibodies against tissue-transglutaminase
-      qualifier: MONDO:0005130
-    - subject: <biopsies>
+    - subject: <manage persistent high serum levels of antibodies against tissue-transglutaminase>
       predicate: <TREATS>
-      object: <diagnosis uncertainty>
+      object: <persistent high serum levels of antibodies against tissue-transglutaminase>
       qualifier: <Celiac Disease>
       subject_qualifier: <Not applicable>
       object_qualifier: <Not applicable>
       subject_extension: <Not applicable>
       object_extension: <Not applicable>
-    - subject: improve the communication to patients and their parents/caregivers
-      predicate: TREATS
-      object: patient support
-      qualifier: MONDO:0005130
-    - subject: transition from pediatric to adult health care
-      predicate: PREVENTS
-      object: care discontinuity
-      qualifier: MONDO:0005130
 named_entities:
   - id: MONDO:0005130
-    label: celiac disease
-  - id: MAXO:0000259
-    label: Insulin treatment
-  - id: HP:0033712
-    label: Recurrent implantation failure (RIF)
-  - id: CHEBI:145810
-    label: Insulin
-  - id: CHEBI:6801
-    label: Metformin
-  - id: HP:0002024
-    label: malabsorption
-  - id: HP:0012050
-    label: anasarca
-  - id: HP:0003111
-    label: electrolyte disorders
+    label: Celiac Disease
+  - id: HP:0011473
+    label: villous atrophy
   - id: MAXO:0000088
     label: diet
-  - id: HP:0025502
-    label: Overweight
-  - id: HP:0001513
-    label: Obesity
-  - id: HP:0012393
-    label: Allergic diseases
-  - id: HP:0002608
-    label: Celiac disease
-  - id: HP:0000819
-    label: Diabetes
-  - id: HP:0030016
-    label: dyspareunia
-  - id: HP:0012786
-    label: recurrent cystitis
-  - id: HP:0400007
-    label: menstrual disorders
-  - id: MONDO:0100096
-    label: COVID-19
-  - id: MONDO:0005147
-    label: Type 1 diabetes mellitus
-  - id: HP:0000821
-    label: Hypothyroidism
-  - id: HP:0000822
-    label: Hypertension
-  - id: HP:0003119
-    label: Dyslipidemia
-  - id: HP:0009830
-    label: Neuropathy
-  - id: HP:0001626
-    label: Cardiovascular diseases
-  - id: HP:0005268
-    label: Miscarriage
-  - id: HP:0030991
-    label: primary sclerosing cholangitis
-  - id: MONDO:0005265
-    label: Inflammatory bowel disease
-  - id: CHEBI:18248
-    label: Iron
   - id: HP:0002014
     label: diarrhea
-  - id: HP:0012538
-    label: Gluten sensitivity
-  - id: MONDO:0016063
-    label: Celiac Disease (CD)
-  - id: MAXO:0001193
-    label: esophagogastroduodenoscopy
-  - id: HP:0002027
-    label: abdominal pain
-  - id: HP:0003270
-    label: bloating
   - id: HP:0001903
-    label: anaemia
-  - id: HP:0001944
-    label: Dehydration
-  - id: HP:0002239
-    label: Gastrointestinal bleeding
-  - id: HP:0001942
-    label: Metabolic acidosis
-  - id: CHEBI:28384
-    label: Vitamin K
-  - id: CHEBI:35341
-    label: Steroids
-  - id: HP:0000855
-    label: Insulin resistance
-  - id: MONDO:0005340
-    label: Alopecia Areata
-  - id: HP:0001596
-    label: hair loss
-  - id: HP:0002232
-    label: Alopecia Areata
-  - id: HP:0012378
-    label: Fatigue
-  - id: HP:0011473
-    label: Villous atrophy
-  - id: CHEBI:3207
-    label: Budesonide
-  - id: MONDO:0005052
-    label: irritable bowel syndrome (IBS), celiac disease (CD), neurological disorders
-      (ND)
-  - id: CHEBI:73601
-    label: <ketogenic diet (KD)>
-  - id: MAXO:0001184
-    label: colonoscopy
-  - id: HP:0002028
-    label: recurrent diarrhea
-  - id: HP:0001824
-    label: weight loss
-  - id: HP:0003565
-    label: raised erythrocyte sedimentation rate (ESR)
-  - id: HP:0001891
-    label: iron deficiency anemia
-  - id: CHEBI:6909
-    label: metronidazole
-  - id: MONDO:0400005
-    label: Refeeding syndrome
-  - id: HP:0002098
-    label: Respiratory distress
-  - id: HP:0030149
-    label: Cardiogenic shock
-  - id: CHEBI:22984
-    label: Ca
-  - id: CHEBI:25107
-    label: Mg
-  - id: CHEBI:27363
-    label: Zn
-  - id: MAXO:0035009
-    label: Examination by dentists
-  - id: HP:0011107
-    label: Recurrent aphthous stomatitis
-  - id: HP:0000867
-    label: Secondary hyperparathyroidism
-  - id: HP:0000938
-    label: Bone loss
-  - id: CHEBI:27300
-    label: Vitamin D
-  - id: HP:0002018
-    label: Nausea
-  - id: HP:0002315
-    label: Headache
-  - id: HP:0012414
-    label: Duodenal atrophy
-  - id: CHEBI:26523
-    label: Reactive oxygen species (ROS)
-  - id: CHEBI:16480
-    label: Nitric oxides
-  - id: CHEBI:16856
-    label: Glutathione (GSH)
-  - id: CHEBI:16110
-    label: protein carbonyl (PC)
-  - id: MONDO:0019395
-    label: Hepatic Steatosis (HS)
-  - id: MONDO:0004790
-    label: Hepatic Steatosis
-  - id: HP:0000716
-    label: depression
-  - id: CHEBI:38697
-    label: Anthocyanins
-  - id: CHEBI:24676
-    label: Hydroxybenzoic acids
-  - id: CHEBI:24689
-    label: Hydroxycinnamic acids
-  - id: CHEBI:5078
-    label: Flavonol
-  - id: HP:0001508
-    label: Failure to thrive
-  - id: MONDO:0015614
-    label: Dermatitis Herpetiformis
+    label: anemia
   - id: HP:0000939
     label: osteoporosis
+  - id: HP:0002608
+    label: Celiac Disease
+  - id: MAXO:0010200
+    label: Abdominal ultrasonography
+  - id: HP:0003270
+    label: Abdominal distension
+  - id: HP:0002748
+    label: Rickets
+  - id: HP:0002576
+    label: intussusception
+  - id: CHEBI:72716
+    label: TG2 inhibitors
+  - id: MAXO:0000130
+    label: endoscopy
+  - id: MONDO:0016063
+    label: Celiac disease (CD)
+  - id: CHEBI:73291
+    label: Anti-deamidated gliadin peptides (DGP)
+  - id: HP:0011107
+    label: Aphthous stomatitis
+  - id: HP:0002019
+    label: Constipation
+  - id: HP:0002020
+    label: Gastroesophageal reflux disease
+  - id: CHEBI:18163
+    label: GD1a
+  - id: CHEBI:28175
+    label: GD1b
+  - id: CHEBI:28424
+    label: GD3
+  - id: CHEBI:27691
+    label: GT1a
+  - id: CHEBI:28058
+    label: GT1b
+  - id: CHEBI:27515
+    label: GQ1b
+  - id: CHEBI:8382
+    label: prednisone
+  - id: CHEBI:2948
+    label: azathioprine
+  - id: CHEBI:4031
+    label: cyclosporine
+  - id: HP:0410281
+    label: Indigestion
+  - id: HP:0002027
+    label: Abdominal pain
+  - id: HP:0025502
+    label: overweight
+  - id: HP:0001513
+    label: obesity
+  - id: MONDO:0018353
+    label: Refractory Celiac Disease (RCD)
+  - id: MAXO:0000757
+    label: Infusions
+  - id: HP:0000739
+    label: anxiety
+  - id: HP:0002315
+    label: Headache
+  - id: HP:0100785
+    label: Insomnia
+  - id: HP:0004396
+    label: Loss of appetite
+  - id: CHEBI:63623
+    label: Dimercaptosuccinic acid
   - id: CHEBI:25140
     label: Maltodextrin
+  - id: CHEBI:27300
+    label: Vitamin D
+  - id: CHEBI:22984
+    label: Calcium
+  - id: MAXO:0001610
+    label: Transcranial Magnetic Stimulation
+  - id: CHEBI:29987
+    label: glutamate
   - id: HP:0000988
-    label: rash
+    label: Rash
+  - id: MONDO:0009032
+    label: Celiac disease (CeD)
+  - id: HP:0002013
+    label: vomiting
+  - id: HP:0002024
+    label: malabsorption
+  - id: CHEBI:48416
+    label: Olmesartan
+  - id: CHEBI:35457
+    label: ACE inhibitors (ACEIs)
+  - id: MAXO:0000824
+    label: Hemoglobin measurement
   - id: HP:0002102
     label: pleurisy
   - id: HP:0001701
@@ -280,10 +190,16 @@ named_entities:
     label: ascites
   - id: HP:0000238
     label: hydrocephalus
+  - id: HP:0002018
+    label: Nausea
+  - id: CHEBI:74859
+    label: anti-tissue transglutaminase IgA (TG)
   - id: CHEBI:6541
     label: Losartan
   - id: MAXO:0035049
     label: Endoscopic retrograde cholangiopancreatography
+  - id: HP:0005214
+    label: intestinal obstruction
   - id: MAXO:0001175
     label: Liver transplantation
   - id: MAXO:0000503
@@ -300,74 +216,313 @@ named_entities:
     label: Loss of consciousness
   - id: CHEBI:49575
     label: Diazepam
-  - id: HP:0004448
-    label: fulminant hepatic failure
-  - id: CHEBI:190522
-    label: gliadin
-  - id: CHEBI:16412
-    label: lipopolysaccharide
-  - id: HP:0002242
-    label: enteropathy
-  - id: MONDO:0007179
-    label: Autoimmune Disorders
-  - id: HP:0002960
-    label: Autoimmune Disorders
-  - id: MONDO:0010138
-    label: Gluten-related disorders (GRD)
-  - id: MAXO:0001017
-    label: Vaccination
-  - id: HP:0002019
-    label: Constipation
-  - id: HP:0000739
-    label: Anxiety
-  - id: CHEBI:85146
-    label: Carboxymethyl cellulose
-  - id: MAXO:0001298
-    label: therapy
-  - id: HP:0002910
-    label: Elevated transaminases
-  - id: MAXO:0001001
-    label: Gene therapy
-  - id: CHEBI:36080
-    label: Protein
-  - id: MONDO:0010602
-    label: Hemophilia A
-  - id: CHEBI:15443
-    label: Inulin
+  - id: HP:0100753
+    label: Schizophrenia
+  - id: MAXO:0001193
+    label: Upper gastrointestinal endoscopy
+  - id: MAXO:0000108
+    label: Iron supplementations
+  - id: MAXO:0001129
+    label: Vitamin supplementations
+  - id: HP:0001891
+    label: Iron deficiency anemia
+  - id: HP:0001889
+    label: Megaloblastic anemia
+  - id: HP:0002028
+    label: Chronic diarrhea
+  - id: CHEBI:18248
+    label: Iron
+  - id: CHEBI:176843
+    label: Vitamin B12
+  - id: MONDO:0005344
+    label: Hepatitis B
+  - id: MAXO:0000610
+    label: enzyme-linked immunosorbent assays (ELISA)
+  - id: CHEBI:80165
+    label: GIPs
+  - id: MONDO:0023605
+    label: Lane-Hamilton syndrome (LHS)
+  - id: HP:4000055
+    label: Intestinal inflammation
+  - id: CHEBI:16301
+    label: Nitrite
+  - id: CHEBI:17632
+    label: Nitrate
+  - id: HP:0011793
+    label: malignancy
+  - id: CHEBI:50249
+    label: anticoagulants
+  - id: HP:0002639
+    label: Budd-Chiari syndrome
+  - id: MONDO:0010947
+    label: Budd-Chiari syndrome
+  - id: HP:0100512
+    label: Vitamin D deficiency
   - id: CHEBI:82594
     label: Ferritin
+  - id: CHEBI:27363
+    label: Zinc
+  - id: HP:0001824
+    label: weight loss
+  - id: CHEBI:8499
+    label: propranolol
+  - id: CHEBI:46195
+    label: acetaminophen
+  - id: CHEBI:258351
+    label: practolol
+  - id: CHEBI:18332
+    label: levothyroxine
+  - id: CHEBI:33281
+    label: antibiotics
+  - id: MONDO:0010138
+    label: Gluten-related disorders (GRD)
+  - id: CHEBI:75769
+    label: B vitamins
+  - id: MONDO:0100096
+    label: COVID-19
+  - id: HP:0001945
+    label: Fever
+  - id: HP:0012735
+    label: Cough
+  - id: HP:0033050
+    label: Sore throat
+  - id: HP:0002094
+    label: Dyspnea
+  - id: HP:0001953
+    label: Diabetic ketoacidosis
+  - id: HP:0000407
+    label: Sensorineural hearing loss
+  - id: HP:0002870
+    label: Obstructive sleep apnea
+  - id: HP:0000421
+    label: Epistaxis
+  - id: HP:0002321
+    label: Vertigo
+  - id: HP:0000639
+    label: Nystagmus
+  - id: HP:0000938
+    label: osteopenia
+  - id: HP:0002960
+    label: autoimmune diseases
+  - id: MONDO:0008558
+    label: primary immune thrombocytopenia (ITP)
+  - id: CHEBI:35472
+    label: anti-inflammatory drugs
+  - id: HP:0001394
+    label: Cirrhosis
+  - id: HP:0012538
+    label: gluten sensitivity
+  - id: MONDO:0005155
+    label: Cirrhosis
+  - id: HP:0004395
+    label: Malnutrition
+  - id: HP:0007378
+    label: Gastrointestinal tumors
+  - id: HP:0004322
+    label: Short stature
+  - id: MONDO:0005011
+    label: Crohn's disease
+  - id: HP:0006297
+    label: enamel hypoplasia
+  - id: HP:0200035
+    label: plaque
+  - id: CHEBI:17051
+    label: fluoride
+  - id: MAXO:0000110
+    label: vitamin D supplementation
+  - id: MAXO:0001139
+    label: calcium supplementation
+  - id: HP:0025406
+    label: weakness
+  - id: HP:0020110
+    label: fractures
+  - id: HP:0012531
+    label: Pain
+  - id: MONDO:0004790
+    label: Hepatic Steatosis (nonalcoholic fatty liver disease, NAFLD)
+  - id: HP:0002910
+    label: elevated transaminases
+  - id: HP:0001392
+    label: liver disorders
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: MONDO:0007179
+    label: Autoimmunity
+  - id: MONDO:0010602
+    label: Hemophilia A
+  - id: CHEBI:145810
+    label: Insulin
+  - id: CHEBI:75431
+    label: Ghrelin
+  - id: CHEBI:81572
+    label: Adiponectin
+  - id: CHEBI:81571
+    label: Leptin
+  - id: CHEBI:27470
+    label: folate
+  - id: CHEBI:17230
+    label: homocysteine
+  - id: MONDO:0003240
+    label: Thyroid Disease
+  - id: MONDO:0019473
+    label: Enteropathy-associated T-cell lymphoma (EATL)
+  - id: MAXO:0000647
+    label: Chemotherapy
+  - id: HP:0002239
+    label: Gastrointestinal haemorrhages
+  - id: CHEBI:28748
+    label: Doxorubicin
+  - id: CHEBI:4027
+    label: Cyclophosphamide
+  - id: CHEBI:28445
+    label: Vincristine
+  - id: HP:0000969
+    label: Edema
+  - id: HP:0003073
+    label: Hypoalbuminemia
+  - id: HP:0001254
+    label: Lethargy
+  - id: HP:0002615
+    label: Hypotension
+  - id: HP:0001510
+    label: Growth delay
+  - id: HP:0002194
+    label: Delayed motor skills
+  - id: HP:0003256
+    label: Coagulopathy
+  - id: HP:0001942
+    label: Metabolic acidosis
+  - id: HP:0001873
+    label: Thrombocytopenia
+  - id: HP:0001508
+    label: failure to thrive
+  - id: HP:0012378
+    label: fatigue
+  - id: CHEBI:71200
+    label: Tofacitinib
+  - id: CHEBI:66919
+    label: Ruxolitinib
+  - id: CHEBI:15443
+    label: Inulin
   - id: CHEBI:35143
     label: Hemoglobin
+  - id: CHEBI:231491
+    label: C-reactive protein (CRP)
   - id: MONDO:0007699
     label: Hashimoto's Thyroiditis
+  - id: HP:0034588
+    label: crypt hyperplasia
+  - id: MAXO:0001298
+    label: therapies
+  - id: MONDO:0018895
+    label: Plummer-Vinson syndrome
+  - id: HP:0002015
+    label: Dysphagia
+  - id: HP:0030318
+    label: Angular cheilitis
+  - id: HP:0010298
+    label: Atrophic glossitis
+  - id: MAXO:0000144
+    label: histological examination
+  - id: CHEBI:16664
+    label: albendazole
+  - id: HP:0012414
+    label: duodenal atrophy
   - id: MAXO:0000623
     label: dietary counseling
-  - id: MONDO:0009032
-    label: Celiac Disease (CeD)
+  - id: MONDO:0005277
+    label: Migraine
+  - id: HP:0002076
+    label: migraine
+  - id: HP:0001249
+    label: Mental retardation
+  - id: HP:0001251
+    label: Ataxia
+  - id: MAXO:0000778
+    label: urine analysis using lateral flow test (LFT) and G12 monoclonal antibody
+  - id: MONDO:0000816
+    label: Metabolic Syndrome
+  - id: HP:0000855
+    label: Insulin resistance
+  - id: HP:0012743
+    label: Abdominal obesity
+  - id: HP:0011123
+    label: Dermatitis
+  - id: HP:0004789
+    label: Lactose intolerance
+  - id: CHEBI:190522
+    label: gliadin
+  - id: MONDO:0007021
+    label: Wheat Allergy (WA)
+  - id: HP:0100651
+    label: Type 1 diabetes
+  - id: HP:0000872
+    label: Autoimmune thyroiditis
+  - id: MAXO:0000571
+    label: Cross-sectional imaging techniques (computed tomography [CT] and magnetic
+      resonance imaging [MRI])
+  - id: CHEBI:33229
+    label: Vitamins
+  - id: CHEBI:27027
+    label: Micronutrients
+  - id: MONDO:0005147
+    label: Type 1 diabetes mellitus (T1DM)
+  - id: HP:0002958
+    label: immune dysregulation
+  - id: HP:0002037
+    label: inflammatory bowel disease
+  - id: HP:0410151
+    label: eosinophilic esophagitis
+  - id: HP:0001395
+    label: hepatic fibrosis
+  - id: CHEBI:80270
+    label: Injectable glucagon-like peptide 1 (GLP-1) receptor agonists
   - id: MONDO:0017575
     label: Mitochondrial neurogastrointestinal encephalomyopathy (MNGIE)
   - id: MAXO:0000533
     label: molecular genetic testing
-  - id: HP:0004395
-    label: malnutrition
   - id: CHEBI:17748
     label: thymidine
   - id: CHEBI:16450
     label: deoxyuridine
-  - id: MAXO:0010200
-    label: Abdominal ultrasound
   - id: HP:0100770
-    label: Hyperperistalsis
+    label: hyperperistalsis
   - id: HP:0025043
-    label: Enlarged mesenteric lymph nodes
-  - id: MAXO:0000610
-    label: Enzyme-linked immunosorbent assay
+    label: enlarged mesenteric lymph nodes
+  - id: MAXO:0000747
+    label: Hematopoietic stem cell transplantation (HSCT)
+  - id: MAXO:0000127
+    label: genetic testing
+  - id: MONDO:0005302
+    label: ADHD
+  - id: HP:0002148
+    label: Hypophosphatemia
+  - id: HP:0002900
+    label: Hypokalemia
+  - id: HP:0002901
+    label: Hypocalcemia
+  - id: MONDO:0005361
+    label: eosinophilic esophagitis
+  - id: MONDO:0000704
+    label: Lymphocytic colitis
   - id: HP:0100543
-    label: cognitive deficits
+    label: Cognitive deficits
+  - id: HP:0033630
+    label: Brain fog
   - id: HP:0001268
-    label: cognitive decline
-  - id: CHEBI:71200
-    label: Tofacitinib
+    label: Cognitive decline
+  - id: MAXO:0001184
+    label: colonoscopy
+  - id: MAXO:0001017
+    label: Vaccination
+  - id: MAXO:0000004
+    label: Surgery
+  - id: MAXO:0000756
+    label: Blood transfusions
+  - id: MONDO:0005154
+    label: liver diseases
+  - id: MONDO:0015614
+    label: Dermatitis herpetiformis
   - id: CHEBI:4325
     label: Dapsone
   - id: CHEBI:132842
@@ -376,128 +531,204 @@ named_entities:
     label: Sulfasalazine
   - id: CHEBI:23359
     label: Colchicine
+  - id: MONDO:0004251
+    label: small bowel tumors
   - id: HP:0004324
-    label: weight gain
-  - id: MAXO:0010203
-    label: echocardiography
+    label: Weight gain
+  - id: MAXO:0001394
+    label: Oral administration
+  - id: HP:0000952
+    label: Jaundice
+  - id: HP:0001744
+    label: Splenomegaly
+  - id: CHEBI:9907
+    label: Ursodeoxycholic acid
+  - id: CHEBI:35341
+    label: Steroid
   - id: HP:0012664
-    label: reduced left ventricular ejection fraction
-  - id: HP:0004322
-    label: short stature
+    label: Reduced left ventricular ejection fraction
+  - id: HP:0032282
+    label: contact dermatitis
+  - id: HP:0001025
+    label: urticaria
+  - id: HP:0000989
+    label: itching
+  - id: HP:0011024
+    label: gastrointestinal disorders
+  - id: CHEBI:18186
+    label: Tyrosine
+  - id: CHEBI:28044
+    label: Phenylalanine
+  - id: CHEBI:27897
+    label: Tryptophan
+  - id: HP:0012190
+    label: T-cell lymphoma
+  - id: MONDO:0000702
+    label: Microscopic colitis
+  - id: CHEBI:50858
+    label: Corticosteroids
+  - id: CHEBI:3207
+    label: Budesonide
+  - id: CHEBI:20551
+    label: 5-aminosalicylates
+  - id: CHEBI:33301
+    label: Bismuth
+  - id: MONDO:0000001
+    label: disease
+  - id: HP:0000716
+    label: Depression
   - id: MONDO:0004335
-    label: gastrointestinal diseases
+    label: gastrointestinal disorders
+  - id: MAXO:0000106
+    label: Nutritional supplementation
+  - id: CHEBI:2700
+    label: IgA anti-endomysial antibodies (AEA)
+  - id: MONDO:0005052
+    label: Irritable bowel syndrome
+  - id: MAXO:0000080
+    label: stress management
+  - id: CHEBI:53784
+    label: antispasmodics
+  - id: CHEBI:55323
+    label: antidiarrheals
   - id: CHEBI:73912
     label: Gluten Friendly (GF)
-  - id: MONDO:0007021
-    label: Wheat Allergy
-  - id: CHEBI:27780
-    label: Detergents
-  - id: HP:0025464
-    label: oxidative stress
-  - id: MONDO:0015517
-    label: CVID (Common Variable Immune Deficiency)
+  - id: HP:0000789
+    label: Infertility
+  - id: HP:0001370
+    label: rheumatoid arthritis
+  - id: HP:0000819
+    label: diabetes mellitus
+  - id: HP:0002242
+    label: enteropathy
+  - id: HP:0001409
+    label: Portal hypertension
+  - id: CHEBI:35674
+    label: antihypertensive drug
+  - id: HP:0012115
+    label: liver inflammation
+  - id: CHEBI:37708
+    label: <Alanine aminotransferase (ALT)>
+  - id: CHEBI:26708
+    label: sodium
   - id: MONDO:0016546
     label: Postural orthostatic tachycardia syndrome (POTS)
   - id: HP:0031690
-    label: orthostatic intolerance (OI)
+    label: Orthostatic intolerance (OI)
   - id: MONDO:0011479
     label: Postural orthostatic tachycardia syndrome
-  - id: HP:0002020
-    label: Gastroesophageal reflux disease
+  - id: CHEBI:38224
+    label: fumonisins
   - id: HP:0500093
     label: food allergy
-  - id: CHEBI:48416
-    label: Olmesartan
-  - id: MONDO:0005301
-    label: multiple sclerosis
-  - id: CHEBI:80165
-    label: gluten immunogenic peptides (GIPs)
+  - id: HP:0031418
+    label: Increased Body Mass Index (BMI)
+  - id: MONDO:0015517
+    label: Common Variable Immunodeficiency (CVID)
+  - id: MONDO:0006861
+    label: Multiple Sclerosis (MS)
+  - id: MONDO:0019316
+    label: Urticaria pigmentosa
+  - id: HP:0100495
+    label: Urticaria pigmentosa
+  - id: HP:0001369
+    label: Arthritis
+  - id: HP:0008222
+    label: Female infertility
+  - id: HP:0000684
+    label: Delayed tooth eruption
+  - id: MONDO:0005083
+    label: Psoriasis
   - id: MONDO:0011024
     label: Dermatitis Herpetiformis (DH)
   - id: CHEBI:205919
-    label: Clobetasol
-  - id: HP:0000989
-    label: pruritus
+    label: clobetasol
   - id: HP:0001890
     label: autoimmune hemolytic anemia
-  - id: HP:0001369
-    label: arthritis
   - id: HP:0002725
     label: systemic lupus erythematosus
   - id: HP:0002633
     label: vasculitis
   - id: HP:0100279
     label: ulcerative colitis
-  - id: MONDO:0008558
-    label: immune thrombocytopenic purpura
-  - id: MONDO:0007915
-    label: systemic lupus erythematosus
-  - id: MONDO:0007147
-    label: Obstructive sleep apnea (OSA)
   - id: HP:0030812
     label: Enlarged tonsils
   - id: CHEBI:16646
     label: Carbohydrates
-  - id: HP:0000872
-    label: Autoimmune thyroiditis
-  - id: HP:4000055
-    label: Intestinal inflammation
-  - id: HP:0001510
-    label: delayed growth
-  - id: CHEBI:18332
-    label: L-thyroxine
-  - id: MONDO:0001220
-    label: Hypoparathyroidism
+  - id: CHEBI:36080
+    label: Protein
+  - id: HP:0040270
+    label: Impaired glucose tolerance (IGT)
+  - id: CHEBI:17823
+    label: Calcitriol
+  - id: MONDO:0001356
+    label: Iron deficiency anemia
+  - id: MAXO:0035037
+    label: gastroscopy
   - id: HP:0012450
-    label: chronic constipation
+    label: Chronic constipation
+  - id: CHEBI:73812
+    label: <registered dietitian (RD)>
   - id: HP:0033589
-    label: Flatus
-  - id: HP:0011123
-    label: Dermatitis
-  - id: HP:0000789
-    label: Infertility
+    label: flatus
+  - id: HP:0000651
+    label: diplopia
+  - id: HP:0001271
+    label: polyneuropathy
+  - id: MONDO:0008661
+    label: Vitiligo
   - id: MONDO:0011229
-    label: Epileptic encephalopathies (EE)
+    label: Epileptic Encephalopathies (EE)
+  - id: MAXO:0000014
+    label: Brain area stimulus specific reaction times (RT) administration
+  - id: HP:0000649
+    label: Abnormal visual evoked potentials (VEP)
+  - id: CHEBI:76649
+    label: Aspartate transaminase (AST)
   - id: CHEBI:17992
     label: Sucrose
   - id: CHEBI:30618
     label: Hydroxypropyl methylcellulose
-  - id: CHEBI:17968
-    label: butyrate
-  - id: CHEBI:28938
-    label: ammonia
-  - id: CHEBI:49662
-    label: Indomethacin
-  - id: CHEBI:47381
-    label: Diclofenac
-  - id: CHEBI:114785
-    label: Erlotinib
-  - id: CHEBI:35475
-    label: NSAIDs (indomethacin, diclofenac)
-  - id: CHEBI:26208
-    label: omega-3 polyunsaturated fatty acids (PUFAs)
+  - id: CHEBI:26607
+    label: saturated fatty acids
+  - id: HP:0000822
+    label: hypertension
+  - id: HP:0002140
+    label: Ischemic stroke
+  - id: HP:0000867
+    label: Secondary hyperparathyroidism
+  - id: CHEBI:46557
+    label: Zoledronic acid
+  - id: CHEBI:28940
+    label: Cholecalciferol
+  - id: MONDO:0013209
+    label: Non-alcoholic fatty liver disease
   - id: MONDO:0004977
-    label: Autoimmune Liver Disease (AILD)
+    label: Autoimmune liver disease (AILD)
+  - id: CHEBI:80332
+    label: C-peptide
   - id: MONDO:0016264
-    label: Autoimmune Liver Disease
-  - id: HP:0004398
-    label: peptic ulcer disease
-  - id: HP:0012126
-    label: gastric cancer
+    label: Autoimmune liver disease
+  - id: MONDO:0008932
+    label: Potential celiac disease (PCD)
   - id: HP:0005202
     label: Helicobacter pylori infection
   - id: HP:0002720
     label: IgA deficiency
-  - id: HP:0002013
-    label: Vomiting
-  - id: HP:0003073
-    label: Hypoalbuminemia
-  - id: CHEBI:27027
-    label: Micronutrients
-  - id: HP:0410329
-    label: Gluten allergy
-  - id: CHEBI:28102
-    label: Amylose
+  - id: CHEBI:24020
+    label: Fat-soluble vitamins
+  - id: MONDO:0005244
+    label: Peripheral neuropathy
+  - id: CHEBI:50733
+    label: dietary supplements
+  - id: HP:0002583
+    label: colitis
+  - id: CHEBI:82701
+    label: Idelalisib
+  - id: HP:0040274
+    label: Adenocarcinoma of the small bowel
+  - id: CHEBI:60579
+    label: Calcium oxalate
   - id: CHEBI:158283
     label: Ala
   - id: CHEBI:50342
@@ -520,127 +751,157 @@ named_entities:
     label: Asp
   - id: CHEBI:16044
     label: Met
-  - id: CHEBI:38224
-    label: Fumonisins (FBs)
-  - id: CHEBI:73807
-    label: Aflatoxins (AFs)
-  - id: CHEBI:7719
-    label: Ochratoxin-A (OTA)
-  - id: CHEBI:22271
-    label: Aflatoxins (AFB1, AFB2, AFG1, AFG2)
-  - id: CHEBI:10106
-    label: Zearalenone (ZON)
-  - id: CHEBI:10022
-    label: Deoxynivalenol (DON)
-  - id: CHEBI:146195
-    label: 3-acetyl-deoxynivalenol
-  - id: CHEBI:146194
-    label: 15-acetyl-deoxynivalenol (3-AcDON, 15-AcDON)
-  - id: CHEBI:7599
-    label: Nivalenol (NIV)
-  - id: CHEBI:201458
-    label: Neosolaniol (NEO)
-  - id: CHEBI:9381
-    label: T-2 toxin (T-2)
-  - id: CHEBI:138861
-    label: HT-2 toxin (HT-2)
-  - id: CHEBI:64648
-    label: Enniatins (ENN A, ENN A1, ENN B, ENN B1)
-  - id: CHEBI:3000
-    label: Beauvericin (BEA)
+  - id: HP:0030880
+    label: Raynaud's phenomenon
+  - id: MONDO:0009061
+    label: Cystic fibrosis
   - id: CHEBI:42491
-    label: flavones
+    label: Flavones
   - id: CHEBI:26848
-    label: tannins
+    label: Tannins
   - id: MONDO:0003198
     label: Small bowel adenocarcinoma (SBA)
   - id: CHEBI:31941
     label: Oxaliplatin
-  - id: HP:0040274
-    label: Small bowel adenocarcinoma
+  - id: CHEBI:18211
+    label: Citrulline
+  - id: MAXO:0000624
+    label: Nutrition assessment
+  - id: HP:0001397
+    label: Fatty liver
+  - id: HP:0001626
+    label: Cardiovascular disease
+  - id: HP:0009830
+    label: Peripheral neuropathy
+  - id: CHEBI:28659
+    label: phosphorus
+  - id: CHEBI:25413
+    label: monounsaturated fatty acids
+  - id: HP:0100523
+    label: liver abscesses
+  - id: HP:0012280
+    label: hepatic amyloidosis
+  - id: CHEBI:22977
+    label: CD
   - id: HP:0012395
     label: seasonal allergic rhinitis
-  - id: HP:0100507
-    label: Folate deficiency
-  - id: CHEBI:27470
-    label: Folate
-  - id: MONDO:0005011
-    label: Crohn's disease
+  - id: CHEBI:26948
+    label: vitamin B1
+  - id: CHEBI:51707
+    label: B2
+  - id: CHEBI:25107
+    label: magnesium
+  - id: CHEBI:16480
+    label: Nitric oxide (NO)
+  - id: CHEBI:65327
+    label: D-xylose
+  - id: CHEBI:16113
+    label: Cholesterol
+  - id: CHEBI:39025
+    label: HDL
+  - id: HP:0032319
+    label: health status
+  - id: HP:0005059
+    label: arthralgia/arthritis
+  - id: HP:0001596
+    label: alopecia
+  - id: HP:0010280
+    label: stomatitis
+  - id: HP:0003326
+    label: myalgia
+  - id: HP:0000708
+    label: psychiatric disorders
+  - id: HP:0000823
+    label: delayed puberty
+  - id: CHEBI:33234
+    label: Vitamin E
+  - id: MONDO:0019469
+    label: T-cell large granular lymphocytic leukemia
+  - id: HP:0002360
+    label: Sleep disturbances
   - id: CHEBI:6775
-    label: mesalazine
-  - id: MONDO:0005101
-    label: ulcerative colitis
-  - id: MONDO:0005361
-    label: eosinophilic esophagitis
+    label: Mesalazine
+  - id: CHEBI:6359
+    label: lactulose
+  - id: CHEBI:29864
+    label: mannitol
   - id: CHEBI:26020
     label: Phosphate
   - id: HP:0001507
-    label: Growth issues
-  - id: HP:0002576
-    label: IS (Intussusception)
-  - id: HP:0001397
-    label: hepatic steatosis
-  - id: MAXO:0000127
-    label: Genetic testing
-  - id: MAXO:0000108
-    label: Oral iron supplementation
-  - id: MAXO:0000624
-    label: Dietary assessments
+    label: growth issues
   - id: CHEBI:75832
-    label: Ferrous sulfate
-  - id: CHEBI:30563
-    label: Silicon dioxide
+    label: ferrous sulfate
+  - id: CHEBI:17609
+    label: cortisol acetate
+  - id: MONDO:0015129
+    label: Addison's Disease
+  - id: CHEBI:37845
+    label: growth hormone (GH)
+  - id: HP:0001944
+    label: Dehydration
+  - id: HP:0010741
+    label: Pedal edema
   - id: MAXO:0001262
-    label: Micronutrient supplementation (in the presence of nutritional deficiency)
-  - id: CHEBI:16811
-    label: Methionine
-  - id: HP:0020110
-    label: bone fractures
+    label: micronutrient supplementation
+  - id: HP:0003124
+    label: Increased total cholesterol
+  - id: HP:0001402
+    label: hepatocellular carcinoma
+  - id: HP:0004349
+    label: Decreased bone mineral density (BMD)
+  - id: CHEBI:135983
+    label: Teriparatide
+  - id: CHEBI:41060
+    label: Ibandronate
   - id: HP:0002665
     label: lymphoma
+  - id: CHEBI:63895
+    label: interleukin (IL)-1beta
+  - id: CHEBI:133326
+    label: Barium sulfate
   - id: HP:0200037
     label: vesicles
-  - id: MONDO:0005260
+  - id: HP:0004936
+    label: Venous thrombosis
+  - id: MONDO:0006664
     label: Autism Spectrum Disorder (ASD)
-  - id: HP:0000708
-    label: behavioural problems
   - id: MONDO:0005258
     label: Autism Spectrum Disorder
+  - id: HP:0002205
+    label: Recurrent respiratory infections
+  - id: HP:0002257
+    label: Chronic rhinitis
+  - id: CHEBI:37956
+    label: Antihistamines
   - id: HP:0008209
     label: Premature ovarian failure
-  - id: CHEBI:4027
-    label: Cyclophosphamide
-  - id: CHEBI:50858
-    label: Corticosteroids
   - id: CHEBI:27226
-    label: uric acid
+    label: Uric acid
   - id: CHEBI:16990
-    label: bilirubin
-  - id: CHEBI:63606
-    label: levoleucovorin
+    label: Bilirubin
   - id: CHEBI:63616
     label: pemetrexed
   - id: CHEBI:31355
     label: carboplatin
   - id: CHEBI:82976
     label: pembrolizumab
+  - id: CHEBI:63606
+    label: levoleucovorin
   - id: CHEBI:100241
     label: ciprofloxacin
-  - id: CHEBI:28300
-    label: Glutamine
-  - id: CHEBI:29987
-    label: Glutamate
-  - id: CHEBI:73291
-    label: DGP
-  - id: CHEBI:23066
-    label: cephalosporins
-  - id: CHEBI:17334
-    label: penicillins
-  - id: CHEBI:25106
-    label: macrolides
-  - id: MAXO:0000110
-    label: Vitamin D supplementation
-  - id: HP:0100512
-    label: Low levels of vitamin D
-  - id: HP:0003074
-    label: Hyperglycemia
+  - id: HP:0012317
+    label: sacroiliitis
+  - id: HP:0002758
+    label: osteoarthritis
+  - id: HP:0003765
+    label: psoriasis
+  - id: CHEBI:50846
+    label: Immunomodulators
+  - id: MONDO:0005265
+    label: Inflammatory Bowel Diseases
+  - id: HP:0001894
+    label: thrombocytosis
+  - id: HP:0001882
+    label: leucopenia
+  - id: MONDO:0007915
+    label: Systemic Lupus Erythematosus (SLE)

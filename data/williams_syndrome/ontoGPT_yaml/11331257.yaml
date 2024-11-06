@@ -1,0 +1,83 @@
+---
+input_text: 'Balloon dilation angioplasty of peripheral pulmonary stenosis associated
+  with Williams syndrome. BACKGROUND: Experience of balloon dilation of peripheral
+  pulmonary stenosis (PPS) in Williams syndrome (WS) is limited. METHODS AND RESULTS:
+  Catheterizations in all patients with WS undergoing therapy for PPS from 1984 to
+  1999 were reviewed. Criteria for successful dilation included an increase >50% in
+  predilation diameter and a decrease >20% in ratio of right ventricular (RV) to aortic
+  (Ao) systolic pressure. Median age and weight were 1.5 years and 9.5 kg. There were
+  134 dilations during 39 procedures in 25 patients. The success rate for initial
+  dilations was 51%. In multivariate analysis, successful dilation was more likely
+  (1) in distal than in central pulmonary arteries (P=0.02), (2) if the balloon waist
+  resolved with inflation (P=0.001), and (3) with larger balloon/stenosis ratio (P<0.001).
+  RV pressure was unchanged after dilation (96+/-30 versus 97+/-31 mm Hg), primarily
+  because of failure to enlarge central pulmonary arteries. The Ao pressure increased
+  (102+/-14 versus 109+/-19 mm Hg, P=0.03), and the RV/Ao pressure ratio decreased
+  (0.97+/-0.34 versus 0.91+/-0.30, P=0.05). Aneurysms developed after 24 dilations
+  (18%) and were not related to balloon/stenosis ratio. Balloon rupture in 12 dilations
+  produced an aneurysm in all 7 cases when rupture was in a hypoplastic segment. Three
+  patients died, none from pulmonary artery trauma, and all before 1994. CONCLUSIONS:
+  Mortality occurred early in our experience. Despite successful dilation of distal
+  pulmonary arteries, there was modest initial hemodynamic improvement, mainly because
+  of persistent central pulmonary artery obstruction. A serial approach of distal
+  dilations followed by surgical repair of proximal obstruction may be a rational
+  and successful therapy.'
+raw_completion_output: |-
+  primary_disease: Williams syndrome
+
+  medical_actions: balloon dilation angioplasty; surgical repair
+
+  symptoms: peripheral pulmonary stenosis; increase in predilation diameter; decrease in ratio of right ventricular to aortic systolic pressure; unchanged RV pressure; increased Ao pressure; aneurysms; balloon rupture
+
+  chemicals: 
+
+  action_annotation_relationships: balloon dilation angioplasty TREATS peripheral pulmonary stenosis IN Williams syndrome; surgical repair TREATS persistent central pulmonary artery obstruction IN Williams syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  surgical repair TREATS persistent central pulmonary artery obstruction IN Williams syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0008678
+  medical_actions:
+    - balloon dilation angioplasty
+    - MAXO:0009072
+  symptoms:
+    - HP:0004969
+    - increase in predilation diameter
+    - decrease in ratio of right ventricular to aortic systolic pressure
+    - unchanged RV pressure
+    - increased Ao pressure
+    - HP:0002617
+    - balloon rupture
+  action_annotation_relationships:
+    - subject: balloon dilation angioplasty
+      predicate: TREATS
+      object: HP:0004969
+      qualifier: MONDO:0008678
+    - subject: MAXO:0009072
+      predicate: TREATS
+      object: persistent central pulmonary artery obstruction
+      qualifier: MONDO:0008678
+named_entities:
+  - id: MONDO:0008678
+    label: Williams syndrome
+  - id: MAXO:0009072
+    label: surgical repair
+  - id: HP:0004969
+    label: peripheral pulmonary stenosis
+  - id: HP:0002617
+    label: aneurysms

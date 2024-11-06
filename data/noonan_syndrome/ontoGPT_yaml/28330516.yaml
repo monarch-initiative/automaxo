@@ -9,11 +9,11 @@ input_text: Treatment of severe refractory valvar pulmonary stenosis with primar
 raw_completion_output: |-
   primary_disease: pulmonary valve stenosis
   medical_actions: balloon valvuloplasty; surgical repair; transcatheter Melody pulmonary valve implantation
-  symptoms: severe refractory valvar pulmonary stenosis
+  symptoms: 
   chemicals: 
-  action_annotation_relationships: balloon valvuloplasty TREATS severe refractory valvar pulmonary stenosis IN pulmonary valve stenosis; surgical repair TREATS severe refractory valvar pulmonary stenosis IN pulmonary valve stenosis; transcatheter Melody pulmonary valve implantation TREATS severe refractory valvar pulmonary stenosis IN pulmonary valve stenosis
+  action_annotation_relationships: transcatheter Melody pulmonary valve implantation TREATS pulmonary valve stenosis; balloon valvuloplasty TREATS pulmonary valve stenosis; surgical repair TREATS pulmonary valve stenosis
 prompt: |+
-  From the text below, extract the following entities in the following format:
+  Split the following piece of text into fields in the following format:
 
   subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
   object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
@@ -26,7 +26,7 @@ prompt: |+
 
 
   Text:
-  transcatheter Melody pulmonary valve implantation TREATS severe refractory valvar pulmonary stenosis IN pulmonary valve stenosis
+  surgical repair TREATS pulmonary valve stenosis
 
   ===
 
@@ -36,29 +36,23 @@ extracted_object:
     - balloon valvuloplasty
     - MAXO:0009072
     - transcatheter Melody pulmonary valve implantation
-  symptoms:
-    - severe refractory valvar pulmonary stenosis
   action_annotation_relationships:
-    - subject: balloon valvuloplasty
-      predicate: TREATS
-      object: severe refractory valvar pulmonary stenosis
-      qualifier: MONDO:0006936
-      object_qualifier: severe
-    - subject: MAXO:0009072
-      predicate: TREATS
-      object: severe refractory valvar pulmonary stenosis
-      qualifier: MONDO:0006936
-      object_qualifier: severe
     - subject: transcatheter pulmonary valve implantation
       predicate: TREATS
-      object: severe refractory valvar pulmonary stenosis
-      qualifier: MONDO:0006936
-      object_qualifier: severe
+      object: HP:0001642
       subject_extension: Melody pulmonary valve
+    - subject: balloon valvuloplasty
+      predicate: TREATS
+      object: HP:0001642
+    - subject: MAXO:0009072
+      predicate: TREATS
+      object: HP:0001642
 named_entities:
   - id: CHEBI:33281
-    label: Antibiotics
+    label: antibiotics
   - id: MONDO:0006936
     label: pulmonary valve stenosis
   - id: MAXO:0009072
     label: surgical repair
+  - id: HP:0001642
+    label: pulmonary valve stenosis

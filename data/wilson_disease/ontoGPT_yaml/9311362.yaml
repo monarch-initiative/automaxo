@@ -18,13 +18,13 @@ input_text: "Penicillamine-related neurologic syndrome in a child affected by Wi
 raw_completion_output: |-
   primary_disease: Wilson disease
 
-  medical_actions: Penicillamine therapy; Zinc therapy; Discontinuation of penicillamine therapy; Comparison with similar cases; Discussion of alternative treatment
+  medical_actions: penicillamine therapy; zinc therapy; discontinuation of penicillamine therapy
 
-  symptoms: Neurologic syndrome; Neurologic symptoms; Neurologic deterioration
+  symptoms: neurologic symptoms
 
-  chemicals: Penicillamine; Zinc
+  chemicals: penicillamine; zinc
 
-  action_annotation_relationships: Penicillamine therapy TREATS Wilson disease; Zinc therapy TREATS neurologic symptoms IN Wilson disease; Discontinuation of penicillamine therapy PREVENTS neurologic syndrome IN Wilson disease; Penicillamine therapy TREATS Wilson disease WITH Penicillamine; Zinc therapy TREATS neurologic symptoms IN Wilson disease WITH Zinc
+  action_annotation_relationships: penicillamine therapy TREATS Wilson disease; zinc therapy TREATS neurologic symptoms IN Wilson disease; discontinuation of penicillamine therapy PREVENTS neurologic symptoms IN Wilson disease
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -39,22 +39,18 @@ prompt: |+
 
 
   Text:
-  Zinc therapy TREATS neurologic symptoms IN Wilson disease WITH Zinc
+  discontinuation of penicillamine therapy PREVENTS neurologic symptoms IN Wilson disease
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0010200
   medical_actions:
-    - Penicillamine therapy
+    - penicillamine therapy
     - MAXO:0009095
-    - Discontinuation of penicillamine therapy
-    - Comparison with similar cases
-    - Discussion of alternative treatment
+    - discontinuation of penicillamine therapy
   symptoms:
-    - Neurologic syndrome
-    - Neurologic symptoms
-    - HP:0002344
+    - neurologic symptoms
   chemicals:
     - CHEBI:50868
     - CHEBI:27363
@@ -68,28 +64,26 @@ extracted_object:
       object: neurologic symptoms
       qualifier: MONDO:0010200
       subject_extension: CHEBI:27363
-    - subject: Discontinuation of penicillamine therapy
+    - subject: discontinuation of therapy
       predicate: PREVENTS
-      object: neurologic syndrome
-      qualifier: MONDO:0010200
-      subject_extension: CHEBI:50868
-    - subject: Penicillamine therapy
-      predicate: TREATS
-      object: Wilson disease
-      subject_extension: CHEBI:50868
-    - subject: MAXO:0009095
-      predicate: TREATS
       object: neurologic symptoms
       qualifier: MONDO:0010200
-      subject_extension: CHEBI:27363
+      subject_extension: CHEBI:50868
 named_entities:
   - id: MONDO:0010200
-    label: Wilson disease
+    label: Wilson's disease
   - id: MAXO:0001175
-    label: liver transplantation
-  - id: MAXO:0000004
-    label: surgery (laparotomy, rectal mobilization, rectopexy, the partial sigmoid
-      colon resection with the primary anastomosis)
+    label: Liver transplantation
+  - id: HP:0001695
+    label: Cardiac arrest
+  - id: HP:0001685
+    label: Myocardial fibrosis
+  - id: HP:0001663
+    label: Ventricular fibrillation
+  - id: CHEBI:28694
+    label: Copper
+  - id: CHEBI:18248
+    label: Iron
   - id: HP:0002910
     label: abnormal liver functions
   - id: HP:0001394
@@ -98,15 +92,19 @@ named_entities:
     label: zinc
   - id: CHEBI:50868
     label: penicillamine
-  - id: CHEBI:51232
-    label: Hoechst 33342
+  - id: MAXO:0000016
+    label: Cell therapy
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: CHEBI:30703
+    label: Tetrathiomolybdate (TTM)
   - id: HP:0006554
     label: acute liver failure
-  - id: MAXO:0000068
-    label: transplantation
+  - id: CHEBI:35176
+    label: Zinc sulphate
+  - id: CHEBI:35475
+    label: NSAIDs
   - id: MAXO:0009095
-    label: Zinc therapy
-  - id: HP:0002344
-    label: Neurologic deterioration
+    label: zinc therapy
   - id: MAXO:0001298
     label: therapy

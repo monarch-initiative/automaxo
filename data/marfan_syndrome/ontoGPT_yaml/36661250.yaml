@@ -35,11 +35,11 @@ input_text: 'Outcomes for Treatment of Capsulolabral Adhesions With a Capsular S
   in revision hip arthroscopic procedures when an adequate labral volume remains but
   adhesions continue to be a concern.'
 raw_completion_output: |-
-  primary_disease: Capsular adhesions
-  medical_actions: Placement of a capsular spacer;Lysis of adhesions;Postoperative physical therapy;Circumduction exercises
-  symptoms: Pain;Dysfunction
+  primary_disease: Capsulolabral Adhesions
+  medical_actions: Capsular spacer placement during revision hip arthroscopic surgery; Lysis of adhesions; Postoperative physical therapy; Circumduction exercises
+  symptoms: Pain; Dysfunction
   chemicals: 
-  action_annotation_relationships: Placement of a capsular spacer TREATS pain IN Capsular adhesions;Lysis of adhesions TREATS dysfunction IN Capsular adhesions;Postoperative physical therapy PREVENTS recurrence of adhesions IN Capsular adhesions;Circumduction exercises PREVENTS recurrence of adhesions IN Capsular adhesions
+  action_annotation_relationships: Capsular spacer placement during revision hip arthroscopic surgery TREATS Pain IN Capsulolabral Adhesions; Capsular spacer placement during revision hip arthroscopic surgery TREATS Dysfunction IN Capsulolabral Adhesions; Lysis of adhesions TREATS Pain IN Capsulolabral Adhesions; Lysis of adhesions TREATS Dysfunction IN Capsulolabral Adhesions; Postoperative physical therapy PREVENTS recurrence of Pain IN Capsulolabral Adhesions; Postoperative physical therapy PREVENTS recurrence of Dysfunction IN Capsulolabral Adhesions; Circumduction exercises PREVENTS recurrence of Pain IN Capsulolabral Adhesions; Circumduction exercises PREVENTS recurrence of Dysfunction IN Capsulolabral Adhesions
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -54,14 +54,14 @@ prompt: |+
 
 
   Text:
-  Circumduction exercises PREVENTS recurrence of adhesions IN Capsular adhesions
+  Circumduction exercises PREVENTS recurrence of Dysfunction IN Capsulolabral Adhesions
 
   ===
 
 extracted_object:
-  primary_disease: Capsular adhesions
+  primary_disease: Capsulolabral Adhesions
   medical_actions:
-    - Placement of a capsular spacer
+    - Capsular spacer placement during revision hip arthroscopic surgery
     - Lysis of adhesions
     - Postoperative physical therapy
     - Circumduction exercises
@@ -69,57 +69,127 @@ extracted_object:
     - HP:0012531
     - Dysfunction
   action_annotation_relationships:
-    - subject: <Placement of a capsular spacer>
-      predicate: <TREATS>
-      object: <pain>
-      qualifier: <Capsular adhesions>
-      subject_extension: <capsular spacer>
+    - subject: revision hip arthroscopic surgery
+      predicate: TREATS
+      object: HP:0012531
+      qualifier: Capsulolabral Adhesions
+      subject_qualifier: during
+      subject_extension: Capsular spacer placement
+    - subject: spacer placement during revision hip arthroscopic surgery
+      predicate: TREATS
+      object: Dysfunction
+      qualifier: Capsulolabral Adhesions
+      subject_extension: Capsular spacer
     - subject: Lysis of adhesions
       predicate: TREATS
-      object: dysfunction
-      qualifier: Capsular adhesions
+      object: HP:0012531
+      qualifier: Capsulolabral Adhesions
+    - subject: Lysis of adhesions
+      predicate: TREATS
+      object: Dysfunction
+      qualifier: Capsulolabral Adhesions
     - subject: Postoperative physical therapy
       predicate: PREVENTS
-      object: recurrence of adhesions
-      qualifier: Capsular adhesions
+      object: recurrence of Pain
+      qualifier: Capsulolabral Adhesions
+    - subject: <Postoperative physical therapy>
+      predicate: <PREVENTS>
+      object: <recurrence of Dysfunction>
+      qualifier: <Capsulolabral Adhesions>
+      subject_qualifier: <Postoperative>
+      subject_extension: <Physical therapy>
     - subject: Circumduction exercises
       predicate: PREVENTS
-      object: recurrence of adhesions
-      qualifier: Capsular adhesions
+      object: recurrence of Pain
+      qualifier: Capsulolabral Adhesions
+    - subject: Circumduction exercises
+      predicate: PREVENTS
+      object: recurrence of Dysfunction
+      qualifier: Capsulolabral Adhesions
+      subject_qualifier: <Not applicable>
+      object_qualifier: <Not applicable>
+      subject_extension: <Not applicable>
+      object_extension: <Not applicable>
 named_entities:
+  - id: MAXO:0000011
+    label: Physiotherapy
+  - id: MAXO:0000004
+    label: Surgical interventions
+  - id: HP:0012531
+    label: Pain
+  - id: HP:0001513
+    label: Obesity
   - id: MONDO:0009691
-    label: Marfan syndrome (MFS)
-  - id: HP:0002140
-    label: Ischemic stroke
+    label: Marfan Syndrome (MFS)
+  - id: HP:0002647
+    label: Aortic dissection
+  - id: HP:0004942
+    label: Aortic aneurysm
   - id: MONDO:0007947
     label: Marfan syndrome
-  - id: MAXO:0000004
-    label: surgery
-  - id: MONDO:0004975
-    label: Aortic Dissection (AD)
-  - id: HP:0100602
-    label: preeclampsia/eclampsia
+  - id: HP:0003302
+    label: spondylolisthesis
+  - id: MONDO:0018954
+    label: Loeys-Dietz syndrome
+  - id: HP:0001083
+    label: ectopia lentis
+  - id: HP:0030961
+    label: microspherophakia
   - id: MONDO:0015290
     label: Neurotrophic Keratopathy
   - id: HP:0100699
-    label: Scarring
+    label: scarring
   - id: CHEBI:6716
-    label: Medroxyprogesterone acetate
+    label: medroxyprogesterone acetate
+  - id: CHEBI:33281
+    label: antibiotics
+  - id: CHEBI:35341
+    label: steroid
+  - id: HP:0003419
+    label: low back pain
+  - id: HP:0025309
+    label: irregular pupil
+  - id: MONDO:0005392
+    label: Scoliosis
   - id: HP:0001659
-    label: Aortic insufficiency
+    label: aortic insufficiency
   - id: HP:0001297
-    label: Stroke
+    label: stroke
   - id: HP:0002093
-    label: Respiratory insufficiency
+    label: respiratory insufficiency
   - id: HP:0001259
-    label: Coma
+    label: coma
   - id: MAXO:0000127
     label: Genetic testing
   - id: HP:0012727
     label: Thoracic aortic aneurysms
-  - id: HP:0001083
-    label: Ectopia lentis
+  - id: HP:0005268
+    label: miscarriages
+  - id: CHEBI:35530
+    label: beta-blockers
+  - id: MAXO:0000653
+    label: angiotensin receptor blocker therapy
+  - id: CHEBI:6541
+    label: losartan
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0025267
+    label: snoring
+  - id: HP:0010535
+    label: sleep-disordered breathing
+  - id: HP:0002616
+    label: Aortic root aneurysms
+  - id: HP:0012378
+    label: fatigue
+  - id: MAXO:0000900
+    label: Electrocardiography
+  - id: HP:0001649
+    label: Increased heart rates
   - id: MAXO:0009004
-    label: whole-exome sequencing (WES)
-  - id: HP:0012531
-    label: Pain
+    label: Whole-exome sequencing (WES)
+  - id: MONDO:0024644
+    label: Myocardial ischemia
+  - id: MAXO:0009038
+    label: Percutaneous coronary intervention
+  - id: HP:0100749
+    label: Chest pain

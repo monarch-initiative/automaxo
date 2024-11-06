@@ -1,0 +1,157 @@
+---
+input_text: "Comparison of different therapeutic approaches for children with common
+  lymphatic malformation. BACKGROUND: Our study compared the outcomes of three different
+  therapies: surgery (Group I), bleomycin sclerotherapy (Group II), and a combination
+  of both (Group III), for children with common (cystic) lymphatic malformation (LM)
+  at a paediatric surgical centre in Yogyakarta, Indonesia. METHODS: Medical records
+  of patients who were treated for LM in the Paediatric Surgical Centre Universitas
+  Gadjah Mada from January 2015 to January 2019 were reviewed. Scoring systems were
+  used to assess the outcomes, including reduction of size, problems of aesthetics,
+  functional problems, complications, necessity of further interventions, and interventions'
+  frequencies. RESULTS: During the four-year study, we included 31 children, consisting
+  of 6, 5, and 20 patients in Groups I, II, and III, respectively. The total score
+  did not significantly differ between Groups I, II, and III (14.67+-2.80 vs. 13.40+-2.07
+  vs. 12.50+-1.47, respectively; p=0.056). Group II scored better in aesthetic problems
+  than other groups (p=0.001), Group III scored higher in necessity of further interventions
+  compared to the other groups (p=0.026), and Group I was higher in interventions'
+  frequencies than the other groups (p<0.001). However, there were no significant
+  differences in reduction of size, functional problems, and complications among groups
+  (p=0.554, 0.151, and 0.076, respectively). CONCLUSIONS: There is no significant
+  different effect of the three modalities treatment for LM, although one group might
+  have more beneficial effects compared with the other groups due to different scoring
+  system parameters. Further multicentre and prospective cohort studies with a larger
+  number of patients are necessary to establish the existence and extent of our findings."
+raw_completion_output: |-
+  primary_disease: common lymphatic malformation (LM)
+
+  medical_actions: surgery; bleomycin sclerotherapy; combination of both surgery and bleomycin sclerotherapy
+
+  symptoms: problems of aesthetics; functional problems; complications; necessity of further interventions; interventions' frequencies
+
+  chemicals: bleomycin
+
+  action_annotation_relationships: surgery TREATS problems of aesthetics IN common lymphatic malformation (LM); surgery TREATS functional problems IN common lymphatic malformation (LM); surgery TREATS complications IN common lymphatic malformation (LM); bleomycin sclerotherapy (with bleomycin) TREATS problems of aesthetics IN common lymphatic malformation (LM); combination of both surgery and bleomycin sclerotherapy TREATS problems of aesthetics IN common lymphatic malformation (LM); combination of both surgery and bleomycin sclerotherapy TREATS necessity of further interventions IN common lymphatic malformation (LM); surgery TREATS interventions' frequencies IN common lymphatic malformation (LM)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  surgery TREATS interventions' frequencies IN common lymphatic malformation (LM)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0002013
+  medical_actions:
+    - MAXO:0000004
+    - bleomycin sclerotherapy
+    - combination of both surgery and bleomycin sclerotherapy
+  symptoms:
+    - problems of aesthetics
+    - functional problems
+    - complications
+    - necessity of further interventions
+    - interventions' frequencies
+  chemicals:
+    - CHEBI:22907
+  action_annotation_relationships:
+    - subject: MAXO:0000004
+      predicate: TREATS
+      object: problems of aesthetics
+      qualifier: MONDO:0002013
+    - subject: MAXO:0000004
+      predicate: TREATS
+      object: functional problems
+      qualifier: MONDO:0002013
+    - subject: MAXO:0000004
+      predicate: TREATS
+      object: complications
+      qualifier: MONDO:0002013
+    - subject: sclerotherapy
+      predicate: TREATS
+      object: problems of aesthetics
+      qualifier: MONDO:0002013
+      subject_qualifier: with bleomycin
+      subject_extension: CHEBI:22907
+    - subject: combination of both surgery and bleomycin sclerotherapy
+      predicate: TREATS
+      object: problems of aesthetics
+      qualifier: MONDO:0002013
+      subject_extension: CHEBI:22907
+    - subject: combination of both surgery and bleomycin sclerotherapy
+      predicate: TREATS
+      object: necessity of further interventions
+      qualifier: MONDO:0002013
+      subject_extension: CHEBI:22907
+    - subject: MAXO:0000004
+      predicate: TREATS
+      object: interventions' frequencies
+      qualifier: MONDO:0002013
+named_entities:
+  - id: MAXO:0000004
+    label: Surgery
+  - id: MAXO:0000504
+    label: tracheotomy
+  - id: HP:0006536
+    label: airway obstruction
+  - id: HP:0010628
+    label: facial nerve palsy
+  - id: CHEBI:9168
+    label: Rapamycin
+  - id: MAXO:0000448
+    label: Surgical resection
+  - id: MONDO:0002013
+    label: lymphatic malformation (LM)
+  - id: HP:0012532
+    label: Chronic pain
+  - id: CHEBI:134778
+    label: n-butyl cyanoacrylate
+  - id: CHEBI:22907
+    label: bleomycin
+  - id: MONDO:0019313
+    label: Lymphatic malformations
+  - id: MAXO:0000014
+    label: Radiotherapy
+  - id: HP:0001009
+    label: Telangiectasias
+  - id: HP:0001097
+    label: Xerophthalmia
+  - id: HP:0011787
+    label: Central hypothyroidism
+  - id: CHEBI:16236
+    label: Ethanol
+  - id: MONDO:0017014
+    label: children
+  - id: HP:0012587
+    label: Gross hematuria
+  - id: HP:0030157
+    label: Flank pain
+  - id: MONDO:0018736
+    label: Kaposiform lymphangiomatosis
+  - id: HP:0000978
+    label: easy bruising
+  - id: HP:0005521
+    label: consumptive coagulopathy
+  - id: CHEBI:8382
+    label: prednisone
+  - id: CHEBI:28445
+    label: vincristine
+  - id: MONDO:0018500
+    label: Cervical lymphatic malformation (CLM)
+  - id: HP:0001561
+    label: Polyhydramnios
+  - id: HP:0001790
+    label: Nonimmune hydrops
+  - id: HP:0100806
+    label: Sepsis
+  - id: HP:0002089
+    label: Pulmonary hypoplasia

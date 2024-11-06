@@ -19,13 +19,13 @@ input_text: 'Iron Deficiency in Celiac Disease: Prevalence, Health Impact, and C
 raw_completion_output: |-
   primary_disease: Iron Deficiency in Celiac Disease
 
-  medical_actions: Replenish iron stores; Oral administration of iron; Intravenous administration of iron
+  medical_actions: Replenish iron stores; Oral iron administration; Intravenous iron administration
 
-  symptoms: Iron deficiency; Iron deficiency anemia; Folate and vitamin B12 malabsorption; Inflammation; Blood loss; Development of refractory Celiac Disease; Concomitant Heliobacter pylori infection
+  symptoms: Iron deficiency; Iron deficiency anemia; Folate and vitamin B12 malabsorption; Nutritional deficiencies; Inflammation; Blood loss
 
   chemicals: Iron; Folate; Vitamin B12
 
-  action_annotation_relationships: Replenish iron stores TREATS Iron deficiency IN Iron Deficiency in Celiac Disease; Oral administration of iron (with Iron) TREATS Iron deficiency anemia IN Iron Deficiency in Celiac Disease; Intravenous administration of iron (with Iron) TREATS Iron deficiency anemia IN Iron Deficiency in Celiac Disease; Replenish iron stores TREATS Folate and vitamin B12 malabsorption IN Iron Deficiency in Celiac Disease; Replenish iron stores TREATS Blood loss IN Iron Deficiency in Celiac Disease; Replenish iron stores PREVENTS Development of refractory Celiac Disease IN Iron Deficiency in Celiac Disease
+  action_annotation_relationships: Replenish iron stores TREATS Iron deficiency IN Iron Deficiency in Celiac Disease; Oral iron administration TREATS Iron deficiency anemia IN Iron Deficiency in Celiac Disease; Intravenous iron administration TREATS Iron deficiency IN Iron Deficiency in Celiac Disease; Oral iron administration (with Iron) TREATS Nutritional deficiencies IN Iron Deficiency in Celiac Disease
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -40,7 +40,7 @@ prompt: |+
 
 
   Text:
-  Replenish iron stores PREVENTS Development of refractory Celiac Disease IN Iron Deficiency in Celiac Disease
+  Oral iron administration (with Iron) TREATS Nutritional deficiencies IN Iron Deficiency in Celiac Disease
 
   ===
 
@@ -48,103 +48,113 @@ extracted_object:
   primary_disease: Iron Deficiency in Celiac Disease
   medical_actions:
     - Replenish iron stores
-    - Oral administration of iron
-    - Intravenous administration of iron
+    - Oral iron administration
+    - Intravenous iron administration
   symptoms:
     - Iron deficiency
     - HP:0001891
     - Folate and vitamin B12 malabsorption
+    - Nutritional deficiencies
     - Inflammation
     - Blood loss
-    - Development of refractory Celiac Disease
-    - Concomitant Heliobacter pylori infection
   chemicals:
     - CHEBI:18248
     - CHEBI:27470
     - CHEBI:176843
   action_annotation_relationships:
-    - subject: <Replenish iron stores>
-      predicate: <TREATS>
-      object: <Iron deficiency>
-      qualifier: <Iron Deficiency in Celiac Disease>
-      subject_extension: <Iron>
-    - subject: Oral administration of iron
+    - subject: Replenish iron stores
+      predicate: TREATS
+      object: Iron deficiency
+      qualifier: MONDO:0005130
+    - subject: Oral iron administration
       predicate: TREATS
       object: HP:0001891
       qualifier: Iron Deficiency in Celiac Disease
       subject_extension: CHEBI:18248
-    - subject: Intravenous administration of iron
+    - subject: Intravenous iron administration
       predicate: TREATS
-      object: HP:0001891
+      object: Iron deficiency
       qualifier: Iron Deficiency in Celiac Disease
       subject_extension: CHEBI:18248
-    - subject: Replenish iron stores
+    - subject: Oral iron administration
       predicate: TREATS
-      object: Folate and vitamin B12 malabsorption
+      object: deficiencies
       qualifier: Iron Deficiency in Celiac Disease
-    - subject: Replenish iron stores
-      predicate: TREATS
-      object: Blood loss
-      qualifier: Iron Deficiency in Celiac Disease
-    - subject: Replenish iron stores
-      predicate: PREVENTS
-      object: Development of refractory Celiac Disease
-      qualifier: Iron Deficiency in Celiac Disease
+      subject_qualifier: with Iron
+      object_qualifier: Nutritional
+      subject_extension: CHEBI:18248
+      object_extension: Nutritional
 named_entities:
-  - id: HP:0040313
-    label: oligoarticular arthritis
-  - id: CHEBI:65312
-    label: Corticotropin releasing hormone
-  - id: CHEBI:197439
-    label: TNFalpha
+  - id: HP:0001251
+    label: ataxia
+  - id: CHEBI:21547
+    label: N-acetylaspartate (NAA)
+  - id: CHEBI:157802
+    label: creatine (Cr)
   - id: MONDO:0005130
-    label: Celiac Disease
-  - id: MAXO:0000058
-    label: pharmacological treatment
+    label: Celiac disease
+  - id: HP:0001394
+    label: Cirrhosis
   - id: HP:0002608
-    label: Celiac Disease
-  - id: HP:0025464
-    label: Oxidative stress
-  - id: CHEBI:26195
-    label: Polyphenols
-  - id: MONDO:0009032
-    label: Celiac disease (CeD)
-  - id: MONDO:0016063
-    label: Celiac Disease (CD)
-  - id: HP:0000739
-    label: Anxiety
-  - id: HP:0000716
-    label: Depression
-  - id: MONDO:0005265
-    label: Inflammatory bowel disease
-  - id: HP:0012538
-    label: Gluten sensitivity
-  - id: MONDO:0007021
-    label: Wheat allergy
-  - id: CHEBI:26271
-    label: proline
-  - id: MONDO:0013209
-    label: Nonalcoholic fatty liver disease (NAFLD)
-  - id: HP:0001397
-    label: Hepatic steatosis
-  - id: MAXO:0000487
-    label: Clinical assessment
-  - id: CHEBI:80165
-    label: Gluten Immunogenic Peptides (GIP)
-  - id: HP:0002019
-    label: Constipation
+    label: Celiac disease
+  - id: MONDO:0005340
+    label: Alopecia areata
+  - id: HP:0001596
+    label: Hair loss
+  - id: HP:0002014
+    label: Diarrhea
+  - id: HP:0002027
+    label: Abdominal pain
+  - id: HP:0012378
+    label: Fatigue
+  - id: HP:0011473
+    label: Villous atrophy
+  - id: CHEBI:3207
+    label: Budesonide
+  - id: HP:0000951
+    label: skin abnormalities
+  - id: HP:0001595
+    label: hair abnormalities
+  - id: HP:0000112
+    label: kidney diseases
   - id: MAXO:0000088
     label: Diet
-  - id: HP:0004395
-    label: Nutritional deficiencies
-  - id: MONDO:0011122
-    label: Obesity
-  - id: CHEBI:28796
-    label: fructans
-  - id: MONDO:0016129
-    label: eosinophilic gastroenteritis
+  - id: MONDO:0009032
+    label: Celiac Disease (CeD)
+  - id: HP:0100252
+    label: Celiac Disease (CeD)
+  - id: CHEBI:18332
+    label: T4
+  - id: CHEBI:30660
+    label: thyroxine
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0002028
+    label: recurrent diarrhea
+  - id: HP:0001824
+    label: weight loss
   - id: HP:0001891
-    label: Iron deficiency anemia
+    label: iron deficiency anemia
+  - id: CHEBI:6909
+    label: metronidazole
+  - id: MAXO:0001017
+    label: Vaccination
+  - id: HP:0002242
+    label: Enteropathy
+  - id: MONDO:0400005
+    label: Refeeding syndrome
+  - id: HP:0003111
+    label: Electrolyte disturbances
+  - id: HP:0000713
+    label: Psychomotor agitation
+  - id: HP:0002098
+    label: Respiratory distress
+  - id: HP:0030149
+    label: Cardiogenic shock
+  - id: CHEBI:28796
+    label: Fructans
+  - id: HP:0031955
+    label: antalgic gait
   - id: CHEBI:18248
     label: Iron
   - id: CHEBI:27470

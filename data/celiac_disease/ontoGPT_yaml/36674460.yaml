@@ -14,15 +14,15 @@ input_text: New Developments in Celiac Disease Treatment. Celiac disease (CD) is
   for CD. This review will present a concise description of the current rationale
   and main clinical trials related to CD drug therapy.
 raw_completion_output: |-
-  primary_disease: Celiac Disease
+  primary_disease: Celiac Disease (CD)
 
-  medical_actions: lifelong gluten-free diet (GFD); pharmacological treatment for CD
+  medical_actions: gluten-free diet (GFD); pharmacological treatment
 
-  symptoms: immune-mediated enteropathy; lack of awareness of the gluten content in foods; extensive incorporation of gluten in processed foods; sense of limitation; decreased quality of life; persistent symptoms; gluten contamination; not achieve full histological recovery
+  symptoms: immune-mediated enteropathy; gluten contamination; persistent symptoms; lack of histological recovery
 
   chemicals: gluten
 
-  action_annotation_relationships: lifelong gluten-free diet (GFD) PREVENTS gluten contamination IN Celiac Disease; lifelong gluten-free diet (GFD) PREVENTS immune-mediated enteropathy IN Celiac Disease; lifelong gluten-free diet (GFD) PREVENTS persistent symptoms IN Celiac Disease; pharmacological treatment (with gluten) TREATS persistent symptoms IN Celiac Disease; pharmacological treatment (with gluten) TREATS not achieve full histological recovery IN Celiac Disease
+  action_annotation_relationships: gluten-free diet (GFD) TREATS immune-mediated enteropathy IN Celiac Disease (CD); gluten-free diet (GFD) PREVENTS gluten contamination IN Celiac Disease (CD); pharmacological treatment TREATS persistent symptoms IN Celiac Disease (CD); pharmacological treatment TREATS lack of histological recovery IN Celiac Disease (CD)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -37,63 +37,85 @@ prompt: |+
 
 
   Text:
-  pharmacological treatment (with gluten) TREATS not achieve full histological recovery IN Celiac Disease
+  pharmacological treatment TREATS lack of histological recovery IN Celiac Disease (CD)
 
   ===
 
 extracted_object:
-  primary_disease: MONDO:0005130
+  primary_disease: MONDO:0016063
   medical_actions:
-    - lifelong gluten-free diet (GFD)
-    - pharmacological treatment for CD
+    - gluten-free diet (GFD)
+    - MAXO:0000058
   symptoms:
     - immune-mediated enteropathy
-    - lack of awareness of the gluten content in foods
-    - extensive incorporation of gluten in processed foods
-    - sense of limitation
-    - decreased quality of life
-    - persistent symptoms
     - gluten contamination
-    - not achieve full histological recovery
+    - persistent symptoms
+    - lack of histological recovery
   chemicals:
     - gluten
   action_annotation_relationships:
-    - subject: lifelong gluten-free diet
+    - subject: gluten-free diet
+      predicate: TREATS
+      object: immune-mediated enteropathy
+      qualifier: MONDO:0005130
+      subject_extension: gluten-free diet
+    - subject: gluten-free diet
       predicate: PREVENTS
       object: gluten contamination
       qualifier: MONDO:0005130
       subject_extension: gluten-free diet
-    - subject: <lifelong gluten-free diet>
-      predicate: <PREVENTS>
-      object: <immune-mediated enteropathy>
-      qualifier: <Celiac Disease>
-      subject_qualifier: <lifelong>
-      subject_extension: <gluten-free diet>
-    - subject: lifelong gluten-free diet
-      predicate: PREVENTS
-      object: persistent symptoms
-      qualifier: MONDO:0005130
-      subject_extension: gluten-free diet
     - subject: MAXO:0000058
       predicate: TREATS
       object: persistent symptoms
-      qualifier: MONDO:0005130
-      subject_qualifier: with gluten
-      subject_extension: gluten
-    - subject: MAXO:0000058
-      predicate: TREATS
-      object: not achieve full histological recovery
-      qualifier: MONDO:0005130
-      subject_qualifier: with gluten
-      subject_extension: gluten
+      qualifier: MONDO:0016063
+    - subject: <pharmacological treatment>
+      predicate: <TREATS>
+      object: <lack of histological recovery>
+      qualifier: MONDO:0016063
+      subject_qualifier: N/A
+      object_qualifier: N/A
+      subject_extension: <pharmacological treatment>
+      object_extension: N/A
 named_entities:
-  - id: HP:0040313
-    label: oligoarticular arthritis
-  - id: CHEBI:65312
-    label: Corticotropin releasing hormone
-  - id: CHEBI:197439
-    label: TNFalpha
+  - id: MONDO:0044092
+    label: Collagenous sprue
+  - id: HP:0002014
+    label: diarrhea
+  - id: CHEBI:50858
+    label: corticosteroids
+  - id: HP:0004395
+    label: malnutrition
   - id: MONDO:0005130
+    label: Celiac disease
+  - id: HP:0000870
+    label: Hyperprolactinemia
+  - id: CHEBI:81580
+    label: Prolactin (PRL)
+  - id: HP:0000938
+    label: Bone loss
+  - id: CHEBI:22984
+    label: Calcium
+  - id: CHEBI:27300
+    label: Vitamin D
+  - id: HP:0001369
+    label: Arthritis
+  - id: HP:0002608
     label: Celiac Disease
+  - id: MONDO:0019473
+    label: Enteropathy-associated T-cell lymphoma (EATL)
+  - id: HP:0002242
+    label: enteropathy
+  - id: HP:0012378
+    label: fatigue
+  - id: HP:0002039
+    label: anorexia
+  - id: HP:0000823
+    label: delayed puberty
+  - id: HP:0004322
+    label: short stature
+  - id: HP:0000789
+    label: infertility
+  - id: MONDO:0016063
+    label: Celiac Disease (CD)
   - id: MAXO:0000058
     label: pharmacological treatment

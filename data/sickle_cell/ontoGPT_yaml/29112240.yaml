@@ -32,11 +32,15 @@ input_text: "Splenectomy versus conservative management for acute sequestration 
   trials; however, we do not plan to update other sections of the review until new
   trials are published."
 raw_completion_output: |-
-  primary_disease: sickle cell disease
-  medical_actions: splenectomy; blood transfusion
-  symptoms: acute splenic sequestration crises
+  primary_disease: Sickle cell disease
+
+  medical_actions: Splenectomy; Blood transfusion
+
+  symptoms: Acute splenic sequestration crises
+
   chemicals: 
-  action_annotation_relationships: splenectomy PREVENTS acute splenic sequestration crises IN sickle cell disease; blood transfusion TREATS acute splenic sequestration crises IN sickle cell disease
+
+  action_annotation_relationships: Splenectomy (total) PREVENTS acute splenic sequestration crises IN sickle cell disease; Splenectomy (partial) TREATS acute splenic sequestration crises IN sickle cell disease; Blood transfusion TREATS acute splenic sequestration crises IN sickle cell disease
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -51,7 +55,7 @@ prompt: |+
 
 
   Text:
-  blood transfusion TREATS acute splenic sequestration crises IN sickle cell disease
+  Blood transfusion TREATS acute splenic sequestration crises IN sickle cell disease
 
   ===
 
@@ -61,10 +65,14 @@ extracted_object:
     - MAXO:0001077
     - MAXO:0000756
   symptoms:
-    - acute splenic sequestration crises
+    - Acute splenic sequestration crises
   action_annotation_relationships:
     - subject: MAXO:0001077
       predicate: PREVENTS
+      object: acute splenic sequestration crises
+      qualifier: MONDO:0011382
+    - subject: MAXO:0001077
+      predicate: TREATS
       object: acute splenic sequestration crises
       qualifier: MONDO:0011382
     - subject: MAXO:0000756
@@ -72,15 +80,29 @@ extracted_object:
       object: acute splenic sequestration crises
       qualifier: MONDO:0011382
 named_entities:
-  - id: MAXO:0000756
-    label: transfusion
+  - id: MONDO:0011382
+    label: sickle cell disease
   - id: CHEBI:64357
     label: rituximab
   - id: CHEBI:35341
     label: steroids
   - id: CHEBI:81579
     label: erythropoietin
-  - id: MONDO:0011382
-    label: sickle cell disease
+  - id: MAXO:0001017
+    label: Vaccination
+  - id: MONDO:0007374
+    label: Sickle Cell Disease (SCD)
+  - id: MAXO:0000747
+    label: Allogeneic hematopoietic stem cell transplantation (HSCT)
+  - id: HP:0007760
+    label: Sickle Cell Disease (SCD)
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: CHEBI:35480
+    label: analgesics
+  - id: CHEBI:33281
+    label: antibiotics
   - id: MAXO:0001077
-    label: splenectomy
+    label: Splenectomy
+  - id: MAXO:0000756
+    label: Blood transfusion

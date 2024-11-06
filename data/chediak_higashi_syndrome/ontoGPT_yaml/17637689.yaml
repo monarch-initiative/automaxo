@@ -3,12 +3,12 @@ input_text: 'In patients with Chediak-Higashi syndrome undergoing allogeneic SCT
   does adding etoposide to the conditioning regimen improve the outcome? '
 raw_completion_output: |-
   primary_disease: Chediak-Higashi syndrome
-  medical_actions: allogeneic SCT; adding etoposide to the conditioning regimen
+  medical_actions: adding etoposide to the conditioning regimen; allogeneic SCT
   symptoms: 
   chemicals: etoposide
-  action_annotation_relationships: allogeneic SCT TREATS Chediak-Higashi syndrome; adding etoposide to the conditioning regimen IMPROVES OUTCOME IN Chediak-Higashi syndrome
+  action_annotation_relationships: adding etoposide to the conditioning regimen TREATS Chediak-Higashi syndrome; allogeneic SCT TREATS Chediak-Higashi syndrome
 prompt: |+
-  From the text below, extract the following entities in the following format:
+  Split the following piece of text into fields in the following format:
 
   subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
   object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
@@ -21,54 +21,57 @@ prompt: |+
 
 
   Text:
-  adding etoposide to the conditioning regimen IMPROVES OUTCOME IN Chediak-Higashi syndrome
+  allogeneic SCT TREATS Chediak-Higashi syndrome
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0008963
   medical_actions:
-    - allogeneic SCT
     - adding etoposide to the conditioning regimen
+    - allogeneic SCT
   chemicals:
     - CHEBI:4911
   action_annotation_relationships:
+    - subject: MAXO:0000750
+      predicate: TREATS
+      object: Chediak-Higashi syndrome
+      subject_qualifier: adding etoposide to
+      subject_extension: CHEBI:4911
     - subject: allogeneic SCT
       predicate: TREATS
       object: Chediak-Higashi syndrome
-    - subject: MAXO:0000750
-      predicate: IMPROVES OUTCOME IN
-      object: outcome
-      qualifier: MONDO:0008963
-      subject_qualifier: adding
-      subject_extension: CHEBI:4911
 named_entities:
+  - id: HP:0012531
+    label: pain
   - id: MAXO:0010030
-    label: Bone marrow transplantation (BMT)
+    label: bone marrow transplantation (BMT)
   - id: MONDO:0008963
     label: Chediak-Higashi syndrome
   - id: MAXO:0010033
-    label: Unrelated cord blood transplantation (UCBT)
+    label: unrelated cord blood transplantation (UCBT)
   - id: MAXO:0000747
     label: HSCT
   - id: MAXO:0000750
-    label: Conditioning regimens
+    label: conditioning regimens
   - id: CHEBI:41264
     label: BU
   - id: CHEBI:4027
-    label: Cyclophosphamide
+    label: cyclophosphamide
   - id: CHEBI:4911
-    label: Etoposide
+    label: etoposide
+  - id: MONDO:0008090
+    label: Chediak-Higashi syndrome (CHS)
   - id: HP:0001433
-    label: hepatosplenomegaly
+    label: Hepatosplenomegaly
   - id: HP:0003270
-    label: abdominal distention
+    label: Abdominal distention
   - id: MONDO:0024686
     label: Pigmented villonodular synovitis (PVNS)
   - id: HP:0001945
-    label: fever
+    label: Fever
   - id: MONDO:0003778
-    label: primary immunodeficiency
+    label: primary immunodeficiencies
   - id: HP:0025322
     label: veno-occlusive disease
   - id: CHEBI:28901
@@ -77,8 +80,10 @@ named_entities:
     label: cyclosporine
   - id: CHEBI:44185
     label: methotrexate
-  - id: MONDO:0008090
-    label: Chediak-Higashi Syndrome (CHS)
+  - id: HP:0100806
+    label: sepsis
+  - id: CHEBI:28790
+    label: Serotonin
   - id: HP:0002718
     label: recurrent bacterial infections
   - id: HP:0000613

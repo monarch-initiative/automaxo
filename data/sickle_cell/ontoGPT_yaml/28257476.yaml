@@ -27,14 +27,10 @@ input_text: 'Cardiac iron overload in chronically transfused patients with thala
   excess iron supply, and inflammation.'
 raw_completion_output: |-
   primary_disease: Cardiac iron overload
-
-  medical_actions: cardiovascular magnetic resonance; erythrocytapharesis; transfusion; chelation
-
-  symptoms: shortens the life expectancy; iron does not seem to deposit quickly; iron overload; abnormal T2*; high non-transferrin-bound iron; low hepcidin; markedly elevated hepcidin
-
-  chemicals: Non-transferrin-bound iron; Hepcidin
-
-  action_annotation_relationships: cardiovascular magnetic resonance TREATS cardiac iron overload IN Cardiac iron overload; erythrocytapharesis PREVENTS iron overload IN Sickle cell anemia (implied ineffectiveness); transfusion PREVENTS shortens the life expectancy IN Cardiac iron overload (context of risk); chelation TREATS iron overload IN Cardiac iron overload; high non-transferrin-bound iron INDICATES iron overload IN Thalassemia and Myelodysplastic syndrome; low hepcidin INDICATES iron overload IN Thalassemia; markedly elevated hepcidin INDICATES iron overload IN Myelodysplastic syndrome
+  medical_actions: Erythrocytapharesis; Cardiovascular magnetic resonance T2*<20 ms assessment; Chelation
+  symptoms: Shortens life expectancy; Iron deposition in the heart
+  chemicals: Non-transferrin-bound iron; Ferritin; Hepcidin
+  action_annotation_relationships: Erythrocytapharesis PREVENTS Iron deposition in the heart IN sickle cell anemia; Cardiovascular magnetic resonance T2*<20 ms assessment TREATS Cardiac iron overload IN thalassemia, sickle cell anemia, myelodysplastic syndrome; Chelation TREATS Iron deposition in the heart IN thalassemia; Chelation TREATS Iron deposition in the heart IN myelodysplastic syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -49,85 +45,81 @@ prompt: |+
 
 
   Text:
-  markedly elevated hepcidin INDICATES iron overload IN Myelodysplastic syndrome
+  Chelation TREATS Iron deposition in the heart IN myelodysplastic syndrome
 
   ===
 
 extracted_object:
   primary_disease: Cardiac iron overload
   medical_actions:
-    - cardiovascular magnetic resonance
-    - erythrocytapharesis
-    - MAXO:0000756
-    - chelation
+    - Erythrocytapharesis
+    - Cardiovascular magnetic resonance T2*<20 ms assessment
+    - Chelation
   symptoms:
-    - shortens the life expectancy
-    - iron does not seem to deposit quickly
-    - iron overload
-    - abnormal T2*
-    - high non-transferrin-bound iron
-    - low hepcidin
-    - markedly elevated hepcidin
+    - Shortens life expectancy
+    - Iron deposition in the heart
   chemicals:
     - Non-transferrin-bound iron
+    - CHEBI:82594
     - Hepcidin
   action_annotation_relationships:
-    - subject: <cardiovascular magnetic resonance>
-      predicate: <TREATS>
-      object: <cardiac iron overload>
-      qualifier: <Cardiac iron overload>
-      subject_qualifier: <Not applicable>
-      object_qualifier: <Not applicable>
-      subject_extension: <Not applicable>
-      object_extension: <Not applicable>
-    - subject: erythrocytapharesis
+    - subject: Erythrocytapharesis
       predicate: PREVENTS
-      object: iron overload
+      object: Iron deposition in the heart
       qualifier: MONDO:0011382
-    - subject: MAXO:0000756
-      predicate: PREVENTS
-      object: shortens the life expectancy
-      qualifier: Cardiac iron overload
-    - subject: chelation
+      subject_extension: Erythrocytapharesis
+    - subject: Cardiovascular magnetic resonance T2*<20 ms assessment
       predicate: TREATS
-      object: iron overload
-      qualifier: Cardiac iron overload
-    - subject: <high non-transferrin-bound iron>
-      predicate: <INDICATES>
-      object: <iron overload>
-      qualifier: <Thalassemia and Myelodysplastic syndrome>
-      subject_qualifier: <high>
-      object_qualifier: <null>
-      subject_extension: <non-transferrin-bound iron>
-      object_extension: <null>
-    - subject: low hepcidin
-      predicate: INDICATES
-      object: iron overload
+      object: Cardiac iron overload
+      qualifier: thalassemia, sickle cell anemia, myelodysplastic syndrome
+    - subject: Chelation
+      predicate: TREATS
+      object: Iron deposition in the heart
       qualifier: MONDO:0000984
-    - subject: <markedly elevated hepcidin>
-      predicate: <INDICATES>
-      object: <iron overload>
-      qualifier: <Myelodysplastic syndrome>
-      subject_qualifier: <None>
-      object_qualifier: <None>
-      subject_extension: <None>
-      object_extension: <None>
+    - subject: Chelation
+      predicate: TREATS
+      object: Iron deposition in the heart
+      qualifier: MONDO:0018881
 named_entities:
-  - id: MAXO:0000756
-    label: transfusion
+  - id: MONDO:0011382
+    label: sickle cell disease
   - id: CHEBI:64357
     label: rituximab
   - id: CHEBI:35341
     label: steroids
   - id: CHEBI:81579
     label: erythropoietin
-  - id: MONDO:0011382
-    label: sickle cell disease
-  - id: MAXO:0001077
-    label: splenectomy
+  - id: MAXO:0001017
+    label: Vaccination
+  - id: MONDO:0007374
+    label: Sickle Cell Disease (SCD)
+  - id: MAXO:0000747
+    label: Allogeneic hematopoietic stem cell transplantation (HSCT)
+  - id: HP:0007760
+    label: Sickle Cell Disease (SCD)
   - id: MAXO:0001001
-    label: gene therapy
-  - id: CHEBI:4027
-    label: cyclophosphamide
+    label: Gene therapy
+  - id: CHEBI:35480
+    label: analgesics
+  - id: CHEBI:33281
+    label: antibiotics
+  - id: MAXO:0001077
+    label: Splenectomy
+  - id: MAXO:0000756
+    label: Blood transfusion
+  - id: MONDO:0044348
+    label: Hemoglobinopathies
+  - id: CHEBI:44423
+    label: Hydroxyurea
+  - id: HP:0001297
+    label: Stroke
+  - id: HP:0002863
+    label: Myelodysplastic syndrome
+  - id: CHEBI:28901
+    label: Busulfan
+  - id: CHEBI:82594
+    label: Ferritin
   - id: MONDO:0000984
-    label: Thalassemia
+    label: thalassemia
+  - id: MONDO:0018881
+    label: myelodysplastic syndrome

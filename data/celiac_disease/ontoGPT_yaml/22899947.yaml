@@ -19,15 +19,15 @@ input_text: 'Reintroduction of gluten following flour transamidation in adult ce
   with no changes of baseline values for serological/mucosal CD markers and an unaltered
   kidney function.'
 raw_completion_output: |-
-  primary_disease: Celiac Disease (CD)
+  primary_disease: Celiac disease (CD)
 
-  medical_actions: Gluten-free diet (GFD); Wheat flour transamidation; Evaluation of clinical remission; Prevention of inflammatory response; Safety assessment at the kidney level; Randomized controlled trial
+  medical_actions: Reintroduction of gluten following flour transamidation; gluten-free diet (GFD); evaluation of transamidated gluten to maintain clinical remission; prevention of the inflammatory response; safety evaluation at the kidney level; randomized single blinded, controlled 90-day trial
 
-  symptoms: Clinical relapse; Intestinal permeability alteration; Changes of baseline values for serological/mucosal CD markers; Alteration in kidney function
+  symptoms: clinical relapse; inflammatory response; altered intestinal permeability
 
-  chemicals: Gluten; Transamidated gluten; Creatinine
+  chemicals: gluten; transamidated flour; nontransamidated flour; IFN-gamma; antitransglutaminase IgA
 
-  action_annotation_relationships: Wheat flour transamidation TREATS clinical relapse IN Celiac Disease (CD); Gluten-free diet (GFD) PREVENTS clinical relapse IN Celiac Disease (CD); Evaluation of clinical remission TREATS clinical relapse IN Celiac Disease (CD); Prevention of inflammatory response TREATS intestinal permeability alteration IN Celiac Disease (CD); Safety assessment at the kidney level PREVENTS alteration in kidney function IN Celiac Disease (CD); Gluten (from nontransamidated flour) CAUSES clinical relapse IN Celiac Disease (CD); Transamidated gluten (with transamidation) PREVENTS clinical relapse IN Celiac Disease (CD)
+  action_annotation_relationships: Reintroduction of gluten following flour transamidation TREATS clinical remission IN Celiac disease (CD); gluten-free diet (GFD) PREVENTS clinical relapse IN Celiac disease (CD); evaluation of transamidated gluten to maintain clinical remission TREATS clinical relapse IN Celiac disease (CD); prevention of the inflammatory response PREVENTS inflammatory response IN Celiac disease (CD); safety evaluation at the kidney level PREVENTS altered kidney function IN Celiac disease (CD); gluten (from transamidated flour) TREATS clinical relapse IN Celiac disease (CD); gluten (from nontransamidated flour) PREVENTS clinical remission IN Celiac disease (CD)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -42,101 +42,148 @@ prompt: |+
 
 
   Text:
-  Transamidated gluten (with transamidation) PREVENTS clinical relapse IN Celiac Disease (CD)
+  gluten (from nontransamidated flour) PREVENTS clinical remission IN Celiac disease (CD)
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0016063
   medical_actions:
-    - Gluten-free diet (GFD)
-    - Wheat flour transamidation
-    - Evaluation of clinical remission
-    - Prevention of inflammatory response
-    - Safety assessment at the kidney level
-    - Randomized controlled trial
+    - Reintroduction of gluten following flour transamidation
+    - gluten-free diet (GFD)
+    - evaluation of transamidated gluten to maintain clinical remission
+    - prevention of the inflammatory response
+    - safety evaluation at the kidney level
+    - randomized single blinded, controlled 90-day trial
   symptoms:
-    - Clinical relapse
-    - Intestinal permeability alteration
-    - Changes of baseline values for serological/mucosal CD markers
-    - Alteration in kidney function
+    - clinical relapse
+    - inflammatory response
+    - altered intestinal permeability
   chemicals:
-    - Gluten
-    - Transamidated gluten
-    - CHEBI:16737
+    - gluten
+    - transamidated flour
+    - nontransamidated flour
+    - IFN-gamma
+    - antitransglutaminase IgA
   action_annotation_relationships:
-    - subject: <Wheat flour transamidation>
-      predicate: <TREATS>
-      object: <clinical relapse>
-      qualifier: <Celiac Disease>
-      subject_extension: <wheat flour transamidation>
-    - subject: <Gluten-free diet>
-      predicate: <PREVENTS>
-      object: <clinical relapse>
-      qualifier: <Celiac Disease>
-      subject_extension: <Gluten-free diet>
-    - subject: Evaluation of clinical remission
+    - subject: Reintroduction of gluten following flour transamidation
       predicate: TREATS
-      object: clinical relapse
-      qualifier: MONDO:0016063
-    - subject: Prevention of inflammatory response
-      predicate: TREATS
-      object: intestinal permeability alteration
-      qualifier: MONDO:0016063
-    - subject: Safety assessment at the kidney level
+      object: clinical remission
+      qualifier: MONDO:0005130
+      subject_extension: gluten
+      object_extension: clinical remission
+    - subject: gluten-free diet
       predicate: PREVENTS
-      object: alteration in kidney function
-      qualifier: MONDO:0016063
-    - subject: clinical relapse
-      predicate: CAUSES
       object: clinical relapse
       qualifier: MONDO:0005130
-      subject_qualifier: from nontransamidated flour
-      subject_extension: Gluten
-    - subject: Transamidated gluten
+    - subject: evaluation of transamidated gluten to maintain clinical remission
+      predicate: TREATS
+      object: clinical relapse
+      qualifier: MONDO:0005130
+      subject_extension: transamidated gluten
+    - subject: prevention of the inflammatory response
       predicate: PREVENTS
+      object: inflammatory response
+      qualifier: MONDO:0016063
+    - subject: safety evaluation at the kidney level
+      predicate: PREVENTS
+      object: altered kidney function
+      qualifier: MONDO:0016063
+    - predicate: TREATS
       object: clinical relapse
       qualifier: MONDO:0016063
-      subject_qualifier: with transamidation
+      subject_qualifier: from transamidated flour
       subject_extension: gluten
+    - subject: clinical remission
+      predicate: PREVENTS
+      object: clinical remission
+      qualifier: MONDO:0016063
+      subject_extension: gluten
+      object_extension: from nontransamidated flour
 named_entities:
+  - id: MONDO:0044092
+    label: Collagenous sprue
+  - id: HP:0002014
+    label: diarrhea
+  - id: CHEBI:50858
+    label: corticosteroids
+  - id: HP:0004395
+    label: malnutrition
   - id: MONDO:0005130
     label: Celiac disease
-  - id: CHEBI:81580
-    label: Prolactin
   - id: HP:0000870
     label: Hyperprolactinemia
+  - id: CHEBI:81580
+    label: Prolactin (PRL)
   - id: HP:0000938
     label: Bone loss
   - id: CHEBI:22984
     label: Calcium
   - id: CHEBI:27300
     label: Vitamin D
+  - id: HP:0001369
+    label: Arthritis
+  - id: HP:0002608
+    label: Celiac Disease
   - id: MONDO:0019473
     label: Enteropathy-associated T-cell lymphoma (EATL)
+  - id: HP:0002242
+    label: enteropathy
+  - id: HP:0012378
+    label: fatigue
+  - id: HP:0002039
+    label: anorexia
+  - id: HP:0000823
+    label: delayed puberty
+  - id: HP:0004322
+    label: short stature
+  - id: HP:0000789
+    label: infertility
+  - id: MONDO:0016063
+    label: Celiac Disease (CD)
+  - id: MAXO:0000058
+    label: pharmacological treatment
   - id: HP:0002027
     label: abdominal pain
   - id: HP:0003270
     label: bloating
-  - id: HP:0002014
-    label: diarrhea
   - id: HP:0001903
     label: anemia
+  - id: MAXO:0000088
+    label: diet
   - id: MONDO:0005298
     label: Osteoporosis
-  - id: MONDO:0016063
-    label: Celiac Disease (CD)
-  - id: HP:0012538
-    label: Gluten sensitivity
+  - id: MAXO:0000259
+    label: insulin treatment
+  - id: HP:0033712
+    label: recurrent implantation failure (RIF)
+  - id: CHEBI:145810
+    label: insulin
+  - id: CHEBI:6801
+    label: metformin
+  - id: HP:0012531
+    label: Pain
+  - id: HP:0000716
+    label: Depression
+  - id: HP:0011107
+    label: Aphthous stomatitis
+  - id: MONDO:0013626
+    label: Acrodermatitis continua of Hallopeau
+  - id: HP:0002024
+    label: Malabsorption
+  - id: HP:0012050
+    label: Anasarca
+  - id: HP:0003111
+    label: Electrolyte disorders
   - id: CHEBI:60027
-    label: polymers
+    label: Polymers
+  - id: HP:0001510
+    label: poor growth
+  - id: CHEBI:77383
+    label: Bisphosphonates
   - id: HP:0002019
     label: Constipation
   - id: HP:0001919
     label: Acute kidney failure
   - id: HP:0000126
     label: Hydronephrosis
-  - id: HP:0500093
-    label: food allergies
-  - id: CHEBI:16737
-    label: Creatinine

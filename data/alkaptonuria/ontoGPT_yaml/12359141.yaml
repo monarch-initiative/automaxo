@@ -14,11 +14,15 @@ input_text: Exacerbation of the ochronosis of alkaptonuria due to renal insuffic
   but may also provide homogentisate 1,2-dioxygenase activity for the metabolism of
   HGA.
 raw_completion_output: |-
-  primary_disease: alkaptonuria  
-  medical_actions: renal transplantation  
-  symptoms: massive urinary excretion of HGA; arthritis and joint destruction; pigmentation of cartilage and connective tissue; cardiac valve deterioration  
-  chemicals: homogentisic acid (HGA)  
-  action_annotation_relationships: renal transplantation TREATS massive urinary excretion of HGA IN alkaptonuria; renal transplantation TREATS arthritis and joint destruction IN alkaptonuria; renal transplantation TREATS pigmentation of cartilage and connective tissue IN alkaptonuria; renal transplantation TREATS cardiac valve deterioration IN alkaptonuria
+  primary_disease: alkaptonuria
+
+  medical_actions: renal transplantation
+
+  symptoms: massive urinary excretion of HGA; arthritis and joint destruction; pigmentation of cartilage and connective tissue; cardiac valve deterioration
+
+  chemicals: homogentisic acid; homogentisate 1,2-dioxygenase
+
+  action_annotation_relationships: renal transplantation TREATS massive urinary excretion of HGA IN alkaptonuria; renal transplantation TREATS arthritis and joint destruction IN alkaptonuria; renal transplantation PREVENTS pigmentation of cartilage and connective tissue IN alkaptonuria; renal transplantation PREVENTS cardiac valve deterioration IN alkaptonuria
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -33,7 +37,7 @@ prompt: |+
 
 
   Text:
-  renal transplantation TREATS cardiac valve deterioration IN alkaptonuria
+  renal transplantation PREVENTS cardiac valve deterioration IN alkaptonuria
 
   ===
 
@@ -48,6 +52,7 @@ extracted_object:
     - cardiac valve deterioration
   chemicals:
     - CHEBI:44747
+    - homogentisate 1,2-dioxygenase
   action_annotation_relationships:
     - subject: renal transplantation
       predicate: TREATS
@@ -57,21 +62,18 @@ extracted_object:
       predicate: TREATS
       object: arthritis and joint destruction
       qualifier: MONDO:0008753
-      subject_extension: renal transplantation
     - subject: renal transplantation
-      predicate: TREATS
+      predicate: PREVENTS
       object: pigmentation of cartilage and connective tissue
       qualifier: MONDO:0008753
     - subject: renal transplantation
-      predicate: TREATS
+      predicate: PREVENTS
       object: cardiac valve deterioration
       qualifier: MONDO:0008753
 named_entities:
   - id: MAXO:0001175
-    label: Liver transplantation
-  - id: HP:0030764
-    label: Ochronosis
+    label: liver transplantation
   - id: CHEBI:44747
-    label: Homogentisic acid
+    label: homogentisic acid
   - id: MONDO:0008753
     label: alkaptonuria

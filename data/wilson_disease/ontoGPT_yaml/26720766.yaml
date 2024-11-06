@@ -29,13 +29,13 @@ input_text: 'Controversies and Variation in Diagnosing and Treating Children Wit
 raw_completion_output: |-
   primary_disease: Wilson Disease (WD)
 
-  medical_actions: chelation; immediate transplantation; listing for transplantation followed by monitoring using a disease-severity score; use of zinc; use of D-penicillamine
+  medical_actions: Chelation; Immediate transplantation; Listing for transplantation followed by monitoring using a disease-severity score; Genetic testing; Use of serum ceruloplasmin and baseline 24-hour urinary copper excretion for diagnosis; Use of zinc
 
-  symptoms: fulminant Wilson Disease; hepatic dysfunction
+  symptoms: Hepatic dysfunction; Fulminant WD
 
-  chemicals: zinc; D-penicillamine; serum ceruloplasmin; urinary copper
+  chemicals: D-penicillamine; Zinc
 
-  action_annotation_relationships: chelation TREATS fulminant Wilson Disease IN Wilson Disease; immediate transplantation TREATS fulminant Wilson Disease IN Wilson Disease; listing for transplantation followed by monitoring using a disease-severity score PREVENTS progression IN Wilson Disease; use of zinc TREATS mildly affected siblings IN Wilson Disease; chelation TREATS patients with hepatic dysfunction IN Wilson Disease; use of D-penicillamine (with chemical) TREATS hepatic dysfunction IN Wilson Disease
+  action_annotation_relationships: Chelation TREATS fulminant WD IN Wilson Disease; Immediate transplantation TREATS fulminant WD IN Wilson Disease; Listing for transplantation followed by monitoring using a disease-severity score TREATS fulminant WD IN Wilson Disease; Genetic testing PREVENTS misdiagnosis IN Wilson Disease; Use of serum ceruloplasmin and baseline 24-hour urinary copper excretion for diagnosis PREVENTS misdiagnosis IN Wilson Disease; Use of zinc (with Zinc) TREATS mildly affected siblings IN Wilson Disease; Chelation TREATS hepatic dysfunction IN Wilson Disease; D-penicillamine NOT USED FOR hepatic dysfunction IN Wilson Disease
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -50,97 +50,155 @@ prompt: |+
 
 
   Text:
-  use of D-penicillamine (with chemical) TREATS hepatic dysfunction IN Wilson Disease
+  D-penicillamine NOT USED FOR hepatic dysfunction IN Wilson Disease
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0010200
   medical_actions:
-    - chelation
-    - immediate transplantation
-    - listing for transplantation followed by monitoring using a disease-severity
+    - Chelation
+    - Immediate transplantation
+    - Listing for transplantation followed by monitoring using a disease-severity
       score
-    - use of zinc
-    - use of D-penicillamine
+    - MAXO:0000127
+    - Use of serum ceruloplasmin and baseline 24-hour urinary copper excretion for
+      diagnosis
+    - Use of zinc
   symptoms:
-    - fulminant Wilson Disease
     - HP:0001410
+    - Fulminant WD
   chemicals:
-    - CHEBI:27363
     - CHEBI:7959
-    - serum ceruloplasmin
-    - urinary copper
+    - CHEBI:27363
   action_annotation_relationships:
-    - subject: chelation
+    - subject: Chelation
       predicate: TREATS
-      object: fulminant Wilson Disease
+      object: fulminant WD
       qualifier: MONDO:0010200
-    - subject: immediate transplantation
+    - subject: Immediate transplantation
       predicate: TREATS
-      object: fulminant Wilson Disease
+      object: fulminant WD
       qualifier: MONDO:0010200
-    - subject: listing for transplantation followed by monitoring using a disease-severity
+    - subject: Listing for transplantation followed by monitoring using a disease-severity
         score
+      predicate: TREATS
+      object: fulminant WD
+      qualifier: MONDO:0010200
+    - subject: MAXO:0000127
       predicate: PREVENTS
-      object: progression
+      object: misdiagnosis
       qualifier: MONDO:0010200
-    - subject: use of zinc
+    - subject: Use of serum ceruloplasmin and baseline 24-hour urinary copper excretion
+        for diagnosis
+      predicate: PREVENTS
+      object: misdiagnosis
+      qualifier: MONDO:0010200
+      subject_extension: serum ceruloplasmin, baseline 24-hour urinary copper excretion
+    - subject: Use of zinc
       predicate: TREATS
-      object: siblings
+      object: affected siblings
       qualifier: MONDO:0010200
+      subject_qualifier: with Zinc
+      object_qualifier: mildly
       subject_extension: CHEBI:27363
-      object_extension: mildly affected
-    - subject: chelation
+      object_extension: mildly
+    - subject: Chelation
       predicate: TREATS
       object: HP:0001410
       qualifier: MONDO:0010200
-    - subject: use of D-penicillamine
-      predicate: TREATS
+    - predicate: NOT USED FOR
       object: HP:0001410
       qualifier: MONDO:0010200
-      subject_qualifier: with chemical
       subject_extension: CHEBI:7959
 named_entities:
   - id: MONDO:0010200
     label: Wilson's disease
   - id: MAXO:0001175
-    label: liver transplantation
+    label: Liver transplantation
   - id: HP:0001695
-    label: cardiac arrest
+    label: Cardiac arrest
   - id: HP:0001685
-    label: myocardial fibrosis
+    label: Myocardial fibrosis
   - id: HP:0001663
-    label: ventricular fibrillation
+    label: Ventricular fibrillation
+  - id: CHEBI:28694
+    label: Copper
+  - id: CHEBI:18248
+    label: Iron
+  - id: HP:0002910
+    label: abnormal liver functions
+  - id: HP:0001394
+    label: cirrhosis
+  - id: CHEBI:27363
+    label: zinc
+  - id: CHEBI:50868
+    label: penicillamine
+  - id: MAXO:0000016
+    label: Cell therapy
+  - id: MAXO:0001001
+    label: Gene therapy
   - id: CHEBI:30703
-    label: tetrathiomolybdate (TTM)
+    label: Tetrathiomolybdate (TTM)
+  - id: HP:0006554
+    label: acute liver failure
   - id: CHEBI:35176
     label: Zinc sulphate
   - id: CHEBI:35475
     label: NSAIDs
-  - id: MAXO:0001001
-    label: Gene therapy
-  - id: HP:0006554
-    label: acute liver failure
+  - id: MAXO:0009095
+    label: zinc therapy
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0006579
+    label: neonatal jaundice
+  - id: HP:0001409
+    label: portal hypertension
+  - id: HP:0030151
+    label: cholangitis
+  - id: HP:0002612
+    label: congenital hepatic fibrosis
+  - id: MONDO:0013282
+    label: alpha-1-antitrypsin deficiency
+  - id: HP:0001903
+    label: anemia
+  - id: HP:0001410
+    label: liver dysfunction
+  - id: CHEBI:39501
+    label: trientine
+  - id: MAXO:0000070
+    label: Hepatic transplantation
+  - id: HP:0001399
+    label: Hepatic failure
+  - id: HP:0004448
+    label: fulminant hepatic failure
   - id: HP:0003256
-    label: coagulopathy
+    label: coagulopathy (international normalized ratio >2.0)
+  - id: HP:0004445
+    label: hepatic encephalopathy (HE)
   - id: HP:0002480
     label: hepatic encephalopathy
+  - id: CHEBI:35341
+    label: Steroids
+  - id: CHEBI:33281
+    label: Antibiotics
+  - id: MONDO:0100193
+    label: End-stage liver disease
+  - id: HP:0100626
+    label: End-stage liver disease
+  - id: HP:0100660
+    label: dyskinesia
+  - id: HP:0100022
+    label: Movement disorders
   - id: HP:0001337
     label: Tremor
   - id: HP:0001332
     label: Dystonia
-  - id: CHEBI:28694
-    label: Copper
-  - id: HP:0001395
-    label: Liver fibrosis
-  - id: HP:0001394
-    label: Cirrhosis
-  - id: CHEBI:39501
-    label: trientine
-  - id: CHEBI:27363
-    label: zinc
-  - id: HP:0001410
-    label: hepatic dysfunction
+  - id: MONDO:0019542
+    label: Acute liver failure (ALF)
+  - id: CHEBI:27385
+    label: CCL4
+  - id: MAXO:0000127
+    label: Genetic testing
   - id: CHEBI:7959
     label: D-penicillamine

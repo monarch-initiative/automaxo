@@ -23,13 +23,13 @@ input_text: "Current state of Wilson disease patients in central Japan. OBJECTIV
 raw_completion_output: |-
   primary_disease: Wilson disease
 
-  medical_actions: ceruloplasmin determination; ATP7B analysis; compliance education; emotional care; liver transplantation
+  medical_actions: ceruloplasmin determination; ATP7B analysis; compliance education; emotional care; liver transplantation; drug therapy; fertilization therapy
 
-  symptoms: hepatic form; neurological form; hemolysis; recurrent liver disease; acute hepatic failure associated with encephalopathy
+  symptoms: recurrent liver disease; acute hepatic failure associated with encephalopathy; prolonged hepatic failure; hepatic form; neurological form; hemolysis
 
   chemicals: 
 
-  action_annotation_relationships: ceruloplasmin determination PREVENTS delayed diagnosis IN Wilson disease; ATP7B analysis PREVENTS delayed diagnosis IN Wilson disease; compliance education TREATS recurrent liver disease IN Wilson disease; emotional care PREVENTS suicide IN Wilson disease; liver transplantation TREATS acute hepatic failure associated with encephalopathy IN Wilson disease
+  action_annotation_relationships: ceruloplasmin determination PREVENTS delayed diagnosis IN Wilson disease; ATP7B analysis PREVENTS delayed diagnosis IN Wilson disease; compliance education TREATS recurrent liver disease IN Wilson disease; emotional care PREVENTS suicide IN Wilson disease; liver transplantation TREATS acute hepatic failure associated with encephalopathy IN Wilson disease; drug therapy TREATS prolonged hepatic failure IN Wilson disease; fertilization therapy CAUSES acute hepatic failure associated with encephalopathy IN Wilson disease
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -44,7 +44,7 @@ prompt: |+
 
 
   Text:
-  liver transplantation TREATS acute hepatic failure associated with encephalopathy IN Wilson disease
+  fertilization therapy CAUSES acute hepatic failure associated with encephalopathy IN Wilson disease
 
   ===
 
@@ -56,21 +56,26 @@ extracted_object:
     - compliance education
     - emotional care
     - MAXO:0001175
+    - drug therapy
+    - fertilization therapy
   symptoms:
+    - recurrent liver disease
+    - acute hepatic failure associated with encephalopathy
+    - prolonged hepatic failure
     - hepatic form
     - neurological form
     - hemolysis
-    - recurrent liver disease
-    - acute hepatic failure associated with encephalopathy
   action_annotation_relationships:
-    - subject: ceruloplasmin determination
-      predicate: PREVENTS
-      object: delayed diagnosis
-      qualifier: MONDO:0010200
-    - subject: ATP7B analysis
-      predicate: PREVENTS
-      object: delayed diagnosis
-      qualifier: MONDO:0010200
+    - subject: <ceruloplasmin determination>
+      predicate: <PREVENTS>
+      object: <delayed diagnosis>
+      qualifier: <Wilson disease>
+      subject_extension: <ceruloplasmin>
+    - subject: <ATP7B analysis>
+      predicate: <PREVENTS>
+      object: <delayed diagnosis>
+      qualifier: <Wilson disease>
+      subject_extension: <ATP7B>
     - subject: compliance education
       predicate: TREATS
       object: recurrent liver disease
@@ -83,8 +88,30 @@ extracted_object:
       predicate: TREATS
       object: acute hepatic failure associated with encephalopathy
       qualifier: MONDO:0010200
+    - subject: drug therapy
+      predicate: TREATS
+      object: prolonged hepatic failure
+      qualifier: MONDO:0010200
+    - subject: <fertilization therapy>
+      predicate: <CAUSES>
+      object: <acute hepatic failure associated with encephalopathy>
+      qualifier: <Wilson disease>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <fertilization therapy>
+      object_extension: <>
 named_entities:
   - id: MONDO:0010200
-    label: Wilson disease
+    label: Wilson's disease
   - id: MAXO:0001175
-    label: liver transplantation
+    label: Liver transplantation
+  - id: HP:0001695
+    label: Cardiac arrest
+  - id: HP:0001685
+    label: Myocardial fibrosis
+  - id: HP:0001663
+    label: Ventricular fibrillation
+  - id: CHEBI:28694
+    label: Copper
+  - id: CHEBI:18248
+    label: Iron

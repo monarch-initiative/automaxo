@@ -16,10 +16,14 @@ input_text: 'Deep brain stimulation in Lesch-Nyhan syndrome: a systematic review
   of this treatment.'
 raw_completion_output: |-
   primary_disease: Lesch-Nyhan syndrome
-  medical_actions: deep brain stimulation;evaluate the efficacy and safety
-  symptoms: dystonia;self-injurious behavior (SIB)
+
+  medical_actions: deep brain stimulation; systematic review
+
+  symptoms: dystonia; self-injurious behavior
+
   chemicals: 
-  action_annotation_relationships: deep brain stimulation TREATS dystonia IN Lesch-Nyhan syndrome;deep brain stimulation TREATS self-injurious behavior (SIB) IN Lesch-Nyhan syndrome
+
+  action_annotation_relationships: deep brain stimulation TREATS dystonia IN Lesch-Nyhan syndrome; deep brain stimulation PREVENTS self-injurious behavior IN Lesch-Nyhan syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -34,7 +38,7 @@ prompt: |+
 
 
   Text:
-  deep brain stimulation TREATS self-injurious behavior (SIB) IN Lesch-Nyhan syndrome
+  deep brain stimulation PREVENTS self-injurious behavior IN Lesch-Nyhan syndrome
 
   ===
 
@@ -42,26 +46,34 @@ extracted_object:
   primary_disease: MONDO:0010298
   medical_actions:
     - MAXO:0000943
-    - evaluate the efficacy and safety
+    - systematic review
   symptoms:
     - HP:0001332
     - HP:0100716
   action_annotation_relationships:
+    - subject: <deep brain stimulation>
+      predicate: <TREATS>
+      object: <dystonia>
+      qualifier: <Lesch-Nyhan syndrome>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
     - subject: MAXO:0000943
-      predicate: TREATS
+      predicate: PREVENTS
       object: HP:0100716
       qualifier: MONDO:0010298
 named_entities:
   - id: MONDO:0010298
     label: Lesch-Nyhan syndrome
-  - id: HP:0002149
-    label: hyperuricemia
-  - id: HP:0100021
-    label: spastic cerebral palsy (CP)
-  - id: HP:0001332
-    label: dystonia
   - id: HP:0000742
-    label: self-mutilation
+    label: Self-mutilation
+  - id: HP:0002149
+    label: Hyperuricemia
+  - id: HP:0001249
+    label: Mental retardation
+  - id: HP:0001332
+    label: Dystonia
   - id: HP:0001257
     label: Spasticity
   - id: HP:0001266
@@ -72,39 +84,37 @@ named_entities:
     label: Aggression
   - id: HP:0002104
     label: Apnea
-  - id: HP:0002013
-    label: Vomiting
   - id: CHEBI:44915
     label: Propofol
+  - id: HP:0002835
+    label: pulmonary aspiration
   - id: MAXO:0000943
     label: deep brain stimulation surgery (DBS)
   - id: CHEBI:9130
     label: sevoflurane
-  - id: MAXO:0009003
-    label: preimplantation genetic diagnosis (PGD)
-  - id: HP:0001249
-    label: mental retardation
   - id: CHEBI:17368
     label: Hypoxanthine
   - id: CHEBI:15372
-    label: tetrahydrobiopterin
+    label: Tetrahydrobiopterin
   - id: CHEBI:35634
-    label: xanthine oxidase inhibitors
+    label: Xanthine oxidase inhibitors
+  - id: MAXO:0000004
+    label: surgical procedures
   - id: CHEBI:3387
-    label: Carbamazepine
-  - id: HP:0007325
-    label: generalized dystonia
+    label: carbamazepine
+  - id: MONDO:0002486
+    label: Lesch-Nyhan syndrome (LNS)
   - id: HP:0100660
-    label: dyskinesia
+    label: Dyskinesia
   - id: HP:0003149
-    label: Hyperuricosuria
+    label: hyperuricosuria
   - id: HP:0001997
-    label: Gouty arthritis
-  - id: CHEBI:28790
-    label: serotonin
+    label: gouty arthritis
   - id: CHEBI:28683
     label: kynurenine
   - id: CHEBI:16675
     label: quinolinic acid
+  - id: CHEBI:28790
+    label: serotonin
   - id: CHEBI:15318
     label: xanthine

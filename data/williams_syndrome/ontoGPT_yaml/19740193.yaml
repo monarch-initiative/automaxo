@@ -1,0 +1,74 @@
+---
+input_text: A case report of rapid progressive coarctation and severe middle aortic
+  syndrome in an infant with Williams syndrome. Williams syndrome is a genetic disorder
+  caused by multiple contiguous gene deletions in chromosome 7. Presentation in early
+  life is most often a result of luminal stenosis of right- and left-sided arterial
+  vasculature. We report the case of a newborn infant who had a rapidly progressing
+  diffuse form of arteriopathy that required two surgeries and one percutaneous balloon
+  dilation within the first 2 months of her life.
+raw_completion_output: |-
+  primary_disease: Williams syndrome
+
+  medical_actions: surgeries; percutaneous balloon dilation
+
+  symptoms: rapid progressive coarctation; severe middle aortic syndrome; luminal stenosis of right- and left-sided arterial vasculature
+
+  chemicals: 
+
+  action_annotation_relationships: surgeries TREATS rapid progressive coarctation IN Williams syndrome; surgeries TREATS severe middle aortic syndrome IN Williams syndrome; percutaneous balloon dilation TREATS luminal stenosis of right- and left-sided arterial vasculature IN Williams syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  percutaneous balloon dilation TREATS luminal stenosis of right- and left-sided arterial vasculature IN Williams syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0008678
+  medical_actions:
+    - MAXO:0000004
+    - percutaneous balloon dilation
+  symptoms:
+    - rapid progressive coarctation
+    - severe middle aortic syndrome
+    - luminal stenosis of right- and left-sided arterial vasculature
+  action_annotation_relationships:
+    - subject: MAXO:0000004
+      predicate: TREATS
+      object: rapid progressive coarctation
+      qualifier: MONDO:0008678
+    - subject: MAXO:0000004
+      predicate: TREATS
+      object: severe middle aortic syndrome
+      qualifier: MONDO:0008678
+      object_qualifier: severe
+    - subject: percutaneous balloon dilation
+      predicate: TREATS
+      object: luminal stenosis of right- and left-sided arterial vasculature
+      qualifier: MONDO:0008678
+named_entities:
+  - id: MONDO:0008678
+    label: Williams syndrome
+  - id: MAXO:0009072
+    label: surgical repair
+  - id: HP:0004969
+    label: peripheral pulmonary stenosis
+  - id: HP:0002617
+    label: aneurysms
+  - id: HP:0001626
+    label: Cardiovascular abnormalities
+  - id: MONDO:0004492
+    label: Mediastinitis
+  - id: MAXO:0000004
+    label: Surgical interventions

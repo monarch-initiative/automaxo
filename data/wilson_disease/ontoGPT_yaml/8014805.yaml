@@ -21,14 +21,10 @@ input_text: Infectious complications in living related liver transplantation. Du
   preoperative management. Treatment of EBV infection is still an unsolved problem.
 raw_completion_output: |-
   primary_disease: Infectious complications in living related liver transplantation
-
-  medical_actions: Immunusuppression with FK-506 and low-dose steroids; Management with prolonged antibiotics; Prophylactic OKT-3; Refinement of surgical technique; Aggressive preoperative management
-
-  symptoms: Candida pneumonia; Epstein-Barr virus (EBV)-associated lymphoproliferative syndrome (LPS); Bacterial infection; Candida infection; Symptomatic viral infections
-
+  medical_actions: Immunotherapy with FK-506 and low-dose steroids; Use of prolonged antibiotics; Prophylactic OKT-3; Surgical technique refinement; More aggressive preoperative management
+  symptoms: Candida pneumonia; Epstein-Barr virus (EBV)-associated lymphoproliferative syndrome (LPS); Bacterial infection; Candida infection; Herpes simplex virus infection; Herpes zoster virus infection; Cytomegalovirus (CMV) infection; EBV infection
   chemicals: FK-506; Steroids; Antibiotics; OKT-3
-
-  action_annotation_relationships: Immunusuppression with FK-506 and low-dose steroids PREVENTS rejection IN living related liver transplantation; Management with prolonged antibiotics TREATS obstinate ascending cholangitis IN living related liver transplantation; Prophylactic OKT-3 PREVENTS CMV infection IN living related liver transplantation; Refinement of surgical technique PREVENTS bacterial and fungal infections IN living related liver transplantation; Aggressive preoperative management PREVENTS bacterial and fungal infections IN living related liver transplantation
+  action_annotation_relationships: Immunotherapy with FK-506 and low-dose steroids PREVENTS rejection IN Infectious complications in living related liver transplantation; Use of prolonged antibiotics PREVENTS/TREATS ascending cholangitis IN Infectious complications in living related liver transplantation; Use of prolonged antibiotics TREATS Candida infection IN Infectious complications in living related liver transplantation; Prophylactic OKT-3 PREVENTS CMV infection IN Infectious complications in living related liver transplantation; Surgical technique refinement PREVENTS bacterial and fungal infections IN Infectious complications in living related liver transplantation; More aggressive preoperative management PREVENTS bacterial and fungal infections IN Infectious complications in living related liver transplantation
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -43,63 +39,79 @@ prompt: |+
 
 
   Text:
-  Aggressive preoperative management PREVENTS bacterial and fungal infections IN living related liver transplantation
+  More aggressive preoperative management PREVENTS bacterial and fungal infections IN Infectious complications in living related liver transplantation
 
   ===
 
 extracted_object:
   primary_disease: Infectious complications in living related liver transplantation
   medical_actions:
-    - Immunusuppression with FK-506 and low-dose steroids
-    - Management with prolonged antibiotics
+    - Immunotherapy with FK-506 and low-dose steroids
+    - Use of prolonged antibiotics
     - Prophylactic OKT-3
-    - Refinement of surgical technique
-    - Aggressive preoperative management
+    - Surgical technique refinement
+    - More aggressive preoperative management
   symptoms:
     - Candida pneumonia
     - Epstein-Barr virus (EBV)-associated lymphoproliferative syndrome (LPS)
     - Bacterial infection
     - Candida infection
-    - Symptomatic viral infections
+    - Herpes simplex virus infection
+    - Herpes zoster virus infection
+    - Cytomegalovirus (CMV) infection
+    - EBV infection
   chemicals:
     - FK-506
     - CHEBI:35341
     - CHEBI:33281
     - OKT-3
   action_annotation_relationships:
-    - subject: Immunosuppression
+    - subject: Immunotherapy
       predicate: PREVENTS
       object: rejection
-      qualifier: living related liver transplantation
+      qualifier: Infectious complications in living related liver transplantation
+      subject_qualifier: with FK-506 and low-dose steroids
       subject_extension: FK-506
-      object_extension: low-dose
-    - subject: <Management with prolonged antibiotics>
-      predicate: <TREATS>
-      object: <obstinate ascending cholangitis>
-      qualifier: <living related liver transplantation>
+    - subject: <Use of prolonged antibiotics>
+      predicate: <PREVENTS/TREATS>
+      object: <ascending cholangitis>
+      qualifier: <Infectious complications in living related liver transplantation>
       subject_qualifier: <prolonged>
       subject_extension: <antibiotics>
-    - subject: Prophylactic
+    - subject: Use of prolonged antibiotics
+      predicate: TREATS
+      object: Candida infection
+      qualifier: Infectious complications in living related liver transplantation
+      subject_qualifier: prolonged
+      subject_extension: CHEBI:33281
+    - subject: Prophylactic OKT-3
       predicate: PREVENTS
       object: CMV infection
-      qualifier: living related liver transplantation
+      qualifier: Infectious complications in living related liver transplantation
       subject_extension: OKT-3
-    - subject: Refinement of surgical technique
+    - subject: Surgical technique refinement
       predicate: PREVENTS
       object: bacterial and fungal infections
-      qualifier: living related liver transplantation
-    - subject: Aggressive preoperative management
+      qualifier: Infectious complications in living related liver transplantation
+    - subject: More aggressive preoperative management
       predicate: PREVENTS
       object: bacterial and fungal infections
-      qualifier: living related liver transplantation
+      qualifier: Infectious complications in living related liver transplantation
 named_entities:
   - id: MONDO:0010200
-    label: Wilson disease
+    label: Wilson's disease
   - id: MAXO:0001175
-    label: liver transplantation
-  - id: MAXO:0000004
-    label: surgery (laparotomy, rectal mobilization, rectopexy, the partial sigmoid
-      colon resection with the primary anastomosis)
+    label: Liver transplantation
+  - id: HP:0001695
+    label: Cardiac arrest
+  - id: HP:0001685
+    label: Myocardial fibrosis
+  - id: HP:0001663
+    label: Ventricular fibrillation
+  - id: CHEBI:28694
+    label: Copper
+  - id: CHEBI:18248
+    label: Iron
   - id: HP:0002910
     label: abnormal liver functions
   - id: HP:0001394
@@ -108,50 +120,50 @@ named_entities:
     label: zinc
   - id: CHEBI:50868
     label: penicillamine
-  - id: CHEBI:51232
-    label: Hoechst 33342
+  - id: MAXO:0000016
+    label: Cell therapy
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: CHEBI:30703
+    label: Tetrathiomolybdate (TTM)
   - id: HP:0006554
     label: acute liver failure
-  - id: MAXO:0000068
-    label: transplantation
+  - id: CHEBI:35176
+    label: Zinc sulphate
+  - id: CHEBI:35475
+    label: NSAIDs
   - id: MAXO:0009095
-    label: Zinc therapy
-  - id: HP:0002344
-    label: Neurologic deterioration
+    label: zinc therapy
   - id: MAXO:0001298
     label: therapy
-  - id: HP:0001392
-    label: liver disease
   - id: HP:0006579
     label: neonatal jaundice
-  - id: HP:0002612
-    label: congenital hepatic fibrosis
   - id: HP:0001409
     label: portal hypertension
   - id: HP:0030151
     label: cholangitis
+  - id: HP:0002612
+    label: congenital hepatic fibrosis
   - id: MONDO:0013282
     label: alpha-1-antitrypsin deficiency
-  - id: MONDO:0009061
-    label: cystic fibrosis
-  - id: MONDO:0009044
-    label: Crigler-Najjar syndrome
-  - id: MAXO:0000376
-    label: liver biopsy
-  - id: MAXO:0000127
-    label: genetic testing
   - id: HP:0001903
     label: anemia
   - id: HP:0001410
     label: liver dysfunction
   - id: CHEBI:39501
     label: trientine
-  - id: CHEBI:28694
-    label: copper
+  - id: MAXO:0000070
+    label: Hepatic transplantation
   - id: HP:0001399
-    label: hepatic failure
+    label: Hepatic failure
   - id: HP:0004448
     label: fulminant hepatic failure
+  - id: HP:0003256
+    label: coagulopathy (international normalized ratio >2.0)
+  - id: HP:0004445
+    label: hepatic encephalopathy (HE)
+  - id: HP:0002480
+    label: hepatic encephalopathy
   - id: CHEBI:35341
     label: Steroids
   - id: CHEBI:33281

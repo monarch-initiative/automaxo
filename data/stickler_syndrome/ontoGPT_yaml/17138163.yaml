@@ -13,14 +13,10 @@ input_text: 'Difficulties in anesthetic management of patients with micrognathia
   disabling consequences.'
 raw_completion_output: |-
   primary_disease: Stickler syndrome
-
-  medical_actions: mask ventilation; endotracheal intubation; counseling; treatment
-
-  symptoms: midface hypoplasia; retromicrognathia; cleft palate; "moon-shaped" appearance; progressive myopia; retinal degeneration
-
+  medical_actions: Mask ventilation; Endotracheal intubation; Counseling; Treatment
+  symptoms: Midface hypoplasia; Retromicrognathia; Cleft palate; "Moon-shaped" appearance; Progressive myopia; Retinal degeneration
   chemicals: 
-
-  action_annotation_relationships: mask ventilation TREATS retromicrognathia IN Stickler syndrome; endotracheal intubation TREATS retromicrognathia IN Stickler syndrome; counseling PREVENTS "potentially irreversible and disabling consequences" IN Stickler syndrome; treatment PREVENTS "potentially irreversible and disabling consequences" IN Stickler syndrome
+  action_annotation_relationships: Mask ventilation TREATS difficulties in anesthetic management IN Stickler syndrome; Endotracheal intubation TREATS difficulties in anesthetic management IN Stickler syndrome; Counseling PREVENTS potentially irreversible and disabling consequences IN Stickler syndrome; Treatment PREVENTS potentially irreversible and disabling consequences IN Stickler syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -35,7 +31,7 @@ prompt: |+
 
 
   Text:
-  treatment PREVENTS "potentially irreversible and disabling consequences" IN Stickler syndrome
+  Treatment PREVENTS potentially irreversible and disabling consequences IN Stickler syndrome
 
   ===
 
@@ -44,76 +40,62 @@ extracted_object:
   medical_actions:
     - MAXO:0000505
     - MAXO:0000502
-    - counseling
-    - treatment
+    - Counseling
+    - Treatment
   symptoms:
     - HP:0011800
     - HP:0000308
     - HP:0000175
-    - '"moon-shaped" appearance'
-    - progressive myopia
+    - '"Moon-shaped" appearance'
+    - Progressive myopia
     - HP:0000546
   action_annotation_relationships:
     - subject: MAXO:0000505
       predicate: TREATS
-      object: HP:0000308
+      object: difficulties in anesthetic management
       qualifier: MONDO:0019354
-    - subject: MAXO:0000502
-      predicate: TREATS
-      object: HP:0000308
-      qualifier: MONDO:0019354
-    - subject: counseling
-      predicate: PREVENTS
-      object: potentially irreversible and disabling consequences
-      qualifier: MONDO:0019354
-    - subject: treatment
+    - subject: <Endotracheal intubation>
+      predicate: <TREATS>
+      object: <difficulties in anesthetic management>
+      qualifier: <Stickler syndrome>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: <Counseling>
+      predicate: <PREVENTS>
+      object: <consequences>
+      qualifier: <Stickler syndrome>
+      subject_qualifier: <Not applicable>
+      object_qualifier: <potentially irreversible and disabling>
+      subject_extension: <Not applicable>
+      object_extension: <potentially irreversible and disabling>
+    - subject: Treatment
       predicate: PREVENTS
       object: potentially irreversible and disabling consequences
       qualifier: MONDO:0019354
 named_entities:
-  - id: MONDO:0019354
-    label: Stickler Syndrome
-  - id: HP:0000541
-    label: Retinal Detachment
-  - id: MONDO:0018076
-    label: tuberculosis
-  - id: HP:0000252
-    label: microcephaly
-  - id: HP:0012413
-    label: congenital syphilis
-  - id: HP:0100510
-    label: scurvy
-  - id: HP:0002749
-    label: osteomalacia
-  - id: HP:0020110
-    label: fractures
-  - id: HP:0000545
-    label: Myopia
-  - id: HP:0000518
-    label: Cataract
-  - id: HP:0000501
-    label: Glaucoma
-  - id: HP:0000505
-    label: Visual impairment
-  - id: MONDO:0010667
-    label: Pierre Robin sequence (PRS)
-  - id: HP:0006536
-    label: Airway obstruction
-  - id: HP:0011968
-    label: Feeding difficulties
-  - id: HP:0000405
-    label: Conductive hearing loss
   - id: MONDO:0009869
     label: Pierre Robin sequence
+  - id: HP:0006536
+    label: airway obstruction
+  - id: HP:0011968
+    label: feeding difficulties
+  - id: HP:0040262
+    label: serous otitis media
+  - id: HP:0000405
+    label: conductive hearing loss
+  - id: MONDO:0019354
+    label: Stickler syndrome
   - id: MAXO:0000505
-    label: mask ventilation
+    label: Mask ventilation
   - id: MAXO:0000502
-    label: endotracheal intubation
+    label: Endotracheal intubation
   - id: HP:0011800
-    label: midface hypoplasia
+    label: Midface hypoplasia
   - id: HP:0000308
-    label: retromicrognathia
+    label: Retromicrognathia
   - id: HP:0000175
-    label: cleft palate
+    label: Cleft palate
   - id: HP:0000546
-    label: retinal degeneration
+    label: Retinal degeneration

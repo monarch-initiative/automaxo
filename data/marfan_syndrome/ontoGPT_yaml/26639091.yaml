@@ -24,13 +24,13 @@ input_text: 'Successive MRI Findings of Reversible Cerebral White Matter Lesions
 raw_completion_output: |-
   primary_disease: Cystathionine beta-Synthase Deficiency
 
-  medical_actions: MRI; protein restriction; betaine therapy; methionine restriction
+  medical_actions: MRI monitoring; Protein (methionine) restriction; Betaine therapy
 
-  symptoms: myopia; ectopia lentis; mental retardation; skeletal anomalies; thromboembolic events; cerebral white matter lesions; hypermethioninemia
+  symptoms: Myopia; Ectopia lentis; Mental retardation; Skeletal anomalies; Thromboembolic events; Cerebral white matter lesions (CWMLs); Hypermethioninemia
 
-  chemicals: betaine
+  chemicals: Betaine; Methionine
 
-  action_annotation_relationships: methionine restriction TREATS cerebral white matter lesions IN Cystathionine beta-Synthase Deficiency; betaine therapy PREVENTS hypermethioninemia IN Cystathionine beta-Synthase Deficiency; betaine therapy (with betaine) INCREASES RISK OF cerebral white matter lesions IN Cystathionine beta-Synthase Deficiency
+  action_annotation_relationships: Protein (methionine) restriction TREATS Hypermethioninemia IN Cystathionine beta-Synthase Deficiency; Betaine therapy TREATS Hypermethioninemia IN Cystathionine beta-Synthase Deficiency; MRI monitoring TREATS Cerebral white matter lesions (CWMLs) IN Cystathionine beta-Synthase Deficiency
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -45,45 +45,43 @@ prompt: |+
 
 
   Text:
-  betaine therapy (with betaine) INCREASES RISK OF cerebral white matter lesions IN Cystathionine beta-Synthase Deficiency
+  MRI monitoring TREATS Cerebral white matter lesions (CWMLs) IN Cystathionine beta-Synthase Deficiency
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0009352
   medical_actions:
-    - MRI
-    - protein restriction
-    - betaine therapy
-    - MAXO:0010092
+    - MRI monitoring
+    - Protein (methionine) restriction
+    - Betaine therapy
   symptoms:
     - HP:0000545
     - HP:0001083
     - HP:0001249
     - HP:0000924
     - HP:0001907
-    - cerebral white matter lesions
+    - Cerebral white matter lesions (CWMLs)
     - HP:0003235
   chemicals:
     - CHEBI:17750
+    - CHEBI:16811
   action_annotation_relationships:
-    - subject: restriction
-      predicate: TREATS
-      object: cerebral white matter lesions
-      qualifier: MONDO:0009352
-      subject_extension: CHEBI:16811
-      object_extension: cerebral white matter lesions
+    - subject: <Protein restriction>
+      predicate: <TREATS>
+      object: <Hypermethioninemia>
+      qualifier: <Cystathionine beta-Synthase Deficiency>
+      subject_extension: <methionine>
     - subject: MAXO:0001298
-      predicate: PREVENTS
+      predicate: TREATS
       object: HP:0003235
       qualifier: MONDO:0009352
       subject_extension: CHEBI:17750
-    - subject: betaine therapy
-      predicate: INCREASES RISK OF
-      object: cerebral white matter lesions
+    - subject: MRI monitoring
+      predicate: TREATS
+      object: Cerebral white matter lesions
       qualifier: MONDO:0009352
-      subject_qualifier: with betaine
-      subject_extension: CHEBI:17750
+      subject_extension: MRI monitoring
 named_entities:
   - id: MONDO:0007947
     label: Marfan Syndrome
@@ -95,24 +93,64 @@ named_entities:
     label: Spontaneous pneumothorax
   - id: HP:0003423
     label: Thoracolumbar kyphoscoliosis
+  - id: CHEBI:33281
+    label: Antibiotic
+  - id: HP:0002107
+    label: pneumothorax
+  - id: MAXO:0010203
+    label: Echocardiography
+  - id: MAXO:0000494
+    label: Blood pressure monitoring
+  - id: HP:0004942
+    label: Aortic dilatation
+  - id: CHEBI:5959
+    label: Irbesartan
+  - id: HP:0004950
+    label: Peripheral artery disease
+  - id: HP:0002617
+    label: aneurysm
+  - id: HP:0030965
+    label: increased aortic stiffness
+  - id: HP:0001659
+    label: aortic regurgitation
+  - id: HP:0001712
+    label: left ventricular hypertrophy
+  - id: HP:0005162
+    label: left ventricular failure
   - id: HP:0000822
-    label: Hypertension
-  - id: HP:0001649
-    label: Tachycardia
-  - id: HP:0012531
-    label: pain
-  - id: MONDO:0009691
-    label: Marfan syndrome (MFS)
+    label: high blood pressure
   - id: CHEBI:6541
     label: Losartan
+  - id: CHEBI:35530
+    label: beta-blocker
+  - id: MAXO:0001298
+    label: therapy
+  - id: MONDO:0020333
+    label: Anterior sacral meningocele (ASM)
+  - id: HP:0002315
+    label: headache
+  - id: HP:0002018
+    label: nausea
+  - id: HP:0002138
+    label: subarachnoid hemorrhage
   - id: HP:0031625
     label: Pseudoaneurysms
   - id: MAXO:0000451
     label: Implantation
-  - id: HP:0031649
-    label: Aortic rupture
-  - id: MAXO:0001061
-    label: Laminectomy
+  - id: MAXO:0000457
+    label: pain management
+  - id: HP:0012531
+    label: pain
+  - id: HP:0012378
+    label: fatigue
+  - id: HP:0012332
+    label: dysautonomia
+  - id: HP:0002659
+    label: bone fragility
+  - id: HP:0025017
+    label: capillary fragility
+  - id: HP:0001030
+    label: skin fragility
   - id: MAXO:0000571
     label: CT
   - id: HP:0034267
@@ -121,37 +159,71 @@ named_entities:
     label: Genital prolapse
   - id: HP:0100518
     label: Dysuria
+  - id: MONDO:0044632
+    label: Extracranial Carotid Artery Aneurysms (ECAAs)
+  - id: MAXO:0000448
+    label: Surgical resection
   - id: HP:0001297
-    label: stroke
+    label: Stroke
+  - id: HP:0012163
+    label: Extracranial Carotid Artery Aneurysms
+  - id: HP:0002616
+    label: aortic root aneurysms
+  - id: HP:0031649
+    label: aortic rupture
+  - id: HP:0002090
+    label: pneumonia
+  - id: CHEBI:50249
+    label: Anticoagulants
+  - id: HP:0012514
+    label: Leg pain
+  - id: HP:0007340
+    label: Leg weakness
+  - id: HP:0200146
+    label: annuloaortic ectasia
+  - id: MAXO:0009072
+    label: Surgical repair
+  - id: MONDO:0009691
+    label: Marfan syndrome (MFS)
+  - id: HP:0002140
+    label: acute ischemic stroke
   - id: HP:0002615
     label: Hypotension
   - id: HP:0007185
     label: Loss of consciousness
-  - id: MAXO:0001056
-    label: Hepatectomy
   - id: HP:0002239
     label: Gastrointestinal bleeding
   - id: HP:0000952
     label: Jaundice
+  - id: MAXO:0000004
+    label: surgery
+  - id: MONDO:0004737
+    label: Homocystinuria
+  - id: HP:0004933
+    label: type A aortic dissection
+  - id: MONDO:0008213
+    label: Pectus Excavatum
+  - id: HP:0010550
+    label: Paraplegia
+  - id: HP:0012151
+    label: Hemothorax
+  - id: HP:0000767
+    label: Pectus Excavatum
   - id: MONDO:0009352
     label: Cystathionine beta-Synthase Deficiency
-  - id: MAXO:0010092
-    label: methionine restriction
   - id: HP:0000545
-    label: myopia
+    label: Myopia
   - id: HP:0001083
-    label: ectopia lentis
+    label: Ectopia lentis
   - id: HP:0001249
-    label: mental retardation
+    label: Mental retardation
   - id: HP:0000924
-    label: skeletal anomalies
+    label: Skeletal anomalies
   - id: HP:0001907
-    label: thromboembolic events
+    label: Thromboembolic events
   - id: HP:0003235
-    label: hypermethioninemia
+    label: Hypermethioninemia
   - id: CHEBI:17750
-    label: betaine
+    label: Betaine
   - id: CHEBI:16811
-    label: methionine
-  - id: MAXO:0001298
-    label: therapy
+    label: Methionine

@@ -21,11 +21,15 @@ input_text: GH and IGF-1 Replacement in Children. In this chapter, we want to gi
   to see whether they show improvements in treatment adherence of the patients and
   prove their long-term safety.
 raw_completion_output: |-
-  primary_disease: <Growth hormone deficiency and related growth disorders>
-  medical_actions: <Use of recombinant human growth hormone; Use of recombinant human IGF-1; Hormone replacement therapies; Analysis of growth responses; Injection of long-term preparations>
-  symptoms: <Short stature>
-  chemicals: <Recombinant human growth hormone (rhGH); Recombinant human IGF-1>
-  action_annotation_relationships: <Use of recombinant human growth hormone (rhGH) TREATS short stature IN Growth hormone deficiency and related growth disorders; Use of recombinant human IGF-1 TREATS short stature IN Growth hormone deficiency and related growth disorders>
+  primary_disease: Short stature due to GH deficiency and various disorders
+
+  medical_actions: Use of recombinant human growth hormone (rhGH);Use of recombinant human IGF-1;Injection of long-term rhGH preparations
+
+  symptoms: Short stature
+
+  chemicals: Recombinant human growth hormone (rhGH);Recombinant human IGF-1
+
+  action_annotation_relationships: Use of recombinant human growth hormone (rhGH) TREATS short stature IN Short stature due to GH deficiency and various disorders;Use of recombinant human IGF-1 TREATS short stature IN Short stature due to GH deficiency and various disorders;Injection of long-term rhGH preparations (with Recombinant human growth hormone (rhGH)) TREATS short stature IN Short stature due to GH deficiency and various disorders
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -40,51 +44,61 @@ prompt: |+
 
 
   Text:
-  Use of recombinant human IGF-1 TREATS short stature IN Growth hormone deficiency and related growth disorders>
+  Injection of long-term rhGH preparations (with Recombinant human growth hormone (rhGH)) TREATS short stature IN Short stature due to GH deficiency and various disorders
 
   ===
 
 extracted_object:
-  primary_disease: <Growth hormone deficiency and related growth disorders>
+  primary_disease: Short stature due to GH deficiency and various disorders
   medical_actions:
-    - <Use of recombinant human growth hormone
+    - Use of recombinant human growth hormone (rhGH)
     - Use of recombinant human IGF-1
-    - Hormone replacement therapies
-    - Analysis of growth responses
-    - Injection of long-term preparations>
+    - Injection of long-term rhGH preparations
   symptoms:
-    - <Short stature>
+    - HP:0004322
   chemicals:
-    - <Recombinant human growth hormone (rhGH)
-    - Recombinant human IGF-1>
+    - Recombinant human growth hormone (rhGH)
+    - Recombinant human IGF-1
   action_annotation_relationships:
     - subject: Use of recombinant human growth hormone
       predicate: TREATS
       object: HP:0004322
-      qualifier: Growth hormone deficiency and related growth disorders
+      qualifier: Short stature due to GH deficiency and various disorders
       subject_extension: recombinant human growth hormone
     - subject: Use of recombinant human IGF-1
       predicate: TREATS
       object: HP:0004322
-      qualifier: Growth hormone deficiency and related growth disorders
+      qualifier: Short stature due to GH deficiency and various disorders
       subject_extension: recombinant human IGF-1
+    - subject: Injection of long-term rhGH preparations
+      predicate: TREATS
+      object: HP:0004322
+      qualifier: Short stature due to GH deficiency and various disorders
+      subject_qualifier: with Recombinant human growth hormone (rhGH)
+      subject_extension: Recombinant human growth hormone (rhGH)
 named_entities:
   - id: CHEBI:33281
-    label: Antibiotics
+    label: antibiotics
   - id: MONDO:0006936
     label: pulmonary valve stenosis
   - id: MAXO:0009072
     label: surgical repair
+  - id: HP:0001642
+    label: pulmonary valve stenosis
   - id: MONDO:0018997
     label: Noonan syndrome
-  - id: MAXO:0010203
-    label: echocardiography
   - id: HP:0004322
     label: short stature
+  - id: CHEBI:37845
+    label: GH
   - id: MONDO:0011908
     label: Juvenile myelomonocytic leukemia (JMML)
   - id: MAXO:0000747
     label: hematopoietic stem cell transplantation (HSCT)
+  - id: HP:0012209
+    label: Juvenile myelomonocytic leukemia (JMML)
+  - id: MAXO:0010203
+    label: echocardiography
   - id: HP:0001663
     label: ventricular fibrillation
   - id: HP:0001639
@@ -94,36 +108,49 @@ named_entities:
   - id: HP:0030828
     label: Wheezing
   - id: CHEBI:90960
-    label: Tiotropium (Tio)
+    label: Tiotropium
+  - id: HP:0002099
+    label: bronchial asthma
   - id: MONDO:0007037
     label: Achondroplasia
-  - id: CHEBI:37845
-    label: Growth hormone (GH)
+  - id: MAXO:0000014
+    label: radiotherapy
+  - id: MAXO:0035118
+    label: Cardiac catheterization
+  - id: HP:0001659
+    label: Aortic regurgitation
+  - id: HP:0001004
+    label: Lymphedema
+  - id: CHEBI:17347
+    label: Testosterone
+  - id: MONDO:0005516
+    label: osteochondrodysplasias
+  - id: MONDO:0008300
+    label: Prader-Willi syndrome
   - id: MONDO:0000050
     label: Growth Hormone Deficiency (GHD)
   - id: HP:0001510
     label: Poor growth
   - id: MONDO:0007414
     label: Gorham disease
-  - id: MAXO:0000014
-    label: Radiation therapy
   - id: HP:0012531
     label: Pain
   - id: HP:0010310
     label: Chylothorax
-  - id: MONDO:0009735
-    label: Tumorigenesis; Noonan syndrome (NS); LEOPARD syndrome (LS); Hematological
-      malignancies; Solid tumors
   - id: MONDO:0007893
     label: Noonan syndrome with multiple lentigines
   - id: HP:0001670
     label: asymmetric septal hypertrophy
-  - id: HP:0001631
-    label: atrial septal defect
+  - id: MONDO:0011035
+    label: Neurofibromatosis-Noonan syndrome
+  - id: HP:0000001
+    label: acute lymphoblastic leukemia (ALL)
   - id: HP:0000818
-    label: Endocrinopathies
+    label: endocrinopathies
   - id: HP:0000789
-    label: Infertility
+    label: infertility
+  - id: MONDO:0019499
+    label: Turner syndrome
   - id: MONDO:0006769
     label: Gastroparesis
   - id: MAXO:0000079
@@ -132,36 +159,36 @@ named_entities:
     label: Bloating
   - id: CHEBI:31515
     label: Domperidone
+  - id: HP:0002018
+    label: nausea
   - id: MAXO:0010032
     label: heart transplantation
+  - id: HP:0001635
+    label: heart failure
   - id: HP:0031318
     label: myofiber disarray
   - id: CHEBI:68478
     label: everolimus
   - id: MAXO:0001298
     label: therapy
-  - id: MAXO:0000647
-    label: Chemotherapy
+  - id: HP:0003006
+    label: neuroblastoma
   - id: MAXO:0025001
     label: cardiac surgery
   - id: HP:0001627
     label: congenital heart disease
-  - id: HP:0001642
-    label: pulmonary stenosis
-  - id: MONDO:0007254
-    label: Breast cancer
   - id: HP:0011675
-    label: arrhythmias
+    label: Arrhythmias
   - id: HP:0002093
-    label: respiratory insufficiency
+    label: Respiratory insufficiency
   - id: HP:0002090
-    label: pneumonia
-  - id: MAXO:0035118
-    label: Cardiac catheterization
+    label: Pneumonia
+  - id: HP:0001631
+    label: atrial septal defect
   - id: HP:0001999
     label: Dysmorphic facial features
-  - id: HP:0001684
-    label: Secundum atrial septal defect
+  - id: HP:0000729
+    label: Secundum atrial septal defect (ASD)
   - id: HP:0030957
     label: Ventricular septal aneurysm
   - id: HP:0002875
@@ -175,59 +202,59 @@ named_entities:
   - id: MONDO:0005212
     label: Rhabdomyosarcoma
   - id: HP:0001263
-    label: Developmental delay
+    label: developmental delay
   - id: HP:0005152
-    label: Congenital cardiomyopathy
+    label: congenital cardiomyopathy
   - id: HP:0002027
-    label: Abdominal pain
+    label: abdominal pain
   - id: HP:0002019
-    label: Constipation
+    label: constipation
   - id: HP:0031500
     label: abdominal mass
+  - id: MONDO:0054588
+    label: Noonan syndrome-like disorder with loose anagen hair-2 (NSLH2)
   - id: HP:0001252
-    label: hypotonia
+    label: Hypotonia
   - id: HP:0001249
-    label: intellectual disability
-  - id: MONDO:0021200
-    label: Rare diseases
-  - id: MAXO:0000011
-    label: Physiotherapy
-  - id: MONDO:0001516
-    label: spinal muscular atrophy
+    label: Intellectual disability
+  - id: HP:0011097
+    label: epileptic spasms
   - id: MONDO:0021060
     label: RASopathies
   - id: HP:0010816
-    label: Epidermal nevi
+    label: epidermal nevi
   - id: HP:0010815
-    label: Nevus sebaceous
+    label: nevus sebaceous
   - id: MONDO:0007783
     label: King syndrome
-  - id: HP:0001787
-    label: delivery complications
-  - id: HP:0011001
-    label: Increased bone mineral density
-  - id: MAXO:0000068
-    label: Transplantation
+  - id: HP:0002047
+    label: malignant hyperthermia
   - id: MONDO:0006664
-    label: atrial septal defect
+    label: Atrial Septal Defect
   - id: HP:0003010
-    label: Prolonged bleeding time
+    label: prolonged bleeding time
   - id: CHEBI:4450
     label: Desmopressin
   - id: CHEBI:15365
-    label: Aspirin
+    label: aspirin
+  - id: MONDO:0007950
+    label: mastocytosis
   - id: MONDO:0019565
     label: von Willebrand disease
+  - id: HP:6000310
+    label: Preterm premature rupture of membranes
   - id: HP:0002089
     label: Pulmonary hypoplasia
   - id: HP:0001256
-    label: mild mental retardation
-  - id: HP:0000365
-    label: deafness
+    label: Mild mental retardation
+  - id: HP:0025676
+    label: fetal pleural effusions
+  - id: MONDO:0006497
+    label: Cerebral Palsy
+  - id: MONDO:0002192
+    label: Vulvar angiokeratoma
   - id: HP:0030692
     label: brain tumors
-  - id: HP:0001635
-    label: Congestive heart failure
   - id: CHEBI:119915
     label: Fentanyl
   - id: CHEBI:6931
@@ -238,3 +265,5 @@ named_entities:
     label: Ketamine
   - id: CHEBI:9130
     label: Sevoflurane
+  - id: HP:0002593
+    label: intestinal lymphangiectasia

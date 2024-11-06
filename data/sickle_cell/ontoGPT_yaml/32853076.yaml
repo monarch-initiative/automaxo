@@ -22,11 +22,15 @@ input_text: 'Sickle Cell-Related Complications in Patients Undergoing Cardiopulm
   temperature, and the utilization of deep hypothermic circulatory arrest appear to
   play an important role in the development of complications.'
 raw_completion_output: |-
-  primary_disease: Sickle Cell-Related Complications
-  medical_actions: Exchange transfusion (ET) pre-bypass
-  symptoms: Potential sickle cell-related complication
+  primary_disease: sickle cell-related complications
+
+  medical_actions: exchange transfusion pre-bypass; deep hypothermic circulatory arrest; surgery on cardiopulmonary bypass
+
+  symptoms: potential sickle cell-related complication
+
   chemicals: 
-  action_annotation_relationships: Exchange transfusion (ET) pre-bypass TREATS potential sickle cell-related complication IN Sickle Cell-Related Complications
+
+  action_annotation_relationships: exchange transfusion pre-bypass PREVENTS potential sickle cell-related complication IN sickle cell-related complications; deep hypothermic circulatory arrest TREATS potential sickle cell-related complication IN sickle cell-related complications; surgery on cardiopulmonary bypass TREATS potential sickle cell-related complication IN sickle cell-related complications
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -41,62 +45,122 @@ prompt: |+
 
 
   Text:
-  Exchange transfusion (ET) pre-bypass TREATS potential sickle cell-related complication IN Sickle Cell-Related Complications
+  surgery on cardiopulmonary bypass TREATS potential sickle cell-related complication IN sickle cell-related complications
 
   ===
 
 extracted_object:
-  primary_disease: Sickle Cell-Related Complications
+  primary_disease: sickle cell-related complications
   medical_actions:
-    - Exchange transfusion (ET) pre-bypass
+    - exchange transfusion pre-bypass
+    - deep hypothermic circulatory arrest
+    - surgery on cardiopulmonary bypass
   symptoms:
-    - Potential sickle cell-related complication
+    - potential sickle cell-related complication
   action_annotation_relationships:
-    - subject: Exchange transfusion (ET) pre-bypass
+    - subject: exchange transfusion pre-bypass
+      predicate: PREVENTS
+      object: potential sickle cell-related complication
+      qualifier: sickle cell-related complications
+    - subject: <deep hypothermic circulatory arrest>
+      predicate: <TREATS>
+      object: <potential sickle cell-related complication>
+      qualifier: <sickle cell-related complications>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: MAXO:0000004
       predicate: TREATS
       object: potential sickle cell-related complication
-      qualifier: Sickle Cell-Related Complications
+      qualifier: sickle cell-related complications
+      subject_extension: cardiopulmonary bypass
+      object_extension: sickle cell-related
 named_entities:
   - id: MONDO:0011382
-    label: Sickle Cell Disease
-  - id: MAXO:0000457
-    label: Pain Management
-  - id: HP:0012531
-    label: Pain
-  - id: HP:0000739
-    label: anxiety
-  - id: MONDO:0005812
-    label: Influenza
+    label: sickle cell disease
+  - id: CHEBI:64357
+    label: rituximab
+  - id: CHEBI:35341
+    label: steroids
+  - id: CHEBI:81579
+    label: erythropoietin
   - id: MAXO:0001017
-    label: vaccination
-  - id: MAXO:0000756
-    label: transfusion
-  - id: MONDO:0018881
-    label: Myelodysplasia
-  - id: MONDO:0000984
-    label: Thalassemia
-  - id: MONDO:0018373
-    label: avascular necrosis (AVN)
-  - id: MAXO:0009047
-    label: total hip replacement (THR)
-  - id: HP:0010885
-    label: avascular necrosis
+    label: Vaccination
   - id: MONDO:0007374
     label: Sickle Cell Disease (SCD)
-  - id: CHEBI:131923
-    label: Salubrinal
-  - id: MAXO:0000068
-    label: Transplantation
+  - id: MAXO:0000747
+    label: Allogeneic hematopoietic stem cell transplantation (HSCT)
+  - id: HP:0007760
+    label: Sickle Cell Disease (SCD)
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: CHEBI:35480
+    label: analgesics
+  - id: CHEBI:33281
+    label: antibiotics
+  - id: MAXO:0001077
+    label: Splenectomy
+  - id: MAXO:0000756
+    label: Blood transfusion
+  - id: MONDO:0044348
+    label: Hemoglobinopathies
   - id: CHEBI:44423
-    label: hydroxyurea
-  - id: MONDO:0003664
-    label: Haemolytic Anaemias
-  - id: HP:0032654
-    label: Endothelial dysfunction
-  - id: HP:0025464
-    label: Oxidative stress
-  - id: MAXO:0001298
-    label: therapies
+    label: Hydroxyurea
+  - id: HP:0001297
+    label: Stroke
+  - id: HP:0002863
+    label: Myelodysplastic syndrome
+  - id: CHEBI:28901
+    label: Busulfan
+  - id: CHEBI:82594
+    label: Ferritin
+  - id: MONDO:0000984
+    label: thalassemia
+  - id: MONDO:0018881
+    label: myelodysplastic syndrome
+  - id: HP:0002140
+    label: Ischemic Stroke
+  - id: MONDO:0005380
+    label: avascular necrosis
+  - id: MAXO:0009047
+    label: total hip replacement
+  - id: HP:0010885
+    label: avascular necrosis
+  - id: CHEBI:4027
+    label: cyclophosphamide
+  - id: CHEBI:41879
+    label: dexamethasone
+  - id: CHEBI:9570
+    label: thiotepa
+  - id: CHEBI:125354
+    label: plerixafor
+  - id: CHEBI:9168
+    label: sirolimus
+  - id: CHEBI:8764
+    label: mycophenolate mofetil
+  - id: HP:0012531
+    label: Pain
+  - id: MAXO:0000515
+    label: Extracorporeal life support
+  - id: HP:0001708
+    label: Right ventricular failure
+  - id: HP:0033515
+    label: opioid dependence
+  - id: MONDO:0005632
+    label: Acute chest syndrome in sickle cell disease
+  - id: HP:0001945
+    label: fever
+  - id: HP:0001878
+    label: Hemolytic anemia
+  - id: CHEBI:6121
+    label: ketamine
+  - id: CHEBI:17303
+    label: morphine
+  - id: HP:0001744
+    label: splenomegaly
+  - id: HP:0031274
+    label: hypovolemic shock
   - id: MAXO:0000110
     label: Vitamin D supplementation
   - id: HP:0100512
@@ -106,20 +170,32 @@ named_entities:
   - id: CHEBI:28940
     label: Cholecalciferol
   - id: CHEBI:29016
-    label: Arginine
+    label: arginine
   - id: CHEBI:18211
-    label: Citrulline
+    label: citrulline
   - id: CHEBI:3638
-    label: Chloroquine
+    label: chloroquine
   - id: CHEBI:50733
-    label: Nutritional supplements
+    label: nutritional supplements
+  - id: MONDO:0005570
+    label: Blood disorders
+  - id: MONDO:0013517
+    label: beta-thalassemia
+  - id: HP:0002204
+    label: Pulmonary embolus
+  - id: HP:0100626
+    label: end-stage liver disease
+  - id: MONDO:0016363
+    label: Iron overload diseases
   - id: HP:0012532
     label: Chronic pain
-  - id: HP:0000716
-    label: Depression
   - id: HP:0012432
     label: Chronic fatigue
-  - id: MAXO:0000747
-    label: Hematopoietic stem cell transplant (HSCT)
-  - id: MAXO:0001001
-    label: Gene therapy
+  - id: MAXO:0010203
+    label: echocardiography
+  - id: HP:0002870
+    label: obstructive sleep apnoea (OSA)
+  - id: HP:0000520
+    label: Proptosis
+  - id: MAXO:0000004
+    label: surgery

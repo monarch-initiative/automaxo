@@ -1,0 +1,85 @@
+---
+input_text: 'Indications for tracheostomy in children with head and neck lymphatic
+  malformation: analysis of a nationwide survey in Japan. PURPOSE: Airway obstruction
+  caused by lymphatic malformation (LM) in the head and neck may require a tracheostomy.
+  We present the results of our analysis of a nationwide survey on the indications
+  for tracheostomy in children with head and neck LM. METHODS: We analyzed data in
+  relation to tracheostomy based on a questionnaire about 518 children with head and
+  neck LM without mediastinal involvement. RESULTS: Tracheostomy was performed for
+  43 of the 518 children. Most (32/43) of these children were younger than 1 year
+  of age and the tracheostomy was almost always performed for airway obstruction (40/43).
+  The lesion was in contact with the airway in 32 (72%) of these children, but in
+  only 58 (12%) of the 473 children who were managed without tracheostomy. When the
+  maximum circumferential area of contact was compared, only 20 (27%) of 74 patients
+  with maximum contact of less than a half-circle required tracheostomy, whereas 11
+  of 13 with maximum contact of more than a half-circle required tracheostomy (P =
+  0.0001). Six patients without airway contact required tracheostomy because of acute
+  swelling caused by hemorrhage, infection, or both. CONCLUSIONS: Children with head
+  and neck LM required tracheostomy to relieve airway obstruction. Tracheostomy should
+  be considered if the lesion is in contact with the airway and surrounds more than
+  a half-circle, and when it causes acute swelling.'
+raw_completion_output: |-
+  primary_disease: lymphatic malformation (LM)
+  medical_actions: tracheostomy
+  symptoms: airway obstruction; acute swelling; hemorrhage; infection
+  chemicals: 
+  action_annotation_relationships: tracheostomy TREATS airway obstruction IN lymphatic malformation (LM); tracheostomy TREATS acute swelling IN lymphatic malformation (LM); tracheostomy TREATS hemorrhage IN lymphatic malformation (LM); tracheostomy TREATS infection IN lymphatic malformation (LM)
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  tracheostomy TREATS infection IN lymphatic malformation (LM)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0002013
+  medical_actions:
+    - MAXO:0000504
+  symptoms:
+    - HP:0006536
+    - acute swelling
+    - hemorrhage
+    - infection
+  action_annotation_relationships:
+    - subject: MAXO:0000504
+      predicate: TREATS
+      object: HP:0006536
+      qualifier: MONDO:0002013
+    - subject: MAXO:0000504
+      predicate: TREATS
+      object: acute swelling
+      qualifier: MONDO:0002013
+    - subject: MAXO:0000504
+      predicate: TREATS
+      object: hemorrhage
+      qualifier: MONDO:0002013
+    - subject: MAXO:0000504
+      predicate: TREATS
+      object: infection
+      qualifier: MONDO:0002013
+named_entities:
+  - id: MAXO:0000004
+    label: Surgery
+  - id: MAXO:0000504
+    label: tracheotomy
+  - id: HP:0006536
+    label: airway obstruction
+  - id: HP:0010628
+    label: facial nerve palsy
+  - id: CHEBI:9168
+    label: Rapamycin
+  - id: MAXO:0000448
+    label: Surgical resection
+  - id: MONDO:0002013
+    label: lymphatic malformation (LM)

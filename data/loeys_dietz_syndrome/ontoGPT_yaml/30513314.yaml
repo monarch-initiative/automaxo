@@ -9,10 +9,10 @@ input_text: Successful Heart Transplantation in a Patient With Loeys-Dietz Syndr
   transplantation in an individual with Loeys-Dietz syndrome.
 raw_completion_output: |-
   primary_disease: Loeys-Dietz syndrome
-  medical_actions: Listed for cardiac transplantation; Underwent heart transplantation; Revascularized with coronary artery bypass grafting
-  symptoms: Vertebral artery dissection; Stroke; End-stage heart failure; Prior atrial septal defect repair; Spontaneous left main coronary artery dissection
+  medical_actions: heart transplantation; listed for cardiac transplantation; coronary artery bypass grafting
+  symptoms: vertebral artery dissection; stroke; prior atrial septal defect; spontaneous left main coronary artery dissection; end-stage heart failure
   chemicals: 
-  action_annotation_relationships: Listed for cardiac transplantation TREATS end-stage heart failure IN Loeys-Dietz syndrome; Underwent heart transplantation TREATS end-stage heart failure IN Loeys-Dietz syndrome; Revascularized with coronary artery bypass grafting (without specific chemical) TREATS spontaneous left main coronary artery dissection IN Loeys-Dietz syndrome
+  action_annotation_relationships: heart transplantation TREATS end-stage heart failure IN Loeys-Dietz syndrome; listed for cardiac transplantation TREATS end-stage heart failure IN Loeys-Dietz syndrome; coronary artery bypass grafting TREATS spontaneous left main coronary artery dissection IN Loeys-Dietz syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -27,32 +27,28 @@ prompt: |+
 
 
   Text:
-  Revascularized with coronary artery bypass grafting (without specific chemical) TREATS spontaneous left main coronary artery dissection IN Loeys-Dietz syndrome
+  coronary artery bypass grafting TREATS spontaneous left main coronary artery dissection IN Loeys-Dietz syndrome
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0018954
   medical_actions:
-    - Listed for cardiac transplantation
-    - Underwent heart transplantation
-    - Revascularized with coronary artery bypass grafting
+    - MAXO:0010032
+    - listed for cardiac transplantation
+    - coronary artery bypass grafting
   symptoms:
-    - Vertebral artery dissection
+    - vertebral artery dissection
     - HP:0001297
-    - End-stage heart failure
-    - Prior atrial septal defect repair
-    - Spontaneous left main coronary artery dissection
+    - prior atrial septal defect
+    - spontaneous left main coronary artery dissection
+    - end-stage heart failure
   action_annotation_relationships:
-    - subject: <Listed for cardiac transplantation>
-      predicate: <TREATS>
-      object: <end-stage heart failure>
-      qualifier: <Loeys-Dietz syndrome>
-      subject_qualifier: <None>
-      object_qualifier: <None>
-      subject_extension: <None>
-      object_extension: <None>
     - subject: MAXO:0010032
+      predicate: TREATS
+      object: end-stage heart failure
+      qualifier: MONDO:0018954
+    - subject: listed for cardiac transplantation
       predicate: TREATS
       object: end-stage heart failure
       qualifier: MONDO:0018954
@@ -60,22 +56,63 @@ extracted_object:
       predicate: TREATS
       object: spontaneous left main coronary artery dissection
       qualifier: MONDO:0018954
-      subject_qualifier: without specific chemical
 named_entities:
   - id: MONDO:0018954
     label: Loeys-Dietz syndrome
+  - id: MAXO:0000945
+    label: spinal cord stimulation (SCS)
+  - id: HP:0031625
+    label: Pseudoaneurysms
+  - id: MAXO:0000451
+    label: Implantation
+  - id: HP:0000978
+    label: Easy bruising
+  - id: HP:0002616
+    label: Aortic root dilatation
+  - id: HP:0001382
+    label: Joint laxity
+  - id: CHEBI:35530
+    label: Beta-blocker
+  - id: MAXO:0010203
+    label: Echocardiography
   - id: HP:0012764
     label: orthopnea
   - id: HP:0001631
     label: atrial septal defect
+  - id: HP:0001263
+    label: developmental delay
+  - id: HP:0003302
+    label: Spondylolisthesis
+  - id: HP:0003304
+    label: Spondylolysis
   - id: HP:0012531
-    label: pain
+    label: Pain
   - id: HP:0004942
     label: aortic aneurysms
+  - id: HP:0002647
+    label: aortic dissection
   - id: HP:0001645
-    label: premature sudden cardiac death
+    label: sudden cardiac death
+  - id: HP:0004944
+    label: Cerebral aneurysms
+  - id: HP:0002617
+    label: Vasculopathy
+  - id: HP:0030745
+    label: Aneurysm of the ductus arteriosus
   - id: MAXO:0000948
-    label: craniotomy
+    label: Craniotomy
+  - id: MAXO:0010319
+    label: CT angiogram
+  - id: MAXO:0010312
+    label: Head CT
+  - id: HP:0007185
+    label: Loss of consciousness
+  - id: HP:0002138
+    label: Subarachnoid hemorrhage
+  - id: HP:0025237
+    label: Unresponsive
+  - id: CHEBI:35620
+    label: vasodilator
   - id: MAXO:0000011
     label: Physical therapy
   - id: MAXO:0001351
@@ -88,21 +125,37 @@ named_entities:
     label: Hypotonia
   - id: MONDO:0007947
     label: Marfan syndrome
-  - id: HP:0002647
-    label: aortic dissection
   - id: HP:0100718
     label: uterine rupture
+  - id: HP:0031649
+    label: Aortic rupture
+  - id: HP:6000144
+    label: Left ventricular aneurysms
+  - id: HP:0005116
+    label: Arterial tortuosity
+  - id: HP:0000316
+    label: Hypertelorism
+  - id: HP:0000193
+    label: Bifid uvula
+  - id: HP:0000175
+    label: Cleft palate
+  - id: HP:0001659
+    label: Aortic insufficiency
+  - id: MAXO:0000004
+    label: surgical intervention
+  - id: HP:0001892
+    label: bleeding tendency
   - id: MAXO:0000106
-    label: Nutritional supplementation
+    label: nutritional supplementation
   - id: HP:4000055
-    label: Intestinal inflammation
+    label: intestinal inflammation
   - id: HP:0500093
-    label: Food allergy
+    label: food allergy
   - id: HP:0001508
-    label: Failure to thrive
+    label: failure to thrive
   - id: HP:0001058
-    label: Poor wound healing
-  - id: HP:0001297
-    label: Stroke
+    label: poor wound healing
   - id: MAXO:0010032
     label: heart transplantation
+  - id: HP:0001297
+    label: stroke

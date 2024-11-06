@@ -24,14 +24,10 @@ input_text: 'Neurotrophic Keratopathy in Marfan Syndrome Patient After Micropuls
   transscleral cyclophotocoagulation.'
 raw_completion_output: |-
   primary_disease: Neurotrophic Keratopathy
-
-  medical_actions: Micropulse transscleral cyclophotocoagulation; Topical antibiotics; Preservative-free lubrication; Medroxyprogesterone acetate 1% application; Serum balanced salt solution (BSS) 50% application; Application of bandage contact lenses
-
-  symptoms: High intraocular pressure; Delayed healing; Scarring
-
-  chemicals: Medroxyprogesterone acetate; Serum balanced salt solution (BSS)
-
-  action_annotation_relationships: Micropulse transscleral cyclophotocoagulation TREATS High intraocular pressure IN Neurotrophic Keratopathy; Topical antibiotics TREATS Delayed healing IN Neurotrophic Keratopathy; Preservative-free lubrication TREATS Delayed healing IN Neurotrophic Keratopathy; Medroxyprogesterone acetate (with Medroxyprogesterone acetate) TREATS Delayed healing IN Neurotrophic Keratopathy; Serum balanced salt solution (BSS) (with Serum balanced salt solution (BSS)) TREATS Delayed healing IN Neurotrophic Keratopathy; Application of band referring contact lenses TREATS Delayed healing IN Neurotrophic Keratopathy
+  medical_actions: Micropulse transscleral cyclophotocoagulation; topical antibiotics; preservative-free lubrication; medroxyprogesterone acetate 1%; serum balanced salt solution (BSS) 50%; application of bandage contact lenses
+  symptoms: high intraocular pressure; delayed healing; scarring
+  chemicals: medroxyprogesterone acetate; serum balanced salt solution (BSS)
+  action_annotation_relationships: Micropulse transscleral cyclophotocoagulation TREATS high intraocular pressure IN Neurotrophic Keratopathy; topical antibiotics PREVENTS infection IN Neurotrophic Keratopathy; preservative-free lubrication TREATS dryness IN Neurotrophic Keratopathy; medroxyprogesterone acetate 1% TREATS inflammation IN Neurotrophic Keratopathy; serum balanced salt solution (BSS) 50% TREATS dryness IN Neurotrophic Keratopathy; application of bandage contact lenses TREATS surface protection IN Neurotrophic Keratopathy
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -46,7 +42,7 @@ prompt: |+
 
 
   Text:
-  Application of band referring contact lenses TREATS Delayed healing IN Neurotrophic Keratopathy
+  application of bandage contact lenses TREATS surface protection IN Neurotrophic Keratopathy
 
   ===
 
@@ -54,66 +50,84 @@ extracted_object:
   primary_disease: MONDO:0015290
   medical_actions:
     - Micropulse transscleral cyclophotocoagulation
-    - Topical antibiotics
-    - Preservative-free lubrication
-    - Medroxyprogesterone acetate 1% application
-    - Serum balanced salt solution (BSS) 50% application
-    - Application of bandage contact lenses
+    - topical antibiotics
+    - preservative-free lubrication
+    - medroxyprogesterone acetate 1%
+    - serum balanced salt solution (BSS) 50%
+    - application of bandage contact lenses
   symptoms:
-    - High intraocular pressure
-    - Delayed healing
+    - high intraocular pressure
+    - delayed healing
     - HP:0100699
   chemicals:
     - CHEBI:6716
-    - Serum balanced salt solution (BSS)
+    - serum balanced salt solution (BSS)
   action_annotation_relationships:
-    - subject: <transscleral cyclophotocoagulation>
-      predicate: <TREATS>
-      object: <High intraocular pressure>
-      qualifier: <Neurotrophic Keratopathy>
-      subject_extension: <Micropulse>
-    - subject: <Topical antibiotics>
-      predicate: <TREATS>
-      object: <Delayed healing>
-      qualifier: <Neurotrophic Keratopathy>
-      subject_qualifier: <Topical>
-      subject_extension: <antibiotics>
-    - subject: <Preservative-free lubrication>
-      predicate: <TREATS>
-      object: <Delayed healing>
-      qualifier: <Neurotrophic Keratopathy>
-      subject_extension: <Preservative-free lubrication>
-    - subject: Medroxyprogesterone acetate
+    - subject: micropulse transscleral cyclophotocoagulation
       predicate: TREATS
-      object: Delayed healing
+      object: high intraocular pressure
       qualifier: MONDO:0015290
-      subject_qualifier: with Medroxyprogesterone acetate
+      subject_extension: micropulse transscleral cyclophotocoagulation
+    - subject: topical antibiotics
+      predicate: PREVENTS
+      object: infection
+      qualifier: MONDO:0015290
+      subject_extension: CHEBI:33281
+    - subject: preservative-free lubrication
+      predicate: TREATS
+      object: dryness
+      qualifier: MONDO:0015290
+      subject_qualifier: preservative-free
+      subject_extension: lubrication
+    - predicate: TREATS
+      object: inflammation
+      qualifier: MONDO:0015290
+      subject_qualifier: 1%
       subject_extension: CHEBI:6716
-    - subject: Serum balanced salt solution (BSS)
+    - subject: serum balanced salt solution (BSS)
       predicate: TREATS
-      object: Delayed healing
+      object: dryness
       qualifier: MONDO:0015290
-      subject_extension: Serum balanced salt solution (BSS)
-    - subject: Application of band referring contact lenses
-      predicate: TREATS
-      object: Delayed healing
-      qualifier: MONDO:0015290
+      subject_qualifier: 50%
+      subject_extension: balanced salt solution (BSS)
+    - subject: <application of bandage contact lenses>
+      predicate: <TREATS>
+      object: <surface protection>
+      qualifier: <Neurotrophic Keratopathy>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <bandage contact lenses>
+      object_extension: <surface protection>
 named_entities:
+  - id: MAXO:0000011
+    label: Physiotherapy
+  - id: MAXO:0000004
+    label: Surgical interventions
+  - id: HP:0012531
+    label: Pain
+  - id: HP:0001513
+    label: Obesity
   - id: MONDO:0009691
-    label: Marfan syndrome (MFS)
-  - id: HP:0002140
-    label: Ischemic stroke
+    label: Marfan Syndrome (MFS)
+  - id: HP:0002647
+    label: Aortic dissection
+  - id: HP:0004942
+    label: Aortic aneurysm
   - id: MONDO:0007947
     label: Marfan syndrome
-  - id: MAXO:0000004
-    label: surgery
-  - id: MONDO:0004975
-    label: Aortic Dissection (AD)
-  - id: HP:0100602
-    label: preeclampsia/eclampsia
+  - id: HP:0003302
+    label: spondylolisthesis
+  - id: MONDO:0018954
+    label: Loeys-Dietz syndrome
+  - id: HP:0001083
+    label: ectopia lentis
+  - id: HP:0030961
+    label: microspherophakia
   - id: MONDO:0015290
     label: Neurotrophic Keratopathy
   - id: HP:0100699
-    label: Scarring
+    label: scarring
   - id: CHEBI:6716
-    label: Medroxyprogesterone acetate
+    label: medroxyprogesterone acetate
+  - id: CHEBI:33281
+    label: antibiotics

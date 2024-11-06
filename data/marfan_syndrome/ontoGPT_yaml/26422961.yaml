@@ -16,10 +16,14 @@ input_text: '[Anesthetic Management of Right Lower Lobectomy in a Patient with M
   are complicated by Marfan syndrome.'
 raw_completion_output: |-
   primary_disease: Marfan Syndrome
-  medical_actions: induction of general anesthesia with propofol and fentanyl; topical intratracheal lidocaine anesthesia; visualization with the Pentax-AWS Airwayscope; insertion of the Soft-tipped Tube Exchanger into the trachea; intubation with a double-lumen tracheal tube via the TE-Soft; pressure-controlled ventilation; continuous administration of landiolol and dexmedetomidine; extubation of the double-lumen tracheal tube
-  symptoms: suspected lung cancer
-  chemicals: propofol; fentanyl; lidocaine; landiolol; dexmedetomidine
-  action_annotation_relationships: induction of general anesthesia with propofol and fentanyl TREATS suspected lung cancer IN Marfan Syndrome; topical intratracheal lidocaine anesthesia TREATS suspected lung cancer IN Marfan Syndrome; continuous administration of landiolol and dexmedetomidine TREATS suspected lung cancer IN Marfan Syndrome
+
+  medical_actions: Anesthetic management; Partial lobectomy; Induction of general anesthesia with propofol and fentanyl; Topical intratracheal lidocaine anesthesia; Use of the Pentax-AWS Airwayscope for visualization; Insertion of the Soft-tipped Tube Exchanger into the trachea; Intubation with a double-lumen tracheal tube via the TE-Soft; Pressure-controlled ventilation; Administration of landiorol and dexmedetomidine; Extubation of the double-lumen tracheal tube; Bentall operation; Mitral valve replacement; Strict blood pressure management
+
+  symptoms: Suspected lung cancer
+
+  chemicals: Propofol; Fentanyl; Lidocaine; Landiorol; Dexmedetomidine
+
+  action_annotation_relationships: Anesthetic management TREATS suspected lung cancer IN Marfan Syndrome; Induction of general anesthesia (with propofol and fentanyl) TREATS suspected lung cancer IN Marfan Syndrome; Topical intratracheal lidocaine anesthesia (with lidocaine) TREATS suspected lung cancer IN Marfan Syndrome; Pressure-controlled ventilation TREATS suspected lung cancer IN Marfan Syndrome; Administration of landiorol and dexmedetomidine (with landiorol and dexmedetomidine) TREATS suspected lung cancer IN Marfan Syndrome; Bentall operation TREATS Marfan Syndrome; Mitral valve replacement TREATS Marfan Syndrome; Strict blood pressure management PREVENTS complications IN Marfan Syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -34,187 +38,178 @@ prompt: |+
 
 
   Text:
-  continuous administration of landiolol and dexmedetomidine TREATS suspected lung cancer IN Marfan Syndrome
+  Strict blood pressure management PREVENTS complications IN Marfan Syndrome
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0007947
   medical_actions:
-    - induction of general anesthesia with propofol and fentanyl
-    - topical intratracheal lidocaine anesthesia
-    - visualization with the Pentax-AWS Airwayscope
-    - insertion of the Soft-tipped Tube Exchanger into the trachea
-    - intubation with a double-lumen tracheal tube via the TE-Soft
-    - pressure-controlled ventilation
-    - continuous administration of landiolol and dexmedetomidine
-    - extubation of the double-lumen tracheal tube
+    - Anesthetic management
+    - Partial lobectomy
+    - Induction of general anesthesia with propofol and fentanyl
+    - Topical intratracheal lidocaine anesthesia
+    - Use of the Pentax-AWS Airwayscope for visualization
+    - Insertion of the Soft-tipped Tube Exchanger into the trachea
+    - Intubation with a double-lumen tracheal tube via the TE-Soft
+    - Pressure-controlled ventilation
+    - Administration of landiorol and dexmedetomidine
+    - Extubation of the double-lumen tracheal tube
+    - Bentall operation
+    - Mitral valve replacement
+    - Strict blood pressure management
   symptoms:
-    - suspected lung cancer
+    - Suspected lung cancer
   chemicals:
     - CHEBI:44915
     - CHEBI:119915
     - CHEBI:6456
-    - CHEBI:135809
+    - Landiorol
     - CHEBI:4466
   action_annotation_relationships:
-    - subject: induction of general anesthesia
+    - subject: Anesthetic management
       predicate: TREATS
       object: suspected lung cancer
       qualifier: MONDO:0007947
+      subject_extension: Anesthetic
+    - subject: Induction of general anesthesia
+      predicate: TREATS
+      object: HP:0100526
+      qualifier: MONDO:0007947
+      subject_qualifier: with propofol and fentanyl
+      object_qualifier: suspected
       subject_extension: propofol and fentanyl
-    - subject: topical intratracheal lidocaine anesthesia
+      object_extension: suspected
+    - subject: Topical intratracheal lidocaine anesthesia
       predicate: TREATS
       object: suspected lung cancer
       qualifier: MONDO:0007947
+      subject_qualifier: with lidocaine
       subject_extension: CHEBI:6456
-    - subject: continuous administration
+    - subject: Pressure-controlled ventilation
       predicate: TREATS
       object: suspected lung cancer
       qualifier: MONDO:0007947
-      subject_extension: landiolol and dexmedetomidine
+    - subject: Administration of landiorol and dexmedetomidine
+      predicate: TREATS
+      object: HP:0100526
+      qualifier: MONDO:0007947
+      subject_qualifier: with landiorol and dexmedetomidine
+      object_qualifier: suspected
+      subject_extension: landiorol and dexmedetomidine
+      object_extension: suspected
+    - subject: Bentall operation
+      predicate: TREATS
+      object: Marfan Syndrome
+    - subject: Mitral valve replacement
+      predicate: TREATS
+      object: Marfan Syndrome
+    - subject: <blood pressure management>
+      predicate: <PREVENTS>
+      object: <complications>
+      qualifier: <Marfan Syndrome>
+      subject_qualifier: <Strict>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
 named_entities:
-  - id: MONDO:0007947
-    label: Marfan Syndrome
-  - id: HP:0000768
-    label: Pectus carinatum
-  - id: HP:0002650
-    label: Scoliosis
-  - id: HP:0002108
-    label: Spontaneous pneumothorax
-  - id: HP:0003423
-    label: Thoracolumbar kyphoscoliosis
-  - id: HP:0000822
-    label: Hypertension
-  - id: HP:0001649
-    label: Tachycardia
+  - id: MAXO:0000011
+    label: Physiotherapy
+  - id: MAXO:0000004
+    label: Surgical interventions
   - id: HP:0012531
-    label: pain
+    label: Pain
+  - id: HP:0001513
+    label: Obesity
   - id: MONDO:0009691
-    label: Marfan syndrome (MFS)
-  - id: CHEBI:6541
-    label: Losartan
-  - id: HP:0031625
-    label: Pseudoaneurysms
-  - id: MAXO:0000451
-    label: Implantation
-  - id: HP:0031649
-    label: Aortic rupture
-  - id: MAXO:0001061
-    label: Laminectomy
-  - id: MAXO:0000571
-    label: CT
-  - id: HP:0034267
-    label: Pelvic pain
-  - id: HP:0000139
-    label: Genital prolapse
-  - id: HP:0100518
-    label: Dysuria
-  - id: HP:0001297
-    label: stroke
-  - id: HP:0002615
-    label: Hypotension
-  - id: HP:0007185
-    label: Loss of consciousness
-  - id: MAXO:0001056
-    label: Hepatectomy
-  - id: HP:0002239
-    label: Gastrointestinal bleeding
-  - id: HP:0000952
-    label: Jaundice
-  - id: MONDO:0009352
-    label: Cystathionine beta-Synthase Deficiency
-  - id: MAXO:0010092
-    label: methionine restriction
-  - id: HP:0000545
-    label: myopia
-  - id: HP:0001083
-    label: ectopia lentis
-  - id: HP:0001249
-    label: mental retardation
-  - id: HP:0000924
-    label: skeletal anomalies
-  - id: HP:0001907
-    label: thromboembolic events
-  - id: HP:0003235
-    label: hypermethioninemia
-  - id: CHEBI:17750
-    label: betaine
-  - id: CHEBI:16811
-    label: methionine
-  - id: MAXO:0001298
-    label: therapy
-  - id: MAXO:0001085
-    label: Vitrectomy
-  - id: HP:0012109
-    label: Angle closure glaucoma
-  - id: HP:0000572
-    label: Visual loss
-  - id: HP:0002092
-    label: Pulmonary hypertension
-  - id: CHEBI:50249
-    label: Anticoagulants
-  - id: HP:0000973
-    label: elastolysis
-  - id: MAXO:0001001
-    label: gene therapy
-  - id: HP:0100584
-    label: endocarditis
-  - id: MONDO:0005010
-    label: Congenital heart disease (CHD)
-  - id: MAXO:0010032
-    label: Heart transplantation
-  - id: MAXO:0010203
-    label: Echocardiography
-  - id: HP:0001635
-    label: Heart failure
-  - id: MAXO:0009072
-    label: Surgical repair
+    label: Marfan Syndrome (MFS)
   - id: HP:0002647
     label: Aortic dissection
-  - id: MONDO:0009279
-    label: Abdominal Aortic Aneurysm (AAA)
-  - id: CHEBI:3312
-    label: CaCl2
-  - id: HP:0002027
-    label: Abdominal pain
-  - id: CHEBI:10033
-    label: Warfarin
-  - id: MAXO:0000004
-    label: surgical intervention
   - id: HP:0004942
-    label: aortic dilation
-  - id: MONDO:0017309
-    label: Neonatal Marfan Syndrome
-  - id: HP:0001653
-    label: mitral valve insufficiency
-  - id: HP:0001659
-    label: aortic valve insufficiency
-  - id: MAXO:0000601
-    label: Dialysis
-  - id: MAXO:0009034
-    label: Pacemaker implantation
-  - id: HP:0002616
-    label: Aortic root aneurysms
-  - id: HP:0000083
-    label: Renal failure
-  - id: HP:0002617
-    label: Aneurysms
-  - id: HP:6000227
-    label: prosthetic heart valve
-  - id: HP:0025612
-    label: Corneal astigmatism
+    label: Aortic aneurysm
+  - id: MONDO:0007947
+    label: Marfan syndrome
+  - id: HP:0003302
+    label: spondylolisthesis
+  - id: MONDO:0018954
+    label: Loeys-Dietz syndrome
+  - id: HP:0001083
+    label: ectopia lentis
+  - id: HP:0030961
+    label: microspherophakia
+  - id: MONDO:0015290
+    label: Neurotrophic Keratopathy
+  - id: HP:0100699
+    label: scarring
+  - id: CHEBI:6716
+    label: medroxyprogesterone acetate
+  - id: CHEBI:33281
+    label: antibiotics
+  - id: CHEBI:35341
+    label: steroid
+  - id: HP:0003419
+    label: low back pain
+  - id: HP:0025309
+    label: irregular pupil
   - id: MONDO:0005392
     label: Scoliosis
-  - id: HP:0031861
-    label: Decreased heart rate variability
+  - id: HP:0001659
+    label: aortic insufficiency
+  - id: HP:0001297
+    label: stroke
+  - id: HP:0002093
+    label: respiratory insufficiency
+  - id: HP:0001259
+    label: coma
+  - id: MAXO:0000127
+    label: Genetic testing
+  - id: HP:0012727
+    label: Thoracic aortic aneurysms
+  - id: HP:0005268
+    label: miscarriages
+  - id: CHEBI:35530
+    label: beta-blockers
+  - id: MAXO:0000653
+    label: angiotensin receptor blocker therapy
+  - id: CHEBI:6541
+    label: losartan
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0025267
+    label: snoring
+  - id: HP:0010535
+    label: sleep-disordered breathing
+  - id: HP:0002616
+    label: Aortic root aneurysms
+  - id: HP:0012378
+    label: fatigue
+  - id: MAXO:0000900
+    label: Electrocardiography
+  - id: HP:0001649
+    label: Increased heart rates
+  - id: MAXO:0009004
+    label: Whole-exome sequencing (WES)
+  - id: MONDO:0024644
+    label: Myocardial ischemia
+  - id: MAXO:0009038
+    label: Percutaneous coronary intervention
+  - id: HP:0100749
+    label: Chest pain
+  - id: HP:0004948
+    label: vascular tortuosity
+  - id: HP:0002650
+    label: scoliosis
+  - id: HP:0001363
+    label: craniosynostosis
+  - id: HP:0002617
+    label: aneurysm
   - id: CHEBI:44915
-    label: propofol
+    label: Propofol
   - id: CHEBI:119915
-    label: fentanyl
+    label: Fentanyl
   - id: CHEBI:6456
-    label: lidocaine
-  - id: CHEBI:135809
-    label: landiolol
+    label: Lidocaine
   - id: CHEBI:4466
-    label: dexmedetomidine
+    label: Dexmedetomidine
+  - id: HP:0100526
+    label: lung cancer

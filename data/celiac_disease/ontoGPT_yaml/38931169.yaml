@@ -1,0 +1,178 @@
+---
+input_text: 'Associations between Celiac Disease, Extra-Gastrointestinal Manifestations,
+  and Gluten-Free Diet: A Narrative Overview. Millions of children and adults worldwide
+  suffer from undiagnosed and untreated celiac disease (CeD). The clinical picture
+  of CeD is highly heterogeneous and comprises manifestations that can affect almost
+  the whole body. This narrative overview is aimed at characterizing diseases and
+  complaints that are associated with unrecognized CeD and that frequently involve
+  sites other than the gastrointestinal (G.I.) tract, i.e., dental, otorhinolaryngological,
+  and ocular complications; skin and hair abnormalities; afflictions of the bones,
+  joints, and muscles; cardiovascular affectations; kidney diseases; neuro-psychiatric
+  disorders; and gynecological-obstetrical manifestations. The association between
+  CeD and extra-GI manifestations is frequently overlooked, which leads to a delay
+  in diagnosis. Most CeD-mediated disorders can be treated with a strict gluten-free
+  diet (GFD), but some of them are irreversible unless CeD is diagnosed in time. Some
+  manifestations can be classified as risk factors for CeD, and CeD screening tests
+  for affected patients should be selectively considered. Apart from gastroenterologists,
+  specialists in other medical disciplines can play an important role in identifying
+  people with unrecognized CeD and may help prevent its progress and long-term complications.
+  Further comprehensive investigations are necessary to clarify the pathogenesis of
+  extra-GI manifestations and the effect of a GFD.'
+raw_completion_output: |-
+  primary_disease: Celiac Disease
+  medical_actions: Gluten-Free Diet; CeD screening tests
+  symptoms: dental complications; otorhinolaryngological complications; ocular complications; skin abnormalities; hair abnormalities; bone afflictions; joint afflictions; muscle afflictions; cardiovascular affectations; kidney diseases; neuro-psychiatric disorders; gynecological-obstetrical manifestations
+  chemicals: 
+  action_annotation_relationships: Gluten-Free Diet TREATS dental complications IN Celiac Disease; Gluten-Free Diet TREATS otorhinolaryngological complications IN Celiac Disease; Gluten-Free Diet TREATS ocular complications IN Celiac Disease; Gluten-Free Diet TREATS skin abnormalities IN Celiac Disease; Gluten-Free Diet TREATS hair abnormalities IN Celiac Disease; Gluten-Free Diet TREATS bone afflictions IN Celiac Disease; Gluten-Free Diet TREATS joint afflictions IN Celiac Disease; Gluten-Free Diet TREATS muscle afflictions IN Celiac Disease; Gluten-Free Diet TREATS cardiovascular affectations IN Celiac Disease; Gluten-Free Diet TREATS kidney diseases IN Celiac Disease; Gluten-Free Diet TREATS neuro-psychiatric disorders IN Celiac Disease; Gluten-Free Diet TREATS gynecological-obstetrical manifestations IN Celiac Disease; CeD screening tests PREVENTS dental complications IN Celiac Disease; CeD screening tests PREVENTS skin abnormalities IN Celiac Disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  CeD screening tests PREVENTS skin abnormalities IN Celiac Disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005130
+  medical_actions:
+    - Gluten-Free Diet
+    - CeD screening tests
+  symptoms:
+    - dental complications
+    - otorhinolaryngological complications
+    - ocular complications
+    - HP:0000951
+    - HP:0001595
+    - bone afflictions
+    - joint afflictions
+    - muscle afflictions
+    - cardiovascular affectations
+    - HP:0000112
+    - neuro-psychiatric disorders
+    - gynecological-obstetrical manifestations
+  action_annotation_relationships:
+    - subject: <Diet>
+      predicate: <TREATS>
+      object: <complications>
+      qualifier: <Celiac Disease>
+      subject_qualifier: <Gluten-Free>
+      object_qualifier: <dental>
+      subject_extension: <Gluten-Free Diet>
+      object_extension: <dental complications>
+    - subject: Gluten-Free Diet
+      predicate: TREATS
+      object: otorhinolaryngological complications
+      qualifier: MONDO:0005130
+      subject_extension: Gluten-Free Diet
+    - subject: Gluten-Free Diet
+      predicate: TREATS
+      object: complications
+      qualifier: MONDO:0005130
+      object_qualifier: ocular
+      subject_extension: Gluten-Free Diet
+      object_extension: ocular
+    - subject: MAXO:0000088
+      predicate: TREATS
+      object: HP:0000951
+      qualifier: MONDO:0005130
+      subject_extension: Gluten-Free
+    - subject: Gluten-Free Diet
+      predicate: TREATS
+      object: HP:0001595
+      qualifier: MONDO:0005130
+    - subject: MAXO:0000088
+      predicate: TREATS
+      object: bone afflictions
+      qualifier: MONDO:0005130
+      subject_qualifier: Gluten-Free
+      subject_extension: Gluten-Free
+    - subject: MAXO:0000088
+      predicate: TREATS
+      object: joint afflictions
+      qualifier: MONDO:0005130
+      subject_extension: Gluten-Free
+    - subject: Gluten-Free Diet
+      predicate: TREATS
+      object: muscle afflictions
+      qualifier: MONDO:0005130
+      subject_extension: Gluten-Free Diet
+    - subject: Gluten-Free Diet
+      predicate: TREATS
+      object: cardiovascular affectations
+      qualifier: MONDO:0005130
+      subject_extension: Gluten-Free Diet
+    - subject: <Gluten-Free Diet>
+      predicate: <TREATS>
+      object: <kidney diseases>
+      qualifier: <Celiac Disease>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: Gluten-Free Diet
+      predicate: TREATS
+      object: neuro-psychiatric disorders
+      qualifier: MONDO:0005130
+      subject_extension: Gluten-Free Diet
+    - subject: <Gluten-Free Diet>
+      predicate: <TREATS>
+      object: <gynecological-obstetrical manifestations>
+      qualifier: <Celiac Disease>
+      subject_extension: <Gluten-Free Diet>
+    - subject: CeD screening tests
+      predicate: PREVENTS
+      object: dental complications
+      qualifier: MONDO:0005130
+    - subject: <CeD screening tests>
+      predicate: <PREVENTS>
+      object: <skin abnormalities>
+      qualifier: <Celiac Disease>
+      subject_qualifier: <Not applicable>
+      object_qualifier: <Not applicable>
+      subject_extension: <Not applicable>
+      object_extension: <Not applicable>
+named_entities:
+  - id: HP:0001251
+    label: ataxia
+  - id: CHEBI:21547
+    label: N-acetylaspartate (NAA)
+  - id: CHEBI:157802
+    label: creatine (Cr)
+  - id: MONDO:0005130
+    label: Celiac disease
+  - id: HP:0001394
+    label: Cirrhosis
+  - id: HP:0002608
+    label: Celiac disease
+  - id: MONDO:0005340
+    label: Alopecia areata
+  - id: HP:0001596
+    label: Hair loss
+  - id: HP:0002014
+    label: Diarrhea
+  - id: HP:0002027
+    label: Abdominal pain
+  - id: HP:0012378
+    label: Fatigue
+  - id: HP:0011473
+    label: Villous atrophy
+  - id: CHEBI:3207
+    label: Budesonide
+  - id: HP:0000951
+    label: skin abnormalities
+  - id: HP:0001595
+    label: hair abnormalities
+  - id: HP:0000112
+    label: kidney diseases
+  - id: MAXO:0000088
+    label: Diet

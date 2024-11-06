@@ -16,10 +16,14 @@ input_text: "Visual surveillance in craniosynostoses. Craniosynostosis is the pr
   the syndromic variety. "
 raw_completion_output: |-
   primary_disease: Craniosynostosis
+
   medical_actions: Visual surveillance; Comprehensive approach to managing visual function
-  symptoms: Speech issues; Hearing issues; Vision loss; Amblyopia; Corneal exposure; Optic neuropathy; Strabismus; Anisometropia; Astigmatism; Ametropia
+
+  symptoms: Speech issues; Hearing issues; Vision issues; Abnormally shaped skull; Midfacial hypoplasia; Visual loss; Amblyopia; Corneal exposure; Optic neuropathy; Strabismus; Anisometropia; Astigmatism; Ametropia
+
   chemicals: 
-  action_annotation_relationships: Visual surveillance PREVENTS Vision loss IN Craniosynostosis; Comprehensive approach to managing visual function PREVENTS Vision loss IN Craniosynostosis; Comprehensive approach to managing visual function PREVENTS Amblyopia IN Craniosynostosis; Comprehensive approach to managing visual function PREVENTS Corneal exposure IN Craniosynostosis; Comprehensive approach to managing visual function PREVENTS Optic neuropathy IN Craniosynostosis; Comprehensive approach to managing visual function PREVENTS Strabismus IN Craniosynostosis; Comprehensive approach to managing visual function PREVENTS Anisometropia IN Craniosynostosis; Comprehensive approach to managing visual function PREVENTS Astigmatism IN Craniosynostosis; Comprehensive approach to managing visual function PREVENTS Ametropia IN Craniosynostosis
+
+  action_annotation_relationships: Visual surveillance TREATS Visual loss IN Craniosynostosis; Comprehensive approach to managing visual function TREATS Amblyopia IN Craniosynostosis; Comprehensive approach to managing visual function TREATS Corneal exposure IN Craniosynostosis; Comprehensive approach to managing visual function TREATS Optic neuropathy IN Craniosynostosis; Comprehensive approach to managing visual function PREVENTS Visual loss IN Craniosynostosis
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -34,7 +38,7 @@ prompt: |+
 
 
   Text:
-  Comprehensive approach to managing visual function PREVENTS Ametropia IN Craniosynostosis
+  Comprehensive approach to managing visual function PREVENTS Visual loss IN Craniosynostosis
 
   ===
 
@@ -46,6 +50,9 @@ extracted_object:
   symptoms:
     - Speech issues
     - Hearing issues
+    - HP:0000504
+    - Abnormally shaped skull
+    - Midfacial hypoplasia
     - HP:0000572
     - HP:0000646
     - Corneal exposure
@@ -56,74 +63,60 @@ extracted_object:
     - Ametropia
   action_annotation_relationships:
     - subject: Visual surveillance
-      predicate: PREVENTS
+      predicate: TREATS
       object: HP:0000572
       qualifier: MONDO:0015469
     - subject: Comprehensive approach to managing visual function
-      predicate: PREVENTS
-      object: HP:0000572
-      qualifier: MONDO:0015469
-    - subject: Comprehensive approach to managing visual function
-      predicate: PREVENTS
+      predicate: TREATS
       object: HP:0000646
       qualifier: MONDO:0015469
     - subject: Comprehensive approach to managing visual function
-      predicate: PREVENTS
+      predicate: TREATS
       object: Corneal exposure
       qualifier: MONDO:0015469
-    - subject: Comprehensive approach to managing visual function
-      predicate: PREVENTS
-      object: HP:0001138
-      qualifier: MONDO:0015469
-    - subject: Comprehensive approach to managing visual function
-      predicate: PREVENTS
-      object: HP:0000486
-      qualifier: MONDO:0015469
-    - subject: Comprehensive approach to managing visual function
-      predicate: PREVENTS
-      object: HP:0012803
-      qualifier: MONDO:0015469
+    - subject: <Comprehensive approach to managing visual function>
+      predicate: <TREATS>
+      object: <Optic neuropathy>
+      qualifier: <Craniosynostosis>
+      subject_qualifier: <Not applicable>
+      object_qualifier: <Not applicable>
+      subject_extension: <Not applicable>
+      object_extension: <Not applicable>
     - subject: <Comprehensive approach to managing visual function>
       predicate: <PREVENTS>
-      object: <Astigmatism>
+      object: <Visual loss>
       qualifier: <Craniosynostosis>
       subject_qualifier: <None>
       object_qualifier: <None>
       subject_extension: <None>
       object_extension: <None>
-    - subject: Comprehensive approach to managing visual function
-      predicate: PREVENTS
-      object: Ametropia
-      qualifier: MONDO:0015469
 named_entities:
-  - id: HP:0011800
-    label: Midface hypoplasia
   - id: MONDO:0007041
     label: Apert syndrome
   - id: MAXO:0000486
-    label: distraction osteogenesis
+    label: Distraction osteogenesis
   - id: HP:0012531
-    label: pain
+    label: Pain
   - id: HP:0001288
-    label: gait disturbances
-  - id: MONDO:0003432
-    label: Strabismus
+    label: Gait disturbances
   - id: HP:0001159
     label: Syndactyly
-  - id: MAXO:0000004
-    label: surgical procedures
   - id: HP:0001363
     label: craniosynostosis
+  - id: HP:0011800
+    label: midface hypoplasia
   - id: MONDO:0015338
     label: syndromic craniosynostosis
   - id: HP:0001061
     label: Acne
   - id: CHEBI:6067
-    label: isotretinoin
+    label: Isotretinoin
   - id: MONDO:0015469
     label: Craniosynostosis
+  - id: HP:0000504
+    label: Vision issues
   - id: HP:0000572
-    label: Vision loss
+    label: Visual loss
   - id: HP:0000646
     label: Amblyopia
   - id: HP:0001138

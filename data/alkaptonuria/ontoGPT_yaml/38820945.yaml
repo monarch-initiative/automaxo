@@ -29,14 +29,10 @@ input_text: 'Disc-coloration of an ochronotic cervical intervertebral disc in a 
   postoperative course.'
 raw_completion_output: |-
   primary_disease: Alkaptonuria
-
-  medical_actions: Review of the literature; C6-C7 anterior cervical microdiscectomy and interbody fusion
-
-  symptoms: Tissue discoloration; Alkaptonuric arthropathy; Critical cervical spinal canal stenosis
-
+  medical_actions: C6-C7 anterior cervical microdiscectomy and interbody fusion
+  symptoms: Critical cervical spinal canal stenosis; Myelopathic changes; Black discoloration of the nucleus pulposus
   chemicals: Homogentisic acid
-
-  action_annotation_relationships: C6-C7 anterior cervical microdiscectomy and interbody fusion TREATS critical cervical spinal canal stenosis IN Alkaptonuria; Review of the literature (concerning cervical spine involvement) PREVENTS tissue discoloration IN Alkaptonuria; Review of the literature (concerning cervical spine involvement) PREVENTS alkaptonuric arthropathy IN Alkaptonuria
+  action_annotation_relationships: C6-C7 anterior cervical microdiscectomy and interbody fusion PREVENTS Myelopathic changes IN Alkaptonuria
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -51,45 +47,33 @@ prompt: |+
 
 
   Text:
-  Review of the literature (concerning cervical spine involvement) PREVENTS alkaptonuric arthropathy IN Alkaptonuria
+  C6-C7 anterior cervical microdiscectomy and interbody fusion PREVENTS Myelopathic changes IN Alkaptonuria
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0008753
   medical_actions:
-    - Review of the literature
     - C6-C7 anterior cervical microdiscectomy and interbody fusion
   symptoms:
-    - Tissue discoloration
-    - Alkaptonuric arthropathy
     - Critical cervical spinal canal stenosis
+    - Myelopathic changes
+    - Black discoloration of the nucleus pulposus
   chemicals:
     - CHEBI:44747
   action_annotation_relationships:
     - subject: C6-C7 anterior cervical microdiscectomy and interbody fusion
-      predicate: TREATS
-      object: critical cervical spinal canal stenosis
-      qualifier: MONDO:0008753
-    - subject: Review of the literature
       predicate: PREVENTS
-      object: tissue discoloration
+      object: Myelopathic changes
       qualifier: MONDO:0008753
-      subject_qualifier: concerning cervical spine involvement
-    - subject: <Review of the literature>
-      predicate: <PREVENTS>
-      object: <alkaptonuric arthropathy>
-      qualifier: <Alkaptonuria>
-      subject_qualifier: <concerning cervical spine involvement>
-      object_qualifier: <None>
-      subject_extension: <None>
-      object_extension: <None>
 named_entities:
   - id: MAXO:0001175
-    label: Liver transplantation
-  - id: HP:0030764
-    label: Ochronosis
+    label: liver transplantation
   - id: CHEBI:44747
-    label: Homogentisic acid
+    label: homogentisic acid
   - id: MONDO:0008753
     label: alkaptonuria
+  - id: MONDO:0009861
+    label: phenylketonuria
+  - id: MONDO:0010163
+    label: tyrosinosis

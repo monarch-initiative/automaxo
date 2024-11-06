@@ -1,0 +1,155 @@
+---
+input_text: "Increased postoperative and respiratory complications in patients with
+  congenital heart disease associated with heterotaxy. OBJECTIVE: Patients with heterotaxy
+  and complex congenital heart disease underwent cardiac surgery with high mortality
+  and morbidity. Recent studies have revealed an association among heterotaxy, congenital
+  heart disease, and primary ciliary dyskinesia. We undertook a retrospective review
+  of patients undergoing cardiac surgery at Children's National Medical Center between
+  2004 and 2008 to explore the hypothesis that there is increased mortality and respiratory
+  complications in heterotaxy patients. METHODS: Retrospective review was performed
+  on postsurgical outcomes of 87 patients with heterotaxy and congenital heart disease
+  exhibiting the full spectrum of situs abnormalities associated with heterotaxy.
+  As controls patients, 634 cardiac surgical patients with congenital heart disease,
+  but without laterality defects, were selected, and surgical complexities were similar
+  with a median Risk Adjustment in Congenital Heart Surgery-1 score of 3.0 for both
+  groups. RESULTS: We found the mean length of postoperative hospital stay (17 vs
+  11 days) and mechanical ventilation (11 vs 4 days) were significantly increased
+  in the heterotaxy patients. Also elevated were rates of tracheostomies (6.9% vs
+  1.6%; odds ratio, 4.6), extracorporeal membrane oxygenation support (12.6% vs 4.9%:
+  odds ratio, 2.8), prolonged ventilatory courses (23% vs 12.3%; odds ratio, 2.1)
+  and postsurgical deaths (16.1% vs 4.7%; odds ratio, 3.9). CONCLUSIONS: Our findings
+  show heterotaxy patients had more postsurgical events with increased postsurgical
+  mortality and risk for respiratory complications as compared to control patients
+  with similar Risk Adjustment in Congenital Heart Surgery-1 surgical complexity scores.
+  We speculate that increased respiratory complications maybe due to ciliary dysfunction.
+  Further studies are needed to explore the basis for the increased surgical risks
+  for heterotaxy patients undergoing cardiac surgery."
+raw_completion_output: |-
+  primary_disease: heterotaxy
+
+  medical_actions: cardiac surgery; mechanical ventilation; tracheostomies; extracorporeal membrane oxygenation support; retrospective review
+
+  symptoms: increased postoperative hospital stay; increased duration of mechanical ventilation; elevated rates of tracheostomies; need for extracorporeal membrane oxygenation support; prolonged ventilatory courses; postsurgical deaths; respiratory complications
+
+  chemicals: 
+
+  action_annotation_relationships: cardiac surgery TREATS congenital heart disease IN heterotaxy; mechanical ventilation TREATS respiratory complications IN heterotaxy; tracheostomies TREATS respiratory complications IN heterotaxy; extracorporeal membrane oxygenation support TREATS respiratory complications IN heterotaxy; retrospective review INVESTIGATES mortality and respiratory complications IN heterotaxy
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  retrospective review INVESTIGATES mortality and respiratory complications IN heterotaxy
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0018677
+  medical_actions:
+    - MAXO:0025001
+    - MAXO:0000503
+    - MAXO:0000504
+    - extracorporeal membrane oxygenation support
+    - retrospective review
+  symptoms:
+    - increased postoperative hospital stay
+    - increased duration of mechanical ventilation
+    - elevated rates of tracheostomies
+    - need for extracorporeal membrane oxygenation support
+    - prolonged ventilatory courses
+    - postsurgical deaths
+    - respiratory complications
+  action_annotation_relationships:
+    - subject: MAXO:0025001
+      predicate: TREATS
+      object: HP:0001627
+      qualifier: MONDO:0018677
+    - subject: <mechanical ventilation>
+      predicate: <TREATS>
+      object: <respiratory complications>
+      qualifier: <heterotaxy>
+      subject_qualifier: <Not Applicable>
+      object_qualifier: <Not Applicable>
+      subject_extension: <Not Applicable>
+      object_extension: <Not Applicable>
+    - subject: MAXO:0000504
+      predicate: TREATS
+      object: respiratory complications
+      qualifier: MONDO:0018677
+    - subject: <extracorporeal membrane oxygenation support>
+      predicate: <TREATS>
+      object: <respiratory complications>
+      qualifier: <heterotaxy>
+      subject_extension: <extracorporeal membrane oxygenation>
+    - subject: retrospective review
+      predicate: INVESTIGATES
+      object: mortality and respiratory complications
+      qualifier: MONDO:0018677
+named_entities:
+  - id: MONDO:0016575
+    label: Primary Ciliary Dyskinesia
+  - id: HP:0034315
+    label: Chronic cough
+  - id: HP:0002643
+    label: Neonatal respiratory distress
+  - id: HP:0003251
+    label: male infertility
+  - id: HP:0001696
+    label: situs inversus
+  - id: CHEBI:27958
+    label: Cocaine
+  - id: MONDO:0004247
+    label: Peptic Ulcer Disease (PUD)
+  - id: MAXO:0001193
+    label: upper gastrointestinal endoscopy
+  - id: HP:0002239
+    label: gastrointestinal hemorrhage
+  - id: CHEBI:18361
+    label: proton pump inhibitor (PPI)
+  - id: CHEBI:49200
+    label: proton pump inhibitor
+  - id: MONDO:0008932
+    label: Primary ciliary dyskinesia (PCD)
+  - id: CHEBI:33281
+    label: Antibiotics
+  - id: CHEBI:35523
+    label: Bronchodilators
+  - id: CHEBI:67079
+    label: Anti-inflammatory agents
+  - id: MAXO:0001298
+    label: Therapy
+  - id: HP:0012262
+    label: Abnormal ciliary motility
+  - id: HP:0100750
+    label: atelectasis
+  - id: HP:0002878
+    label: respiratory failure
+  - id: HP:0012265
+    label: Primary Ciliary Dyskinesia
+  - id: HP:0011962
+    label: Obstructive azoospermia
+  - id: MONDO:0005936
+    label: recurrent pneumonia
+  - id: MONDO:0018597
+    label: Plastic bronchitis
+  - id: HP:0002098
+    label: respiratory distress
+  - id: MONDO:0018677
+    label: heterotaxy
+  - id: MAXO:0025001
+    label: cardiac surgery
+  - id: MAXO:0000503
+    label: mechanical ventilation
+  - id: MAXO:0000504
+    label: tracheostomies
+  - id: HP:0001627
+    label: congenital heart disease

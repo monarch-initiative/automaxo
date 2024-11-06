@@ -1,0 +1,130 @@
+---
+input_text: 'Glucose and Lipid Metabolism Abnormalities among Patients with Autosomal
+  Dominant Polycystic Kidney Disease. INTRODUCTION: Autosomal dominant polycystic
+  kidney disease (ADPKD) is the most prevalent monogenic renal disease with a prevalence
+  of 1:1,000 births and it is the 4th most common cause of dialysis-dependent end-stage
+  renal disease (ESDR). Recent reports suggest an association between APDKD and metabolic
+  derangements, particularly impaired glucose metabolism. METHODS: In this cross-sectional
+  study we analyzed data obtained from case records of 189 patients with ADPKD, including
+  kidney transplant recipients, managed in an outpatient department. RESULTS: The
+  mean BMI was 25.4 +- 3.9; 25.25 before and 27.7 after transplan-tation. A fasting
+  glucose level above 100 mg/dL (5.6 mmol/L) was observed in 60 patients (29%) - 27%
+  without transplantation and 41% kidney transplant recipients. Diabetes mellitus
+  was diagnosed in 17 patients (8.9%), including 3 (2.3%) without a history of transplantation
+  and 14 (24.1%) after kidney transplantation (p < 0.01). We observed dyslipidemia
+  in 30% and hyperuricemia in 53% of patients. CONCLUSION: Demonstrated metabolic
+  abnormalities should be considered in maintenance of ADPKD patients, including kidney
+  transplant recipients.'
+raw_completion_output: |-
+  primary_disease: Autosomal Dominant Polycystic Kidney Disease (ADPKD)
+
+  medical_actions: monitoring of glucose levels; dietary management; kidney transplantation
+
+  symptoms: impaired glucose metabolism; high fasting glucose level; diabetes mellitus; dyslipidemia; hyperuricemia
+
+  chemicals: 
+
+  action_annotation_relationships: monitoring of glucose levels TREATS impaired glucose metabolism IN Autosomal Dominant Polycystic Kidney Disease (ADPKD); dietary management PREVENTS high fasting glucose level IN Autosomal Dominant Polycystic Kidney Disease (ADPKD); kidney transplantation TREATS diabetes mellitus IN Autosomal Dominant Polycystic Kidney Disease (ADPKD)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  kidney transplantation TREATS diabetes mellitus IN Autosomal Dominant Polycystic Kidney Disease (ADPKD)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0004691
+  medical_actions:
+    - monitoring of glucose levels
+    - dietary management
+    - kidney transplantation
+  symptoms:
+    - impaired glucose metabolism
+    - high fasting glucose level
+    - HP:0000819
+    - HP:0003119
+    - HP:0002149
+  action_annotation_relationships:
+    - subject: monitoring of glucose levels
+      predicate: TREATS
+      object: impaired glucose metabolism
+      qualifier: MONDO:0004691
+    - subject: dietary management
+      predicate: PREVENTS
+      object: high fasting glucose level
+      qualifier: MONDO:0004691
+    - subject: kidney transplantation
+      predicate: TREATS
+      object: HP:0000819
+      qualifier: MONDO:0004691
+named_entities:
+  - id: MONDO:0004691
+    label: Autosomal Dominant Polycystic Kidney Disease (ADPKD)
+  - id: HP:0003774
+    label: end-stage renal disease
+  - id: MAXO:0000601
+    label: Dialysis
+  - id: MAXO:0000756
+    label: Transfusion
+  - id: HP:0012531
+    label: Pain
+  - id: HP:0001824
+    label: Weight loss
+  - id: HP:0012158
+    label: Carotid artery dissection
+  - id: MONDO:0010979
+    label: Tuberous sclerosis (TS) and autosomal dominant polycystic kidney disease
+      (ADPKD)
+  - id: HP:0002027
+    label: Abdominal pain
+  - id: HP:0001903
+    label: Anaemia
+  - id: CHEBI:68481
+    label: mTOR inhibitors
+  - id: MONDO:0010913
+    label: Caroli Disease
+  - id: HP:0004395
+    label: Malnutrition
+  - id: CHEBI:16113
+    label: Cholesterol
+  - id: MAXO:0000624
+    label: Nutritional assessment
+  - id: HP:0004872
+    label: incisional hernias
+  - id: HP:0003259
+    label: increased serum creatinine
+  - id: MONDO:0005300
+    label: Chronic kidney disease (CKD)
+  - id: CHEBI:4670
+    label: Dobutamine
+  - id: MONDO:0020642
+    label: Polycystic Kidney Disease
+  - id: HP:0002138
+    label: Subarachnoid hemorrhage
+  - id: CHEBI:35341
+    label: Steroid
+  - id: MAXO:0000004
+    label: Surgery
+  - id: HP:0000113
+    label: Polycystic kidney disease
+  - id: HP:0006772
+    label: Angiomyolipomas
+  - id: HP:0100026
+    label: Arteriovenous malformations
+  - id: HP:0000819
+    label: diabetes mellitus
+  - id: HP:0003119
+    label: dyslipidemia
+  - id: HP:0002149
+    label: hyperuricemia

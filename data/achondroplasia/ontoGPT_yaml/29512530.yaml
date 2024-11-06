@@ -1,0 +1,119 @@
+---
+input_text: '[Homeostasis and Disorder of Musculoskeletal System.Diagnosis and Treatment
+  of Congenital Musculoskeletal Diseases.] Congenital skeletal dysplasias have been
+  considered to be fundamentally untreatable diseases. However, molecular diagnosis
+  by genetic testing has become more prevalent, and efforts are being made to develop
+  novel therapies based on the pathogenesis. As treatments for osteogenesis imperfecta,
+  in addition to anti-resorptive agents, neutralizing antibodies against sclerostin
+  and transforming growth factor(TGF)-beta and chemical chaperones can be beneficial.
+  Enzyme replacement therapy using bone-targeting recombinant alkaline phosphatase
+  has been recently developed to treat hypophosphatasia and has much improved the
+  prognosis of the patients affected with severe forms of the disease. To treat the
+  severe short stature in achondroplasia, drugs targeting the fibroblast growth factor
+  receptor 3(FGFR3)-mediated signal are in development for clinical use.'
+raw_completion_output: |-
+  primary_disease: Congenital Musculoskeletal Diseases
+  medical_actions: Molecular diagnosis by genetic testing; Use of anti-resorptive agents; Neutralizing antibodies against sclerostin; Neutralizing antibodies against TGF-beta; Use of chemical chaperones; Enzyme replacement therapy with bone-targeting recombinant alkaline phosphatase; Development of drugs targeting FGFR3-mediated signal
+  symptoms: Severe forms of congenital skeletal dysplasias; Osteogenesis imperfecta; Hypophosphatasia; Severe short stature in achondroplasia
+  chemicals: Anti-resorptive agents; Sclerostin antibodies; TGF-beta antibodies; Chemical chaperones; Bone-targeting recombinant alkaline phosphatase; Drugs targeting FGFR3-mediated signal
+  action_annotation_relationships: Molecular diagnosis by genetic testing TREATS Congenital Musculoskeletal Diseases; Use of anti-resorptive agents TREATS Osteogenesis imperfecta IN Congenital Musculoskeletal Diseases; Neutralizing antibodies against sclerostin TREATS Osteogenesis imperfecta IN Congenital Musculoskeletal Diseases; Neutralizing antibodies against TGF-beta TREATS Osteogenesis imperfecta IN Congenital Musculoskeletal Diseases; Use of chemical chaperones TREATS Osteogenesis imperfecta IN Congenital Musculoskeletal Diseases; Enzyme replacement therapy with bone-targeting recombinant alkaline phosphatase TREATS Hypophosphatasia IN Congenital Musculoskeletal Diseases; Development of drugs targeting FGFR3-mediated signal TREATS Severe short stature in achondroplasia IN Congenital Musculoskeletal Diseases
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Development of drugs targeting FGFR3-mediated signal TREATS Severe short stature in achondroplasia IN Congenital Musculoskeletal Diseases
+
+  ===
+
+extracted_object:
+  primary_disease: Congenital Musculoskeletal Diseases
+  medical_actions:
+    - Molecular diagnosis by genetic testing
+    - Use of anti-resorptive agents
+    - Neutralizing antibodies against sclerostin
+    - Neutralizing antibodies against TGF-beta
+    - Use of chemical chaperones
+    - Enzyme replacement therapy with bone-targeting recombinant alkaline phosphatase
+    - Development of drugs targeting FGFR3-mediated signal
+  symptoms:
+    - Severe forms of congenital skeletal dysplasias
+    - Osteogenesis imperfecta
+    - HP:0004839
+    - Severe short stature in achondroplasia
+  chemicals:
+    - Anti-resorptive agents
+    - Sclerostin antibodies
+    - TGF-beta antibodies
+    - Chemical chaperones
+    - Bone-targeting recombinant alkaline phosphatase
+    - Drugs targeting FGFR3-mediated signal
+  action_annotation_relationships:
+    - subject: Molecular diagnosis
+      predicate: TREATS
+      object: Congenital Musculoskeletal Diseases
+      subject_extension: genetic testing
+    - subject: Use of anti-resorptive agents
+      predicate: TREATS
+      object: Osteogenesis imperfecta
+      qualifier: Congenital Musculoskeletal Diseases
+      subject_extension: anti-resorptive agents
+    - subject: Neutralizing antibodies against sclerostin
+      predicate: TREATS
+      object: Osteogenesis imperfecta
+      qualifier: Congenital Musculoskeletal Diseases
+    - subject: Neutralizing antibodies
+      predicate: TREATS
+      object: Osteogenesis imperfecta
+      qualifier: Congenital Musculoskeletal Diseases
+      subject_extension: TGF-beta
+    - subject: Use of chemical chaperones
+      predicate: TREATS
+      object: Osteogenesis imperfecta
+      qualifier: Congenital Musculoskeletal Diseases
+      subject_extension: chemical chaperones
+    - subject: Enzyme replacement therapy
+      predicate: TREATS
+      object: HP:0004839
+      qualifier: Congenital Musculoskeletal Diseases
+      subject_qualifier: with bone-targeting recombinant alkaline phosphatase
+      subject_extension: bone-targeting recombinant alkaline phosphatase
+    - subject: Development of drugs targeting
+      predicate: TREATS
+      object: HP:0004322
+      qualifier: achondroplasia in Congenital Musculoskeletal Diseases
+      object_qualifier: Severe
+      subject_extension: FGFR3-mediated signal
+      object_extension: Severe
+named_entities:
+  - id: MONDO:0007037
+    label: Achondroplasia
+  - id: HP:0001513
+    label: Obesity
+  - id: HP:0005667
+    label: os odontoideum
+  - id: CHEBI:31805
+    label: Meclizine hydrochloride
+  - id: CHEBI:6709
+    label: meclizine
+  - id: MAXO:0001394
+    label: Oral administration
+  - id: HP:0031846
+    label: Femoral fracture
+  - id: CHEBI:37845
+    label: Growth hormone
+  - id: CHEBI:31324
+    label: Buserelin acetate
+  - id: HP:0004839
+    label: Hypophosphatasia
+  - id: HP:0004322
+    label: short stature

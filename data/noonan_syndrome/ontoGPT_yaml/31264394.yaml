@@ -22,10 +22,10 @@ input_text: "Impact of Noonan Syndrome on admissions for pediatric cardiac surge
   admissions as well as inpatient mortality."
 raw_completion_output: |-
   primary_disease: Noonan Syndrome
-  medical_actions: cardiac intervention; cardiac surgery; valvuloplasty without valve replacement; use of ECMO
+  medical_actions: cardiac surgery; ECMO; valvuloplasty without valve replacement
   symptoms: congenital heart disease; pulmonary stenosis; coronary anomalies; chylothorax
   chemicals: 
-  action_annotation_relationships: cardiac intervention TREATS congenital heart disease IN Noonan Syndrome; cardiac surgery TREATS congenital heart disease IN Noonan Syndrome; valvuloplasty without valve replacement TREATS pulmonary stenosis IN Noonan Syndrome; use of ECMO PREVENTS inpatient mortality IN Noonan Syndrome
+  action_annotation_relationships: cardiac surgery TREATS congenital heart disease IN Noonan Syndrome; ECMO TREATS congenital heart disease IN Noonan Syndrome; valvuloplasty without valve replacement TREATS pulmonary stenosis IN Noonan Syndrome; cardiac surgery TREATS pulmonary stenosis IN Noonan Syndrome; cardiac surgery TREATS coronary anomalies IN Noonan Syndrome
 prompt: |+
   Split the following piece of text into fields in the following format:
 
@@ -40,28 +40,27 @@ prompt: |+
 
 
   Text:
-  use of ECMO PREVENTS inpatient mortality IN Noonan Syndrome
+  cardiac surgery TREATS coronary anomalies IN Noonan Syndrome
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0018997
   medical_actions:
-    - cardiac intervention
     - MAXO:0025001
+    - ECMO
     - valvuloplasty without valve replacement
-    - use of ECMO
   symptoms:
     - HP:0001627
     - HP:0001642
     - coronary anomalies
     - HP:0010310
   action_annotation_relationships:
-    - subject: cardiac intervention
+    - subject: MAXO:0025001
       predicate: TREATS
       object: HP:0001627
       qualifier: MONDO:0018997
-    - subject: MAXO:0025001
+    - subject: ECMO
       predicate: TREATS
       object: HP:0001627
       qualifier: MONDO:0018997
@@ -69,27 +68,37 @@ extracted_object:
       predicate: TREATS
       object: HP:0001642
       qualifier: MONDO:0018997
-    - subject: use of ECMO
-      predicate: PREVENTS
-      object: inpatient mortality
+    - subject: MAXO:0025001
+      predicate: TREATS
+      object: HP:0001642
+      qualifier: MONDO:0018997
+    - subject: MAXO:0025001
+      predicate: TREATS
+      object: coronary anomalies
       qualifier: MONDO:0018997
 named_entities:
   - id: CHEBI:33281
-    label: Antibiotics
+    label: antibiotics
   - id: MONDO:0006936
     label: pulmonary valve stenosis
   - id: MAXO:0009072
     label: surgical repair
+  - id: HP:0001642
+    label: pulmonary valve stenosis
   - id: MONDO:0018997
     label: Noonan syndrome
-  - id: MAXO:0010203
-    label: echocardiography
   - id: HP:0004322
     label: short stature
+  - id: CHEBI:37845
+    label: GH
   - id: MONDO:0011908
     label: Juvenile myelomonocytic leukemia (JMML)
   - id: MAXO:0000747
     label: hematopoietic stem cell transplantation (HSCT)
+  - id: HP:0012209
+    label: Juvenile myelomonocytic leukemia (JMML)
+  - id: MAXO:0010203
+    label: echocardiography
   - id: HP:0001663
     label: ventricular fibrillation
   - id: HP:0001639
@@ -99,36 +108,49 @@ named_entities:
   - id: HP:0030828
     label: Wheezing
   - id: CHEBI:90960
-    label: Tiotropium (Tio)
+    label: Tiotropium
+  - id: HP:0002099
+    label: bronchial asthma
   - id: MONDO:0007037
     label: Achondroplasia
-  - id: CHEBI:37845
-    label: Growth hormone (GH)
+  - id: MAXO:0000014
+    label: radiotherapy
+  - id: MAXO:0035118
+    label: Cardiac catheterization
+  - id: HP:0001659
+    label: Aortic regurgitation
+  - id: HP:0001004
+    label: Lymphedema
+  - id: CHEBI:17347
+    label: Testosterone
+  - id: MONDO:0005516
+    label: osteochondrodysplasias
+  - id: MONDO:0008300
+    label: Prader-Willi syndrome
   - id: MONDO:0000050
     label: Growth Hormone Deficiency (GHD)
   - id: HP:0001510
     label: Poor growth
   - id: MONDO:0007414
     label: Gorham disease
-  - id: MAXO:0000014
-    label: Radiation therapy
   - id: HP:0012531
     label: Pain
   - id: HP:0010310
     label: Chylothorax
-  - id: MONDO:0009735
-    label: Tumorigenesis; Noonan syndrome (NS); LEOPARD syndrome (LS); Hematological
-      malignancies; Solid tumors
   - id: MONDO:0007893
     label: Noonan syndrome with multiple lentigines
   - id: HP:0001670
     label: asymmetric septal hypertrophy
-  - id: HP:0001631
-    label: atrial septal defect
+  - id: MONDO:0011035
+    label: Neurofibromatosis-Noonan syndrome
+  - id: HP:0000001
+    label: acute lymphoblastic leukemia (ALL)
   - id: HP:0000818
-    label: Endocrinopathies
+    label: endocrinopathies
   - id: HP:0000789
-    label: Infertility
+    label: infertility
+  - id: MONDO:0019499
+    label: Turner syndrome
   - id: MONDO:0006769
     label: Gastroparesis
   - id: MAXO:0000079
@@ -137,19 +159,21 @@ named_entities:
     label: Bloating
   - id: CHEBI:31515
     label: Domperidone
+  - id: HP:0002018
+    label: nausea
   - id: MAXO:0010032
     label: heart transplantation
+  - id: HP:0001635
+    label: heart failure
   - id: HP:0031318
     label: myofiber disarray
   - id: CHEBI:68478
     label: everolimus
   - id: MAXO:0001298
     label: therapy
-  - id: MAXO:0000647
-    label: Chemotherapy
+  - id: HP:0003006
+    label: neuroblastoma
   - id: MAXO:0025001
     label: cardiac surgery
   - id: HP:0001627
     label: congenital heart disease
-  - id: HP:0001642
-    label: pulmonary stenosis

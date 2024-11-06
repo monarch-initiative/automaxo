@@ -3,10 +3,10 @@ input_text: 'Marfan Syndrome: Staging Nonsurgical vs Surgical Treatments in Chil
   With Subluxated Lenses and Refractive Problems. '
 raw_completion_output: |-
   primary_disease: Marfan Syndrome
-  medical_actions: Staging nonsurgical treatments; Surgical treatments
-  symptoms: Subluxated lenses; Refractive problems
+  medical_actions: Staging Nonsurgical Treatments; Surgical Treatments
+  symptoms: Subluxated Lenses; Refractive Problems
   chemicals: 
-  action_annotation_relationships: Staging nonsurgical treatments TREATS Subluxated lenses IN Marfan Syndrome;Staging nonsurgical treatments TREATS Refractive problems IN Marfan Syndrome;Surgical treatments TREATS Subluxated lenses IN Marfan Syndrome;Surgical treatments TREATS Refractive problems IN Marfan Syndrome
+  action_annotation_relationships: Staging Nonsurgical Treatments TREATS Subluxated Lenses IN Marfan Syndrome; Staging Nonsurgical Treatments TREATS Refractive Problems IN Marfan Syndrome; Surgical Treatments TREATS Subluxated Lenses IN Marfan Syndrome; Surgical Treatments TREATS Refractive Problems IN Marfan Syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -21,40 +21,65 @@ prompt: |+
 
 
   Text:
-  Surgical treatments TREATS Refractive problems IN Marfan Syndrome
+  Surgical Treatments TREATS Refractive Problems IN Marfan Syndrome
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0007947
   medical_actions:
-    - Staging nonsurgical treatments
-    - Surgical treatments
+    - Staging Nonsurgical Treatments
+    - Surgical Treatments
   symptoms:
-    - Subluxated lenses
-    - Refractive problems
+    - Subluxated Lenses
+    - Refractive Problems
   action_annotation_relationships:
-    - subject: Staging nonsurgical treatments
+    - subject: Staging
       predicate: TREATS
-      object: Subluxated lenses
+      object: Subluxated Lenses
       qualifier: MONDO:0007947
-    - subject: Staging nonsurgical treatments
+      subject_extension: Nonsurgical Treatments
+    - subject: <Staging Nonsurgical Treatments>
+      predicate: <TREATS>
+      object: <Refractive Problems>
+      qualifier: <Marfan Syndrome>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <Nonsurgical Treatments>
+      object_extension: <Refractive Problems>
+    - subject: Surgical Treatments
       predicate: TREATS
-      object: Refractive problems
+      object: Subluxated Lenses
       qualifier: MONDO:0007947
-    - subject: Surgical treatments
+    - subject: Surgical Treatments
       predicate: TREATS
-      object: Subluxated lenses
-      qualifier: MONDO:0007947
-    - subject: Surgical treatments
-      predicate: TREATS
-      object: Refractive problems
+      object: Refractive Problems
       qualifier: MONDO:0007947
 named_entities:
   - id: MONDO:0007947
-    label: Marfan syndrome
-  - id: HP:0032079
-    label: Medial degeneration
+    label: Marfan Syndrome
+  - id: HP:0000768
+    label: Pectus carinatum
+  - id: HP:0002650
+    label: Scoliosis
+  - id: HP:0002108
+    label: Spontaneous pneumothorax
+  - id: HP:0003423
+    label: Thoracolumbar kyphoscoliosis
+  - id: CHEBI:33281
+    label: Antibiotic
+  - id: HP:0002107
+    label: pneumothorax
+  - id: MAXO:0010203
+    label: Echocardiography
+  - id: MAXO:0000494
+    label: Blood pressure monitoring
+  - id: HP:0004942
+    label: Aortic dilatation
+  - id: CHEBI:5959
+    label: Irbesartan
+  - id: HP:0004950
+    label: Peripheral artery disease
   - id: HP:0002617
     label: aneurysm
   - id: HP:0030965
@@ -65,6 +90,14 @@ named_entities:
     label: left ventricular hypertrophy
   - id: HP:0005162
     label: left ventricular failure
+  - id: HP:0000822
+    label: high blood pressure
+  - id: CHEBI:6541
+    label: Losartan
+  - id: CHEBI:35530
+    label: beta-blocker
+  - id: MAXO:0001298
+    label: therapy
   - id: MONDO:0020333
     label: Anterior sacral meningocele (ASM)
   - id: HP:0002315
@@ -73,35 +106,43 @@ named_entities:
     label: nausea
   - id: HP:0002138
     label: subarachnoid hemorrhage
+  - id: HP:0031625
+    label: Pseudoaneurysms
+  - id: MAXO:0000451
+    label: Implantation
+  - id: MAXO:0000457
+    label: pain management
   - id: HP:0012531
-    label: Pain
+    label: pain
   - id: HP:0012378
-    label: Fatigue
+    label: fatigue
   - id: HP:0012332
-    label: Dysautonomia
+    label: dysautonomia
   - id: HP:0002659
-    label: Bone fragility
+    label: bone fragility
   - id: HP:0025017
-    label: Capillary fragility
+    label: capillary fragility
   - id: HP:0001030
-    label: Skin fragility
+    label: skin fragility
+  - id: MAXO:0000571
+    label: CT
+  - id: HP:0034267
+    label: Pelvic pain
+  - id: HP:0000139
+    label: Genital prolapse
+  - id: HP:0100518
+    label: Dysuria
   - id: MONDO:0044632
     label: Extracranial Carotid Artery Aneurysms (ECAAs)
   - id: MAXO:0000448
     label: Surgical resection
   - id: HP:0001297
     label: Stroke
+  - id: HP:0012163
+    label: Extracranial Carotid Artery Aneurysms
   - id: HP:0002616
     label: aortic root aneurysms
+  - id: HP:0031649
+    label: aortic rupture
   - id: HP:0002090
-    label: Pneumonia
-  - id: HP:0000010
-    label: Urinary tract infections
-  - id: HP:0002140
-    label: ischemic stroke
-  - id: HP:0001342
-    label: hemorrhagic stroke
-  - id: HP:0004944
-    label: cerebral aneurysms
-  - id: HP:0012158
-    label: carotid artery dissection
+    label: pneumonia

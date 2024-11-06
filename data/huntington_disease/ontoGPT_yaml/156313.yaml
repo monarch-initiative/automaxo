@@ -11,12 +11,16 @@ input_text: Isoniazid therapy of Huntington disease. We describe clinical and bi
   further controlled trials of INH or other GABA-T inhibitors in Huntington disease.
 raw_completion_output: |-
   primary_disease: Huntington disease
-  medical_actions: Isoniazid therapy; High-dose INH therapy
-  symptoms: brain GABA deficiency
+
+  medical_actions: Isoniazid therapy; Increase GABA content; Controlled trials of INH or other GABA-T inhibitors
+
+  symptoms: Brain GABA deficiency
+
   chemicals: Isoniazid (INH); gamma-aminobutyric acid (GABA)
-  action_annotation_relationships: Isoniazid therapy TREATS brain GABA deficiency IN Huntington disease; High-dose INH therapy (with Isoniazid) TREATS brain GABA deficiency IN Huntington disease
+
+  action_annotation_relationships: Isoniazid therapy TREATS Brain GABA deficiency IN Huntington disease; Increase GABA content (with gamma-aminobutyric acid) TREATS Brain GABA deficiency IN Huntington disease; Controlled trials of INH TREATS Huntington disease
 prompt: |+
-  From the text below, extract the following entities in the following format:
+  Split the following piece of text into fields in the following format:
 
   subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
   object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
@@ -29,7 +33,7 @@ prompt: |+
 
 
   Text:
-  High-dose INH therapy (with Isoniazid) TREATS brain GABA deficiency IN Huntington disease
+  Controlled trials of INH TREATS Huntington disease
 
   ===
 
@@ -37,45 +41,131 @@ extracted_object:
   primary_disease: MONDO:0007739
   medical_actions:
     - Isoniazid therapy
-    - High-dose INH therapy
+    - Increase GABA content
+    - Controlled trials of INH or other GABA-T inhibitors
   symptoms:
-    - brain GABA deficiency
+    - Brain GABA deficiency
   chemicals:
     - CHEBI:6030
     - CHEBI:16865
   action_annotation_relationships:
     - subject: MAXO:0001298
       predicate: TREATS
-      object: brain deficiency
+      object: Brain GABA deficiency
       qualifier: MONDO:0007739
-      subject_qualifier: isoniazid
-      object_qualifier: brain GABA
       subject_extension: CHEBI:6030
-      object_extension: GABA
-    - subject: High-dose INH therapy
+    - subject: Increase GABA content
       predicate: TREATS
-      object: brain GABA deficiency
+      object: Brain GABA deficiency
       qualifier: MONDO:0007739
-      subject_qualifier: high dose
-      subject_extension: CHEBI:6030
+      subject_qualifier: with gamma-aminobutyric acid
+      subject_extension: CHEBI:16865
+    - subject: Controlled trials
+      predicate: TREATS
+      object: Huntington disease
+      subject_extension: INH
 named_entities:
   - id: MONDO:0007739
     label: Huntington disease
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0002180
+    label: neurodegeneration
+  - id: HP:0001268
+    label: cognitive decline
+  - id: HP:0100022
+    label: movement disorders
+  - id: HP:0002072
+    label: choreic movements
   - id: MAXO:0009003
     label: preimplantation genetic testing
+  - id: MAXO:0001592
+    label: RNA interference therapy
   - id: HP:0000716
     label: depression
   - id: HP:0000739
     label: anxiety
   - id: HP:0000737
     label: irritability
-  - id: HP:0002072
-    label: choreic movements
   - id: CHEBI:7735
     label: olanzapine
+  - id: MAXO:0000882
+    label: behavioral interventions
+  - id: HP:0004395
+    label: malnutrition
+  - id: MAXO:0000011
+    label: physical therapy
+  - id: CHEBI:22720
+    label: benzodiazepines
+  - id: CHEBI:2618
+    label: amantadine
+  - id: CHEBI:15765
+    label: levodopa
+  - id: HP:0002315
+    label: Headache
+  - id: CHEBI:134738
+    label: Laquinimod
+  - id: CHEBI:4903
+    label: Ethinylestradiol
+  - id: CHEBI:6443
+    label: Levonorgestrel
+  - id: HP:0001251
+    label: Ataxia
+  - id: HP:0001260
+    label: Dysarthria
+  - id: HP:0002119
+    label: Ventricular dilatation
+  - id: HP:0100543
+    label: cognitive deficits
+  - id: HP:0000708
+    label: Behavioral changes
+  - id: CHEBI:92976
+    label: Latrepirdine
+  - id: MONDO:0005559
+    label: Neurodegenerative diseases
+  - id: CHEBI:16243
+    label: Quercetin
+  - id: CHEBI:3962
+    label: Curcumin
+  - id: CHEBI:27881
+    label: Resveratrol
+  - id: CHEBI:75095
+    label: Chrysin
+  - id: CHEBI:28821
+    label: Piperine
+  - id: CHEBI:17620
+    label: Ferulic acid
+  - id: CHEBI:78330
+    label: Huperzine A
+  - id: CHEBI:16118
+    label: Berberine
+  - id: CHEBI:2979
+    label: Baicalein
+  - id: CHEBI:28230
+    label: Hesperetin
+  - id: CHEBI:26536
+    label: Retinoic acid
+  - id: MAXO:0000127
+    label: Genetic testing
+  - id: CHEBI:76004
+    label: Dimethyl fumarate
+  - id: MAXO:0010012
+    label: coenzyme Q10 supplementation
+  - id: HP:0003287
+    label: mitochondrial dysfunction
+  - id: HP:0025464
+    label: oxidative stress
+  - id: CHEBI:46245
+    label: coenzyme Q10
+  - id: CHEBI:31687
+    label: idebenone
+  - id: MONDO:0100339
+    label: Friedreich ataxia
+  - id: MONDO:0016621
+    label: Juvenile Huntington Disease
+  - id: MAXO:0000021
+    label: Palliative care
   - id: CHEBI:6030
     label: Isoniazid (INH)
   - id: CHEBI:16865
     label: gamma-aminobutyric acid (GABA)
-  - id: MAXO:0001298
-    label: therapy

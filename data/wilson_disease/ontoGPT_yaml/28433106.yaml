@@ -17,15 +17,15 @@ input_text: Novel perspectives on Wilson disease treatment. Wilson disease is an
 raw_completion_output: |-
   primary_disease: Wilson disease
 
-  medical_actions: Optimization of treatment regimens; Use of chelator tetrathiomolybdate (TTM); Treatment with nonchelating drugs; Cell or gene therapy
+  medical_actions: Optimization of treatment regimens; Use of chelator tetrathiomolybdate (TTM); Treatment with nonchelating drugs; Cell therapy; Gene therapy
 
-  symptoms: hepatic and neurologic symptoms
+  symptoms: Hepatic symptoms; Neurologic symptoms
 
-  chemicals: tetrathiomolybdate (TTM)
+  chemicals: Tetrathiomolybdate (TTM)
 
-  action_annotation_relationships: Optimization of treatment regimens PREVENTS hepatic and neurologic symptoms IN Wilson disease; Use of chelator tetrathiomolybdate (TTM) TREATS hepatic and neurologic symptoms IN Wilson disease; Treatment with nonchelating drugs PREVENTS hepatic and neurologic symptoms IN Wilson disease; Cell or gene therapy PREVENTS hepatic and neurologic symptoms IN Wilson disease
+  action_annotation_relationships: Optimization of treatment regimens TREATS hepatic symptoms IN Wilson disease; Optimization of treatment regimens PREVENTS neurologic symptoms IN Wilson disease; Use of chelator tetrathiomolybdate (TTM) TREATS neurologic symptoms IN Wilson disease; Use of chelator tetrathiomolybdate (TTM) TREATS hepatic symptoms IN Wilson disease; Treatment with nonchelating drugs PREVENTS symptoms IN Wilson disease; Cell therapy PREVENTS symptoms IN Wilson disease; Gene therapy PREVENTS symptoms IN Wilson disease
 prompt: |+
-  From the text below, extract the following entities in the following format:
+  Split the following piece of text into fields in the following format:
 
   subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
   object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
@@ -38,7 +38,7 @@ prompt: |+
 
 
   Text:
-  Cell or gene therapy PREVENTS hepatic and neurologic symptoms IN Wilson disease
+  Gene therapy PREVENTS symptoms IN Wilson disease
 
   ===
 
@@ -48,40 +48,75 @@ extracted_object:
     - Optimization of treatment regimens
     - Use of chelator tetrathiomolybdate (TTM)
     - Treatment with nonchelating drugs
-    - Cell or gene therapy
+    - MAXO:0000016
+    - MAXO:0001001
   symptoms:
-    - hepatic and neurologic symptoms
+    - Hepatic symptoms
+    - Neurologic symptoms
   chemicals:
     - CHEBI:30703
   action_annotation_relationships:
     - subject: Optimization of treatment regimens
-      predicate: PREVENTS
-      object: hepatic and neurologic symptoms
+      predicate: TREATS
+      object: hepatic symptoms
       qualifier: MONDO:0010200
+    - subject: <Optimization of treatment regimens>
+      predicate: <PREVENTS>
+      object: <neurologic symptoms>
+      qualifier: <Wilson disease>
+      subject_qualifier: <Not applicable>
+      object_qualifier: <Not applicable>
+      subject_extension: <Not applicable>
+      object_extension: <Not applicable>
     - subject: Use of chelator
       predicate: TREATS
-      object: hepatic and neurologic symptoms
+      object: neurologic symptoms
+      qualifier: MONDO:0010200
+      subject_extension: CHEBI:30703
+    - subject: Use of chelator
+      predicate: TREATS
+      object: hepatic symptoms
       qualifier: MONDO:0010200
       subject_extension: CHEBI:30703
     - subject: Treatment
       predicate: PREVENTS
-      object: hepatic and neurologic symptoms
+      object: symptoms
       qualifier: MONDO:0010200
       subject_extension: nonchelating drugs
-    - subject: Cell or gene therapy
+    - subject: MAXO:0000016
       predicate: PREVENTS
-      object: hepatic and neurologic symptoms
+      object: symptoms
+      qualifier: MONDO:0010200
+    - subject: MAXO:0001001
+      predicate: PREVENTS
+      object: symptoms
       qualifier: MONDO:0010200
 named_entities:
   - id: MONDO:0010200
     label: Wilson's disease
   - id: MAXO:0001175
-    label: liver transplantation
+    label: Liver transplantation
   - id: HP:0001695
-    label: cardiac arrest
+    label: Cardiac arrest
   - id: HP:0001685
-    label: myocardial fibrosis
+    label: Myocardial fibrosis
   - id: HP:0001663
-    label: ventricular fibrillation
+    label: Ventricular fibrillation
+  - id: CHEBI:28694
+    label: Copper
+  - id: CHEBI:18248
+    label: Iron
+  - id: HP:0002910
+    label: abnormal liver functions
+  - id: HP:0001394
+    label: cirrhosis
+  - id: CHEBI:27363
+    label: zinc
+  - id: CHEBI:50868
+    label: penicillamine
+  - id: MAXO:0000016
+    label: Cell therapy
+  - id: MAXO:0001001
+    label: Gene therapy
   - id: CHEBI:30703
-    label: tetrathiomolybdate (TTM)
+    label: Tetrathiomolybdate (TTM)

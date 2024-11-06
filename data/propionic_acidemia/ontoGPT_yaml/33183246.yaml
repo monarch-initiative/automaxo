@@ -23,12 +23,16 @@ input_text: 'Propionic acidemia identified in twin siblings conceived by in vitr
   clarify whether they are silent carriers before undergoing IVF.'
 raw_completion_output: |-
   primary_disease: Propionic acidemia
+
   medical_actions: Preconception carrier screening; Tandem mass spectrometry; Urine gas chromatography/mass spectrometry (GC/MS); Whole-exome sequencing; Sanger sequencing; Preimplantation genetic diagnosis; Prenatal diagnosis
+
   symptoms: Elevated propionyl carnitine (C3); C3/C2; 3-hydroxypropionate
+
   chemicals: 
-  action_annotation_relationships: Preconception carrier screening PREVENTS Propionic acidemia IN unidentified potential parents; Tandem mass spectrometry DETECTS Elevated propionyl carnitine (C3) IN Propionic acidemia; Urine gas chromatography/mass spectrometry (GC/MS) DETECTS C3/C2 IN Propionic acidemia; Whole-exome sequencing IDENTIFIES mutation IN Propionic acidemia; Sanger sequencing CONFIRMS mutation IN Propionic acidemia; Preimplantation genetic diagnosis PREVENTS Propionic acidemia IN unborn children; Prenatal diagnosis PREVENTS Propionic acidemia IN unborn children
+
+  action_annotation_relationships: Preconception carrier screening PREVENTS Propionic acidemia; Tandem mass spectrometry TREATS Elevated propionyl carnitine (C3) IN Propionic acidemia; Urine gas chromatography/mass spectrometry (GC/MS) TREATS Elevated propionyl carnitine (C3) IN Propionic acidemia; Whole-exome sequencing TREATS Elevated propionyl carnitine (C3) IN Propionic acidemia; Sanger sequencing TREATS Elevated propionyl carnitine (C3) IN Propionic acidemia; Preimplantation genetic diagnosis PREVENTS Propionic acidemia; Prenatal diagnosis PREVENTS Propionic acidemia
 prompt: |+
-  From the text below, extract the following entities in the following format:
+  Split the following piece of text into fields in the following format:
 
   subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
   object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
@@ -41,7 +45,7 @@ prompt: |+
 
 
   Text:
-  Prenatal diagnosis PREVENTS Propionic acidemia IN unborn children
+  Prenatal diagnosis PREVENTS Propionic acidemia
 
   ===
 
@@ -63,74 +67,72 @@ extracted_object:
     - subject: Preconception carrier screening
       predicate: PREVENTS
       object: HP:0003571
-      qualifier: unidentified potential parents
-    - subject: Tandem mass spectrometry
-      predicate: DETECTS
-      object: Elevated propionyl carnitine (C3)
-      qualifier: MONDO:0011628
-      subject_extension: Tandem mass spectrometry
-      object_extension: Elevated propionyl carnitine (C3)
-    - subject: <Urine gas chromatography/mass spectrometry (GC/MS)>
-      predicate: <DETECTS>
-      object: <C3/C2>
+    - subject: <Tandem mass spectrometry>
+      predicate: <TREATS>
+      object: <Elevated propionyl carnitine (C3)>
       qualifier: <Propionic acidemia>
       subject_qualifier: <>
       object_qualifier: <>
-      subject_extension: <Urine gas chromatography/mass spectrometry (GC/MS)>
-      object_extension: <C3/C2>
-    - subject: <Whole-exome sequencing>
-      predicate: <IDENTIFIES>
-      object: <mutation>
-      qualifier: <Propionic acidemia>
-      subject_extension: <Propionic acidemia>
-    - subject: Sanger sequencing
-      predicate: CONFIRMS
-      object: mutation
+      subject_extension: <Tandem mass spectrometry>
+      object_extension: <Elevated propionyl carnitine (C3)>
+    - subject: Urine gas chromatography/mass spectrometry (GC/MS)
+      predicate: TREATS
+      object: Elevated propionyl carnitine (C3)
       qualifier: MONDO:0011628
-    - subject: Preimplantation genetic diagnosis
-      predicate: PREVENTS
-      object: HP:0003571
-      qualifier: unborn children
-      subject_qualifier: <none>
-      object_qualifier: <none>
-      subject_extension: <none>
-      object_extension: <none>
+    - subject: <Whole-exome sequencing>
+      predicate: <TREATS>
+      object: <Elevated propionyl carnitine (C3)>
+      qualifier: <Propionic acidemia>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <Whole-exome sequencing>
+      object_extension: <Elevated propionyl carnitine (C3)>
+    - subject: Sanger sequencing
+      predicate: TREATS
+      object: Elevated propionyl carnitine (C3)
+      qualifier: MONDO:0011628
+      subject_extension: Sanger sequencing
+    - subject: <Preimplantation genetic diagnosis>
+      predicate: <PREVENTS>
+      object: <Propionic acidemia>
+      subject_extension: <Preimplantation genetic diagnosis>
     - subject: Prenatal diagnosis
       predicate: PREVENTS
       object: HP:0003571
-      qualifier: unborn children
 named_entities:
   - id: MONDO:0010184
-    label: methylmalonic acidemia (MMA); propionic acidemia; cobalamin C (cblC) deficiency
+    label: Methylmalonic acidemia (MMA); Propionic acidemia; Cobalamin C (cblC) deficiency
   - id: CHEBI:15603
-    label: leucine (Leu)
+    label: Leucine (Leu)
   - id: CHEBI:16414
-    label: valine (Val)
+    label: Valine (Val)
   - id: CHEBI:17191
-    label: isoleucine (Ile)
+    label: Isoleucine (Ile)
   - id: CHEBI:16044
-    label: methionine (Met)
-  - id: MONDO:0002012
-    label: methylmalonic acidemia (MMA)
-  - id: MONDO:0011628
-    label: propionic acidemia
+    label: Methionine (Met)
   - id: CHEBI:25017
     label: leucine
+  - id: MONDO:0002012
+    label: Methylmalonic acidemia
+  - id: HP:0003571
+    label: Propionic acidemia
+  - id: MONDO:0011628
+    label: Propionic acidemia
   - id: MAXO:0001175
-    label: liver transplantation
+    label: Liver transplantation
   - id: HP:0001638
-    label: cardiomyopathy
-  - id: HP:0100543
-    label: Cognitive impairment
+    label: Cardiomyopathy
   - id: CHEBI:176843
     label: Vitamin B12
   - id: MONDO:0019052
     label: Inborn errors of metabolism (IEMs)
   - id: MAXO:0010039
-    label: organ transplantation
+    label: Organ transplantation
+  - id: MAXO:0001298
+    label: therapy
   - id: HP:0001942
-    label: metabolic acidosis
+    label: Metabolic acidosis
   - id: HP:0001987
-    label: hyperammonemia
-  - id: HP:0003571
-    label: Propionic acidemia
+    label: Hyperammonemia
+  - id: HP:0001733
+    label: Pancreatitis

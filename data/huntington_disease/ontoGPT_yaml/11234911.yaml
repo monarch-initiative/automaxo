@@ -21,13 +21,13 @@ input_text: 'Short-term effects of olanzapine in Huntington disease. OBJECTIVE: 
 raw_completion_output: |-
   primary_disease: Huntington disease
 
-  medical_actions: open-pilot study of olanzapine;clinical assessment with the Unified Huntington Disease Rating Scale;Total Functional Capacity score evaluation;statistical analysis of olanzapine effects
+  medical_actions: administration of olanzapine; clinical assessment using the Unified Huntington Disease Rating Scale; evaluation with the Total Functional Capacity score; statistical analysis
 
-  symptoms: depression;anxiety;irritability;obsessions;choreic movements
+  symptoms: depression; anxiety; irritability; obsessions; choreic movements
 
   chemicals: olanzapine
 
-  action_annotation_relationships: open-pilot study of olanzapine (with olanzapine) TREATS depression IN Huntington disease;open-pilot study of olanzapine (with olanzapine) TREATS anxiety IN Huntington disease;open-pilot study of olanzapine (with olanzapine) TREATS irritability IN Huntington disease;open-pilot study of olanzapine (with olanzapine) TREATS obsessions IN Huntington disease;open-pilot study of olanzapine (with olanzapine) IMPROVES choreic movements IN Huntington disease
+  action_annotation_relationships: administration of olanzapine (with olanzapine) TREATS depression IN Huntington disease; administration of olanzapine (with olanzapine) TREATS anxiety IN Huntington disease; administration of olanzapine (with olanzapine) TREATS irritability IN Huntington disease; administration of olanzapine (with olanzapine) TREATS obsessions IN Huntington disease; administration of olanzapine (with olanzapine) PREVENTS severe psychiatric symptoms IN Huntington disease
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -42,17 +42,17 @@ prompt: |+
 
 
   Text:
-  open-pilot study of olanzapine (with olanzapine) IMPROVES choreic movements IN Huntington disease
+  administration of olanzapine (with olanzapine) PREVENTS severe psychiatric symptoms IN Huntington disease
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0007739
   medical_actions:
-    - open-pilot study of olanzapine
-    - clinical assessment with the Unified Huntington Disease Rating Scale
-    - Total Functional Capacity score evaluation
-    - statistical analysis of olanzapine effects
+    - administration of olanzapine
+    - clinical assessment using the Unified Huntington Disease Rating Scale
+    - evaluation with the Total Functional Capacity score
+    - statistical analysis
   symptoms:
     - HP:0000716
     - HP:0000739
@@ -62,48 +62,58 @@ extracted_object:
   chemicals:
     - CHEBI:7735
   action_annotation_relationships:
-    - subject: open-pilot study
+    - subject: administration of olanzapine
       predicate: TREATS
       object: HP:0000716
       qualifier: MONDO:0007739
       subject_qualifier: with olanzapine
       subject_extension: CHEBI:7735
-    - subject: open-pilot study of olanzapine
+    - subject: administration of olanzapine
       predicate: TREATS
       object: HP:0000739
       qualifier: MONDO:0007739
       subject_qualifier: with olanzapine
       subject_extension: CHEBI:7735
-    - subject: open-pilot study
+    - subject: administration of olanzapine
       predicate: TREATS
       object: HP:0000737
       qualifier: MONDO:0007739
       subject_qualifier: with olanzapine
       subject_extension: CHEBI:7735
-    - subject: open-pilot study
+    - subject: administration of olanzapine
       predicate: TREATS
       object: obsessions
       qualifier: MONDO:0007739
       subject_qualifier: with olanzapine
       subject_extension: CHEBI:7735
-    - subject: open-pilot study
-      predicate: IMPROVES
-      object: HP:0002072
+    - subject: administration of olanzapine
+      predicate: PREVENTS
+      object: severe psychiatric symptoms
       qualifier: MONDO:0007739
       subject_qualifier: with olanzapine
       subject_extension: CHEBI:7735
 named_entities:
   - id: MONDO:0007739
     label: Huntington disease
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0002180
+    label: neurodegeneration
+  - id: HP:0001268
+    label: cognitive decline
+  - id: HP:0100022
+    label: movement disorders
+  - id: HP:0002072
+    label: choreic movements
   - id: MAXO:0009003
     label: preimplantation genetic testing
+  - id: MAXO:0001592
+    label: RNA interference therapy
   - id: HP:0000716
     label: depression
   - id: HP:0000739
     label: anxiety
   - id: HP:0000737
     label: irritability
-  - id: HP:0002072
-    label: choreic movements
   - id: CHEBI:7735
     label: olanzapine

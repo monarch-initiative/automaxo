@@ -10,9 +10,9 @@ input_text: 'Camurati-Engelmann disease: failure of response to bisphosphonates:
 raw_completion_output: |-
   primary_disease: Camurati-Engelmann disease
   medical_actions: treatment with bisphosphonates; treatment with corticosteroids
-  symptoms: painful symptoms
+  symptoms: cortical thickening of the diaphysis of tubular bones; sparing of the epiphysis; painful symptoms
   chemicals: bisphosphonates; corticosteroids
-  action_annotation_relationships: treatment with bisphosphonates TREATS painful symptoms IN Camurati-Engelmann disease; treatment with corticosteroids TREATS painful symptoms IN Camurati-Engelmann disease
+  action_annotation_relationships: treatment with bisphosphonates TREATS cortical thickening of the diaphysis of tubular bones IN Camurati-Engelmann disease; treatment with bisphosphonates TREATS sparing of the epiphysis IN Camurati-Engelmann disease; treatment with corticosteroids TREATS painful symptoms IN Camurati-Engelmann disease
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -37,26 +37,35 @@ extracted_object:
     - treatment with bisphosphonates
     - treatment with corticosteroids
   symptoms:
+    - cortical thickening of the diaphysis of tubular bones
+    - sparing of the epiphysis
     - painful symptoms
   chemicals:
     - CHEBI:77383
     - CHEBI:50858
   action_annotation_relationships:
-    - subject: treatment with bisphosphonates
+    - subject: treatment
       predicate: TREATS
-      object: painful symptoms
+      object: cortical thickening of the diaphysis of tubular bones
+      qualifier: MONDO:0007542
+      subject_qualifier: with
+      subject_extension: CHEBI:77383
+    - subject: treatment
+      predicate: TREATS
+      object: sparing of the epiphysis
       qualifier: MONDO:0007542
       subject_extension: CHEBI:77383
     - subject: treatment
       predicate: TREATS
       object: painful symptoms
       qualifier: MONDO:0007542
+      subject_qualifier: with
       subject_extension: CHEBI:50858
 named_entities:
-  - id: MONDO:0007542
-    label: Camurati-Engelmann disease
+  - id: MONDO:0009032
+    label: Camurati-Engelmann disease (CED)
   - id: HP:0000939
-    label: Osteoporosis
+    label: osteoporosis
   - id: HP:0100512
     label: vitamin D deficiency
   - id: HP:0000823
@@ -75,34 +84,32 @@ named_entities:
     label: vitamin D
   - id: MAXO:0000127
     label: Genetic analysis
-  - id: HP:0000365
-    label: hearing loss
+  - id: MONDO:0007542
+    label: Camurati-Engelmann disease
   - id: HP:0010628
     label: facial nerve palsy
+  - id: HP:0000365
+    label: hearing loss
+  - id: HP:0000407
+    label: sensorineural hearing loss
   - id: HP:0030038
     label: enchondroma
-  - id: MONDO:0009032
-    label: Camurati-Engelmann disease (CED)
   - id: HP:0002516
     label: Increased intracranial pressure
-  - id: MAXO:0001291
-    label: cranioplasties
   - id: CHEBI:7903
     label: Pamidronate
   - id: HP:0100252
-    label: Progressive diaphyseal dysplasia
+    label: Camurati-Engelmann disease
   - id: CHEBI:27690
-    label: acetazolamide
+    label: Acetazolamide
   - id: HP:0002653
-    label: Bone pain
+    label: bone pain
   - id: CHEBI:50858
-    label: corticosteroid
+    label: corticosteroids
   - id: MAXO:0001298
     label: therapy
-  - id: HP:0020110
-    label: Fractures
-  - id: CHEBI:2567
-    label: Alendronate
+  - id: HP:0012531
+    label: Pain
   - id: CHEBI:6541
     label: losartan
   - id: CHEBI:77383

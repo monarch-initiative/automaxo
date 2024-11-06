@@ -20,13 +20,13 @@ input_text: '[Treatment perspectives]. Celiac disease (CD) is a chronic inflamma
 raw_completion_output: |-
   primary_disease: Celiac disease (CD)
 
-  medical_actions: strict gluten-free diet; reducing or eliminating major antigenic motifs in gluten; use of less immunogenic wheat; complete digestion of immunogenic parts of gluten; use of polymers; exogenous administration of propyl-endopeptidases; use of inhibitors of tissue transglutaminase; inhibition of the liaison site of immunostimulatory peptides with HLA molecules; inhibition of IL15
+  medical_actions: Gluten-free diet; Reducing or eliminating major antigenic motifs in gluten; Use of less immunogenic wheat; Complete digestion of immunogenic parts of gluten; Use of polymers to sequester gluten proteins; Exogenous administration of propyl-endopeptidases; Use of inhibitors of tissue transglutaminase; Inhibition of the liaison site of immunostimulatory peptides with HLA molecules; Inhibition of IL15; Prevention through consideration of infectious agents
 
-  symptoms: chronic inflammatory enteropathy
+  symptoms: Chronic inflammatory enteropathy
 
-  chemicals: propyl-endopeptidases
+  chemicals: Polymers; Propyl-endopeptidases; Inhibitors of tissue transglutaminase
 
-  action_annotation_relationships: strict gluten-free diet TREATS chronic inflammatory enteropathy IN Celiac disease (CD); reducing or eliminating major antigenic motifs in gluten TREATS chronic inflammatory enteropathy IN Celiac disease (CD); use of less immunogenic wheat TREATS chronic inflammatory enteropathy IN Celiac disease (CD); complete digestion of immunogenic parts of gluten (with propyl-endopeptidases) TREATS chronic inflammatory enteropathy IN Celiac disease (CD); use of polymers TREATS chronic inflammatory enteropathy IN Celiac disease (CD); exogenous administration of prop-res-endopeptidases TREATS chronic inflammatory enteropathy IN Celiac disease (CD); use of inhibitors of tissue transglutaminase TREATS chronic inflammatory enteropathy IN Celiac disease (CD); inhibition of the liaison site of immunostimulatory peptides with HLA molecules TREATS chronic inflammatory enteropathy IN Celiac disease (CD); inhibition of IL15 TREATS chronic inflammatory enteropathy IN Celiac disease (CD)
+  action_annotation_relationships: Gluten-free diet TREATS chronic inflammatory enteropathy IN Celiac disease (CD); Reducing or eliminating major antigenic motifs in gluten TREATS chronic inflammatory enteropathy IN Celiac disease (CD); Use of less immunogenic wheat TREATS chronic inflammatory enteropathy IN Celiac disease (CD); Complete digestion of immunogenic parts of gluten (with polymers) TREATS chronic inflammatory enteropathy IN Celiac disease (CD); Complete digestion of immunogenic parts of gluten (with Propyl-endopeptidases) TREATS chronic inflammatory enteropathy IN Celiac disease (CD); Use of inhibitors of tissue transglutaminase TREATS chronic inflammatory enteropathy IN Celiac disease (CD); Inhibition of the liaison site of immunostimulatory peptides with HLA molecules TREATS chronic inflammatory enteropathy IN Celiac disease (CD); Inhibition of IL15 TREATS chronic inflammatory enteropathy IN Celiac disease (CD); Prevention (through consideration of infectious agents like Rotavirus) PREVENTS chronic inflammatory enteropathy IN Celiac disease (CD)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -41,104 +41,152 @@ prompt: |+
 
 
   Text:
-  inhibition of IL15 TREATS chronic inflammatory enteropathy IN Celiac disease (CD)
+  Prevention (through consideration of infectious agents like Rotavirus) PREVENTS chronic inflammatory enteropathy IN Celiac disease (CD)
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0016063
   medical_actions:
-    - strict gluten-free diet
-    - reducing or eliminating major antigenic motifs in gluten
-    - use of less immunogenic wheat
-    - complete digestion of immunogenic parts of gluten
-    - use of polymers
-    - exogenous administration of propyl-endopeptidases
-    - use of inhibitors of tissue transglutaminase
-    - inhibition of the liaison site of immunostimulatory peptides with HLA molecules
-    - inhibition of IL15
+    - Gluten-free diet
+    - Reducing or eliminating major antigenic motifs in gluten
+    - Use of less immunogenic wheat
+    - Complete digestion of immunogenic parts of gluten
+    - Use of polymers to sequester gluten proteins
+    - Exogenous administration of propyl-endopeptidases
+    - Use of inhibitors of tissue transglutaminase
+    - Inhibition of the liaison site of immunostimulatory peptides with HLA molecules
+    - Inhibition of IL15
+    - Prevention through consideration of infectious agents
   symptoms:
-    - chronic inflammatory enteropathy
+    - Chronic inflammatory enteropathy
   chemicals:
-    - propyl-endopeptidases
+    - CHEBI:60027
+    - Propyl-endopeptidases
+    - Inhibitors of tissue transglutaminase
   action_annotation_relationships:
-    - subject: strict gluten-free diet
+    - subject: Gluten-free diet
       predicate: TREATS
       object: chronic inflammatory enteropathy
       qualifier: MONDO:0016063
-      subject_qualifier: strict
       subject_extension: gluten-free diet
-    - subject: reducing or eliminating major antigenic motifs in gluten
+    - subject: Reducing or eliminating major antigenic motifs
       predicate: TREATS
       object: chronic inflammatory enteropathy
-      qualifier: MONDO:0016063
+      qualifier: MONDO:0005130
       subject_extension: gluten
-    - subject: use of less immunogenic wheat
+    - subject: Use of less immunogenic wheat
       predicate: TREATS
       object: chronic inflammatory enteropathy
       qualifier: MONDO:0005130
       subject_qualifier: less immunogenic
       subject_extension: wheat
-    - subject: complete digestion of immunogenic parts of gluten
+    - subject: Complete digestion
       predicate: TREATS
       object: chronic inflammatory enteropathy
       qualifier: MONDO:0016063
-      subject_qualifier: with propyl-endopeptidases
-      subject_extension: propyl-endopeptidases
-    - subject: use of polymers
-      predicate: TREATS
-      object: chronic inflammatory enteropathy
-      qualifier: MONDO:0016063
-      subject_extension: CHEBI:60027
-    - subject: exogenous administration
-      predicate: TREATS
-      object: chronic inflammatory enteropathy
-      qualifier: MONDO:0016063
-      subject_extension: prop-res-endopeptidases
-    - subject: use of inhibitors of tissue transglutaminase
-      predicate: TREATS
-      object: chronic inflammatory enteropathy
-      qualifier: MONDO:0016063
-      subject_extension: inhibitors of tissue transglutaminase
-    - subject: inhibition of the liaison site of immunostimulatory peptides with HLA
-        molecules
-      predicate: TREATS
-      object: chronic inflammatory enteropathy
-      qualifier: MONDO:0016063
-      subject_extension: immunostimulatory peptides
-    - subject: inhibition of IL15
+      subject_extension: gluten (with polymers)
+    - subject: Complete digestion of immunogenic parts of gluten
       predicate: TREATS
       object: chronic inflammatory enteropathy
       qualifier: MONDO:0005130
-      subject_extension: IL15
+      subject_qualifier: with Propyl-endopeptidases
+      subject_extension: Propyl-endopeptidases
+    - subject: Use of inhibitors of tissue transglutaminase
+      predicate: TREATS
+      object: chronic inflammatory enteropathy
+      qualifier: MONDO:0005130
+      subject_extension: inhibitors of tissue transglutaminase
+    - subject: Inhibition of the liaison site of immunostimulatory peptides with HLA
+        molecules
+      predicate: TREATS
+      object: chronic inflammatory enteropathy
+      qualifier: MONDO:0005130
+      subject_extension: immunostimulatory peptides
+    - subject: Inhibition of IL15
+      predicate: TREATS
+      object: chronic inflammatory enteropathy
+      qualifier: MONDO:0016063
+    - subject: Prevention
+      predicate: PREVENTS
+      object: chronic inflammatory enteropathy
+      qualifier: MONDO:0016063
+      subject_qualifier: through consideration of infectious agents like
+      subject_extension: Rotavirus
 named_entities:
+  - id: MONDO:0044092
+    label: Collagenous sprue
+  - id: HP:0002014
+    label: diarrhea
+  - id: CHEBI:50858
+    label: corticosteroids
+  - id: HP:0004395
+    label: malnutrition
   - id: MONDO:0005130
     label: Celiac disease
-  - id: CHEBI:81580
-    label: Prolactin
   - id: HP:0000870
     label: Hyperprolactinemia
+  - id: CHEBI:81580
+    label: Prolactin (PRL)
   - id: HP:0000938
     label: Bone loss
   - id: CHEBI:22984
     label: Calcium
   - id: CHEBI:27300
     label: Vitamin D
+  - id: HP:0001369
+    label: Arthritis
+  - id: HP:0002608
+    label: Celiac Disease
   - id: MONDO:0019473
     label: Enteropathy-associated T-cell lymphoma (EATL)
+  - id: HP:0002242
+    label: enteropathy
+  - id: HP:0012378
+    label: fatigue
+  - id: HP:0002039
+    label: anorexia
+  - id: HP:0000823
+    label: delayed puberty
+  - id: HP:0004322
+    label: short stature
+  - id: HP:0000789
+    label: infertility
+  - id: MONDO:0016063
+    label: Celiac Disease (CD)
+  - id: MAXO:0000058
+    label: pharmacological treatment
   - id: HP:0002027
     label: abdominal pain
   - id: HP:0003270
     label: bloating
-  - id: HP:0002014
-    label: diarrhea
   - id: HP:0001903
     label: anemia
+  - id: MAXO:0000088
+    label: diet
   - id: MONDO:0005298
     label: Osteoporosis
-  - id: MONDO:0016063
-    label: Celiac Disease (CD)
-  - id: HP:0012538
-    label: Gluten sensitivity
+  - id: MAXO:0000259
+    label: insulin treatment
+  - id: HP:0033712
+    label: recurrent implantation failure (RIF)
+  - id: CHEBI:145810
+    label: insulin
+  - id: CHEBI:6801
+    label: metformin
+  - id: HP:0012531
+    label: Pain
+  - id: HP:0000716
+    label: Depression
+  - id: HP:0011107
+    label: Aphthous stomatitis
+  - id: MONDO:0013626
+    label: Acrodermatitis continua of Hallopeau
+  - id: HP:0002024
+    label: Malabsorption
+  - id: HP:0012050
+    label: Anasarca
+  - id: HP:0003111
+    label: Electrolyte disorders
   - id: CHEBI:60027
-    label: polymers
+    label: Polymers

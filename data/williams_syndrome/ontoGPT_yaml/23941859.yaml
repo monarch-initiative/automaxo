@@ -1,0 +1,201 @@
+---
+input_text: 'Outcomes after primary transcatheter therapy in infants and young children
+  with severe bilateral peripheral pulmonary artery stenosis. BACKGROUND: Angioplasty
+  and stent implantation have become accepted therapies for isolated peripheral pulmonary
+  stenosis, and have been shown to increase vessel diameter and reduce right ventricular
+  (RV) pressure acutely in patients with pulmonary artery (PA) stenosis. The purpose
+  of this study was to assess long-term outcomes after primary transcatheter therapy
+  for peripheral pulmonary stenosis. METHODS AND RESULTS: We studied 69 patients who
+  underwent primary transcatheter intervention for severe isolated peripheral pulmonary
+  stenosis at <= 5 years of age. Genetic/syndromic diagnoses included Williams syndrome
+  (n=23), non-Williams familial arteriopathy (n=12), and Alagille syndrome (n=3).
+  At the initial PA intervention, median RV:aortic pressure ratio decreased from 1.00
+  to 0.88 (median decrease, 0.18; P<0.001). Patients with a higher preintervention
+  RV:aortic pressure ratio had a greater reduction (P<0.001). During follow-up (median,
+  8.5 years), 10 patients died, 5 from complications of PA catheterization (all before
+  1998). Thirteen patients underwent surgical PA intervention, most within 1 year
+  and along with repair of supravalvar aortic stenosis. Freedom from any PA reintervention
+  was 38 +- 6% at 1 year and 22 +- 6% at 5 years. The median RV:aortic pressure ratio
+  decreased from 1.0 at baseline to 0.53 at the most recent catheterization (P<0.001),
+  and 82% of patients with available clinical follow-up were asymptomatic. CONCLUSIONS:
+  Transcatheter therapy for infants with severe peripheral pulmonary stenosis has
+  become safer, regardless of genetic condition. Coupled with reintervention and surgical
+  relief in selected cases, RV:aortic pressure ratios decrease substantially and most
+  patients are asymptomatic at late follow-up.'
+raw_completion_output: |-
+  primary_disease: Peripheral pulmonary stenosis
+  medical_actions: Angioplasty; Stent implantation; Transcatheter intervention; Surgical PA intervention
+  symptoms: High RV:aortic pressure ratio
+  chemicals: 
+  action_annotation_relationships: Angioplasty TREATS high RV:aortic pressure ratio IN Peripheral pulmonary stenosis; Stent implantation TREATS high RV:aortic pressure ratio IN Peripheral pulmonary stenosis; Transcatheter intervention TREATS high RV:aortic pressure ratio IN Peripheral pulmonary stenosis; Surgical PA intervention TREATS complications IN Peripheral pulmonary stenosis
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Surgical PA intervention TREATS complications IN Peripheral pulmonary stenosis
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0020420
+  medical_actions:
+    - Angioplasty
+    - Stent implantation
+    - Transcatheter intervention
+    - Surgical PA intervention
+  symptoms:
+    - High RV:aortic pressure ratio
+  action_annotation_relationships:
+    - subject: Angioplasty
+      predicate: TREATS
+      object: high RV:aortic pressure ratio
+      qualifier: MONDO:0020420
+    - subject: Stent implantation
+      predicate: TREATS
+      object: high RV:aortic pressure ratio
+      qualifier: MONDO:0020420
+    - subject: Transcatheter intervention
+      predicate: TREATS
+      object: high RV:aortic pressure ratio
+      qualifier: MONDO:0020420
+    - subject: MAXO:0000004
+      predicate: TREATS
+      object: complications
+      qualifier: MONDO:0020420
+      subject_qualifier: Surgical
+      subject_extension: PA intervention
+named_entities:
+  - id: MONDO:0008678
+    label: Williams syndrome
+  - id: MAXO:0009072
+    label: surgical repair
+  - id: HP:0004969
+    label: peripheral pulmonary stenosis
+  - id: HP:0002617
+    label: aneurysms
+  - id: HP:0001626
+    label: Cardiovascular abnormalities
+  - id: MONDO:0004492
+    label: Mediastinitis
+  - id: MAXO:0000004
+    label: Surgical interventions
+  - id: MONDO:0008504
+    label: Supravalvar aortic stenosis
+  - id: HP:0001712
+    label: Left ventricular hypertrophy
+  - id: HP:0001659
+    label: Aortic regurgitation
+  - id: HP:0004970
+    label: Ascending aortic aneurysm
+  - id: HP:0004381
+    label: Supravalvar aortic stenosis
+  - id: MONDO:0015197
+    label: Supravalvular aortic stenosis (SVAS)
+  - id: HP:0011645
+    label: <Supravalvular aortic stenosis (SVAS)>
+  - id: MONDO:0004277
+    label: branch pulmonary artery stenosis (PAS)
+  - id: MAXO:0000505
+    label: mask ventilation
+  - id: HP:0000347
+    label: micrognathia
+  - id: HP:0000158
+    label: macroglossia
+  - id: CHEBI:49575
+    label: diazepam
+  - id: CHEBI:119915
+    label: fentanyl
+  - id: CHEBI:6456
+    label: lidocaine
+  - id: CHEBI:38867
+    label: anesthetic agents
+  - id: HP:0002318
+    label: cervical myelopathy
+  - id: HP:0001695
+    label: cardiac arrest
+  - id: MONDO:0006947
+    label: Renovascular hypertension (RVH)
+  - id: MAXO:0009008
+    label: Doppler ultrasonography
+  - id: HP:0000822
+    label: Hypertension
+  - id: HP:0001635
+    label: Heart failure
+  - id: CHEBI:35674
+    label: Antihypertensive drugs
+  - id: CHEBI:3380
+    label: Captopril
+  - id: HP:0100817
+    label: Renovascular hypertension
+  - id: HP:0002020
+    label: gastroesophageal reflux
+  - id: MAXO:0000571
+    label: Computed tomography (CT) imaging for preoperative evaluation
+  - id: HP:0001650
+    label: Aortic stenosis
+  - id: HP:0004415
+    label: pulmonary artery stenosis
+  - id: HP:0002616
+    label: aortic root dilatation
+  - id: HP:0004749
+    label: atrial flutter
+  - id: HP:0010780
+    label: Hyperacusis
+  - id: HP:0008513
+    label: Bilateral conductive hearing loss
+  - id: HP:0040262
+    label: Secretory otitis media
+  - id: HP:0002650
+    label: scoliosis
+  - id: HP:0001263
+    label: developmental delay
+  - id: HP:0001249
+    label: Mental retardation
+  - id: HP:0011675
+    label: Arrhythmias
+  - id: HP:0001699
+    label: Sudden death
+  - id: MAXO:0010203
+    label: echocardiography
+  - id: MAXO:0035118
+    label: cardiac catheterization
+  - id: HP:0005216
+    label: chewing difficulties
+  - id: MAXO:0000647
+    label: chemotherapy
+  - id: HP:0003774
+    label: end stage kidney disease
+  - id: CHEBI:37845
+    label: growth hormone
+  - id: CHEBI:8382
+    label: prednisone
+  - id: CHEBI:2948
+    label: azathioprine
+  - id: CHEBI:4031
+    label: cyclosporine
+  - id: HP:0012304
+    label: aortic arch hypoplasia
+  - id: MONDO:0017014
+    label: children
+  - id: HP:0001962
+    label: Palpitation
+  - id: HP:0005165
+    label: Short PR interval
+  - id: HP:0100806
+    label: Sepsis
+  - id: HP:5200060
+    label: Auditory hypersensitivity
+  - id: HP:0002183
+    label: Phonophobia
+  - id: MONDO:0020420
+    label: Peripheral pulmonary stenosis

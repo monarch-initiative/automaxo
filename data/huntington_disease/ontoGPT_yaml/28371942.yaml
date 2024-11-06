@@ -26,15 +26,15 @@ input_text: "Physical Activity Self-Management and Coaching Compared to Social I
   introduced bias. CONCLUSIONS: An HD physical activity self-management and coaching
   intervention is feasible and worthy of further investigation."
 raw_completion_output: |-
-  primary_disease: Huntington disease
+  primary_disease: Huntington Disease
 
-  medical_actions: physical activity self-management and coaching intervention; social interaction intervention
+  medical_actions: physical activity self-management and coaching; social interaction
 
-  symptoms: impaired mobility; reduced self-efficacy; decreased physical activity
+  symptoms: mobility issues; decreased self-efficacy; reduced physical activity; motor impairments; cognitive decline
 
   chemicals: 
 
-  action_annotation_relationships: physical activity self-management and coaching intervention TREATS impaired mobility IN Huntington disease; physical activity self-management and coaching intervention TREATS reduced self-efficacy IN Huntington disease; physical activity self-management and coaching intervention TREATS decreased physical activity IN Huntington disease
+  action_annotation_relationships: physical activity self-management and coaching TREATS mobility issues IN Huntington Disease; physical activity self-management and coaching TREATS decreased self-efficacy IN Huntington Disease; physical activity self-management and coaching TREATS reduced physical activity IN Huntington Disease; physical activity self-management and coaching TREATS motor impairments IN Huntington Disease; physical activity self-management and coaching TREATS cognitive decline IN Huntington Disease
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -49,41 +49,48 @@ prompt: |+
 
 
   Text:
-  physical activity self-management and coaching intervention TREATS decreased physical activity IN Huntington disease
+  physical activity self-management and coaching TREATS cognitive decline IN Huntington Disease
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0007739
   medical_actions:
-    - physical activity self-management and coaching intervention
-    - social interaction intervention
+    - physical activity self-management and coaching
+    - social interaction
   symptoms:
-    - impaired mobility
-    - reduced self-efficacy
-    - decreased physical activity
+    - mobility issues
+    - decreased self-efficacy
+    - reduced physical activity
+    - motor impairments
+    - HP:0001268
   action_annotation_relationships:
-    - subject: physical activity self-management and coaching intervention
+    - subject: physical activity self-management and coaching
       predicate: TREATS
-      object: impaired mobility
+      object: mobility issues
       qualifier: MONDO:0007739
-    - subject: <physical activity self-management and coaching intervention>
-      predicate: <TREATS>
-      object: <reduced self-efficacy>
-      qualifier: <Huntington disease>
-      subject_extension: <coaching intervention>
-    - subject: physical activity self-management and coaching intervention
+    - subject: physical activity self-management and coaching
       predicate: TREATS
-      object: decreased physical activity
+      object: decreased self-efficacy
+      qualifier: MONDO:0007739
+    - subject: physical activity self-management and coaching
+      predicate: TREATS
+      object: reduced physical activity
+      qualifier: MONDO:0007739
+    - subject: physical activity self-management and coaching
+      predicate: TREATS
+      object: motor impairments
+      qualifier: MONDO:0007739
+    - subject: physical activity self-management and coaching
+      predicate: TREATS
+      object: HP:0001268
       qualifier: MONDO:0007739
 named_entities:
   - id: MONDO:0007739
-    label: Huntington disease (HD)
-  - id: HP:0001268
-    label: Cognitive decline
-  - id: CHEBI:76720
-    label: Antisense oligonucleotides
+    label: Huntington disease
+  - id: MAXO:0001298
+    label: therapy
   - id: HP:0002180
     label: neurodegeneration
-  - id: MAXO:0001001
-    label: gene therapies
+  - id: HP:0001268
+    label: cognitive decline

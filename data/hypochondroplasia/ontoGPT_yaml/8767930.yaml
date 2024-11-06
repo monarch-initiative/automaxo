@@ -16,10 +16,14 @@ input_text: '[Growth hormone therapy in childhood. Growth hormone therapy in sma
   effects might be higher than in the latter.'
 raw_completion_output: |-
   primary_disease: Growth hormone deficiency
-  medical_actions: Growth hormone therapy; Treatment with rhGH
-  symptoms: Reduced growth rate; Reduced final height
-  chemicals: recombinant human growth hormone (rhGH)
-  action_annotation_relationships: Growth hormone therapy TREATS reduced growth rate IN Growth hormone deficiency; Treatment with rhGH (with recombinant human growth hormone (rhGH)) TREATS reduced final height IN Growth hormone deficiency
+
+  medical_actions: Treatment with rhGH; Pharmacological doses of growth hormone
+
+  symptoms: Reduced final height; Decreased growth rate
+
+  chemicals: rhGH; Growth hormone
+
+  action_annotation_relationships: Treatment with rhGH TREATS reduced final height IN Ullrich Turner syndrome; Treatment with rhGH TREATS decreased growth rate IN renal insufficiency; Treatment with rhGH TREATS decreased growth rate IN intrauterine growth retardation; Treatment with rhGH TREATS decreased growth rate IN rheumatoid arthritis; Treatment with rhGH TREATS decreased growth rate IN hypochondroplasia; Pharmacological doses of growth hormone TREATS decreased growth rate IN growth hormone deficiency
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -34,45 +38,77 @@ prompt: |+
 
 
   Text:
-  Treatment with rhGH (with recombinant human growth hormone (rhGH)) TREATS reduced final height IN Growth hormone deficiency
+  Pharmacological doses of growth hormone TREATS decreased growth rate IN growth hormone deficiency
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0000050
   medical_actions:
-    - MAXO:0000780
     - Treatment with rhGH
+    - Pharmacological doses of growth hormone
   symptoms:
-    - Reduced growth rate
     - Reduced final height
+    - Decreased growth rate
   chemicals:
-    - recombinant human growth hormone (rhGH)
+    - rhGH
+    - CHEBI:37845
   action_annotation_relationships:
-    - subject: MAXO:0000780
-      predicate: TREATS
-      object: reduced growth rate
-      qualifier: MONDO:0000050
-      subject_extension: CHEBI:37845
-    - subject: Treatment with rhGH
+    - subject: Treatment
       predicate: TREATS
       object: reduced final height
-      qualifier: MONDO:0000050
-      subject_extension: recombinant human growth hormone (rhGH)
+      qualifier: Ullrich Turner syndrome
+      subject_extension: rhGH
+    - subject: Treatment
+      predicate: TREATS
+      object: decreased growth rate
+      qualifier: MONDO:0001106
+      subject_extension: rhGH
+    - subject: Treatment
+      predicate: TREATS
+      object: decreased growth rate
+      qualifier: MONDO:0005030
+      subject_extension: rhGH
+    - subject: Treatment
+      predicate: TREATS
+      object: decreased growth rate
+      qualifier: MONDO:0008383
+      subject_extension: rhGH
+    - subject: Treatment
+      predicate: TREATS
+      object: decreased growth rate
+      qualifier: MONDO:0007793
+      subject_extension: rhGH
+    - subject: <Pharmacological doses of growth hormone>
+      predicate: <TREATS>
+      object: <decreased growth rate>
+      qualifier: <growth hormone deficiency>
+      subject_qualifier: <Pharmacological doses>
+      object_qualifier: <NULL>
+      subject_extension: <growth hormone>
+      object_extension: <NULL>
 named_entities:
   - id: HP:0031846
     label: Femoral fracture
-  - id: MAXO:0000745
-    label: cytogenetic analysis
   - id: HP:0000256
     label: macrocephaly
   - id: MAXO:0000127
-    label: genetic testing
+    label: Genetic testing
+  - id: MONDO:0007793
+    label: Hypochondroplasia
   - id: HP:0003750
     label: Muscle fatigue
+  - id: MAXO:0000486
+    label: distraction osteogenesis
+  - id: MAXO:0000068
+    label: transplantation
   - id: MONDO:0000050
     label: Growth hormone deficiency
-  - id: MAXO:0000780
-    label: Growth hormone therapy
   - id: CHEBI:37845
     label: Growth hormone
+  - id: MONDO:0001106
+    label: renal insufficiency
+  - id: MONDO:0005030
+    label: intrauterine growth retardation
+  - id: MONDO:0008383
+    label: rheumatoid arthritis

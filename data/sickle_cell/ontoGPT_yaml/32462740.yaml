@@ -71,15 +71,15 @@ input_text: "Vitamin D supplementation for sickle cell disease. BACKGROUND: Sick
   to determine the effects and the safety of vitamin D supplementation as well as
   to assess the relative benefits of different doses in children and adults with SCD."
 raw_completion_output: |-
-  primary_disease: Sickle cell disease (SCD)
+  primary_disease: Sickle Cell Disease (SCD)
 
-  medical_actions: Vitamin D supplementation; Oral administration of vitamin D; Comparing oral vitamin D3 7000 IU/day to 4000 IU/day; Comparing oral vitamin D3 100,000 IU/month to 12,000 IU/month
+  medical_actions: Vitamin D supplementation; Oral administration of vitamin D3 (cholecalciferol); Monitoring serum 25(OH)D levels; Assessing risk of bias in studies; Comparing dose regimens of vitamin D; Investigating the effects of vitamin D on growth status, health-related quality of life, musculoskeletal health, respiratory health; Evaluating safety of vitamin D supplementation
 
-  symptoms: Vitamin D deficiency; Pain crises; Acute chest syndrome; Lower health-related quality of life score; Lower % predicted forced vital capacity
+  symptoms: Vitamin D deficiency; Pain crises; Acute chest syndrome; Lower health-related quality of life score
 
-  chemicals: Vitamin D; Cholecalciferol
+  chemicals: Vitamin D; Cholecalciferol; 25(OH)D
 
-  action_annotation_relationships: Vitamin D supplementation TREATS Vitamin D deficiency IN Sickle cell disease (SCD); Vitamin D supplementation (with Cholecalciferol) TREATS Pain crises IN Sickle cell disease (SCD); Vitamin D supplementation PREVENTS Acute chest syndrome IN Sickle cell disease (SCD); Vitamin D supplementation TREATS Lower health-related quality of life score IN Sickle cell disease (SCD); Vitamin D supplementation TREATS Lower % predicted forced vital capacity IN Sickle cell disease (SCD)
+  action_annotation_relationships: Vitamin D supplementation TREATS Vitamin D deficiency IN Sickle Cell Disease (SCD); Oral administration of vitamin D3 (cholecalciferol) TREATS Pain crises IN Sickle Cell Disease (SCD); Vitamin D supplementation TREATS Acute chest syndrome IN Sickle Cell Disease (SCD); Vitamin D supplementation LEADS TO lower health-related quality of life score IN Sickle Cell Disease (SCD)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -94,7 +94,7 @@ prompt: |+
 
 
   Text:
-  Vitamin D supplementation TREATS Lower % predicted forced vital capacity IN Sickle cell disease (SCD)
+  Vitamin D supplementation LEADS TO lower health-related quality of life score IN Sickle Cell Disease (SCD)
 
   ===
 
@@ -102,85 +102,128 @@ extracted_object:
   primary_disease: MONDO:0007374
   medical_actions:
     - MAXO:0000110
-    - Oral administration of vitamin D
-    - Comparing oral vitamin D3 7000 IU/day to 4000 IU/day
-    - Comparing oral vitamin D3 100,000 IU/month to 12,000 IU/month
+    - Oral administration of vitamin D3 (cholecalciferol)
+    - Monitoring serum 25(OH)D levels
+    - Assessing risk of bias in studies
+    - Comparing dose regimens of vitamin D
+    - Investigating the effects of vitamin D on growth status, health-related quality
+      of life, musculoskeletal health, respiratory health
+    - Evaluating safety of vitamin D supplementation
   symptoms:
     - HP:0100512
     - Pain crises
     - Acute chest syndrome
     - Lower health-related quality of life score
-    - Lower % predicted forced vital capacity
   chemicals:
     - CHEBI:27300
     - CHEBI:28940
+    - 25(OH)D
   action_annotation_relationships:
-    - subject: supplementation
+    - subject: MAXO:0000110
       predicate: TREATS
       object: HP:0100512
       qualifier: MONDO:0007374
       subject_extension: CHEBI:27300
-    - subject: MAXO:0000110
+    - subject: Oral administration of vitamin D3
       predicate: TREATS
       object: Pain crises
       qualifier: MONDO:0007374
       subject_extension: CHEBI:28940
-    - subject: MAXO:0000110
-      predicate: PREVENTS
+    - subject: supplementation
+      predicate: TREATS
       object: Acute chest syndrome
       qualifier: MONDO:0007374
       subject_extension: CHEBI:27300
-    - subject: MAXO:0000110
-      predicate: TREATS
-      object: Lower health-related quality of life score
-      qualifier: MONDO:0007374
-      subject_extension: CHEBI:27300
     - subject: supplementation
-      predicate: TREATS
-      object: Lower % predicted forced vital capacity
+      predicate: LEADS TO
+      object: lower health-related quality of life score
       qualifier: MONDO:0007374
       subject_extension: CHEBI:27300
 named_entities:
   - id: MONDO:0011382
-    label: Sickle Cell Disease
-  - id: MAXO:0000457
-    label: Pain Management
-  - id: HP:0012531
-    label: Pain
-  - id: HP:0000739
-    label: anxiety
-  - id: MONDO:0005812
-    label: Influenza
+    label: sickle cell disease
+  - id: CHEBI:64357
+    label: rituximab
+  - id: CHEBI:35341
+    label: steroids
+  - id: CHEBI:81579
+    label: erythropoietin
   - id: MAXO:0001017
-    label: vaccination
-  - id: MAXO:0000756
-    label: transfusion
-  - id: MONDO:0018881
-    label: Myelodysplasia
-  - id: MONDO:0000984
-    label: Thalassemia
-  - id: MONDO:0018373
-    label: avascular necrosis (AVN)
-  - id: MAXO:0009047
-    label: total hip replacement (THR)
-  - id: HP:0010885
-    label: avascular necrosis
+    label: Vaccination
   - id: MONDO:0007374
     label: Sickle Cell Disease (SCD)
-  - id: CHEBI:131923
-    label: Salubrinal
-  - id: MAXO:0000068
-    label: Transplantation
+  - id: MAXO:0000747
+    label: Allogeneic hematopoietic stem cell transplantation (HSCT)
+  - id: HP:0007760
+    label: Sickle Cell Disease (SCD)
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: CHEBI:35480
+    label: analgesics
+  - id: CHEBI:33281
+    label: antibiotics
+  - id: MAXO:0001077
+    label: Splenectomy
+  - id: MAXO:0000756
+    label: Blood transfusion
+  - id: MONDO:0044348
+    label: Hemoglobinopathies
   - id: CHEBI:44423
-    label: hydroxyurea
-  - id: MONDO:0003664
-    label: Haemolytic Anaemias
-  - id: HP:0032654
-    label: Endothelial dysfunction
-  - id: HP:0025464
-    label: Oxidative stress
-  - id: MAXO:0001298
-    label: therapies
+    label: Hydroxyurea
+  - id: HP:0001297
+    label: Stroke
+  - id: HP:0002863
+    label: Myelodysplastic syndrome
+  - id: CHEBI:28901
+    label: Busulfan
+  - id: CHEBI:82594
+    label: Ferritin
+  - id: MONDO:0000984
+    label: thalassemia
+  - id: MONDO:0018881
+    label: myelodysplastic syndrome
+  - id: HP:0002140
+    label: Ischemic Stroke
+  - id: MONDO:0005380
+    label: avascular necrosis
+  - id: MAXO:0009047
+    label: total hip replacement
+  - id: HP:0010885
+    label: avascular necrosis
+  - id: CHEBI:4027
+    label: cyclophosphamide
+  - id: CHEBI:41879
+    label: dexamethasone
+  - id: CHEBI:9570
+    label: thiotepa
+  - id: CHEBI:125354
+    label: plerixafor
+  - id: CHEBI:9168
+    label: sirolimus
+  - id: CHEBI:8764
+    label: mycophenolate mofetil
+  - id: HP:0012531
+    label: Pain
+  - id: MAXO:0000515
+    label: Extracorporeal life support
+  - id: HP:0001708
+    label: Right ventricular failure
+  - id: HP:0033515
+    label: opioid dependence
+  - id: MONDO:0005632
+    label: Acute chest syndrome in sickle cell disease
+  - id: HP:0001945
+    label: fever
+  - id: HP:0001878
+    label: Hemolytic anemia
+  - id: CHEBI:6121
+    label: ketamine
+  - id: CHEBI:17303
+    label: morphine
+  - id: HP:0001744
+    label: splenomegaly
+  - id: HP:0031274
+    label: hypovolemic shock
   - id: MAXO:0000110
     label: Vitamin D supplementation
   - id: HP:0100512

@@ -20,10 +20,14 @@ input_text: "[Results of liver transplantations in Geneva or 32 consecutive tran
   successful liver transplantation."
 raw_completion_output: |-
   primary_disease: Liver Disease
-  medical_actions: Liver transplantation; Long-term administration of anti-HBs immune globulin
+
+  medical_actions: Liver transplantations; Administration of anti-HBs immune globulin
+
   symptoms: Decompensated end-stage liver disease; Fulminant hepatitis; End-stage Wilson disease; Primary nonfunction
+
   chemicals: Anti-HBs immune globulin
-  action_annotation_relationships: Liver transplantation TREATS Decompensated end-stage liver disease IN Liver Disease; Liver transplantation TREATS Fulminant hepatitis IN Liver Disease; Liver transplantation TREATS End-stage Wilson disease IN Liver Disease; Liver transplantation TREATS Primary nonfunction IN Liver Disease; Long-term administration of anti-HBs immune globulin PREVENTS recurrence of Hepatitis B IN Liver Disease
+
+  action_annotation_relationships: Liver transplantations TREATS Decompensated end-stage liver disease IN Liver Disease; Liver transplantations TREATS Fulminant hepatitis IN Liver Disease; Liver transplantations TREATS End-stage Wilson disease IN Liver Disease; Liver transplantations TREATS Primary nonfunction IN Liver Disease; Administration of anti-HBs immune globulin (with Anti-HBs immune globulin) PREVENTS Hepatitis B recurrence IN Liver Disease
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -38,7 +42,7 @@ prompt: |+
 
 
   Text:
-  Long-term administration of anti-HBs immune globulin PREVENTS recurrence of Hepatitis B IN Liver Disease
+  Administration of anti-HBs immune globulin (with Anti-HBs immune globulin) PREVENTS Hepatitis B recurrence IN Liver Disease
 
   ===
 
@@ -46,7 +50,7 @@ extracted_object:
   primary_disease: MONDO:0005154
   medical_actions:
     - MAXO:0001175
-    - Long-term administration of anti-HBs immune globulin
+    - Administration of anti-HBs immune globulin
   symptoms:
     - Decompensated end-stage liver disease
     - HP:0004787
@@ -55,10 +59,14 @@ extracted_object:
   chemicals:
     - Anti-HBs immune globulin
   action_annotation_relationships:
-    - subject: MAXO:0001175
-      predicate: TREATS
-      object: Decompensated end-stage liver disease
-      qualifier: MONDO:0005154
+    - subject: <Liver transplantations>
+      predicate: <TREATS>
+      object: <Decompensated end-stage liver disease>
+      qualifier: <Liver Disease>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <liver transplantations>
+      object_extension: <Decompensated end-stage liver disease>
     - subject: MAXO:0001175
       predicate: TREATS
       object: HP:0004787
@@ -71,19 +79,27 @@ extracted_object:
       predicate: TREATS
       object: Primary nonfunction
       qualifier: MONDO:0005154
-    - subject: Long-term administration
+    - subject: Administration of anti-HBs immune globulin
       predicate: PREVENTS
-      object: recurrence of Hepatitis B
+      object: Hepatitis B recurrence
       qualifier: MONDO:0005154
+      subject_qualifier: with Anti-HBs immune globulin
       subject_extension: anti-HBs immune globulin
 named_entities:
   - id: MONDO:0010200
-    label: Wilson disease
+    label: Wilson's disease
   - id: MAXO:0001175
-    label: liver transplantation
-  - id: MAXO:0000004
-    label: surgery (laparotomy, rectal mobilization, rectopexy, the partial sigmoid
-      colon resection with the primary anastomosis)
+    label: Liver transplantation
+  - id: HP:0001695
+    label: Cardiac arrest
+  - id: HP:0001685
+    label: Myocardial fibrosis
+  - id: HP:0001663
+    label: Ventricular fibrillation
+  - id: CHEBI:28694
+    label: Copper
+  - id: CHEBI:18248
+    label: Iron
   - id: HP:0002910
     label: abnormal liver functions
   - id: HP:0001394
@@ -92,82 +108,80 @@ named_entities:
     label: zinc
   - id: CHEBI:50868
     label: penicillamine
-  - id: CHEBI:51232
-    label: Hoechst 33342
+  - id: MAXO:0000016
+    label: Cell therapy
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: CHEBI:30703
+    label: Tetrathiomolybdate (TTM)
   - id: HP:0006554
     label: acute liver failure
-  - id: MAXO:0000068
-    label: transplantation
+  - id: CHEBI:35176
+    label: Zinc sulphate
+  - id: CHEBI:35475
+    label: NSAIDs
   - id: MAXO:0009095
-    label: Zinc therapy
-  - id: HP:0002344
-    label: Neurologic deterioration
+    label: zinc therapy
   - id: MAXO:0001298
     label: therapy
-  - id: HP:0001392
-    label: liver disease
   - id: HP:0006579
     label: neonatal jaundice
-  - id: HP:0002612
-    label: congenital hepatic fibrosis
   - id: HP:0001409
     label: portal hypertension
   - id: HP:0030151
     label: cholangitis
+  - id: HP:0002612
+    label: congenital hepatic fibrosis
   - id: MONDO:0013282
     label: alpha-1-antitrypsin deficiency
-  - id: MONDO:0009061
-    label: cystic fibrosis
-  - id: MONDO:0009044
-    label: Crigler-Najjar syndrome
-  - id: MAXO:0000376
-    label: liver biopsy
-  - id: MAXO:0000127
-    label: genetic testing
   - id: HP:0001903
     label: anemia
   - id: HP:0001410
     label: liver dysfunction
   - id: CHEBI:39501
     label: trientine
-  - id: CHEBI:28694
-    label: copper
+  - id: MAXO:0000070
+    label: Hepatic transplantation
   - id: HP:0001399
-    label: hepatic failure
+    label: Hepatic failure
   - id: HP:0004448
     label: fulminant hepatic failure
+  - id: HP:0003256
+    label: coagulopathy (international normalized ratio >2.0)
+  - id: HP:0004445
+    label: hepatic encephalopathy (HE)
+  - id: HP:0002480
+    label: hepatic encephalopathy
   - id: CHEBI:35341
     label: Steroids
   - id: CHEBI:33281
     label: Antibiotics
   - id: MONDO:0100193
-    label: end-stage liver disease
+    label: End-stage liver disease
   - id: HP:0100626
-    label: end-stage liver disease
+    label: End-stage liver disease
   - id: HP:0100660
     label: dyskinesia
-  - id: HP:0004787
-    label: fulminant hepatitis
-  - id: HP:0031811
-    label: bilirubinuria
-  - id: HP:0001397
-    label: hepatic steatosis
-  - id: CHEBI:16359
-    label: cholic acid
+  - id: HP:0100022
+    label: Movement disorders
+  - id: HP:0001337
+    label: Tremor
+  - id: HP:0001332
+    label: Dystonia
   - id: MONDO:0019542
     label: Acute liver failure (ALF)
-  - id: HP:0002480
-    label: Hepatic encephalopathy
   - id: CHEBI:27385
     label: CCL4
+  - id: MAXO:0000127
+    label: Genetic testing
+  - id: CHEBI:7959
+    label: D-penicillamine
   - id: MAXO:0001017
     label: Vaccination
   - id: HP:0001541
     label: Ascites
   - id: HP:0012398
     label: Peripheral edema
-  - id: HP:0001337
-    label: tremor
   - id: HP:0001260
     label: dysarthria
   - id: HP:0000708
@@ -176,132 +190,188 @@ named_entities:
     label: chronic hepatitis
   - id: CHEBI:38161
     label: chelators
+  - id: MAXO:0000376
+    label: liver biopsy
+  - id: HP:0001404
+    label: hepatocellular necrosis
+  - id: CHEBI:61049
+    label: Tacrolimus
+  - id: HP:0001744
+    label: Splenomegaly
   - id: MAXO:0000603
-    label: peritoneal dialysis
-  - id: CHEBI:7959
-    label: D-penicillamine
+    label: Peritoneal dialysis
   - id: HP:0200032
     label: Kayser-Fleischer rings
   - id: HP:0002172
-    label: imbalance
+    label: impaired balance
+  - id: HP:0001347
+    label: hyperreflexia
+  - id: HP:0031843
+    label: bradyphrenia
+  - id: HP:0002362
+    label: shuffling gait
+  - id: HP:0001621
+    label: hypophonia
+  - id: CHEBI:37153
+    label: Calcineurin inhibitors
+  - id: CHEBI:8356
+    label: pramipexole
+  - id: CHEBI:2618
+    label: amantadine
   - id: HP:0000093
     label: proteinuria
-  - id: HP:0032199
-    label: abnormal prothrombin time
+  - id: CHEBI:231592
+    label: zinc salts
   - id: MAXO:0000167
-    label: Antiepileptic therapy
-  - id: CHEBI:61049
-    label: Tacrolimus
+    label: antiepileptic therapy
   - id: CHEBI:9168
-    label: Rapamycin
+    label: rapamycin
   - id: CHEBI:55379
-    label: Cyclosporine (CsA)
+    label: cyclosporine (CsA)
   - id: CHEBI:35623
     label: antiepileptic
-  - id: CHEBI:4031
-    label: Cyclosporine
   - id: HP:0000083
     label: renal failure
-  - id: CHEBI:26708
-    label: NA
-  - id: CHEBI:35176
-    label: zinc sulphate
+  - id: HP:0000952
+    label: jaundice
+  - id: HP:0001919
+    label: acute kidney injury
+  - id: HP:0001342
+    label: intracerebral hemorrhage
+  - id: MAXO:0000533
+    label: molecular genetic testing
+  - id: HP:0001873
+    label: thrombocytopenia
+  - id: HP:0001298
+    label: Encephalopathy
+  - id: MAXO:0009070
+    label: SPECT
   - id: HP:0001251
     label: ataxia
   - id: CHEBI:166831
     label: copper chelators
+  - id: MAXO:0035064
+    label: electron microscopic studies
+  - id: MAXO:0000139
+    label: autopsy
   - id: HP:0006577
     label: macronodular cirrhosis
   - id: CHEBI:8830
     label: rhodanine
-  - id: CHEBI:18248
-    label: iron
+  - id: HP:0001272
+    label: Cerebellar Atrophy
+  - id: HP:0007263
+    label: Spinocerebellar Ataxia
+  - id: MAXO:0001610
+    label: transcranial magnetic stimulation
   - id: HP:0002015
     label: dysphagia
-  - id: MONDO:0021200
-    label: Rare diseases
-  - id: MAXO:0000011
-    label: Physiotherapy
-  - id: MONDO:0001516
-    label: spinal muscular atrophy
-  - id: HP:0100806
-    label: Sepsis
+  - id: HP:0001392
+    label: liver disease
+  - id: HP:0001396
+    label: cholestasis
+  - id: HP:0001403
+    label: macrovesicular steatosis
+  - id: CHEBI:90299
+    label: orcein
+  - id: MONDO:0000437
+    label: Spinocerebellar degeneration
   - id: CHEBI:2948
     label: Azathioprine
   - id: CHEBI:8378
     label: Prednisolone
   - id: HP:0031690
     label: opportunistic infections
+  - id: HP:0001397
+    label: Steatosis
   - id: HP:0001513
     label: Obesity
   - id: HP:0000819
     label: Diabetes
+  - id: HP:6000457
+    label: Mallory bodies
   - id: HP:0002829
     label: Arthralgia
-  - id: HP:0003281
-    label: Elevated serum ferritin
-  - id: HP:0012463
-    label: Elevated transferrin saturation
   - id: CHEBI:9907
     label: Ursodeoxycholic acid
   - id: MONDO:0007027
     label: Non-alcoholic steatohepatitis (NASH)
   - id: MONDO:0006507
     label: Hereditary hemochromatosis (HH)
-  - id: HP:0003256
-    label: Coagulopathy
-  - id: HP:0001298
-    label: Encephalopathy
-  - id: HP:0000952
-    label: Jaundice
+  - id: MONDO:0018874
+    label: Acute Myeloid Leukemia (AML)
+  - id: CHEBI:41977
+    label: Daunorubicin
+  - id: CHEBI:28680
+    label: Cytarabine
+  - id: HP:0004808
+    label: Acute Myeloid Leukemia (AML)
+  - id: CHEBI:16856
+    label: Glutathione (GSH)
+  - id: CHEBI:53498
+    label: Total antioxidant capacity (TAC)
+  - id: CHEBI:566274
+    label: Malondialdehyde (MDA)
   - id: HP:0001289
     label: Confusion
+  - id: CHEBI:46195
+    label: Acetaminophen
+  - id: HP:0000989
+    label: itchy skin
+  - id: CHEBI:63623
+    label: dimercaptosuccinic acid
+  - id: CHEBI:145810
+    label: insulin
   - id: MONDO:0003441
     label: dystonia
   - id: MAXO:0009015
     label: botulinum toxin injection
   - id: MAXO:0000943
     label: deep brain stimulation
-  - id: CHEBI:9720
-    label: trihexyphenidyl
-  - id: HP:0001332
-    label: dystonia
   - id: HP:0004305
     label: involuntary movements
-  - id: CHEBI:46195
-    label: acetaminophen
+  - id: CHEBI:9720
+    label: trihexyphenidyl
+  - id: CHEBI:35474
+    label: minor tranquilizers
+  - id: HP:0005268
+    label: spontaneous abortion
   - id: HP:0100520
     label: oliguria
   - id: CHEBI:16737
     label: creatinine
-  - id: HP:0003259
-    label: elevated creatinine
   - id: HP:0100543
     label: Cognitive impairment
+  - id: HP:0001250
+    label: epileptic seizures
+  - id: HP:0002315
+    label: headache
+  - id: CHEBI:6437
+    label: levetiracetam
+  - id: HP:0002878
+    label: Acute respiratory failure
+  - id: MONDO:0004789
+    label: Cholangitis
   - id: CHEBI:33234
-    label: vitamin E
-  - id: MAXO:0000070
-    label: Hepatic transplantation
-  - id: HP:0001942
-    label: metabolic acidosis
+    label: Vitamin E
   - id: HP:0001953
     label: diabetic ketoacidosis (DKA)
-  - id: CHEBI:145810
-    label: insulin
+  - id: HP:0001942
+    label: metabolic acidosis
+  - id: HP:0001946
+    label: ketosis
   - id: HP:0003781
     label: Hypersalivation
-  - id: HP:0002315
-    label: Headache
   - id: HP:0002027
     label: Abdominal pain
   - id: HP:0002240
     label: Hepatomegaly
-  - id: HP:0001744
-    label: Splenomegaly
-  - id: HP:0001873
-    label: Thrombocytopenia
-  - id: HP:0001250
-    label: Convulsions
+  - id: HP:0000707
+    label: neurologic abnormalities
+  - id: CHEBI:16796
+    label: Melatonin
+  - id: HP:0011967
+    label: copper deficiency
   - id: HP:0100785
     label: Insomnia
   - id: HP:0003394
@@ -310,34 +380,36 @@ named_entities:
     label: Paresthesia
   - id: HP:0025406
     label: Weakness
+  - id: CHEBI:4031
+    label: Cyclosporine
   - id: CHEBI:8764
     label: Mycophenolate mofetil
   - id: MONDO:0019737
     label: Thrombotic microangiopathy (TMA)
-  - id: CHEBI:37153
-    label: calcineurin inhibitors
-  - id: MAXO:0001001
-    label: gene therapy
-  - id: CHEBI:30703
-    label: tetrathiomolybdate
-  - id: HP:0002878
-    label: respiratory failure
-  - id: HP:0001892
-    label: hemorrhagic diathesis
-  - id: HP:0011967
-    label: copper deficiency
-  - id: MAXO:0000647
-    label: Chemotherapy
-  - id: MONDO:0004952
-    label: Hodgkin's disease
-  - id: MAXO:0000533
-    label: Molecular genetic testing
+  - id: HP:0002204
+    label: Pulmonary embolism
+  - id: HP:0100806
+    label: Sepsis
+  - id: HP:0001944
+    label: dehydration
+  - id: CHEBI:18291
+    label: manganese
+  - id: CHEBI:22984
+    label: calcium
+  - id: MAXO:0010026
+    label: Zinc supplementation
+  - id: HP:0033429
+    label: Neuroinflammation
+  - id: MONDO:0005071
+    label: Neurological disorders
+  - id: CHEBI:73925
+    label: high-dose steroids (HDS)
   - id: HP:0001878
     label: Haemolytic anaemia
   - id: CHEBI:62984
     label: Zinc acetate
   - id: HP:0001875
-    label: neutropenia
+    label: Neutropenia
   - id: MAXO:0001077
     label: splenectomy
   - id: HP:0005521
@@ -348,27 +420,49 @@ named_entities:
     label: cyclophosphamide
   - id: CHEBI:15544
     label: prostaglandin E1
+  - id: HP:0001081
+    label: cholelithiasis
+  - id: HP:0002716
+    label: lymphadenopathy
+  - id: HP:0002040
+    label: Esophageal varices
+  - id: MONDO:0017014
+    label: children
   - id: HP:0005912
-    label: Biliary atresia
+    label: biliary atresia
   - id: HP:0200084
-    label: Neonatal hepatitis
-  - id: HP:0004420
-    label: Arterial thrombosis
+    label: neonatal hepatitis
   - id: HP:0031368
-    label: Bowel perforation
+    label: bowel perforation
   - id: MONDO:0100192
     label: liver failure
   - id: HP:0001510
     label: growth retardation
+  - id: CHEBI:3160
+    label: Botulinum toxin type A (BoNT-A)
+  - id: HP:0002344
+    label: Neurologic deterioration
   - id: HP:0001882
     label: Leukopenia
-  - id: CHEBI:9706
-    label: Trientine hydrochloride
-  - id: MONDO:0005078
-    label: Phyllodes tumor
+  - id: HP:0003088
+    label: Premature osteoarthritis (POA)
+  - id: CHEBI:16990
+    label: Bilirubin
+  - id: MONDO:0021047
+    label: Phyllodes tumor of the breast
   - id: HP:0001336
     label: myoclonus
-  - id: MONDO:0005071
-    label: Neurological diseases
+  - id: HP:0002063
+    label: rigidity
+  - id: HP:0001402
+    label: Hepatocellular carcinoma
+  - id: HP:0002615
+    label: Hypotension
+  - id: HP:0002901
+    label: Hypocalcaemia
+  - id: HP:0012393
+    label: Allergic reactions
   - id: MONDO:0005154
     label: Liver Disease
+  - id: HP:0004787
+    label: Fulminant hepatitis

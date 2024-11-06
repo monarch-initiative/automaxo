@@ -22,11 +22,11 @@ raw_completion_output: |-
 
   medical_actions: allogeneic transplantation; hematopoietic stem cell transplantation (HSCT)
 
-  symptoms: infantile-onset hemophagocytic lymphohistiocytosis (HLH)
+  symptoms: infantile-onset hemophagocytic lymphohistiocytosis (HLH); absence of cytotoxic T lymphocyte (CTL) function
 
   chemicals: 
 
-  action_annotation_relationships: allogeneic transplantation TREATS infantile-onset hemophagocytic lymphohistiocytosis (HLH) IN Chediak-Higashi syndrome; hematopoietic stem cell transplantation (HSCT) PREVENTS infantile-onset hemophagocytic lymphohistiocytosis (HLH) IN Chediak-Higashi syndrome
+  action_annotation_relationships: allogeneic transplantation TREATS infantile-onset hemophagocytic lymphohistiocytosis (HLH) IN Chediak-Higashi syndrome; hematopoietic stem cell transplantation (HSCT) PREVENTS infantile-onset hemophagocytic lymphohistiocytosis (HLH) IN Chediak-Higashi syndrome; hematopoietic stem cell transplantation (HSCT) TREATS absence of cytotoxic T lymphocyte (CTL) function IN Chediak-Higashi syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -41,7 +41,7 @@ prompt: |+
 
 
   Text:
-  hematopoietic stem cell transplantation (HSCT) PREVENTS infantile-onset hemophagocytic lymphohistiocytosis (HLH) IN Chediak-Higashi syndrome
+  hematopoietic stem cell transplantation (HSCT) TREATS absence of cytotoxic T lymphocyte (CTL) function IN Chediak-Higashi syndrome
 
   ===
 
@@ -52,6 +52,7 @@ extracted_object:
     - MAXO:0000747
   symptoms:
     - infantile-onset hemophagocytic lymphohistiocytosis (HLH)
+    - absence of cytotoxic T lymphocyte (CTL) function
   action_annotation_relationships:
     - subject: allogeneic transplantation
       predicate: TREATS
@@ -61,33 +62,41 @@ extracted_object:
       predicate: PREVENTS
       object: infantile-onset hemophagocytic lymphohistiocytosis (HLH)
       qualifier: MONDO:0008963
+    - subject: MAXO:0000747
+      predicate: TREATS
+      object: absence of cytotoxic T lymphocyte function
+      qualifier: MONDO:0008963
 named_entities:
+  - id: HP:0012531
+    label: pain
   - id: MAXO:0010030
-    label: Bone marrow transplantation (BMT)
+    label: bone marrow transplantation (BMT)
   - id: MONDO:0008963
     label: Chediak-Higashi syndrome
   - id: MAXO:0010033
-    label: Unrelated cord blood transplantation (UCBT)
+    label: unrelated cord blood transplantation (UCBT)
   - id: MAXO:0000747
     label: HSCT
   - id: MAXO:0000750
-    label: Conditioning regimens
+    label: conditioning regimens
   - id: CHEBI:41264
     label: BU
   - id: CHEBI:4027
-    label: Cyclophosphamide
+    label: cyclophosphamide
   - id: CHEBI:4911
-    label: Etoposide
+    label: etoposide
+  - id: MONDO:0008090
+    label: Chediak-Higashi syndrome (CHS)
   - id: HP:0001433
-    label: hepatosplenomegaly
+    label: Hepatosplenomegaly
   - id: HP:0003270
-    label: abdominal distention
+    label: Abdominal distention
   - id: MONDO:0024686
     label: Pigmented villonodular synovitis (PVNS)
   - id: HP:0001945
-    label: fever
+    label: Fever
   - id: MONDO:0003778
-    label: primary immunodeficiency
+    label: primary immunodeficiencies
   - id: HP:0025322
     label: veno-occlusive disease
   - id: CHEBI:28901
@@ -96,8 +105,10 @@ named_entities:
     label: cyclosporine
   - id: CHEBI:44185
     label: methotrexate
-  - id: MONDO:0008090
-    label: Chediak-Higashi Syndrome (CHS)
+  - id: HP:0100806
+    label: sepsis
+  - id: CHEBI:28790
+    label: Serotonin
   - id: HP:0002718
     label: recurrent bacterial infections
   - id: HP:0000613

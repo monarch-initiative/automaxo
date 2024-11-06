@@ -1,0 +1,103 @@
+---
+input_text: Recurrent peptic ulcer disease in a pediatric patient with type 1 neurofibromatosis
+  and primary ciliary dyskinesia. Neurofibromatosis type 1 is an autosomal dominant
+  neurocutaneous disorder with characteristic features of skin and central nervous
+  system involvement. Gastrointestinal complications are rare, especially during childhood.
+  In adults, only two cases of peptic ulcer have been reported in neurofibromatosis,
+  both due to Zollinger-Ellison syndrome. Peptic ulcer disease (PUD) may be primary
+  or secondary in nature and it may be life threatening in the acute phase due to
+  the risk of perforation. A case of recurrent gastrointestinal hemorrhage in a child
+  with systemic neurofibromatosis and primary ciliary dyskinesia (PCD) is presented.
+  The upper gastrointestinal endoscopy revealed the presence of multiple gastric ulcers.
+  The ulcers scarred after the long-term administration of a proton pump inhibitor
+  (PPI), but recurred after the suspension. Laboratory and imaging studies excluded
+  Zollinger-Ellison syndrome and other known causes of PUD, suggesting a potential
+  role of neurofibromatosis itself and primary ciliary dyskinesia in developing of
+  recurrent PUD. As early diagnosis of PUD is vital for patient survival, this case
+  report highlights the possible association of neurofibromatosis and PCD with this
+  condition, responsive to PPI therapy and the potential need of gastric protection
+  before complications arise.
+raw_completion_output: |-
+  primary_disease: Peptic Ulcer Disease (PUD)
+
+  medical_actions: administration of a proton pump inhibitor (PPI); upper gastrointestinal endoscopy; long-term administration of PPI
+
+  symptoms: gastrointestinal hemorrhage; multiple gastric ulcers
+
+  chemicals: proton pump inhibitor (PPI)
+
+  action_annotation_relationships: administration of a proton pump inhibitor (PPI) TREATS multiple gastric ulcers IN Peptic Ulcer Disease (PUD); upper gastrointestinal endoscopy TREATS/PREVENTS gastrointestinal hemorrhage IN Peptic Ulcer Disease (PUD); long-term administration of PPI TREATS multiple gastric ulcers IN Peptic Ulcer Disease (PUD); administration of a proton pump inhibitor (PPI) PREVENTS complications ARISING IN Peptic Ulcer Disease (PUD)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  administration of a proton pump inhibitor (PPI) PREVENTS complications ARISING IN Peptic Ulcer Disease (PUD)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0004247
+  medical_actions:
+    - administration of a proton pump inhibitor (PPI)
+    - MAXO:0001193
+    - long-term administration of PPI
+  symptoms:
+    - HP:0002239
+    - multiple gastric ulcers
+  chemicals:
+    - CHEBI:18361
+  action_annotation_relationships:
+    - subject: administration
+      predicate: TREATS
+      object: multiple gastric ulcers
+      qualifier: MONDO:0004247
+      subject_extension: CHEBI:18361
+    - subject: MAXO:0001193
+      predicate: TREATS/PREVENTS
+      object: HP:0002239
+      qualifier: MONDO:0004247
+    - subject: long-term administration of PPI
+      predicate: TREATS
+      object: multiple gastric ulcers
+      qualifier: MONDO:0004247
+      subject_qualifier: long-term
+      subject_extension: CHEBI:18361
+    - subject: administration
+      predicate: PREVENTS
+      object: complications
+      qualifier: MONDO:0004247
+      object_qualifier: ARISING IN
+      subject_extension: CHEBI:49200
+named_entities:
+  - id: MONDO:0016575
+    label: Primary Ciliary Dyskinesia
+  - id: HP:0034315
+    label: Chronic cough
+  - id: HP:0002643
+    label: Neonatal respiratory distress
+  - id: HP:0003251
+    label: male infertility
+  - id: HP:0001696
+    label: situs inversus
+  - id: CHEBI:27958
+    label: Cocaine
+  - id: MONDO:0004247
+    label: Peptic Ulcer Disease (PUD)
+  - id: MAXO:0001193
+    label: upper gastrointestinal endoscopy
+  - id: HP:0002239
+    label: gastrointestinal hemorrhage
+  - id: CHEBI:18361
+    label: proton pump inhibitor (PPI)
+  - id: CHEBI:49200
+    label: proton pump inhibitor

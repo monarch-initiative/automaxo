@@ -19,13 +19,13 @@ input_text: 'Advances in diagnosis and management of celiac disease. Celiac dise
 raw_completion_output: |-
   primary_disease: Celiac disease
 
-  medical_actions: Adherence to a gluten-free diet;Diagnosis by histopathologic examination of duodenal biopsy specimens;Serologic tests for antibodies against tissue transglutaminase and deamidated gliadin peptide;Tests for celiac-permissive HLA-DQ2 and HLA-DQ8 molecules;Developing nondietary therapies
+  medical_actions: Adherence to a gluten-free diet; Serologic tests for antibodies against tissue transglutaminase and deamidated gliadin peptide; Tests for celiac-permissive HLA-DQ2 and HLA-DQ8 molecules; Histopathologic examination of duodenal biopsy specimens; Developing nondietary therapies
 
-  symptoms: Symptoms;Mortality;Risk for malignity
+  symptoms: Symptoms; Mortality; Risk for malignancy
 
-  chemicals: 
+  chemicals: Gluten
 
-  action_annotation_relationships: Adherence to a gluten-free diet TREATS Symptoms IN Celiac disease;Adherence to a gluten-free diet PREVENTS Mortality IN Celiac disease;Adherence to a gluten-free diet PREVENTS Risk for malignity IN Celiac disease;Diagnosis by histopathologic examination of duodenal biopsy specimens TREATS Celiac disease;Serologic tests for antibodies against tissue transglutaminase and deamidated gliadin peptide TREATS Celiac disease;Tests for celiac-permissive HLA-DQ2 and HLA-DQ8 molecules TREATS Celiac disease;Developing nondietary therapies TREATS Symptoms IN Celiac disease
+  action_annotation_relationships: Adherence to a gluten-free diet PREVENTS symptoms IN Celiac disease; Adherence to a gluten-free diet PREVENTS mortality IN Celiac disease; Adherence to a gluten-free diet PREVENTS risk for malignancy IN Celiac disease; Serologic tests for antibodies against tissue transglutaminase and deamidated gliadin peptide TREATS diagnosis IN Celiac disease; Tests for celiac-permissive HLA-DQ2 and HLA-DQ8 molecules TREATS diagnosis IN Celiac disease; Histopathologic examination of duodenal biopsy specimens TREATS diagnosis IN Celiac disease; Developing nondietary therapies PREVENTS symptoms IN Celiac disease
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -40,7 +40,7 @@ prompt: |+
 
 
   Text:
-  Developing nondietary therapies TREATS Symptoms IN Celiac disease
+  Developing nondietary therapies PREVENTS symptoms IN Celiac disease
 
   ===
 
@@ -48,110 +48,152 @@ extracted_object:
   primary_disease: MONDO:0005130
   medical_actions:
     - Adherence to a gluten-free diet
-    - Diagnosis by histopathologic examination of duodenal biopsy specimens
     - Serologic tests for antibodies against tissue transglutaminase and deamidated
       gliadin peptide
     - Tests for celiac-permissive HLA-DQ2 and HLA-DQ8 molecules
+    - Histopathologic examination of duodenal biopsy specimens
     - Developing nondietary therapies
   symptoms:
     - Symptoms
     - Mortality
-    - Risk for malignity
+    - Risk for malignancy
+  chemicals:
+    - Gluten
   action_annotation_relationships:
     - subject: Adherence
-      predicate: TREATS
-      object: Symptoms
+      predicate: PREVENTS
+      object: symptoms
       qualifier: MONDO:0005130
       subject_extension: gluten-free diet
-    - subject: <Adherence to a gluten-free diet>
-      predicate: <PREVENTS>
-      object: <Mortality>
-      qualifier: <Celiac disease>
-      subject_extension: <gluten-free diet>
+    - subject: Adherence to a gluten-free diet
+      predicate: PREVENTS
+      object: mortality
+      qualifier: MONDO:0005130
+      subject_extension: gluten-free diet
     - subject: Adherence
       predicate: PREVENTS
-      object: Risk for malignity
+      object: risk for malignancy
       qualifier: MONDO:0005130
       subject_extension: gluten-free diet
-    - subject: Diagnosis by histopathologic examination of duodenal biopsy specimens
-      predicate: TREATS
-      object: HP:0002608
-    - subject: Serologic tests for antibodies against tissue transglutaminase and
-        deamidated gliadin peptide
-      predicate: TREATS
-      object: HP:0002608
+    - subject: <Serologic tests for antibodies against tissue transglutaminase and
+        deamidated gliadin peptide>
+      predicate: <TREATS>
+      object: <diagnosis>
+      qualifier: <Celiac disease>
+      subject_extension: <tissue transglutaminase and deamidated gliadin peptide>
     - subject: Tests for celiac-permissive HLA-DQ2 and HLA-DQ8 molecules
       predicate: TREATS
-      object: HP:0002608
-    - subject: <Developing nondietary therapies>
-      predicate: <TREATS>
-      object: <Symptoms>
-      qualifier: <Celiac disease>
-      subject_extension: <nondietary therapies>
+      object: diagnosis
+      qualifier: MONDO:0005130
+    - subject: Histopathologic examination of duodenal biopsy specimens
+      predicate: TREATS
+      object: diagnosis
+      qualifier: MONDO:0005130
+    - subject: Developing nondietary therapies
+      predicate: PREVENTS
+      object: symptoms
+      qualifier: MONDO:0005130
+      subject_extension: nondietary therapies
 named_entities:
+  - id: MONDO:0044092
+    label: Collagenous sprue
+  - id: HP:0002014
+    label: diarrhea
+  - id: CHEBI:50858
+    label: corticosteroids
+  - id: HP:0004395
+    label: malnutrition
   - id: MONDO:0005130
     label: Celiac disease
-  - id: CHEBI:81580
-    label: Prolactin
   - id: HP:0000870
     label: Hyperprolactinemia
+  - id: CHEBI:81580
+    label: Prolactin (PRL)
   - id: HP:0000938
     label: Bone loss
   - id: CHEBI:22984
     label: Calcium
   - id: CHEBI:27300
     label: Vitamin D
+  - id: HP:0001369
+    label: Arthritis
+  - id: HP:0002608
+    label: Celiac Disease
   - id: MONDO:0019473
     label: Enteropathy-associated T-cell lymphoma (EATL)
+  - id: HP:0002242
+    label: enteropathy
+  - id: HP:0012378
+    label: fatigue
+  - id: HP:0002039
+    label: anorexia
+  - id: HP:0000823
+    label: delayed puberty
+  - id: HP:0004322
+    label: short stature
+  - id: HP:0000789
+    label: infertility
+  - id: MONDO:0016063
+    label: Celiac Disease (CD)
+  - id: MAXO:0000058
+    label: pharmacological treatment
   - id: HP:0002027
     label: abdominal pain
   - id: HP:0003270
     label: bloating
-  - id: HP:0002014
-    label: diarrhea
   - id: HP:0001903
     label: anemia
+  - id: MAXO:0000088
+    label: diet
   - id: MONDO:0005298
     label: Osteoporosis
-  - id: MONDO:0016063
-    label: Celiac Disease (CD)
-  - id: HP:0012538
-    label: Gluten sensitivity
+  - id: MAXO:0000259
+    label: insulin treatment
+  - id: HP:0033712
+    label: recurrent implantation failure (RIF)
+  - id: CHEBI:145810
+    label: insulin
+  - id: CHEBI:6801
+    label: metformin
+  - id: HP:0012531
+    label: Pain
+  - id: HP:0000716
+    label: Depression
+  - id: HP:0011107
+    label: Aphthous stomatitis
+  - id: MONDO:0013626
+    label: Acrodermatitis continua of Hallopeau
+  - id: HP:0002024
+    label: Malabsorption
+  - id: HP:0012050
+    label: Anasarca
+  - id: HP:0003111
+    label: Electrolyte disorders
   - id: CHEBI:60027
-    label: polymers
+    label: Polymers
+  - id: HP:0001510
+    label: poor growth
+  - id: CHEBI:77383
+    label: Bisphosphonates
   - id: HP:0002019
     label: Constipation
   - id: HP:0001919
     label: Acute kidney failure
   - id: HP:0000126
     label: Hydronephrosis
-  - id: HP:0500093
-    label: food allergies
-  - id: CHEBI:16737
-    label: Creatinine
-  - id: MAXO:0000355
-    label: duodenum biopsy
   - id: HP:0002013
     label: vomiting
   - id: HP:0001508
     label: failure to thrive
-  - id: HP:0002240
-    label: hepatomegaly
-  - id: HP:0001744
-    label: splenomegaly
-  - id: HP:0000872
-    label: autoimmune thyroiditis
-  - id: HP:0100651
-    label: type 1 diabetes mellitus
-  - id: HP:0002099
-    label: bronchial asthma
-  - id: HP:0002232
-    label: alopecia areata
-  - id: HP:0005764
-    label: polyarthritis
+  - id: HP:0000988
+    label: rash
+  - id: HP:0001083
+    label: Intraepithelial lymphocytes (IELs) count
+  - id: HP:0004313
+    label: Immunoglobulin deficiencies
   - id: MONDO:0004699
     label: Primary gastrointestinal lymphoma
-  - id: CHEBI:190522
-    label: Gliadins
-  - id: HP:0002608
-    label: Celiac disease
+  - id: MONDO:0009032
+    label: Coeliac Disease (CeD)
+  - id: HP:0000739
+    label: Anxiety

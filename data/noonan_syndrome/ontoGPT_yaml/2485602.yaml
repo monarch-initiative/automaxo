@@ -3,11 +3,15 @@ input_text: "What is the value of growth hormone treatment in short children wit
   specified syndrome? Turner's syndrome, osteochondrodysplasias, Prader-Willi syndrome,
   Noonan syndrome. "
 raw_completion_output: |-
-  primary_disease: Turner's syndrome; osteochondrodysplasias; Prader-Willi syndrome; Noonan syndrome
-  medical_actions: growth hormone treatment
-  symptoms: short stature
-  chemicals: 
-  action_annotation_relationships: growth hormone treatment TREATS short stature IN Turner's syndrome; growth hormone treatment TREATS short stature IN osteochondrodysplasias; growth hormone treatment TREATS short stature IN Prader-Willi syndrome; growth hormone treatment TREATS short stature IN Noonan syndrome
+  primary_disease: <Turner's syndrome; osteochondrodysplasias; Prader-Willi syndrome; Noonan syndrome>
+
+  medical_actions: <growth hormone treatment>
+
+  symptoms: <short stature>
+
+  chemicals: <growth hormone>
+
+  action_annotation_relationships: <growth hormone treatment (with growth hormone) TREATS short stature IN Turner's syndrome; growth hormone treatment (with growth hormone) TREATS short stature IN osteochondrodysplasias; growth hormone treatment (with growth hormone) TREATS short stature IN Prader-Willi syndrome; growth hormone treatment (with growth hormone) TREATS short stature IN Noonan syndrome>
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -22,50 +26,91 @@ prompt: |+
 
 
   Text:
-  growth hormone treatment TREATS short stature IN Noonan syndrome
+  growth hormone treatment (with growth hormone) TREATS short stature IN Noonan syndrome>
 
   ===
 
 extracted_object:
-  primary_disease: Turner's syndrome; osteochondrodysplasias; Prader-Willi syndrome;
-    Noonan syndrome
+  primary_disease: <Turner's syndrome; osteochondrodysplasias; Prader-Willi syndrome;
+    Noonan syndrome>
   medical_actions:
-    - growth hormone treatment
+    - <growth hormone treatment>
   symptoms:
-    - HP:0004322
+    - <short stature>
+  chemicals:
+    - <growth hormone>
   action_annotation_relationships:
     - subject: growth hormone treatment
       predicate: TREATS
       object: HP:0004322
       qualifier: Turner's syndrome
+      subject_qualifier: with growth hormone
       subject_extension: CHEBI:37845
-    - subject: treatment
+    - subject: growth hormone treatment
       predicate: TREATS
       object: HP:0004322
       qualifier: MONDO:0005516
+      subject_qualifier: with growth hormone
       subject_extension: CHEBI:37845
     - subject: growth hormone treatment
       predicate: TREATS
       object: HP:0004322
       qualifier: MONDO:0008300
-    - subject: treatment
+      subject_qualifier: with growth hormone
+      subject_extension: CHEBI:37845
+    - subject: growth hormone treatment
       predicate: TREATS
       object: HP:0004322
       qualifier: MONDO:0018997
+      subject_qualifier: with growth hormone
       subject_extension: CHEBI:37845
 named_entities:
+  - id: CHEBI:33281
+    label: antibiotics
+  - id: MONDO:0006936
+    label: pulmonary valve stenosis
+  - id: MAXO:0009072
+    label: surgical repair
+  - id: HP:0001642
+    label: pulmonary valve stenosis
   - id: MONDO:0018997
     label: Noonan syndrome
-  - id: MAXO:0035118
-    label: cardiac catheterization
-  - id: HP:0001659
-    label: aortic regurgitation
-  - id: HP:0001004
-    label: lymphedema
   - id: HP:0004322
     label: short stature
   - id: CHEBI:37845
-    label: growth hormone
+    label: GH
+  - id: MONDO:0011908
+    label: Juvenile myelomonocytic leukemia (JMML)
+  - id: MAXO:0000747
+    label: hematopoietic stem cell transplantation (HSCT)
+  - id: HP:0012209
+    label: Juvenile myelomonocytic leukemia (JMML)
+  - id: MAXO:0010203
+    label: echocardiography
+  - id: HP:0001663
+    label: ventricular fibrillation
+  - id: HP:0001639
+    label: hypertrophic cardiomyopathy
+  - id: HP:0032092
+    label: left ventricular outflow tract obstruction
+  - id: HP:0030828
+    label: Wheezing
+  - id: CHEBI:90960
+    label: Tiotropium
+  - id: HP:0002099
+    label: bronchial asthma
+  - id: MONDO:0007037
+    label: Achondroplasia
+  - id: MAXO:0000014
+    label: radiotherapy
+  - id: MAXO:0035118
+    label: Cardiac catheterization
+  - id: HP:0001659
+    label: Aortic regurgitation
+  - id: HP:0001004
+    label: Lymphedema
+  - id: CHEBI:17347
+    label: Testosterone
   - id: MONDO:0005516
     label: osteochondrodysplasias
   - id: MONDO:0008300

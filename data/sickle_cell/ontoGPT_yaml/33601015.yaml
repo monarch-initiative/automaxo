@@ -27,13 +27,13 @@ input_text: "Integrative holistic approaches for children, adolescents, and youn
 raw_completion_output: |-
   primary_disease: Sickle cell disease (SCD)
 
-  medical_actions: Non-pharmacologic interventions; Integrative therapies; Standard of care management
+  medical_actions: Access to non-pharmacologic interventions; Manage patients' symptoms in a holistic manner; Standard of care management of SCD; Offering safe and potentially effective integrative therapies alongside conventional SCD therapies
 
   symptoms: Painful vaso-occlusive crises (VOCs); Sleep disturbances; Fatigue; Stress
 
   chemicals: 
 
-  action_annotation_relationships: Non-pharmacologic interventions TREATS Painful vaso-occlusive crises (VOCs) IN Sickle cell disease (SCD); Integrative therapies TREATS Painful vaso-occlusive crises (VOCs) IN Sickle cell disease (SCD); Integrative therapies TREATS Sleep disturbances IN Sickle cell disease (SCD); Integrative therapies TREATS Fatigue IN Sickle cell disease (SCD); Integrative therapies TREATS Stress IN Sickle cell disease (SCD); Standard of care management TREATS Painful vaso-occlusive crises (VOCs) IN Sickle cell disease (SCD); Standard of care management PREVENTS Hospitalizations IN Sickle cell disease (SCD); Standard of care management IMPROVES Quality of life IN Sickle cell disease (SCD)
+  action_annotation_relationships: Access to non-pharmacologic interventions TREATS Painful vaso-occlusive crises (VOCs) IN Sickle cell disease (SCD); Manage patients' symptoms in a holistic manner TREATS Sleep disturbances IN Sickle cell disease (SCD); Manage patients' symptoms in a holistic manner TREATS Fatigue IN Sickle cell disease (SCD); Manage patients' symptoms in a holistic manner TREATS Stress IN Sickle cell disease (SCD); Offering safe and potentially effective integrative therapies alongside conventional SCD therapies TREATS Painful vaso-occlusive crises (VOCs) IN Sickle cell disease (SCD); Offering safe and potentially effective integrative therapies alongside conventional SCD therapies TREATS Sleep disturbances IN Sickle cell disease (SCD); Offering safe and potentially effective integrative therapies alongside conventional SCD therapies TREATS Fatigue IN Sickle cell disease (SCD); Offering safe and potentially effective integrative therapies alongside conventional SCD therapies TREATS Stress IN Sickle cell disease (SCD)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -48,106 +48,155 @@ prompt: |+
 
 
   Text:
-  Standard of care management IMPROVES Quality of life IN Sickle cell disease (SCD)
+  Offering safe and potentially effective integrative therapies alongside conventional SCD therapies TREATS Stress IN Sickle cell disease (SCD)
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0007374
   medical_actions:
-    - Non-pharmacologic interventions
-    - Integrative therapies
-    - Standard of care management
+    - Access to non-pharmacologic interventions
+    - Manage patients' symptoms in a holistic manner
+    - Standard of care management of SCD
+    - Offering safe and potentially effective integrative therapies alongside conventional
+      SCD therapies
   symptoms:
     - Painful vaso-occlusive crises (VOCs)
     - HP:0002360
     - HP:0012378
     - Stress
   action_annotation_relationships:
-    - subject: Non-pharmacologic interventions
+    - subject: Access
       predicate: TREATS
       object: Painful vaso-occlusive crises (VOCs)
       qualifier: MONDO:0007374
-    - subject: <Integrative therapies>
+      subject_extension: non-pharmacologic interventions
+    - subject: Manage patients' symptoms in a holistic manner
+      predicate: TREATS
+      object: HP:0002360
+      qualifier: MONDO:0007374
+    - subject: Manage patients' symptoms in a holistic manner
+      predicate: TREATS
+      object: HP:0012378
+      qualifier: MONDO:0007374
+    - subject: <Manage patients' symptoms in a holistic manner>
+      predicate: <TREATS>
+      object: <Stress>
+      qualifier: MONDO:0007374
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: <Offering safe and potentially effective integrative therapies alongside
+        conventional SCD therapies>
       predicate: <TREATS>
       object: <Painful vaso-occlusive crises (VOCs)>
       qualifier: MONDO:0007374
-      subject_extension: <Integrative therapies>
-    - subject: Integrative therapies
+      subject_extension: <integrative therapies>
+    - subject: Offering safe and potentially effective integrative therapies alongside
+        conventional SCD therapies
       predicate: TREATS
       object: HP:0002360
       qualifier: MONDO:0007374
       subject_extension: Integrative therapies
-    - subject: <Integrative therapies>
-      predicate: <TREATS>
-      object: <Fatigue>
+    - subject: Offering safe and potentially effective integrative therapies alongside
+        conventional SCD therapies
+      predicate: TREATS
+      object: HP:0012378
       qualifier: MONDO:0007374
-      subject_qualifier: <N/A>
-      object_qualifier: <N/A>
-      subject_extension: <Integrative therapies>
-      object_extension: <N/A>
-    - subject: Integrative therapies
+      subject_qualifier: safe and potentially effective
+      subject_extension: integrative therapies
+    - subject: Offering safe and potentially effective integrative therapies alongside
+        conventional SCD therapies
       predicate: TREATS
       object: Stress
       qualifier: MONDO:0007374
-      subject_extension: Integrative therapies
-    - subject: Standard of care management
-      predicate: TREATS
-      object: Painful vaso-occlusive crises (VOCs)
-      qualifier: MONDO:0007374
-    - subject: Standard of care management
-      predicate: PREVENTS
-      object: Hospitalizations
-      qualifier: MONDO:0007374
-    - subject: <Standard of care management>
-      predicate: <IMPROVES>
-      object: <Quality of life>
-      qualifier: MONDO:0007374
-      subject_qualifier: <Not applicable>
-      object_qualifier: <Not applicable>
-      subject_extension: <Not applicable>
-      object_extension: <Not applicable>
+      subject_extension: integrative therapies
 named_entities:
   - id: MONDO:0011382
-    label: Sickle Cell Disease
-  - id: MAXO:0000457
-    label: Pain Management
-  - id: HP:0012531
-    label: Pain
-  - id: HP:0000739
-    label: anxiety
-  - id: MONDO:0005812
-    label: Influenza
+    label: sickle cell disease
+  - id: CHEBI:64357
+    label: rituximab
+  - id: CHEBI:35341
+    label: steroids
+  - id: CHEBI:81579
+    label: erythropoietin
   - id: MAXO:0001017
-    label: vaccination
-  - id: MAXO:0000756
-    label: transfusion
-  - id: MONDO:0018881
-    label: Myelodysplasia
-  - id: MONDO:0000984
-    label: Thalassemia
-  - id: MONDO:0018373
-    label: avascular necrosis (AVN)
-  - id: MAXO:0009047
-    label: total hip replacement (THR)
-  - id: HP:0010885
-    label: avascular necrosis
+    label: Vaccination
   - id: MONDO:0007374
     label: Sickle Cell Disease (SCD)
-  - id: CHEBI:131923
-    label: Salubrinal
-  - id: MAXO:0000068
-    label: Transplantation
+  - id: MAXO:0000747
+    label: Allogeneic hematopoietic stem cell transplantation (HSCT)
+  - id: HP:0007760
+    label: Sickle Cell Disease (SCD)
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: CHEBI:35480
+    label: analgesics
+  - id: CHEBI:33281
+    label: antibiotics
+  - id: MAXO:0001077
+    label: Splenectomy
+  - id: MAXO:0000756
+    label: Blood transfusion
+  - id: MONDO:0044348
+    label: Hemoglobinopathies
   - id: CHEBI:44423
-    label: hydroxyurea
-  - id: MONDO:0003664
-    label: Haemolytic Anaemias
-  - id: HP:0032654
-    label: Endothelial dysfunction
-  - id: HP:0025464
-    label: Oxidative stress
-  - id: MAXO:0001298
-    label: therapies
+    label: Hydroxyurea
+  - id: HP:0001297
+    label: Stroke
+  - id: HP:0002863
+    label: Myelodysplastic syndrome
+  - id: CHEBI:28901
+    label: Busulfan
+  - id: CHEBI:82594
+    label: Ferritin
+  - id: MONDO:0000984
+    label: thalassemia
+  - id: MONDO:0018881
+    label: myelodysplastic syndrome
+  - id: HP:0002140
+    label: Ischemic Stroke
+  - id: MONDO:0005380
+    label: avascular necrosis
+  - id: MAXO:0009047
+    label: total hip replacement
+  - id: HP:0010885
+    label: avascular necrosis
+  - id: CHEBI:4027
+    label: cyclophosphamide
+  - id: CHEBI:41879
+    label: dexamethasone
+  - id: CHEBI:9570
+    label: thiotepa
+  - id: CHEBI:125354
+    label: plerixafor
+  - id: CHEBI:9168
+    label: sirolimus
+  - id: CHEBI:8764
+    label: mycophenolate mofetil
+  - id: HP:0012531
+    label: Pain
+  - id: MAXO:0000515
+    label: Extracorporeal life support
+  - id: HP:0001708
+    label: Right ventricular failure
+  - id: HP:0033515
+    label: opioid dependence
+  - id: MONDO:0005632
+    label: Acute chest syndrome in sickle cell disease
+  - id: HP:0001945
+    label: fever
+  - id: HP:0001878
+    label: Hemolytic anemia
+  - id: CHEBI:6121
+    label: ketamine
+  - id: CHEBI:17303
+    label: morphine
+  - id: HP:0001744
+    label: splenomegaly
+  - id: HP:0031274
+    label: hypovolemic shock
   - id: MAXO:0000110
     label: Vitamin D supplementation
   - id: HP:0100512
@@ -157,75 +206,117 @@ named_entities:
   - id: CHEBI:28940
     label: Cholecalciferol
   - id: CHEBI:29016
-    label: Arginine
+    label: arginine
   - id: CHEBI:18211
-    label: Citrulline
+    label: citrulline
   - id: CHEBI:3638
-    label: Chloroquine
+    label: chloroquine
   - id: CHEBI:50733
-    label: Nutritional supplements
+    label: nutritional supplements
+  - id: MONDO:0005570
+    label: Blood disorders
+  - id: MONDO:0013517
+    label: beta-thalassemia
+  - id: HP:0002204
+    label: Pulmonary embolus
+  - id: HP:0100626
+    label: end-stage liver disease
+  - id: MONDO:0016363
+    label: Iron overload diseases
   - id: HP:0012532
     label: Chronic pain
-  - id: HP:0000716
-    label: Depression
   - id: HP:0012432
     label: Chronic fatigue
-  - id: MAXO:0000747
-    label: Hematopoietic stem cell transplant (HSCT)
-  - id: MAXO:0001001
-    label: Gene therapy
-  - id: HP:0007760
-    label: Sickle Cell Disease (SCD)
-  - id: MAXO:0035088
-    label: magnetic resonance imaging (MRI)/magnetic resonance angiography (MRA)
-  - id: HP:0002140
-    label: ischemic stroke
-  - id: HP:0001139
-    label: abnormal transcranial Doppler ultrasound (TCD) results
+  - id: MAXO:0010203
+    label: echocardiography
+  - id: HP:0002870
+    label: obstructive sleep apnoea (OSA)
+  - id: HP:0000520
+    label: Proptosis
+  - id: MAXO:0000004
+    label: surgery
+  - id: MAXO:0000058
+    label: pharmacological treatment
+  - id: MAXO:0000149
+    label: Hematopoietic cell transplantation (HCT)
   - id: MONDO:0006079
-    label: Acute Chest Syndrome (ACS)
-  - id: HP:0001945
-    label: Fever
+    label: Acute chest syndrome (ACS)
   - id: HP:0002878
     label: Acute respiratory failure
-  - id: CHEBI:82594
-    label: Ferritin
-  - id: HP:0002204
-    label: pulmonary embolism
-  - id: CHEBI:50249
-    label: anticoagulants
-  - id: CHEBI:9570
-    label: thiotepa
+  - id: HP:0012594
+    label: Microalbuminuria
+  - id: HP:0000093
+    label: Proteinuria
+  - id: HP:0003774
+    label: End-stage renal disease
+  - id: CHEBI:35457
+    label: angiotensin-converting enzyme inhibitor
+  - id: MAXO:0000652
+    label: angiotensin-converting enzyme inhibitor therapy
+  - id: HP:0000112
+    label: kidney disease
+  - id: MAXO:0000457
+    label: Pain management
+  - id: HP:0001903
+    label: Anemia
+  - id: CHEBI:18050
+    label: L-glutamine
+  - id: MAXO:0000827
+    label: serum ferritin measurement
+  - id: HP:0001875
+    label: neutropenia
+  - id: CHEBI:4356
+    label: <desferrioxamine (DFO)
+  - id: CHEBI:17941
+    label: deferiprone (DFP)
+  - id: CHEBI:49005
+    label: deferasirox (DFX)
+  - id: CHEBI:38157
+    label: iron chelators
+  - id: CHEBI:68554
+    label: deferiprone
+  - id: CHEBI:9144
+    label: silymarin
+  - id: MAXO:0000750
+    label: conditioning regimens (fludarabine-thiotepa-treosulfan, busulfan-cyclophosphamide)
   - id: CHEBI:82557
     label: treosulfan
-  - id: CHEBI:28901
-    label: busulfan
-  - id: CHEBI:4027
-    label: cyclophosphamide
-  - id: MAXO:0000750
-    label: conditioning regimens
+  - id: HP:0100602
+    label: preeclampsia
+  - id: HP:0001622
+    label: preterm delivery
+  - id: HP:0001511
+    label: intrauterine growth restriction
+  - id: CHEBI:50858
+    label: corticosteroids
   - id: MAXO:0000618
     label: fluid replacement therapy
   - id: HP:0001919
     label: acute kidney injury
-  - id: CHEBI:63895
-    label: Interleukin (IL)-6
-  - id: CHEBI:197439
-    label: TNFalpha
-  - id: MONDO:0005502
-    label: Dengue fever
+  - id: HP:0100639
+    label: erectile dysfunction
+  - id: CHEBI:71940
+    label: Tadalafil
+  - id: CHEBI:71942
+    label: PDE5 inhibitors
+  - id: MONDO:0019740
+    label: Acquired thrombotic thrombocytopenic purpura (aTTP)
+  - id: CHEBI:24261
+    label: Glucocorticoids
+  - id: MAXO:0000194
+    label: Opioid therapy
+  - id: MAXO:0001298
+    label: therapy
+  - id: CHEBI:35705
+    label: immunosuppressive agents
   - id: HP:0003326
-    label: myalgia
+    label: Myalgia
   - id: HP:0002027
-    label: abdominal pain
+    label: Abdominal pain
   - id: HP:0002315
-    label: headache
-  - id: CHEBI:18050
-    label: L-glutamine
-  - id: MONDO:0018948
-    label: Moyamoya disorder (MMD)
-  - id: HP:0001250
-    label: seizures
+    label: Headache
+  - id: MAXO:0001479
+    label: allogeneic hematopoietic stem cell transplantation
   - id: HP:0002360
     label: Sleep disturbances
   - id: HP:0012378

@@ -18,14 +18,10 @@ input_text: 'A pilot study of discontinuous, insulin-like growth factor 1-dosing
   of hypochondroplasia.'
 raw_completion_output: |-
   primary_disease: hypochondroplasia
-
-  medical_actions: recombinant growth hormone (rGH) treatment;IGF-1 level monitoring;rGH dosage titration;discontinuous rGH therapy
-
-  symptoms: growth deficit;Trunk/leg disproportion
-
-  chemicals: recombinant growth hormone (rGH);insulin-like growth factor 1 (IGF-1)
-
-  action_annotation_relationships: recombinant growth hormone (rGH) treatment TREATS growth deficit IN hypochondroplasia;IGF-1 level monitoring PREVENTS growth deficit IN hypochondroplasia;rGH dosage titration TREATS growth deficit IN hypochondroplasia;discontinuous rGH therapy TREATS growth deficit IN hypochondroplasia;recombinant growth hormone (rGH) treatment (with rGH) TREATS Trunk/leg disproportion IN hypochondroplasia
+  medical_actions: rGH treatment protocol adjusted on insulin-like growth factor 1 (IGF-1) dosing; rGH dosage titrated to an IGF-1 level close to 1.5 SDS
+  symptoms: reduced growth; body disproportion; trunk/leg disproportion
+  chemicals: recombinant growth hormone (rGH); insulin-like growth factor 1 (IGF-1)
+  action_annotation_relationships: rGH treatment protocol adjusted on insulin-like growth factor 1 (IGF-1) dosing TREATS reduced growth IN hypochondroplasia; rGH treatment protocol adjusted on insulin-like growth factor 1 (IGF-1) dosing TREATS body disproportion IN hypochondroplasia; rGH dosage titrated to an IGF-1 level close to 1.5 SDS TREATS trunk/leg disproportion IN hypochondroplasia
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -40,80 +36,80 @@ prompt: |+
 
 
   Text:
-  recombinant growth hormone (rGH) treatment (with rGH) TREATS Trunk/leg disproportion IN hypochondroplasia
+  rGH dosage titrated to an IGF-1 level close to 1.5 SDS TREATS trunk/leg disproportion IN hypochondroplasia
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0007793
   medical_actions:
-    - recombinant growth hormone (rGH) treatment
-    - IGF-1 level monitoring
-    - rGH dosage titration
-    - discontinuous rGH therapy
+    - rGH treatment protocol adjusted on insulin-like growth factor 1 (IGF-1) dosing
+    - rGH dosage titrated to an IGF-1 level close to 1.5 SDS
   symptoms:
-    - growth deficit
-    - Trunk/leg disproportion
+    - reduced growth
+    - body disproportion
+    - trunk/leg disproportion
   chemicals:
     - recombinant growth hormone (rGH)
     - insulin-like growth factor 1 (IGF-1)
   action_annotation_relationships:
-    - subject: treatment
+    - subject: treatment protocol
       predicate: TREATS
-      object: growth deficit
+      object: reduced growth
       qualifier: MONDO:0007793
-      subject_qualifier: rGH
-      subject_extension: recombinant growth hormone
-    - subject: IGF-1 level monitoring
-      predicate: PREVENTS
-      object: growth deficit
+      subject_qualifier: adjusted on insulin-like growth factor 1 (IGF-1) dosing
+      subject_extension: rGH
+      object_extension: insulin-like growth factor 1 (IGF-1)
+    - subject: rGH treatment protocol adjusted on insulin-like growth factor 1 (IGF-1)
+        dosing
+      predicate: TREATS
+      object: body disproportion
       qualifier: MONDO:0007793
-      subject_extension: IGF-1 level monitoring
     - subject: dosage titration
       predicate: TREATS
-      object: growth deficit
+      object: trunk/leg disproportion
       qualifier: MONDO:0007793
       subject_extension: rGH
-    - subject: discontinuous rGH therapy
-      predicate: TREATS
-      object: growth deficit
-      qualifier: MONDO:0007793
-      subject_qualifier: discontinuous
-      subject_extension: rGH
-    - subject: treatment
-      predicate: TREATS
-      object: Trunk/leg disproportion
-      qualifier: MONDO:0007793
-      subject_qualifier: with rGH
-      subject_extension: recombinant growth hormone (rGH)
 named_entities:
   - id: HP:0031846
     label: Femoral fracture
-  - id: MAXO:0000745
-    label: cytogenetic analysis
   - id: HP:0000256
     label: macrocephaly
   - id: MAXO:0000127
-    label: genetic testing
+    label: Genetic testing
+  - id: MONDO:0007793
+    label: Hypochondroplasia
   - id: HP:0003750
     label: Muscle fatigue
+  - id: MAXO:0000486
+    label: distraction osteogenesis
+  - id: MAXO:0000068
+    label: transplantation
   - id: MONDO:0000050
     label: Growth hormone deficiency
-  - id: MAXO:0000780
-    label: Growth hormone therapy
   - id: CHEBI:37845
     label: Growth hormone
+  - id: MONDO:0001106
+    label: renal insufficiency
+  - id: MONDO:0005030
+    label: intrauterine growth retardation
+  - id: MONDO:0008383
+    label: rheumatoid arthritis
   - id: MAXO:0000526
     label: Clinical examination
   - id: MONDO:0005516
     label: Skeletal dysplasia
   - id: CHEBI:77383
-    label: bisphosphonates
+    label: bisphosphonate
   - id: MAXO:0001298
     label: therapy
   - id: MONDO:0007037
-    label: Achondroplasia
+    label: Skeletal dysplasia (achondroplasia)
+  - id: MONDO:0019019
+    label: Skeletal dysplasia (osteogenesis imperfecta)
+  - id: MONDO:0018570
+    label: Skeletal dysplasia (hypophosphatasia)
+  - id: MAXO:0000780
+    label: growth hormone therapy
   - id: HP:0004322
-    label: Short stature
-  - id: MONDO:0007793
-    label: hypochondroplasia
+    label: short stature

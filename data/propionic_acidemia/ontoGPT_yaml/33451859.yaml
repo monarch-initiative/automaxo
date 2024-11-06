@@ -27,11 +27,11 @@ raw_completion_output: |-
 
   medical_actions: Protein restricted diet; Prescription of additional amino acid mixtures (AAM)
 
-  symptoms: Adverse outcomes; More frequent acute metabolic decompensation (AMD); Mitochondrial complications; Cognitive impairment
+  symptoms: Adverse outcomes; More frequent AMD; Mitochondrial complications; Increased frequency of cognitive impairment
 
   chemicals: Vitamin B12
 
-  action_annotation_relationships: Protein restricted diet TREATS adverse outcomes IN Methylmalonic acidemia (MMA) and propionic acidemia (PA); Prescription of additional amino acid mixtures (AAM) TREATS adverse outcomes IN Methylmalonic acidemia (MMA) and propionic acidemia (PA); Prescription of additional amino acid mixtures (AAM) TREATS more frequent AMD IN propionic acidemia (PA); Prescription of additional amino acid mixtures (AAM) TREATS mitochondrial complications IN Methylmalonic acidemia (MMA) vitamin B12 unresponsive patients; Prescription of additional amino acid mixtures (AAM) TREATS cognitive impairment IN Methylmalonic acidemia (MMA) and propionic acidemia (PA)
+  action_annotation_relationships: Protein restricted diet PREVENTS adverse outcomes IN Methylmalonic acidemia (MMA) and propionic acidemia (PA); Prescription of additional amino acid mixtures (AAM) PREVENTS adverse outcomes IN Methylmalonic acidemia (MMA) and propionic acidemia (PA); Higher natural protein prescription TREATS more frequent AMD IN Propionic acidemia (PA); Higher total protein and AAM protein prescription TREATS mitochondrial complications IN Methylmalonic acidemia (MMA); Vitamin B12 unresponsive condition TREATS mitochondrial complications IN Methylmalonic acidemia (MMA); Higher AAM protein prescription TREATS increased frequency of cognitive impairment IN Methylmalonic acidemia (MMA) and propionic acidemia (PA)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -46,7 +46,7 @@ prompt: |+
 
 
   Text:
-  Prescription of additional amino acid mixtures (AAM) TREATS cognitive impairment IN Methylmalonic acidemia (MMA) and propionic acidemia (PA)
+  Higher AAM protein prescription TREATS increased frequency of cognitive impairment IN Methylmalonic acidemia (MMA) and propionic acidemia (PA)
 
   ===
 
@@ -57,66 +57,69 @@ extracted_object:
     - Prescription of additional amino acid mixtures (AAM)
   symptoms:
     - Adverse outcomes
-    - More frequent acute metabolic decompensation (AMD)
+    - More frequent AMD
     - Mitochondrial complications
-    - HP:0100543
+    - Increased frequency of cognitive impairment
   chemicals:
     - CHEBI:176843
   action_annotation_relationships:
     - subject: <Protein restricted diet>
-      predicate: <TREATS>
+      predicate: <PREVENTS>
       object: <adverse outcomes>
       qualifier: <Methylmalonic acidemia (MMA) and propionic acidemia (PA)>
-      subject_qualifier: <>
-      object_qualifier: <>
       subject_extension: <Protein restricted diet>
-      object_extension: <adverse outcomes>
     - subject: Prescription of additional amino acid mixtures
-      predicate: TREATS
+      predicate: PREVENTS
       object: adverse outcomes
       qualifier: Methylmalonic acidemia, propionic acidemia
       subject_qualifier: additional
       subject_extension: amino acid mixtures
-    - subject: Prescription of additional amino acid mixtures
+    - subject: Higher natural protein prescription
       predicate: TREATS
       object: more frequent AMD
       qualifier: MONDO:0011628
-      subject_qualifier: additional
-      subject_extension: amino acid mixtures
-    - subject: Prescription of additional amino acid mixtures
+      subject_qualifier: Higher
+      subject_extension: natural protein prescription
+    - subject: prescription
       predicate: TREATS
       object: mitochondrial complications
-      qualifier: Methylmalonic acidemia (MMA) vitamin B12 unresponsive
-      subject_qualifier: additional
-      subject_extension: amino acid mixtures
-    - subject: Prescription of additional amino acid mixtures
+      qualifier: MONDO:0002012
+      subject_qualifier: Higher
+      subject_extension: total protein and AAM protein
+    - subject: unresponsive condition
       predicate: TREATS
-      object: HP:0100543
-      qualifier: Methylmalonic acidemia, propionic acidemia
-      subject_qualifier: additional
-      subject_extension: amino acid mixtures
+      object: complications
+      qualifier: MONDO:0002012
+      subject_extension: CHEBI:176843
+      object_extension: mitochondrial
+    - subject: prescription
+      predicate: TREATS
+      object: increased frequency of cognitive impairment
+      qualifier: Methylmalonic acidemia (MMA) and propionic acidemia (PA)
+      subject_qualifier: Higher
+      subject_extension: AAM protein
 named_entities:
   - id: MONDO:0010184
-    label: methylmalonic acidemia (MMA); propionic acidemia; cobalamin C (cblC) deficiency
+    label: Methylmalonic acidemia (MMA); Propionic acidemia; Cobalamin C (cblC) deficiency
   - id: CHEBI:15603
-    label: leucine (Leu)
+    label: Leucine (Leu)
   - id: CHEBI:16414
-    label: valine (Val)
+    label: Valine (Val)
   - id: CHEBI:17191
-    label: isoleucine (Ile)
+    label: Isoleucine (Ile)
   - id: CHEBI:16044
-    label: methionine (Met)
-  - id: MONDO:0002012
-    label: methylmalonic acidemia (MMA)
-  - id: MONDO:0011628
-    label: propionic acidemia
+    label: Methionine (Met)
   - id: CHEBI:25017
     label: leucine
+  - id: MONDO:0002012
+    label: Methylmalonic acidemia
+  - id: HP:0003571
+    label: Propionic acidemia
+  - id: MONDO:0011628
+    label: Propionic acidemia
   - id: MAXO:0001175
-    label: liver transplantation
+    label: Liver transplantation
   - id: HP:0001638
-    label: cardiomyopathy
-  - id: HP:0100543
-    label: Cognitive impairment
+    label: Cardiomyopathy
   - id: CHEBI:176843
     label: Vitamin B12

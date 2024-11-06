@@ -1,0 +1,133 @@
+---
+input_text: "Gender-specific differences in hemodialysis patients: a multicenter longitudinal
+  study from Serbia. PURPOSE: The study was undertaken with the aim to determine gender-specific
+  differences in incident hemodialysis (HD) patient and their changes over time. METHODS:
+  The retrospective longitudinal closed cohort study involved 441 incident patients
+  starting HD in 2014 and followed for 1-59 (median 43, IQR 40) months. Demographic,
+  clinical data, treatment characteristics, laboratory findings and outcome were abstracted
+  from the patients' medical records. RESULTS: The relative number of males on HD
+  was about twice that of females throughout the five years investigated. At the beginning
+  of the study, no significant differences were found in the main demographic and
+  clinical characteristics except that diabetes was more often the underlying disease
+  in men than in women. Systolic blood pressure decreased over time significantly
+  more in females than in males. Throughout the study spKt/V was significantly higher
+  in females than in males, but it increased in patients of both genders. There were
+  no gender differences for comorbidities, vascular access and the majority of laboratory
+  findings except for higher serum levels of creatinine and CRP in men than in women.
+  Relatively more females were treated with erythropoiesis stimulating agents and
+  phosphate binders than males. Age and malignancy were selected as significant predictors
+  of mortality for both genders, and, in addition, polycystic kidney disease, serum
+  level of albumin and CRP for men, but spKt/V for women. CONCLUSION: Some significant
+  gender differences were observed throughout, while others appeared during the study
+  but none of them were due to gender inequalities in the applied treatment."
+raw_completion_output: |-
+  primary_disease: Hemodialysis-related issues
+  medical_actions: Hemodialysis;treatment with erythropoiesis stimulating agents;treatment with phosphate binders
+  symptoms: High systolic blood pressure;Higher serum levels of creatinine;Higher CRP levels
+  chemicals: Erythropoiesis stimulating agents;Phosphate binders
+  action_annotation_relationships: Hemodialysis TREATS Hemodialysis-related issues IN Hemodialysis-related issues;treatment with erythropoiesis stimulating agents TREATS Hemodialysis-related issues IN Hemodialysis-related issues;treatment with phosphate binders TREATS Hemodialysis-related issues IN Hemodialysis-related issues
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  treatment with phosphate binders TREATS Hemodialysis-related issues IN Hemodialysis-related issues
+
+  ===
+
+extracted_object:
+  primary_disease: Hemodialysis-related issues
+  medical_actions:
+    - MAXO:0000602
+    - treatment with erythropoiesis stimulating agents
+    - treatment with phosphate binders
+  symptoms:
+    - High systolic blood pressure
+    - Higher serum levels of creatinine
+    - Higher CRP levels
+  chemicals:
+    - Erythropoiesis stimulating agents
+    - Phosphate binders
+  action_annotation_relationships:
+    - subject: <Hemodialysis>
+      predicate: <TREATS>
+      object: <Hemodialysis-related issues>
+      qualifier: <Hemodialysis-related issues>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: treatment with erythropoiesis stimulating agents
+      predicate: TREATS
+      object: Hemodialysis-related issues
+      qualifier: Hemodialysis-related issues
+      subject_extension: erythropoiesis stimulating agents
+    - subject: treatment
+      predicate: TREATS
+      object: Hemodialysis-related issues
+      qualifier: Hemodialysis-related issues
+      subject_extension: phosphate binders
+named_entities:
+  - id: CHEBI:35341
+    label: Steroids
+  - id: MAXO:0001017
+    label: Vaccination
+  - id: HP:0002089
+    label: Pulmonary hypoplasia
+  - id: HP:0002092
+    label: Pulmonary hypertension
+  - id: MONDO:0100096
+    label: COVID-19
+  - id: MAXO:0000602
+    label: hemodialysis
+  - id: HP:0003774
+    label: end-stage renal failure
+  - id: CHEBI:61049
+    label: tacrolimus
+  - id: CHEBI:8764
+    label: mycophenolate mofetil
+  - id: CHEBI:6888
+    label: methylprednisolone
+  - id: CHEBI:63583
+    label: basiliximab
+  - id: CHEBI:64357
+    label: rituximab
+  - id: HP:0000121
+    label: nephrocalcinosis
+  - id: CHEBI:50858
+    label: corticosteroids
+  - id: CHEBI:68481
+    label: mammalian target of rapamycin inhibitor
+  - id: MONDO:0004375
+    label: End-stage renal disease
+  - id: MAXO:0001065
+    label: Nephrectomy
+  - id: HP:0000010
+    label: Recurrent urinary tract infections
+  - id: MONDO:0004691
+    label: Autosomal Dominant Polycystic Kidney Disease (ADPKD)
+  - id: MAXO:0001001
+    label: gene therapy
+  - id: HP:0000083
+    label: kidney failure
+  - id: MONDO:0005300
+    label: Chronic Kidney Disease (CKD)
+  - id: CHEBI:50218
+    label: phosphodiesterase inhibitors
+  - id: CHEBI:50568
+    label: PDE inhibitors
+  - id: MAXO:0000603
+    label: Peritoneal dialysis
+  - id: HP:0001882
+    label: Leukopenia
+  - id: HP:0004313
+    label: Hypogammaglobulinemia

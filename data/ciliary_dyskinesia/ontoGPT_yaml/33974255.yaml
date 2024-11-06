@@ -1,0 +1,117 @@
+---
+input_text: '[Analysis of a patient with primary ciliary dyskinesia caused by DNAH5
+  variants]. OBJECTIVE: To explore the genetic basis for a patient with primary ciliary
+  dyskinesia (PCD). METHODS: High-throughput sequencing and bioinformatic analysis
+  were carried out to identify pathogenic variant in the patient. Suspected variant
+  was verified by Sanger sequencing among the family members, and intracytoplasmic
+  sperm injection (ICSI) was used to achieve the pregnancy. RESULTS: The patient had
+  obstructive azoospermia, measurement of nasal NO exhalation at 84 ppb, and typical
+  symptoms of PCD in nasal sinuses and lungs. DNA sequencing showed that he had carried
+  biallelic variants of the DNAH5 gene, namely c.1489C>T (p.Q497X) in exon 11 and
+  c.6304C>T (p.R2102C) in exon 38. His wife achieved clinical pregnancy with the assistance
+  of ICSI. CONCLUSION: Above finding has enriched the spectrum of DNAH5 gene variants,
+  though the latters did not affect the outcome of pregnancy by ICSI.'
+raw_completion_output: |-
+  primary_disease: Primary ciliary dyskinesia
+
+  medical_actions: High-throughput sequencing; Bioinformatic analysis; Sanger sequencing; Intracytoplasmic sperm injection
+
+  symptoms: Obstructive azoospermia; Low nasal NO exhalation; Symptoms in nasal sinuses; Symptoms in lungs
+
+  chemicals: DNAH5
+
+  action_annotation_relationships: High-throughput sequencing TREATS obstructive azoospermia IN Primary ciliary dyskinesia; Bioinformatic analysis TREATS low nasal NO exhalation IN Primary ciliary dyskinesia; Sanger sequencing TREATS symptoms in nasal sinuses IN Primary ciliary dyskinesia; Intracytoplasmic sperm injection (with DNAH5) TREATS obstructive azoospermia IN Primary ciliary dyskinesia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Intracytoplasmic sperm injection (with DNAH5) TREATS obstructive azoospermia IN Primary ciliary dyskinesia
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0016575
+  medical_actions:
+    - High-throughput sequencing
+    - Bioinformatic analysis
+    - Sanger sequencing
+    - Intracytoplasmic sperm injection
+  symptoms:
+    - HP:0011962
+    - Low nasal NO exhalation
+    - Symptoms in nasal sinuses
+    - Symptoms in lungs
+  chemicals:
+    - DNAH5
+  action_annotation_relationships:
+    - subject: High-throughput sequencing
+      predicate: TREATS
+      object: HP:0011962
+      qualifier: MONDO:0016575
+    - subject: Bioinformatic analysis
+      predicate: TREATS
+      object: low nasal NO exhalation
+      qualifier: MONDO:0016575
+    - subject: Sanger sequencing
+      predicate: TREATS
+      object: symptoms in nasal sinuses
+      qualifier: MONDO:0016575
+    - subject: Intracytoplasmic sperm injection
+      predicate: TREATS
+      object: HP:0011962
+      qualifier: MONDO:0016575
+      subject_qualifier: with DNAH5
+      subject_extension: DNAH5
+named_entities:
+  - id: MONDO:0016575
+    label: Primary Ciliary Dyskinesia
+  - id: HP:0034315
+    label: Chronic cough
+  - id: HP:0002643
+    label: Neonatal respiratory distress
+  - id: HP:0003251
+    label: male infertility
+  - id: HP:0001696
+    label: situs inversus
+  - id: CHEBI:27958
+    label: Cocaine
+  - id: MONDO:0004247
+    label: Peptic Ulcer Disease (PUD)
+  - id: MAXO:0001193
+    label: upper gastrointestinal endoscopy
+  - id: HP:0002239
+    label: gastrointestinal hemorrhage
+  - id: CHEBI:18361
+    label: proton pump inhibitor (PPI)
+  - id: CHEBI:49200
+    label: proton pump inhibitor
+  - id: MONDO:0008932
+    label: Primary ciliary dyskinesia (PCD)
+  - id: CHEBI:33281
+    label: Antibiotics
+  - id: CHEBI:35523
+    label: Bronchodilators
+  - id: CHEBI:67079
+    label: Anti-inflammatory agents
+  - id: MAXO:0001298
+    label: Therapy
+  - id: HP:0012262
+    label: Abnormal ciliary motility
+  - id: HP:0100750
+    label: atelectasis
+  - id: HP:0002878
+    label: respiratory failure
+  - id: HP:0012265
+    label: Primary Ciliary Dyskinesia
+  - id: HP:0011962
+    label: Obstructive azoospermia

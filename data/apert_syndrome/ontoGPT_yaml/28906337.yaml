@@ -22,11 +22,11 @@ input_text: 'A Three-Dimensional Study of Midfacial Changes Following Le Fort II
   form of advancement demonstrates the ability to selectively improve midfacial height
   and canthal tilt while restoring normal occlusion.'
 raw_completion_output: |-
-  primary_disease: Midfacial anomalies in Syndromic Patients
-  medical_actions: Le Fort II distraction with zygomatic repositioning; Assessment using 3dMD Vultus software; Surgery for segmental midface advancement
-  symptoms: Open bite; Angle class III malocclusion; Abnormal canthal tilt; Altered nasolabial angle; Disproportion in midfacial to lower facial height; Reduced nasal length
+  primary_disease: Syndromic craniofacial abnormalities
+  medical_actions: Le Fort II distraction with zygomatic repositioning; Assessment of canthal tilt, nasolabial angle, ratio of midfacial to lower facial height, and absolute change in nasal length using 3dMD Vultus software; Closure of open bite; Restoration of normal occlusion
+  symptoms: Abnormal canthal tilt; Abnormal nasolabial angle; Abnormal ratio of midfacial to lower facial height; Abnormal nasal length; Anterior open bite; Angle class III malocclusion
   chemicals: 
-  action_annotation_relationships: Le Fort II distraction with zygomatic repositioning TREATS open bite IN Midfacial anomalies in Syndromic Patients; Le Fort II distraction with zygomatic repositioning TREATS Angle class III malocclusion IN Midfacial anomalies in Syndromic Patients; Le Fort II distraction with zygomatic repositioning TREATS abnormal canthal tilt IN Midfacial anomalies in Syndromic Patients; Le Fort II distraction with zygomatic repositioning TREATS altered nasolabial angle IN Midfacial anomalies in Syndromic Patients; Le Fort II distraction with zygomatic repositioning TREATS disproportion in midfacial to lower facial height IN Midfacial anomalies in Syndromic Patients; Le Fort II distraction with zygomatic repositioning TREATS reduced nasal length IN Midfacial anomalies in Syndromic Patients
+  action_annotation_relationships: Le Fort II distraction with zygomatic repositioning TREATS abnormal canthal tilt IN Syndromic craniofacial abnormalities; Le Fort II distraction with zygomatic repositioning TREATS abnormal nasolabial angle IN Syndromic craniofacial abnormalities; Le Fort II distraction with zygomatic repositioning TREATS abnormal ratio of midfacial to lower facial height IN Syndromic craniofacial abnormalities; Le Fort II distraction with zygomatic repositioning TREATS abnormal nasal length IN Syndromic craniofacial abnormalities; Le Fort II distraction with zygomatic repositioning TREATS anterior open bite IN Syndromic craniofacial abnormalities; Le Fort II distraction with zygomatic repositioning TREATS Angle class III malocclusion IN Syndromic craniofacial abnormalities
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -41,90 +41,84 @@ prompt: |+
 
 
   Text:
-  Le Fort II distraction with zygomatic repositioning TREATS reduced nasal length IN Midfacial anomalies in Syndromic Patients
+  Le Fort II distraction with zygomatic repositioning TREATS Angle class III malocclusion IN Syndromic craniofacial abnormalities
 
   ===
 
 extracted_object:
-  primary_disease: Midfacial anomalies in Syndromic Patients
+  primary_disease: Syndromic craniofacial abnormalities
   medical_actions:
     - Le Fort II distraction with zygomatic repositioning
-    - Assessment using 3dMD Vultus software
-    - Surgery for segmental midface advancement
+    - Assessment of canthal tilt, nasolabial angle, ratio of midfacial to lower facial
+      height, and absolute change in nasal length using 3dMD Vultus software
+    - Closure of open bite
+    - Restoration of normal occlusion
   symptoms:
-    - HP:0010807
-    - Angle class III malocclusion
     - Abnormal canthal tilt
-    - Altered nasolabial angle
-    - Disproportion in midfacial to lower facial height
-    - Reduced nasal length
+    - Abnormal nasolabial angle
+    - Abnormal ratio of midfacial to lower facial height
+    - Abnormal nasal length
+    - HP:0009102
+    - Angle class III malocclusion
   action_annotation_relationships:
     - subject: Le Fort II distraction
       predicate: TREATS
-      object: HP:0010807
-      qualifier: Midfacial anomalies in Syndromic Patients
+      object: abnormal canthal tilt
+      qualifier: Syndromic craniofacial abnormalities
       subject_extension: zygomatic repositioning
     - subject: <Le Fort II distraction>
       predicate: <TREATS>
+      object: <abnormal nasolabial angle>
+      qualifier: <Syndromic craniofacial abnormalities>
+      subject_extension: <zygomatic repositioning>
+    - subject: <Le Fort II distraction>
+      predicate: <TREATS>
+      object: <abnormal ratio of midfacial to lower facial height>
+      qualifier: <Syndromic craniofacial abnormalities>
+      subject_extension: <zygomatic repositioning>
+    - subject: Le Fort II distraction with zygomatic repositioning
+      predicate: TREATS
+      object: abnormal nasal length
+      qualifier: Syndromic craniofacial abnormalities
+    - subject: Le Fort II distraction with zygomatic repositioning
+      predicate: TREATS
+      object: HP:0009102
+      qualifier: Syndromic craniofacial abnormalities
+    - subject: <Le Fort II distraction>
+      predicate: <TREATS>
       object: <malocclusion>
-      qualifier: <Midfacial anomalies in Syndromic Patients>
+      qualifier: <Syndromic craniofacial abnormalities>
       subject_qualifier: <>
       object_qualifier: <>
       subject_extension: <zygomatic repositioning>
       object_extension: <Angle class III>
-    - subject: Le Fort II distraction
-      predicate: TREATS
-      object: abnormal canthal tilt
-      qualifier: Midfacial anomalies in Syndromic Patients
-      subject_extension: zygomatic repositioning
-    - subject: <Le Fort II distraction>
-      predicate: <TREATS>
-      object: <nasolabial angle>
-      qualifier: <Midfacial anomalies in Syndromic Patients>
-      subject_qualifier: <>
-      object_qualifier: <>
-      subject_extension: <zygomatic repositioning>
-      object_extension: <altered>
-    - subject: Le Fort II distraction with zygomatic repositioning
-      predicate: TREATS
-      object: disproportion
-      qualifier: Midfacial anomalies in Syndromic Patients
-      subject_extension: Le Fort II distraction with zygomatic repositioning
-      object_extension: midfacial to lower facial height
-    - subject: <Le Fort II distraction>
-      predicate: <TREATS>
-      object: <reduced nasal length>
-      qualifier: <Midfacial anomalies in Syndromic Patients>
-      subject_extension: <zygomatic repositioning>
 named_entities:
-  - id: HP:0011800
-    label: Midface hypoplasia
   - id: MONDO:0007041
     label: Apert syndrome
   - id: MAXO:0000486
-    label: distraction osteogenesis
+    label: Distraction osteogenesis
   - id: HP:0012531
-    label: pain
+    label: Pain
   - id: HP:0001288
-    label: gait disturbances
-  - id: MONDO:0003432
-    label: Strabismus
+    label: Gait disturbances
   - id: HP:0001159
     label: Syndactyly
-  - id: MAXO:0000004
-    label: surgical procedures
   - id: HP:0001363
     label: craniosynostosis
+  - id: HP:0011800
+    label: midface hypoplasia
   - id: MONDO:0015338
     label: syndromic craniosynostosis
   - id: HP:0001061
     label: Acne
   - id: CHEBI:6067
-    label: isotretinoin
+    label: Isotretinoin
   - id: MONDO:0015469
     label: Craniosynostosis
+  - id: HP:0000504
+    label: Vision issues
   - id: HP:0000572
-    label: Vision loss
+    label: Visual loss
   - id: HP:0000646
     label: Amblyopia
   - id: HP:0001138
@@ -135,9 +129,7 @@ named_entities:
     label: Anisometropia
   - id: HP:0000483
     label: Astigmatism
-  - id: MAXO:0000504
-    label: Tracheostomy
   - id: MAXO:0000502
-    label: Tracheal intubation
-  - id: HP:0010807
-    label: Open bite
+    label: tracheal intubation
+  - id: HP:0009102
+    label: Anterior open bite

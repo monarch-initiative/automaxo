@@ -17,13 +17,17 @@ input_text: Living donor liver transplantation for type II citrullinemia from a 
   be performed before irreversible encephalopathy occurs. Use of a graft from heterozygotic
   donors is permissible treatment for CTLN2.
 raw_completion_output: |-
-  primary_disease: Type II Citrullinemia (CTLN2)
-  medical_actions: Venous infusion of BCAA; Oral intake of BCAA; Living-donor liver transplantation (LDLT)
-  symptoms: Hyperammonemia; Abnormal nocturnal behavior; Raised plasma concentrations of ammonia and citrulline
+  primary_disease: Type II citrullinemia (CTLN2)
+
+  medical_actions: Oral intake of branched-chain amino acids (BCAA); Venous infusion of BCAA; Liver biopsy; DNA analysis; Living-donor liver transplantation (LDLT)
+
+  symptoms: Abnormal nocturnal behavior; Hyperammonemia
+
   chemicals: Branched-chain amino acids (BCAA)
-  action_annotation_relationships: Venous infusion of BCAA TREATS Hyperammonemia IN Type II Citrullinemia (CTLN2); Oral intake of BCAA DOES NOT TREAT Hyperammonemia IN Type II Citrullinemia (CTLN2); Living-donor liver transplantation (LDLT) TREATS Hyperammonemia IN Type II Citrullinemia (CTLN2)
+
+  action_annotation_relationships: Oral intake of branched-chain amino acids (BCAA) TREATS Hyperammonemia IN Type II citrullinemia (CTLN2); Venous infusion of BCAA TREATS Hyperammonemia IN Type II citrullinemia (CTLN2); Living-donor liver transplantation (LDLT) TREATS Hyperammonemia IN Type II citrullinemia (CTLN2); DNA analysis CONFIRMS Type II citrullinemia (CTLN2); Liver biopsy DIAGNOSES Type II citrullinemia (CTLN2)
 prompt: |+
-  From the text below, extract the following entities in the following format:
+  Split the following piece of text into fields in the following format:
 
   subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
   object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
@@ -36,41 +40,46 @@ prompt: |+
 
 
   Text:
-  Living-donor liver transplantation (LDLT) TREATS Hyperammonemia IN Type II Citrullinemia (CTLN2)
+  Liver biopsy DIAGNOSES Type II citrullinemia (CTLN2)
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0016603
   medical_actions:
+    - Oral intake of branched-chain amino acids (BCAA)
     - Venous infusion of BCAA
-    - Oral intake of BCAA
+    - MAXO:0000376
+    - DNA analysis
     - Living-donor liver transplantation (LDLT)
   symptoms:
-    - HP:0001987
     - Abnormal nocturnal behavior
-    - Raised plasma concentrations of ammonia and citrulline
+    - HP:0001987
   chemicals:
     - CHEBI:22918
   action_annotation_relationships:
+    - subject: <Oral intake of branched-chain amino acids (BCAA)>
+      predicate: <TREATS>
+      object: <Hyperammonemia>
+      qualifier: MONDO:0016603
+      subject_qualifier: <Oral>
+      subject_extension: <branched-chain amino acids (BCAA)>
     - subject: Venous infusion
       predicate: TREATS
       object: HP:0001987
       qualifier: MONDO:0016603
       subject_extension: BCAA
-    - subject: Oral intake
-      predicate: DOES NOT TREAT
+    - subject: Living-donor liver transplantation
+      predicate: TREATS
       object: HP:0001987
       qualifier: MONDO:0016603
-      subject_extension: BCAA
-    - subject: <Living-donor liver transplantation>
-      predicate: <TREATS>
-      object: <Hyperammonemia>
-      qualifier: <Type II Citrullinemia>
-      subject_qualifier: <none>
-      object_qualifier: <none>
-      subject_extension: <none>
-      object_extension: <none>
+    - subject: DNA analysis
+      predicate: CONFIRMS
+      object: Type II citrullinemia
+      qualifier: MONDO:0016603
+    - subject: MAXO:0000376
+      predicate: DIAGNOSES
+      object: Type II citrullinemia (CTLN2)
 named_entities:
   - id: MONDO:0019052
     label: Inborn errors of metabolism (IEMs)
@@ -79,25 +88,15 @@ named_entities:
   - id: MONDO:0016603
     label: Adult-onset citrullinemia (CTLN2)
   - id: MONDO:0016602
-    label: Citrin deficiency
-  - id: MONDO:0005311
-    label: atherosclerosis
-  - id: CHEBI:18211
-    label: citrulline
-  - id: CHEBI:29016
-    label: arginine
-  - id: CHEBI:16349
-    label: L-citrulline
-  - id: CHEBI:16467
-    label: L-arginine
-  - id: HP:0002621
-    label: atherosclerosis
+    label: citrin deficiency
   - id: MONDO:0008988
     label: Citrullinemia type 1
   - id: MAXO:0000603
     label: Peritoneal dialysis
   - id: MAXO:0000127
     label: Genetic analysis
+  - id: MAXO:0000376
+    label: Liver biopsy
   - id: HP:0001987
     label: Hyperammonemia
   - id: CHEBI:22918

@@ -24,13 +24,13 @@ input_text: 'Liver Transplantation in Children With Propionic Acidemia: Medium-T
 raw_completion_output: |-
   primary_disease: Propionic Acidemia
 
-  medical_actions: Liver Transplantation; Protein restriction; Supportive feeding; Treatment of metabolic decompensations; Treatment of acute cellular rejection; Treatment of metabolic stroke; Treatment of mild cardiomyopathy
+  medical_actions: Liver Transplantation (LT); Protein restriction; Supportive feeding; Transplantation from living donors; Transplantation from deceased donors
 
-  symptoms: Developmental delay; Metabolic decompensations; Acute cellular rejection; Metabolic stroke; Mild cardiomyopathy
+  symptoms: Developmental delay; Metabolic decompensations (MDs); Biliary peritonitis; Acute-on-chronic rejection with multiorgan failure; Posttransplant lymphoproliferative disease; Elevated plasma glycine and propionylcarnitine; Acute cellular rejection; Metabolic stroke; Cardiomyopathy
 
   chemicals: Glycine; Propionylcarnitine
 
-  action_annotation_relationships: Liver Transplantation TREATS Metabolic decompensations IN Propionic Acidemia; Liver Transplantation (with Glycine; Propionylcarnitine) TREATS Developmental delay IN Propionic Acidemia; Protein restriction TREATS Metabolic decompensations IN Propionic Acidemia; Supportive feeding PREVENTS Metabolic decompensations IN Propionic Acidemia; Treatment of acute cellular rejection TREATS Acute cellular rejection IN Propionic Acidemia; Treatment of metabolic stroke TREATS Metabolic stroke IN Propionic Acidemia; Treatment of mild cardiomyopathy TREATS Mild cardiomyopathy IN Propionic Acidemia
+  action_annotation_relationships: Liver Transplantation TREATS Metabolic decompensations IN Propionic Acidemia; Liver Transplantation PREVENTS Developmental delay IN Propionic Acidemia; Liver Transplantation TREATS Elevated plasma glycine and propionylcarnitine IN Propionic Acidemia; Protein restriction TREATS Metabolic decompensations IN Propionic Acidemia; Supportive feeding TREATS Developmental delay IN Propionic Acidemia; Liver Transplantation (with deceased donors) TREATS Metabolic decompensations IN Propionic Acidemia; Liver Transplantation (with living donor) TREATS Metabolic decompensations IN Propionic Acidemia
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -45,7 +45,7 @@ prompt: |+
 
 
   Text:
-  Treatment of mild cardiomyopathy TREATS Mild cardiomyopathy IN Propionic Acidemia
+  Liver Transplantation (with living donor) TREATS Metabolic decompensations IN Propionic Acidemia
 
   ===
 
@@ -55,16 +55,18 @@ extracted_object:
     - MAXO:0001175
     - Protein restriction
     - Supportive feeding
-    - Treatment of metabolic decompensations
-    - Treatment of acute cellular rejection
-    - Treatment of metabolic stroke
-    - Treatment of mild cardiomyopathy
+    - Transplantation from living donors
+    - Transplantation from deceased donors
   symptoms:
     - HP:0001263
-    - Metabolic decompensations
+    - HP:0002863
+    - Biliary peritonitis
+    - Acute-on-chronic rejection with multiorgan failure
+    - Posttransplant lymphoproliferative disease
+    - Elevated plasma glycine and propionylcarnitine
     - Acute cellular rejection
     - Metabolic stroke
-    - Mild cardiomyopathy
+    - HP:0001638
   chemicals:
     - CHEBI:15428
     - CHEBI:28867
@@ -74,72 +76,78 @@ extracted_object:
       object: Metabolic decompensations
       qualifier: MONDO:0011628
     - subject: MAXO:0001175
-      subject_qualifier: with Glycine
-    - predicate: TREATS
+      predicate: PREVENTS
       object: HP:0001263
       qualifier: MONDO:0011628
-      subject_extension: CHEBI:28867
-    - subject: Protein restriction
+    - subject: MAXO:0001175
       predicate: TREATS
-      object: Metabolic decompensations
+      object: Elevated plasma glycine and propionylcarnitine
       qualifier: MONDO:0011628
-      subject_extension: Protein restriction
+    - subject: <Protein restriction>
+      predicate: <TREATS>
+      object: <Metabolic decompensations>
+      qualifier: <Propionic Acidemia>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <Protein>
+      object_extension: <Metabolic decompensations>
     - subject: Supportive feeding
-      predicate: PREVENTS
+      predicate: TREATS
+      object: HP:0001263
+      qualifier: MONDO:0011628
+    - subject: MAXO:0001175
+      predicate: TREATS
       object: Metabolic decompensations
       qualifier: MONDO:0011628
-    - subject: Treatment of acute cellular rejection
+      subject_qualifier: with deceased donors
+    - subject: MAXO:0001175
       predicate: TREATS
-      object: Acute cellular rejection
+      object: Metabolic decompensations
       qualifier: MONDO:0011628
-    - subject: Treatment of metabolic stroke
-      predicate: TREATS
-      object: Metabolic stroke
-      qualifier: MONDO:0011628
-    - subject: Treatment of mild cardiomyopathy
-      predicate: TREATS
-      object: Mild cardiomyopathy
-      qualifier: MONDO:0011628
-      object_qualifier: Mild
+      subject_qualifier: with living donor
 named_entities:
   - id: MONDO:0010184
-    label: methylmalonic acidemia (MMA); propionic acidemia; cobalamin C (cblC) deficiency
+    label: Methylmalonic acidemia (MMA); Propionic acidemia; Cobalamin C (cblC) deficiency
   - id: CHEBI:15603
-    label: leucine (Leu)
+    label: Leucine (Leu)
   - id: CHEBI:16414
-    label: valine (Val)
+    label: Valine (Val)
   - id: CHEBI:17191
-    label: isoleucine (Ile)
+    label: Isoleucine (Ile)
   - id: CHEBI:16044
-    label: methionine (Met)
-  - id: MONDO:0002012
-    label: methylmalonic acidemia (MMA)
-  - id: MONDO:0011628
-    label: propionic acidemia
+    label: Methionine (Met)
   - id: CHEBI:25017
     label: leucine
+  - id: MONDO:0002012
+    label: Methylmalonic acidemia
+  - id: HP:0003571
+    label: Propionic acidemia
+  - id: MONDO:0011628
+    label: Propionic acidemia
   - id: MAXO:0001175
-    label: liver transplantation
+    label: Liver transplantation
   - id: HP:0001638
-    label: cardiomyopathy
-  - id: HP:0100543
-    label: Cognitive impairment
+    label: Cardiomyopathy
   - id: CHEBI:176843
     label: Vitamin B12
   - id: MONDO:0019052
     label: Inborn errors of metabolism (IEMs)
   - id: MAXO:0010039
-    label: organ transplantation
+    label: Organ transplantation
+  - id: MAXO:0001298
+    label: therapy
   - id: HP:0001942
-    label: metabolic acidosis
+    label: Metabolic acidosis
   - id: HP:0001987
-    label: hyperammonemia
-  - id: HP:0003571
-    label: Propionic acidemia
+    label: Hyperammonemia
+  - id: HP:0001733
+    label: Pancreatitis
   - id: HP:0001695
     label: cardiac arrest
   - id: HP:0001263
     label: Developmental delay
+  - id: HP:0002863
+    label: Metabolic decompensations (MDs)
   - id: CHEBI:15428
     label: Glycine
   - id: CHEBI:28867

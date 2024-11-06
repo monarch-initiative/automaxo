@@ -10,9 +10,9 @@ input_text: '[Pathogenetic mechanisms and therapy of a subclinical form of Lesch
 raw_completion_output: |-
   primary_disease: Lesch-Nyhan syndrome
   medical_actions: dietary treatment with limited intake of exogenous purines
-  symptoms: reduction of the inhibitory influence of the caudate nucleus
-  chemicals: 
-  action_annotation_relationships: dietary treatment with limited intake of exogenous purines TREATS reduction of the inhibitory influence of the caudate nucleus IN Lesch-Nyhan syndrome
+  symptoms: reduction of the inhibitory influence of the caudate nucleus; incomplete genetic defect of Hg-PRTase; disorders of other types of metabolism in the area of basal ganglia
+  chemicals: exogenous purines
+  action_annotation_relationships: dietary treatment with limited intake of exogenous purines TREATS reduction of the inhibitory influence of the caudate nucleus IN Lesch-Nyhan syndrome; dietary treatment with limited intake of exogenous purines TREATS incomplete genetic defect of Hg-PRTase IN Lesch-Nyhan syndrome; dietary treatment with limited intake of exogenous purines TREATS disorders of other types of metabolism in the area of basal ganglia IN Lesch-Nyhan syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -27,7 +27,7 @@ prompt: |+
 
 
   Text:
-  dietary treatment with limited intake of exogenous purines TREATS reduction of the inhibitory influence of the caudate nucleus IN Lesch-Nyhan syndrome
+  dietary treatment with limited intake of exogenous purines TREATS disorders of other types of metabolism in the area of basal ganglia IN Lesch-Nyhan syndrome
 
   ===
 
@@ -37,22 +37,41 @@ extracted_object:
     - dietary treatment with limited intake of exogenous purines
   symptoms:
     - reduction of the inhibitory influence of the caudate nucleus
+    - incomplete genetic defect of Hg-PRTase
+    - disorders of other types of metabolism in the area of basal ganglia
+  chemicals:
+    - exogenous purines
   action_annotation_relationships:
-    - subject: dietary treatment with limited intake of exogenous purines
+    - subject: dietary treatment
       predicate: TREATS
       object: reduction of the inhibitory influence of the caudate nucleus
       qualifier: MONDO:0010298
+      subject_extension: limited intake of exogenous purines
+    - subject: dietary treatment
+      predicate: TREATS
+      object: incomplete genetic defect of Hg-PRTase
+      qualifier: MONDO:0010298
+      subject_extension: limited intake of exogenous purines
+    - subject: dietary treatment
+      predicate: TREATS
+      object: disorders of other types of metabolism
+      qualifier: MONDO:0010298
+      subject_qualifier: with limited intake of exogenous purines
+      object_qualifier: in the area of basal ganglia
+      subject_extension: limited intake of exogenous purines
+      object_extension: disorders of other types of metabolism in the area of basal
+        ganglia
 named_entities:
   - id: MONDO:0010298
     label: Lesch-Nyhan syndrome
-  - id: HP:0002149
-    label: hyperuricemia
-  - id: HP:0100021
-    label: spastic cerebral palsy (CP)
-  - id: HP:0001332
-    label: dystonia
   - id: HP:0000742
-    label: self-mutilation
+    label: Self-mutilation
+  - id: HP:0002149
+    label: Hyperuricemia
+  - id: HP:0001249
+    label: Mental retardation
+  - id: HP:0001332
+    label: Dystonia
   - id: HP:0001257
     label: Spasticity
   - id: HP:0001266
@@ -63,19 +82,15 @@ named_entities:
     label: Aggression
   - id: HP:0002104
     label: Apnea
-  - id: HP:0002013
-    label: Vomiting
   - id: CHEBI:44915
     label: Propofol
+  - id: HP:0002835
+    label: pulmonary aspiration
   - id: MAXO:0000943
     label: deep brain stimulation surgery (DBS)
   - id: CHEBI:9130
     label: sevoflurane
-  - id: MAXO:0009003
-    label: preimplantation genetic diagnosis (PGD)
-  - id: HP:0001249
-    label: mental retardation
   - id: CHEBI:17368
     label: Hypoxanthine
   - id: CHEBI:15372
-    label: tetrahydrobiopterin
+    label: Tetrahydrobiopterin

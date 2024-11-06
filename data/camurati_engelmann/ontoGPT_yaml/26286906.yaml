@@ -9,10 +9,10 @@ input_text: 'Bilateral papilloedema in Camurati-Engelmann disease. A 23-year-old
   volume secondary to CED. '
 raw_completion_output: |-
   primary_disease: Camurati-Engelmann disease
-  medical_actions: investigated with neuroimaging; MRI venogram; lumbar puncture; long-term use of acetazolamide
-  symptoms: bilateral papilloedema; raised intracranial pressure; raised serum alkaline phosphatase
-  chemicals: acetazolamide
-  action_annotation_relationships: long-term use of acetazolamide TREATS bilateral papilloedema IN Camurati-Engelmann disease; investigated with neuroimaging PREVENTS misdiagnosis IN Camurati-Engelmann disease; MRI venogram PREVENTS misdiagnosis IN Camurati-Engelmann disease; lumbar puncture PREVENTS misdiagnosis IN Camurati-Engelmann disease
+  medical_actions: Lumbar puncture; Long-term use of acetazolamide
+  symptoms: Bilateral papilloedema; Raised intracranial pressure
+  chemicals: Acetazolamide
+  action_annotation_relationships: Long-term use of acetazolamide TREATS bilateral papilloedema IN Camurati-Engelmann disease; Lumbar puncture DIAGNOSES raised intracranial pressure IN Camurati-Engelmann disease
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -27,47 +27,36 @@ prompt: |+
 
 
   Text:
-  lumbar puncture PREVENTS misdiagnosis IN Camurati-Engelmann disease
+  Lumbar puncture DIAGNOSES raised intracranial pressure IN Camurati-Engelmann disease
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0007542
   medical_actions:
-    - investigated with neuroimaging
-    - MRI venogram
-    - lumbar puncture
-    - long-term use of acetazolamide
+    - Lumbar puncture
+    - Long-term use of acetazolamide
   symptoms:
-    - bilateral papilloedema
+    - Bilateral papilloedema
     - HP:0002516
-    - raised serum alkaline phosphatase
   chemicals:
     - CHEBI:27690
   action_annotation_relationships:
-    - subject: long-term use of acetazolamide
+    - subject: Long-term use of acetazolamide
       predicate: TREATS
       object: bilateral papilloedema
       qualifier: MONDO:0007542
-      subject_qualifier: long-term
+      subject_qualifier: Long-term
       subject_extension: CHEBI:27690
-    - subject: investigated with neuroimaging
-      predicate: PREVENTS
-      object: misdiagnosis
-      qualifier: MONDO:0007542
-    - subject: MRI venogram
-      predicate: PREVENTS
-      object: misdiagnosis
-      qualifier: MONDO:0007542
-    - subject: lumbar puncture
-      predicate: PREVENTS
-      object: misdiagnosis
+    - subject: Lumbar puncture
+      predicate: DIAGNOSES
+      object: HP:0002516
       qualifier: MONDO:0007542
 named_entities:
-  - id: MONDO:0007542
-    label: Camurati-Engelmann disease
+  - id: MONDO:0009032
+    label: Camurati-Engelmann disease (CED)
   - id: HP:0000939
-    label: Osteoporosis
+    label: osteoporosis
   - id: HP:0100512
     label: vitamin D deficiency
   - id: HP:0000823
@@ -86,21 +75,21 @@ named_entities:
     label: vitamin D
   - id: MAXO:0000127
     label: Genetic analysis
-  - id: HP:0000365
-    label: hearing loss
+  - id: MONDO:0007542
+    label: Camurati-Engelmann disease
   - id: HP:0010628
     label: facial nerve palsy
+  - id: HP:0000365
+    label: hearing loss
+  - id: HP:0000407
+    label: sensorineural hearing loss
   - id: HP:0030038
     label: enchondroma
-  - id: MONDO:0009032
-    label: Camurati-Engelmann disease (CED)
   - id: HP:0002516
     label: Increased intracranial pressure
-  - id: MAXO:0001291
-    label: cranioplasties
   - id: CHEBI:7903
     label: Pamidronate
   - id: HP:0100252
-    label: Progressive diaphyseal dysplasia
+    label: Camurati-Engelmann disease
   - id: CHEBI:27690
-    label: acetazolamide
+    label: Acetazolamide

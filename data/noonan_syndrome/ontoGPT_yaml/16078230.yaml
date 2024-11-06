@@ -12,10 +12,14 @@ input_text: Therapy-related acute myeloid leukemia in a child with Noonan syndro
   NS.
 raw_completion_output: |-
   primary_disease: Therapy-related acute myeloid leukemia
-  medical_actions: Intensive chemotherapy
-  symptoms: Stage 4 neuroblastoma; Development of a hyperdiploid clone; Clonal deletion of 7q
+
+  medical_actions: intensive chemotherapy
+
+  symptoms: development of a hyperdiploid clone with duplication of the germline PTPN11 mutation; development of acute myelomonoblastic leukemia with an additional clonal deletion of 7q
+
   chemicals: 
-  action_annotation_relationships: Intensive chemotherapy TREATS Stage 4 neuroblastoma IN Therapy-related acute myeloid leukemia; Chemotherapy PREVENTS Development of a hyperdiploid clone IN Therapy-related acute myeloid leukemia; Chemotherapy PREVENTS Clonal deletion of 7q IN Therapy-related acute myeloid leukemia
+
+  action_annotation_relationships: intensive chemotherapy TREATS stage 4 neuroblastoma IN Noonan syndrome; intensive chemotherapy PREVENTS development of a hyperdiploid clone with duplication of the germline PTPN11 mutation IN Therapy-related acute myeloid leukemia; intensive chemotherapy PREVENTS development of acute myelomonoblastic leukemia with an additional clonal deletion of 7q IN Therapy-related acute myeloid leukemia
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -30,50 +34,69 @@ prompt: |+
 
 
   Text:
-  Chemotherapy PREVENTS Clonal deletion of 7q IN Therapy-related acute myeloid leukemia
+  intensive chemotherapy PREVENTS development of acute myelomonoblastic leukemia with an additional clonal deletion of 7q IN Therapy-related acute myeloid leukemia
 
   ===
 
 extracted_object:
   primary_disease: Therapy-related acute myeloid leukemia
   medical_actions:
-    - Intensive chemotherapy
+    - intensive chemotherapy
   symptoms:
-    - Stage 4 neuroblastoma
-    - Development of a hyperdiploid clone
-    - Clonal deletion of 7q
+    - development of a hyperdiploid clone with duplication of the germline PTPN11
+      mutation
+    - development of acute myelomonoblastic leukemia with an additional clonal deletion
+      of 7q
   action_annotation_relationships:
-    - subject: Intensive chemotherapy
+    - subject: intensive chemotherapy
       predicate: TREATS
-      object: Stage 4 neuroblastoma
-      qualifier: Therapy-related acute myeloid leukemia
-    - subject: MAXO:0000647
-      predicate: PREVENTS
-      object: Development of a hyperdiploid clone
-      qualifier: Therapy-related acute myeloid leukemia
-      subject_extension: Chemotherapy
-    - subject: MAXO:0000647
-      predicate: PREVENTS
-      object: Clonal deletion of 7q
-      qualifier: Therapy-related acute myeloid leukemia
-      subject_extension: Chemotherapy
+      object: HP:0003006
+      qualifier: MONDO:0018997
+      subject_qualifier: intensive
+      object_qualifier: stage 4
+      subject_extension: chemotherapy
+      object_extension: stage 4
+    - subject: <intensive chemotherapy>
+      predicate: <PREVENTS>
+      object: <development of a hyperdiploid clone with duplication of the germline
+        PTPN11 mutation>
+      qualifier: <Therapy-related acute myeloid leukemia>
+      subject_qualifier: <intensive>
+      object_qualifier: <>
+      subject_extension: <chemotherapy>
+      object_extension: <hyperdiploid clone with duplication of the germline PTPN11
+        mutation>
+    - subject: <intensive chemotherapy>
+      predicate: <PREVENTS>
+      object: <development of acute myelomonoblastic leukemia>
+      qualifier: <Therapy-related acute myeloid leukemia>
+      subject_qualifier: <intensive>
+      object_qualifier: <with an additional clonal deletion of 7q>
+      subject_extension: <chemotherapy>
+      object_extension: <with an additional clonal deletion of 7q>
 named_entities:
   - id: CHEBI:33281
-    label: Antibiotics
+    label: antibiotics
   - id: MONDO:0006936
     label: pulmonary valve stenosis
   - id: MAXO:0009072
     label: surgical repair
+  - id: HP:0001642
+    label: pulmonary valve stenosis
   - id: MONDO:0018997
     label: Noonan syndrome
-  - id: MAXO:0010203
-    label: echocardiography
   - id: HP:0004322
     label: short stature
+  - id: CHEBI:37845
+    label: GH
   - id: MONDO:0011908
     label: Juvenile myelomonocytic leukemia (JMML)
   - id: MAXO:0000747
     label: hematopoietic stem cell transplantation (HSCT)
+  - id: HP:0012209
+    label: Juvenile myelomonocytic leukemia (JMML)
+  - id: MAXO:0010203
+    label: echocardiography
   - id: HP:0001663
     label: ventricular fibrillation
   - id: HP:0001639
@@ -83,36 +106,49 @@ named_entities:
   - id: HP:0030828
     label: Wheezing
   - id: CHEBI:90960
-    label: Tiotropium (Tio)
+    label: Tiotropium
+  - id: HP:0002099
+    label: bronchial asthma
   - id: MONDO:0007037
     label: Achondroplasia
-  - id: CHEBI:37845
-    label: Growth hormone (GH)
+  - id: MAXO:0000014
+    label: radiotherapy
+  - id: MAXO:0035118
+    label: Cardiac catheterization
+  - id: HP:0001659
+    label: Aortic regurgitation
+  - id: HP:0001004
+    label: Lymphedema
+  - id: CHEBI:17347
+    label: Testosterone
+  - id: MONDO:0005516
+    label: osteochondrodysplasias
+  - id: MONDO:0008300
+    label: Prader-Willi syndrome
   - id: MONDO:0000050
     label: Growth Hormone Deficiency (GHD)
   - id: HP:0001510
     label: Poor growth
   - id: MONDO:0007414
     label: Gorham disease
-  - id: MAXO:0000014
-    label: Radiation therapy
   - id: HP:0012531
     label: Pain
   - id: HP:0010310
     label: Chylothorax
-  - id: MONDO:0009735
-    label: Tumorigenesis; Noonan syndrome (NS); LEOPARD syndrome (LS); Hematological
-      malignancies; Solid tumors
   - id: MONDO:0007893
     label: Noonan syndrome with multiple lentigines
   - id: HP:0001670
     label: asymmetric septal hypertrophy
-  - id: HP:0001631
-    label: atrial septal defect
+  - id: MONDO:0011035
+    label: Neurofibromatosis-Noonan syndrome
+  - id: HP:0000001
+    label: acute lymphoblastic leukemia (ALL)
   - id: HP:0000818
-    label: Endocrinopathies
+    label: endocrinopathies
   - id: HP:0000789
-    label: Infertility
+    label: infertility
+  - id: MONDO:0019499
+    label: Turner syndrome
   - id: MONDO:0006769
     label: Gastroparesis
   - id: MAXO:0000079
@@ -121,13 +157,17 @@ named_entities:
     label: Bloating
   - id: CHEBI:31515
     label: Domperidone
+  - id: HP:0002018
+    label: nausea
   - id: MAXO:0010032
     label: heart transplantation
+  - id: HP:0001635
+    label: heart failure
   - id: HP:0031318
     label: myofiber disarray
   - id: CHEBI:68478
     label: everolimus
   - id: MAXO:0001298
     label: therapy
-  - id: MAXO:0000647
-    label: Chemotherapy
+  - id: HP:0003006
+    label: neuroblastoma

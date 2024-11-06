@@ -1,0 +1,88 @@
+---
+input_text: Pharmacokinetics and safety after once and twice a day doses of meclizine
+  hydrochloride administered to children with achondroplasia. Achondroplasia (ACH)
+  is the most common short-limbed skeletal dysplasia caused by activating mutations
+  in the fibroblast growth factor receptor 3 (FGFR3) gene. We identified that meclizine
+  hydrochloride inhibited FGFR3 signaling in various chondrocytic cells and promoted
+  longitudinal bone growth in mouse model of ACH. Meclizine has safely been used for
+  more than 50 years, but it lacks the safety data for repeated administration and
+  pharmacokinetics (PK) when administered to children. We performed a phase Ia study
+  to evaluate the PK and safety of meclizine administered orally to ACH children.
+  Twelve ACH children aged from 5 to younger than 11 years were recruited, and the
+  first 6 subjects received once a day of meclizine in the fasted condition, subsequent
+  6 subjects received twice a day of meclizine in the fed condition. Meclizine was
+  well tolerated in ACH children with no serious adverse events. The mean Cmax, Tmax,
+  AUC0-24h, t1/2 during 24 hours in the fasted condition were 130 ng/mL, 1.7 hours,
+  761 ng h/mL, and 8.5 hours respectively. The simulation of repeated administration
+  of meclizine for 14 days demonstrated that plasma concentration apparently reached
+  steady state around 10 days after the first dose both at once a day and twice a
+  day administration. The AUC0-10h of the fasting and fed condition were 504 ng h/mL
+  and 813 ng h/mL, respectively, indicating exposure of meclizine increased with the
+  diet. Although higher drug exposure was confirmed in ACH children compared to adults,
+  a single administration of meclizine seemed to be well tolerated.
+raw_completion_output: |-
+  primary_disease: Achondroplasia
+  medical_actions: Pharmacokinetics study; Safety evaluation; Oral administration of meclizine; Simulation of repeated administration
+  symptoms: Short-limbed skeletal dysplasia
+  chemicals: Meclizine hydrochloride
+  action_annotation_relationships: Oral administration of meclizine TREATS short-limbed skeletal dysplasia IN Achondroplasia; Pharmacokinetics study (with Meclizine hydrochloride) PREVENTS unknown symptoms IN Achondroplasia; Safety evaluation (with Meclizine hydrochloride) PREVENTS unknown symptoms IN Achondroplasia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Safety evaluation (with Meclizine hydrochloride) PREVENTS unknown symptoms IN Achondroplasia
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0007037
+  medical_actions:
+    - Pharmacokinetics study
+    - Safety evaluation
+    - Oral administration of meclizine
+    - Simulation of repeated administration
+  symptoms:
+    - Short-limbed skeletal dysplasia
+  chemicals:
+    - CHEBI:31805
+  action_annotation_relationships:
+    - subject: MAXO:0001394
+      predicate: TREATS
+      object: short-limbed skeletal dysplasia
+      qualifier: MONDO:0007037
+      subject_extension: CHEBI:6709
+    - subject: Pharmacokinetics study
+      predicate: PREVENTS
+      object: unknown symptoms
+      qualifier: MONDO:0007037
+      subject_qualifier: with
+      subject_extension: CHEBI:31805
+    - subject: Safety evaluation
+      predicate: PREVENTS
+      object: unknown symptoms
+      qualifier: MONDO:0007037
+      subject_qualifier: with Meclizine hydrochloride
+      subject_extension: CHEBI:31805
+named_entities:
+  - id: MONDO:0007037
+    label: Achondroplasia
+  - id: HP:0001513
+    label: Obesity
+  - id: HP:0005667
+    label: os odontoideum
+  - id: CHEBI:31805
+    label: Meclizine hydrochloride
+  - id: CHEBI:6709
+    label: meclizine
+  - id: MAXO:0001394
+    label: Oral administration

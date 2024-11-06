@@ -24,10 +24,10 @@ input_text: The success of dietary protein restriction in alkaptonuria patients 
   practical.
 raw_completion_output: |-
   primary_disease: Alkaptonuria
-  medical_actions: Dietary protein restriction; Prescribed a diet with a protein content of 1.5 g/kg per day; Fixing the amounts of protein in the diet at 1 g/kg per day and 3.5-5 g/kg per day
-  symptoms: Increased urinary excretion of homogentisic acid; Pigmentation of cartilage and connective tissues; Development of inflammatory arthropathy; Behavioural problems
+  medical_actions: Dietary protein restriction; Diet with a protein content of 1.5 g/kg per day; Fixing amounts of protein in the diet
+  symptoms: Increased urinary excretion of homogentisic acid; Pigmentation of cartilage and connective tissues; Development of inflammatory arthropathy; Poor dietary compliance
   chemicals: Homogentisic acid
-  action_annotation_relationships: Dietary protein restriction TREATS increased urinary excretion of homogentisic acid IN Alkaptonuria; Dietary protein restriction PREVENTS pigmentation of cartilage and connective tissues IN Alkaptonuria; Dietary protein restriction PREVENTS development of inflammatory arthropathy IN Alkaptonuria
+  action_annotation_relationships: Dietary protein restriction TREATS increased urinary excretion of homogentisic acid IN Alkaptonuria; Diet with a protein content of 1.5 g/kg per day PREVENTS pigmentation of cartilage and connective tissues IN Alkaptonuria; Fixing amounts of protein in the diet PREVENTS development of inflammatory arthropathy IN Alkaptonuria
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -42,7 +42,7 @@ prompt: |+
 
 
   Text:
-  Dietary protein restriction PREVENTS development of inflammatory arthropathy IN Alkaptonuria
+  Fixing amounts of protein in the diet PREVENTS development of inflammatory arthropathy IN Alkaptonuria
 
   ===
 
@@ -50,14 +50,13 @@ extracted_object:
   primary_disease: MONDO:0008753
   medical_actions:
     - Dietary protein restriction
-    - Prescribed a diet with a protein content of 1.5 g/kg per day
-    - Fixing the amounts of protein in the diet at 1 g/kg per day and 3.5-5 g/kg per
-      day
+    - Diet with a protein content of 1.5 g/kg per day
+    - Fixing amounts of protein in the diet
   symptoms:
     - Increased urinary excretion of homogentisic acid
     - Pigmentation of cartilage and connective tissues
     - Development of inflammatory arthropathy
-    - HP:0000708
+    - Poor dietary compliance
   chemicals:
     - CHEBI:44747
   action_annotation_relationships:
@@ -65,47 +64,31 @@ extracted_object:
       predicate: TREATS
       object: increased urinary excretion of homogentisic acid
       qualifier: MONDO:0008753
-    - subject: <Dietary protein restriction>
-      predicate: <PREVENTS>
-      object: <pigmentation of cartilage and connective tissues>
-      qualifier: <Alkaptonuria>
-      subject_qualifier: <Dietary>
-      subject_extension: <protein restriction>
-    - subject: Dietary protein restriction
+    - subject: MAXO:0000088
+      predicate: PREVENTS
+      object: pigmentation of cartilage and connective tissues
+      qualifier: MONDO:0008753
+      subject_qualifier: with a protein content of 1.5 g/kg per day
+    - subject: Fixing amounts of protein in the diet
       predicate: PREVENTS
       object: development of inflammatory arthropathy
       qualifier: MONDO:0008753
+      subject_extension: CHEBI:36080
 named_entities:
   - id: MAXO:0001175
-    label: Liver transplantation
-  - id: HP:0030764
-    label: Ochronosis
+    label: liver transplantation
   - id: CHEBI:44747
-    label: Homogentisic acid
+    label: homogentisic acid
   - id: MONDO:0008753
     label: alkaptonuria
-  - id: HP:0002758
-    label: osteoarthritis
+  - id: MONDO:0009861
+    label: phenylketonuria
+  - id: MONDO:0010163
+    label: tyrosinosis
+  - id: HP:0030764
+    label: ochronosis
   - id: CHEBI:50378
     label: nitisinone
-  - id: CHEBI:18186
-    label: tyrosine
-  - id: CHEBI:28044
-    label: Phenylalanine
-  - id: CHEBI:18243
-    label: Dopamine
-  - id: CHEBI:1582
-    label: 3-methoxytyramine
-  - id: CHEBI:33569
-    label: Noradrenaline
-  - id: CHEBI:27897
-    label: Tryptophan
-  - id: CHEBI:28790
-    label: Serotonin
-  - id: CHEBI:29987
-    label: Glutamate
-  - id: CHEBI:15760
-    label: Tyramine
   - id: MONDO:0023094
     label: Exogenous ochronosis
   - id: MAXO:0000423
@@ -118,6 +101,10 @@ named_entities:
     label: Hydroquinone
   - id: MAXO:0001046
     label: discectomy
+  - id: MAXO:0000088
+    label: diet
+  - id: HP:0002758
+    label: osteoarthritis
   - id: MAXO:0000502
     label: Endotracheal intubation
   - id: HP:0000822
@@ -130,21 +117,21 @@ named_entities:
     label: Congestive heart failure
   - id: HP:0100598
     label: Pulmonary edema
-  - id: CHEBI:35498
-    label: Diuretics
   - id: CHEBI:28787
     label: Nitroglycerin
   - id: CHEBI:4670
     label: Dobutamine
+  - id: CHEBI:18243
+    label: Dopamine
   - id: CHEBI:32139
     label: Sodium bicarbonate
+  - id: CHEBI:35498
+    label: Diuretics
   - id: MAXO:0000757
     label: infusion
   - id: HP:0001650
     label: aortic stenosis
-  - id: HP:0001649
-    label: tachycardia
   - id: HP:0001942
     label: metabolic acidosis
-  - id: HP:0000708
-    label: Behavioural problems
+  - id: CHEBI:36080
+    label: protein

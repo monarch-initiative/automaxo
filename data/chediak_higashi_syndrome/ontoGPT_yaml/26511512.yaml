@@ -10,14 +10,10 @@ input_text: 'Allogeneic hematopoietic stem cell transplantation for Chediak-Higa
   AP disease. '
 raw_completion_output: |-
   primary_disease: Chediak-Higashi syndrome
-
-  medical_actions: allogeneic hematopoietic stem cell transplantation (HSCT); engraftment; myeloablative conditioning (MAC); reduced-intensity conditioning (RIC)
-
-  symptoms: active AP disease
-
+  medical_actions: Allogeneic hematopoietic stem cell transplantation; Myeloablative conditioning (MAC); Reduced intensity conditioning (RIC); Engraftment
+  symptoms: Active AP disease
   chemicals: 
-
-  action_annotation_relationships: allogeneic hematopoietic stem cell transplantation (HSCT) TREATS Chediak-Higashi syndrome; engraftment TREATS Chediak-Higashi syndrome; myeloablative conditioning (MAC) TREATS Chediak-Higashi syndrome; reduced-intensity conditioning (RIC) TREATS Chediak-Higashi syndrome; reduced-intensity conditioning (RIC) PREVENTS active AP disease IN Chediak-Higashi syndrome
+  action_annotation_relationships: Allogeneic hematopoietic stem cell transplantation TREATS Chediak-Higashi syndrome; Myeloablative conditioning (MAC) TREATS Chediak-Higashi syndrome; Reduced intensity conditioning (RIC) TREATS Chediak-Higashi syndrome; Engraftment TREATS Chediak-Higashi syndrome; Reduced intensity conditioning (RIC) TREATS Active AP disease IN Chediak-Higashi syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -32,72 +28,79 @@ prompt: |+
 
 
   Text:
-  reduced-intensity conditioning (RIC) PREVENTS active AP disease IN Chediak-Higashi syndrome
+  Reduced intensity conditioning (RIC) TREATS Active AP disease IN Chediak-Higashi syndrome
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0008963
   medical_actions:
-    - MAXO:0000747
-    - engraftment
-    - myeloablative conditioning (MAC)
-    - reduced-intensity conditioning (RIC)
+    - MAXO:0001479
+    - Myeloablative conditioning (MAC)
+    - Reduced intensity conditioning (RIC)
+    - Engraftment
   symptoms:
-    - active AP disease
+    - Active AP disease
   action_annotation_relationships:
-    - subject: <allogeneic hematopoietic stem cell transplantation>
+    - subject: <Allogeneic hematopoietic stem cell transplantation>
       predicate: <TREATS>
       object: <Chediak-Higashi syndrome>
-      qualifier: <>
-      subject_qualifier: <>
-      object_qualifier: <>
-      subject_extension: <allogeneic hematopoietic stem cell transplantation>
-      object_extension: <>
-    - subject: engraftment
+      qualifier: <None>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: Myeloablative conditioning (MAC)
       predicate: TREATS
       object: Chediak-Higashi syndrome
-    - subject: myeloablative conditioning (MAC)
+    - subject: <Reduced intensity conditioning>
+      predicate: <TREATS>
+      object: <Chediak-Higashi syndrome>
+      qualifier: None
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <RIC>
+      object_extension: None
+    - subject: Engraftment
       predicate: TREATS
       object: Chediak-Higashi syndrome
-    - subject: reduced-intensity conditioning (RIC)
+    - subject: Reduced intensity conditioning (RIC)
       predicate: TREATS
-      object: Chediak-Higashi syndrome
-    - subject: <reduced-intensity conditioning>
-      predicate: <PREVENTS>
-      object: <AP disease>
-      qualifier: <Chediak-Higashi syndrome>
-      subject_qualifier: <>
-      object_qualifier: <>
-      subject_extension: <reduced-intensity conditioning>
-      object_extension: <active>
+      object: Active AP disease
+      qualifier: MONDO:0008963
+      subject_extension: Reduced intensity conditioning
+      object_extension: Active AP disease
 named_entities:
+  - id: HP:0012531
+    label: pain
   - id: MAXO:0010030
-    label: Bone marrow transplantation (BMT)
+    label: bone marrow transplantation (BMT)
   - id: MONDO:0008963
     label: Chediak-Higashi syndrome
   - id: MAXO:0010033
-    label: Unrelated cord blood transplantation (UCBT)
+    label: unrelated cord blood transplantation (UCBT)
   - id: MAXO:0000747
     label: HSCT
   - id: MAXO:0000750
-    label: Conditioning regimens
+    label: conditioning regimens
   - id: CHEBI:41264
     label: BU
   - id: CHEBI:4027
-    label: Cyclophosphamide
+    label: cyclophosphamide
   - id: CHEBI:4911
-    label: Etoposide
+    label: etoposide
+  - id: MONDO:0008090
+    label: Chediak-Higashi syndrome (CHS)
   - id: HP:0001433
-    label: hepatosplenomegaly
+    label: Hepatosplenomegaly
   - id: HP:0003270
-    label: abdominal distention
+    label: Abdominal distention
   - id: MONDO:0024686
     label: Pigmented villonodular synovitis (PVNS)
   - id: HP:0001945
-    label: fever
+    label: Fever
   - id: MONDO:0003778
-    label: primary immunodeficiency
+    label: primary immunodeficiencies
   - id: HP:0025322
     label: veno-occlusive disease
   - id: CHEBI:28901
@@ -106,8 +109,10 @@ named_entities:
     label: cyclosporine
   - id: CHEBI:44185
     label: methotrexate
-  - id: MONDO:0008090
-    label: Chediak-Higashi Syndrome (CHS)
+  - id: HP:0100806
+    label: sepsis
+  - id: CHEBI:28790
+    label: Serotonin
   - id: HP:0002718
     label: recurrent bacterial infections
   - id: HP:0000613
@@ -131,46 +136,32 @@ named_entities:
   - id: HP:0001022
     label: albinism
   - id: HP:0001892
-    label: Bleeding tendency
+    label: bleeding tendency
   - id: HP:0000992
-    label: Photosensitivity
+    label: photosensitivity
   - id: MONDO:0000922
     label: Primary immunodeficiency diseases (PIDs)
-  - id: HP:0100806
-    label: Septicemia
-  - id: CHEBI:17660
-    label: induced pluripotent stem (iPS) cell line
+  - id: HP:0040289
+    label: Chediak-Higashi syndrome (CHS)
   - id: MAXO:0000016
     label: Cellular therapies
-  - id: HP:0004808
-    label: acute myelogenous leukemia
   - id: HP:0006721
     label: acute lymphoblastic leukemia
-  - id: HP:0005506
-    label: chronic myelogenous leukemia
-  - id: HP:0002863
-    label: myelodysplasia
-  - id: HP:0004818
-    label: paroxysmal nocturnal hemoglobinuria
-  - id: HP:0012539
-    label: non-Hodgkin's lymphoma
-  - id: HP:0011002
-    label: osteopetrosis
-  - id: MAXO:0000068
-    label: transplantation
-  - id: HP:0005523
-    label: lymphoproliferative disorder
   - id: MAXO:0000647
-    label: Chemotherapy
+    label: chemotherapy
   - id: MAXO:0000950
-    label: Supportive care
-  - id: CHEBI:33281
-    label: Antibiotics
+    label: supportive care
+  - id: MAXO:0000149
+    label: allogeneic hematopoietic cell transplantation (HCT)
   - id: HP:0002719
     label: recurrent infections
+  - id: HP:0005592
+    label: giant melanosomes in melanocytes
   - id: HP:0001903
     label: anaemia
   - id: HP:0001873
     label: thrombocytopenia
   - id: MAXO:0000004
     label: surgery
+  - id: MAXO:0001479
+    label: Allogeneic hematopoietic stem cell transplantation

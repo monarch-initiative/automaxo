@@ -18,11 +18,15 @@ input_text: 'Pediatric liver transplantation in Iran: evaluation of the first 50
   in our area led to liberal use of living related and split liver techniques. The
   overall results of the pediatric LT in Iran are encouraging.'
 raw_completion_output: |-
-  primary_disease: end-stage liver disease
-  medical_actions: liver transplantation; management of acute cellular rejection; management of infections; management of chronic rejection
-  symptoms: acute cellular rejection; infections; chronic rejection
+  primary_disease: End-stage liver disease
+
+  medical_actions: Liver transplantation (LT); Use of grafts from living related and deceased donors (DD); Monitoring for pretransplantation status; Management of medical and surgical complications; Monitoring of survival rate
+
+  symptoms: Acute cellular rejection; Infections; Chronic rejection
+
   chemicals: 
-  action_annotation_relationships: liver transplantation TREATS end-stage liver disease; management of acute cellular rejection TREATS acute cellular rejection IN end-stage liver disease; management of infections TREATS infections IN end-stage liver disease; management of chronic rejection TREATS chronic rejection IN end-stage liver disease
+
+  action_annotation_relationships: Liver transplantation (LT) TREATS End-stage liver disease IN End-stage liver disease; Monitoring for pretransplantation status TREATS End-stage liver disease IN End-stage liver disease; Management of medical and surgical complications TREATS Acute cellular rejection IN End-stage liver disease; Management of medical and surgical complications TREATS Infections IN End-stage liver disease; Management of medical and surgical complications TREATS Chronic rejection IN End-stage liver disease; Monitoring of survival rate TREATS End-stage liver disease IN End-stage liver disease
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -37,7 +41,7 @@ prompt: |+
 
 
   Text:
-  management of chronic rejection TREATS chronic rejection IN end-stage liver disease
+  Monitoring of survival rate TREATS End-stage liver disease IN End-stage liver disease
 
   ===
 
@@ -45,41 +49,54 @@ extracted_object:
   primary_disease: MONDO:0100193
   medical_actions:
     - MAXO:0001175
-    - management of acute cellular rejection
-    - management of infections
-    - management of chronic rejection
+    - Use of grafts from living related and deceased donors (DD)
+    - Monitoring for pretransplantation status
+    - Management of medical and surgical complications
+    - Monitoring of survival rate
   symptoms:
-    - acute cellular rejection
-    - infections
-    - chronic rejection
+    - Acute cellular rejection
+    - Infections
+    - Chronic rejection
   action_annotation_relationships:
     - subject: MAXO:0001175
       predicate: TREATS
       object: HP:0100626
-    - subject: <management of acute cellular rejection>
-      predicate: <TREATS>
-      object: <acute cellular rejection>
-      qualifier: <end-stage liver disease>
-      subject_qualifier: <Not applicable>
-      object_qualifier: <Not applicable>
-      subject_extension: <Not applicable>
-      object_extension: <Not applicable>
-    - subject: management of infections
-      predicate: TREATS
-      object: infections
       qualifier: MONDO:0100193
-    - subject: management of chronic rejection
+    - subject: Monitoring for pretransplantation status
       predicate: TREATS
-      object: chronic rejection
+      object: HP:0100626
+      qualifier: MONDO:0100193
+    - subject: Management of medical and surgical complications
+      predicate: TREATS
+      object: Acute cellular rejection
+      qualifier: MONDO:0100193
+    - subject: Management of medical and surgical complications
+      predicate: TREATS
+      object: Infections
+      qualifier: MONDO:0100193
+    - subject: Management of medical and surgical complications
+      predicate: TREATS
+      object: Chronic rejection
+      qualifier: MONDO:0100193
+    - subject: Monitoring of survival rate
+      predicate: TREATS
+      object: HP:0100626
       qualifier: MONDO:0100193
 named_entities:
   - id: MONDO:0010200
-    label: Wilson disease
+    label: Wilson's disease
   - id: MAXO:0001175
-    label: liver transplantation
-  - id: MAXO:0000004
-    label: surgery (laparotomy, rectal mobilization, rectopexy, the partial sigmoid
-      colon resection with the primary anastomosis)
+    label: Liver transplantation
+  - id: HP:0001695
+    label: Cardiac arrest
+  - id: HP:0001685
+    label: Myocardial fibrosis
+  - id: HP:0001663
+    label: Ventricular fibrillation
+  - id: CHEBI:28694
+    label: Copper
+  - id: CHEBI:18248
+    label: Iron
   - id: HP:0002910
     label: abnormal liver functions
   - id: HP:0001394
@@ -88,55 +105,55 @@ named_entities:
     label: zinc
   - id: CHEBI:50868
     label: penicillamine
-  - id: CHEBI:51232
-    label: Hoechst 33342
+  - id: MAXO:0000016
+    label: Cell therapy
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: CHEBI:30703
+    label: Tetrathiomolybdate (TTM)
   - id: HP:0006554
     label: acute liver failure
-  - id: MAXO:0000068
-    label: transplantation
+  - id: CHEBI:35176
+    label: Zinc sulphate
+  - id: CHEBI:35475
+    label: NSAIDs
   - id: MAXO:0009095
-    label: Zinc therapy
-  - id: HP:0002344
-    label: Neurologic deterioration
+    label: zinc therapy
   - id: MAXO:0001298
     label: therapy
-  - id: HP:0001392
-    label: liver disease
   - id: HP:0006579
     label: neonatal jaundice
-  - id: HP:0002612
-    label: congenital hepatic fibrosis
   - id: HP:0001409
     label: portal hypertension
   - id: HP:0030151
     label: cholangitis
+  - id: HP:0002612
+    label: congenital hepatic fibrosis
   - id: MONDO:0013282
     label: alpha-1-antitrypsin deficiency
-  - id: MONDO:0009061
-    label: cystic fibrosis
-  - id: MONDO:0009044
-    label: Crigler-Najjar syndrome
-  - id: MAXO:0000376
-    label: liver biopsy
-  - id: MAXO:0000127
-    label: genetic testing
   - id: HP:0001903
     label: anemia
   - id: HP:0001410
     label: liver dysfunction
   - id: CHEBI:39501
     label: trientine
-  - id: CHEBI:28694
-    label: copper
+  - id: MAXO:0000070
+    label: Hepatic transplantation
   - id: HP:0001399
-    label: hepatic failure
+    label: Hepatic failure
   - id: HP:0004448
     label: fulminant hepatic failure
+  - id: HP:0003256
+    label: coagulopathy (international normalized ratio >2.0)
+  - id: HP:0004445
+    label: hepatic encephalopathy (HE)
+  - id: HP:0002480
+    label: hepatic encephalopathy
   - id: CHEBI:35341
     label: Steroids
   - id: CHEBI:33281
     label: Antibiotics
   - id: MONDO:0100193
-    label: end-stage liver disease
+    label: End-stage liver disease
   - id: HP:0100626
-    label: end-stage liver disease
+    label: End-stage liver disease

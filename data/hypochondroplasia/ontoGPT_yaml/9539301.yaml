@@ -18,11 +18,11 @@ input_text: 'Effect of growth hormone therapy in children with achondroplasia: g
   We conclude that GH might be beneficial in the treatment of short stature in children
   with achondroplasia in the first 2 years of treatment.'
 raw_completion_output: |-
-  primary_disease: Achondroplasia
-  medical_actions: Growth hormone therapy;Evaluation of hypothalamic-pituitary function;Point mutation analysis
-  symptoms: Short stature
-  chemicals: Growth hormone
-  action_annotation_relationships: Growth hormone therapy TREATS short stature IN Achondroplasia;Evaluation of hypothalamic-pituitary function TREATS short stature IN Achondroplasia (indirectly by assessing cause);Point mutation analysis TREATS short stature IN Achondroplasia (as part of diagnosis process)
+  primary_disease: achondroplasia
+  medical_actions: growth hormone therapy; evaluation of hypothalamic-pituitary function; point mutation analysis
+  symptoms: short stature; body disproportion
+  chemicals: growth hormone
+  action_annotation_relationships: growth hormone therapy TREATS short stature IN achondroplasia; evaluation of hypothalamic-pituitary function PREVENTS complications IN achondroplasia; point mutation analysis PREVENTS complications IN achondroplasia
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -37,7 +37,7 @@ prompt: |+
 
 
   Text:
-  Point mutation analysis TREATS short stature IN Achondroplasia (as part of diagnosis process)
+  point mutation analysis PREVENTS complications IN achondroplasia
 
   ===
 
@@ -45,10 +45,11 @@ extracted_object:
   primary_disease: MONDO:0007037
   medical_actions:
     - MAXO:0000780
-    - Evaluation of hypothalamic-pituitary function
-    - Point mutation analysis
+    - evaluation of hypothalamic-pituitary function
+    - point mutation analysis
   symptoms:
     - HP:0004322
+    - body disproportion
   chemicals:
     - CHEBI:37845
   action_annotation_relationships:
@@ -57,42 +58,58 @@ extracted_object:
       object: HP:0004322
       qualifier: MONDO:0007037
       subject_extension: CHEBI:37845
-    - subject: Evaluation of hypothalamic-pituitary function
-      predicate: TREATS
-      object: HP:0004322
+    - subject: evaluation of hypothalamic-pituitary function
+      predicate: PREVENTS
+      object: complications
       qualifier: MONDO:0007037
-      object_qualifier: indirectly by assessing cause
-    - subject: Point mutation analysis
-      predicate: TREATS
-      object: HP:0004322
-      qualifier: MONDO:0007037
-      subject_qualifier: part of diagnosis process
+    - subject: <point mutation analysis>
+      predicate: <PREVENTS>
+      object: <complications>
+      qualifier: <achondroplasia>
+      subject_qualifier: <null>
+      object_qualifier: <null>
+      subject_extension: <null>
+      object_extension: <null>
 named_entities:
   - id: HP:0031846
     label: Femoral fracture
-  - id: MAXO:0000745
-    label: cytogenetic analysis
   - id: HP:0000256
     label: macrocephaly
   - id: MAXO:0000127
-    label: genetic testing
+    label: Genetic testing
+  - id: MONDO:0007793
+    label: Hypochondroplasia
   - id: HP:0003750
     label: Muscle fatigue
+  - id: MAXO:0000486
+    label: distraction osteogenesis
+  - id: MAXO:0000068
+    label: transplantation
   - id: MONDO:0000050
     label: Growth hormone deficiency
-  - id: MAXO:0000780
-    label: Growth hormone therapy
   - id: CHEBI:37845
     label: Growth hormone
+  - id: MONDO:0001106
+    label: renal insufficiency
+  - id: MONDO:0005030
+    label: intrauterine growth retardation
+  - id: MONDO:0008383
+    label: rheumatoid arthritis
   - id: MAXO:0000526
     label: Clinical examination
   - id: MONDO:0005516
     label: Skeletal dysplasia
   - id: CHEBI:77383
-    label: bisphosphonates
+    label: bisphosphonate
   - id: MAXO:0001298
     label: therapy
   - id: MONDO:0007037
-    label: Achondroplasia
+    label: Skeletal dysplasia (achondroplasia)
+  - id: MONDO:0019019
+    label: Skeletal dysplasia (osteogenesis imperfecta)
+  - id: MONDO:0018570
+    label: Skeletal dysplasia (hypophosphatasia)
+  - id: MAXO:0000780
+    label: growth hormone therapy
   - id: HP:0004322
-    label: Short stature
+    label: short stature

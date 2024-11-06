@@ -21,10 +21,10 @@ input_text: 'Surgical and Endovascular Treatments of Extracranial Carotid Artery
   with ECAAs.'
 raw_completion_output: |-
   primary_disease: Extracranial Carotid Artery Aneurysms (ECAAs)
-  medical_actions: Surgical resection; End-to-end anastomosis; Proximal internal carotid artery (ICA) ligation; High-flow external carotid artery-to-middle cerebral artery bypass; Radial artery graft; Endovascular treatment; Covered stent placement; Bare metal stent placement; Coil embolization; Superficial temporal artery-to-middle cerebral artery anastomosis
+  medical_actions: Surgical resection; End-to-end anastomosis of the internal carotid artery; Proximal internal carotid artery ligation combined with high-flow external carotid artery-to-middle cerebral artery bypass using a radial artery graft; Endovascular treatment using a covered stent; Bare metal stent combined with coil embolization; Proximal internal carotid artery ligation followed by superficial temporal artery-to-middle cerebral artery anastomosis
   symptoms: Stroke; Cranial nerve dysfunction
   chemicals: 
-  action_annotation_relationships: Surgical resection TREATS Extracranial Carotid Artery Aneurysms; End-to-end anastomosis TREATS Extracranial Carotid Artery Aneurysms; Proximal internal carotid artery (ICA) ligation TREATS Extracranial Carotid Artery Aneurysms; High-flow external carotid artery-to-middle cerebral artery bypass TREATS Extracranial Carotid Artery Aneurysms; Radial artery graft TREATS Extracranial Carotid Artery Aneurysms; Endovascular treatment TREATS Extracranial Carotid Artery Aneurysms; Covered stent placement TREATS Extracranial Carotid Artery Aneurysms; Bare metal stent placement TREATS Extracranial Carotid Artery Aneurysms; Coil embolization TREATS Extracranial Carotid Artery Aneurysms; Superficial temporal artery-to-middle cerebral artery anastomosis TREATS Extracranial Carotid Artery Aneurysms
+  action_annotation_relationships: Surgical resection TREATS Extracranial Carotid Artery Aneurysms IN Extracranial Carotid Artery Aneurysms; End-to-end anastomosis of the internal carotid artery TREATS Extracranial Carotid Artery Aneurysms IN Extracranial Carotid Artery Aneurysms; Proximal internal carotid artery ligation combined with high-flow external carotid artery-to-middle cerebral artery bypass TREATS Extracranial Carotid Artery Aneurysms IN Extracranial Carotid Artery Aneurysms; Endovascular treatment using a covered stent TREATS Extracranial Carotid Artery Aneurysms IN Extracranial Carotid Artery Aneurysms; Bare metal stent combined with coil embolization TREATS Extracranial Carotid Artery Aneurysms IN Extracranial Carotid Artery Aneurysms; Proximal internal carotid artery ligation followed by superficial temporal artery-to-middle cerebral artery anastomosis TREATS Extracranial Carotid Artery Aneurysms IN Extracranial Carotid Artery Aneurysms
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -39,7 +39,7 @@ prompt: |+
 
 
   Text:
-  Superficial temporal artery-to-middle cerebral artery anastomosis TREATS Extracranial Carotid Artery Aneurysms
+  Proximal internal carotid artery ligation followed by superficial temporal artery-to-middle cerebral artery anastomosis TREATS Extracranial Carotid Artery Aneurysms IN Extracranial Carotid Artery Aneurysms
 
   ===
 
@@ -47,54 +47,77 @@ extracted_object:
   primary_disease: MONDO:0044632
   medical_actions:
     - MAXO:0000448
-    - End-to-end anastomosis
-    - Proximal internal carotid artery (ICA) ligation
-    - High-flow external carotid artery-to-middle cerebral artery bypass
-    - Radial artery graft
-    - Endovascular treatment
-    - Covered stent placement
-    - Bare metal stent placement
-    - Coil embolization
-    - Superficial temporal artery-to-middle cerebral artery anastomosis
+    - End-to-end anastomosis of the internal carotid artery
+    - Proximal internal carotid artery ligation combined with high-flow external carotid
+      artery-to-middle cerebral artery bypass using a radial artery graft
+    - Endovascular treatment using a covered stent
+    - Bare metal stent combined with coil embolization
+    - Proximal internal carotid artery ligation followed by superficial temporal artery-to-middle
+      cerebral artery anastomosis
   symptoms:
     - HP:0001297
     - Cranial nerve dysfunction
   action_annotation_relationships:
     - subject: MAXO:0000448
       predicate: TREATS
-      object: Extracranial Carotid Artery Aneurysms
-    - subject: End-to-end anastomosis
+      object: HP:0012163
+      qualifier: MONDO:0044632
+    - subject: End-to-end anastomosis of the internal carotid artery
       predicate: TREATS
-      object: Extracranial Carotid Artery Aneurysms
-    - subject: Proximal internal carotid artery (ICA) ligation
+      object: HP:0012163
+      qualifier: MONDO:0044632
+    - subject: <Proximal internal carotid artery ligation combined with high-flow
+        external carotid artery-to-middle cerebral artery bypass>
+      predicate: <TREATS>
+      object: <Extracranial Carotid Artery Aneurysms>
+      qualifier: <Extracranial Carotid Artery Aneurysms>
+      subject_qualifier: <Not applicable>
+      object_qualifier: <Not applicable>
+      subject_extension: <Not applicable>
+      object_extension: <Not applicable>
+    - subject: <Endovascular treatment>
+      predicate: <TREATS>
+      object: <Extracranial Carotid Artery Aneurysms>
+      qualifier: <Extracranial Carotid Artery Aneurysms>
+      subject_qualifier: <using a covered stent>
+      object_qualifier: <>
+      subject_extension: <covered stent>
+      object_extension: <>
+    - subject: Bare metal stent combined with coil embolization
       predicate: TREATS
-      object: Extracranial Carotid Artery Aneurysms
-    - subject: High-flow external carotid artery-to-middle cerebral artery bypass
+      object: HP:0012163
+      qualifier: MONDO:0044632
+    - subject: Proximal internal carotid artery ligation followed by superficial temporal
+        artery-to-middle cerebral artery anastomosis
       predicate: TREATS
-      object: Extracranial Carotid Artery Aneurysms
-    - subject: Radial artery graft
-      predicate: TREATS
-      object: Extracranial Carotid Artery Aneurysms
-    - subject: Endovascular treatment
-      predicate: TREATS
-      object: Extracranial Carotid Artery Aneurysms
-    - subject: Covered stent placement
-      predicate: TREATS
-      object: Extracranial Carotid Artery Aneurysms
-    - subject: Bare metal stent placement
-      predicate: TREATS
-      object: Extracranial Carotid Artery Aneurysms
-    - subject: Coil embolization
-      predicate: TREATS
-      object: Extracranial Carotick Artery Aneurysms
-    - subject: Superficial temporal artery-to-middle cerebral artery anastomosis
-      predicate: TREATS
-      object: Extracranial Carotid Artery Aneurysms
+      object: HP:0012163
+      qualifier: MONDO:0044632
+      subject_extension: superficial temporal artery-to-middle cerebral artery anastomosis
 named_entities:
   - id: MONDO:0007947
-    label: Marfan syndrome
-  - id: HP:0032079
-    label: Medial degeneration
+    label: Marfan Syndrome
+  - id: HP:0000768
+    label: Pectus carinatum
+  - id: HP:0002650
+    label: Scoliosis
+  - id: HP:0002108
+    label: Spontaneous pneumothorax
+  - id: HP:0003423
+    label: Thoracolumbar kyphoscoliosis
+  - id: CHEBI:33281
+    label: Antibiotic
+  - id: HP:0002107
+    label: pneumothorax
+  - id: MAXO:0010203
+    label: Echocardiography
+  - id: MAXO:0000494
+    label: Blood pressure monitoring
+  - id: HP:0004942
+    label: Aortic dilatation
+  - id: CHEBI:5959
+    label: Irbesartan
+  - id: HP:0004950
+    label: Peripheral artery disease
   - id: HP:0002617
     label: aneurysm
   - id: HP:0030965
@@ -105,6 +128,14 @@ named_entities:
     label: left ventricular hypertrophy
   - id: HP:0005162
     label: left ventricular failure
+  - id: HP:0000822
+    label: high blood pressure
+  - id: CHEBI:6541
+    label: Losartan
+  - id: CHEBI:35530
+    label: beta-blocker
+  - id: MAXO:0001298
+    label: therapy
   - id: MONDO:0020333
     label: Anterior sacral meningocele (ASM)
   - id: HP:0002315
@@ -113,21 +144,37 @@ named_entities:
     label: nausea
   - id: HP:0002138
     label: subarachnoid hemorrhage
+  - id: HP:0031625
+    label: Pseudoaneurysms
+  - id: MAXO:0000451
+    label: Implantation
+  - id: MAXO:0000457
+    label: pain management
   - id: HP:0012531
-    label: Pain
+    label: pain
   - id: HP:0012378
-    label: Fatigue
+    label: fatigue
   - id: HP:0012332
-    label: Dysautonomia
+    label: dysautonomia
   - id: HP:0002659
-    label: Bone fragility
+    label: bone fragility
   - id: HP:0025017
-    label: Capillary fragility
+    label: capillary fragility
   - id: HP:0001030
-    label: Skin fragility
+    label: skin fragility
+  - id: MAXO:0000571
+    label: CT
+  - id: HP:0034267
+    label: Pelvic pain
+  - id: HP:0000139
+    label: Genital prolapse
+  - id: HP:0100518
+    label: Dysuria
   - id: MONDO:0044632
     label: Extracranial Carotid Artery Aneurysms (ECAAs)
   - id: MAXO:0000448
     label: Surgical resection
   - id: HP:0001297
     label: Stroke
+  - id: HP:0012163
+    label: Extracranial Carotid Artery Aneurysms

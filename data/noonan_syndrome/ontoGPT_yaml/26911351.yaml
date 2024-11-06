@@ -10,14 +10,10 @@ input_text: 'Adults with germline CBL mutation complicated with juvenile myelomo
   prognosis in later life after remission of JMML. '
 raw_completion_output: |-
   primary_disease: Juvenile myelomonocytic leukemia (JMML)
-
   medical_actions: hematopoietic stem cell transplantation (HSCT)
-
-  symptoms: high relapse rate
-
+  symptoms: life-threatening disease; poor prognosis; high relapse rate
   chemicals: 
-
-  action_annotation_relationships: hematopoietic stem cell transplantation (HSCT) TREATS high relapse rate IN Juvenile myelomonocytic leukemia (JMML)
+  action_annotation_relationships: hematopoietic stem cell transplantation (HSCT) TREATS Juvenile myelomonocytic leukemia (JMML) IN Juvenile myelomonocytic leukemia (JMML)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -32,7 +28,7 @@ prompt: |+
 
 
   Text:
-  hematopoietic stem cell transplantation (HSCT) TREATS high relapse rate IN Juvenile myelomonocytic leukemia (JMML)
+  hematopoietic stem cell transplantation (HSCT) TREATS Juvenile myelomonocytic leukemia (JMML) IN Juvenile myelomonocytic leukemia (JMML)
 
   ===
 
@@ -41,26 +37,34 @@ extracted_object:
   medical_actions:
     - MAXO:0000747
   symptoms:
+    - life-threatening disease
+    - poor prognosis
     - high relapse rate
   action_annotation_relationships:
     - subject: MAXO:0000747
       predicate: TREATS
-      object: high relapse rate
+      object: HP:0012209
       qualifier: MONDO:0011908
+      subject_extension: hematopoietic stem cell transplantation (HSCT)
+      object_extension: Juvenile myelomonocytic leukemia (JMML)
 named_entities:
   - id: CHEBI:33281
-    label: Antibiotics
+    label: antibiotics
   - id: MONDO:0006936
     label: pulmonary valve stenosis
   - id: MAXO:0009072
     label: surgical repair
+  - id: HP:0001642
+    label: pulmonary valve stenosis
   - id: MONDO:0018997
     label: Noonan syndrome
-  - id: MAXO:0010203
-    label: echocardiography
   - id: HP:0004322
     label: short stature
+  - id: CHEBI:37845
+    label: GH
   - id: MONDO:0011908
     label: Juvenile myelomonocytic leukemia (JMML)
   - id: MAXO:0000747
     label: hematopoietic stem cell transplantation (HSCT)
+  - id: HP:0012209
+    label: Juvenile myelomonocytic leukemia (JMML)

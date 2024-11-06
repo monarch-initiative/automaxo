@@ -22,15 +22,17 @@ input_text: 'Evaluation of the ESPGHAN Celiac Guidelines in a North American Ped
   To apply the new ESPGHAN guidelines, clinicians must understand the performance
   of their celiac serology tests.'
 raw_completion_output: |-
-  primary_disease: Celiac Disease
+  primary_disease: Celiac Disease (CD)
 
-  medical_actions: tissue transglutaminase (TTG) testing; endomysial antibody (EMA) testing; intestinal biopsy; human leukocyte antigen (HLA) DQ2/DQ8 testing
+  medical_actions: Evaluation of tissue transglutaminase (TTG) tests;Evaluation of endomysial antibody (EMA) tests;Use of ESPGHAN nonbiopsy criteria;Performing intestinal biopsies;Assessment of human leukocyte antigen (HLA) DQ2/DQ8
 
-  symptoms: symptoms consistent with celiac disease
+  symptoms: Symptoms of celiac disease (not explicitly detailed)
 
   chemicals: 
 
-  action_annotation_relationships: tissue transglutaminase (TTG) testing TREATS symptoms consistent with celiac disease IN Celiac Disease; endomysial antibody (EMA) testing TREATS symptoms consistent with celiac disease IN Celiac Disease; intestinal biopsy TREATS symptoms consistent with celiac disease IN Celiac Disease; human leukocyte antigen (HLA) DQ2/DQ8 testing TREATS symptoms consistent with celiac disease IN Celiac Disease
+  action_annotation_relationships: Evaluation of tissue transglutaminase (TTG) tests TREATS Symptoms of celiac disease IN Celiac Disease (CD);Evaluation of endomysial antibody (EMA) tests TREATS Symptoms of celiac disease IN Celiac Disease (CD);Use of ESPGHAN nonbiopsy criteria TREATS Symptoms of celiac disease IN Celiac Disease (CD);Performing intestinal biopsies TREATS Symptoms of celiac disease IN Celiac Disease (CD);Assessment of human leukocyte antigen (HLA) DQ2/DQ8 TREATS Symptoms of celiac disease IN Celiac Disease (CD)
+
+  Note: The text primarily focuses on the evaluation of diagnostic criteria and methods for Celiac Disease, rather than detailing specific treatments or symptoms. It discusses the sensitivity and predictive value of TTG and EMA tests in diagnosing Celiac Disease and evaluates the ESPGHAN guidelines' applicability in a pediatric population.
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -45,122 +47,164 @@ prompt: |+
 
 
   Text:
-  human leukocyte antigen (HLA) DQ2/DQ8 testing TREATS symptoms consistent with celiac disease IN Celiac Disease
+  Assessment of human leukocyte antigen (HLA) DQ2/DQ8 TREATS Symptoms of celiac disease IN Celiac Disease (CD)
 
   ===
 
 extracted_object:
-  primary_disease: MONDO:0005130
+  primary_disease: MONDO:0016063
   medical_actions:
-    - tissue transglutaminase (TTG) testing
-    - endomysial antibody (EMA) testing
-    - intestinal biopsy
-    - human leukocyte antigen (HLA) DQ2/DQ8 testing
+    - Evaluation of tissue transglutaminase (TTG) tests
+    - Evaluation of endomysial antibody (EMA) tests
+    - Use of ESPGHAN nonbiopsy criteria
+    - Performing intestinal biopsies
+    - Assessment of human leukocyte antigen (HLA) DQ2/DQ8
   symptoms:
-    - symptoms consistent with celiac disease
+    - Symptoms of celiac disease (not explicitly detailed)
   action_annotation_relationships:
-    - subject: <testing>
+    - subject: <Evaluation of tissue transglutaminase (TTG) tests>
       predicate: <TREATS>
-      object: <symptoms consistent with celiac disease>
-      qualifier: <Celiac Disease>
-      subject_extension: <tissue transglutaminase (TTG)>
-    - subject: <EMA testing>
+      object: <Symptoms of celiac disease>
+      qualifier: MONDO:0016063
+      subject_extension: <tissue transglutaminase (TTG) tests>
+    - subject: <Evaluation of endomysial antibody (EMA) tests>
       predicate: <TREATS>
-      object: <symptoms consistent with celiac disease>
-      qualifier: <Celiac Disease>
-      subject_extension: <endomysial antibody (EMA)>
-    - subject: intestinal biopsy
+      object: <Symptoms of celiac disease>
+      qualifier: MONDO:0016063
+      subject_extension: <endomysial antibody (EMA) tests>
+    - subject: Use
       predicate: TREATS
-      object: symptoms consistent with celiac disease
-      qualifier: MONDO:0005130
-    - subject: <HLA DQ2/DQ8 testing>
-      predicate: <TREATS>
-      object: <symptoms consistent with celiac disease>
-      qualifier: <Celiac Disease>
-      subject_extension: <HLA DQ2/DQ8 testing>
+      object: Symptoms of celiac disease
+      qualifier: MONDO:0016063
+      subject_extension: ESPGHAN nonbiopsy criteria
+    - subject: Intestinal biopsies
+      predicate: TREATS
+      object: Symptoms of celiac disease
+      qualifier: MONDO:0016063
+    - subject: Assessment of human leukocyte antigen (HLA) DQ2/DQ8
+      predicate: TREATS
+      object: Symptoms of celiac disease
+      qualifier: MONDO:0016063
+      subject_extension: human leukocyte antigen (HLA) DQ2/DQ8
 named_entities:
+  - id: MONDO:0044092
+    label: Collagenous sprue
+  - id: HP:0002014
+    label: diarrhea
+  - id: CHEBI:50858
+    label: corticosteroids
+  - id: HP:0004395
+    label: malnutrition
   - id: MONDO:0005130
     label: Celiac disease
-  - id: CHEBI:81580
-    label: Prolactin
   - id: HP:0000870
     label: Hyperprolactinemia
+  - id: CHEBI:81580
+    label: Prolactin (PRL)
   - id: HP:0000938
     label: Bone loss
   - id: CHEBI:22984
     label: Calcium
   - id: CHEBI:27300
     label: Vitamin D
+  - id: HP:0001369
+    label: Arthritis
+  - id: HP:0002608
+    label: Celiac Disease
   - id: MONDO:0019473
     label: Enteropathy-associated T-cell lymphoma (EATL)
+  - id: HP:0002242
+    label: enteropathy
+  - id: HP:0012378
+    label: fatigue
+  - id: HP:0002039
+    label: anorexia
+  - id: HP:0000823
+    label: delayed puberty
+  - id: HP:0004322
+    label: short stature
+  - id: HP:0000789
+    label: infertility
+  - id: MONDO:0016063
+    label: Celiac Disease (CD)
+  - id: MAXO:0000058
+    label: pharmacological treatment
   - id: HP:0002027
     label: abdominal pain
   - id: HP:0003270
     label: bloating
-  - id: HP:0002014
-    label: diarrhea
   - id: HP:0001903
     label: anemia
+  - id: MAXO:0000088
+    label: diet
   - id: MONDO:0005298
     label: Osteoporosis
-  - id: MONDO:0016063
-    label: Celiac Disease (CD)
-  - id: HP:0012538
-    label: Gluten sensitivity
+  - id: MAXO:0000259
+    label: insulin treatment
+  - id: HP:0033712
+    label: recurrent implantation failure (RIF)
+  - id: CHEBI:145810
+    label: insulin
+  - id: CHEBI:6801
+    label: metformin
+  - id: HP:0012531
+    label: Pain
+  - id: HP:0000716
+    label: Depression
+  - id: HP:0011107
+    label: Aphthous stomatitis
+  - id: MONDO:0013626
+    label: Acrodermatitis continua of Hallopeau
+  - id: HP:0002024
+    label: Malabsorption
+  - id: HP:0012050
+    label: Anasarca
+  - id: HP:0003111
+    label: Electrolyte disorders
   - id: CHEBI:60027
-    label: polymers
+    label: Polymers
+  - id: HP:0001510
+    label: poor growth
+  - id: CHEBI:77383
+    label: Bisphosphonates
   - id: HP:0002019
     label: Constipation
   - id: HP:0001919
     label: Acute kidney failure
   - id: HP:0000126
     label: Hydronephrosis
-  - id: HP:0500093
-    label: food allergies
-  - id: CHEBI:16737
-    label: Creatinine
-  - id: MAXO:0000355
-    label: duodenum biopsy
   - id: HP:0002013
     label: vomiting
   - id: HP:0001508
     label: failure to thrive
-  - id: HP:0002240
-    label: hepatomegaly
-  - id: HP:0001744
-    label: splenomegaly
-  - id: HP:0000872
-    label: autoimmune thyroiditis
-  - id: HP:0100651
-    label: type 1 diabetes mellitus
-  - id: HP:0002099
-    label: bronchial asthma
-  - id: HP:0002232
-    label: alopecia areata
-  - id: HP:0005764
-    label: polyarthritis
+  - id: HP:0000988
+    label: rash
+  - id: HP:0001083
+    label: Intraepithelial lymphocytes (IELs) count
+  - id: HP:0004313
+    label: Immunoglobulin deficiencies
   - id: MONDO:0004699
     label: Primary gastrointestinal lymphoma
-  - id: CHEBI:190522
-    label: Gliadins
-  - id: HP:0002608
-    label: Celiac disease
-  - id: MAXO:0001321
-    label: scintigraphy
+  - id: MONDO:0009032
+    label: Coeliac Disease (CeD)
+  - id: HP:0000739
+    label: Anxiety
   - id: HP:0001824
-    label: weight loss
+    label: Weight loss
   - id: HP:0033842
-    label: early satiety
+    label: Early satiety
   - id: CHEBI:6888
-    label: methylprednisolone
+    label: Methylprednisolone
   - id: MAXO:0000448
-    label: Surgical resection
+    label: surgical resection
   - id: MAXO:0000015
-    label: Biologic therapies
+    label: biologic therapies
   - id: HP:0001945
-    label: Fever
+    label: fever
   - id: HP:0030166
-    label: Night sweating
+    label: night sweating
+  - id: MONDO:0005147
+    label: type 1 diabetes mellitus
   - id: MAXO:0000004
     label: surgery
   - id: CHEBI:48120
@@ -183,7 +227,19 @@ named_entities:
     label: prednisone
   - id: MAXO:0000647
     label: chemotherapy
-  - id: HP:0001047
-    label: atopic dermatitis
   - id: MONDO:0017278
     label: Autoimmune polyglandular syndrome
+  - id: HP:0000821
+    label: Hypothyroidism
+  - id: HP:0000822
+    label: Hypertension
+  - id: HP:0003119
+    label: Dyslipidemia
+  - id: HP:0009830
+    label: Neuropathy
+  - id: HP:0001626
+    label: Cardiovascular diseases
+  - id: MONDO:0013209
+    label: nonalcoholic fatty liver disease
+  - id: HP:0001397
+    label: hepatic steatosis

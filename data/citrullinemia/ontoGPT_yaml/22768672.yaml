@@ -13,10 +13,14 @@ input_text: Successful prospective management of neonatal citrullinemia. Classic
   sequelae.
 raw_completion_output: |-
   primary_disease: Citrullinemia
-  medical_actions: Intravenous benzoate; Hemodialysis; Monitoring of plasma ammonia and citrulline levels
+
+  medical_actions: Intravenous benzoate; Hemodialysis; Monitoring plasma ammonia levels; Monitoring citrulline levels
+
   symptoms: Hyperammonemic coma; Neurological sequelae
+
   chemicals: Benzoate
-  action_annotation_relationships: Intravenous benzoate TREATS hyperammonemic coma IN Citrullinemia; Hemodialysis TREATS hyperammonemic coma IN Citrullinemia; Monitoring of plasma ammonia and citrulline levels PREVENTS hyperammonemic coma IN Citrullinemia
+
+  action_annotation_relationships: Intravenous benzoate TREATS hyperammonemic coma IN Citrullinemia; Hemodialysis TREATS hyperammonemic coma IN Citrullinemia; Monitoring plasma ammonia levels PREVENTS hyperammonemic coma IN Citrullinemia; Monitoring citrulline levels PREVENTS hyperammonemic coma IN Citrullinemia
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -31,7 +35,7 @@ prompt: |+
 
 
   Text:
-  Monitoring of plasma ammonia and citrulline levels PREVENTS hyperammonemic coma IN Citrullinemia
+  Monitoring citrulline levels PREVENTS hyperammonemic coma IN Citrullinemia
 
   ===
 
@@ -40,7 +44,8 @@ extracted_object:
   medical_actions:
     - Intravenous benzoate
     - MAXO:0000602
-    - Monitoring of plasma ammonia and citrulline levels
+    - Monitoring plasma ammonia levels
+    - Monitoring citrulline levels
   symptoms:
     - Hyperammonemic coma
     - Neurological sequelae
@@ -51,12 +56,21 @@ extracted_object:
       predicate: TREATS
       object: hyperammonemic coma
       qualifier: MONDO:0015991
+      subject_qualifier: Intravenous
       subject_extension: CHEBI:16150
     - subject: MAXO:0000602
       predicate: TREATS
       object: hyperammonemic coma
       qualifier: MONDO:0015991
-    - subject: Monitoring of plasma ammonia and citrulline levels
+    - subject: <Monitoring plasma ammonia levels>
+      predicate: <PREVENTS>
+      object: <hyperammonemic coma>
+      qualifier: <Citrullinemia>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: Monitoring citrulline levels
       predicate: PREVENTS
       object: hyperammonemic coma
       qualifier: MONDO:0015991
@@ -68,25 +82,15 @@ named_entities:
   - id: MONDO:0016603
     label: Adult-onset citrullinemia (CTLN2)
   - id: MONDO:0016602
-    label: Citrin deficiency
-  - id: MONDO:0005311
-    label: atherosclerosis
-  - id: CHEBI:18211
-    label: citrulline
-  - id: CHEBI:29016
-    label: arginine
-  - id: CHEBI:16349
-    label: L-citrulline
-  - id: CHEBI:16467
-    label: L-arginine
-  - id: HP:0002621
-    label: atherosclerosis
+    label: citrin deficiency
   - id: MONDO:0008988
     label: Citrullinemia type 1
   - id: MAXO:0000603
     label: Peritoneal dialysis
   - id: MAXO:0000127
     label: Genetic analysis
+  - id: MAXO:0000376
+    label: Liver biopsy
   - id: HP:0001987
     label: Hyperammonemia
   - id: CHEBI:22918

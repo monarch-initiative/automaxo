@@ -2,34 +2,41 @@
 input_text: 'Meniere-like syndrome in Camurati-Engelmann disease. '
 raw_completion_output: |-
   primary_disease: Camurati-Engelmann disease
-  medical_actions: 
+  medical_actions: Not specified
   symptoms: Meniere-like syndrome
-  chemicals: 
-  action_annotation_relationships: 
+  chemicals: Not specified
+  action_annotation_relationships: Not applicable
 prompt: |+
   Split the following piece of text into fields in the following format:
 
-  primary_disease: <The main disease the text is about, or its central disease topic. This is often the disease mentioned in an article's title or in its first few sentences.>
-  medical_actions: <Semicolon-separated list of medical actions, where each is a clinically prescribed procedure, therapy, intervention, or recommendation.>
-  symptoms: <Semicolon-separated list of signs or symptoms.>
-  chemicals: <Semicolon-separated list of chemicals or drugs>
-  action_annotation_relationships: <Semicolon-separated list of relationships between a disease, the mentioned signs and symptoms associated with that disease, the medical actions relating to each symptom, and the type of relationship between each action and symptom (usually TREATS or PREVENTS). The disease name must be included in the relationship, for example, "treatment TREATS symptom IN disease". If the medical action includes a specific chemical or drug, include the chemical or drug name in the relationship, for example, "treatment (with chemical) TREATS symptom IN disease".>
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
 
 
   Text:
-  Meniere-like syndrome in Camurati-Engelmann disease. 
+  Not applicable
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0007542
+  medical_actions:
+    - Not specified
   symptoms:
     - Meniere-like syndrome
+  chemicals:
+    - Not specified
 named_entities:
-  - id: MONDO:0007542
-    label: Camurati-Engelmann disease
+  - id: MONDO:0009032
+    label: Camurati-Engelmann disease (CED)
   - id: HP:0000939
-    label: Osteoporosis
+    label: osteoporosis
   - id: HP:0100512
     label: vitamin D deficiency
   - id: HP:0000823
@@ -48,34 +55,32 @@ named_entities:
     label: vitamin D
   - id: MAXO:0000127
     label: Genetic analysis
-  - id: HP:0000365
-    label: hearing loss
+  - id: MONDO:0007542
+    label: Camurati-Engelmann disease
   - id: HP:0010628
     label: facial nerve palsy
+  - id: HP:0000365
+    label: hearing loss
+  - id: HP:0000407
+    label: sensorineural hearing loss
   - id: HP:0030038
     label: enchondroma
-  - id: MONDO:0009032
-    label: Camurati-Engelmann disease (CED)
   - id: HP:0002516
     label: Increased intracranial pressure
-  - id: MAXO:0001291
-    label: cranioplasties
   - id: CHEBI:7903
     label: Pamidronate
   - id: HP:0100252
-    label: Progressive diaphyseal dysplasia
+    label: Camurati-Engelmann disease
   - id: CHEBI:27690
-    label: acetazolamide
+    label: Acetazolamide
   - id: HP:0002653
-    label: Bone pain
+    label: bone pain
   - id: CHEBI:50858
-    label: corticosteroid
+    label: corticosteroids
   - id: MAXO:0001298
     label: therapy
-  - id: HP:0020110
-    label: Fractures
-  - id: CHEBI:2567
-    label: Alendronate
+  - id: HP:0012531
+    label: Pain
   - id: CHEBI:6541
     label: losartan
   - id: CHEBI:77383

@@ -15,10 +15,14 @@ input_text: "Genetic conditions of short stature: A review of three classic exam
   and appropriate care plans for the pediatric to adult health care transition."
 raw_completion_output: |-
   primary_disease: Noonan, Turner, and Prader-Willi syndromes
-  medical_actions: Diagnosis of genetic conditions; Treatment of cardiovascular issues; Treatment of endocrinopathies; Treatment of infertility; Communication among health care team members; Transition from pediatric to adult health care systems
-  symptoms: Short stature; Cardiovascular issues; Endocrinopathies; Infertility
+
+  medical_actions: diagnosis; treatment; transition from pediatric to adult health care systems
+
+  symptoms: short stature; cardiovascular issues; endocrinopathies; infertility
+
   chemicals: 
-  action_annotation_relationships: Diagnosis of genetic conditions TREATS Short stature IN Noonan, Turner, and Prader-Willi syndromes; Treatment of cardiovascular issues TREATS Cardiovascular issues IN Noonan, Turner, and Prader-Willi syndromes; Treatment of endocrinopathies TREATS Endocrinopathies IN Noon and Turner, and Prader-Willi syndromes; Treatment of infertility TREATS Infertility IN Noonan, Turner, and Prader-Willi syndromes; Communication among health care team members PREVENTS Diagnostic delays IN Noonan, Turner, and Prader-Willi syndromes; Transition from pediatric to adult health care systems PREVENTS Insufficient information IN Noonan, Turner, and Prader-Willi syndromes
+
+  action_annotation_relationships: diagnosis TREATS short stature IN Noonan syndrome; diagnosis TREATS cardiovascular issues IN Noonan syndrome; diagnosis TREATS endocrinopathies IN Noonan syndrome; diagnosis TREATS infertility IN Noonan syndrome; treatment TREATS short stature IN Turner syndrome; treatment TREATS cardiovascular issues IN Turner syndrome; treatment TREATS endocrinopathies IN Turner syndrome; treatment TREATS infertility IN Turner syndrome; transition from pediatric to adult health care systems PREVENTS inefficient communication IN Prader-Willi syndrome; transition from pediatric to adult health care systems PREVENTS diagnostic delays IN Prader-Willi syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -33,66 +37,85 @@ prompt: |+
 
 
   Text:
-  Transition from pediatric to adult health care systems PREVENTS Insufficient information IN Noonan, Turner, and Prader-Willi syndromes
+  transition from pediatric to adult health care systems PREVENTS diagnostic delays IN Prader-Willi syndrome
 
   ===
 
 extracted_object:
   primary_disease: Noonan, Turner, and Prader-Willi syndromes
   medical_actions:
-    - Diagnosis of genetic conditions
-    - Treatment of cardiovascular issues
-    - Treatment of endocrinopathies
-    - Treatment of infertility
-    - Communication among health care team members
-    - Transition from pediatric to adult health care systems
+    - diagnosis
+    - treatment
+    - transition from pediatric to adult health care systems
   symptoms:
     - HP:0004322
-    - Cardiovascular issues
+    - cardiovascular issues
     - HP:0000818
     - HP:0000789
   action_annotation_relationships:
-    - subject: Diagnosis of genetic conditions
+    - subject: diagnosis
       predicate: TREATS
       object: HP:0004322
-      qualifier: Noonan, Turner, and Prader-Willi syndromes
-    - subject: Treatment of cardiovascular issues
+      qualifier: MONDO:0018997
+    - subject: diagnosis
       predicate: TREATS
-      object: Cardiovascular issues
-      qualifier: Noonan, Turner, and Prader-Willi syndromes
-    - subject: Treatment of endocrinopathies
+      object: cardiovascular issues
+      qualifier: MONDO:0018997
+    - subject: diagnosis
       predicate: TREATS
       object: HP:0000818
-      qualifier: Noonan syndrome, Turner syndrome, Prader-Willi syndrome
-    - subject: Treatment of infertility
+      qualifier: MONDO:0018997
+    - subject: diagnosis
       predicate: TREATS
       object: HP:0000789
-      qualifier: Noonan, Turner, and Prader-Willi syndromes
-    - subject: Communication among health care team members
+      qualifier: MONDO:0018997
+    - subject: treatment
+      predicate: TREATS
+      object: HP:0004322
+      qualifier: MONDO:0019499
+    - subject: treatment
+      predicate: TREATS
+      object: cardiovascular issues
+      qualifier: MONDO:0019499
+    - subject: treatment
+      predicate: TREATS
+      object: HP:0000818
+      qualifier: MONDO:0019499
+    - subject: treatment
+      predicate: TREATS
+      object: HP:0000789
+      qualifier: MONDO:0019499
+    - subject: transition from pediatric to adult health care systems
       predicate: PREVENTS
-      object: Diagnostic delays
-      qualifier: Noonan, Turner, and Prader-Willi syndromes
-    - subject: Transition from pediatric to adult health care systems
+      object: inefficient communication
+      qualifier: MONDO:0008300
+    - subject: transition from pediatric to adult health care systems
       predicate: PREVENTS
-      object: Insufficient information
-      qualifier: Noonan, Turner, and Prader-Willi syndromes
+      object: diagnostic delays
+      qualifier: MONDO:0008300
 named_entities:
   - id: CHEBI:33281
-    label: Antibiotics
+    label: antibiotics
   - id: MONDO:0006936
     label: pulmonary valve stenosis
   - id: MAXO:0009072
     label: surgical repair
+  - id: HP:0001642
+    label: pulmonary valve stenosis
   - id: MONDO:0018997
     label: Noonan syndrome
-  - id: MAXO:0010203
-    label: echocardiography
   - id: HP:0004322
     label: short stature
+  - id: CHEBI:37845
+    label: GH
   - id: MONDO:0011908
     label: Juvenile myelomonocytic leukemia (JMML)
   - id: MAXO:0000747
     label: hematopoietic stem cell transplantation (HSCT)
+  - id: HP:0012209
+    label: Juvenile myelomonocytic leukemia (JMML)
+  - id: MAXO:0010203
+    label: echocardiography
   - id: HP:0001663
     label: ventricular fibrillation
   - id: HP:0001639
@@ -102,33 +125,46 @@ named_entities:
   - id: HP:0030828
     label: Wheezing
   - id: CHEBI:90960
-    label: Tiotropium (Tio)
+    label: Tiotropium
+  - id: HP:0002099
+    label: bronchial asthma
   - id: MONDO:0007037
     label: Achondroplasia
-  - id: CHEBI:37845
-    label: Growth hormone (GH)
+  - id: MAXO:0000014
+    label: radiotherapy
+  - id: MAXO:0035118
+    label: Cardiac catheterization
+  - id: HP:0001659
+    label: Aortic regurgitation
+  - id: HP:0001004
+    label: Lymphedema
+  - id: CHEBI:17347
+    label: Testosterone
+  - id: MONDO:0005516
+    label: osteochondrodysplasias
+  - id: MONDO:0008300
+    label: Prader-Willi syndrome
   - id: MONDO:0000050
     label: Growth Hormone Deficiency (GHD)
   - id: HP:0001510
     label: Poor growth
   - id: MONDO:0007414
     label: Gorham disease
-  - id: MAXO:0000014
-    label: Radiation therapy
   - id: HP:0012531
     label: Pain
   - id: HP:0010310
     label: Chylothorax
-  - id: MONDO:0009735
-    label: Tumorigenesis; Noonan syndrome (NS); LEOPARD syndrome (LS); Hematological
-      malignancies; Solid tumors
   - id: MONDO:0007893
     label: Noonan syndrome with multiple lentigines
   - id: HP:0001670
     label: asymmetric septal hypertrophy
-  - id: HP:0001631
-    label: atrial septal defect
+  - id: MONDO:0011035
+    label: Neurofibromatosis-Noonan syndrome
+  - id: HP:0000001
+    label: acute lymphoblastic leukemia (ALL)
   - id: HP:0000818
-    label: Endocrinopathies
+    label: endocrinopathies
   - id: HP:0000789
-    label: Infertility
+    label: infertility
+  - id: MONDO:0019499
+    label: Turner syndrome

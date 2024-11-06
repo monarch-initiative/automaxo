@@ -26,15 +26,15 @@ input_text: "Simultaneous Midface Advancement and Orthognathic Surgery: A Powerf
   midface retrusion and class III malocclusion. CLINICAL QUESTION/LEVEL OF EVIDENCE:
   Therapeutic, IV."
 raw_completion_output: |-
-  primary_disease: Midface hypoplasia and class III malocclusion
+  primary_disease: Midface hypoplasia and Malocclusion
 
-  medical_actions: Simultaneous Midface Advancement and Orthognathic Surgery (Le Fort III/I) ; Intraoperative management ; Repeated orthognathic operations ; Expectant management
+  medical_actions: Simultaneous Le Fort III and Le Fort I procedures; Orthognathic surgery; Simultaneous bilateral sagittal split osteotomy; Expectant management for cerebrospinal fluid leak; Repeated orthognathic operations
 
-  symptoms: Midface hypoplasia ; Class III malocclusion ; Global midface retrusion
+  symptoms: Global midface retrusion; Class III malocclusion
 
   chemicals: 
 
-  action_annotation_relationships: Simultaneous Midface Advancement and Orthognathic Surgery (Le Fort III/I) TREATS Midface hypoplasia IN Midface hypoplasia and class III malocclusion ; Simultaneous Midface Advancement and Orthognathic Surgery (Le Fort III/I) TREATS Class III malocclusion IN Midface hypoplasia and class III malocclusion ; Simultaneous Midface Advancement and Orthognathic Surgery (Le Fort III/I) TREATS Global midface retrusion IN Midface hypoplasia and class III malocclusion ; Intraoperative management PREVENTS complications IN Midface hypoplasia and class III malocclusion ; Expectant management TREATS cerebrospinal fluid leak IN Midface hypoplasia and class III malocclusion ; Repeated orthognathic operations TREATS major complications IN Midface hypoplasia and class III malocclusion
+  action_annotation_relationships: Simultaneous Le Fort III and Le Fort I procedures TREATS global midface retrusion IN Midface hypoplasia; Orthognathic surgery TREATS class III malocclusion IN Malocclusion; Simultaneous bilateral sagittal split osteotomy TREATS class III malocclusion IN Malocclusion; Expectant management for cerebrospinal fluid leak TREATS intraoperative cerebrospinal fluid leak IN Midface hypoplasia; Repeated orthognathic operations TREATS complications IN Midface hypoplasia and Malocclusion
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -49,49 +49,43 @@ prompt: |+
 
 
   Text:
-  Repeated orthognathic operations TREATS major complications IN Midface hypoplasia and class III malocclusion
+  Repeated orthognathic operations TREATS complications IN Midface hypoplasia and Malocclusion
 
   ===
 
 extracted_object:
-  primary_disease: Midface hypoplasia and class III malocclusion
+  primary_disease: Midface hypoplasia and Malocclusion
   medical_actions:
-    - Simultaneous Midface Advancement and Orthognathic Surgery (Le Fort III/I)
-    - Intraoperative management
+    - Simultaneous Le Fort III and Le Fort I procedures
+    - Orthognathic surgery
+    - Simultaneous bilateral sagittal split osteotomy
+    - Expectant management for cerebrospinal fluid leak
     - Repeated orthognathic operations
-    - Expectant management
   symptoms:
-    - HP:0011800
-    - Class III malocclusion
     - Global midface retrusion
+    - Class III malocclusion
   action_annotation_relationships:
-    - subject: Simultaneous Midface Advancement and Orthognathic Surgery (Le Fort
-        III/I)
+    - subject: Simultaneous Le Fort III and Le Fort I procedures
       predicate: TREATS
-      object: HP:0011800
-      qualifier: Midface hypoplasia and class III malocclusion
-    - subject: Simultaneous Midface Advancement and Orthognathic Surgery (Le Fort
-        III/I)
+      object: global midface retrusion
+      qualifier: Midface hypoplasia
+    - subject: Orthognathic surgery
       predicate: TREATS
-      object: Class III malocclusion
-      qualifier: Midface hypoplasia and class III malocclusion
-    - subject: Simultaneous Midface Advancement and Orthognathic Surgery (Le Fort
-        III/I)
-      predicate: TREATS
-      object: Global midface retrusion
-      qualifier: Midface hypoplasia and class III malocclusion
-    - subject: Intraoperative management
-      predicate: PREVENTS
-      object: complications
-      qualifier: Midface hypoplasia and class III malocclusion
+      object: class III malocclusion
+      qualifier: Malocclusion
+    - subject: <Simultaneous bilateral sagittal split osteotomy>
+      predicate: <TREATS>
+      object: <class III malocclusion>
+      qualifier: <Malocclusion>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
     - subject: Expectant management
       predicate: TREATS
-      object: cerebrospinal fluid leak
-      qualifier: Midface hypoplasia and class III malocclusion
+      object: intraoperative cerebrospinal fluid leak
+      qualifier: Midface hypoplasia
     - subject: Repeated orthognathic operations
       predicate: TREATS
-      object: major complications
-      qualifier: Midface hypoplasia and class III malocclusion
-named_entities:
-  - id: HP:0011800
-    label: Midface hypoplasia
+      object: complications
+      qualifier: Midface hypoplasia and Malocclusion

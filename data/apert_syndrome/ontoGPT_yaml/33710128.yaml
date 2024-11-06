@@ -28,13 +28,13 @@ input_text: 'Satisfying Clinical and Functional Results in 12 Apert Children Tre
 raw_completion_output: |-
   primary_disease: Apert syndrome
 
-  medical_actions: syndactyly release; soft tissue distractor placement; osteotomy; skin grafts
+  medical_actions: syndactyly release; placing a soft tissue distractor after osteotomy; use of small full thickness skin grafts; assessment of hand function and grip strength; completion of the Patient Reported Outcome Measure CHEQ
 
-  symptoms: complex syndactyly; synostosis; tightness of skin; coverage problems during ray release; infections; lack of fine motor skills demanding strength
+  symptoms: complex syndactyly; synostosis; tightness of skin between third and fourth digits; severe coverage problems during ray release; infections; struggle with fine motor skills demanding strength
 
   chemicals: 
 
-  action_annotation_relationships: syndactyly release TREATS complex syndactyly IN Apert syndrome; soft tissue distractor placement TREATS coverage problems during ray release IN Apert syndrome; osteotomy TREATS synostosis IN Apert syndrome; skin grafts TREATS coverage problems during ray release IN Apert syndrome; soft tissue distractor placement PREVENTS infections IN Apert syndrome
+  action_annotation_relationships: syndactyly release TREATS complex syndactyly IN Apert syndrome; placing a soft tissue distractor after osteotomy TREATS severe coverage problems during ray release IN Apert syndrome; use of small full thickness skin grafts TREATS severe coverage problems during ray release IN Apert syndrome; assessment of hand function and grip strength TREATS struggle with fine motor skills demanding strength IN Apert syndrome; completion of the Patient Reported Outcome Measure CHEQ TREATS struggle with fine motor skills demanding strength IN Apert syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -49,7 +49,7 @@ prompt: |+
 
 
   Text:
-  soft tissue distractor placement PREVENTS infections IN Apert syndrome
+  completion of the Patient Reported Outcome Measure CHEQ TREATS struggle with fine motor skills demanding strength IN Apert syndrome
 
   ===
 
@@ -57,72 +57,73 @@ extracted_object:
   primary_disease: MONDO:0007041
   medical_actions:
     - syndactyly release
-    - soft tissue distractor placement
-    - osteotomy
-    - skin grafts
+    - placing a soft tissue distractor after osteotomy
+    - use of small full thickness skin grafts
+    - assessment of hand function and grip strength
+    - completion of the Patient Reported Outcome Measure CHEQ
   symptoms:
     - complex syndactyly
     - synostosis
-    - tightness of skin
-    - coverage problems during ray release
+    - tightness of skin between third and fourth digits
+    - severe coverage problems during ray release
     - infections
-    - lack of fine motor skills demanding strength
+    - struggle with fine motor skills demanding strength
   action_annotation_relationships:
     - subject: syndactyly release
       predicate: TREATS
       object: complex syndactyly
       qualifier: MONDO:0007041
-    - subject: soft tissue distractor placement
-      predicate: TREATS
-      object: coverage problems during ray release
-      qualifier: MONDO:0007041
-      subject_extension: soft tissue distractor
-    - subject: osteotomy
-      predicate: TREATS
-      object: synostosis
-      qualifier: MONDO:0007041
-    - subject: <skin grafts>
+    - subject: <placing a soft tissue distractor after osteotomy>
       predicate: <TREATS>
-      object: <coverage problems during ray release>
+      object: <severe coverage problems during ray release>
       qualifier: <Apert syndrome>
-      subject_extension: <skin grafts>
-    - subject: <soft tissue distractor placement>
-      predicate: <PREVENTS>
-      object: <infections>
+      object_qualifier: <severe>
+      subject_extension: <soft tissue distractor>
+    - subject: <use of small full thickness skin grafts>
+      predicate: <TREATS>
+      object: <severe coverage problems>
       qualifier: <Apert syndrome>
-      subject_qualifier: <None>
-      object_qualifier: <None>
-      subject_extension: <None>
-      object_extension: <None>
+      object_qualifier: <severe>
+      subject_extension: <small full thickness skin grafts>
+    - subject: assessment of hand function and grip strength
+      predicate: TREATS
+      object: struggle with fine motor skills demanding strength
+      qualifier: MONDO:0007041
+    - subject: <Patient Reported Outcome Measure>
+      predicate: <TREATS>
+      object: <struggle with fine motor skills demanding strength>
+      qualifier: <Apert syndrome>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <CHEQ>
+      object_extension: <>
 named_entities:
-  - id: HP:0011800
-    label: Midface hypoplasia
   - id: MONDO:0007041
     label: Apert syndrome
   - id: MAXO:0000486
-    label: distraction osteogenesis
+    label: Distraction osteogenesis
   - id: HP:0012531
-    label: pain
+    label: Pain
   - id: HP:0001288
-    label: gait disturbances
-  - id: MONDO:0003432
-    label: Strabismus
+    label: Gait disturbances
   - id: HP:0001159
     label: Syndactyly
-  - id: MAXO:0000004
-    label: surgical procedures
   - id: HP:0001363
     label: craniosynostosis
+  - id: HP:0011800
+    label: midface hypoplasia
   - id: MONDO:0015338
     label: syndromic craniosynostosis
   - id: HP:0001061
     label: Acne
   - id: CHEBI:6067
-    label: isotretinoin
+    label: Isotretinoin
   - id: MONDO:0015469
     label: Craniosynostosis
+  - id: HP:0000504
+    label: Vision issues
   - id: HP:0000572
-    label: Vision loss
+    label: Visual loss
   - id: HP:0000646
     label: Amblyopia
   - id: HP:0001138
@@ -133,16 +134,18 @@ named_entities:
     label: Anisometropia
   - id: HP:0000483
     label: Astigmatism
-  - id: MAXO:0000504
-    label: Tracheostomy
   - id: MAXO:0000502
-    label: Tracheal intubation
-  - id: HP:0010807
-    label: Open bite
-  - id: MAXO:0000756
-    label: blood transfusion
+    label: tracheal intubation
+  - id: HP:0009102
+    label: Anterior open bite
   - id: MAXO:0001183
     label: Bronchoscopy
+  - id: MAXO:0000504
+    label: Tracheotomy
+  - id: MAXO:0001029
+    label: Adenoidectomy
+  - id: MAXO:0001081
+    label: Tonsillectomy
   - id: HP:0002104
     label: Apneic episodes
   - id: HP:0002098
@@ -151,26 +154,24 @@ named_entities:
     label: Stridor
   - id: HP:0000961
     label: Cyanosis
-  - id: MONDO:0009735
-    label: Netherton syndrome
-  - id: MONDO:0011438
-    label: Acne vulgaris
+  - id: HP:0000689
+    label: malocclusion
   - id: HP:0002902
-    label: hyponatremia
-  - id: MAXO:0000068
-    label: Transplantation
+    label: Hyponatremia
   - id: MAXO:0010031
     label: bone grafting
+  - id: MAXO:0001291
+    label: cranioplasty
   - id: HP:0001249
     label: mental retardation
+  - id: HP:0001263
+    label: developmental delays
   - id: HP:0002516
     label: raised intracranial pressure
   - id: HP:0010535
     label: sleep apnea
   - id: HP:0000174
     label: palatal anomalies
-  - id: HP:0005347
-    label: Tracheal Cartilaginous Sleeve
   - id: HP:0000175
     label: Cleft palate
   - id: HP:0000365
@@ -181,19 +182,15 @@ named_entities:
     label: Cardiac anomalies
   - id: HP:0001818
     label: Paronychia
-  - id: MAXO:0001029
-    label: adenoidectomy
-  - id: MAXO:0001081
-    label: tonsillectomy
   - id: MAXO:0000506
-    label: noninvasive ventilation
+    label: Noninvasive ventilation
   - id: HP:0002870
-    label: obstructive apneas
+    label: Obstructive apneas
   - id: HP:0000453
-    label: choanal atresia
+    label: Choanal atresia
   - id: HP:0004411
-    label: deviated nasal septum
+    label: Deviated nasal septum
   - id: HP:0002871
-    label: central apneas
+    label: Central apneas
   - id: HP:0002308
     label: Chiari malformations

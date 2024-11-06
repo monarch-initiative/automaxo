@@ -22,12 +22,12 @@ input_text: "Histopathological findings in the oral mucosa of celiac patients. B
   in this disease."
 raw_completion_output: |-
   primary_disease: Celiac disease
-  medical_actions: following a gluten free diet; immunohistochemical investigation
+  medical_actions: gluten-free diet; biopsy; immunohistochemical investigation
   symptoms: T-lymphocytic inflammatory infiltrate
   chemicals: CD3; CD4; CD8; gamma/delta-chains T cell receptor (TCR)
-  action_annotation_relationships: following a gluten free diet PREVENTS T-lymphocytic inflammatory infiltrate IN Celiac disease; immunohistochemical investigation (with CD3) TREATS T-lymphocytic inflammatory infiltrate IN Celiac disease; immunohistochemical investigation (with CD4) TREATS T-lymphocytic inflammatory infiltrate IN Celiac disease; immunohistochemical investigation (with CD8) TREATS T-lymphocytic inflammatory infiltrate IN Celiac disease; immunohittochemical investigation (with gamma/delta-chains T cell receptor (TCR)) TREATS T-lymphocytic inflammatory infiltrate IN Celiac disease
+  action_annotation_relationships: gluten-free diet PREVENTS T-lymphocytic inflammatory infiltrate IN Celiac disease; biopsy (with CD3) TREATS Celiac disease; biopsy (with CD4) TREATS Celiac disease; biopsy (with CD8) TREATS Celiac disease; biopsy (with gamma/delta-chains T cell receptor (TCR)) TREATS Celiac disease; immunohistochemical investigation TREATS Celiac disease
 prompt: |+
-  From the text below, extract the following entities in the following format:
+  Split the following piece of text into fields in the following format:
 
   subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
   object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
@@ -40,14 +40,15 @@ prompt: |+
 
 
   Text:
-  immunohittochemical investigation (with gamma/delta-chains T cell receptor (TCR)) TREATS T-lymphocytic inflammatory infiltrate IN Celiac disease
+  immunohistochemical investigation TREATS Celiac disease
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0005130
   medical_actions:
-    - following a gluten free diet
+    - gluten-free diet
+    - biopsy
     - immunohistochemical investigation
   symptoms:
     - T-lymphocytic inflammatory infiltrate
@@ -57,57 +58,82 @@ extracted_object:
     - CD8
     - gamma/delta-chains T cell receptor (TCR)
   action_annotation_relationships:
-    - subject: following a gluten free diet
+    - subject: gluten-free diet
       predicate: PREVENTS
       object: T-lymphocytic inflammatory infiltrate
       qualifier: MONDO:0005130
-      subject_extension: gluten free diet
-    - subject: immunohistochemical investigation
+      subject_extension: gluten-free diet
+    - subject: biopsy
       predicate: TREATS
-      object: T-lymphocytic inflammatory infiltrate
-      qualifier: MONDO:0005130
+      object: HP:0002608
       subject_qualifier: with CD3
-      subject_extension: CD3
-    - subject: immunohistochemical investigation (with CD4)
+    - subject: biopsy
       predicate: TREATS
-      object: T-lymphocytic inflammatory infiltrate
-      qualifier: MONDO:0005130
-    - subject: immunohistochemical investigation
+      object: HP:0002608
+      subject_qualifier: with CD4
+    - subject: biopsy
       predicate: TREATS
-      object: T-lymphocytic inflammatory infiltrate
-      qualifier: MONDO:0005130
+      object: HP:0002608
       subject_qualifier: with CD8
-      subject_extension: CD8
+    - subject: <biopsy>
+      predicate: <TREATS>
+      object: <Celiac disease>
+      qualifier: <>
+      subject_qualifier: <with gamma/delta-chains T cell receptor (TCR)>
+      object_qualifier: <>
+      subject_extension: <gamma/delta-chains T cell receptor (TCR)>
+      object_extension: <>
     - subject: immunohistochemical investigation
       predicate: TREATS
-      object: T-lymphocytic inflammatory infiltrate
-      qualifier: MONDO:0005130
-      subject_qualifier: with gamma/delta-chains T cell receptor (TCR)
-      subject_extension: gamma/delta-chains T cell receptor (TCR)
+      object: HP:0002608
 named_entities:
   - id: MONDO:0044092
     label: Collagenous sprue
   - id: HP:0002014
-    label: Diarrhea
+    label: diarrhea
   - id: CHEBI:50858
-    label: Corticosteroids
+    label: corticosteroids
+  - id: HP:0004395
+    label: malnutrition
+  - id: MONDO:0005130
+    label: Celiac disease
+  - id: HP:0000870
+    label: Hyperprolactinemia
+  - id: CHEBI:81580
+    label: Prolactin (PRL)
+  - id: HP:0000938
+    label: Bone loss
+  - id: CHEBI:22984
+    label: Calcium
+  - id: CHEBI:27300
+    label: Vitamin D
+  - id: HP:0001369
+    label: Arthritis
+  - id: HP:0002608
+    label: Celiac Disease
+  - id: MONDO:0019473
+    label: Enteropathy-associated T-cell lymphoma (EATL)
+  - id: HP:0002242
+    label: enteropathy
+  - id: HP:0012378
+    label: fatigue
+  - id: HP:0002039
+    label: anorexia
+  - id: HP:0000823
+    label: delayed puberty
+  - id: HP:0004322
+    label: short stature
+  - id: HP:0000789
+    label: infertility
   - id: MONDO:0016063
     label: Celiac Disease (CD)
-  - id: HP:0004395
-    label: Malnutrition
-  - id: MONDO:0005130
-    label: Celiac Disease
-  - id: HP:0020110
-    label: fractures
-  - id: HP:0012378
-    label: Fatigue
-  - id: HP:0002039
-    label: Anorexia
-  - id: HP:0000823
-    label: Delayed puberty
-  - id: HP:0004322
-    label: Short stature
-  - id: HP:0000789
-    label: Infertility
-  - id: HP:0002242
-    label: Enteropathy
+  - id: MAXO:0000058
+    label: pharmacological treatment
+  - id: HP:0002027
+    label: abdominal pain
+  - id: HP:0003270
+    label: bloating
+  - id: HP:0001903
+    label: anemia
+  - id: MAXO:0000088
+    label: diet

@@ -30,15 +30,15 @@ input_text: 'Spondylolisthesis is Common, Early, and Severe in Loeys-Dietz Syndr
   and spondylolysis starting when they are young. LEVEL OF EVIDENCE: Level IV-retrospective
   study.'
 raw_completion_output: |-
-  primary_disease: Loeys-Dietz Syndrome (LDS)
+  primary_disease: Loeys-Dietz syndrome
 
-  medical_actions: Posterior spinal fusion (PSF); Bohlman interbody fusion; S2 fixation; arthrodesis; bone graft arthrodesis
+  medical_actions: Posterior spinal fusion (PSF); Bohlman interbody fusion; S2 fixation; bone graft arthrodesis; Instrumentation and fusion
 
-  symptoms: Slip progression; pain; neurological deficit; cerebrospinal fluid leaks; transient postoperative paresthesias; pseudarthrosis at S1-S2; wound dehiscence; transient urinary incontinence
+  symptoms: Spondylolisthesis; Spondylolysis; Slip progression; Pain; Neurological deficit; High-grade spondylolisthesis; Physeal deformation
 
   chemicals: 
 
-  action_annotation_relationships: Posterior spinal fusion (PSF) TREATS slip progression IN Loeys-Dietz Syndrome (LDS); Posterior spinal fusion (PSF) TREATS pain IN Loeys-Dietz Syndrome (LDS); Posterior spinal fusion (PSF) TREATS neurological deficit IN Loeys-Dietz Syndrome (LDS); Bohlman interbody fusion TREATS slip progression IN Loeys-Dietz Syndrome (LDS); S2 fixation PREVENTS physeal deformation IN Loeys-Dietz Syndrome (LDS); arthrodesis TREATS slip progression IN Loeys-Dietz Syndrome (LDS); bone graft arthrodesis TREATS slip progression IN Loeys-Dietz Syndrome (LDS)
+  action_annotation_relationships: PSF TREATS slip progression IN Loeys-Dietz syndrome; PSF TREATS pain IN Loeys-Dietz syndrome; PSF TREATS neurological deficit IN Loeys-Dietz syndrome; Bohlman interbody fusion TREATS slip progression IN Loeys-Dietz syndrome; S2 fixation TREATS slip progression IN Loeys-Dietz syndrome; bone graft arthrodesis TREATS slip progression IN Loeys-Dietz syndrome; Instrumentation and fusion TREATS slip progression IN Loeys-Dietz syndrome; Instrumentation and fusion PREVENTS physeal deformation IN Loeys-Dietz syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -53,7 +53,7 @@ prompt: |+
 
 
   Text:
-  bone graft arthrodesis TREATS slip progression IN Loeys-Dietz Syndrome (LDS)
+  Instrumentation and fusion PREVENTS physeal deformation IN Loeys-Dietz syndrome
 
   ===
 
@@ -63,60 +63,77 @@ extracted_object:
     - Posterior spinal fusion (PSF)
     - Bohlman interbody fusion
     - S2 fixation
-    - arthrodesis
     - bone graft arthrodesis
+    - Instrumentation and fusion
   symptoms:
+    - HP:0003302
+    - HP:0003304
     - Slip progression
     - HP:0012531
-    - neurological deficit
-    - cerebrospinal fluid leaks
-    - transient postoperative paresthesias
-    - pseudarthrosis at S1-S2
-    - wound dehiscence
-    - transient urinary incontinence
+    - Neurological deficit
+    - High-grade spondylolisthesis
+    - Physeal deformation
   action_annotation_relationships:
-    - subject: Posterior spinal fusion
+    - subject: PSF
       predicate: TREATS
       object: slip progression
       qualifier: MONDO:0018954
-    - subject: Posterior spinal fusion
+    - subject: PSF
       predicate: TREATS
       object: HP:0012531
       qualifier: MONDO:0018954
-    - subject: Posterior spinal fusion
+    - subject: PSF
       predicate: TREATS
       object: neurological deficit
       qualifier: MONDO:0018954
-    - subject: <Bohlman interbody fusion>
-      predicate: <TREATS>
-      object: <slip progression>
-      qualifier: <Loeys-Dietz Syndrome (LDS)>
-      subject_qualifier: <Not applicable>
-      object_qualifier: <Not applicable>
-      subject_extension: <Not applicable>
-      object_extension: <Not applicable>
-    - subject: S2 fixation
-      predicate: PREVENTS
-      object: physeal deformation
-      qualifier: Loeing-Dietz Syndrome (LDS)
-    - subject: arthrodesis
+    - subject: Bohlman interbody fusion
       predicate: TREATS
       object: slip progression
       qualifier: MONDO:0018954
-    - subject: <bone graft arthrodesis>
-      predicate: <TREATS>
-      object: <slip progression>
-      qualifier: <Loeys-Dietz Syndrome (LDS)>
-      subject_qualifier: <None>
-      object_qualifier: <None>
-      subject_extension: <None>
-      object_extension: <None>
+    - subject: S2 fixation
+      predicate: TREATS
+      object: slip progression
+      qualifier: MONDO:0018954
+    - subject: bone graft arthrodesis
+      predicate: TREATS
+      object: slip progression
+      qualifier: MONDO:0018954
+    - subject: Instrumentation and fusion
+      predicate: TREATS
+      object: slip progression
+      qualifier: MONDO:0018954
+    - subject: Instrumentation and fusion
+      predicate: PREVENTS
+      object: physeal deformation
+      qualifier: MONDO:0018954
 named_entities:
   - id: MONDO:0018954
     label: Loeys-Dietz syndrome
+  - id: MAXO:0000945
+    label: spinal cord stimulation (SCS)
+  - id: HP:0031625
+    label: Pseudoaneurysms
+  - id: MAXO:0000451
+    label: Implantation
+  - id: HP:0000978
+    label: Easy bruising
+  - id: HP:0002616
+    label: Aortic root dilatation
+  - id: HP:0001382
+    label: Joint laxity
+  - id: CHEBI:35530
+    label: Beta-blocker
+  - id: MAXO:0010203
+    label: Echocardiography
   - id: HP:0012764
     label: orthopnea
   - id: HP:0001631
     label: atrial septal defect
+  - id: HP:0001263
+    label: developmental delay
+  - id: HP:0003302
+    label: Spondylolisthesis
+  - id: HP:0003304
+    label: Spondylolysis
   - id: HP:0012531
-    label: pain
+    label: Pain

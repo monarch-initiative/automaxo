@@ -32,10 +32,10 @@ input_text: 'A Randomized Trial of a Transglutaminase 2 Inhibitor for Celiac Dis
   (Funded by Dr. Falk Pharma; CEC-3 EudraCT number, 2017-002241-30.).'
 raw_completion_output: |-
   primary_disease: Celiac Disease
-  medical_actions: Inhibition of transglutaminase 2;6-week treatment with ZED1227
-  symptoms: Mucosal injury;Gluten-induced mucosal damage;Gluten-induced duodenal mucosal injury;Headache;Nausea;Diarrhea;Vomiting;Abdominal pain;Rash
-  chemicals: ZED1227
-  action_annotation_relationships: Inhibition of transglutaminase 2 TREATS Mucosal injury IN Celiac Disease;6-week treatment with ZED1227 (with ZED1227) TREATS Gluten-induced mucosal damage IN Celiac Disease;6-week treatment with ZED1227 (with ZED1227) TREATS Gluten-induced duodenal mucosal injury IN Celiac Disease
+  medical_actions: Treatment with ZED1227;Inhibition of transglutaminase 2;Daily gluten challenge;Assessment of duodenal-biopsy samples
+  symptoms: Gluten-induced duodenal mucosal injury;Increased intraepithelial lymphocyte density;Headache;Nausea;Diarrhea;Vomiting;Abdominal pain;Rash
+  chemicals: ZED1227;Gluten
+  action_annotation_relationships: Treatment with ZED1227 TREATS Gluten-induced duodenal mucosal injury IN Celiac Disease;Inhibition of transglutaminase 2 TREATS Gluten-induced duodenal mucosal injury IN Celiac Disease;Treatment with ZED1227 TREATS Increased intraepithelial lymphocyte density IN Celiac Disease;Daily gluten challenge PREVENTS Well-controlled celiac disease STATE IN Celiac Disease;Treatment with ZED1227 (with Gluten) PREVENTS Gluten-induced duodenal mucosal injury IN Celiac Disease
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -50,19 +50,20 @@ prompt: |+
 
 
   Text:
-  6-week treatment with ZED1227 (with ZED1227) TREATS Gluten-induced duodenal mucosal injury IN Celiac Disease
+  Treatment with ZED1227 (with Gluten) PREVENTS Gluten-induced duodenal mucosal injury IN Celiac Disease
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0005130
   medical_actions:
+    - Treatment with ZED1227
     - Inhibition of transglutaminase 2
-    - 6-week treatment with ZED1227
+    - Daily gluten challenge
+    - Assessment of duodenal-biopsy samples
   symptoms:
-    - Mucosal injury
-    - Gluten-induced mucosal damage
     - Gluten-induced duodenal mucosal injury
+    - Increased intraepithelial lymphocyte density
     - HP:0002315
     - HP:0002018
     - HP:0002014
@@ -71,127 +72,148 @@ extracted_object:
     - HP:0000988
   chemicals:
     - ZED1227
+    - Gluten
   action_annotation_relationships:
-    - subject: <Inhibition of transglutaminase 2>
-      predicate: <TREATS>
-      object: <Mucosal injury>
-      qualifier: <Celiac Disease>
-      subject_extension: <transglutaminase 2>
-    - subject: 6-week treatment with ZED1227
-      predicate: TREATS
-      object: Gluten-induced mucosal damage
-      qualifier: MONDO:0005130
-      subject_qualifier: 6-week
-      subject_extension: ZED1227
-    - subject: treatment
+    - subject: Treatment
       predicate: TREATS
       object: duodenal mucosal injury
       qualifier: MONDO:0005130
-      subject_qualifier: 6-week
+      subject_extension: ZED1227
+      object_extension: Gluten-induced
+    - subject: Inhibition of transglutaminase 2
+      predicate: TREATS
+      object: Gluten-induced duodenal mucosal injury
+      qualifier: MONDO:0005130
+      subject_extension: transglutaminase 2
+    - subject: Treatment
+      predicate: TREATS
+      object: Increased intraepithelial lymphocyte density
+      qualifier: MONDO:0005130
+      subject_qualifier: with ZED1227
+      subject_extension: ZED1227
+    - subject: Daily gluten challenge
+      predicate: PREVENTS
+      object: HP:0002608
+      qualifier: MONDO:0005130
+      subject_qualifier: Daily
+      object_qualifier: Well-controlled
+      subject_extension: gluten challenge
+      object_extension: Well-controlled
+    - subject: Treatment
+      predicate: PREVENTS
+      object: duodenal mucosal injury
+      qualifier: MONDO:0005130
+      subject_qualifier: with Gluten
       subject_extension: ZED1227
       object_extension: Gluten-induced
 named_entities:
-  - id: HP:0040313
-    label: oligoarticular arthritis
-  - id: CHEBI:65312
-    label: Corticotropin releasing hormone
-  - id: CHEBI:197439
-    label: TNFalpha
   - id: MONDO:0005130
     label: Celiac Disease
-  - id: MAXO:0000058
-    label: pharmacological treatment
-  - id: HP:0002608
-    label: Celiac Disease
-  - id: HP:0025464
-    label: Oxidative stress
-  - id: CHEBI:26195
-    label: Polyphenols
-  - id: MONDO:0009032
-    label: Celiac disease (CeD)
-  - id: MONDO:0016063
-    label: Celiac Disease (CD)
-  - id: HP:0000739
-    label: Anxiety
-  - id: HP:0000716
-    label: Depression
-  - id: MONDO:0005265
-    label: Inflammatory bowel disease
-  - id: HP:0012538
-    label: Gluten sensitivity
-  - id: MONDO:0007021
-    label: Wheat allergy
-  - id: CHEBI:26271
-    label: proline
-  - id: MONDO:0013209
-    label: Nonalcoholic fatty liver disease (NAFLD)
-  - id: HP:0001397
-    label: Hepatic steatosis
-  - id: MAXO:0000487
-    label: Clinical assessment
-  - id: CHEBI:80165
-    label: Gluten Immunogenic Peptides (GIP)
-  - id: HP:0002019
-    label: Constipation
-  - id: MAXO:0000088
-    label: Diet
-  - id: HP:0004395
-    label: Nutritional deficiencies
-  - id: MONDO:0011122
-    label: Obesity
-  - id: CHEBI:28796
-    label: fructans
-  - id: MONDO:0016129
-    label: eosinophilic gastroenteritis
-  - id: HP:0001891
-    label: Iron deficiency anemia
-  - id: CHEBI:18248
-    label: Iron
-  - id: CHEBI:27470
-    label: Folate
-  - id: CHEBI:176843
-    label: Vitamin B12
-  - id: CHEBI:13193
-    label: As
-  - id: CHEBI:16170
-    label: Hg
-  - id: CHEBI:22977
-    label: Cd
-  - id: CHEBI:25016
-    label: Pb
-  - id: CHEBI:27563
-    label: arsenic
-  - id: HP:0001061
-    label: Acne
-  - id: MAXO:0000130
-    label: Endoscopy
-  - id: HP:0012050
-    label: Anasarca
-  - id: HP:0000708
-    label: behavioral disturbances
-  - id: HP:0002014
-    label: diarrhea
-  - id: HP:0033589
-    label: flatulence
-  - id: HP:0003270
-    label: bloating
-  - id: HP:0002607
-    label: fecal incontinence
   - id: HP:0011473
     label: villous atrophy
-  - id: HP:0002024
-    label: malabsorption
-  - id: MONDO:0005052
-    label: Inflammatory Bowel Disease (IBD)
-  - id: MAXO:0000748
-    label: fecal microbiota transplantation
-  - id: HP:0002315
-    label: Headache
-  - id: HP:0002018
-    label: Nausea
-  - id: HP:0002013
-    label: Vomiting
+  - id: MAXO:0000088
+    label: diet
+  - id: HP:0002014
+    label: diarrhea
+  - id: HP:0001903
+    label: anemia
+  - id: HP:0000939
+    label: osteoporosis
+  - id: HP:0002608
+    label: Celiac Disease
+  - id: MAXO:0010200
+    label: Abdominal ultrasonography
+  - id: HP:0003270
+    label: Abdominal distension
+  - id: HP:0002748
+    label: Rickets
+  - id: HP:0002576
+    label: intussusception
+  - id: CHEBI:72716
+    label: TG2 inhibitors
+  - id: MAXO:0000130
+    label: endoscopy
+  - id: MONDO:0016063
+    label: Celiac disease (CD)
+  - id: CHEBI:73291
+    label: Anti-deamidated gliadin peptides (DGP)
+  - id: HP:0011107
+    label: Aphthous stomatitis
+  - id: HP:0002019
+    label: Constipation
+  - id: HP:0002020
+    label: Gastroesophageal reflux disease
+  - id: CHEBI:18163
+    label: GD1a
+  - id: CHEBI:28175
+    label: GD1b
+  - id: CHEBI:28424
+    label: GD3
+  - id: CHEBI:27691
+    label: GT1a
+  - id: CHEBI:28058
+    label: GT1b
+  - id: CHEBI:27515
+    label: GQ1b
+  - id: CHEBI:8382
+    label: prednisone
+  - id: CHEBI:2948
+    label: azathioprine
+  - id: CHEBI:4031
+    label: cyclosporine
+  - id: HP:0410281
+    label: Indigestion
   - id: HP:0002027
     label: Abdominal pain
+  - id: HP:0025502
+    label: overweight
+  - id: HP:0001513
+    label: obesity
+  - id: MONDO:0018353
+    label: Refractory Celiac Disease (RCD)
+  - id: MAXO:0000757
+    label: Infusions
+  - id: HP:0000739
+    label: anxiety
+  - id: HP:0002315
+    label: Headache
+  - id: HP:0100785
+    label: Insomnia
+  - id: HP:0004396
+    label: Loss of appetite
+  - id: CHEBI:63623
+    label: Dimercaptosuccinic acid
+  - id: CHEBI:25140
+    label: Maltodextrin
+  - id: CHEBI:27300
+    label: Vitamin D
+  - id: CHEBI:22984
+    label: Calcium
+  - id: MAXO:0001610
+    label: Transcranial Magnetic Stimulation
+  - id: CHEBI:29987
+    label: glutamate
   - id: HP:0000988
     label: Rash
+  - id: MONDO:0009032
+    label: Celiac disease (CeD)
+  - id: HP:0002013
+    label: vomiting
+  - id: HP:0002024
+    label: malabsorption
+  - id: CHEBI:48416
+    label: Olmesartan
+  - id: CHEBI:35457
+    label: ACE inhibitors (ACEIs)
+  - id: MAXO:0000824
+    label: Hemoglobin measurement
+  - id: HP:0002102
+    label: pleurisy
+  - id: HP:0001701
+    label: pericarditis
+  - id: HP:0001541
+    label: ascites
+  - id: HP:0000238
+    label: hydrocephalus
+  - id: HP:0002018
+    label: Nausea

@@ -1,0 +1,111 @@
+---
+input_text: '[Adherence to chest physiotherapy in adults with cystic fibrosis]. INTRODUCTION:
+  Chest-physiotherapy is a key element in treatment of cystic fibrosis and patient
+  adherence is a major issue in global cystic fibrosis care. This study aims to assess
+  adherence to chest physiotherapy in adults with cystic fibrosis who not treated
+  with tritherapy and to analyze the impact of certain factors on adherence. METHODS:
+  Thus is a cross-sectional study, conducted using a questionnaire and a physiotherapy
+  evaluation. Adherence to this treatment was measured in terms of quantitative and
+  qualitative aspects. The impact on adherence of 15 factors was then assessed. RESULTS:
+  Only 47% of patients could be considered as adherent, with a significant disparity
+  between a quantitative and qualitative assessment. Gender, working time, pathology
+  severity, the fact of being regularly followed by a physiotherapist, the perceived
+  benefit of the sessions and their replacement by physical activity, seem associated
+  with adherence to this treatment. CONCLUSIONS: Taking into account the qualitative
+  aspect of the sessions, our study reveals a low rate, in our cohort, of adherence
+  to respiratory physiotherapy, and highlights six factors likely to predominate.
+  Regular follow-up by a physiotherapist seems to be a determining factor in adherence
+  to this treatment.'
+raw_completion_output: |-
+  primary_disease: cystic fibrosis
+  medical_actions: chest-physiotherapy; regular follow-up by a physiotherapist
+  symptoms: 
+  chemicals: 
+  action_annotation_relationships: chest-physiotherapy PREVENTS complications IN cystic fibrosis; regular follow-up by a physiotherapist INCREASES adherence TO chest-physiotherapy IN cystic fibrosis
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  regular follow-up by a physiotherapist INCREASES adherence TO chest-physiotherapy IN cystic fibrosis
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009061
+  medical_actions:
+    - chest-physiotherapy
+    - regular follow-up by a physiotherapist
+  action_annotation_relationships:
+    - subject: chest-physiotherapy
+      predicate: PREVENTS
+      object: complications
+      qualifier: MONDO:0009061
+    - subject: regular follow-up by a physiotherapist
+      predicate: INCREASES adherence TO
+      object: chest-physiotherapy
+      qualifier: MONDO:0009061
+named_entities:
+  - id: MONDO:0009061
+    label: Cystic Fibrosis
+  - id: CHEBI:22507
+    label: Aminoglycoside antibiotics
+  - id: CHEBI:28864
+    label: Tobramycin
+  - id: MONDO:0005460
+    label: Influenza A (H1N1)
+  - id: HP:0002098
+    label: respiratory distress
+  - id: HP:0001945
+    label: fever
+  - id: HP:0002014
+    label: diarrhea
+  - id: HP:0002013
+    label: vomiting
+  - id: HP:0011950
+    label: viral bronchiolitis
+  - id: HP:0002090
+    label: pneumonia
+  - id: CHEBI:7798
+    label: oseltamivir
+  - id: MAXO:0001017
+    label: vaccination
+  - id: MONDO:0005275
+    label: Pulmonary Diseases
+  - id: CHEBI:16991
+    label: DNA
+  - id: CHEBI:33699
+    label: mRNA
+  - id: HP:0012735
+    label: Cough
+  - id: CHEBI:50858
+    label: corticosteroids
+  - id: HP:0002910
+    label: Elevated transaminases
+  - id: CHEBI:61049
+    label: Tacrolimus
+  - id: CHEBI:53454
+    label: ETI
+  - id: MAXO:0000259
+    label: Insulin treatment
+  - id: HP:0001394
+    label: Cirrhosis
+  - id: HP:0001738
+    label: Exocrine pancreatic insufficiency
+  - id: HP:0100651
+    label: Insulin-dependent diabetes mellitus
+  - id: HP:0001988
+    label: Recurrent hypoglycemia
+  - id: HP:0001744
+    label: Splenomegaly
+  - id: CHEBI:145810
+    label: Insulin

@@ -20,10 +20,10 @@ input_text: 'Methylmalonic acidemia/propionic acidemia - the biochemical present
   admission time, reduced tube feeding and the caregiver is less anxious.'
 raw_completion_output: |-
   primary_disease: Methylmalonic acidemia/propionic acidemia
-  medical_actions: Liver transplantation; Non-liver transplantation; Nationwide newborn screening
-  symptoms: Acute metabolic distress; Higher AST; Higher ALT; Increased NH3; Lower pH; Death; Significant neurodevelopmental disability
-  chemicals: Cobalamin B
-  action_annotation_relationships: Liver transplantation TREATS acute metabolic distress IN Methylmalonic acidemia/propionic acidemia; Liver transplantation PREVENTS death IN Methylmalonic acidemia/propionic acidemia; Liver transplantation TREATS significant neurodevelopmental disability IN Methylmalonic acidemia/propionic acidemia; Nationwide newborn screening PREVENTS undetected early acute metabolic distress IN Methylmalonic acidemia/propionic acidemia
+  medical_actions: liver transplantation; neonatal screening; reducing tube feeding; monitoring AST, ALT, and NH3 values; adjusting pH value; anxiety management for caregivers; improving DQ/IQ performance
+  symptoms: acute metabolic distress; high AST; high ALT; high NH3; low pH; neurodevelopmental disability; anxiety in caregiver
+  chemicals: 
+  action_annotation_relationships: liver transplantation TREATS acute metabolic distress IN Methylmalonic acidemia/propionic acidemia; neonatal screening PREVENTS death IN Methylmalonic acidemia/propionic acidemia; reducing tube feeding TREATS neurodevelopmental disability IN Methylmalonic acidemia/propionic acidemia; monitoring AST, ALT, and NH3 values TREATS acute metabolic distress IN Methylmalonic acidemia/propionic acidemia; adjusting pH value TREATS low pH IN Methylmalonic acidemia/propionic acidemia; anxiety management for caregivers TREATS anxiety in caregiver IN Methylmalonic acidemia/propionic acidemia; improving DQ/IQ performance TREATS neurodevelopmental disability IN Methylmalonic acidemia/propionic acidemia
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -38,7 +38,7 @@ prompt: |+
 
 
   Text:
-  Nationwide newborn screening PREVENTS undetected early acute metabolic distress IN Methylmalonic acidemia/propionic acidemia
+  improving DQ/IQ performance TREATS neurodevelopmental disability IN Methylmalonic acidemia/propionic acidemia
 
   ===
 
@@ -46,85 +46,109 @@ extracted_object:
   primary_disease: Methylmalonic acidemia/propionic acidemia
   medical_actions:
     - MAXO:0001175
-    - Non-liver transplantation
-    - Nationwide newborn screening
+    - neonatal screening
+    - reducing tube feeding
+    - monitoring AST, ALT, and NH3 values
+    - adjusting pH value
+    - anxiety management for caregivers
+    - improving DQ/IQ performance
   symptoms:
-    - Acute metabolic distress
-    - Higher AST
-    - Higher ALT
-    - Increased NH3
-    - Lower pH
-    - Death
-    - Significant neurodevelopmental disability
-  chemicals:
-    - Cobalamin B
+    - acute metabolic distress
+    - high AST
+    - high ALT
+    - high NH3
+    - low pH
+    - neurodevelopmental disability
+    - anxiety in caregiver
   action_annotation_relationships:
     - subject: MAXO:0001175
       predicate: TREATS
       object: acute metabolic distress
       qualifier: Methylmalonic acidemia/propionic acidemia
-    - subject: MAXO:0001175
+    - subject: neonatal screening
       predicate: PREVENTS
       object: death
       qualifier: Methylmalonic acidemia/propionic acidemia
-    - subject: MAXO:0001175
+    - subject: <reducing tube feeding>
+      predicate: <TREATS>
+      object: <neurodevelopmental disability>
+      qualifier: <Methylmalonic acidemia/propionic acidemia>
+      subject_qualifier: <null>
+      object_qualifier: <null>
+      subject_extension: <null>
+      object_extension: <null>
+    - subject: monitoring AST, ALT, and NH3 values
       predicate: TREATS
-      object: significant neurodevelopmental disability
+      object: acute metabolic distress
       qualifier: Methylmalonic acidemia/propionic acidemia
-    - subject: Nationwide newborn screening
-      predicate: PREVENTS
-      object: undetected early acute metabolic distress
+    - subject: adjusting pH value
+      predicate: TREATS
+      object: low pH
+      qualifier: Methylmalonic acidemia/propionic acidemia
+    - subject: <anxiety management for caregivers>
+      predicate: <TREATS>
+      object: <anxiety in caregiver>
+      qualifier: <Methylmalonic acidemia/propionic acidemia>
+      subject_qualifier: <null>
+      object_qualifier: <null>
+      subject_extension: <null>
+      object_extension: <null>
+    - subject: improving DQ/IQ performance
+      predicate: TREATS
+      object: neurodevelopmental disability
       qualifier: Methylmalonic acidemia/propionic acidemia
 named_entities:
   - id: MONDO:0010184
-    label: methylmalonic acidemia (MMA); propionic acidemia; cobalamin C (cblC) deficiency
+    label: Methylmalonic acidemia (MMA); Propionic acidemia; Cobalamin C (cblC) deficiency
   - id: CHEBI:15603
-    label: leucine (Leu)
+    label: Leucine (Leu)
   - id: CHEBI:16414
-    label: valine (Val)
+    label: Valine (Val)
   - id: CHEBI:17191
-    label: isoleucine (Ile)
+    label: Isoleucine (Ile)
   - id: CHEBI:16044
-    label: methionine (Met)
-  - id: MONDO:0002012
-    label: methylmalonic acidemia (MMA)
-  - id: MONDO:0011628
-    label: propionic acidemia
+    label: Methionine (Met)
   - id: CHEBI:25017
     label: leucine
+  - id: MONDO:0002012
+    label: Methylmalonic acidemia
+  - id: HP:0003571
+    label: Propionic acidemia
+  - id: MONDO:0011628
+    label: Propionic acidemia
   - id: MAXO:0001175
-    label: liver transplantation
+    label: Liver transplantation
   - id: HP:0001638
-    label: cardiomyopathy
-  - id: HP:0100543
-    label: Cognitive impairment
+    label: Cardiomyopathy
   - id: CHEBI:176843
     label: Vitamin B12
   - id: MONDO:0019052
     label: Inborn errors of metabolism (IEMs)
   - id: MAXO:0010039
-    label: organ transplantation
+    label: Organ transplantation
+  - id: MAXO:0001298
+    label: therapy
   - id: HP:0001942
-    label: metabolic acidosis
+    label: Metabolic acidosis
   - id: HP:0001987
-    label: hyperammonemia
-  - id: HP:0003571
-    label: Propionic acidemia
+    label: Hyperammonemia
+  - id: HP:0001733
+    label: Pancreatitis
   - id: HP:0001695
     label: cardiac arrest
   - id: HP:0001263
     label: Developmental delay
+  - id: HP:0002863
+    label: Metabolic decompensations (MDs)
   - id: CHEBI:15428
     label: Glycine
   - id: CHEBI:28867
     label: Propionylcarnitine
   - id: HP:0001138
-    label: optic neuropathy
+    label: Optic neuropathy
   - id: HP:0000083
     label: Renal failure
   - id: MONDO:0005290
     label: Rhabdomyolysis
-  - id: MAXO:0000950
-    label: Supportive care
   - id: HP:0003287
     label: Mitochondrial dysfunction

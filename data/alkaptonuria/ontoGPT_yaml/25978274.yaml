@@ -15,13 +15,13 @@ input_text: 'Lessons from rare diseases of cartilage and bone. Studying severe p
 raw_completion_output: |-
   primary_disease: Osteoarthritis (OA)
 
-  medical_actions: Clinical trials;Investigation
+  medical_actions: Clinical trials for drugs targeting cathepsin K and sclerostin; Investigation of rare cartilage syndromes
 
   symptoms: High density mineralized protrusions (HDMPs)
 
-  chemicals: Bisphosphonates;Cathepsin K;Sclerostin;GDF5;Lubricin
+  chemicals: Bisphosphonates; Cathepsin K; Sclerostin; GDF5; Lubricin
 
-  action_annotation_relationships: Clinical trials (with Cathepsin K) TREATS bone resorption IN Osteoarthritis (OA);Clinical trials (with Sclerostin) TREATS bone resorption IN Osteoarthritis (OA);Investigation TREATS High density mineralized protrusions (HDMPs) IN Osteoarthritis (OA);Clinical trials (with GDF5) PREVENTS symptoms IN Osteoarthritis (OA);Clinical trials (with Lubricin) PREVENTS symptoms IN Osteoarthritis (OA)
+  action_annotation_relationships: Clinical trials for drugs targeting cathepsin K TREATS bone resorption IN Osteoarthritis (OA); Clinical trials for drugs targeting sclerostin TREATS bone formation IN Osteoarthritis (OA); Investigation of rare cartilage syndromes (with GDF5) IDENTIFIES targets IN Osteoarthritis (OA); Investigation of rare cartilage syndromes (with Lubricin) IDENTIFIES targets IN Osteoarthritis (OA); Research on alkaptonuria IDENTIFIES High density mineralized protrusions (HDMPs) IN Osteoarthritis (OA)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -36,15 +36,15 @@ prompt: |+
 
 
   Text:
-  Clinical trials (with Lubricin) PREVENTS symptoms IN Osteoarthritis (OA)
+  Research on alkaptonuria IDENTIFIES High density mineralized protrusions (HDMPs) IN Osteoarthritis (OA)
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0008143
   medical_actions:
-    - Clinical trials
-    - Investigation
+    - Clinical trials for drugs targeting cathepsin K and sclerostin
+    - Investigation of rare cartilage syndromes
   symptoms:
     - High density mineralized protrusions (HDMPs)
   chemicals:
@@ -54,65 +54,48 @@ extracted_object:
     - GDF5
     - Lubricin
   action_annotation_relationships:
-    - subject: Clinical trials
+    - subject: Clinical trials for drugs targeting
       predicate: TREATS
       object: bone resorption
       qualifier: MONDO:0008143
-      subject_qualifier: with Cathepsin K
-      subject_extension: Cathepsin K
-    - subject: Clinical trials
-      predicate: TREATS
-      object: bone resorption
+      subject_extension: cathepsin K
+    - subject: <Clinical trials>
+      predicate: <TREATS>
+      object: <bone formation>
       qualifier: MONDO:0008143
-      subject_qualifier: with Sclerostin
-      subject_extension: Sclerostin
-    - subject: Investigation
-      predicate: TREATS
-      object: High density mineralized protrusions (HDMPs)
-      qualifier: MONDO:0008143
-    - subject: Clinical trials
-      predicate: PREVENTS
-      object: symptoms
+      subject_extension: <drugs targeting sclerostin>
+    - subject: Investigation of rare cartilage syndromes
+      predicate: IDENTIFIES
+      object: targets
       qualifier: MONDO:0008143
       subject_qualifier: with GDF5
       subject_extension: GDF5
-    - subject: Clinical trials
-      predicate: PREVENTS
-      object: symptoms
+    - subject: Investigation of rare cartilage syndromes
+      predicate: IDENTIFIES
+      object: targets
       qualifier: MONDO:0008143
       subject_qualifier: with Lubricin
       subject_extension: Lubricin
+    - subject: <Research>
+      predicate: <IDENTIFIES>
+      object: <High density mineralized protrusions (HDMPs)>
+      qualifier: MONDO:0008143
+      subject_extension: <alkaptonuria>
 named_entities:
   - id: MAXO:0001175
-    label: Liver transplantation
-  - id: HP:0030764
-    label: Ochronosis
+    label: liver transplantation
   - id: CHEBI:44747
-    label: Homogentisic acid
+    label: homogentisic acid
   - id: MONDO:0008753
     label: alkaptonuria
-  - id: HP:0002758
-    label: osteoarthritis
+  - id: MONDO:0009861
+    label: phenylketonuria
+  - id: MONDO:0010163
+    label: tyrosinosis
+  - id: HP:0030764
+    label: ochronosis
   - id: CHEBI:50378
     label: nitisinone
-  - id: CHEBI:18186
-    label: tyrosine
-  - id: CHEBI:28044
-    label: Phenylalanine
-  - id: CHEBI:18243
-    label: Dopamine
-  - id: CHEBI:1582
-    label: 3-methoxytyramine
-  - id: CHEBI:33569
-    label: Noradrenaline
-  - id: CHEBI:27897
-    label: Tryptophan
-  - id: CHEBI:28790
-    label: Serotonin
-  - id: CHEBI:29987
-    label: Glutamate
-  - id: CHEBI:15760
-    label: Tyramine
   - id: MONDO:0023094
     label: Exogenous ochronosis
   - id: MAXO:0000423
@@ -125,6 +108,10 @@ named_entities:
     label: Hydroquinone
   - id: MAXO:0001046
     label: discectomy
+  - id: MAXO:0000088
+    label: diet
+  - id: HP:0002758
+    label: osteoarthritis
   - id: MAXO:0000502
     label: Endotracheal intubation
   - id: HP:0000822
@@ -137,28 +124,30 @@ named_entities:
     label: Congestive heart failure
   - id: HP:0100598
     label: Pulmonary edema
-  - id: CHEBI:35498
-    label: Diuretics
   - id: CHEBI:28787
     label: Nitroglycerin
   - id: CHEBI:4670
     label: Dobutamine
+  - id: CHEBI:18243
+    label: Dopamine
   - id: CHEBI:32139
     label: Sodium bicarbonate
+  - id: CHEBI:35498
+    label: Diuretics
   - id: MAXO:0000757
     label: infusion
   - id: HP:0001650
     label: aortic stenosis
-  - id: HP:0001649
-    label: tachycardia
   - id: HP:0001942
     label: metabolic acidosis
-  - id: HP:0000708
-    label: Behavioural problems
+  - id: CHEBI:36080
+    label: protein
   - id: MAXO:0009082
     label: Arthroplasty
+  - id: CHEBI:18186
+    label: Tyrosine
   - id: HP:0003040
-    label: Arthropathy
+    label: arthropathy
   - id: MONDO:0001910
     label: Ochronosis
   - id: MAXO:0000127

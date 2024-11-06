@@ -22,15 +22,15 @@ input_text: 'Apert Syndrome Management: Changing Treatment Algorithm. BACKGROUND
 raw_completion_output: |-
   primary_disease: Apert Syndrome
 
-  medical_actions: surgical experience in management; hand reconstruction; posterior vault distraction osteogenesis (PVDO); fronto-orbital advancement (FOA); upper and lower limb reconstruction; craniofacial surgery; blood transfusion
+  medical_actions: hand reconstruction; posterior vault distraction osteogenesis (PVDO); fronto-orbital advancement (FOA); craniofacial surgery; upper and lower limb reconstruction
 
   symptoms: 
 
   chemicals: 
 
-  action_annotation_relationships: hand reconstruction TREATS Apert Syndrome; posterior vault distraction osteogenesis (PVDO) TREATS Apert Syndrome; fronto-orbital advancement (FOA) TREATS Apert Syndrome; upper and lower limb reconstruction TREATS Apert Syndrome; craniofacial surgery TREATS Apert Syndrome; blood transfusion TREATS complications IN Apert Syndrome
+  action_annotation_relationships: hand reconstruction TREATS malformations IN Apert Syndrome; posterior vault distraction osteogenesis (PVDO) TREATS malformations IN Apert Syndrome; fronto-orbital advancement (FOA) TREATS malformations IN Apert Syndrome; craniofacial surgery TREATS malformations IN Apert Syndrome; upper and lower limb reconstruction TREATS malformations IN Apert Syndrome
 prompt: |+
-  Split the following piece of text into fields in the following format:
+  From the text below, extract the following entities in the following format:
 
   subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
   object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
@@ -43,69 +43,66 @@ prompt: |+
 
 
   Text:
-  blood transfusion TREATS complications IN Apert Syndrome
+  upper and lower limb reconstruction TREATS malformations IN Apert Syndrome
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0007041
   medical_actions:
-    - surgical experience in management
     - hand reconstruction
     - posterior vault distraction osteogenesis (PVDO)
     - fronto-orbital advancement (FOA)
-    - upper and lower limb reconstruction
     - craniofacial surgery
-    - MAXO:0000756
+    - upper and lower limb reconstruction
   action_annotation_relationships:
     - subject: hand reconstruction
       predicate: TREATS
-      object: Apert Syndrome
+      object: malformations
+      qualifier: MONDO:0007041
     - subject: posterior vault distraction osteogenesis (PVDO)
       predicate: TREATS
-      object: Apert Syndrome
+      object: malformations
+      qualifier: MONDO:0007041
     - subject: fronto-orbital advancement (FOA)
       predicate: TREATS
-      object: Apert Syndrome
-    - subject: upper and lower limb reconstruction
-      predicate: TREATS
-      object: Apert Syndrome
+      object: malformations
+      qualifier: MONDO:0007041
     - subject: craniofacial surgery
       predicate: TREATS
-      object: Apert Syndrome
-    - subject: MAXO:0000756
+      object: malformations
+      qualifier: MONDO:0007041
+    - subject: upper and lower limb reconstruction
       predicate: TREATS
-      object: complications
+      object: malformations
       qualifier: MONDO:0007041
 named_entities:
-  - id: HP:0011800
-    label: Midface hypoplasia
   - id: MONDO:0007041
     label: Apert syndrome
   - id: MAXO:0000486
-    label: distraction osteogenesis
+    label: Distraction osteogenesis
   - id: HP:0012531
-    label: pain
+    label: Pain
   - id: HP:0001288
-    label: gait disturbances
-  - id: MONDO:0003432
-    label: Strabismus
+    label: Gait disturbances
   - id: HP:0001159
     label: Syndactyly
-  - id: MAXO:0000004
-    label: surgical procedures
   - id: HP:0001363
     label: craniosynostosis
+  - id: HP:0011800
+    label: midface hypoplasia
   - id: MONDO:0015338
     label: syndromic craniosynostosis
   - id: HP:0001061
     label: Acne
   - id: CHEBI:6067
-    label: isotretinoin
+    label: Isotretinoin
   - id: MONDO:0015469
     label: Craniosynostosis
+  - id: HP:0000504
+    label: Vision issues
   - id: HP:0000572
-    label: Vision loss
+    label: Visual loss
   - id: HP:0000646
     label: Amblyopia
   - id: HP:0001138
@@ -116,11 +113,7 @@ named_entities:
     label: Anisometropia
   - id: HP:0000483
     label: Astigmatism
-  - id: MAXO:0000504
-    label: Tracheostomy
   - id: MAXO:0000502
-    label: Tracheal intubation
-  - id: HP:0010807
-    label: Open bite
-  - id: MAXO:0000756
-    label: blood transfusion
+    label: tracheal intubation
+  - id: HP:0009102
+    label: Anterior open bite

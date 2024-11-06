@@ -22,15 +22,15 @@ input_text: 'Patterns of practice in the diagnosis, dietary counselling and foll
   of the patients are not referred to a dietitian. There is a need for reinforcement
   of guidelines for proper care and management of patients with CeD.'
 raw_completion_output: |-
-  primary_disease: Celiac disease (CeD)
+  primary_disease: Celiac Disease (CeD)
 
-  medical_actions: diagnosis based on serology and biopsy; dietary counselling; follow-up; self-monitoring of serological parameters
+  medical_actions: Diagnosis based on a combination of serology and biopsy; Diagnosis based on serology alone; Dietary counselling by physician; Referral to a dietician for dietary counselling; Self-monitoring of serological parameters; Formal assessment of dietary adherence
 
-  symptoms: Not explicitly mentioned in the provided text
+  symptoms: Not directly mentioned
 
-  chemicals: Not mentioned in the provided text
+  chemicals: Not mentioned
 
-  action_annotation_relationships: diagnosis based on serology and biopsy TREATS diagnosis IN Celiac disease (CeD); dietary counselling TREATS management IN Celiac disease (CeD); follow-up TREATS management IN Celiac disease (CeD); self-monitoring of serological parameters TREATS monitoring IN Celiac disease (CeD)
+  action_annotation_relationships: Diagnosis based on a combination of serology and biopsy TREATS Celiac Disease (CeD); Diagnosis based on serology alone TREATS Celiac Disease (CeD); Dietary counselling by physician PREVENTS complications IN Celiac Disease (CeD); Referral to a dietician for dietary counselling PREVENTS complications IN Celiac Disease (CeD); Self-monitoring of serological parameters ENABLES management IN Celiac Disease (CeD); Formal assessment of dietary adherence ENABLES management IN Celiac Disease (CeD)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -45,88 +45,84 @@ prompt: |+
 
 
   Text:
-  self-monitoring of serological parameters TREATS monitoring IN Celiac disease (CeD)
+  Formal assessment of dietary adherence ENABLES management IN Celiac Disease (CeD)
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0009032
   medical_actions:
-    - diagnosis based on serology and biopsy
-    - dietary counselling
-    - follow-up
-    - self-monitoring of serological parameters
+    - Diagnosis based on a combination of serology and biopsy
+    - Diagnosis based on serology alone
+    - Dietary counselling by physician
+    - Referral to a dietician for dietary counselling
+    - Self-monitoring of serological parameters
+    - Formal assessment of dietary adherence
   symptoms:
-    - Not explicitly mentioned in the provided text
+    - Not directly mentioned
   chemicals:
-    - Not mentioned in the provided text
+    - Not mentioned
   action_annotation_relationships:
-    - subject: diagnosis based on serology and biopsy
+    - subject: Diagnosis based on a combination of serology and biopsy
       predicate: TREATS
-      object: diagnosis
-      qualifier: MONDO:0009032
-    - subject: dietary counselling
-      predicate: TREATS
-      object: management
-      qualifier: MONDO:0009032
-    - subject: follow-up
-      predicate: TREATS
-      object: management
-      qualifier: MONDO:0009032
-    - subject: <self-monitoring of serological parameters>
+      object: HP:0100252
+    - subject: <Diagnosis>
       predicate: <TREATS>
-      object: <monitoring>
-      qualifier: <Celiac disease>
-      subject_qualifier: <None>
-      object_qualifier: <None>
-      subject_extension: <None>
-      object_extension: <None>
+      object: HP:0100252
+      subject_qualifier: <based on serology alone>
+      subject_extension: <serology>
+    - subject: Dietary counselling by physician
+      predicate: PREVENTS
+      object: complications
+      qualifier: MONDO:0009032
+    - subject: Referral to a dietician for dietary counselling
+      predicate: PREVENTS
+      object: complications
+      qualifier: MONDO:0009032
+    - subject: Self-monitoring of serological parameters
+      predicate: ENABLES
+      object: management
+      qualifier: MONDO:0009032
+    - subject: Formal assessment of dietary adherence
+      predicate: ENABLES
+      object: management
+      qualifier: MONDO:0009032
 named_entities:
-  - id: HP:0040313
-    label: oligoarticular arthritis
-  - id: CHEBI:65312
-    label: Corticotropin releasing hormone
-  - id: CHEBI:197439
-    label: TNFalpha
+  - id: HP:0001251
+    label: ataxia
+  - id: CHEBI:21547
+    label: N-acetylaspartate (NAA)
+  - id: CHEBI:157802
+    label: creatine (Cr)
   - id: MONDO:0005130
-    label: Celiac Disease
-  - id: MAXO:0000058
-    label: pharmacological treatment
+    label: Celiac disease
+  - id: HP:0001394
+    label: Cirrhosis
   - id: HP:0002608
-    label: Celiac Disease
-  - id: HP:0025464
-    label: Oxidative stress
-  - id: CHEBI:26195
-    label: Polyphenols
-  - id: MONDO:0009032
-    label: Celiac disease (CeD)
-  - id: MONDO:0016063
-    label: Celiac Disease (CD)
-  - id: HP:0000739
-    label: Anxiety
-  - id: HP:0000716
-    label: Depression
-  - id: MONDO:0005265
-    label: Inflammatory bowel disease
-  - id: HP:0012538
-    label: Gluten sensitivity
-  - id: MONDO:0007021
-    label: Wheat allergy
-  - id: CHEBI:26271
-    label: proline
-  - id: MONDO:0013209
-    label: Nonalcoholic fatty liver disease (NAFLD)
-  - id: HP:0001397
-    label: Hepatic steatosis
-  - id: MAXO:0000487
-    label: Clinical assessment
-  - id: CHEBI:80165
-    label: Gluten Immunogenic Peptides (GIP)
-  - id: HP:0002019
-    label: Constipation
+    label: Celiac disease
+  - id: MONDO:0005340
+    label: Alopecia areata
+  - id: HP:0001596
+    label: Hair loss
+  - id: HP:0002014
+    label: Diarrhea
+  - id: HP:0002027
+    label: Abdominal pain
+  - id: HP:0012378
+    label: Fatigue
+  - id: HP:0011473
+    label: Villous atrophy
+  - id: CHEBI:3207
+    label: Budesonide
+  - id: HP:0000951
+    label: skin abnormalities
+  - id: HP:0001595
+    label: hair abnormalities
+  - id: HP:0000112
+    label: kidney diseases
   - id: MAXO:0000088
     label: Diet
-  - id: HP:0004395
-    label: Nutritional deficiencies
-  - id: MONDO:0011122
-    label: Obesity
+  - id: MONDO:0009032
+    label: Celiac Disease (CeD)
+  - id: HP:0100252
+    label: Celiac Disease (CeD)

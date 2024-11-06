@@ -10,10 +10,10 @@ input_text: 'Perioperative Anesthetic Management for Cesarean Delivery in a Part
   with LDS are discussed.'
 raw_completion_output: |-
   primary_disease: Loeys-Dietz syndrome (LDS)
-  medical_actions: epidural anesthesia;multidisciplinary management
-  symptoms: aortic and arterial aneurysms;aortic dissection;uterine rupture
+  medical_actions: management of an elective cesarean delivery; using epidural anesthesia; perioperative considerations; multidisciplinary management
+  symptoms: aortic and arterial aneurysms; potential for aortic dissection; uterine rupture
   chemicals: 
-  action_annotation_relationships: epidural anesthesia TREATS aortic dissection IN Loeys-Dietz syndrome (LDS);multidisciplinary management PREVENTS uterine rupture IN Loeys-Dietz syndrome (LDS);multidisciplinary management PREVENTS aortic dissection IN Loeys-Dietz syndrome (LDS)
+  action_annotation_relationships: management of an elective cesarean delivery PREVENTS uterine rupture IN Loeys-Dietz syndrome (LDS); using epidural anesthesia TREATS potential for aortic dissection IN Loeys-Dietz syndrome (LDS); perioperative considerations PREVENTS aortic and arterial aneurysms IN Loeys-Dietz syndrome (LDS); multidisciplinary management PREVENTS aortic and arterial aneurysms IN Loeys-Dietz syndrome (LDS)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -28,51 +28,103 @@ prompt: |+
 
 
   Text:
-  multidisciplinary management PREVENTS aortic dissection IN Loeys-Dietz syndrome (LDS)
+  multidisciplinary management PREVENTS aortic and arterial aneurysms IN Loeys-Dietz syndrome (LDS)
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0018954
   medical_actions:
-    - epidural anesthesia
+    - management of an elective cesarean delivery
+    - using epidural anesthesia
+    - perioperative considerations
     - multidisciplinary management
   symptoms:
     - aortic and arterial aneurysms
-    - HP:0002647
+    - potential for aortic dissection
     - HP:0100718
   action_annotation_relationships:
-    - subject: <epidural anesthesia>
-      predicate: <TREATS>
-      object: <aortic dissection>
-      qualifier: <Loeys-Dietz syndrome>
-      subject_qualifier: <None>
-      object_qualifier: <None>
-      subject_extension: <epidural anesthesia>
-      object_extension: <None>
-    - subject: multidisciplinary management
+    - subject: management of an elective cesarean delivery
       predicate: PREVENTS
       object: HP:0100718
       qualifier: MONDO:0018954
-    - subject: multidisciplinary management
+    - subject: <epidural anesthesia>
+      predicate: <TREATS>
+      object: <potential for aortic dissection>
+      qualifier: <Loeys-Dietz syndrome (LDS)>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <epidural anesthesia>
+      object_extension: <>
+    - subject: perioperative considerations
       predicate: PREVENTS
-      object: HP:0002647
+      object: aortic and arterial aneurysms
       qualifier: MONDO:0018954
+    - subject: <multidisciplinary management>
+      predicate: <PREVENTS>
+      object: <aortic and arterial aneurysms>
+      qualifier: <Loeys-Dietz syndrome>
+      subject_qualifier: <Not applicable>
+      object_qualifier: <Not applicable>
+      subject_extension: <Not applicable>
+      object_extension: <Not applicable>
 named_entities:
   - id: MONDO:0018954
     label: Loeys-Dietz syndrome
+  - id: MAXO:0000945
+    label: spinal cord stimulation (SCS)
+  - id: HP:0031625
+    label: Pseudoaneurysms
+  - id: MAXO:0000451
+    label: Implantation
+  - id: HP:0000978
+    label: Easy bruising
+  - id: HP:0002616
+    label: Aortic root dilatation
+  - id: HP:0001382
+    label: Joint laxity
+  - id: CHEBI:35530
+    label: Beta-blocker
+  - id: MAXO:0010203
+    label: Echocardiography
   - id: HP:0012764
     label: orthopnea
   - id: HP:0001631
     label: atrial septal defect
+  - id: HP:0001263
+    label: developmental delay
+  - id: HP:0003302
+    label: Spondylolisthesis
+  - id: HP:0003304
+    label: Spondylolysis
   - id: HP:0012531
-    label: pain
+    label: Pain
   - id: HP:0004942
     label: aortic aneurysms
+  - id: HP:0002647
+    label: aortic dissection
   - id: HP:0001645
-    label: premature sudden cardiac death
+    label: sudden cardiac death
+  - id: HP:0004944
+    label: Cerebral aneurysms
+  - id: HP:0002617
+    label: Vasculopathy
+  - id: HP:0030745
+    label: Aneurysm of the ductus arteriosus
   - id: MAXO:0000948
-    label: craniotomy
+    label: Craniotomy
+  - id: MAXO:0010319
+    label: CT angiogram
+  - id: MAXO:0010312
+    label: Head CT
+  - id: HP:0007185
+    label: Loss of consciousness
+  - id: HP:0002138
+    label: Subarachnoid hemorrhage
+  - id: HP:0025237
+    label: Unresponsive
+  - id: CHEBI:35620
+    label: vasodilator
   - id: MAXO:0000011
     label: Physical therapy
   - id: MAXO:0001351
@@ -85,7 +137,5 @@ named_entities:
     label: Hypotonia
   - id: MONDO:0007947
     label: Marfan syndrome
-  - id: HP:0002647
-    label: aortic dissection
   - id: HP:0100718
     label: uterine rupture

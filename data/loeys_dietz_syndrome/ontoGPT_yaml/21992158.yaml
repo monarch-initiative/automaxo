@@ -15,10 +15,10 @@ input_text: 'Treatment of chronic chest wall pain in a patient with Loeys-Dietz 
   invasive techniques.'
 raw_completion_output: |-
   primary_disease: Loeys-Dietz syndrome
-  medical_actions: Spinal cord stimulation (SCS); Percutaneous epidural placement; Implantation of permanent leads and rechargeable generator
-  symptoms: Chronic chest wall pain
+  medical_actions: spinal cord stimulation (SCS); repair of pectus excavatum; placement of temporary eight-electrode leads; implantation of permanent leads and rechargeable generator
+  symptoms: chronic chest wall pain
   chemicals: 
-  action_annotation_relationships: Spinal cord stimulation (SCS) TREATS chronic chest wall pain IN Loeys-Dietz syndrome; Percutaneous epidural placement TREATS chronic chest wall pain IN Loeys-Dietz syndrome; Implantation of permanent leads and rechargeable generator TREATS chronic chest wall pain IN Loeys-Dietz syndrome
+  action_annotation_relationships: spinal cord stimulation (SCS) TREATS chronic chest wall pain IN Loeys-Dietz syndrome; repair of pectus excavatum PREVENTS chronic chest wall pain IN Loeys-Dietz syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -33,7 +33,7 @@ prompt: |+
 
 
   Text:
-  Implantation of permanent leads and rechargeable generator TREATS chronic chest wall pain IN Loeys-Dietz syndrome
+  repair of pectus excavatum PREVENTS chronic chest wall pain IN Loeys-Dietz syndrome
 
   ===
 
@@ -41,29 +41,22 @@ extracted_object:
   primary_disease: MONDO:0018954
   medical_actions:
     - MAXO:0000945
-    - Percutaneous epidural placement
-    - Implantation of permanent leads and rechargeable generator
+    - repair of pectus excavatum
+    - placement of temporary eight-electrode leads
+    - implantation of permanent leads and rechargeable generator
   symptoms:
-    - Chronic chest wall pain
+    - chronic chest wall pain
   action_annotation_relationships:
     - subject: MAXO:0000945
       predicate: TREATS
       object: chronic chest wall pain
       qualifier: MONDO:0018954
-    - subject: <Percutaneous epidural placement>
-      predicate: <TREATS>
-      object: <chronic chest wall pain>
-      qualifier: <Loeys-Dietz syndrome>
-      subject_qualifier: <None>
-      object_qualifier: <None>
-      subject_extension: <None>
-      object_extension: <None>
-    - subject: Implantation of permanent leads and rechargeable generator
-      predicate: TREATS
+    - subject: repair of pectus excavatum
+      predicate: PREVENTS
       object: chronic chest wall pain
       qualifier: MONDO:0018954
 named_entities:
   - id: MONDO:0018954
     label: Loeys-Dietz syndrome
   - id: MAXO:0000945
-    label: Spinal cord stimulation (SCS)
+    label: spinal cord stimulation (SCS)

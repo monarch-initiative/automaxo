@@ -16,15 +16,15 @@ input_text: Liver transplantation for an infant with neonatal intrahepatic chole
   neonatal/infantile cholestatic disease. LT using a heterozygote living donor is
   an effective alternative in countries where a deceased donor is not available.
 raw_completion_output: |-
-  primary_disease: neonatal intrahepatic cholestasis caused by citrin deficiency (NICCD)
+  primary_disease: NICCD (neonatal intrahepatic cholestasis caused by citrin deficiency)
 
-  medical_actions: Liver transplantation (LT); Donor evaluation; Plasma amino acid concentration normalization
+  medical_actions: Liver transplantation (LT) using a heterozygote living donor; Donor evaluation for mutation in the SLC25A13 gene
 
-  symptoms: cholestasis; coagulopathy; hypoglycemia; fatty liver; multiple amino acidemia; progressive liver failure
+  symptoms: Cholestasis; Coagulopathy; Hypoglycemia; Fatty liver; Multiple amino acidemia; Progressive liver failure
 
   chemicals: 
 
-  action_annotation_relationships: Liver transplantation TREATS progressive liver failure IN neonatal intrahepatic cholestasis caused by citrin deficiency; Donor evaluation PREVENTS complications IN neonatal intrahepatic cholestasis caused by citrin deficiency; Plasma amino acid concentration normalization TREATS multiple amino acidemia IN neonatal intrahepatic cholestasis caused by citrin deficiency
+  action_annotation_relationships: Liver transplantation (LT) using a heterozygote living donor TREATS progressive liver failure IN NICCD; Donor evaluation for mutation in the SLC25A13 gene PREVENTS improper donor selection IN NICCD
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -39,36 +39,33 @@ prompt: |+
 
 
   Text:
-  Plasma amino acid concentration normalization TREATS multiple amino acidemia IN neonatal intrahepatic cholestasis caused by citrin deficiency
+  Donor evaluation for mutation in the SLC25A13 gene PREVENTS improper donor selection IN NICCD
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0011601
   medical_actions:
-    - MAXO:0001175
-    - Donor evaluation
-    - Plasma amino acid concentration normalization
+    - Liver transplantation (LT) using a heterozygote living donor
+    - Donor evaluation for mutation in the SLC25A13 gene
   symptoms:
     - HP:0001396
     - HP:0003256
     - HP:0001943
     - HP:0001397
-    - multiple amino acidemia
-    - progressive liver failure
+    - Multiple amino acidemia
+    - Progressive liver failure
   action_annotation_relationships:
     - subject: MAXO:0001175
       predicate: TREATS
       object: progressive liver failure
       qualifier: MONDO:0011601
-    - subject: Donor evaluation
-      predicate: PREVENTS
-      object: complications
-      qualifier: MONDO:0011601
-    - subject: Plasma amino acid concentration normalization
-      predicate: TREATS
-      object: multiple amino acidemia
-      qualifier: MONDO:0011601
+      subject_qualifier: using a heterozygote living donor
+    - subject: <Donor evaluation>
+      predicate: <PREVENTS>
+      object: <improper donor selection>
+      qualifier: <NICCD>
+      subject_extension: <mutation in the SLC25A13 gene>
 named_entities:
   - id: MONDO:0019052
     label: Inborn errors of metabolism (IEMs)
@@ -77,25 +74,15 @@ named_entities:
   - id: MONDO:0016603
     label: Adult-onset citrullinemia (CTLN2)
   - id: MONDO:0016602
-    label: Citrin deficiency
-  - id: MONDO:0005311
-    label: atherosclerosis
-  - id: CHEBI:18211
-    label: citrulline
-  - id: CHEBI:29016
-    label: arginine
-  - id: CHEBI:16349
-    label: L-citrulline
-  - id: CHEBI:16467
-    label: L-arginine
-  - id: HP:0002621
-    label: atherosclerosis
+    label: citrin deficiency
   - id: MONDO:0008988
     label: Citrullinemia type 1
   - id: MAXO:0000603
     label: Peritoneal dialysis
   - id: MAXO:0000127
     label: Genetic analysis
+  - id: MAXO:0000376
+    label: Liver biopsy
   - id: HP:0001987
     label: Hyperammonemia
   - id: CHEBI:22918
@@ -106,34 +93,16 @@ named_entities:
     label: Hemodialysis
   - id: CHEBI:16150
     label: Benzoate
-  - id: HP:0000739
-    label: Anxiety
-  - id: CHEBI:28938
-    label: Ammonia
-  - id: CHEBI:16199
-    label: Urea
-  - id: MAXO:0001001
-    label: Gene therapy
   - id: HP:0001945
     label: fever
   - id: HP:0003270
     label: abdominal distention
-  - id: HP:0001508
-    label: failure to thrive
-  - id: HP:0003119
-    label: dyslipidemia
-  - id: HP:0005206
-    label: pancreatic pseudocyst
+  - id: HP:0002155
+    label: hypertriglyceridemia
   - id: MAXO:0001298
     label: therapy
-  - id: MONDO:0004992
-    label: Cancer
-  - id: HP:0001510
-    label: Growth failure
-  - id: CHEBI:16646
-    label: carbohydrates
   - id: MONDO:0009563
-    label: Maple Syrup Urine Disease (MSUD)
+    label: maple syrup urine disease (MSUD)
   - id: MONDO:0019542
     label: Acute liver failure (ALF)
   - id: HP:0000952
@@ -152,6 +121,10 @@ named_entities:
     label: easy fatigability
   - id: HP:0001824
     label: weight loss
+  - id: HP:0001508
+    label: failure to thrive
+  - id: HP:0003119
+    label: dyslipidemia
   - id: CHEBI:16374
     label: vitamin K2
   - id: CHEBI:9907
@@ -162,36 +135,37 @@ named_entities:
     label: glycerol
   - id: CHEBI:28757
     label: fructose
+  - id: CHEBI:30879
+    label: alcohol
   - id: HP:0001250
-    label: Seizures
+    label: seizures
+  - id: HP:0006846
+    label: acute encephalopathy
   - id: HP:0002480
-    label: hepatic encephalopathy
+    label: Hepatic encephalopathy
   - id: MONDO:0020579
     label: Mucositis
   - id: HP:0031864
-    label: Bacteremia
-  - id: HP:0001875
-    label: Neutropenia
+    label: bacteremia
   - id: CHEBI:28876
-    label: Melphalan
+    label: melphalan
   - id: CHEBI:4027
-    label: Cyclophosphamide
-  - id: CHEBI:33281
-    label: antimicrobial
-  - id: MONDO:0006851
-    label: Defects in the Mitochondrial Malate Aspartate Shuttle (MAS) and Pyruvate
-      Carrier (MPC)
+    label: cyclophosphamide
   - id: HP:0001410
-    label: Hepatopathy
+    label: hepatopathy
   - id: MONDO:0004739
     label: Urea Cycle Disorders (UCDs)
+  - id: CHEBI:16349
+    label: L-citrulline
+  - id: CHEBI:29016
+    label: Arginine
   - id: HP:0000708
-    label: Abnormal behaviors
+    label: abnormal behaviors
   - id: HP:0001263
     label: Cognitive delay
   - id: MONDO:0011601
-    label: neonatal intrahepatic cholestasis caused by citrin deficiency (NICCD)
+    label: NICCD (neonatal intrahepatic cholestasis caused by citrin deficiency)
   - id: HP:0001396
-    label: cholestasis
+    label: Cholestasis
   - id: HP:0003256
-    label: coagulopathy
+    label: Coagulopathy

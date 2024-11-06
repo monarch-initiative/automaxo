@@ -25,13 +25,13 @@ input_text: "Exercise effects in Huntington disease. Huntington disease (HD) is 
 raw_completion_output: |-
   primary_disease: Huntington disease
 
-  medical_actions: endurance training;clinical assessments;exercise physiological tests;body composition measurement;muscle biopsy
+  medical_actions: endurance training (ET); multidisciplinary rehabilitation; clinical assessments; exercise physiological tests; body composition measurement; muscle biopsy
 
-  symptoms: cognitive dysfunction;motor dysfunction;motor deficit
+  symptoms: cognitive dysfunction; motor dysfunction; motor deficit
 
   chemicals: 
 
-  action_annotation_relationships: endurance training TREATS motor deficit IN Huntington disease;endurance training STABILIZES motor dysfunction IN Huntington disease;endurance training AMELIORATES cognitive dysfunction IN Huntington disease;endurance training INCREASES cardiovascular function IN Huntington disease
+  action_annotation_relationships: endurance training (ET) TREATS motor deficit IN Huntington disease; multidisciplinary rehabilitation TREATS cognitive dysfunction IN Huntington disease; endurance training (ET) AMELIORATES cardiovascular function IN Huntington disease
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -46,14 +46,15 @@ prompt: |+
 
 
   Text:
-  endurance training INCREASES cardiovascular function IN Huntington disease
+  endurance training (ET) AMELIORATES cardiovascular function IN Huntington disease
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0007739
   medical_actions:
-    - endurance training
+    - endurance training (ET)
+    - multidisciplinary rehabilitation
     - MAXO:0000487
     - exercise physiological tests
     - body composition measurement
@@ -63,96 +64,131 @@ extracted_object:
     - motor dysfunction
     - motor deficit
   action_annotation_relationships:
-    - subject: endurance training
+    - subject: endurance training (ET)
       predicate: TREATS
       object: motor deficit
       qualifier: MONDO:0007739
-    - subject: endurance training
-      predicate: STABILIZES
-      object: motor dysfunction
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: multidisciplinary rehabilitation
+      predicate: TREATS
+      object: HP:0100543
       qualifier: MONDO:0007739
-    - subject: <endurance training>
-      predicate: <AMELIORATES>
-      object: <cognitive dysfunction>
-      qualifier: <Huntington disease>
-      subject_extension: <endurance training>
     - subject: endurance training
-      predicate: INCREASES
+      predicate: AMELIORATES
       object: cardiovascular function
       qualifier: MONDO:0007739
 named_entities:
   - id: MONDO:0007739
-    label: Huntington disease (HD)
-  - id: HP:0001268
-    label: Cognitive decline
-  - id: CHEBI:76720
-    label: Antisense oligonucleotides
+    label: Huntington disease
+  - id: MAXO:0001298
+    label: therapy
   - id: HP:0002180
     label: neurodegeneration
-  - id: MAXO:0001001
-    label: gene therapies
+  - id: HP:0001268
+    label: cognitive decline
+  - id: HP:0100022
+    label: movement disorders
+  - id: HP:0002072
+    label: choreic movements
+  - id: MAXO:0009003
+    label: preimplantation genetic testing
+  - id: MAXO:0001592
+    label: RNA interference therapy
+  - id: HP:0000716
+    label: depression
+  - id: HP:0000739
+    label: anxiety
+  - id: HP:0000737
+    label: irritability
+  - id: CHEBI:7735
+    label: olanzapine
   - id: MAXO:0000882
-    label: Behavioral interventions
+    label: behavioral interventions
+  - id: HP:0004395
+    label: malnutrition
+  - id: MAXO:0000011
+    label: physical therapy
+  - id: CHEBI:22720
+    label: benzodiazepines
+  - id: CHEBI:2618
+    label: amantadine
+  - id: CHEBI:15765
+    label: levodopa
   - id: HP:0002315
-    label: headache
+    label: Headache
   - id: CHEBI:134738
-    label: laquinimod
+    label: Laquinimod
   - id: CHEBI:4903
-    label: ethinylestradiol
+    label: Ethinylestradiol
   - id: CHEBI:6443
-    label: levonorgestrel
-  - id: MONDO:0002602
-    label: Central nervous system disorders
-  - id: CHEBI:3962
-    label: Curcumin
-  - id: CHEBI:50803
-    label: nanoparticles
-  - id: MONDO:0005071
-    label: Neurological Disorders
-  - id: MAXO:0000647
-    label: Chemotherapy
+    label: Levonorgestrel
+  - id: HP:0001251
+    label: Ataxia
+  - id: HP:0001260
+    label: Dysarthria
+  - id: HP:0002119
+    label: Ventricular dilatation
   - id: HP:0100543
-    label: Cognitive impairment
-  - id: HP:0012174
-    label: glioblastoma
-  - id: MONDO:0005109
-    label: HIV
+    label: cognitive deficits
+  - id: HP:0000708
+    label: Behavioral changes
+  - id: CHEBI:92976
+    label: Latrepirdine
   - id: MONDO:0005559
     label: Neurodegenerative diseases
   - id: CHEBI:16243
-    label: quercetin
+    label: Quercetin
+  - id: CHEBI:3962
+    label: Curcumin
   - id: CHEBI:27881
-    label: resveratrol
+    label: Resveratrol
   - id: CHEBI:75095
-    label: chrysin
+    label: Chrysin
   - id: CHEBI:28821
-    label: piperine
+    label: Piperine
   - id: CHEBI:17620
-    label: ferulic acid
+    label: Ferulic acid
   - id: CHEBI:78330
-    label: huperzine A
+    label: Huperzine A
   - id: CHEBI:16118
-    label: berberine
+    label: Berberine
   - id: CHEBI:2979
-    label: baicalein
+    label: Baicalein
   - id: CHEBI:28230
-    label: hesperetin
+    label: Hesperetin
   - id: CHEBI:26536
-    label: retinoic acid
-  - id: HP:0000708
-    label: Behavioral symptoms
-  - id: MAXO:0001298
-    label: therapy
-  - id: MAXO:0009003
-    label: Preimplantation genetic testing (PGT-M)
+    label: Retinoic acid
+  - id: MAXO:0000127
+    label: Genetic testing
+  - id: CHEBI:76004
+    label: Dimethyl fumarate
+  - id: MAXO:0010012
+    label: coenzyme Q10 supplementation
+  - id: HP:0003287
+    label: mitochondrial dysfunction
+  - id: HP:0025464
+    label: oxidative stress
+  - id: CHEBI:46245
+    label: coenzyme Q10
+  - id: CHEBI:31687
+    label: idebenone
+  - id: MONDO:0100339
+    label: Friedreich ataxia
   - id: MONDO:0016621
     label: Juvenile Huntington Disease
+  - id: MAXO:0000021
+    label: Palliative care
+  - id: CHEBI:6030
+    label: Isoniazid (INH)
+  - id: CHEBI:16865
+    label: gamma-aminobutyric acid (GABA)
   - id: HP:0000709
     label: psychosis
   - id: HP:0011951
     label: aspiration pneumonia
-  - id: HP:0000716
-    label: depression
   - id: MAXO:0000065
     label: aerobic exercises
   - id: MAXO:0000487

@@ -30,12 +30,16 @@ input_text: "Cardiovascular benefits of a home-based exercise program in patient
   patients."
 raw_completion_output: |-
   primary_disease: sickle cell disease
-  medical_actions: home-based aerobic exercise program; clinical evaluation; cardiovascular tests; echocardiography; treadmill test
-  symptoms: painful crises; cardiopulmonary function impairment
+
+  medical_actions: regular physical exercise (a home-based program); aerobic exercise program; clinical evaluation; cardiovascular tests; echocardiographic analysis; treadmill test
+
+  symptoms: painful crises; impairment of the cardiopulmonary function
+
   chemicals: 
-  action_annotation_relationships: home-based aerobic exercise program PREVENTS painful crises IN sickle cell disease; home-based aerobic exercise program PREVENTS cardiopulmonary function impairment IN sickle cell disease
+
+  action_annotation_relationships: regular physical exercise (a home-based program) PREVENTS painful crises IN sickle cell disease; aerobic exercise program PREVENTS impairment of the cardiopulmonary function IN sickle cell disease; clinical evaluation TREATS sickle cell disease; cardiovascular tests TREATS sickle cell disease; echocardiographic analysis TREATS sickle cell disease; treadmill test TREATS sickle cell disease
 prompt: |+
-  From the text below, extract the following entities in the following format:
+  Split the following piece of text into fields in the following format:
 
   subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
   object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
@@ -48,35 +52,74 @@ prompt: |+
 
 
   Text:
-  home-based aerobic exercise program PREVENTS cardiopulmonary function impairment IN sickle cell disease
+  treadmill test TREATS sickle cell disease
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0011382
   medical_actions:
-    - home-based aerobic exercise program
+    - regular physical exercise (a home-based program)
+    - aerobic exercise program
     - clinical evaluation
     - cardiovascular tests
-    - MAXO:0010203
+    - echocardiographic analysis
     - treadmill test
   symptoms:
     - painful crises
-    - cardiopulmonary function impairment
+    - impairment of the cardiopulmonary function
   action_annotation_relationships:
-    - subject: <home-based aerobic exercise program>
-      predicate: <PREVENTS>
-      object: <painful crises>
-      qualifier: <sickle cell disease>
-      subject_qualifier: <home-based>
-      subject_extension: <aerobic exercise>
-    - subject: <home-based aerobic exercise program>
-      predicate: <PREVENTS>
-      object: <cardiopulmonary function impairment>
-      qualifier: <sickle cell disease>
-      subject_extension: <home-based aerobic exercise program>
+    - subject: regular physical exercise
+      predicate: PREVENTS
+      object: painful crises
+      qualifier: MONDO:0011382
+      subject_qualifier: a home-based program
+    - subject: aerobic exercise program
+      predicate: PREVENTS
+      object: impairment of the cardiopulmonary function
+      qualifier: MONDO:0011382
+    - subject: clinical evaluation
+      predicate: TREATS
+      object: sickle cell disease
+    - subject: cardiovascular tests
+      predicate: TREATS
+      object: sickle cell disease
+    - subject: echocardiographic analysis
+      predicate: TREATS
+      object: sickle cell disease
+    - subject: treadmill test
+      predicate: TREATS
+      object: sickle cell disease
 named_entities:
   - id: MONDO:0011382
     label: sickle cell disease
-  - id: MAXO:0010203
-    label: echocardiography
+  - id: CHEBI:64357
+    label: rituximab
+  - id: CHEBI:35341
+    label: steroids
+  - id: CHEBI:81579
+    label: erythropoietin
+  - id: MAXO:0001017
+    label: Vaccination
+  - id: MONDO:0007374
+    label: Sickle Cell Disease (SCD)
+  - id: MAXO:0000747
+    label: Allogeneic hematopoietic stem cell transplantation (HSCT)
+  - id: HP:0007760
+    label: Sickle Cell Disease (SCD)
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: CHEBI:35480
+    label: analgesics
+  - id: CHEBI:33281
+    label: antibiotics
+  - id: MAXO:0001077
+    label: Splenectomy
+  - id: MAXO:0000756
+    label: Blood transfusion
+  - id: MONDO:0044348
+    label: Hemoglobinopathies
+  - id: CHEBI:44423
+    label: Hydroxyurea
+  - id: HP:0001297
+    label: Stroke

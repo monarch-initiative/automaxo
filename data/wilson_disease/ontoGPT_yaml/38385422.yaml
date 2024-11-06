@@ -22,13 +22,13 @@ input_text: Management of Tacrolimus-Induced Toxicity With Normal Serum Levels A
   physicians should keep high index of suspicion regarding toxicity in the posttransplant
   setting.
 raw_completion_output: |-
-  primary_disease: Tacrolimus-Induced Toxicity  
-  medical_actions: Reduced tacrolimus dose;Liver biopsy;Penicillamine chelating therapy;Liver transplant  
-  symptoms: Cholestatic liver injury;Hepatocellular necrosis;Centrilobular cholestasis;Deranged liver function tests  
-  chemicals: Tacrolimus;Penicillamine  
-  action_annotation_relationships: Reduced tacrolimus dose TREATS Cholestatic liver injury IN Tacrolimus-Induced Toxicity;Liver biopsy DIAGNOSES Hepatocellular necrosis WITH Centrilobular cholestasis IN Tacrolimus-Induced Toxicity;Penicillamine chelating therapy TREATS Wilson disease;Liver transplant TREATS Wilson disease
+  primary_disease: Tacrolimus-Induced Toxicity
+  medical_actions: dose reduction; liver biopsy
+  symptoms: deranged liver function tests; cholestatic liver injury; hepatocellular necrosis; centrilobular cholestasis
+  chemicals: Tacrolimus; penicillamine
+  action_annotation_relationships: dose reduction TREATS cholestatic liver injury IN Tacrolimus-Induced Toxicity; liver biopsy DIAGNOSES hepatocellular necrosis IN Tacrolimus-Induced Toxicity; liver biopsy DIAGNOSES centrilobular cholestasis IN Tacrolimus-Induced Toxicity
 prompt: |+
-  Split the following piece of text into fields in the following format:
+  From the text below, extract the following entities in the following format:
 
   subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
   object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
@@ -41,95 +41,145 @@ prompt: |+
 
 
   Text:
-  Liver transplant TREATS Wilson disease
+  liver biopsy DIAGNOSES centrilobular cholestasis IN Tacrolimus-Induced Toxicity
 
   ===
 
 extracted_object:
   primary_disease: Tacrolimus-Induced Toxicity
   medical_actions:
-    - Reduced tacrolimus dose
+    - dose reduction
     - MAXO:0000376
-    - Penicillamine chelating therapy
-    - Liver transplant
   symptoms:
-    - Cholestatic liver injury
+    - deranged liver function tests
+    - cholestatic liver injury
     - HP:0001404
-    - Centrilobular cholestasis
-    - Deranged liver function tests
+    - centrilobular cholestasis
   chemicals:
     - CHEBI:61049
     - CHEBI:50868
   action_annotation_relationships:
-    - subject: Reduced tacrolimus dose
+    - subject: dose reduction
       predicate: TREATS
-      object: Cholestatic liver injury
+      object: cholestatic liver injury
       qualifier: Tacrolimus-Induced Toxicity
-      subject_qualifier: reduced
       subject_extension: CHEBI:61049
-    - subject: <Liver biopsy>
-      predicate: <DIAGNOSES>
-      object: <Hepatocellular necrosis>
-      qualifier: <Tacrolimus-Induced Toxicity>
-      subject_qualifier: <>
-      object_qualifier: <WITH Centrilobular cholestasis>
-      subject_extension: <Tacrolimus>
-      object_extension: <Centrilobular cholestasis>
-    - subject: chelating therapy
-      predicate: TREATS
-      object: Wilson disease
-      subject_extension: CHEBI:50868
-    - subject: Liver transplant
-      predicate: TREATS
-      object: Wilson disease
+    - subject: MAXO:0000376
+      predicate: DIAGNOSES
+      object: HP:0001404
+      qualifier: Tacrolimus-Induced Toxicity
+    - subject: MAXO:0000376
+      predicate: DIAGNOSES
+      object: centrilobular cholestasis
+      qualifier: Tacrolimus-Induced Toxicity
 named_entities:
   - id: MONDO:0010200
     label: Wilson's disease
   - id: MAXO:0001175
-    label: liver transplantation
+    label: Liver transplantation
   - id: HP:0001695
-    label: cardiac arrest
+    label: Cardiac arrest
   - id: HP:0001685
-    label: myocardial fibrosis
+    label: Myocardial fibrosis
   - id: HP:0001663
-    label: ventricular fibrillation
+    label: Ventricular fibrillation
+  - id: CHEBI:28694
+    label: Copper
+  - id: CHEBI:18248
+    label: Iron
+  - id: HP:0002910
+    label: abnormal liver functions
+  - id: HP:0001394
+    label: cirrhosis
+  - id: CHEBI:27363
+    label: zinc
+  - id: CHEBI:50868
+    label: penicillamine
+  - id: MAXO:0000016
+    label: Cell therapy
+  - id: MAXO:0001001
+    label: Gene therapy
   - id: CHEBI:30703
-    label: tetrathiomolybdate (TTM)
+    label: Tetrathiomolybdate (TTM)
+  - id: HP:0006554
+    label: acute liver failure
   - id: CHEBI:35176
     label: Zinc sulphate
   - id: CHEBI:35475
     label: NSAIDs
-  - id: MAXO:0001001
-    label: Gene therapy
-  - id: HP:0006554
-    label: acute liver failure
+  - id: MAXO:0009095
+    label: zinc therapy
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0006579
+    label: neonatal jaundice
+  - id: HP:0001409
+    label: portal hypertension
+  - id: HP:0030151
+    label: cholangitis
+  - id: HP:0002612
+    label: congenital hepatic fibrosis
+  - id: MONDO:0013282
+    label: alpha-1-antitrypsin deficiency
+  - id: HP:0001903
+    label: anemia
+  - id: HP:0001410
+    label: liver dysfunction
+  - id: CHEBI:39501
+    label: trientine
+  - id: MAXO:0000070
+    label: Hepatic transplantation
+  - id: HP:0001399
+    label: Hepatic failure
+  - id: HP:0004448
+    label: fulminant hepatic failure
   - id: HP:0003256
-    label: coagulopathy
+    label: coagulopathy (international normalized ratio >2.0)
+  - id: HP:0004445
+    label: hepatic encephalopathy (HE)
   - id: HP:0002480
     label: hepatic encephalopathy
+  - id: CHEBI:35341
+    label: Steroids
+  - id: CHEBI:33281
+    label: Antibiotics
+  - id: MONDO:0100193
+    label: End-stage liver disease
+  - id: HP:0100626
+    label: End-stage liver disease
+  - id: HP:0100660
+    label: dyskinesia
+  - id: HP:0100022
+    label: Movement disorders
   - id: HP:0001337
     label: Tremor
   - id: HP:0001332
     label: Dystonia
-  - id: CHEBI:28694
-    label: Copper
-  - id: HP:0001395
-    label: Liver fibrosis
-  - id: HP:0001394
-    label: Cirrhosis
-  - id: CHEBI:39501
-    label: trientine
-  - id: CHEBI:27363
-    label: zinc
-  - id: HP:0001410
-    label: hepatic dysfunction
+  - id: MONDO:0019542
+    label: Acute liver failure (ALF)
+  - id: CHEBI:27385
+    label: CCL4
+  - id: MAXO:0000127
+    label: Genetic testing
   - id: CHEBI:7959
     label: D-penicillamine
+  - id: MAXO:0001017
+    label: Vaccination
+  - id: HP:0001541
+    label: Ascites
+  - id: HP:0012398
+    label: Peripheral edema
+  - id: HP:0001260
+    label: dysarthria
+  - id: HP:0000708
+    label: psychiatric disorders
+  - id: HP:0200123
+    label: chronic hepatitis
+  - id: CHEBI:38161
+    label: chelators
   - id: MAXO:0000376
-    label: Liver biopsy
+    label: liver biopsy
   - id: HP:0001404
-    label: Hepatocellular necrosis
+    label: hepatocellular necrosis
   - id: CHEBI:61049
     label: Tacrolimus
-  - id: CHEBI:50868
-    label: Penicillamine

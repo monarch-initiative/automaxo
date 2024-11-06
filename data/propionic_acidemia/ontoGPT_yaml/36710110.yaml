@@ -17,15 +17,15 @@ input_text: Combined heart and liver transplantation in a patient supported by l
   for metabolic decompensation during surgery and provides an insight into how to
   manage such complicated patients.
 raw_completion_output: |-
-  primary_disease: Propionic acidemia (PA)
+  primary_disease: Propionic acidemia
 
-  medical_actions: Left Ventricular Assist Device (LVAD) support; Liver transplantation (LT); Heart transplantation; Multi-disciplinary approach
+  medical_actions: Left ventricular assist device (LVAD) support;Liver transplantation (LT);Heart transplantation;Multi-disciplinary approach;Treatment protocol in the pre, intra, and post-operative periods
 
-  symptoms: Accumulation of abnormal organic acid metabolites; Dilated cardiomyopathy (DCM); Metabolic acidosis; Increased anion gap; Hyperammonemia
+  symptoms: Metabolic acidosis;Increased anion gap;Hyperammonemia;Cardiac complications;Dilated cardiomyopathy
 
   chemicals: 
 
-  action_annotation_relationships: Liver transplantation (LT) PREVENTS cardiomyopathy progression IN Propionic acidemia (PA); Left Ventricular Assist Device (LVAD) support TREATS dilated cardiomyopathy (DCM) IN Propionic acidemia (PA); Multi-disciplinary approach PREVENTS metabolic decompensation IN Propionic acidemia (PA)
+  action_annotation_relationships: Liver transplantation (LT) PREVENTS cardiomyopathy IN Propionic acidemia;Heart transplantation TREATS cardiac complications IN Propionic acidemia;Multi-disciplinary approach PREVENTS metabolic decompensation IN Propionic acidemia;Treatment protocol in the pre, intra, and post-operative periods TREATS metabolic acidosis IN Propionic acidemia;Treatment protocol in the pre, intra, and post-operative periods TREATS increased anion gap IN Propionic acidemia;Treatment protocol in the pre, intra, and post-operative periods TREATS hyperammonemia IN Propionic acidemia
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -40,128 +40,121 @@ prompt: |+
 
 
   Text:
-  Multi-disciplinary approach PREVENTS metabolic decompensation IN Propionic acidemia (PA)
+  Treatment protocol in the pre, intra, and post-operative periods TREATS hyperammonemia IN Propionic acidemia
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0011628
   medical_actions:
-    - Left Ventricular Assist Device (LVAD) support
+    - Left ventricular assist device (LVAD) support
     - MAXO:0001175
     - MAXO:0010032
     - Multi-disciplinary approach
+    - Treatment protocol in the pre, intra, and post-operative periods
   symptoms:
-    - Accumulation of abnormal organic acid metabolites
-    - HP:0001644
     - HP:0001942
     - Increased anion gap
     - HP:0001987
+    - Cardiac complications
+    - HP:0001644
   action_annotation_relationships:
     - subject: MAXO:0001175
       predicate: PREVENTS
-      object: cardiomyopathy progression
+      object: HP:0001638
       qualifier: MONDO:0011628
-    - subject: Left Ventricular Assist Device (LVAD) support
+    - subject: MAXO:0010032
       predicate: TREATS
-      object: HP:0001644
+      object: cardiac complications
       qualifier: MONDO:0011628
     - subject: Multi-disciplinary approach
       predicate: PREVENTS
       object: metabolic decompensation
       qualifier: MONDO:0011628
+    - subject: Treatment protocol in the pre, intra, and post-operative periods
+      predicate: TREATS
+      object: HP:0001942
+      qualifier: MONDO:0011628
+    - subject: Treatment protocol in the pre, intra, and post-operative periods
+      predicate: TREATS
+      object: increased anion gap
+      qualifier: MONDO:0011628
+    - subject: Treatment protocol in the pre, intra, and post-operative periods
+      predicate: TREATS
+      object: HP:0001987
+      qualifier: MONDO:0011628
 named_entities:
   - id: MONDO:0010184
-    label: methylmalonic acidemia (MMA); propionic acidemia; cobalamin C (cblC) deficiency
+    label: Methylmalonic acidemia (MMA); Propionic acidemia; Cobalamin C (cblC) deficiency
   - id: CHEBI:15603
-    label: leucine (Leu)
+    label: Leucine (Leu)
   - id: CHEBI:16414
-    label: valine (Val)
+    label: Valine (Val)
   - id: CHEBI:17191
-    label: isoleucine (Ile)
+    label: Isoleucine (Ile)
   - id: CHEBI:16044
-    label: methionine (Met)
-  - id: MONDO:0002012
-    label: methylmalonic acidemia (MMA)
-  - id: MONDO:0011628
-    label: propionic acidemia
+    label: Methionine (Met)
   - id: CHEBI:25017
     label: leucine
+  - id: MONDO:0002012
+    label: Methylmalonic acidemia
+  - id: HP:0003571
+    label: Propionic acidemia
+  - id: MONDO:0011628
+    label: Propionic acidemia
   - id: MAXO:0001175
-    label: liver transplantation
+    label: Liver transplantation
   - id: HP:0001638
-    label: cardiomyopathy
-  - id: HP:0100543
-    label: Cognitive impairment
+    label: Cardiomyopathy
   - id: CHEBI:176843
     label: Vitamin B12
   - id: MONDO:0019052
     label: Inborn errors of metabolism (IEMs)
   - id: MAXO:0010039
-    label: organ transplantation
+    label: Organ transplantation
+  - id: MAXO:0001298
+    label: therapy
   - id: HP:0001942
-    label: metabolic acidosis
+    label: Metabolic acidosis
   - id: HP:0001987
-    label: hyperammonemia
-  - id: HP:0003571
-    label: Propionic acidemia
+    label: Hyperammonemia
+  - id: HP:0001733
+    label: Pancreatitis
   - id: HP:0001695
     label: cardiac arrest
   - id: HP:0001263
     label: Developmental delay
+  - id: HP:0002863
+    label: Metabolic decompensations (MDs)
   - id: CHEBI:15428
     label: Glycine
   - id: CHEBI:28867
     label: Propionylcarnitine
   - id: HP:0001138
-    label: optic neuropathy
+    label: Optic neuropathy
   - id: HP:0000083
     label: Renal failure
   - id: MONDO:0005290
     label: Rhabdomyolysis
-  - id: MAXO:0000950
-    label: Supportive care
   - id: HP:0003287
     label: Mitochondrial dysfunction
-  - id: HP:0001250
-    label: seizures
-  - id: HP:0002071
-    label: extrapyramidal symptoms
-  - id: HP:0001733
-    label: pancreatitis
-  - id: CHEBI:27881
-    label: resveratrol
-  - id: CHEBI:22586
-    label: antioxidants
   - id: MONDO:0009563
-    label: Maple Syrup Urine Disease (MSUD)
-  - id: CHEBI:15539
-    label: propionyl-CoA
-  - id: CHEBI:33709
-    label: amino acids
-  - id: MAXO:0001001
-    label: Gene therapy
-  - id: CHEBI:36080
-    label: protein
-  - id: MONDO:0000688
-    label: organic acidemias
+    label: maple syrup urine disease (MSUD)
+  - id: MONDO:0100096
+    label: COVID-19
   - id: HP:0008281
-    label: Acute hyperammonemia
-  - id: CHEBI:26708
-    label: NA
+    label: acute hyperammonemia
+  - id: MONDO:0000688
+    label: Organic Acidemias
+  - id: MAXO:0001001
+    label: gene therapy
   - id: HP:0002829
-    label: arthralgia
-  - id: HP:0001410
-    label: liver dysfunction
-  - id: HP:0001919
-    label: acute renal failure
-  - id: HP:0033677
-    label: ARDS
+    label: Arthralgia
   - id: CHEBI:64357
-    label: rituximab
+    label: Rituximab
   - id: CHEBI:35341
     label: steroid
   - id: MAXO:0010032
     label: Heart transplantation
   - id: HP:0001644
-    label: Dilated cardiomyopathy (DCM)
+    label: Dilated cardiomyopathy

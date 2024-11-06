@@ -23,14 +23,10 @@ input_text: 'Novel diagnostic approach to citrin deficiency: analysis of citrin 
   or hypercitrullinemia.'
 raw_completion_output: |-
   primary_disease: Citrin deficiency
-
-  medical_actions: Genetic analysis; Examination of citrin protein in lymphocytes; Western blotting
-
-  symptoms: Hypercitrullinemia; Cholestatic liver dysfunction
-
+  medical_actions: Genetic analysis; Examination of citrin protein; Western blotting
+  symptoms: Hypercitrullinemia; Cholestatic liver dysfunction; Neonatal intrahepatic cholestasis
   chemicals: 
-
-  action_annotation_relationships: Genetic analysis PREVENTS misdiagnosis IN Citrin deficiency; Examination of citrin protein in lymphocytes (using Western blotting) TREATS diagnostic uncertainty IN Citrin deficiency
+  action_annotation_relationships: Genetic analysis TREATS Hypercitrullinemia IN Citrin deficiency; Examination of citrin protein TREATS Cholestatic liver dysfunction IN Citrin deficiency; Western blotting TREATS Neonatal intrahepatic cholestasis IN Citrin deficiency
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -45,7 +41,7 @@ prompt: |+
 
 
   Text:
-  Examination of citrin protein in lymphocytes (using Western blotting) TREATS diagnostic uncertainty IN Citrin deficiency
+  Western blotting TREATS Neonatal intrahepatic cholestasis IN Citrin deficiency
 
   ===
 
@@ -53,21 +49,26 @@ extracted_object:
   primary_disease: MONDO:0016602
   medical_actions:
     - MAXO:0000127
-    - Examination of citrin protein in lymphocytes
+    - Examination of citrin protein
     - Western blotting
   symptoms:
     - Hypercitrullinemia
     - Cholestatic liver dysfunction
+    - Neonatal intrahepatic cholestasis
   action_annotation_relationships:
     - subject: MAXO:0000127
-      predicate: PREVENTS
-      object: misdiagnosis
-      qualifier: MONDO:0016602
-    - subject: Examination of citrin protein in lymphocytes (using Western blotting)
       predicate: TREATS
-      object: diagnostic uncertainty
+      object: Hypercitrullinemia
+      qualifier: MONDO:0016602
+    - subject: Examination
+      predicate: TREATS
+      object: Cholestatic liver dysfunction
       qualifier: MONDO:0016602
       subject_extension: citrin protein
+    - subject: Western blotting
+      predicate: TREATS
+      object: Neonatal intrahepatic cholestasis
+      qualifier: MONDO:0016602
 named_entities:
   - id: MONDO:0019052
     label: Inborn errors of metabolism (IEMs)
@@ -76,19 +77,7 @@ named_entities:
   - id: MONDO:0016603
     label: Adult-onset citrullinemia (CTLN2)
   - id: MONDO:0016602
-    label: Citrin deficiency
-  - id: MONDO:0005311
-    label: atherosclerosis
-  - id: CHEBI:18211
-    label: citrulline
-  - id: CHEBI:29016
-    label: arginine
-  - id: CHEBI:16349
-    label: L-citrulline
-  - id: CHEBI:16467
-    label: L-arginine
-  - id: HP:0002621
-    label: atherosclerosis
+    label: citrin deficiency
   - id: MONDO:0008988
     label: Citrullinemia type 1
   - id: MAXO:0000603

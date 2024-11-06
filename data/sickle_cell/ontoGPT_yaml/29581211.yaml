@@ -22,17 +22,17 @@ input_text: 'Effects of vaccines in patients with sickle cell disease: a systema
   this review will be disseminated through conference presentations and a publication
   in a peer-reviewed journal. PROSPERO REGISTRATION NUMBER: CRD42018084051.'
 raw_completion_output: |-
-  primary_disease: Sickle Cell Disease (SCD)
+  primary_disease: Sickle cell disease
 
-  medical_actions: Vaccination
+  medical_actions: Vaccination; Systematic review; Meta-analysis; Narrative synthesis; GRADE approach assessment
 
   symptoms: Inflammation; Haemolysis; Microvascular obstruction; Organ damage
 
   chemicals: 
 
-  action_annotation_relationships: Vaccination PREVENTS severe infections IN Sickle Cell Disease (SCD)
+  action_annotation_relationships: Vaccination TREATS Inflammation IN Sickle cell disease; Vaccination TREATS Haemolysis IN Sickle cell disease; Vaccination TREATS Microvascular obstruction IN Sickle cell disease; Vaccination TREATS Organ damage IN Sickle cell disease
 prompt: |+
-  From the text below, extract the following entities in the following format:
+  Split the following piece of text into fields in the following format:
 
   subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
   object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
@@ -45,30 +45,48 @@ prompt: |+
 
 
   Text:
-  Vaccination PREVENTS severe infections IN Sickle Cell Disease (SCD)
+  Vaccination TREATS Organ damage IN Sickle cell disease
 
   ===
 
 extracted_object:
-  primary_disease: MONDO:0007374
+  primary_disease: MONDO:0011382
   medical_actions:
     - MAXO:0001017
+    - Systematic review
+    - Meta-analysis
+    - Narrative synthesis
+    - GRADE approach assessment
   symptoms:
     - Inflammation
     - Haemolysis
     - Microvascular obstruction
     - Organ damage
   action_annotation_relationships:
-    - subject: <Vaccination>
-      predicate: <PREVENTS>
-      object: <infections>
-      qualifier: MONDO:0007374
-      subject_qualifier: <>
-      object_qualifier: <severe>
-      subject_extension: <Vaccination>
-      object_extension: <severe>
+    - subject: MAXO:0001017
+      predicate: TREATS
+      object: Inflammation
+      qualifier: MONDO:0011382
+    - subject: MAXO:0001017
+      predicate: TREATS
+      object: Haemolysis
+      qualifier: MONDO:0011382
+    - subject: MAXO:0001017
+      predicate: TREATS
+      object: Microvascular obstruction
+      qualifier: MONDO:0011382
+    - subject: MAXO:0001017
+      predicate: TREATS
+      object: Organ damage
+      qualifier: MONDO:0011382
 named_entities:
-  - id: MONDO:0007374
-    label: Sickle Cell Disease (SCD)
+  - id: MONDO:0011382
+    label: sickle cell disease
+  - id: CHEBI:64357
+    label: rituximab
+  - id: CHEBI:35341
+    label: steroids
+  - id: CHEBI:81579
+    label: erythropoietin
   - id: MAXO:0001017
     label: Vaccination

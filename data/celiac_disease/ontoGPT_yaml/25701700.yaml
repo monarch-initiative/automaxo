@@ -26,13 +26,13 @@ input_text: 'Small Amounts of Gluten in Subjects With Suspected Nonceliac Gluten
 raw_completion_output: |-
   primary_disease: Nonceliac Gluten Sensitivity (NCGS)
 
-  medical_actions: Administration of low doses of gluten; Placebo control; Gastrosoluble capsules; Gluten-free diet
+  medical_actions: Randomized, double-blind, placebo-controlled, cross-over trial; Administration of low doses of gluten; Administration of rice starch (placebo); Gastrosoluble capsules; Scoring systems for symptom determination
 
   symptoms: Abdominal bloating; Pain; Foggy mind; Depression; Aphthous stomatitis
 
   chemicals: Gluten; Rice starch
 
-  action_annotation_relationships: Administration of low doses of gluten TREATS overall symptoms IN Nonceliac Gluten Sensitivity (NCGS); Placebo control PREVENTS overall symptoms IN Nonceliac Gluten Sensitivity (NCGS); Gluten TREATS abdominal bloating IN Nonceliac Gluten Sensitivity (NCGS); Gluten TREATS pain IN Nonceliac Gluten Sensitivity (NCGS); Gluten TREATS foggy mind IN Nonceliac Gluten Sensitivity (NCGS); Gluten TREATS depression IN Nonceliac Gluten Sensitivity (NCGS); Gluten TREATS aphthous stomatitis IN Nonceliac Gluten Sensitivity (NCGS)
+  action_annotation_relationships: Administration of low doses of gluten TREATS Abdominal bloating IN Nonceliac Gluten Sensitivity (NCGS); Administration of low doses of gluten TREATS Pain IN Nonceliac Gluten Sensitivity (NCGS); Administration of low doses of gluten TREATS Foggy mind IN Nonceliac Gluten Sensitivity (NCGS); Administration of low doses of gluten TREATS Depression IN Nonceliac Gluten Sensitivity (NCGS); Administration of low doses of gluten TREATS Aphthous stomatitis IN Nonceliac Gluten Sensitivity (NCGS); Administration of rice starch (placebo) PREVENTS Abdominal bloating IN Nonceliac Gluten Sensitivity (NCGS); Administration of rice starch (placebo) PREVENTS Pain IN Nonceliac Gluten Sensitivity (NCGS); Administration of rice starch (placebo) PREVENTS Foggy mind IN Nonceliac Gluten Sensitivity (NCGS); Administration of rice starch (placebo) PREVENTS Depression IN Nonceliac Gluten Sensitivity (NCGS); Administration of rice starch (placebo) PREVENTS Aphthous stomatitis IN Nonceliac Gluten Sensitivity (NCGS)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -47,17 +47,18 @@ prompt: |+
 
 
   Text:
-  Gluten TREATS aphthous stomatitis IN Nonceliac Gluten Sensitivity (NCGS)
+  Administration of rice starch (placebo) PREVENTS Aphthous stomatitis IN Nonceliac Gluten Sensitivity (NCGS)
 
   ===
 
 extracted_object:
   primary_disease: Nonceliac Gluten Sensitivity (NCGS)
   medical_actions:
+    - Randomized, double-blind, placebo-controlled, cross-over trial
     - Administration of low doses of gluten
-    - Placebo control
+    - Administration of rice starch (placebo)
     - Gastrosoluble capsules
-    - Gluten-free diet
+    - Scoring systems for symptom determination
   symptoms:
     - HP:0003270
     - HP:0012531
@@ -70,65 +71,126 @@ extracted_object:
   action_annotation_relationships:
     - subject: Administration of low doses
       predicate: TREATS
-      object: overall symptoms
+      object: HP:0003270
       qualifier: Nonceliac Gluten Sensitivity (NCGS)
       subject_qualifier: low doses
       subject_extension: gluten
-    - subject: Placebo control
-      predicate: PREVENTS
-      object: overall symptoms
-      qualifier: Nonceliac Gluten Sensitivity
-    - predicate: TREATS
-      object: HP:0003270
-      qualifier: Nonceliac Gluten Sensitivity (NCGS)
-      subject_extension: Gluten
-    - subject: Gluten
+    - subject: Administration of low doses
       predicate: TREATS
       object: HP:0012531
       qualifier: Nonceliac Gluten Sensitivity (NCGS)
-    - predicate: TREATS
-      object: <foggy mind>
-      qualifier: <Nonceliac Gluten Sensitivity (NCGS)>
-      subject_extension: <Gluten>
-    - subject: <Dietary adjustment>
-      predicate: <TREATS>
-      object: <Depression>
-      qualifier: <Nonceliac Gluten Sensitivity (NCGS)>
-      subject_extension: <Gluten>
-    - subject: <Gluten>
-      predicate: <TREATS>
-      object: <aphthous stomatitis>
-      qualifier: <Nonceliac Gluten Sensitivity (NCGS)>
-      subject_extension: <Gluten>
+      subject_qualifier: low doses
+      subject_extension: gluten
+    - subject: Administration of low doses
+      predicate: TREATS
+      object: Foggy mind
+      qualifier: Nonceliac Gluten Sensitivity (NCGS)
+      subject_qualifier: low doses
+      subject_extension: gluten
+    - subject: Administration of low doses
+      predicate: TREATS
+      object: HP:0000716
+      qualifier: Nonceliac Gluten Sensitivity (NCGS)
+      subject_qualifier: low doses
+      subject_extension: gluten
+    - subject: Administration
+      predicate: TREATS
+      object: HP:0011107
+      qualifier: Nonceliac Gluten Sensitivity (NCGS)
+      subject_qualifier: low doses
+      subject_extension: gluten
+    - subject: Administration
+      predicate: PREVENTS
+      object: HP:0003270
+      qualifier: Nonceliac Gluten Sensitivity (NCGS)
+      subject_qualifier: placebo
+      subject_extension: rice starch
+    - subject: Administration
+      predicate: PREVENTS
+      object: HP:0012531
+      qualifier: Nonceliac Gluten Sensitivity (NCGS)
+      subject_qualifier: placebo
+      subject_extension: rice starch
+    - subject: Administration
+      predicate: PREVENTS
+      object: Foggy mind
+      qualifier: Nonceliac Gluten Sensitivity (NCGS)
+      subject_qualifier: placebo
+      subject_extension: rice starch
+    - subject: Administration
+      predicate: PREVENTS
+      object: HP:0000716
+      qualifier: Nonceliac Gluten Sensitivity
+      subject_qualifier: placebo
+      subject_extension: rice starch
+      object_extension: Nonceliac Gluten Sensitivity (NCGS)
+    - subject: Administration
+      predicate: PREVENTS
+      object: HP:0011107
+      qualifier: Nonceliac Gluten Sensitivity (NCGS)
+      subject_qualifier: placebo
+      subject_extension: rice starch
 named_entities:
   - id: MONDO:0044092
     label: Collagenous sprue
   - id: HP:0002014
-    label: Diarrhea
+    label: diarrhea
   - id: CHEBI:50858
-    label: Corticosteroids
+    label: corticosteroids
+  - id: HP:0004395
+    label: malnutrition
+  - id: MONDO:0005130
+    label: Celiac disease
+  - id: HP:0000870
+    label: Hyperprolactinemia
+  - id: CHEBI:81580
+    label: Prolactin (PRL)
+  - id: HP:0000938
+    label: Bone loss
+  - id: CHEBI:22984
+    label: Calcium
+  - id: CHEBI:27300
+    label: Vitamin D
+  - id: HP:0001369
+    label: Arthritis
+  - id: HP:0002608
+    label: Celiac Disease
+  - id: MONDO:0019473
+    label: Enteropathy-associated T-cell lymphoma (EATL)
+  - id: HP:0002242
+    label: enteropathy
+  - id: HP:0012378
+    label: fatigue
+  - id: HP:0002039
+    label: anorexia
+  - id: HP:0000823
+    label: delayed puberty
+  - id: HP:0004322
+    label: short stature
+  - id: HP:0000789
+    label: infertility
   - id: MONDO:0016063
     label: Celiac Disease (CD)
-  - id: HP:0004395
-    label: Malnutrition
-  - id: MONDO:0005130
-    label: Celiac Disease
-  - id: HP:0020110
-    label: fractures
-  - id: HP:0012378
-    label: Fatigue
-  - id: HP:0002039
-    label: Anorexia
-  - id: HP:0000823
-    label: Delayed puberty
-  - id: HP:0004322
-    label: Short stature
-  - id: HP:0000789
-    label: Infertility
-  - id: HP:0002242
-    label: Enteropathy
+  - id: MAXO:0000058
+    label: pharmacological treatment
+  - id: HP:0002027
+    label: abdominal pain
   - id: HP:0003270
-    label: Abdominal bloating
+    label: bloating
+  - id: HP:0001903
+    label: anemia
+  - id: MAXO:0000088
+    label: diet
+  - id: MONDO:0005298
+    label: Osteoporosis
+  - id: MAXO:0000259
+    label: insulin treatment
+  - id: HP:0033712
+    label: recurrent implantation failure (RIF)
+  - id: CHEBI:145810
+    label: insulin
+  - id: CHEBI:6801
+    label: metformin
   - id: HP:0012531
     label: Pain
   - id: HP:0000716

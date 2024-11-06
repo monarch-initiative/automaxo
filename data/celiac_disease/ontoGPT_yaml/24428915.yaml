@@ -23,11 +23,15 @@ input_text: Late diagnosis of celiac disease in an asymptomatic infant with grow
   should request HLA genotyping, before the intestinal biopsy, in order to check for
   the presence of risk alleles.
 raw_completion_output: |-
-  primary_disease: celiac disease
-  medical_actions: duodenal biopsy; gluten-free diet; HLA genotyping; iron supplementation
-  symptoms: stunted growth; malnourishment; basal dental enamel hypoplasia; iron deficiency anaemia; reduced height; reduced BMI; decreased growth velocity; delayed bone age
-  chemicals: anti-tTG antibodies; anti-tTG-IgA; anti-tTG-IgG
-  action_annotation_relationships: duodenal biopsy CONFIRMS celiac disease IN celiac disease; gluten-free diet IMPROVES growth velocity IN celiac disease; HLA genotyping IDENTIFIES risk alleles IN celiac disease; iron supplementation TREATS iron deficiency anaemia IN celiac disease
+  primary_disease: Celiac Disease
+
+  medical_actions: Evaluation for CD; Anti-tTG antibody test; Iron supplementation; HLA genotyping; Duodenal biopsy; Gluten-free diet
+
+  symptoms: Growth failure; Stunted growth; Malnourishment; Basal dental enamel hypoplasia; Iron deficiency anaemia; Reduced height; Reduced BMI; Reduced growth velocity; Delayed bone age
+
+  chemicals: Anti-tTG-IgA; Anti-tTG-IgG; Iron
+
+  action_annotation_relationships: Evaluation for CD TREATS Growth failure IN Celiac Disease; Anti-tTG antibody test TREATS Growth failure IN Celiac Disease; Iron supplementation (with Iron) TREATS Iron deficiency anaemia IN Celiac Disease; HLA genotyping TREATS Growth failure IN Celiac Disease; Duodenal biopsy TREATS Growth failure IN Celiac Disease; Gluten-free diet TREATS Growth failure IN Celiac Disease; Gluten-free diet TREATS Reduced growth velocity IN Celiac Disease
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -42,132 +46,186 @@ prompt: |+
 
 
   Text:
-  iron supplementation TREATS iron deficiency anaemia IN celiac disease
+  Gluten-free diet TREATS Reduced growth velocity IN Celiac Disease
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0005130
   medical_actions:
-    - duodenal biopsy
-    - gluten-free diet
-    - HLA genotyping
+    - Evaluation for CD
+    - Anti-tTG antibody test
     - MAXO:0000108
+    - HLA genotyping
+    - Duodenal biopsy
+    - Gluten-free diet
   symptoms:
-    - stunted growth
-    - malnourishment
-    - basal dental enamel hypoplasia
+    - HP:0001510
+    - Stunted growth
+    - Malnourishment
+    - Basal dental enamel hypoplasia
     - HP:0001891
-    - reduced height
-    - reduced BMI
-    - decreased growth velocity
+    - Reduced height
+    - Reduced BMI
+    - Reduced growth velocity
     - HP:0002750
   chemicals:
-    - anti-tTG antibodies
-    - anti-tTG-IgA
-    - anti-tTG-IgG
+    - Anti-tTG-IgA
+    - Anti-tTG-IgG
+    - CHEBI:18248
   action_annotation_relationships:
-    - subject: duodenal biopsy
-      predicate: CONFIRMS
-      object: HP:0002608
+    - subject: Evaluation for CD
+      predicate: TREATS
+      object: HP:0001510
       qualifier: MONDO:0005130
-    - subject: gluten-free diet
-      predicate: IMPROVES
-      object: growth velocity
-      qualifier: MONDO:0005130
-      subject_extension: gluten
-    - subject: HLA genotyping
-      predicate: IDENTIFIES
-      object: risk alleles
-      qualifier: MONDO:0005130
+    - subject: <Anti-tTG antibody test>
+      predicate: <TREATS>
+      object: <Growth failure>
+      qualifier: <Celiac Disease>
+      subject_extension: <Anti-tTG antibody test>
     - subject: MAXO:0000108
       predicate: TREATS
       object: HP:0001891
       qualifier: MONDO:0005130
+      subject_qualifier: with Iron
       subject_extension: CHEBI:18248
+    - subject: HLA genotyping
+      predicate: TREATS
+      object: HP:0001510
+      qualifier: MONDO:0005130
+    - subject: Duodenal biopsy
+      predicate: TREATS
+      object: HP:0001510
+      qualifier: MONDO:0005130
+    - subject: MAXO:0000088
+      predicate: TREATS
+      object: HP:0001510
+      qualifier: MONDO:0005130
+      subject_extension: gluten-free
+    - subject: <Gluten-free diet>
+      predicate: <TREATS>
+      object: <Reduced growth velocity>
+      qualifier: <Celiac Disease>
+      subject_extension: <Gluten>
 named_entities:
+  - id: MONDO:0044092
+    label: Collagenous sprue
+  - id: HP:0002014
+    label: diarrhea
+  - id: CHEBI:50858
+    label: corticosteroids
+  - id: HP:0004395
+    label: malnutrition
   - id: MONDO:0005130
     label: Celiac disease
-  - id: CHEBI:81580
-    label: Prolactin
   - id: HP:0000870
     label: Hyperprolactinemia
+  - id: CHEBI:81580
+    label: Prolactin (PRL)
   - id: HP:0000938
     label: Bone loss
   - id: CHEBI:22984
     label: Calcium
   - id: CHEBI:27300
     label: Vitamin D
+  - id: HP:0001369
+    label: Arthritis
+  - id: HP:0002608
+    label: Celiac Disease
   - id: MONDO:0019473
     label: Enteropathy-associated T-cell lymphoma (EATL)
+  - id: HP:0002242
+    label: enteropathy
+  - id: HP:0012378
+    label: fatigue
+  - id: HP:0002039
+    label: anorexia
+  - id: HP:0000823
+    label: delayed puberty
+  - id: HP:0004322
+    label: short stature
+  - id: HP:0000789
+    label: infertility
+  - id: MONDO:0016063
+    label: Celiac Disease (CD)
+  - id: MAXO:0000058
+    label: pharmacological treatment
   - id: HP:0002027
     label: abdominal pain
   - id: HP:0003270
     label: bloating
-  - id: HP:0002014
-    label: diarrhea
   - id: HP:0001903
     label: anemia
+  - id: MAXO:0000088
+    label: diet
   - id: MONDO:0005298
     label: Osteoporosis
-  - id: MONDO:0016063
-    label: Celiac Disease (CD)
-  - id: HP:0012538
-    label: Gluten sensitivity
+  - id: MAXO:0000259
+    label: insulin treatment
+  - id: HP:0033712
+    label: recurrent implantation failure (RIF)
+  - id: CHEBI:145810
+    label: insulin
+  - id: CHEBI:6801
+    label: metformin
+  - id: HP:0012531
+    label: Pain
+  - id: HP:0000716
+    label: Depression
+  - id: HP:0011107
+    label: Aphthous stomatitis
+  - id: MONDO:0013626
+    label: Acrodermatitis continua of Hallopeau
+  - id: HP:0002024
+    label: Malabsorption
+  - id: HP:0012050
+    label: Anasarca
+  - id: HP:0003111
+    label: Electrolyte disorders
   - id: CHEBI:60027
-    label: polymers
+    label: Polymers
+  - id: HP:0001510
+    label: poor growth
+  - id: CHEBI:77383
+    label: Bisphosphonates
   - id: HP:0002019
     label: Constipation
   - id: HP:0001919
     label: Acute kidney failure
   - id: HP:0000126
     label: Hydronephrosis
-  - id: HP:0500093
-    label: food allergies
-  - id: CHEBI:16737
-    label: Creatinine
-  - id: MAXO:0000355
-    label: duodenum biopsy
   - id: HP:0002013
     label: vomiting
   - id: HP:0001508
     label: failure to thrive
-  - id: HP:0002240
-    label: hepatomegaly
-  - id: HP:0001744
-    label: splenomegaly
-  - id: HP:0000872
-    label: autoimmune thyroiditis
-  - id: HP:0100651
-    label: type 1 diabetes mellitus
-  - id: HP:0002099
-    label: bronchial asthma
-  - id: HP:0002232
-    label: alopecia areata
-  - id: HP:0005764
-    label: polyarthritis
+  - id: HP:0000988
+    label: rash
+  - id: HP:0001083
+    label: Intraepithelial lymphocytes (IELs) count
+  - id: HP:0004313
+    label: Immunoglobulin deficiencies
   - id: MONDO:0004699
     label: Primary gastrointestinal lymphoma
-  - id: CHEBI:190522
-    label: Gliadins
-  - id: HP:0002608
-    label: Celiac disease
-  - id: MAXO:0001321
-    label: scintigraphy
+  - id: MONDO:0009032
+    label: Coeliac Disease (CeD)
+  - id: HP:0000739
+    label: Anxiety
   - id: HP:0001824
-    label: weight loss
+    label: Weight loss
   - id: HP:0033842
-    label: early satiety
+    label: Early satiety
   - id: CHEBI:6888
-    label: methylprednisolone
+    label: Methylprednisolone
   - id: MAXO:0000448
-    label: Surgical resection
+    label: surgical resection
   - id: MAXO:0000015
-    label: Biologic therapies
+    label: biologic therapies
   - id: HP:0001945
-    label: Fever
+    label: fever
   - id: HP:0030166
-    label: Night sweating
+    label: night sweating
+  - id: MONDO:0005147
+    label: type 1 diabetes mellitus
   - id: MAXO:0000004
     label: surgery
   - id: CHEBI:48120
@@ -190,23 +248,27 @@ named_entities:
     label: prednisone
   - id: MAXO:0000647
     label: chemotherapy
-  - id: HP:0001047
-    label: atopic dermatitis
   - id: MONDO:0017278
     label: Autoimmune polyglandular syndrome
-  - id: MONDO:0007179
-    label: Autoimmune disease
-  - id: HP:0002960
-    label: autoimmune disease
-  - id: HP:0012537
-    label: Food intolerance
-  - id: HP:0001880
-    label: eosinophilia
+  - id: HP:0000821
+    label: Hypothyroidism
+  - id: HP:0000822
+    label: Hypertension
+  - id: HP:0003119
+    label: Dyslipidemia
+  - id: HP:0009830
+    label: Neuropathy
+  - id: HP:0001626
+    label: Cardiovascular diseases
+  - id: MONDO:0013209
+    label: nonalcoholic fatty liver disease
+  - id: HP:0001397
+    label: hepatic steatosis
   - id: MAXO:0000108
-    label: iron supplementation
+    label: Iron supplementation
   - id: HP:0001891
-    label: iron deficiency anaemia
+    label: Iron deficiency anaemia
   - id: HP:0002750
-    label: delayed bone age
+    label: Delayed bone age
   - id: CHEBI:18248
-    label: iron
+    label: Iron

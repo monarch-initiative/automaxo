@@ -25,10 +25,10 @@ input_text: 'Apert syndrome:  evaluation of a treatment algorithm. BACKGROUND: T
   OF EVIDENCE: Therapeutic, III.'
 raw_completion_output: |-
   primary_disease: Apert syndrome
-  medical_actions: evaluation of a treatment algorithm; surgical outcomes review; phenotypic variability cataloging; mutational analysis; developmental assessments; cranial procedures; midfacial procedures; treatment with ventriculoperitoneal shunts; treatment with tracheostomies
-  symptoms: preventable developmental delays; raised intracranial pressure; sleep apnea; palatal anomalies; acquired Chiari malformations; anomalies of the septum pellucidum; anomalies of the corpus callosum
+  medical_actions: evaluation of a treatment algorithm; surgical treatments; cranial procedures; midfacial procedures; treatment of avoidable developmental delays; reduction of operative interventions; treatment with ventriculoperitoneal shunts; treatment with tracheostomies
+  symptoms: developmental delays; raised intracranial pressure; sleep apnea; palatal anomalies; acquired Chiari malformations; anomalies of the septum pellucidum; anomalies of the corpus callosum
   chemicals: 
-  action_annotation_relationships: evaluation of a treatment algorithm PREVENTS preventable developmental delays IN Apert syndrome; cranial procedures TREATS raised intracranial pressure IN Apert syndrome; midfacial procedures TREATS palatal anomalies IN Apert syndrome; treatment with ventriculoperitoneal shunts TREATS raised intracranial pressure IN Apert syndrome; treatment with ventriculoperitoneal shunts TREATS acquired Chiari malformations IN Apert syndrome; treatment with tracheostomies TREATS sleep apnea IN Apert syndrome
+  action_annotation_relationships: cranial procedures PREVENTS developmental delays IN Apert syndrome; midfacial procedures PREVENTS developmental delays IN Apert syndrome; treatment of avoidable developmental delays (from raised intracranial pressure and sleep apnea) PREVENTS developmental delays IN Apert syndrome; treatment with ventriculoperitoneal shunts TREATS raised intracranial pressure IN Apert syndrome; treatment with tracheostomies TREATS sleep apnea IN Apert syndrome; reduction of operative interventions PREVENTS developmental delays IN Apert syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -43,7 +43,7 @@ prompt: |+
 
 
   Text:
-  treatment with tracheostomies TREATS sleep apnea IN Apert syndrome
+  reduction of operative interventions PREVENTS developmental delays IN Apert syndrome
 
   ===
 
@@ -51,16 +51,15 @@ extracted_object:
   primary_disease: MONDO:0007041
   medical_actions:
     - evaluation of a treatment algorithm
-    - surgical outcomes review
-    - phenotypic variability cataloging
-    - mutational analysis
-    - developmental assessments
+    - surgical treatments
     - cranial procedures
     - midfacial procedures
+    - treatment of avoidable developmental delays
+    - reduction of operative interventions
     - treatment with ventriculoperitoneal shunts
     - treatment with tracheostomies
   symptoms:
-    - preventable developmental delays
+    - HP:0001263
     - HP:0002516
     - HP:0010535
     - HP:0000174
@@ -68,65 +67,63 @@ extracted_object:
     - anomalies of the septum pellucidum
     - anomalies of the corpus callosum
   action_annotation_relationships:
-    - subject: evaluation of a treatment algorithm
-      predicate: PREVENTS
-      object: preventable developmental delays
-      qualifier: MONDO:0007041
     - subject: cranial procedures
+      predicate: PREVENTS
+      object: HP:0001263
+      qualifier: MONDO:0007041
+    - subject: <midfacial procedures>
+      predicate: <PREVENTS>
+      object: <developmental delays>
+      qualifier: <Apert syndrome>
+      subject_qualifier: <Not applicable>
+      object_qualifier: <Not applicable>
+      subject_extension: <Not applicable>
+      object_extension: <Not applicable>
+    - subject: treatment of avoidable developmental delays
+      predicate: PREVENTS
+      object: HP:0001263
+      qualifier: MONDO:0007041
+      subject_qualifier: from raised intracranial pressure and sleep apnea
+    - subject: treatment with ventriculoperitoneal shunts
       predicate: TREATS
       object: HP:0002516
       qualifier: MONDO:0007041
-    - subject: midfacial procedures
-      predicate: TREATS
-      object: HP:0000174
-      qualifier: MONDO:0007041
-    - subject: <treatment with ventriculoperitoneal shunts>
-      predicate: <TREATS>
-      object: <raised intracranial pressure>
-      qualifier: <Apert syndrome>
-      subject_extension: <ventriculoperitoneal shunts>
-    - subject: <treatment>
-      predicate: <TREATS>
-      object: <Chiari malformations>
-      qualifier: <Apert syndrome>
-      subject_qualifier: <>
-      object_qualifier: <acquired>
-      subject_extension: <ventriculoperitoneal shunts>
-      object_extension: <acquired Chiari malformations>
     - subject: treatment
       predicate: TREATS
       object: HP:0010535
       qualifier: MONDO:0007041
       subject_extension: tracheostomies
+    - subject: reduction of operative interventions
+      predicate: PREVENTS
+      object: HP:0001263
+      qualifier: MONDO:0007041
 named_entities:
-  - id: HP:0011800
-    label: Midface hypoplasia
   - id: MONDO:0007041
     label: Apert syndrome
   - id: MAXO:0000486
-    label: distraction osteogenesis
+    label: Distraction osteogenesis
   - id: HP:0012531
-    label: pain
+    label: Pain
   - id: HP:0001288
-    label: gait disturbances
-  - id: MONDO:0003432
-    label: Strabismus
+    label: Gait disturbances
   - id: HP:0001159
     label: Syndactyly
-  - id: MAXO:0000004
-    label: surgical procedures
   - id: HP:0001363
     label: craniosynostosis
+  - id: HP:0011800
+    label: midface hypoplasia
   - id: MONDO:0015338
     label: syndromic craniosynostosis
   - id: HP:0001061
     label: Acne
   - id: CHEBI:6067
-    label: isotretinoin
+    label: Isotretinoin
   - id: MONDO:0015469
     label: Craniosynostosis
+  - id: HP:0000504
+    label: Vision issues
   - id: HP:0000572
-    label: Vision loss
+    label: Visual loss
   - id: HP:0000646
     label: Amblyopia
   - id: HP:0001138
@@ -137,16 +134,18 @@ named_entities:
     label: Anisometropia
   - id: HP:0000483
     label: Astigmatism
-  - id: MAXO:0000504
-    label: Tracheostomy
   - id: MAXO:0000502
-    label: Tracheal intubation
-  - id: HP:0010807
-    label: Open bite
-  - id: MAXO:0000756
-    label: blood transfusion
+    label: tracheal intubation
+  - id: HP:0009102
+    label: Anterior open bite
   - id: MAXO:0001183
     label: Bronchoscopy
+  - id: MAXO:0000504
+    label: Tracheotomy
+  - id: MAXO:0001029
+    label: Adenoidectomy
+  - id: MAXO:0001081
+    label: Tonsillectomy
   - id: HP:0002104
     label: Apneic episodes
   - id: HP:0002098
@@ -155,18 +154,18 @@ named_entities:
     label: Stridor
   - id: HP:0000961
     label: Cyanosis
-  - id: MONDO:0009735
-    label: Netherton syndrome
-  - id: MONDO:0011438
-    label: Acne vulgaris
+  - id: HP:0000689
+    label: malocclusion
   - id: HP:0002902
-    label: hyponatremia
-  - id: MAXO:0000068
-    label: Transplantation
+    label: Hyponatremia
   - id: MAXO:0010031
     label: bone grafting
+  - id: MAXO:0001291
+    label: cranioplasty
   - id: HP:0001249
     label: mental retardation
+  - id: HP:0001263
+    label: developmental delays
   - id: HP:0002516
     label: raised intracranial pressure
   - id: HP:0010535

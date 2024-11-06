@@ -23,10 +23,10 @@ input_text: "[Compliance with treatment in Wilson's disease: On the interest of 
   particularly those with neurological symptoms."
 raw_completion_output: |-
   primary_disease: Wilson's disease
-  medical_actions: closer follow-up; questionnaire evaluation; self-questionnaire collection; analogic scales analysis; Beck Depression Inventory; phone call interview
+  medical_actions: closer follow-up; detailed phone call interview
   symptoms: poor compliance with treatment; depressive symptoms; neurological disorders
   chemicals: 
-  action_annotation_relationships: closer follow-up PREVENTS poor compliance with treatment IN Wilson's disease; Beck Depression Inventory TREATS depressive symptoms IN Wilson's disease; phone call interview PREVENTS poor compliance with treatment IN Wilson's disease
+  action_annotation_relationships: closer follow-up PREVENTS poor compliance with treatment IN Wilson's disease; detailed phone call interview PREVENTS poor compliance with treatment IN Wilson's disease; closer follow-up TREATS depressive symptoms IN Wilson's disease
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -41,7 +41,7 @@ prompt: |+
 
 
   Text:
-  phone call interview PREVENTS poor compliance with treatment IN Wilson's disease
+  closer follow-up TREATS depressive symptoms IN Wilson's disease
 
   ===
 
@@ -49,11 +49,7 @@ extracted_object:
   primary_disease: MONDO:0010200
   medical_actions:
     - closer follow-up
-    - questionnaire evaluation
-    - self-questionnaire collection
-    - analogic scales analysis
-    - Beck Depression Inventory
-    - phone call interview
+    - detailed phone call interview
   symptoms:
     - poor compliance with treatment
     - depressive symptoms
@@ -63,28 +59,60 @@ extracted_object:
       predicate: PREVENTS
       object: poor compliance with treatment
       qualifier: MONDO:0010200
-    - subject: Beck Depression Inventory
-      predicate: TREATS
-      object: depressive symptoms
-      qualifier: MONDO:0010200
-    - subject: phone call interview
+    - subject: detailed phone call interview
       predicate: PREVENTS
       object: poor compliance with treatment
+      qualifier: MONDO:0010200
+    - subject: closer follow-up
+      predicate: TREATS
+      object: depressive symptoms
       qualifier: MONDO:0010200
 named_entities:
   - id: MONDO:0010200
     label: Wilson's disease
   - id: MAXO:0001175
-    label: liver transplantation
+    label: Liver transplantation
   - id: HP:0001695
-    label: cardiac arrest
+    label: Cardiac arrest
   - id: HP:0001685
-    label: myocardial fibrosis
+    label: Myocardial fibrosis
   - id: HP:0001663
-    label: ventricular fibrillation
+    label: Ventricular fibrillation
+  - id: CHEBI:28694
+    label: Copper
+  - id: CHEBI:18248
+    label: Iron
+  - id: HP:0002910
+    label: abnormal liver functions
+  - id: HP:0001394
+    label: cirrhosis
+  - id: CHEBI:27363
+    label: zinc
+  - id: CHEBI:50868
+    label: penicillamine
+  - id: MAXO:0000016
+    label: Cell therapy
+  - id: MAXO:0001001
+    label: Gene therapy
   - id: CHEBI:30703
-    label: tetrathiomolybdate (TTM)
+    label: Tetrathiomolybdate (TTM)
+  - id: HP:0006554
+    label: acute liver failure
   - id: CHEBI:35176
     label: Zinc sulphate
   - id: CHEBI:35475
     label: NSAIDs
+  - id: MAXO:0009095
+    label: zinc therapy
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0006579
+    label: neonatal jaundice
+  - id: HP:0001409
+    label: portal hypertension
+  - id: HP:0030151
+    label: cholangitis
+  - id: HP:0002612
+    label: congenital hepatic fibrosis
+  - id: MONDO:0013282
+    label: alpha-1-antitrypsin deficiency

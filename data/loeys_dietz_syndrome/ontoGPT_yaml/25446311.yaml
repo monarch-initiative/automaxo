@@ -20,11 +20,15 @@ input_text: '[Genetics and prevention of genetic aortic syndromes (GAS) and of t
   of concepts, which entail a detailed diagnostic characterization of each specific
   genetic aortic syndrome including characterization of the genotype.'
 raw_completion_output: |-
-  primary_disease: Genetic aortic syndromes (GAS) and Marfan syndrome
-  medical_actions: genetic diagnostics; medical prevention of aortic complications; preventive replacement of the aortic root; valve preserving techniques; molecular diagnostics
-  symptoms: thoracic aortic dissection; aortic rupture
+  primary_disease: Genetic aortic syndromes (GAS) and the Marfan syndrome
+
+  medical_actions: Genetic diagnostics; Medical prevention of aortic complications; Preventive replacement of the aortic root; Molecular diagnostics
+
+  symptoms: Aneurysms of the thoracic aorta; Aortic rupture; Acute thoracic aortic dissection
+
   chemicals: 
-  action_annotation_relationships: genetic diagnostics PREVENTS thoracic aortic dissection IN Genetic aortic syndromes (GAS) and Marfan syndrome; medical prevention of aortic complications PREVENTS thoracic aortic dissection IN Genetic aortic syndromes (GAS) and Marfan syndrome; medical prevention of aortic complications PREVENTS aortic rupture IN Genetic aortic syndromes (GAS) and Marfan syndrome; preventive replacement of the aortic root PREVENTS thoracic aortic dissection IN Genetic aortic syndromes (GAS) and Marfan syndrome; valve preserving techniques PREVENTS thoracic aortic dissection IN Genetic aortic syndromes (GAS) and Marfan syndrome; molecular diagnostics PREVENTS thoracic aortic dissection IN Genetic aortic syndromes (GAS) and Marfan syndrome
+
+  action_annotation_relationships: Preventive replacement of the aortic root PREVENTS aortic rupture IN Genetic aortic syndromes (GAS); Preventive replacement of the aortic root PREVENTS acute thoracic aortic dissection IN Genetic aortic syndromes (GAS); Medical prevention of aortic complications PREVENTS aneurysms of the thoracic aorta IN Genetic aortic syndromes (GAS); Medical prevention of aortic complications PREVENTS acute thoracic aortic dissection IN Genetic aortic syndromes (GAS)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -39,53 +43,44 @@ prompt: |+
 
 
   Text:
-  molecular diagnostics PREVENTS thoracic aortic dissection IN Genetic aortic syndromes (GAS) and Marfan syndrome
+  Medical prevention of aortic complications PREVENTS acute thoracic aortic dissection IN Genetic aortic syndromes (GAS)
 
   ===
 
 extracted_object:
-  primary_disease: Genetic aortic syndromes (GAS) and Marfan syndrome
+  primary_disease: Genetic aortic syndromes (GAS) and the Marfan syndrome
   medical_actions:
-    - genetic diagnostics
-    - medical prevention of aortic complications
-    - preventive replacement of the aortic root
-    - valve preserving techniques
-    - molecular diagnostics
+    - Genetic diagnostics
+    - Medical prevention of aortic complications
+    - Preventive replacement of the aortic root
+    - Molecular diagnostics
   symptoms:
-    - thoracic aortic dissection
+    - Aneurysms of the thoracic aorta
     - HP:0031649
+    - Acute thoracic aortic dissection
   action_annotation_relationships:
-    - subject: <genetic diagnostics>
-      predicate: <PREVENTS>
-      object: <thoracic aortic dissection>
-      qualifier: <Genetic aortic syndromes (GAS) and Marfan syndrome>
-      subject_extension: <genetic diagnostics>
-    - subject: medical prevention of aortic complications
-      predicate: PREVENTS
-      object: thoracic aortic dissection
-      qualifier: Genetic aortic syndromes (GAS) and Marfan syndrome
-    - subject: medical prevention of aortic complications
+    - subject: Preventive replacement of the aortic root
       predicate: PREVENTS
       object: HP:0031649
-      qualifier: Genetic aortic syndromes (GAS) and Marfan syndrome
-    - subject: preventive replacement of the aortic root
+      qualifier: Genetic aortic syndromes (GAS)
+      subject_qualifier: Preventive
+    - subject: Preventive replacement of the aortic root
       predicate: PREVENTS
-      object: thoracic aortic dissection
-      qualifier: Genetic aortic syndromes (GAS) and Marfan syndrome
-    - subject: valve preserving techniques
+      object: acute thoracic aortic dissection
+      qualifier: Genetic aortic syndromes (GAS)
+    - subject: Medical prevention of aortic complications
       predicate: PREVENTS
-      object: thoracic aortic dissection
-      qualifier: Genetic aortic syndromes (GAS) and Marfan syndrome
-    - subject: molecular diagnostics
+      object: aneurysms of the thoracic aorta
+      qualifier: Genetic aortic syndromes (GAS)
+    - subject: Medical prevention of aortic complications
       predicate: PREVENTS
-      object: thoracic aortic dissection
-      qualifier: Genetic aortic syndromes (GAS) and Marfan syndrome
-      subject_extension: molecular diagnostics
+      object: acute thoracic aortic dissection
+      qualifier: Genetic aortic syndromes (GAS)
 named_entities:
   - id: MONDO:0018954
     label: Loeys-Dietz syndrome
   - id: MAXO:0000945
-    label: Spinal cord stimulation (SCS)
+    label: spinal cord stimulation (SCS)
   - id: HP:0031625
     label: Pseudoaneurysms
   - id: MAXO:0000451
@@ -98,21 +93,59 @@ named_entities:
     label: Joint laxity
   - id: CHEBI:35530
     label: Beta-blocker
+  - id: MAXO:0010203
+    label: Echocardiography
+  - id: HP:0012764
+    label: orthopnea
+  - id: HP:0001631
+    label: atrial septal defect
+  - id: HP:0001263
+    label: developmental delay
+  - id: HP:0003302
+    label: Spondylolisthesis
+  - id: HP:0003304
+    label: Spondylolysis
+  - id: HP:0012531
+    label: Pain
   - id: HP:0004942
-    label: Aortic aneurysms
+    label: aortic aneurysms
+  - id: HP:0002647
+    label: aortic dissection
+  - id: HP:0001645
+    label: sudden cardiac death
   - id: HP:0004944
     label: Cerebral aneurysms
   - id: HP:0002617
     label: Vasculopathy
+  - id: HP:0030745
+    label: Aneurysm of the ductus arteriosus
+  - id: MAXO:0000948
+    label: Craniotomy
   - id: MAXO:0010319
     label: CT angiogram
-  - id: HP:0002138
-    label: Subarachnoid hemorrhage
+  - id: MAXO:0010312
+    label: Head CT
   - id: HP:0007185
     label: Loss of consciousness
+  - id: HP:0002138
+    label: Subarachnoid hemorrhage
+  - id: HP:0025237
+    label: Unresponsive
   - id: CHEBI:35620
     label: vasodilator
-  - id: HP:0025637
-    label: vasospasm
+  - id: MAXO:0000011
+    label: Physical therapy
+  - id: MAXO:0001351
+    label: Occupational therapy
+  - id: MAXO:0000930
+    label: Speech therapy
+  - id: HP:0001270
+    label: Motor delays
+  - id: HP:0001252
+    label: Hypotonia
+  - id: MONDO:0007947
+    label: Marfan syndrome
+  - id: HP:0100718
+    label: uterine rupture
   - id: HP:0031649
-    label: aortic rupture
+    label: Aortic rupture

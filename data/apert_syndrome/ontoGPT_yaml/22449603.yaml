@@ -18,13 +18,13 @@ input_text: 'Craniofacial team management in Apert syndrome. INTRODUCTION: Apert
 raw_completion_output: |-
   primary_disease: Apert syndrome
 
-  medical_actions: Team care from infancy to adulthood; Cephalograms comparison; Midface advancement surgery; Dental management; Orthodontic management; Orthognathic surgical management
+  medical_actions: Team care; Dental management; Orthodontic management; Orthognathic surgical management; Cephalometric analysis
 
-  symptoms: Extensive structural and functional impairments
+  symptoms: Structural and functional impairments; Forward positioning of the maxilla; Sagittal jaw relationship; Altered vertical dimensions
 
   chemicals: 
 
-  action_annotation_relationships: Team care from infancy to adulthood PREVENTS Extensive structural and functional impairments IN Apert syndrome; Midface advancement surgery TREATS Extensive structural and functional impairments IN Apert syndrome; Dental management TREATS Extensive structural and functional impairments IN Apert syndrome; Orthodontic management TREATS Extensive structural and functional impairments IN Apert syndrome; Orthognathic surgical management TREATS Extensive structural and functional impairments IN Apert syndrome
+  action_annotation_relationships: Team care PREVENTS life-threatening conditions IN Apert syndrome; Dental management TREATS structural and functional impairments IN Apert syndrome; Orthodontic management TREATS malocclusion IN Apert syndrome; Orthognathic surgical management (with midface advancement) TREATS forward positioning of the maxilla IN Apert syndrome; Orthognathic surgical management (with midface advancement) TREATS sagittal jaw relationship IN Apert syndrome; Orthognathic surgical management (with midface advancement) TREATS altered vertical dimensions IN Apert syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -39,71 +39,83 @@ prompt: |+
 
 
   Text:
-  Orthognathic surgical management TREATS Extensive structural and functional impairments IN Apert syndrome
+  Orthognathic surgical management (with midface advancement) TREATS altered vertical dimensions IN Apert syndrome
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0007041
   medical_actions:
-    - Team care from infancy to adulthood
-    - Cephalograms comparison
-    - Midface advancement surgery
+    - Team care
     - Dental management
     - Orthodontic management
     - Orthognathic surgical management
+    - Cephalometric analysis
   symptoms:
-    - Extensive structural and functional impairments
+    - Structural and functional impairments
+    - Forward positioning of the maxilla
+    - Sagittal jaw relationship
+    - Altered vertical dimensions
   action_annotation_relationships:
-    - subject: Team care from infancy to adulthood
+    - subject: Team care
       predicate: PREVENTS
-      object: Extensive structural and functional impairments
+      object: life-threatening conditions
       qualifier: MONDO:0007041
-    - subject: Midface advancement surgery
-      predicate: TREATS
-      object: Extensive structural and functional impairments
-      qualifier: MONDO:0007041
-    - subject: Dental management
-      predicate: TREATS
-      object: Extensive structural and functional impairments
-      qualifier: MONDO:0007041
+    - subject: <Dental management>
+      predicate: <TREATS>
+      object: <structural and functional impairments>
+      qualifier: <Apert syndrome>
+      subject_qualifier: <Not applicable>
+      object_qualifier: <Not applicable>
+      subject_extension: <Not applicable>
+      object_extension: <Not applicable>
     - subject: Orthodontic management
       predicate: TREATS
-      object: Extensive structural and functional impairments
+      object: HP:0000689
       qualifier: MONDO:0007041
     - subject: Orthognathic surgical management
       predicate: TREATS
-      object: Extensive structural and functional impairments
+      object: forward positioning of the maxilla
       qualifier: MONDO:0007041
+      subject_qualifier: with midface advancement
+    - subject: <Orthognathic surgical management>
+      predicate: <TREATS>
+      object: <sagittal jaw relationship>
+      qualifier: <Apert syndrome>
+      subject_qualifier: <with midface advancement>
+      subject_extension: <midface advancement>
+    - subject: Orthognathic surgical management
+      predicate: TREATS
+      object: altered vertical dimensions
+      qualifier: MONDO:0007041
+      subject_qualifier: with midface advancement
 named_entities:
-  - id: HP:0011800
-    label: Midface hypoplasia
   - id: MONDO:0007041
     label: Apert syndrome
   - id: MAXO:0000486
-    label: distraction osteogenesis
+    label: Distraction osteogenesis
   - id: HP:0012531
-    label: pain
+    label: Pain
   - id: HP:0001288
-    label: gait disturbances
-  - id: MONDO:0003432
-    label: Strabismus
+    label: Gait disturbances
   - id: HP:0001159
     label: Syndactyly
-  - id: MAXO:0000004
-    label: surgical procedures
   - id: HP:0001363
     label: craniosynostosis
+  - id: HP:0011800
+    label: midface hypoplasia
   - id: MONDO:0015338
     label: syndromic craniosynostosis
   - id: HP:0001061
     label: Acne
   - id: CHEBI:6067
-    label: isotretinoin
+    label: Isotretinoin
   - id: MONDO:0015469
     label: Craniosynostosis
+  - id: HP:0000504
+    label: Vision issues
   - id: HP:0000572
-    label: Vision loss
+    label: Visual loss
   - id: HP:0000646
     label: Amblyopia
   - id: HP:0001138
@@ -114,16 +126,18 @@ named_entities:
     label: Anisometropia
   - id: HP:0000483
     label: Astigmatism
-  - id: MAXO:0000504
-    label: Tracheostomy
   - id: MAXO:0000502
-    label: Tracheal intubation
-  - id: HP:0010807
-    label: Open bite
-  - id: MAXO:0000756
-    label: blood transfusion
+    label: tracheal intubation
+  - id: HP:0009102
+    label: Anterior open bite
   - id: MAXO:0001183
     label: Bronchoscopy
+  - id: MAXO:0000504
+    label: Tracheotomy
+  - id: MAXO:0001029
+    label: Adenoidectomy
+  - id: MAXO:0001081
+    label: Tonsillectomy
   - id: HP:0002104
     label: Apneic episodes
   - id: HP:0002098
@@ -132,7 +146,5 @@ named_entities:
     label: Stridor
   - id: HP:0000961
     label: Cyanosis
-  - id: MONDO:0009735
-    label: Netherton syndrome
-  - id: MONDO:0011438
-    label: Acne vulgaris
+  - id: HP:0000689
+    label: malocclusion

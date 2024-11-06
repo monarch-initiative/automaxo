@@ -17,11 +17,11 @@ input_text: 'Tacrolimus-related neurologic and renal complications in liver tran
   effects. Tacrolimus also has nephrotoxic effects, which can be reversed by converting
   to rapamycin.'
 raw_completion_output: |-
-  primary_disease: Tacrolimus-related complications in liver transplantation
-  medical_actions: Antiepileptic therapy;Drug conversion to rapamycin;Drug conversion to cyclosporine (CsA);Switch to rapamycin
-  symptoms: Neurologic reactions;Nephrotoxicity
-  chemicals: Tacrolimus;Rapamycin;Cyclosporine (CsA)
-  action_annotation_relationships: Antiepileptic therapy TREATS Neurologic reactions IN Tacrolimus-related complications in liver transplantation;Drug conversion to rapamycin (with Rapamycin) TREATS Neurologic reactions IN Tacrolimus-related complications in liver transplantation;Drug conversion to cyclosporine (CsA) (with Cyclosporine) TREATS Neurologic reactions IN Tacrolimus-related complications in liver transplantation;Switch to rapamycin (with Rapamycin) TREATS Nephrotoxicity IN Tacrolimus-related complications in liver transplantation
+  primary_disease: Tacrolimus-related complications
+  medical_actions: antiepileptic therapy;drug conversion to rapamycin;drug conversion to cyclosporine (CsA);switched to rapamycin
+  symptoms: neurologic reactions;nephrotoxicity
+  chemicals: Tacrolimus;rapamycin;cyclosporine (CsA)
+  action_annotation_relationships: antiepileptic therapy TREATS neurologic reactions IN Tacrolimus-related complications;drug conversion to rapamycin TREATS neurologic reactions IN Tacrolimus-related complications;drug conversion to cyclosporine (CsA) TREATS neurologic reactions IN Tacrolimus-related complications;switched to rapamycin TREATS nephrotoxicity IN Tacrolimus-related complications
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -36,60 +36,61 @@ prompt: |+
 
 
   Text:
-  Switch to rapamycin (with Rapamycin) TREATS Nephrotoxicity IN Tacrolimus-related complications in liver transplantation
+  switched to rapamycin TREATS nephrotoxicity IN Tacrolimus-related complications
 
   ===
 
 extracted_object:
-  primary_disease: Tacrolimus-related complications in liver transplantation
+  primary_disease: Tacrolimus-related complications
   medical_actions:
     - MAXO:0000167
-    - Drug conversion to rapamycin
-    - Drug conversion to cyclosporine (CsA)
-    - Switch to rapamycin
+    - drug conversion to rapamycin
+    - drug conversion to cyclosporine (CsA)
+    - switched to rapamycin
   symptoms:
-    - Neurologic reactions
-    - Nephrotoxicity
+    - neurologic reactions
+    - nephrotoxicity
   chemicals:
     - CHEBI:61049
     - CHEBI:9168
     - CHEBI:55379
   action_annotation_relationships:
-    - subject: MAXO:0001298
+    - subject: MAXO:0000167
       predicate: TREATS
-      object: Neurologic reactions
-      qualifier: liver transplantation
-      object_qualifier: complications
+      object: neurologic reactions
+      qualifier: Tacrolimus-related complications
       subject_extension: CHEBI:35623
-      object_extension: Tacrolimus-related
-    - subject: Drug conversion to rapamycin
+    - subject: drug conversion
       predicate: TREATS
-      object: Neurologic reactions
-      qualifier: Tacrolimus-related complications in liver transplantation
-      subject_qualifier: with Rapamycin
+      object: neurologic reactions
+      qualifier: Tacrolimus-related complications
       subject_extension: CHEBI:9168
-    - subject: Drug conversion to cyclosporine (CsA)
+    - subject: drug conversion to cyclosporine (CsA)
       predicate: TREATS
-      object: Neurologic reactions
-      qualifier: Tacrolimus-related complications in liver transplantation
-      subject_qualifier: with Cyclosporine
-      subject_extension: CHEBI:4031
-    - subject: Switch to rapamycin
+      object: neurologic reactions
+      qualifier: Tacrolimus-related complications
+      subject_extension: CHEBI:55379
+    - subject: switched to rapamycin
       predicate: TREATS
-      object: Nephrotoxicity
-      qualifier: complications in liver transplantation
-      subject_qualifier: with Rapamycin
-      object_qualifier: Tacrolimus-related
+      object: nephrotoxicity
+      qualifier: Tacrolimus-related complications
       subject_extension: CHEBI:9168
       object_extension: Tacrolimus-related
 named_entities:
   - id: MONDO:0010200
-    label: Wilson disease
+    label: Wilson's disease
   - id: MAXO:0001175
-    label: liver transplantation
-  - id: MAXO:0000004
-    label: surgery (laparotomy, rectal mobilization, rectopexy, the partial sigmoid
-      colon resection with the primary anastomosis)
+    label: Liver transplantation
+  - id: HP:0001695
+    label: Cardiac arrest
+  - id: HP:0001685
+    label: Myocardial fibrosis
+  - id: HP:0001663
+    label: Ventricular fibrillation
+  - id: CHEBI:28694
+    label: Copper
+  - id: CHEBI:18248
+    label: Iron
   - id: HP:0002910
     label: abnormal liver functions
   - id: HP:0001394
@@ -98,82 +99,80 @@ named_entities:
     label: zinc
   - id: CHEBI:50868
     label: penicillamine
-  - id: CHEBI:51232
-    label: Hoechst 33342
+  - id: MAXO:0000016
+    label: Cell therapy
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: CHEBI:30703
+    label: Tetrathiomolybdate (TTM)
   - id: HP:0006554
     label: acute liver failure
-  - id: MAXO:0000068
-    label: transplantation
+  - id: CHEBI:35176
+    label: Zinc sulphate
+  - id: CHEBI:35475
+    label: NSAIDs
   - id: MAXO:0009095
-    label: Zinc therapy
-  - id: HP:0002344
-    label: Neurologic deterioration
+    label: zinc therapy
   - id: MAXO:0001298
     label: therapy
-  - id: HP:0001392
-    label: liver disease
   - id: HP:0006579
     label: neonatal jaundice
-  - id: HP:0002612
-    label: congenital hepatic fibrosis
   - id: HP:0001409
     label: portal hypertension
   - id: HP:0030151
     label: cholangitis
+  - id: HP:0002612
+    label: congenital hepatic fibrosis
   - id: MONDO:0013282
     label: alpha-1-antitrypsin deficiency
-  - id: MONDO:0009061
-    label: cystic fibrosis
-  - id: MONDO:0009044
-    label: Crigler-Najjar syndrome
-  - id: MAXO:0000376
-    label: liver biopsy
-  - id: MAXO:0000127
-    label: genetic testing
   - id: HP:0001903
     label: anemia
   - id: HP:0001410
     label: liver dysfunction
   - id: CHEBI:39501
     label: trientine
-  - id: CHEBI:28694
-    label: copper
+  - id: MAXO:0000070
+    label: Hepatic transplantation
   - id: HP:0001399
-    label: hepatic failure
+    label: Hepatic failure
   - id: HP:0004448
     label: fulminant hepatic failure
+  - id: HP:0003256
+    label: coagulopathy (international normalized ratio >2.0)
+  - id: HP:0004445
+    label: hepatic encephalopathy (HE)
+  - id: HP:0002480
+    label: hepatic encephalopathy
   - id: CHEBI:35341
     label: Steroids
   - id: CHEBI:33281
     label: Antibiotics
   - id: MONDO:0100193
-    label: end-stage liver disease
+    label: End-stage liver disease
   - id: HP:0100626
-    label: end-stage liver disease
+    label: End-stage liver disease
   - id: HP:0100660
     label: dyskinesia
-  - id: HP:0004787
-    label: fulminant hepatitis
-  - id: HP:0031811
-    label: bilirubinuria
-  - id: HP:0001397
-    label: hepatic steatosis
-  - id: CHEBI:16359
-    label: cholic acid
+  - id: HP:0100022
+    label: Movement disorders
+  - id: HP:0001337
+    label: Tremor
+  - id: HP:0001332
+    label: Dystonia
   - id: MONDO:0019542
     label: Acute liver failure (ALF)
-  - id: HP:0002480
-    label: Hepatic encephalopathy
   - id: CHEBI:27385
     label: CCL4
+  - id: MAXO:0000127
+    label: Genetic testing
+  - id: CHEBI:7959
+    label: D-penicillamine
   - id: MAXO:0001017
     label: Vaccination
   - id: HP:0001541
     label: Ascites
   - id: HP:0012398
     label: Peripheral edema
-  - id: HP:0001337
-    label: tremor
   - id: HP:0001260
     label: dysarthria
   - id: HP:0000708
@@ -182,27 +181,43 @@ named_entities:
     label: chronic hepatitis
   - id: CHEBI:38161
     label: chelators
+  - id: MAXO:0000376
+    label: liver biopsy
+  - id: HP:0001404
+    label: hepatocellular necrosis
+  - id: CHEBI:61049
+    label: Tacrolimus
+  - id: HP:0001744
+    label: Splenomegaly
   - id: MAXO:0000603
-    label: peritoneal dialysis
-  - id: CHEBI:7959
-    label: D-penicillamine
+    label: Peritoneal dialysis
   - id: HP:0200032
     label: Kayser-Fleischer rings
   - id: HP:0002172
-    label: imbalance
+    label: impaired balance
+  - id: HP:0001347
+    label: hyperreflexia
+  - id: HP:0031843
+    label: bradyphrenia
+  - id: HP:0002362
+    label: shuffling gait
+  - id: HP:0001621
+    label: hypophonia
+  - id: CHEBI:37153
+    label: Calcineurin inhibitors
+  - id: CHEBI:8356
+    label: pramipexole
+  - id: CHEBI:2618
+    label: amantadine
   - id: HP:0000093
     label: proteinuria
-  - id: HP:0032199
-    label: abnormal prothrombin time
+  - id: CHEBI:231592
+    label: zinc salts
   - id: MAXO:0000167
-    label: Antiepileptic therapy
-  - id: CHEBI:61049
-    label: Tacrolimus
+    label: antiepileptic therapy
   - id: CHEBI:9168
-    label: Rapamycin
+    label: rapamycin
   - id: CHEBI:55379
-    label: Cyclosporine (CsA)
+    label: cyclosporine (CsA)
   - id: CHEBI:35623
     label: antiepileptic
-  - id: CHEBI:4031
-    label: Cyclosporine

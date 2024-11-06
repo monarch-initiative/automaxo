@@ -25,13 +25,13 @@ input_text: "Seronegative Celiac Disease and Immunoglobulin Deficiency: Where to
 raw_completion_output: |-
   primary_disease: Seronegative Celiac Disease (SNCD)
 
-  medical_actions: gluten-free diet (GFD); Immunohistochemistry/immunofluorescence; tTG-mRNA assay
+  medical_actions: Gluten-free diet (GFD); Immunohistochemistry/immunofluorescence; tTG-mRNA assay
 
-  symptoms: Villous blunting; intraepithelial lymphocytes (IELs) count; immunoglobulin deficiencies; IgM restoration
+  symptoms: Villous blunting; Intraepithelial lymphocytes (IELs) count; Immunoglobulin deficiencies
 
-  chemicals: 
+  chemicals: Immunoglobulin A (IgA); Immunoglobulin M (IgM); tissue transglutaminase (tTG)
 
-  action_annotation_relationships: gluten-free diet (GFD) TREATS immunoglobulin deficiencies IN Seronegative Celiac Disease (SNCD); Immunohistochemistry/immunofluorescence DETECTS Villous blunting IN Seronegative Celiac Disease (SNCD); tTG-mRNA assay DETECTS intraepithelial lymphocytes (IELs) count IN Seronegative Celiac Disease (SNCD); gluten-free diet (GFD) PREVENTS IgM restoration IN Seronegative Celiac Disease (SNCD)
+  action_annotation_relationships: Gluten-free diet (GFD) TREATS Immunoglobulin deficiencies IN Seronegative Celiac Disease (SNCD); Immunohistochemistry/immunofluorescence TREATS Villous blunting IN Seronegative Celiac Disease (SNCD); tTG-mRNA assay TREATS Intraepithelial lymphocytes (IELs) count IN Seronegative Celiac Disease (SNCD)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -46,90 +46,132 @@ prompt: |+
 
 
   Text:
-  gluten-free diet (GFD) PREVENTS IgM restoration IN Seronegative Celiac Disease (SNCD)
+  tTG-mRNA assay TREATS Intraepithelial lymphocytes (IELs) count IN Seronegative Celiac Disease (SNCD)
 
   ===
 
 extracted_object:
   primary_disease: Seronegative Celiac Disease (SNCD)
   medical_actions:
-    - gluten-free diet (GFD)
+    - Gluten-free diet (GFD)
     - Immunohistochemistry/immunofluorescence
     - tTG-mRNA assay
   symptoms:
     - Villous blunting
     - HP:0001083
     - HP:0004313
-    - IgM restoration
+  chemicals:
+    - Immunoglobulin A (IgA)
+    - Immunoglobulin M (IgM)
+    - tissue transglutaminase (tTG)
   action_annotation_relationships:
-    - subject: gluten-free diet
+    - subject: Gluten-free diet
       predicate: TREATS
       object: HP:0004313
       qualifier: Seronegative Celiac Disease
-      subject_extension: gluten-free diet
+      subject_extension: Gluten-free diet
     - subject: Immunohistochemistry/immunofluorescence
-      predicate: DETECTS
+      predicate: TREATS
       object: Villous blunting
       qualifier: Seronegative Celiac Disease (SNCD)
     - subject: tTG-mRNA assay
-      predicate: DETECTS
+      predicate: TREATS
       object: HP:0001083
       qualifier: Seronegative Celiac Disease (SNCD)
-    - subject: MAXO:0000088
-      predicate: PREVENTS
-      object: restoration
-      qualifier: Seronegative Celiac Disease
-      subject_qualifier: gluten-free
-      subject_extension: gluten-free diet
-      object_extension: IgM
 named_entities:
   - id: MONDO:0044092
     label: Collagenous sprue
   - id: HP:0002014
-    label: Diarrhea
+    label: diarrhea
   - id: CHEBI:50858
-    label: Corticosteroids
+    label: corticosteroids
+  - id: HP:0004395
+    label: malnutrition
+  - id: MONDO:0005130
+    label: Celiac disease
+  - id: HP:0000870
+    label: Hyperprolactinemia
+  - id: CHEBI:81580
+    label: Prolactin (PRL)
+  - id: HP:0000938
+    label: Bone loss
+  - id: CHEBI:22984
+    label: Calcium
+  - id: CHEBI:27300
+    label: Vitamin D
+  - id: HP:0001369
+    label: Arthritis
+  - id: HP:0002608
+    label: Celiac Disease
+  - id: MONDO:0019473
+    label: Enteropathy-associated T-cell lymphoma (EATL)
+  - id: HP:0002242
+    label: enteropathy
+  - id: HP:0012378
+    label: fatigue
+  - id: HP:0002039
+    label: anorexia
+  - id: HP:0000823
+    label: delayed puberty
+  - id: HP:0004322
+    label: short stature
+  - id: HP:0000789
+    label: infertility
   - id: MONDO:0016063
     label: Celiac Disease (CD)
-  - id: HP:0004395
-    label: Malnutrition
-  - id: MONDO:0005130
-    label: Celiac Disease
-  - id: HP:0020110
-    label: fractures
-  - id: HP:0012378
-    label: Fatigue
-  - id: HP:0002039
-    label: Anorexia
-  - id: HP:0000823
-    label: Delayed puberty
-  - id: HP:0004322
-    label: Short stature
-  - id: HP:0000789
-    label: Infertility
-  - id: HP:0002242
-    label: Enteropathy
+  - id: MAXO:0000058
+    label: pharmacological treatment
+  - id: HP:0002027
+    label: abdominal pain
   - id: HP:0003270
-    label: Abdominal bloating
+    label: bloating
+  - id: HP:0001903
+    label: anemia
+  - id: MAXO:0000088
+    label: diet
+  - id: MONDO:0005298
+    label: Osteoporosis
+  - id: MAXO:0000259
+    label: insulin treatment
+  - id: HP:0033712
+    label: recurrent implantation failure (RIF)
+  - id: CHEBI:145810
+    label: insulin
+  - id: CHEBI:6801
+    label: metformin
   - id: HP:0012531
     label: Pain
   - id: HP:0000716
     label: Depression
   - id: HP:0011107
     label: Aphthous stomatitis
+  - id: MONDO:0013626
+    label: Acrodermatitis continua of Hallopeau
+  - id: HP:0002024
+    label: Malabsorption
+  - id: HP:0012050
+    label: Anasarca
+  - id: HP:0003111
+    label: Electrolyte disorders
+  - id: CHEBI:60027
+    label: Polymers
   - id: HP:0001510
-    label: Poor growth
-  - id: CHEBI:27300
-    label: vitamin D
-  - id: CHEBI:22984
-    label: calcium
+    label: poor growth
   - id: CHEBI:77383
-    label: bisphosphonates
+    label: Bisphosphonates
+  - id: HP:0002019
+    label: Constipation
+  - id: HP:0001919
+    label: Acute kidney failure
+  - id: HP:0000126
+    label: Hydronephrosis
+  - id: HP:0002013
+    label: vomiting
+  - id: HP:0001508
+    label: failure to thrive
   - id: HP:0000988
     label: rash
   - id: HP:0001083
-    label: intraepithelial lymphocytes (IELs) count
+    label: Intraepithelial lymphocytes (IELs) count
   - id: HP:0004313
-    label: immunoglobulin deficiencies
-  - id: MAXO:0000088
-    label: diet
+    label: Immunoglobulin deficiencies

@@ -11,10 +11,10 @@ input_text: "Haemolytic anaemia and acute liver failure--the initial manifestati
   carrier of the p.H1069Q mutation (Fig. 1, Ref. 24)."
 raw_completion_output: |-
   primary_disease: Wilson's disease
-  medical_actions: Orthotopic liver transplantation
-  symptoms: Coombs-negative haemolytic anaemia; Acute liver failure
-  chemicals: Ceruloplasmin; Copper
-  action_annotation_relationships: Orthotopic liver transplantation TREATS acute liver failure IN Wilson's disease; Low ceruloplasmin serum level INDICATES Wilson's disease; High copper levels in serum TREATS Coombs-negative haemolytic anaemia IN Wilson's disease; High copper levels in 24-hour urinary excretion INDICATES Wilson's disease
+  medical_actions: orthotopic liver transplantation; DNA-based diagnostic tool; molecular-genetic examinations
+  symptoms: Coombs-negative haemolytic anaemia; acute liver failure
+  chemicals: ceruloplasmin; copper
+  action_annotation_relationships: orthotopic liver transplantation TREATS acute liver failure IN Wilson's disease; DNA-based diagnostic tool CONFIRMS diagnosis IN Wilson's disease; molecular-genetic examinations DIAGNOSE Wilson's disease IN family members
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -29,47 +29,50 @@ prompt: |+
 
 
   Text:
-  High copper levels in 24-hour urinary excretion INDICATES Wilson's disease
+  molecular-genetic examinations DIAGNOSE Wilson's disease IN family members
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0010200
   medical_actions:
-    - Orthotopic liver transplantation
+    - orthotopic liver transplantation
+    - DNA-based diagnostic tool
+    - molecular-genetic examinations
   symptoms:
     - Coombs-negative haemolytic anaemia
     - HP:0006554
   chemicals:
-    - Ceruloplasmin
+    - ceruloplasmin
     - CHEBI:28694
   action_annotation_relationships:
-    - subject: Orthotopic liver transplantation
+    - subject: orthotopic liver transplantation
       predicate: TREATS
       object: HP:0006554
       qualifier: MONDO:0010200
-    - subject: Low ceruloplasmin serum level
-      predicate: INDICATES
+    - subject: DNA-based diagnostic tool
+      predicate: CONFIRMS diagnosis IN
+      object: diagnosis
+      qualifier: MONDO:0010200
+    - subject: molecular-genetic examinations
+      predicate: DIAGNOSE
       object: Wilson's disease
-    - subject: <High copper levels in serum>
-      predicate: <TREATS>
-      object: <Coombs-negative haemolytic anaemia>
-      qualifier: <Wilson's disease>
-      subject_qualifier: <high>
-      subject_extension: <copper>
-    - subject: <INDICATES>
-      predicate: <INDICATES>
-      object: <Wilson's disease>
-      subject_qualifier: <High>
-      subject_extension: <copper levels in 24-hour urinary excretion>
+      qualifier: family members
 named_entities:
   - id: MONDO:0010200
-    label: Wilson disease
+    label: Wilson's disease
   - id: MAXO:0001175
-    label: liver transplantation
-  - id: MAXO:0000004
-    label: surgery (laparotomy, rectal mobilization, rectopexy, the partial sigmoid
-      colon resection with the primary anastomosis)
+    label: Liver transplantation
+  - id: HP:0001695
+    label: Cardiac arrest
+  - id: HP:0001685
+    label: Myocardial fibrosis
+  - id: HP:0001663
+    label: Ventricular fibrillation
+  - id: CHEBI:28694
+    label: Copper
+  - id: CHEBI:18248
+    label: Iron
   - id: HP:0002910
     label: abnormal liver functions
   - id: HP:0001394
@@ -78,43 +81,35 @@ named_entities:
     label: zinc
   - id: CHEBI:50868
     label: penicillamine
-  - id: CHEBI:51232
-    label: Hoechst 33342
+  - id: MAXO:0000016
+    label: Cell therapy
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: CHEBI:30703
+    label: Tetrathiomolybdate (TTM)
   - id: HP:0006554
     label: acute liver failure
-  - id: MAXO:0000068
-    label: transplantation
+  - id: CHEBI:35176
+    label: Zinc sulphate
+  - id: CHEBI:35475
+    label: NSAIDs
   - id: MAXO:0009095
-    label: Zinc therapy
-  - id: HP:0002344
-    label: Neurologic deterioration
+    label: zinc therapy
   - id: MAXO:0001298
     label: therapy
-  - id: HP:0001392
-    label: liver disease
   - id: HP:0006579
     label: neonatal jaundice
-  - id: HP:0002612
-    label: congenital hepatic fibrosis
   - id: HP:0001409
     label: portal hypertension
   - id: HP:0030151
     label: cholangitis
+  - id: HP:0002612
+    label: congenital hepatic fibrosis
   - id: MONDO:0013282
     label: alpha-1-antitrypsin deficiency
-  - id: MONDO:0009061
-    label: cystic fibrosis
-  - id: MONDO:0009044
-    label: Crigler-Najjar syndrome
-  - id: MAXO:0000376
-    label: liver biopsy
-  - id: MAXO:0000127
-    label: genetic testing
   - id: HP:0001903
     label: anemia
   - id: HP:0001410
     label: liver dysfunction
   - id: CHEBI:39501
     label: trientine
-  - id: CHEBI:28694
-    label: copper

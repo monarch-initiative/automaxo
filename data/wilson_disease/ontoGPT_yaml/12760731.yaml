@@ -13,15 +13,15 @@ input_text: D-penicillamine and plasmapheresis in acute liver failure secondary 
 raw_completion_output: |-
   primary_disease: Wilson's disease
 
-  medical_actions: plasmapheresis; D-penicillamine administration; laparoscopic cholecystectomy; liver biopsy
+  medical_actions: plasmapheresis; D-penicillamine treatment; ambulatory follow-up; laparoscopic cholecystectomy
 
   symptoms: acute liver failure; Coombs negative hemolytic anemia; renal failure; low serum transaminase levels; low alkaline phosphatase levels; elevated serum and urinary copper levels; low serum ceruloplasmin; histological liver fibrosis
 
   chemicals: D-penicillamine; copper
 
-  action_annotation_relationships: plasmapheresis TREATS acute liver failure IN Wilson's disease; D-penicillamine administration TREATS acute liver failure IN Wilson's disease; D-penicillamine administration TREATS high copper levels (with copper) IN Wilson's disease; laparoscopic cholecystectomy TREATS symptomatic gallstone disease IN Wilson's disease; liver biopsy PREVENTS misdiagnosis IN Wilson's disease
+  action_annotation_relationships: plasmapheresis TREATS acute liver failure IN Wilson's disease; D-penicillamine treatment TREATS acute liver failure IN Wilson's disease; D-penicillamine treatment TREATS Coombs negative hemolytic anemia IN Wilson's disease; D-penicillamine treatment TREATS renal failure IN Wilson's disease; ambulatory follow-up TREATS Wilson's disease; laparoscopic cholecystectomy PREVENTS symptomatic gallstone disease IN Wilson's disease
 prompt: |+
-  Split the following piece of text into fields in the following format:
+  From the text below, extract the following entities in the following format:
 
   subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
   object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
@@ -34,7 +34,7 @@ prompt: |+
 
 
   Text:
-  liver biopsy PREVENTS misdiagnosis IN Wilson's disease
+  laparoscopic cholecystectomy PREVENTS symptomatic gallstone disease IN Wilson's disease
 
   ===
 
@@ -42,9 +42,9 @@ extracted_object:
   primary_disease: MONDO:0010200
   medical_actions:
     - plasmapheresis
-    - D-penicillamine administration
+    - D-penicillamine treatment
+    - ambulatory follow-up
     - laparoscopic cholecystectomy
-    - MAXO:0000376
   symptoms:
     - HP:0006554
     - Coombs negative hemolytic anemia
@@ -62,34 +62,43 @@ extracted_object:
       predicate: TREATS
       object: HP:0006554
       qualifier: MONDO:0010200
-    - subject: administration
+    - subject: treatment
       predicate: TREATS
       object: HP:0006554
       qualifier: MONDO:0010200
       subject_extension: CHEBI:7959
-    - subject: administration
+    - subject: treatment
       predicate: TREATS
-      object: high copper levels
+      object: Coombs negative hemolytic anemia
       qualifier: MONDO:0010200
-      object_qualifier: with copper
       subject_extension: CHEBI:7959
-      object_extension: with copper
-    - subject: laparoscopic cholecystectomy
+    - subject: treatment
       predicate: TREATS
-      object: symptomatic gallstone disease
+      object: HP:0000083
       qualifier: MONDO:0010200
-    - subject: MAXO:0000376
+      subject_extension: CHEBI:7959
+    - subject: ambulatory follow-up
+      predicate: TREATS
+      object: Wilson's disease
+    - subject: laparoscopic cholecystectomy
       predicate: PREVENTS
-      object: misdiagnosis
+      object: symptomatic gallstone disease
       qualifier: MONDO:0010200
 named_entities:
   - id: MONDO:0010200
-    label: Wilson disease
+    label: Wilson's disease
   - id: MAXO:0001175
-    label: liver transplantation
-  - id: MAXO:0000004
-    label: surgery (laparotomy, rectal mobilization, rectopexy, the partial sigmoid
-      colon resection with the primary anastomosis)
+    label: Liver transplantation
+  - id: HP:0001695
+    label: Cardiac arrest
+  - id: HP:0001685
+    label: Myocardial fibrosis
+  - id: HP:0001663
+    label: Ventricular fibrillation
+  - id: CHEBI:28694
+    label: Copper
+  - id: CHEBI:18248
+    label: Iron
   - id: HP:0002910
     label: abnormal liver functions
   - id: HP:0001394
@@ -98,82 +107,80 @@ named_entities:
     label: zinc
   - id: CHEBI:50868
     label: penicillamine
-  - id: CHEBI:51232
-    label: Hoechst 33342
+  - id: MAXO:0000016
+    label: Cell therapy
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: CHEBI:30703
+    label: Tetrathiomolybdate (TTM)
   - id: HP:0006554
     label: acute liver failure
-  - id: MAXO:0000068
-    label: transplantation
+  - id: CHEBI:35176
+    label: Zinc sulphate
+  - id: CHEBI:35475
+    label: NSAIDs
   - id: MAXO:0009095
-    label: Zinc therapy
-  - id: HP:0002344
-    label: Neurologic deterioration
+    label: zinc therapy
   - id: MAXO:0001298
     label: therapy
-  - id: HP:0001392
-    label: liver disease
   - id: HP:0006579
     label: neonatal jaundice
-  - id: HP:0002612
-    label: congenital hepatic fibrosis
   - id: HP:0001409
     label: portal hypertension
   - id: HP:0030151
     label: cholangitis
+  - id: HP:0002612
+    label: congenital hepatic fibrosis
   - id: MONDO:0013282
     label: alpha-1-antitrypsin deficiency
-  - id: MONDO:0009061
-    label: cystic fibrosis
-  - id: MONDO:0009044
-    label: Crigler-Najjar syndrome
-  - id: MAXO:0000376
-    label: liver biopsy
-  - id: MAXO:0000127
-    label: genetic testing
   - id: HP:0001903
     label: anemia
   - id: HP:0001410
     label: liver dysfunction
   - id: CHEBI:39501
     label: trientine
-  - id: CHEBI:28694
-    label: copper
+  - id: MAXO:0000070
+    label: Hepatic transplantation
   - id: HP:0001399
-    label: hepatic failure
+    label: Hepatic failure
   - id: HP:0004448
     label: fulminant hepatic failure
+  - id: HP:0003256
+    label: coagulopathy (international normalized ratio >2.0)
+  - id: HP:0004445
+    label: hepatic encephalopathy (HE)
+  - id: HP:0002480
+    label: hepatic encephalopathy
   - id: CHEBI:35341
     label: Steroids
   - id: CHEBI:33281
     label: Antibiotics
   - id: MONDO:0100193
-    label: end-stage liver disease
+    label: End-stage liver disease
   - id: HP:0100626
-    label: end-stage liver disease
+    label: End-stage liver disease
   - id: HP:0100660
     label: dyskinesia
-  - id: HP:0004787
-    label: fulminant hepatitis
-  - id: HP:0031811
-    label: bilirubinuria
-  - id: HP:0001397
-    label: hepatic steatosis
-  - id: CHEBI:16359
-    label: cholic acid
+  - id: HP:0100022
+    label: Movement disorders
+  - id: HP:0001337
+    label: Tremor
+  - id: HP:0001332
+    label: Dystonia
   - id: MONDO:0019542
     label: Acute liver failure (ALF)
-  - id: HP:0002480
-    label: Hepatic encephalopathy
   - id: CHEBI:27385
     label: CCL4
+  - id: MAXO:0000127
+    label: Genetic testing
+  - id: CHEBI:7959
+    label: D-penicillamine
   - id: MAXO:0001017
     label: Vaccination
   - id: HP:0001541
     label: Ascites
   - id: HP:0012398
     label: Peripheral edema
-  - id: HP:0001337
-    label: tremor
   - id: HP:0001260
     label: dysarthria
   - id: HP:0000708
@@ -182,29 +189,45 @@ named_entities:
     label: chronic hepatitis
   - id: CHEBI:38161
     label: chelators
+  - id: MAXO:0000376
+    label: liver biopsy
+  - id: HP:0001404
+    label: hepatocellular necrosis
+  - id: CHEBI:61049
+    label: Tacrolimus
+  - id: HP:0001744
+    label: Splenomegaly
   - id: MAXO:0000603
-    label: peritoneal dialysis
-  - id: CHEBI:7959
-    label: D-penicillamine
+    label: Peritoneal dialysis
   - id: HP:0200032
     label: Kayser-Fleischer rings
   - id: HP:0002172
-    label: imbalance
+    label: impaired balance
+  - id: HP:0001347
+    label: hyperreflexia
+  - id: HP:0031843
+    label: bradyphrenia
+  - id: HP:0002362
+    label: shuffling gait
+  - id: HP:0001621
+    label: hypophonia
+  - id: CHEBI:37153
+    label: Calcineurin inhibitors
+  - id: CHEBI:8356
+    label: pramipexole
+  - id: CHEBI:2618
+    label: amantadine
   - id: HP:0000093
     label: proteinuria
-  - id: HP:0032199
-    label: abnormal prothrombin time
+  - id: CHEBI:231592
+    label: zinc salts
   - id: MAXO:0000167
-    label: Antiepileptic therapy
-  - id: CHEBI:61049
-    label: Tacrolimus
+    label: antiepileptic therapy
   - id: CHEBI:9168
-    label: Rapamycin
+    label: rapamycin
   - id: CHEBI:55379
-    label: Cyclosporine (CsA)
+    label: cyclosporine (CsA)
   - id: CHEBI:35623
     label: antiepileptic
-  - id: CHEBI:4031
-    label: Cyclosporine
   - id: HP:0000083
     label: renal failure

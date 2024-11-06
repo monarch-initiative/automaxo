@@ -19,15 +19,11 @@ input_text: 'SCULP study: The benefits of skin graft pellets on the pain of sick
   effect in the management of patients with SCLU, and significantly notice reduction
   of wound surface area within one month.'
 raw_completion_output: |-
-  primary_disease: sickle cell leg ulcers (SCLU)
-
-  medical_actions: skin grafting; measurement by visual analog scale (VAS); analgesic consumption measurement; wound healing assessment
-
+  primary_disease: Sickle cell leg ulcers (SCLU)
+  medical_actions: autologous skin graft; evaluation of the analgesic effect of the skin graft; measurement by visual analog scale; weekly cumulative analgesic consumption monitoring; wound healing assessment by variation in wound area
   symptoms: pain; wound surface area
-
-  chemicals: opioids
-
-  action_annotation_relationships: skin grafting TREATS pain IN sickle cell leg ulcers (SCLU); skin grafting (with opioids) TREATS pain IN sickle cell leg ulcers (SCLU); skin grafting REDUCES wound surface area IN sickle cell leg ulcers (SCLU)
+  chemicals: analgesics; mild opioids
+  action_annotation_relationships: autologous skin graft TREATS pain IN Sickle cell leg ulcers (SCLU); evaluation of the analgesic effect of the skin graft TREATS pain IN Sickle cell leg ulcers (SCLU); measurement by visual analog scale MONITORS pain IN Sickle cell leg ulcers (SCLU); weekly cumulative analgesic consumption monitoring PREVENTS pain IN Sickle cell leg ulcers (SCLU); wound healing assessment by variation in wound area TREATS wound surface area IN Sickle cell leg ulcers (SCLU); autologous skin graft TREATS wound surface area IN Sickle cell leg ulcers (SCLU)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -42,143 +38,106 @@ prompt: |+
 
 
   Text:
-  skin grafting REDUCES wound surface area IN sickle cell leg ulcers (SCLU)
+  autologous skin graft TREATS wound surface area IN Sickle cell leg ulcers (SCLU)
 
   ===
 
 extracted_object:
-  primary_disease: sickle cell leg ulcers (SCLU)
+  primary_disease: Sickle cell leg ulcers (SCLU)
   medical_actions:
-    - MAXO:0010041
-    - measurement by visual analog scale (VAS)
-    - analgesic consumption measurement
-    - wound healing assessment
+    - autologous skin graft
+    - evaluation of the analgesic effect of the skin graft
+    - measurement by visual analog scale
+    - weekly cumulative analgesic consumption monitoring
+    - wound healing assessment by variation in wound area
   symptoms:
     - HP:0012531
     - wound surface area
   chemicals:
-    - opioids
+    - CHEBI:35480
+    - mild opioids
   action_annotation_relationships:
-    - subject: MAXO:0010041
+    - subject: <autologous skin graft>
+      predicate: <TREATS>
+      object: <pain>
+      qualifier: <Sickle cell leg ulcers>
+      subject_extension: <autologous skin graft>
+    - subject: evaluation of the analgesic effect
       predicate: TREATS
       object: HP:0012531
-      qualifier: sickle cell leg ulcers
-    - subject: MAXO:0010041
-      predicate: TREATS
+      qualifier: Sickle cell leg ulcers
+      subject_extension: skin graft
+    - subject: <measurement by visual analog scale>
+      predicate: <MONITORS>
+      object: <pain>
+      qualifier: <Sickle cell leg ulcers>
+      subject_extension: <visual analog scale>
+    - subject: weekly cumulative analgesic consumption monitoring
+      predicate: PREVENTS
       object: HP:0012531
-      qualifier: sickle cell leg ulcers
-      subject_qualifier: with opioids
-      subject_extension: opioids
-    - subject: MAXO:0010041
-      predicate: REDUCES
-      object: wound surface area
-      qualifier: sickle cell leg ulcers
+      qualifier: Sickle cell leg ulcers
+      subject_extension: CHEBI:35480
+    - subject: <wound healing assessment>
+      predicate: <TREATS>
+      object: <wound surface area>
+      qualifier: <Sickle cell leg ulcers (SCLU)>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <variation in wound area>
+      object_extension: <None>
+    - subject: <autologous skin graft>
+      predicate: <TREATS>
+      object: <wound surface area>
+      qualifier: <Sickle cell leg ulcers (SCLU)>
+      subject_extension: <autologous skin graft>
 named_entities:
   - id: MONDO:0007374
-    label: Sickle cell disease (SCD)
-  - id: MAXO:0000457
-    label: pain management
-  - id: HP:0001903
-    label: anemia
-  - id: CHEBI:44423
-    label: hydroxyurea
-  - id: CHEBI:18050
-    label: L-glutamine
-  - id: MAXO:0000058
-    label: pharmacotherapy
-  - id: HP:0100602
-    label: preeclampsia
-  - id: HP:0001622
-    label: preterm delivery
-  - id: HP:0001511
-    label: intrauterine growth restriction
-  - id: CHEBI:50858
-    label: corticosteroids
-  - id: HP:0001907
-    label: thromboembolism
-  - id: MAXO:0000503
-    label: Mechanical ventilation
+    label: Sickle Cell Disease (SCD)
+  - id: MAXO:0001479
+    label: Allogeneic hematopoietic stem cell transplantation (allo-HSCT)
+  - id: HP:0001923
+    label: Increased reticulocyte counts
+  - id: CHEBI:80240
+    label: Endothelin-1
   - id: MONDO:0011382
     label: Sickle Cell Disease
-  - id: MAXO:0001001
-    label: Gene therapies
-  - id: HP:0025322
-    label: VOD
-  - id: CHEBI:82557
-    label: Treosulfan
-  - id: MAXO:0000750
-    label: conditioning regimen
-  - id: MONDO:0007885
-    label: Osteonecrosis of the femoral head (AVNFH)
-  - id: HP:0012531
-    label: Pain
-  - id: HP:0000969
-    label: Oedema
-  - id: MONDO:0018660
-    label: hemophilia
-  - id: HP:0012532
-    label: Chronic pain
-  - id: CHEBI:3216
-    label: Buprenorphine
+  - id: HP:0001945
+    label: fever
+  - id: HP:0002754
+    label: osteomyelitis
+  - id: CHEBI:17334
+    label: penicillin
+  - id: MAXO:0000118
+    label: immunization
   - id: MAXO:0000747
     label: Hematopoietic stem cell transplantation
-  - id: HP:0100543
-    label: cognitive dysfunction
-  - id: HP:0000739
-    label: anxiety
-  - id: CHEBI:50131
-    label: Decitabine
-  - id: CHEBI:29548
-    label: Cytidine deaminase (CDA)
-  - id: MONDO:0009693
-    label: Multiple Myeloma
-  - id: CHEBI:145536
-    label: Motixafortide
-  - id: MAXO:0000601
-    label: Dialysis
-  - id: HP:0000083
-    label: Kidney failure
-  - id: MONDO:0100096
-    label: COVID-19
-  - id: MAXO:0001017
-    label: vaccination
-  - id: CHEBI:28901
-    label: busulfan
-  - id: CHEBI:9570
-    label: thiotepa
-  - id: MAXO:0000952
-    label: Hydration therapy
-  - id: HP:0006775
-    label: Myeloma
-  - id: MAXO:0000756
-    label: blood transfusions
-  - id: MONDO:0005570
-    label: Hematologic diseases
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: MAXO:0009101
+    label: Early intervention
+  - id: HP:0000989
+    label: pruritus
+  - id: HP:0012393
+    label: allergic reactions
+  - id: HP:0012532
+    label: chronic pain
   - id: HP:0007760
-    label: Sickle cell disease (SCD)
-  - id: MAXO:0010203
-    label: echocardiography
-  - id: CHEBI:31980
-    label: Definity
-  - id: MAXO:0000149
-    label: Hematopoietic stem cell transplantation (HCT)
-  - id: HP:0001297
-    label: stroke
-  - id: CHEBI:6716
-    label: Depot medroxyprogesterone acetate
-  - id: CHEBI:50114
-    label: Estrogen
-  - id: CHEBI:59826
-    label: Progestin
-  - id: MONDO:0005161
-    label: Human papillomavirus (HPV)
-  - id: MAXO:0000759
-    label: HPV vaccination
-  - id: MAXO:0000194
-    label: opioid therapy
-  - id: MAXO:0000882
-    label: behavioral modification
+    label: SCD
   - id: MAXO:0001298
     label: therapy
-  - id: MAXO:0010041
-    label: skin grafting
+  - id: CHEBI:6807
+    label: Methadone
+  - id: CHEBI:4027
+    label: Cyclophosphamide
+  - id: CHEBI:82557
+    label: Treosulfan
+  - id: MAXO:0000756
+    label: Blood transfusions
+  - id: HP:0012531
+    label: Pain
+  - id: CHEBI:44423
+    label: Hydroxyurea
+  - id: MONDO:0005632
+    label: Acute Chest Syndrome
+  - id: CHEBI:35480
+    label: analgesics

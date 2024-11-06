@@ -10,12 +10,12 @@ input_text: Plasmapheresis for hemolytic crisis and impending acute liver failur
   molecular adsorbents and recirculating system.
 raw_completion_output: |-
   primary_disease: Wilson disease
-  medical_actions: Plasmapheresis; Chelation therapy; Liver transplantation; Albumin dialysis; Continuous veno-venous hemodialysis; Molecular adsorbents recirculating system
-  symptoms: Hemolytic crisis; Impending acute liver failure; Severe hemolysis; Liver injury
+  medical_actions: Plasmapheresis; Chelation therapy; Liver transplantation; Albumin dialysis; Continuous veno-venous hemodialysis; Molecular adsorbents and recirculating system
+  symptoms: Hemolytic crisis; Impending acute liver failure; Severe hemolysis
   chemicals: 
-  action_annotation_relationships: Plasmapheresis TREATS hemolytic crisis IN Wilson disease; Plasmapheresis TREATS impending acute liver failure IN Wilson disease; Chelation therapy TREATS hemolytic crisis IN Wilson disease; Liver transplantation TREATS impending acute liver failure IN Wilson disease; Plasmapheresis TREATS severe hemolysis IN Wilson disease; Plasmapheresis TREATS liver injury IN Wilson disease
+  action_annotation_relationships: Plasmapheresis TREATS hemolytic crisis IN Wilson disease; Plasmapheresis TREATS impending acute liver failure IN Wilson disease; Chelation therapy TREATS hemolytic crisis IN Wilson disease; Liver transplantation PREVENTS impending acute liver failure IN Wilson disease
 prompt: |+
-  Split the following piece of text into fields in the following format:
+  From the text below, extract the following entities in the following format:
 
   subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
   object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
@@ -28,7 +28,7 @@ prompt: |+
 
 
   Text:
-  Plasmapheresis TREATS liver injury IN Wilson disease
+  Liver transplantation PREVENTS impending acute liver failure IN Wilson disease
 
   ===
 
@@ -40,12 +40,11 @@ extracted_object:
     - MAXO:0001175
     - Albumin dialysis
     - Continuous veno-venous hemodialysis
-    - Molecular adsorbents recirculating system
+    - Molecular adsorbents and recirculating system
   symptoms:
     - Hemolytic crisis
     - Impending acute liver failure
     - Severe hemolysis
-    - Liver injury
   action_annotation_relationships:
     - subject: Plasmapheresis
       predicate: TREATS
@@ -60,26 +59,24 @@ extracted_object:
       object: hemolytic crisis
       qualifier: MONDO:0010200
     - subject: MAXO:0001175
-      predicate: TREATS
+      predicate: PREVENTS
       object: impending acute liver failure
-      qualifier: MONDO:0010200
-    - subject: Plasmapheresis
-      predicate: TREATS
-      object: severe hemolysis
-      qualifier: MONDO:0010200
-      object_qualifier: severe
-    - subject: Plasmapheresis
-      predicate: TREATS
-      object: liver injury
       qualifier: MONDO:0010200
 named_entities:
   - id: MONDO:0010200
-    label: Wilson disease
+    label: Wilson's disease
   - id: MAXO:0001175
-    label: liver transplantation
-  - id: MAXO:0000004
-    label: surgery (laparotomy, rectal mobilization, rectopexy, the partial sigmoid
-      colon resection with the primary anastomosis)
+    label: Liver transplantation
+  - id: HP:0001695
+    label: Cardiac arrest
+  - id: HP:0001685
+    label: Myocardial fibrosis
+  - id: HP:0001663
+    label: Ventricular fibrillation
+  - id: CHEBI:28694
+    label: Copper
+  - id: CHEBI:18248
+    label: Iron
   - id: HP:0002910
     label: abnormal liver functions
   - id: HP:0001394
@@ -88,82 +85,80 @@ named_entities:
     label: zinc
   - id: CHEBI:50868
     label: penicillamine
-  - id: CHEBI:51232
-    label: Hoechst 33342
+  - id: MAXO:0000016
+    label: Cell therapy
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: CHEBI:30703
+    label: Tetrathiomolybdate (TTM)
   - id: HP:0006554
     label: acute liver failure
-  - id: MAXO:0000068
-    label: transplantation
+  - id: CHEBI:35176
+    label: Zinc sulphate
+  - id: CHEBI:35475
+    label: NSAIDs
   - id: MAXO:0009095
-    label: Zinc therapy
-  - id: HP:0002344
-    label: Neurologic deterioration
+    label: zinc therapy
   - id: MAXO:0001298
     label: therapy
-  - id: HP:0001392
-    label: liver disease
   - id: HP:0006579
     label: neonatal jaundice
-  - id: HP:0002612
-    label: congenital hepatic fibrosis
   - id: HP:0001409
     label: portal hypertension
   - id: HP:0030151
     label: cholangitis
+  - id: HP:0002612
+    label: congenital hepatic fibrosis
   - id: MONDO:0013282
     label: alpha-1-antitrypsin deficiency
-  - id: MONDO:0009061
-    label: cystic fibrosis
-  - id: MONDO:0009044
-    label: Crigler-Najjar syndrome
-  - id: MAXO:0000376
-    label: liver biopsy
-  - id: MAXO:0000127
-    label: genetic testing
   - id: HP:0001903
     label: anemia
   - id: HP:0001410
     label: liver dysfunction
   - id: CHEBI:39501
     label: trientine
-  - id: CHEBI:28694
-    label: copper
+  - id: MAXO:0000070
+    label: Hepatic transplantation
   - id: HP:0001399
-    label: hepatic failure
+    label: Hepatic failure
   - id: HP:0004448
     label: fulminant hepatic failure
+  - id: HP:0003256
+    label: coagulopathy (international normalized ratio >2.0)
+  - id: HP:0004445
+    label: hepatic encephalopathy (HE)
+  - id: HP:0002480
+    label: hepatic encephalopathy
   - id: CHEBI:35341
     label: Steroids
   - id: CHEBI:33281
     label: Antibiotics
   - id: MONDO:0100193
-    label: end-stage liver disease
+    label: End-stage liver disease
   - id: HP:0100626
-    label: end-stage liver disease
+    label: End-stage liver disease
   - id: HP:0100660
     label: dyskinesia
-  - id: HP:0004787
-    label: fulminant hepatitis
-  - id: HP:0031811
-    label: bilirubinuria
-  - id: HP:0001397
-    label: hepatic steatosis
-  - id: CHEBI:16359
-    label: cholic acid
+  - id: HP:0100022
+    label: Movement disorders
+  - id: HP:0001337
+    label: Tremor
+  - id: HP:0001332
+    label: Dystonia
   - id: MONDO:0019542
     label: Acute liver failure (ALF)
-  - id: HP:0002480
-    label: Hepatic encephalopathy
   - id: CHEBI:27385
     label: CCL4
+  - id: MAXO:0000127
+    label: Genetic testing
+  - id: CHEBI:7959
+    label: D-penicillamine
   - id: MAXO:0001017
     label: Vaccination
   - id: HP:0001541
     label: Ascites
   - id: HP:0012398
     label: Peripheral edema
-  - id: HP:0001337
-    label: tremor
   - id: HP:0001260
     label: dysarthria
   - id: HP:0000708
@@ -172,11 +167,17 @@ named_entities:
     label: chronic hepatitis
   - id: CHEBI:38161
     label: chelators
+  - id: MAXO:0000376
+    label: liver biopsy
+  - id: HP:0001404
+    label: hepatocellular necrosis
+  - id: CHEBI:61049
+    label: Tacrolimus
+  - id: HP:0001744
+    label: Splenomegaly
   - id: MAXO:0000603
-    label: peritoneal dialysis
-  - id: CHEBI:7959
-    label: D-penicillamine
+    label: Peritoneal dialysis
   - id: HP:0200032
     label: Kayser-Fleischer rings
   - id: HP:0002172
-    label: imbalance
+    label: impaired balance

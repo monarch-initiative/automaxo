@@ -23,13 +23,13 @@ input_text: 'The effect of intensity of conditioning regimen on the outcome of H
 raw_completion_output: |-
   primary_disease: Sickle Cell Disease (SCD)
 
-  medical_actions: Allogeneic hematopoietic stem cell transplantation (HSCT); Myeloablative conditioning (MAC) regimens; Reduced intensity conditioning (RIC) regimens
+  medical_actions: Allogeneic hematopoietic stem cell transplantation (HSCT); Myeloablative conditioning (MAC) regimens; Reduced intensity conditioning (RIC) regimens; Treating secondary graft failure; Treating GVHD
 
   symptoms: Secondary graft failure; Acute GVHD II-IV; Chronic GVHD
 
   chemicals: 
 
-  action_annotation_relationships: Allogeneic hematopoietic stem cell transplantation (HSCT) TREATS Sickle Cell Disease (SCD) IN Sickle Cell Disease (SCD); Myeloablative conditioning (MAC) regimens TREATS Sickle Cell Disease (SCD) IN Sickle Cell Disease (SCD); Reduced intensity conditioning (RIC) regimens TREATS Sickle Cell Disease (SCD) IN Sickle Cell Disease (SCD)
+  action_annotation_relationships: Myeloablative conditioning (MAC) regimens TREATS Sickle Cell Disease (SCD); Reduced intensity conditioning (RIC) regimens TREATS Sickle Cell Disease (SCD); Treating secondary graft failure TREATS secondary graft failure IN Sickle Cell Disease (SCD); Treating GVHD TREATS Acute GVHD II-IV IN Sickle Cell Disease (SCD); Treating GVHD TREATS Chronic GVHD IN Sickle Cell Disease (SCD)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -44,7 +44,7 @@ prompt: |+
 
 
   Text:
-  Reduced intensity conditioning (RIC) regimens TREATS Sickle Cell Disease (SCD) IN Sickle Cell Disease (SCD)
+  Treating GVHD TREATS Chronic GVHD IN Sickle Cell Disease (SCD)
 
   ===
 
@@ -54,24 +54,47 @@ extracted_object:
     - MAXO:0000747
     - Myeloablative conditioning (MAC) regimens
     - Reduced intensity conditioning (RIC) regimens
+    - Treating secondary graft failure
+    - Treating GVHD
   symptoms:
     - Secondary graft failure
     - Acute GVHD II-IV
     - Chronic GVHD
   action_annotation_relationships:
-    - subject: MAXO:0000747
-      predicate: TREATS
-      object: HP:0007760
-      qualifier: MONDO:0007374
     - subject: Myeloablative conditioning (MAC) regimens
       predicate: TREATS
       object: HP:0007760
-      qualifier: MONDO:0007374
     - subject: Reduced intensity conditioning (RIC) regimens
       predicate: TREATS
       object: HP:0007760
+      subject_extension: Reduced intensity conditioning (RIC) regimens
+    - subject: Treating secondary graft failure
+      predicate: TREATS
+      object: secondary graft failure
       qualifier: MONDO:0007374
+    - subject: Treating GVHD
+      predicate: TREATS
+      object: Acute GVHD II-IV
+      qualifier: MONDO:0007374
+    - subject: <Treating GVHD>
+      predicate: <TREATS>
+      object: <Chronic GVHD>
+      qualifier: MONDO:0007374
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <GVHD>
+      object_extension: <Chronic GVHD>
 named_entities:
+  - id: MONDO:0011382
+    label: sickle cell disease
+  - id: CHEBI:64357
+    label: rituximab
+  - id: CHEBI:35341
+    label: steroids
+  - id: CHEBI:81579
+    label: erythropoietin
+  - id: MAXO:0001017
+    label: Vaccination
   - id: MONDO:0007374
     label: Sickle Cell Disease (SCD)
   - id: MAXO:0000747

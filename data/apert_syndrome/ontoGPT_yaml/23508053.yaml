@@ -22,15 +22,15 @@ input_text: 'Normalizing facial ratios in apert syndrome patients with Le Fort I
   zygomatic repositioning normalizes the position and the shape of the Apert face.
   CLINICAL QUESTION/LEVEL OF EVIDENCE: Therapeutic, III.'
 raw_completion_output: |-
-  primary_disease: Apert Syndrome
+  primary_disease: Apert syndrome
 
-  medical_actions: Le Fort II midface distraction; Simultaneous zygomatic repositioning; Computed tomographic scan analyses; Le Fort III distraction
+  medical_actions: Le Fort II midface distraction; simultaneous zygomatic repositioning; Le Fort III distraction; Computed tomographic scan analyses
 
-  symptoms: Central concavity; Vertical compression; Abnormal facial ratios
+  symptoms: central concavity; vertical compression; abnormal facial ratios
 
   chemicals: 
 
-  action_annotation_relationships: Le Fort II midface distraction TREATS central concavity IN Apert Syndrome; Simultaneous zygomatic repositioning TREATS vertical compression IN Apert Syndrome; Le Fort II midface distraction WITH Simultaneous zygomatic repositioning TREATS abnormal facial ratios IN Apert Syndrome
+  action_annotation_relationships: Le Fort II midface distraction TREATS central concavity IN Apert syndrome; simultaneous zygomatic repositioning TREATS vertical compression IN Apert syndrome; Le Fort III distraction FAILS TO TREAT abnormal facial ratios IN Apert syndrome; Le Fort II distraction with simultaneous zygomatic repositioning TREATS abnormal facial ratios IN Apert syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -45,7 +45,7 @@ prompt: |+
 
 
   Text:
-  Le Fort II midface distraction WITH Simultaneous zygomatic repositioning TREATS abnormal facial ratios IN Apert Syndrome
+  Le Fort II distraction with simultaneous zygomatic repositioning TREATS abnormal facial ratios IN Apert syndrome
 
   ===
 
@@ -53,61 +53,63 @@ extracted_object:
   primary_disease: MONDO:0007041
   medical_actions:
     - Le Fort II midface distraction
-    - Simultaneous zygomatic repositioning
-    - Computed tomographic scan analyses
+    - simultaneous zygomatic repositioning
     - Le Fort III distraction
+    - Computed tomographic scan analyses
   symptoms:
-    - Central concavity
-    - Vertical compression
-    - Abnormal facial ratios
+    - central concavity
+    - vertical compression
+    - abnormal facial ratios
   action_annotation_relationships:
     - subject: Le Fort II midface distraction
       predicate: TREATS
       object: central concavity
       qualifier: MONDO:0007041
-    - subject: <Simultaneous zygomatic repositioning>
-      predicate: <TREATS>
-      object: <vertical compression>
-      qualifier: <Apert Syndrome>
-      subject_qualifier: <null>
-      object_qualifier: <null>
-      subject_extension: <zygomatic repositioning>
-      object_extension: <null>
-    - subject: Le Fort II midface distraction
+    - subject: simultaneous zygomatic repositioning
+      predicate: TREATS
+      object: vertical compression
+      qualifier: MONDO:0007041
+      subject_extension: zygomatic repositioning
+      object_extension: vertical compression
+    - subject: <Le Fort III distraction>
+      predicate: <FAILS TO TREAT>
+      object: <abnormal facial ratios>
+      qualifier: <Apert syndrome>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: Le Fort II distraction with simultaneous zygomatic repositioning
       predicate: TREATS
       object: abnormal facial ratios
       qualifier: MONDO:0007041
-      subject_qualifier: WITH
-      subject_extension: Simultaneous zygomatic repositioning
 named_entities:
-  - id: HP:0011800
-    label: Midface hypoplasia
   - id: MONDO:0007041
     label: Apert syndrome
   - id: MAXO:0000486
-    label: distraction osteogenesis
+    label: Distraction osteogenesis
   - id: HP:0012531
-    label: pain
+    label: Pain
   - id: HP:0001288
-    label: gait disturbances
-  - id: MONDO:0003432
-    label: Strabismus
+    label: Gait disturbances
   - id: HP:0001159
     label: Syndactyly
-  - id: MAXO:0000004
-    label: surgical procedures
   - id: HP:0001363
     label: craniosynostosis
+  - id: HP:0011800
+    label: midface hypoplasia
   - id: MONDO:0015338
     label: syndromic craniosynostosis
   - id: HP:0001061
     label: Acne
   - id: CHEBI:6067
-    label: isotretinoin
+    label: Isotretinoin
   - id: MONDO:0015469
     label: Craniosynostosis
+  - id: HP:0000504
+    label: Vision issues
   - id: HP:0000572
-    label: Vision loss
+    label: Visual loss
   - id: HP:0000646
     label: Amblyopia
   - id: HP:0001138

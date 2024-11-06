@@ -1,0 +1,87 @@
+---
+input_text: 'Cardiovascular disease in Williams syndrome. PURPOSE OF REVIEW: Williams
+  syndrome is a multisystem disorder seen with some regularity at most pediatric centers
+  and usually fairly often at larger centers. Cardiovascular abnormalities, because
+  of elastin deficiency, are the leading cause of morbidity and mortality in patients
+  with Williams syndrome. The present article presents a review of the most recent
+  developments regarding the cardiovascular issues in Williams syndrome. RECENT FINDINGS:
+  Cardiovascular abnormalities occur in 80% of patients with Williams syndrome, the
+  majority of which are arterial stenoses. The stenoses seen in Williams syndrome
+  now appear to arise from deficient circumferential arterial growth. Pharmacological
+  therapies aimed at improving the vascular stenoses have shown some promise in animal
+  models. Surgical outcomes for supravalvar aortic stenosis are good at most centers.
+  Transcatheter interventions are largely ineffective in Williams syndrome. Multilevel
+  surgical pulmonary artery reconstruction has excellent results for peripheral pulmonary
+  artery stenosis. Periprocedural risk stratification and management algorithms may
+  decrease the risk of cardiovascular complications. SUMMARY: Cardiovascular abnormalities
+  are a major determining factor in the clinical picture and trajectory of patients
+  with Williams syndrome. Advances in surgical techniques, medical therapeutic options,
+  and periprocedural management hold promise for significant improvements in the cardiovascular
+  outcomes of these patients.'
+raw_completion_output: |-
+  primary_disease: Williams syndrome
+
+  medical_actions: Pharmacological therapies; Surgical outcomes for supravalvar aortic stenosis; Multilevel surgical pulmonary artery reconstruction; Periprocedural risk stratification and management
+
+  symptoms: Arterial stenoses; Cardiovascular abnormalities
+
+  chemicals: 
+
+  action_annotation_relationships: Pharmacological therapies TREATS Arterial stenoses IN Williams syndrome; Surgical outcomes for supravalvar aortic stenosis TREATS Cardiovascular abnormalities IN Williams syndrome; Multilevel surgical pulmonary artery reconstruction TREATS Peripheral pulmonary artery stenosis IN Williams syndrome; Periprocedural risk stratification and management PREVENTS Cardiovascular complications IN Williams syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Periprocedural risk stratification and management PREVENTS Cardiovascular complications IN Williams syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0008678
+  medical_actions:
+    - Pharmacological therapies
+    - Surgical outcomes for supravalvar aortic stenosis
+    - Multilevel surgical pulmonary artery reconstruction
+    - Periprocedural risk stratification and management
+  symptoms:
+    - Arterial stenoses
+    - HP:0001626
+  action_annotation_relationships:
+    - subject: Pharmacological therapies
+      predicate: TREATS
+      object: Arterial stenoses
+      qualifier: MONDO:0008678
+      subject_extension: Pharmacological therapies
+    - subject: Surgical outcomes for supravalvar aortic stenosis
+      predicate: TREATS
+      object: HP:0001626
+      qualifier: MONDO:0008678
+    - subject: Multilevel surgical pulmonary artery reconstruction
+      predicate: TREATS
+      object: HP:0004969
+      qualifier: MONDO:0008678
+    - subject: Periprocedural risk stratification and management
+      predicate: PREVENTS
+      object: Cardiovascular complications
+      qualifier: MONDO:0008678
+named_entities:
+  - id: MONDO:0008678
+    label: Williams syndrome
+  - id: MAXO:0009072
+    label: surgical repair
+  - id: HP:0004969
+    label: peripheral pulmonary stenosis
+  - id: HP:0002617
+    label: aneurysms
+  - id: HP:0001626
+    label: Cardiovascular abnormalities

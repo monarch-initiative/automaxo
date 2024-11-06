@@ -16,14 +16,10 @@ input_text: 'Early and late complications after liver transplantation for propio
   biochemical pathway, the choice of the organ to transplant could be further discussed.'
 raw_completion_output: |-
   primary_disease: Propionic acidemia (PA)
-
-  medical_actions: Liver transplantation (LT); Cardiac and renal functions assessment before LT; Close monitoring of cardiac and renal functions after LT; Renal sparing immunosuppression; Kidney transplantation
-
-  symptoms: Severe, unusual and unexpected complications; High mortality; Cardiomyopathy; Acute metabolic decompensation; Renal failure
-
+  medical_actions: Liver transplantation (LT); Dietary relaxation; Cardiac and renal functions assessment; Renal sparing immunosuppression; Kidney transplantation
+  symptoms: Cardiac complications; Neurologic complications; Poor quality of life; Severe complications; High mortality; Cardiomyopathy; Acute metabolic decompensation; Renal failure
   chemicals: 
-
-  action_annotation_relationships: Liver transplantation TREATS severe, unusual and unexpected complications IN Propionic acidemia; Liver transplantation PREVENTS acute metabolic decompensation IN Propionic acidemia; Liver transplantation (with renal sparing immunosuppression) TREATS renal failure IN Propionic acidemia; Cardiac and renal functions assessment before LT PREVENTS severe, unusual and unexpected complications IN Propionic acidemia; Close monitoring of cardiac and renal functions after LT PREVENTS severe, unusual and unexpected complications IN Propionic acidemia; Kidney transplantation TREATS renal failure IN Propionic acidemia
+  action_annotation_relationships: Liver transplantation (LT) TREATS cardiomyopathy IN Propionic acidemia (PA); Liver transplantation (LT) PREVENTS acute metabolic decompensation IN Propionic acidemia (PA); Dietary relaxation TREATS poor quality of life IN Propionic acidemia (PA); Cardiac and renal functions assessment PREVENTS severe complications IN Propionic acidemia (PA); Renal sparing immunosuppression TREATS renal failure IN Propionic acidemia (PA); Kidney transplantation TREATS renal failure IN Propionic acidemia (PA)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -38,7 +34,7 @@ prompt: |+
 
 
   Text:
-  Kidney transplantation TREATS renal failure IN Propionic acidemia
+  Kidney transplantation TREATS renal failure IN Propionic acidemia (PA)
 
   ===
 
@@ -46,12 +42,15 @@ extracted_object:
   primary_disease: MONDO:0011628
   medical_actions:
     - MAXO:0001175
-    - Cardiac and renal functions assessment before LT
-    - Close monitoring of cardiac and renal functions after LT
+    - Dietary relaxation
+    - Cardiac and renal functions assessment
     - Renal sparing immunosuppression
     - Kidney transplantation
   symptoms:
-    - Severe, unusual and unexpected complications
+    - Cardiac complications
+    - Neurologic complications
+    - Poor quality of life
+    - Severe complications
     - High mortality
     - HP:0001638
     - Acute metabolic decompensation
@@ -59,81 +58,77 @@ extracted_object:
   action_annotation_relationships:
     - subject: MAXO:0001175
       predicate: TREATS
-      object: severe, unusual and unexpected complications
+      object: HP:0001638
       qualifier: MONDO:0011628
-      object_qualifier: severe
     - subject: MAXO:0001175
       predicate: PREVENTS
       object: acute metabolic decompensation
       qualifier: MONDO:0011628
-    - subject: MAXO:0001175
+    - subject: Dietary relaxation
+      predicate: TREATS
+      object: poor quality of life
+      qualifier: MONDO:0011628
+    - subject: Cardiac and renal functions assessment
+      predicate: PREVENTS
+      object: severe complications
+      qualifier: MONDO:0011628
+    - subject: Renal sparing immunosuppression
       predicate: TREATS
       object: HP:0000083
       qualifier: MONDO:0011628
-      subject_qualifier: with renal sparing immunosuppression
-      subject_extension: renal sparing immunosuppression
-    - subject: Cardiac and renal functions assessment before LT
-      predicate: PREVENTS
-      object: severe, unusual and unexpected complications
+      subject_extension: immunosuppression
+    - subject: Kidney transplantation
+      predicate: TREATS
+      object: HP:0000083
       qualifier: MONDO:0011628
-      object_qualifier: severe
-    - subject: Close monitoring of cardiac and renal functions after LT
-      predicate: PREVENTS
-      object: severe, unusual and unexpected complications
-      qualifier: MONDO:0011628
-      object_qualifier: severe
-    - subject: <Kidney transplantation>
-      predicate: <TREATS>
-      object: <renal failure>
-      qualifier: <Propionic acidemia>
-      subject_qualifier: <NA>
-      object_qualifier: <NA>
-      subject_extension: <NA>
-      object_extension: <NA>
 named_entities:
   - id: MONDO:0010184
-    label: methylmalonic acidemia (MMA); propionic acidemia; cobalamin C (cblC) deficiency
+    label: Methylmalonic acidemia (MMA); Propionic acidemia; Cobalamin C (cblC) deficiency
   - id: CHEBI:15603
-    label: leucine (Leu)
+    label: Leucine (Leu)
   - id: CHEBI:16414
-    label: valine (Val)
+    label: Valine (Val)
   - id: CHEBI:17191
-    label: isoleucine (Ile)
+    label: Isoleucine (Ile)
   - id: CHEBI:16044
-    label: methionine (Met)
-  - id: MONDO:0002012
-    label: methylmalonic acidemia (MMA)
-  - id: MONDO:0011628
-    label: propionic acidemia
+    label: Methionine (Met)
   - id: CHEBI:25017
     label: leucine
+  - id: MONDO:0002012
+    label: Methylmalonic acidemia
+  - id: HP:0003571
+    label: Propionic acidemia
+  - id: MONDO:0011628
+    label: Propionic acidemia
   - id: MAXO:0001175
-    label: liver transplantation
+    label: Liver transplantation
   - id: HP:0001638
-    label: cardiomyopathy
-  - id: HP:0100543
-    label: Cognitive impairment
+    label: Cardiomyopathy
   - id: CHEBI:176843
     label: Vitamin B12
   - id: MONDO:0019052
     label: Inborn errors of metabolism (IEMs)
   - id: MAXO:0010039
-    label: organ transplantation
+    label: Organ transplantation
+  - id: MAXO:0001298
+    label: therapy
   - id: HP:0001942
-    label: metabolic acidosis
+    label: Metabolic acidosis
   - id: HP:0001987
-    label: hyperammonemia
-  - id: HP:0003571
-    label: Propionic acidemia
+    label: Hyperammonemia
+  - id: HP:0001733
+    label: Pancreatitis
   - id: HP:0001695
     label: cardiac arrest
   - id: HP:0001263
     label: Developmental delay
+  - id: HP:0002863
+    label: Metabolic decompensations (MDs)
   - id: CHEBI:15428
     label: Glycine
   - id: CHEBI:28867
     label: Propionylcarnitine
   - id: HP:0001138
-    label: optic neuropathy
+    label: Optic neuropathy
   - id: HP:0000083
     label: Renal failure

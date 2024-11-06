@@ -18,13 +18,13 @@ input_text: 'Bones of contention: bone mineral density recovery in celiac diseas
   strategies aimed at modifying lifestyle factors throughout the lifespan should be
   studied. '
 raw_completion_output: |-
-  primary_disease: celiac disease
-  medical_actions: gluten-free diet; physical activity; nutrient supplementation; bisphosphonates; diet treatment; vitamin D and calcium supplementation
-  symptoms: low bone density; malnourishment
-  chemicals: vitamin D; calcium; bisphosphonates
-  action_annotation_relationships: gluten-free diet TREATS low bone density IN celiac disease;  diet treatment TREATS low bone density IN celiac disease;  vitamin D and calcium supplementation TREATS malnourishment IN celiac disease; bisphosphonates TREATS low bone density IN celiac disease
+  primary_disease: Celiac Disease
+  medical_actions: Gluten-free diet; Physical activity; Nutrient supplementation; Bisphosphonates; Adherence to a gluten-free diet; Supplementation with vitamin D and calcium
+  symptoms: Low bone density
+  chemicals: Vitamin D; Calcium; Bisphosphonates
+  action_annotation_relationships: Gluten-free diet TREATS low bone density IN Celiac Disease; Physical activity TREATS low bone density IN Celiac Disease; Nutrient supplementation TREATS low bone density IN Celiac Disease; Bisphosphonates TREATS low bone density IN Celiac Disease; Adherence to a gluten-free diet TREATS low bone density IN Celiac Disease; Supplementation with vitamin D and calcium TREATS low bone density IN Celiac Disease
 prompt: |+
-  Split the following piece of text into fields in the following format:
+  From the text below, extract the following entities in the following format:
 
   subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
   object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
@@ -37,84 +37,131 @@ prompt: |+
 
 
   Text:
-  bisphosphonates TREATS low bone density IN celiac disease
+  Supplementation with vitamin D and calcium TREATS low bone density IN Celiac Disease
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0005130
   medical_actions:
-    - gluten-free diet
-    - physical activity
-    - nutrient supplementation
-    - bisphosphonates
-    - diet treatment
-    - vitamin D and calcium supplementation
+    - Gluten-free diet
+    - Physical activity
+    - Nutrient supplementation
+    - Bisphosphonates
+    - Adherence to a gluten-free diet
+    - Supplementation with vitamin D and calcium
   symptoms:
-    - low bone density
-    - malnourishment
+    - Low bone density
   chemicals:
     - CHEBI:27300
     - CHEBI:22984
     - CHEBI:77383
   action_annotation_relationships:
-    - subject: gluten-free diet
+    - subject: Gluten-free diet
       predicate: TREATS
       object: low bone density
       qualifier: MONDO:0005130
-    - subject: diet treatment
+    - subject: Physical activity
       predicate: TREATS
       object: low bone density
       qualifier: MONDO:0005130
-    - subject: supplementation
+    - subject: Nutrient supplementation
       predicate: TREATS
-      object: malnourishment
+      object: low bone density
       qualifier: MONDO:0005130
-      subject_extension: vitamin D and calcium
+      subject_extension: Nutrient supplementation
     - predicate: TREATS
       object: low bone density
       qualifier: MONDO:0005130
       subject_extension: CHEBI:77383
+    - subject: Adherence to a gluten-free diet
+      predicate: TREATS
+      object: low bone density
+      qualifier: MONDO:0005130
+      subject_extension: gluten-free diet
+    - subject: Supplementation
+      predicate: TREATS
+      object: low bone density
+      qualifier: MONDO:0005130
+      subject_extension: vitamin D and calcium
 named_entities:
   - id: MONDO:0044092
     label: Collagenous sprue
   - id: HP:0002014
-    label: Diarrhea
+    label: diarrhea
   - id: CHEBI:50858
-    label: Corticosteroids
+    label: corticosteroids
+  - id: HP:0004395
+    label: malnutrition
+  - id: MONDO:0005130
+    label: Celiac disease
+  - id: HP:0000870
+    label: Hyperprolactinemia
+  - id: CHEBI:81580
+    label: Prolactin (PRL)
+  - id: HP:0000938
+    label: Bone loss
+  - id: CHEBI:22984
+    label: Calcium
+  - id: CHEBI:27300
+    label: Vitamin D
+  - id: HP:0001369
+    label: Arthritis
+  - id: HP:0002608
+    label: Celiac Disease
+  - id: MONDO:0019473
+    label: Enteropathy-associated T-cell lymphoma (EATL)
+  - id: HP:0002242
+    label: enteropathy
+  - id: HP:0012378
+    label: fatigue
+  - id: HP:0002039
+    label: anorexia
+  - id: HP:0000823
+    label: delayed puberty
+  - id: HP:0004322
+    label: short stature
+  - id: HP:0000789
+    label: infertility
   - id: MONDO:0016063
     label: Celiac Disease (CD)
-  - id: HP:0004395
-    label: Malnutrition
-  - id: MONDO:0005130
-    label: Celiac Disease
-  - id: HP:0020110
-    label: fractures
-  - id: HP:0012378
-    label: Fatigue
-  - id: HP:0002039
-    label: Anorexia
-  - id: HP:0000823
-    label: Delayed puberty
-  - id: HP:0004322
-    label: Short stature
-  - id: HP:0000789
-    label: Infertility
-  - id: HP:0002242
-    label: Enteropathy
+  - id: MAXO:0000058
+    label: pharmacological treatment
+  - id: HP:0002027
+    label: abdominal pain
   - id: HP:0003270
-    label: Abdominal bloating
+    label: bloating
+  - id: HP:0001903
+    label: anemia
+  - id: MAXO:0000088
+    label: diet
+  - id: MONDO:0005298
+    label: Osteoporosis
+  - id: MAXO:0000259
+    label: insulin treatment
+  - id: HP:0033712
+    label: recurrent implantation failure (RIF)
+  - id: CHEBI:145810
+    label: insulin
+  - id: CHEBI:6801
+    label: metformin
   - id: HP:0012531
     label: Pain
   - id: HP:0000716
     label: Depression
   - id: HP:0011107
     label: Aphthous stomatitis
+  - id: MONDO:0013626
+    label: Acrodermatitis continua of Hallopeau
+  - id: HP:0002024
+    label: Malabsorption
+  - id: HP:0012050
+    label: Anasarca
+  - id: HP:0003111
+    label: Electrolyte disorders
+  - id: CHEBI:60027
+    label: Polymers
   - id: HP:0001510
-    label: Poor growth
-  - id: CHEBI:27300
-    label: vitamin D
-  - id: CHEBI:22984
-    label: calcium
+    label: poor growth
   - id: CHEBI:77383
-    label: bisphosphonates
+    label: Bisphosphonates

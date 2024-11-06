@@ -1,0 +1,163 @@
+---
+input_text: 'Lung transplant list withdrawal in a liver transplant patient thanks
+  to elexacaftor-tezacaftor-ivacaftor: a case report. BACKGROUND: Elexacaftor-tezacaftor-ivacaftor
+  (ETI) is a transmembrane conductance regulator modulator that significantly improves
+  lung function in patients affected by cystic fibrosis (CF). This triple drug is
+  currently not indicated in liver transplant patients, as clinical trials including
+  subjects with previous solid organ transplantation are lacking. CASE PRESENTATION:
+  We report on a liver transplant girl with CF-related advanced pulmonary disease
+  meeting clinical criteria for lung transplant, who started the triple modulator
+  because she could not get on the lung transplant waiting list due to psycho-social
+  motivations. Since initiation of ETI therapy, she has experienced a significant
+  improvement in respiratory function and quality of life, without adverse effects.
+  CONCLUSIONS: This case shows that ETI therapy can represent a lifesaving drug for
+  individuals without alternatives, even in liver transplant patients. The clinical
+  benefits of the modulator overcome risks, which may be limited with a close drug
+  monitoring of immunosuppressants serum levels and functional liver tests.'
+raw_completion_output: |-
+  primary_disease: Cystic Fibrosis
+  medical_actions: administration of elexacaftor-tezacaftor-ivacaftor; lung transplant; drug monitoring of immunosuppressants serum levels; functional liver tests
+  symptoms: advanced pulmonary disease
+  chemicals: elexacaftor-tezacaftor-ivacaftor; immunosuppressants
+  action_annotation_relationships: administration of elexacaftor-tezacaftor-ivacaftor TREATS advanced pulmonary disease IN Cystic Fibrosis; lung transplant TREATS advanced pulmonary disease IN Cystic Fibrosis; drug monitoring of immunosuppressants serum levels PREVENTS adverse effects IN Cystic Fibrosis; functional liver tests PREVENTS adverse effects IN Cystic Fibrosis
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  functional liver tests PREVENTS adverse effects IN Cystic Fibrosis
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009061
+  medical_actions:
+    - administration of elexacaftor-tezacaftor-ivacaftor
+    - lung transplant
+    - drug monitoring of immunosuppressants serum levels
+    - functional liver tests
+  symptoms:
+    - advanced pulmonary disease
+  chemicals:
+    - elexacaftor-tezacaftor-ivacaftor
+    - CHEBI:35705
+  action_annotation_relationships:
+    - subject: administration
+      predicate: TREATS
+      object: advanced pulmonary disease
+      qualifier: MONDO:0009061
+      subject_extension: elexacaftor-tezacaftor-ivacaftor
+    - subject: lung transplant
+      predicate: TREATS
+      object: advanced pulmonary disease
+      qualifier: MONDO:0009061
+    - subject: drug monitoring
+      predicate: PREVENTS
+      object: adverse effects
+      qualifier: MONDO:0009061
+      subject_qualifier: serum levels
+      subject_extension: CHEBI:35705
+    - subject: functional liver tests
+      predicate: PREVENTS
+      object: adverse effects
+      qualifier: MONDO:0009061
+named_entities:
+  - id: MONDO:0009061
+    label: Cystic Fibrosis
+  - id: CHEBI:22507
+    label: Aminoglycoside antibiotics
+  - id: CHEBI:28864
+    label: Tobramycin
+  - id: MONDO:0005460
+    label: Influenza A (H1N1)
+  - id: HP:0002098
+    label: respiratory distress
+  - id: HP:0001945
+    label: fever
+  - id: HP:0002014
+    label: diarrhea
+  - id: HP:0002013
+    label: vomiting
+  - id: HP:0011950
+    label: viral bronchiolitis
+  - id: HP:0002090
+    label: pneumonia
+  - id: CHEBI:7798
+    label: oseltamivir
+  - id: MAXO:0001017
+    label: vaccination
+  - id: MONDO:0005275
+    label: Pulmonary Diseases
+  - id: CHEBI:16991
+    label: DNA
+  - id: CHEBI:33699
+    label: mRNA
+  - id: HP:0012735
+    label: Cough
+  - id: CHEBI:50858
+    label: corticosteroids
+  - id: HP:0002910
+    label: Elevated transaminases
+  - id: CHEBI:61049
+    label: Tacrolimus
+  - id: CHEBI:53454
+    label: ETI
+  - id: MAXO:0000259
+    label: Insulin treatment
+  - id: HP:0001394
+    label: Cirrhosis
+  - id: HP:0001738
+    label: Exocrine pancreatic insufficiency
+  - id: HP:0100651
+    label: Insulin-dependent diabetes mellitus
+  - id: HP:0001988
+    label: Recurrent hypoglycemia
+  - id: HP:0001744
+    label: Splenomegaly
+  - id: CHEBI:145810
+    label: Insulin
+  - id: CHEBI:27027
+    label: Trace elements
+  - id: CHEBI:33229
+    label: Vitamins
+  - id: CHEBI:141442
+    label: MN
+  - id: MAXO:0000376
+    label: Liver biopsy
+  - id: MAXO:0035106
+    label: Paracentesis
+  - id: MAXO:0001175
+    label: Liver transplantation
+  - id: MONDO:0001684
+    label: Exocrine pancreatic insufficiency (EPI)
+  - id: MONDO:0002492
+    label: Acute kidney injury
+  - id: HP:0001919
+    label: acute kidney injury
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: CHEBI:77034
+    label: Mucolytics
+  - id: CHEBI:33281
+    label: Antibiotics
+  - id: CHEBI:35472
+    label: Anti-inflammatory drugs
+  - id: HP:0004395
+    label: Malnutrition
+  - id: HP:0001513
+    label: Obesity
+  - id: MONDO:0100096
+    label: COVID-19
+  - id: CHEBI:35221
+    label: antimetabolites
+  - id: CHEBI:35705
+    label: immunosuppressants

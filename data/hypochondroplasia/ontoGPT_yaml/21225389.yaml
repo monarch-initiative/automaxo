@@ -17,13 +17,13 @@ input_text: Hypochondroplasia due to FGFR3 gene mutation (N540K) and mosaic form
 raw_completion_output: |-
   primary_disease: Hypochondroplasia and Down syndrome
 
-  medical_actions: genetic testing for FGFR3 mutation; cytogenetic analysis
+  medical_actions: <None explicitly mentioned>
 
   symptoms: disproportional short stature; stocky habitus; macrocephaly
 
-  chemicals: 
+  chemicals: FGFR3 gene mutation (N540K)
 
-  action_annotation_relationships: genetic testing for FGFR3 mutation TREATS none IN Hypochondroplasia and Down syndrome; cytogenetic analysis TREATS none IN Hypochondroplasia and Down syndrome
+  action_annotation_relationships: FGFR3 gene mutation (N540K) ASSOCIATED WITH disproportional short stature IN Hypochondroplasia; FGFR3 gene mutation (N540K) ASSOCIATED WITH stocky habitus IN Hypochondroplasia; FGFR3 gene mutation (N540K) ASSOCIATED WITH macrocephaly IN Hypochondroplasia
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -38,35 +38,41 @@ prompt: |+
 
 
   Text:
-  cytogenetic analysis TREATS none IN Hypochondroplasia and Down syndrome
+  FGFR3 gene mutation (N540K) ASSOCIATED WITH macrocephaly IN Hypochondroplasia
 
   ===
 
 extracted_object:
   primary_disease: Hypochondroplasia and Down syndrome
   medical_actions:
-    - genetic testing for FGFR3 mutation
-    - MAXO:0000745
+    - <None explicitly mentioned>
   symptoms:
     - disproportional short stature
     - stocky habitus
     - HP:0000256
+  chemicals:
+    - FGFR3 gene mutation (N540K)
   action_annotation_relationships:
     - subject: MAXO:0000127
-      predicate: TREATS
-      object: none
-      qualifier: Hypochondroplasia and Down syndrome
-      subject_extension: FGFR3 mutation
-    - subject: MAXO:0000745
-      predicate: TREATS
-      object: none
-      qualifier: Hypochondroplasia and Down syndrome
+      predicate: ASSOCIATED WITH
+      object: disproportional short stature
+      qualifier: MONDO:0007793
+      subject_extension: FGFR3 gene mutation (N540K)
+    - subject: Genetic association
+      predicate: ASSOCIATED WITH
+      object: stocky habitus
+      qualifier: MONDO:0007793
+      subject_extension: FGFR3 gene mutation (N540K)
+    - predicate: ASSOCIATED WITH
+      object: HP:0000256
+      qualifier: MONDO:0007793
+      subject_extension: FGFR3 gene mutation (N540K)
 named_entities:
   - id: HP:0031846
     label: Femoral fracture
-  - id: MAXO:0000745
-    label: cytogenetic analysis
   - id: HP:0000256
     label: macrocephaly
   - id: MAXO:0000127
-    label: genetic testing
+    label: Genetic testing
+  - id: MONDO:0007793
+    label: Hypochondroplasia

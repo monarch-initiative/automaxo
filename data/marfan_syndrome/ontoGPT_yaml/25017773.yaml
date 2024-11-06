@@ -21,10 +21,14 @@ input_text: Hemobilia associated with a giant thrombosed aneurysm of the hepatic
   artery aneurysm, not the aneurysm itself, caused the hemobilia.
 raw_completion_output: |-
   primary_disease: Hemobilia
-  medical_actions: Hepatectomy; Abdominal angiogram; Transarterial embolization; Emergency left hemihepatectomy and resection of the aneurysm
-  symptoms: Gastrointestinal bleeding; Sudden epigastric pain; Jaundice; Rebleeding
+
+  medical_actions: Abdominal computed tomography; Emergency endoscopic retrograde cholangiography; Abdominal angiogram; Transarterial embolization; Left hemihepatectomy; Resection of the aneurysm; Pathologic examination
+
+  symptoms: Gastrointestinal bleeding; Sudden epigastric pain; Jaundice; Repeated hemobilia
+
   chemicals: 
-  action_annotation_relationships: Hepatectomy TREATS gastrointestinal bleeding IN Hemobilia; Abdominal angiogram TREATS gastrointestinal bleeding IN Hemobilia; Transarterial embolization TREATS rebleeding IN Hemobilia; Emergency left hemihepatectomy and resection of the aneurysm TREATS gastrointestinal bleeding IN Hemobilia
+
+  action_annotation_relationships: Abdominal computed tomography TREATS Gastrointestinal bleeding IN Hemobilia; Emergency endoscopic retrograde cholangiography TREATS Jaundice IN Hemobilia; Abdominal angiogram TREATS Repeated hemobilia IN Hemobilia; Transarterial embolization TREATS Repeated hemobilia IN Hemobilia; Left hemihepatectomy TREATS Repeated hemobilia IN Hemobilia; Resection of the aneurysm TREATS Gastrointestinal bleeding IN Hemobilia; Pathologic examination TREATS Sudden epigastric pain IN Hemobilia
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -39,38 +43,53 @@ prompt: |+
 
 
   Text:
-  Emergency left hemihepatectomy and resection of the aneurysm TREATS gastrointestinal bleeding IN Hemobilia
+  Pathologic examination TREATS Sudden epigastric pain IN Hemobilia
 
   ===
 
 extracted_object:
   primary_disease: Hemobilia
   medical_actions:
-    - MAXO:0001056
+    - Abdominal computed tomography
+    - Emergency endoscopic retrograde cholangiography
     - Abdominal angiogram
     - Transarterial embolization
-    - Emergency left hemihepatectomy and resection of the aneurysm
+    - Left hemihepatectomy
+    - Resection of the aneurysm
+    - Pathologic examination
   symptoms:
     - HP:0002239
     - Sudden epigastric pain
     - HP:0000952
-    - Rebleeding
+    - Repeated hemobilia
   action_annotation_relationships:
-    - subject: MAXO:0001056
+    - subject: Abdominal computed tomography
       predicate: TREATS
       object: HP:0002239
+      qualifier: Hemobilia
+    - subject: Emergency endoscopic retrograde cholangiography
+      predicate: TREATS
+      object: HP:0000952
       qualifier: Hemobilia
     - subject: Abdominal angiogram
       predicate: TREATS
-      object: HP:0002239
+      object: Repeated hemobilia
       qualifier: Hemobilia
     - subject: Transarterial embolization
       predicate: TREATS
-      object: rebleeding
+      object: Repeated hemobilia
       qualifier: Hemobilia
-    - subject: Emergency left hemihepatectomy and resection of the aneurysm
+    - subject: Left hemihepatectomy
+      predicate: TREATS
+      object: Repeated hemobilia
+      qualifier: Hemobilia
+    - subject: Resection of the aneurysm
       predicate: TREATS
       object: HP:0002239
+      qualifier: Hemobilia
+    - subject: Pathologic examination
+      predicate: TREATS
+      object: Sudden epigastric pain
       qualifier: Hemobilia
 named_entities:
   - id: MONDO:0007947
@@ -83,24 +102,64 @@ named_entities:
     label: Spontaneous pneumothorax
   - id: HP:0003423
     label: Thoracolumbar kyphoscoliosis
+  - id: CHEBI:33281
+    label: Antibiotic
+  - id: HP:0002107
+    label: pneumothorax
+  - id: MAXO:0010203
+    label: Echocardiography
+  - id: MAXO:0000494
+    label: Blood pressure monitoring
+  - id: HP:0004942
+    label: Aortic dilatation
+  - id: CHEBI:5959
+    label: Irbesartan
+  - id: HP:0004950
+    label: Peripheral artery disease
+  - id: HP:0002617
+    label: aneurysm
+  - id: HP:0030965
+    label: increased aortic stiffness
+  - id: HP:0001659
+    label: aortic regurgitation
+  - id: HP:0001712
+    label: left ventricular hypertrophy
+  - id: HP:0005162
+    label: left ventricular failure
   - id: HP:0000822
-    label: Hypertension
-  - id: HP:0001649
-    label: Tachycardia
-  - id: HP:0012531
-    label: pain
-  - id: MONDO:0009691
-    label: Marfan syndrome (MFS)
+    label: high blood pressure
   - id: CHEBI:6541
     label: Losartan
+  - id: CHEBI:35530
+    label: beta-blocker
+  - id: MAXO:0001298
+    label: therapy
+  - id: MONDO:0020333
+    label: Anterior sacral meningocele (ASM)
+  - id: HP:0002315
+    label: headache
+  - id: HP:0002018
+    label: nausea
+  - id: HP:0002138
+    label: subarachnoid hemorrhage
   - id: HP:0031625
     label: Pseudoaneurysms
   - id: MAXO:0000451
     label: Implantation
-  - id: HP:0031649
-    label: Aortic rupture
-  - id: MAXO:0001061
-    label: Laminectomy
+  - id: MAXO:0000457
+    label: pain management
+  - id: HP:0012531
+    label: pain
+  - id: HP:0012378
+    label: fatigue
+  - id: HP:0012332
+    label: dysautonomia
+  - id: HP:0002659
+    label: bone fragility
+  - id: HP:0025017
+    label: capillary fragility
+  - id: HP:0001030
+    label: skin fragility
   - id: MAXO:0000571
     label: CT
   - id: HP:0034267
@@ -109,14 +168,38 @@ named_entities:
     label: Genital prolapse
   - id: HP:0100518
     label: Dysuria
+  - id: MONDO:0044632
+    label: Extracranial Carotid Artery Aneurysms (ECAAs)
+  - id: MAXO:0000448
+    label: Surgical resection
   - id: HP:0001297
-    label: stroke
+    label: Stroke
+  - id: HP:0012163
+    label: Extracranial Carotid Artery Aneurysms
+  - id: HP:0002616
+    label: aortic root aneurysms
+  - id: HP:0031649
+    label: aortic rupture
+  - id: HP:0002090
+    label: pneumonia
+  - id: CHEBI:50249
+    label: Anticoagulants
+  - id: HP:0012514
+    label: Leg pain
+  - id: HP:0007340
+    label: Leg weakness
+  - id: HP:0200146
+    label: annuloaortic ectasia
+  - id: MAXO:0009072
+    label: Surgical repair
+  - id: MONDO:0009691
+    label: Marfan syndrome (MFS)
+  - id: HP:0002140
+    label: acute ischemic stroke
   - id: HP:0002615
     label: Hypotension
   - id: HP:0007185
     label: Loss of consciousness
-  - id: MAXO:0001056
-    label: Hepatectomy
   - id: HP:0002239
     label: Gastrointestinal bleeding
   - id: HP:0000952

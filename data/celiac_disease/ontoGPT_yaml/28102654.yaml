@@ -19,17 +19,17 @@ input_text: 'Tuberculosis and tuberculin skin test reactivity in pediatric patie
   identify BCG-vaccinated children with CD who are probably infected with M. tuberculosis,
   similarly to healthy children.'
 raw_completion_output: |-
-  primary_disease: Celiac Disease (CD)
+  primary_disease: Celiac Disease
 
   medical_actions: Tuberculin skin test (TST); Gluten-free diet
 
-  symptoms: Malnutrition
+  symptoms: Malnutrition; Anergia; Tuberculosis disease; Latent tuberculosis infection (LTBI)
 
   chemicals: 
 
-  action_annotation_relationships: Tuberculin skin test (TST) TREATS Latent tuberculosis infection IN Celiac Disease (CD); Gluten-free diet TREATS Malnutrition IN Celiac Disease (CD)
+  action_annotation_relationships: Gluten-free diet PREVENTS Malnutrition IN Celiac Disease; Tuberculin skin test (TST) TREATS Tuberculosis disease IN Celiac Disease; Tuberculin skin test (TST) TREATS Latent tuberculosis infection (LTBI) IN Celiac Disease
 prompt: |+
-  Split the following piece of text into fields in the following format:
+  From the text below, extract the following entities in the following format:
 
   subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
   object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
@@ -42,35 +42,56 @@ prompt: |+
 
 
   Text:
-  Gluten-free diet TREATS Malnutrition IN Celiac Disease (CD)
+  Tuberculin skin test (TST) TREATS Latent tuberculosis infection (LTBI) IN Celiac Disease
 
   ===
 
 extracted_object:
-  primary_disease: MONDO:0016063
+  primary_disease: MONDO:0005130
   medical_actions:
     - Tuberculin skin test (TST)
     - Gluten-free diet
   symptoms:
     - HP:0004395
+    - Anergia
+    - Tuberculosis disease
+    - Latent tuberculosis infection (LTBI)
   action_annotation_relationships:
+    - subject: <Gluten-free diet>
+      predicate: <PREVENTS>
+      object: <Malnutrition>
+      qualifier: <Celiac Disease>
+      subject_extension: <Gluten>
+    - subject: Tuberculin skin test (TST)
+      predicate: TREATS
+      object: Tuberculosis disease
+      qualifier: MONDO:0005130
     - subject: <Tuberculin skin test>
       predicate: <TREATS>
       object: <Latent tuberculosis infection>
       qualifier: <Celiac Disease>
-      subject_extension: <Tuberculin skin test>
-    - subject: Gluten-free diet
-      predicate: TREATS
-      object: HP:0004395
-      qualifier: MONDO:0016063
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <Tuberculin>
+      object_extension: <Latent tuberculosis infection>
 named_entities:
   - id: MONDO:0044092
     label: Collagenous sprue
   - id: HP:0002014
-    label: Diarrhea
+    label: diarrhea
   - id: CHEBI:50858
-    label: Corticosteroids
-  - id: MONDO:0016063
-    label: Celiac Disease (CD)
+    label: corticosteroids
   - id: HP:0004395
-    label: Malnutrition
+    label: malnutrition
+  - id: MONDO:0005130
+    label: Celiac disease
+  - id: HP:0000870
+    label: Hyperprolactinemia
+  - id: CHEBI:81580
+    label: Prolactin (PRL)
+  - id: HP:0000938
+    label: Bone loss
+  - id: CHEBI:22984
+    label: Calcium
+  - id: CHEBI:27300
+    label: Vitamin D

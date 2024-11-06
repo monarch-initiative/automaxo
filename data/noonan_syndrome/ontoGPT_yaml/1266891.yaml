@@ -9,10 +9,14 @@ input_text: Aortic regurgitation and pigmentation - unusual features of Noonan s
   despite normal testosterone levels.
 raw_completion_output: |-
   primary_disease: Noonan syndrome
-  medical_actions: cardiac catheterization
-  symptoms: aortic regurgitation; widespread diffuse hyperpigmentation; mild left ventricular dysfunction; lymphedema; sexual infantilism
-  chemicals: 
-  action_annotation_relationships: cardiac catheterization TREATS mild left ventricular dysfunction IN Noonan syndrome
+
+  medical_actions: Cardiac catheterization
+
+  symptoms: Aortic regurgitation; Diffuse hyperpigmentation; Mild left ventricular dysfunction; Lymphedema; Sexual infantilism
+
+  chemicals: Testosterone
+
+  action_annotation_relationships: Cardiac catheterization TREATS aortic regurgitation IN Noonan syndrome; Cardiac catheterization TREATS mild left ventricular dysfunction IN Noonan syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -27,7 +31,7 @@ prompt: |+
 
 
   Text:
-  cardiac catheterization TREATS mild left ventricular dysfunction IN Noonan syndrome
+  Cardiac catheterization TREATS mild left ventricular dysfunction IN Noonan syndrome
 
   ===
 
@@ -37,22 +41,66 @@ extracted_object:
     - MAXO:0035118
   symptoms:
     - HP:0001659
-    - widespread diffuse hyperpigmentation
-    - mild left ventricular dysfunction
+    - Diffuse hyperpigmentation
+    - Mild left ventricular dysfunction
     - HP:0001004
-    - sexual infantilism
+    - Sexual infantilism
+  chemicals:
+    - CHEBI:17347
   action_annotation_relationships:
+    - subject: MAXO:0035118
+      predicate: TREATS
+      object: HP:0001659
+      qualifier: MONDO:0018997
     - subject: MAXO:0035118
       predicate: TREATS
       object: mild left ventricular dysfunction
       qualifier: MONDO:0018997
       object_qualifier: mild
 named_entities:
+  - id: CHEBI:33281
+    label: antibiotics
+  - id: MONDO:0006936
+    label: pulmonary valve stenosis
+  - id: MAXO:0009072
+    label: surgical repair
+  - id: HP:0001642
+    label: pulmonary valve stenosis
   - id: MONDO:0018997
     label: Noonan syndrome
+  - id: HP:0004322
+    label: short stature
+  - id: CHEBI:37845
+    label: GH
+  - id: MONDO:0011908
+    label: Juvenile myelomonocytic leukemia (JMML)
+  - id: MAXO:0000747
+    label: hematopoietic stem cell transplantation (HSCT)
+  - id: HP:0012209
+    label: Juvenile myelomonocytic leukemia (JMML)
+  - id: MAXO:0010203
+    label: echocardiography
+  - id: HP:0001663
+    label: ventricular fibrillation
+  - id: HP:0001639
+    label: hypertrophic cardiomyopathy
+  - id: HP:0032092
+    label: left ventricular outflow tract obstruction
+  - id: HP:0030828
+    label: Wheezing
+  - id: CHEBI:90960
+    label: Tiotropium
+  - id: HP:0002099
+    label: bronchial asthma
+  - id: MONDO:0007037
+    label: Achondroplasia
+  - id: MAXO:0000014
+    label: radiotherapy
   - id: MAXO:0035118
-    label: cardiac catheterization
+    label: Cardiac catheterization
   - id: HP:0001659
-    label: aortic regurgitation
+    label: Aortic regurgitation
   - id: HP:0001004
-    label: lymphedema
+    label: Lymphedema
+  - id: CHEBI:17347
+    label: Testosterone

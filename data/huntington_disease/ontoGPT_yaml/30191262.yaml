@@ -24,10 +24,10 @@ input_text: "The effect of laquinimod, a novel immuno-modulator in development t
   interaction."
 raw_completion_output: |-
   primary_disease: Huntington's disease
-  medical_actions: drug-drug interaction (DDI) study; blood samples for pharmacokinetic profiling
-  symptoms: headache
-  chemicals: laquinimod; ethinylestradiol; levonorgestrel
-  action_annotation_relationships: laquinimod TREATS Huntington's disease; drug-drug interaction (DDI) study PREVENTS adverse pharmacokinetic interactions IN Huntington's disease; blood samples for pharmacokinetic profiling PREVENTS unknown pharmacokinetic profiles IN Huntington's disease; laquinimod (with ethinylestradiol and levonorgestrel) PREVENTS teratogenicity IN Huntington's disease; laquinimod (with ethinylestradiol and levonorgestrel) CAUSES headache IN Huntington's disease
+  medical_actions: Administration of laquinimod; Administration of combined oral contraceptives (COC); Pharmacokinetic profiling
+  symptoms: Teratogenicity (implied); Headache
+  chemicals: Laquinimod; Ethinylestradiol; Levonorgestrel
+  action_annotation_relationships: Administration of laquinimod PREVENTS teratogenicity IN Huntington's disease; Administration of combined oral contraceptives (COC) (with Ethinylestradiol and Levonorgestrel) TREATS reproductive management IN Huntington's disease; Pharmacokinetic profiling TREATS pharmacokinetic interaction IN Huntington's disease
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -42,61 +42,80 @@ prompt: |+
 
 
   Text:
-  laquinimod (with ethinylestradiol and levonorgestrel) CAUSES headache IN Huntington's disease
+  Pharmacokinetic profiling TREATS pharmacokinetic interaction IN Huntington's disease
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0007739
   medical_actions:
-    - drug-drug interaction (DDI) study
-    - blood samples for pharmacokinetic profiling
+    - Administration of laquinimod
+    - Administration of combined oral contraceptives (COC)
+    - Pharmacokinetic profiling
   symptoms:
+    - Teratogenicity (implied)
     - HP:0002315
   chemicals:
     - CHEBI:134738
     - CHEBI:4903
     - CHEBI:6443
   action_annotation_relationships:
-    - predicate: TREATS
-      qualifier: MONDO:0007739
-      subject_extension: CHEBI:134738
-    - subject: drug-drug interaction (DDI) study
-      predicate: PREVENTS
-      object: adverse pharmacokinetic interactions
-      qualifier: MONDO:0007739
-    - subject: blood samples for pharmacokinetic profiling
-      predicate: PREVENTS
-      object: unknown pharmacokinetic profiles
-      qualifier: MONDO:0007739
-    - subject: laquinimod administration
+    - subject: Administration of laquinimod
       predicate: PREVENTS
       object: teratogenicity
       qualifier: MONDO:0007739
       subject_extension: CHEBI:134738
-      object_extension: with ethinylestradiol and levonorgestrel
-    - predicate: CAUSES
-      object: HP:0002315
+    - subject: Administration of combined oral contraceptives (COC)
+      predicate: TREATS
+      object: reproductive management
       qualifier: MONDO:0007739
-      subject_extension: CHEBI:134738
+      subject_extension: Ethinylestradiol and Levonorgestrel
+    - subject: Pharmacokinetic profiling
+      predicate: TREATS
+      object: pharmacokinetic interaction
+      qualifier: MONDO:0007739
 named_entities:
   - id: MONDO:0007739
-    label: Huntington disease (HD)
-  - id: HP:0001268
-    label: Cognitive decline
-  - id: CHEBI:76720
-    label: Antisense oligonucleotides
+    label: Huntington disease
+  - id: MAXO:0001298
+    label: therapy
   - id: HP:0002180
     label: neurodegeneration
-  - id: MAXO:0001001
-    label: gene therapies
+  - id: HP:0001268
+    label: cognitive decline
+  - id: HP:0100022
+    label: movement disorders
+  - id: HP:0002072
+    label: choreic movements
+  - id: MAXO:0009003
+    label: preimplantation genetic testing
+  - id: MAXO:0001592
+    label: RNA interference therapy
+  - id: HP:0000716
+    label: depression
+  - id: HP:0000739
+    label: anxiety
+  - id: HP:0000737
+    label: irritability
+  - id: CHEBI:7735
+    label: olanzapine
   - id: MAXO:0000882
-    label: Behavioral interventions
+    label: behavioral interventions
+  - id: HP:0004395
+    label: malnutrition
+  - id: MAXO:0000011
+    label: physical therapy
+  - id: CHEBI:22720
+    label: benzodiazepines
+  - id: CHEBI:2618
+    label: amantadine
+  - id: CHEBI:15765
+    label: levodopa
   - id: HP:0002315
-    label: headache
+    label: Headache
   - id: CHEBI:134738
-    label: laquinimod
+    label: Laquinimod
   - id: CHEBI:4903
-    label: ethinylestradiol
+    label: Ethinylestradiol
   - id: CHEBI:6443
-    label: levonorgestrel
+    label: Levonorgestrel

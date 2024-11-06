@@ -13,11 +13,11 @@ raw_completion_output: |-
 
   medical_actions: growth-hormone therapy; bisphosphonate therapy; enzyme replacement therapy
 
-  symptoms: growth and differentiation disorders of bone; cartilage and ligament disorders
+  symptoms: growth and differentiation disorders of bone, cartilage, and ligament
 
-  chemicals: growth-hormone; bisphosphonates
+  chemicals: bisphosphonate
 
-  action_annotation_relationships: growth-hormone therapy TREATS growth and differentiation disorders of bone IN Skeletal dysplasia; growth-hormone therapy TREATS cartilage and ligament disorders IN Skeletal dysplasia; bisphosphonate therapy TREATS growth and differentiation disorders of bone IN Skeletal dysplasia; bisphosphonate therapy TREATS cartilage and ligament disorders IN Skeletal dysplasia; enzyme replacement therapy (in clinical trial) PREVENTS growth and differentiation disorders of bone IN Skeletal dysplasia; enzyme replacement therapy (in clinical trial) PREVENTS cartilage and ligament disorders IN Skeletal dysplasia
+  action_annotation_relationships: growth-hormone therapy TREATS growth and differentiation disorders of bone, cartilage, and ligament IN Skeletal dysplasia (achondroplasia); growth-hormone therapy TREATS growth and differentiation disorders of bone, cartilage, and ligament IN Skeletal dysplasia (hypochondroplasia); bisphosphonate therapy (with bisphosphonate) TREATS growth and differentiation disorders of bone, cartilage, and ligament IN Skeletal dysplasia (osteogenesis imperfecta); enzyme replacement therapy TREATS growth and differentiation disorders of bone, cartilage, and ligament IN Skeletal dysplasia (hypophosphatasia)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -32,7 +32,7 @@ prompt: |+
 
 
   Text:
-  enzyme replacement therapy (in clinical trial) PREVENTS cartilage and ligament disorders IN Skeletal dysplasia
+  enzyme replacement therapy TREATS growth and differentiation disorders of bone, cartilage, and ligament IN Skeletal dysplasia (hypophosphatasia)
 
   ===
 
@@ -43,66 +43,67 @@ extracted_object:
     - bisphosphonate therapy
     - enzyme replacement therapy
   symptoms:
-    - growth and differentiation disorders of bone
-    - cartilage and ligament disorders
+    - growth and differentiation disorders of bone, cartilage, and ligament
   chemicals:
-    - growth-hormone
     - CHEBI:77383
   action_annotation_relationships:
     - subject: MAXO:0001298
       predicate: TREATS
-      object: growth and differentiation disorders of bone
-      qualifier: MONDO:0005516
+      object: growth and differentiation disorders of bone, cartilage, and ligament
+      qualifier: MONDO:0007037
       subject_extension: growth-hormone
-    - subject: MAXO:0001298
+    - subject: growth-hormone therapy
       predicate: TREATS
-      object: cartilage and ligament disorders
-      qualifier: MONDO:0005516
-      subject_extension: growth-hormone
+      object: growth and differentiation disorders of bone, cartilage, and ligament
+      qualifier: MONDO:0007793
+      subject_extension: CHEBI:37845
     - subject: bisphosphonate therapy
       predicate: TREATS
-      object: growth and differentiation disorders of bone
-      qualifier: MONDO:0005516
+      object: growth and differentiation disorders of bone, cartilage, and ligament
+      qualifier: MONDO:0019019
+      subject_qualifier: with bisphosphonate
       subject_extension: CHEBI:77383
-    - subject: MAXO:0001298
+    - subject: enzyme replacement therapy
       predicate: TREATS
-      object: cartilage and ligament disorders
-      qualifier: MONDO:0005516
-      subject_extension: CHEBI:77383
-    - subject: enzyme replacement therapy
-      predicate: PREVENTS
-      object: growth and differentiation disorders of bone
-      qualifier: MONDO:0005516
-      subject_qualifier: in clinical trial
-      subject_extension: enzyme replacement therapy
-    - subject: enzyme replacement therapy
-      predicate: PREVENTS
-      object: cartilage and ligament disorders
-      qualifier: MONDO:0005516
-      subject_qualifier: in clinical trial
+      object: growth and differentiation disorders of bone, cartilage, and ligament
+      qualifier: MONDO:0018570
       subject_extension: enzyme replacement therapy
 named_entities:
   - id: HP:0031846
     label: Femoral fracture
-  - id: MAXO:0000745
-    label: cytogenetic analysis
   - id: HP:0000256
     label: macrocephaly
   - id: MAXO:0000127
-    label: genetic testing
+    label: Genetic testing
+  - id: MONDO:0007793
+    label: Hypochondroplasia
   - id: HP:0003750
     label: Muscle fatigue
+  - id: MAXO:0000486
+    label: distraction osteogenesis
+  - id: MAXO:0000068
+    label: transplantation
   - id: MONDO:0000050
     label: Growth hormone deficiency
-  - id: MAXO:0000780
-    label: Growth hormone therapy
   - id: CHEBI:37845
     label: Growth hormone
+  - id: MONDO:0001106
+    label: renal insufficiency
+  - id: MONDO:0005030
+    label: intrauterine growth retardation
+  - id: MONDO:0008383
+    label: rheumatoid arthritis
   - id: MAXO:0000526
     label: Clinical examination
   - id: MONDO:0005516
     label: Skeletal dysplasia
   - id: CHEBI:77383
-    label: bisphosphonates
+    label: bisphosphonate
   - id: MAXO:0001298
     label: therapy
+  - id: MONDO:0007037
+    label: Skeletal dysplasia (achondroplasia)
+  - id: MONDO:0019019
+    label: Skeletal dysplasia (osteogenesis imperfecta)
+  - id: MONDO:0018570
+    label: Skeletal dysplasia (hypophosphatasia)

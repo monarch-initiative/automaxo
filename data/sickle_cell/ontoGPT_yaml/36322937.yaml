@@ -23,15 +23,15 @@ input_text: 'Hydroxyurea for secondary stroke prevention in children with sickle
   therapy, initial low-dose hydroxyurea is a minimum known efficacious dose for secondary
   stroke prevention.'
 raw_completion_output: |-
-  primary_disease: Sickle cell anemia (SCA)
+  primary_disease: Sickle cell anemia
 
-  medical_actions: Randomized controlled trial; Oral moderate-dose hydroxyurea treatment; Oral low-dose hydroxyurea treatment; Monitoring of pill return as a measure of adherence
+  medical_actions: Moderate-dose hydroxyurea treatment; Low-dose hydroxyurea treatment; Randomized controlled trial
 
-  symptoms: Stroke; Death
+  symptoms: Recurrent strokes; Death
 
   chemicals: Hydroxyurea
 
-  action_annotation_relationships: Oral moderate-dose hydroxyurea treatment (20 mg/kg per day) TREATS stroke IN sickle cell anemia; Oral low-dose hydroxyurea treatment (10 mg/kg per day) TREATS stroke IN sickle cell anemia; Oral moderate-dose hydroxyurea treatment (20 mg/kg per day) PREVENTS death IN sickle cell anemia; Oral low-dose hydroxyurea treatment (10 mg/kg per day) PREVENTS death IN sickle cell anemia
+  action_annotation_relationships: Moderate-dose hydroxyurea treatment TREATS recurrent strokes IN sickle cell anemia; Low-dose hydroxyurea treatment TREATS recurrent strokes IN sickle cell anemia; Moderate-dose hydroxyurea treatment PREVENTS death IN sickle cell anemia; Low-dose hydroxyurea treatment PREVENTS death IN sickle cell anemia; Moderate-dose hydroxyurea treatment (with hydroxyurea) TREATS recurrent strokes IN sickle cell anemia; Low-dose hydroxyurea treatment (with hydroxyurea) TREATS recurrent strokes IN sickle cell anemia
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -46,48 +46,69 @@ prompt: |+
 
 
   Text:
-  Oral low-dose hydroxyurea treatment (10 mg/kg per day) PREVENTS death IN sickle cell anemia
+  Low-dose hydroxyurea treatment (with hydroxyurea) TREATS recurrent strokes IN sickle cell anemia
 
   ===
 
 extracted_object:
-  primary_disease: MONDO:0020380
+  primary_disease: MONDO:0011382
   medical_actions:
+    - Moderate-dose hydroxyurea treatment
+    - Low-dose hydroxyurea treatment
     - Randomized controlled trial
-    - Oral moderate-dose hydroxyurea treatment
-    - Oral low-dose hydroxyurea treatment
-    - Monitoring of pill return as a measure of adherence
   symptoms:
-    - HP:0001297
+    - Recurrent strokes
     - Death
   chemicals:
     - CHEBI:44423
   action_annotation_relationships:
-    - subject: Oral moderate-dose hydroxyurea treatment
+    - subject: treatment
       predicate: TREATS
-      object: HP:0001297
+      object: recurrent strokes
       qualifier: MONDO:0011382
-      subject_qualifier: 20 mg/kg per day
+      subject_qualifier: moderate-dose
       subject_extension: CHEBI:44423
-    - subject: Oral low-dose hydroxyurea treatment
+    - subject: Low-dose hydroxyurea treatment
       predicate: TREATS
-      object: HP:0001297
+      object: recurrent strokes
       qualifier: MONDO:0011382
-      subject_qualifier: 10 mg/kg per day
+      subject_qualifier: Low-dose
       subject_extension: CHEBI:44423
     - subject: treatment
       predicate: PREVENTS
       object: death
       qualifier: MONDO:0011382
-      subject_qualifier: Oral moderate-dose
+      subject_qualifier: moderate-dose
       subject_extension: CHEBI:44423
-    - subject: Oral low-dose hydroxyurea treatment
+    - subject: treatment
       predicate: PREVENTS
       object: death
       qualifier: MONDO:0011382
       subject_qualifier: low-dose
       subject_extension: CHEBI:44423
+    - subject: hydroxyurea treatment
+      predicate: TREATS
+      object: recurrent strokes
+      qualifier: MONDO:0011382
+      subject_qualifier: moderate-dose
+      subject_extension: CHEBI:44423
+    - subject: Low-dose hydroxyurea treatment
+      predicate: TREATS
+      object: recurrent strokes
+      qualifier: MONDO:0011382
+      subject_qualifier: low-dose
+      subject_extension: CHEBI:44423
 named_entities:
+  - id: MONDO:0011382
+    label: sickle cell disease
+  - id: CHEBI:64357
+    label: rituximab
+  - id: CHEBI:35341
+    label: steroids
+  - id: CHEBI:81579
+    label: erythropoietin
+  - id: MAXO:0001017
+    label: Vaccination
   - id: MONDO:0007374
     label: Sickle Cell Disease (SCD)
   - id: MAXO:0000747
@@ -96,13 +117,29 @@ named_entities:
     label: Sickle Cell Disease (SCD)
   - id: MAXO:0001001
     label: Gene therapy
-  - id: CHEBI:28901
-    label: Busulfan
-  - id: MONDO:0020380
-    label: Sickle cell anemia (SCA)
-  - id: HP:0001297
-    label: Stroke
+  - id: CHEBI:35480
+    label: analgesics
+  - id: CHEBI:33281
+    label: antibiotics
+  - id: MAXO:0001077
+    label: Splenectomy
+  - id: MAXO:0000756
+    label: Blood transfusion
+  - id: MONDO:0044348
+    label: Hemoglobinopathies
   - id: CHEBI:44423
     label: Hydroxyurea
-  - id: MONDO:0011382
-    label: sickle cell anemia
+  - id: HP:0001297
+    label: Stroke
+  - id: HP:0002863
+    label: Myelodysplastic syndrome
+  - id: CHEBI:28901
+    label: Busulfan
+  - id: CHEBI:82594
+    label: Ferritin
+  - id: MONDO:0000984
+    label: thalassemia
+  - id: MONDO:0018881
+    label: myelodysplastic syndrome
+  - id: HP:0002140
+    label: Ischemic Stroke

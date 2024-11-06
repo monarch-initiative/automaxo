@@ -20,10 +20,10 @@ input_text: "Inborn error of metabolism patients after liver transplantation: Ou
   patients no longer follow with a geneticist."
 raw_completion_output: |-
   primary_disease: Inborn errors of metabolism (IEMs)
-  medical_actions: Liver transplantation;Retrospective chart review
-  symptoms: Metabolic decompensation;Metabolic stroke
+  medical_actions: Liver transplantation
+  symptoms: Metabolic decompensation; Metabolic stroke; Pre-existing developmental differences
   chemicals: 
-  action_annotation_relationships: Liver transplantation TREATS metabolic decompensation IN Inborn errors of metabolism (IEMs);Liver transplantation PREVENTS metabolic decompensation IN Inborn errors of metabolism (IEMs)
+  action_annotation_relationships: Liver transplantation PREVENTS Metabolic decompensation IN Inborn errors of metabolism (IEMs); Liver transplantation TREATS Metabolic stroke IN Inborn errors of metabolism (IEMs)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -38,7 +38,7 @@ prompt: |+
 
 
   Text:
-  Liver transplantation PREVENTS metabolic decompensation IN Inborn errors of metabolism (IEMs)
+  Liver transplantation TREATS Metabolic stroke IN Inborn errors of metabolism (IEMs)
 
   ===
 
@@ -46,42 +46,42 @@ extracted_object:
   primary_disease: MONDO:0019052
   medical_actions:
     - MAXO:0001175
-    - Retrospective chart review
   symptoms:
     - Metabolic decompensation
     - Metabolic stroke
+    - Pre-existing developmental differences
   action_annotation_relationships:
     - subject: MAXO:0001175
-      predicate: TREATS
-      object: metabolic decompensation
+      predicate: PREVENTS
+      object: Metabolic decompensation
       qualifier: MONDO:0019052
     - subject: MAXO:0001175
-      predicate: PREVENTS
-      object: metabolic decompensation
+      predicate: TREATS
+      object: Metabolic stroke
       qualifier: MONDO:0019052
 named_entities:
   - id: MONDO:0010184
-    label: methylmalonic acidemia (MMA); propionic acidemia; cobalamin C (cblC) deficiency
+    label: Methylmalonic acidemia (MMA); Propionic acidemia; Cobalamin C (cblC) deficiency
   - id: CHEBI:15603
-    label: leucine (Leu)
+    label: Leucine (Leu)
   - id: CHEBI:16414
-    label: valine (Val)
+    label: Valine (Val)
   - id: CHEBI:17191
-    label: isoleucine (Ile)
+    label: Isoleucine (Ile)
   - id: CHEBI:16044
-    label: methionine (Met)
-  - id: MONDO:0002012
-    label: methylmalonic acidemia (MMA)
-  - id: MONDO:0011628
-    label: propionic acidemia
+    label: Methionine (Met)
   - id: CHEBI:25017
     label: leucine
+  - id: MONDO:0002012
+    label: Methylmalonic acidemia
+  - id: HP:0003571
+    label: Propionic acidemia
+  - id: MONDO:0011628
+    label: Propionic acidemia
   - id: MAXO:0001175
-    label: liver transplantation
+    label: Liver transplantation
   - id: HP:0001638
-    label: cardiomyopathy
-  - id: HP:0100543
-    label: Cognitive impairment
+    label: Cardiomyopathy
   - id: CHEBI:176843
     label: Vitamin B12
   - id: MONDO:0019052

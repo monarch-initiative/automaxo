@@ -1,0 +1,149 @@
+---
+input_text: 'Long-Term therapy with CFTR modulators consistently improves glucose
+  metabolism in adolescents and adults with Cystic Fibrosis. BACKGROUND: Impaired
+  glycemic control and the subsequent development of Cystic fibrosis Related Diabetes
+  (CFRD) are prevalent complications, affecting up to 50% of adults with cystic fibrosis
+  (CF). CFTR modulator (CFTRm) therapies improve pulmonary functions, reduce exacerbation
+  rates, increase survival in people with CF (pwCF) and appear to have a positive
+  effect on extrapulmonary manifestations, such as nutritional state, improvements
+  in upper respiratory symptoms, and quality of life. Initial findings indicate that
+  CFTRm may have a positive impact on short-term glycemic control; however, long-term
+  effects remain uncertain at present. METHODS: In this retrospective study, data
+  were collected and analyzed on 15 pwCF, ages 13-37 years, started on CFTRm therapy.
+  Oral Glucose Tolerance Test (OGTT) results were compared pre- and post-CFTRm therapy.
+  RESULTS: The 120-minute OGTT value decreased from 159.7 to 130.4 post-CFTRm (p =
+  0.047). The average time elapsed between the two OGTT tests was 49.87 months (ranging
+  9-157 months, median 38 months). Glycemic status improved in six pwCF (two CFRD
+  to normal (NGT)/indeterminate (INDET) glucose tolerance; two impaired glucose tolerance
+  (IGT) to INDET; two INDET to NGT) and worsened in one (IGT to CFRD). Six pwCF and
+  NGT remained stable with no changes in glycemic statues throughout the follow-up
+  period. CONCLUSIONS: CFTRm therapy may decelerate the glycemic control deterioration
+  in pwCF over an extended period. These findings indicate the need for periodic OGTTs
+  following the initiation of CFTRm therapy to appropriately adjust insulin requirements
+  and prevent hypoglycemia. Further larger cohorts are required to authenticate and
+  substantiate these findings.'
+raw_completion_output: |-
+  primary_disease: Cystic Fibrosis
+  medical_actions: Long-Term therapy with CFTR modulators; Oral Glucose Tolerance Test; adjust insulin requirements; prevent hypoglycemia
+  symptoms: Impaired glycemic control; development of Cystic fibrosis Related Diabetes (CFRD)
+  chemicals: CFTR modulator
+  action_annotation_relationships: Long-Term therapy with CFTR modulators (with CFTR modulator) TREATS Impaired glycemic control IN Cystic Fibrosis; Long-Term therapy with CFTR modulators (with CFTR modulator) PREVENTS development of Cystic fibrosis Related Diabetes (CFRD) IN Cystic Fibrosis; Oral Glucose Tolerance Test DIAGNOSES Impaired glycemic control IN Cystic Fibrosis; adjust insulin requirements TREATS development of Cystic fibrosis Related Diabetes (CFRD) IN Cystic Fibrosis; prevent hypoglycemia TREATS Impaired glycemic control IN Cystic Fibrosis
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  prevent hypoglycemia TREATS Impaired glycemic control IN Cystic Fibrosis
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009061
+  medical_actions:
+    - Long-Term therapy with CFTR modulators
+    - Oral Glucose Tolerance Test
+    - adjust insulin requirements
+    - prevent hypoglycemia
+  symptoms:
+    - Impaired glycemic control
+    - development of Cystic fibrosis Related Diabetes (CFRD)
+  chemicals:
+    - CFTR modulator
+  action_annotation_relationships:
+    - subject: Long-Term therapy with CFTR modulators
+      predicate: TREATS
+      object: Impaired glycemic control
+      qualifier: MONDO:0009061
+      subject_extension: CFTR modulator
+    - subject: Long-Term therapy with CFTR modulators
+      predicate: PREVENTS
+      object: development of Cystic fibrosis Related Diabetes (CFRD)
+      qualifier: MONDO:0009061
+      subject_extension: CFTR modulator
+    - subject: <Oral Glucose Tolerance Test>
+      predicate: <DIAGNOSES>
+      object: <Impaired glycemic control>
+      qualifier: <Cystic Fibrosis>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <Oral Glucose Tolerance Test>
+      object_extension: <Impaired glycemic control>
+    - subject: adjust insulin requirements
+      predicate: TREATS
+      object: development of Cystic fibrosis Related Diabetes (CFRD)
+      qualifier: MONDO:0009061
+      subject_extension: insulin requirements
+    - subject: prevent hypoglycemia
+      predicate: TREATS
+      object: Impaired glycemic control
+      qualifier: MONDO:0009061
+named_entities:
+  - id: MONDO:0009061
+    label: Cystic Fibrosis
+  - id: CHEBI:22507
+    label: Aminoglycoside antibiotics
+  - id: CHEBI:28864
+    label: Tobramycin
+  - id: MONDO:0005460
+    label: Influenza A (H1N1)
+  - id: HP:0002098
+    label: respiratory distress
+  - id: HP:0001945
+    label: fever
+  - id: HP:0002014
+    label: diarrhea
+  - id: HP:0002013
+    label: vomiting
+  - id: HP:0011950
+    label: viral bronchiolitis
+  - id: HP:0002090
+    label: pneumonia
+  - id: CHEBI:7798
+    label: oseltamivir
+  - id: MAXO:0001017
+    label: vaccination
+  - id: MONDO:0005275
+    label: Pulmonary Diseases
+  - id: CHEBI:16991
+    label: DNA
+  - id: CHEBI:33699
+    label: mRNA
+  - id: HP:0012735
+    label: Cough
+  - id: CHEBI:50858
+    label: corticosteroids
+  - id: HP:0002910
+    label: Elevated transaminases
+  - id: CHEBI:61049
+    label: Tacrolimus
+  - id: CHEBI:53454
+    label: ETI
+  - id: MAXO:0000259
+    label: Insulin treatment
+  - id: HP:0001394
+    label: Cirrhosis
+  - id: HP:0001738
+    label: Exocrine pancreatic insufficiency
+  - id: HP:0100651
+    label: Insulin-dependent diabetes mellitus
+  - id: HP:0001988
+    label: Recurrent hypoglycemia
+  - id: HP:0001744
+    label: Splenomegaly
+  - id: CHEBI:145810
+    label: Insulin
+  - id: CHEBI:27027
+    label: Trace elements
+  - id: CHEBI:33229
+    label: Vitamins
+  - id: CHEBI:141442
+    label: MN

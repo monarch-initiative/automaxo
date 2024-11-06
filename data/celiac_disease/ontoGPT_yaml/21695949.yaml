@@ -10,14 +10,10 @@ input_text: '[Bone mineral density in patients with celiac disease and medical t
   and two schedules.'
 raw_completion_output: |-
   primary_disease: Celiac disease
-
   medical_actions: Adherence to a gluten-free diet
-
   symptoms: Bone loss; Malabsorption syndrome
-
   chemicals: Calcium; Vitamin D
-
-  action_annotation_relationships: Adherence to a gluten-free diet PREVENTS Bone loss IN Celiac disease; Malabsorption syndrome (due to lack of Calcium and Vitamin D) TREATS Bone loss IN Celiac disease
+  action_annotation_relationships: Adherence to a gluten-free diet PREVENTS bone loss IN Celiac disease; Adherence to a gluten-free diet PREVENTS malabsorption syndrome IN Celiac disease
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -32,7 +28,7 @@ prompt: |+
 
 
   Text:
-  Malabsorption syndrome (due to lack of Calcium and Vitamin D) TREATS Bone loss IN Celiac disease
+  Adherence to a gluten-free diet PREVENTS malabsorption syndrome IN Celiac disease
 
   ===
 
@@ -47,23 +43,31 @@ extracted_object:
     - CHEBI:22984
     - CHEBI:27300
   action_annotation_relationships:
-    - subject: Adherence
-      predicate: PREVENTS
-      object: HP:0000938
-      qualifier: MONDO:0005130
-      subject_extension: gluten-free diet
-    - subject: <Malabsorption syndrome>
-      predicate: <TREATS>
-      object: <Bone loss>
+    - subject: <Adherence to a gluten-free diet>
+      predicate: <PREVENTS>
+      object: <bone loss>
       qualifier: <Celiac disease>
-      subject_extension: <lack of Calcium and Vitamin D>
+      subject_extension: <gluten-free diet>
+    - subject: <Adherence to a gluten-free diet>
+      predicate: <PREVENTS>
+      object: <malabsorption syndrome>
+      qualifier: <Celiac disease>
+      subject_extension: <gluten-free diet>
 named_entities:
+  - id: MONDO:0044092
+    label: Collagenous sprue
+  - id: HP:0002014
+    label: diarrhea
+  - id: CHEBI:50858
+    label: corticosteroids
+  - id: HP:0004395
+    label: malnutrition
   - id: MONDO:0005130
     label: Celiac disease
-  - id: CHEBI:81580
-    label: Prolactin
   - id: HP:0000870
     label: Hyperprolactinemia
+  - id: CHEBI:81580
+    label: Prolactin (PRL)
   - id: HP:0000938
     label: Bone loss
   - id: CHEBI:22984

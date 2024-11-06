@@ -15,14 +15,10 @@ input_text: 'Stem cell-based cell therapy for Huntington disease: a review. Hunt
   for developing new therapeutic strategies using neural stem cells.'
 raw_completion_output: |-
   primary_disease: Huntington disease
-
-  medical_actions: Fetal neural transplantation; Stem cell-based therapy; Intracerebral transplantation; Intravenous transplantation
-
-  symptoms: Clinical manifestations
-
+  medical_actions: fetal neural transplantation; stem cell-based therapy; intracerebral transplantation; intravenous transplantation
+  symptoms: neurodegenerative disorder; clinical manifestations
   chemicals: 
-
-  action_annotation_relationships: Fetal neural transplantation TREATS clinical manifestations IN Huntington disease; Stem cell-based therapy (with embryonic stem cells) TREATS clinical manifestations IN Huntington disease; Stem cell-based therapy (with bone marrow mesenchymal stem cells) TREATS clinical manifestations IN Huntington disease; Stem cell-based therapy (with neural stem cells) TREATS clinical manifestations IN Huntington disease; Intracerebral transplantation (with neural stem cells) TREATS clinical manifestations IN Huntington disease; Intravenous transplantation (with neural stem cells) TREATS clinical manifestations IN Huntington disease
+  action_annotation_relationships: fetal neural transplantation TREATS clinical manifestations IN Huntington disease; stem cell-based therapy TREATS neurodegenerative disorder IN Huntington disease; intracerebral transplantation TREATS neurodegenerative disorder IN Huntington disease; intravenous transplantation TREATS neurodegenerative disorder IN Huntington disease
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -37,56 +33,44 @@ prompt: |+
 
 
   Text:
-  Intravenous transplantation (with neural stem cells) TREATS clinical manifestations IN Huntington disease
+  intravenous transplantation TREATS neurodegenerative disorder IN Huntington disease
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0007739
   medical_actions:
-    - Fetal neural transplantation
-    - Stem cell-based therapy
-    - Intracerebral transplantation
-    - Intravenous transplantation
+    - fetal neural transplantation
+    - stem cell-based therapy
+    - intracerebral transplantation
+    - intravenous transplantation
   symptoms:
-    - Clinical manifestations
+    - neurodegenerative disorder
+    - clinical manifestations
   action_annotation_relationships:
-    - subject: <transplantation>
+    - subject: fetal neural transplantation
+      predicate: TREATS
+      object: clinical manifestations
+      qualifier: MONDO:0007739
+    - subject: MAXO:0001298
+      predicate: TREATS
+      object: neurodegenerative disorder
+      qualifier: MONDO:0007739
+      subject_extension: stem cell-based
+    - subject: <intracerebral transplantation>
       predicate: <TREATS>
-      object: <clinical manifestations>
+      object: <neurodegenerative disorder>
       qualifier: <Huntington disease>
-      subject_extension: <Fetal neural>
-    - subject: Stem cell-based therapy
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <intracerebral transplantation>
+      object_extension: <neurodegenerative disorder>
+    - subject: intravenous transplantation
       predicate: TREATS
-      object: clinical manifestations
+      object: neurodegenerative disorder
       qualifier: MONDO:0007739
-      subject_qualifier: with embryonic stem cells
-      subject_extension: embryonic stem cells
-    - subject: Stem cell-based therapy
-      predicate: TREATS
-      object: clinical manifestations
-      qualifier: MONDO:0007739
-      subject_qualifier: with bone marrow mesenchymal stem cells
-      subject_extension: bone marrow mesenchymal stem cells
-    - subject: Stem cell-based therapy
-      predicate: TREATS
-      object: clinical manifestations
-      qualifier: MONDO:0007739
-      subject_extension: neural stem cells
-    - subject: Intracerebral transplantation
-      predicate: TREATS
-      object: clinical manifestations
-      qualifier: MONDO:0007739
-      subject_qualifier: with neural stem cells
-      subject_extension: neural stem cells
-    - subject: <Intravenous transplantation>
-      predicate: <TREATS>
-      object: <clinical manifestations>
-      qualifier: <Huntington disease>
-      subject_qualifier: <with neural stem cells>
-      subject_extension: <neural stem cells>
 named_entities:
   - id: MONDO:0007739
-    label: Huntington Disease
-  - id: MONDO:0013310
-    label: P450 oxidoreductase deficiency
+    label: Huntington disease
+  - id: MAXO:0001298
+    label: therapy

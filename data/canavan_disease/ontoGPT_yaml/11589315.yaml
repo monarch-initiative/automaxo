@@ -23,13 +23,13 @@ input_text: 'Canavan disease: a review of recent developments. The clinical feat
 raw_completion_output: |-
   primary_disease: Canavan disease
 
-  medical_actions: Prenatal diagnosis; DNA analysis; Measurement of N-acetylaspartate in the amniotic fluid; Control of seizures; Gene therapy
+  medical_actions: Prenatal diagnosis; DNA analysis; Measurement of N-acetylaspartate levels in amniotic fluid, urine, blood, and spinal fluid; Proton magnetic resonance spectroscopy; Neuroradiological investigations; Control of seizures; Gene therapy
 
-  symptoms: Megalencephaly; Clinical deterioration; White matter degeneration
+  symptoms: Considerable variation in illness course; Protracted illness; Megalencephaly; Clinical deterioration; Elevated N-acetylaspartate levels; White matter degeneration
 
   chemicals: N-acetylaspartate
 
-  action_annotation_relationships: Prenatal diagnosis (with N-acetylaspartate) PREVENTS Clinical deterioration IN Canavan disease; DNA analysis PREVENTS Clinical deterioration IN Canavan disease; Control of seizures TREATS Megalencephaly IN Canavan disease; Gene therapy TREATS White matter degeneration IN Canavan disease
+  action_annotation_relationships: Prenatal diagnosis PREVENTS clinical deterioration IN Canavan disease; DNA analysis (with N-acetylaspartate) TREATS megalencephaly IN Canavan disease; Measurement of N-acetylaspartate levels TREATS clinical deterioration IN Canavan disease; Proton magnetic resonance spectroscopy TREATS elevated N-acetylaspartate levels IN Canavan disease; Neuroradiological investigations TREATS white matter degeneration IN Canavan disease; Control of seizures TREATS clinical deterioration IN Canavan disease; Gene therapy TREATS clinical deterioration IN Canavan disease; Gene therapy TREATS white matter degeneration IN Canavan disease
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -44,7 +44,7 @@ prompt: |+
 
 
   Text:
-  Gene therapy TREATS White matter degeneration IN Canavan disease
+  Gene therapy TREATS white matter degeneration IN Canavan disease
 
   ===
 
@@ -53,103 +53,84 @@ extracted_object:
   medical_actions:
     - Prenatal diagnosis
     - DNA analysis
-    - Measurement of N-acetylaspartate in the amniotic fluid
+    - Measurement of N-acetylaspartate levels in amniotic fluid, urine, blood, and
+      spinal fluid
+    - Proton magnetic resonance spectroscopy
+    - Neuroradiological investigations
     - Control of seizures
     - MAXO:0001001
   symptoms:
+    - Considerable variation in illness course
+    - Protracted illness
     - HP:0001355
     - Clinical deterioration
+    - Elevated N-acetylaspartate levels
     - White matter degeneration
   chemicals:
     - N-acetylaspartate
   action_annotation_relationships:
     - subject: Prenatal diagnosis
       predicate: PREVENTS
-      object: Clinical deterioration
+      object: clinical deterioration
       qualifier: MONDO:0010079
-      subject_qualifier: with N-acetylaspartate
-      subject_extension: N-acetylaspartate
-    - subject: <DNA analysis>
-      predicate: <PREVENTS>
-      object: <Clinical deterioration>
-      qualifier: <Canavan disease>
-      subject_extension: <DNA analysis>
-    - subject: Control of seizures
+    - subject: DNA analysis
       predicate: TREATS
       object: HP:0001355
       qualifier: MONDO:0010079
-    - subject: <Gene therapy>
-      predicate: <TREATS>
-      object: <White matter degeneration>
-      qualifier: <Canavan disease>
-      subject_qualifier: <>
-      object_qualifier: <>
-      subject_extension: <Gene therapy>
-      object_extension: <White matter degeneration>
+      subject_qualifier: with
+      subject_extension: N-acetylaspartate
+    - subject: Measurement
+      predicate: TREATS
+      object: clinical deterioration
+      qualifier: MONDO:0010079
+      subject_extension: N-acetylaspartate levels
+    - subject: Proton magnetic resonance spectroscopy
+      predicate: TREATS
+      object: elevated N-acetylaspartate levels
+      qualifier: MONDO:0010079
+      subject_extension: Proton magnetic resonance spectroscopy
+    - subject: Neuroradiological investigations
+      predicate: TREATS
+      object: white matter degeneration
+      qualifier: MONDO:0010079
+    - subject: Control of seizures
+      predicate: TREATS
+      object: clinical deterioration
+      qualifier: MONDO:0010079
+    - subject: MAXO:0001001
+      predicate: TREATS
+      object: clinical deterioration
+      qualifier: MONDO:0010079
+      subject_extension: Gene therapy
+    - subject: MAXO:0001001
+      predicate: TREATS
+      object: white matter degeneration
+      qualifier: MONDO:0010079
+      subject_extension: Gene therapy
 named_entities:
-  - id: MONDO:0010079
-    label: Canavan disease
-  - id: HP:0001251
-    label: ataxia
-  - id: CHEBI:16953
-    label: N-acetyl-L-aspartate
-  - id: CHEBI:76720
-    label: antisense oligonucleotide
-  - id: CHEBI:21547
-    label: N-acetyl-L-aspartate (NAA)
-  - id: HP:0000256
-    label: Macrocephaly
-  - id: HP:0001249
-    label: Mental retardation
-  - id: HP:0001252
-    label: Hypotonia
-  - id: CHEBI:27881
-    label: Resveratrol (RSV)
-  - id: MAXO:0000068
-    label: Transplantation
-  - id: MONDO:0019262
-    label: Batten disease
-  - id: MONDO:0005180
-    label: Parkinson's disease
-  - id: HP:0010864
-    label: severe mental retardation
-  - id: CHEBI:73688
-    label: N-acetylaspartylglutamic acid
+  - id: MONDO:0008090
+    label: Central Nervous System (CNS) disorders
+  - id: MAXO:0001001
+    label: gene therapy
+  - id: HP:0002011
+    label: CNS disorders
   - id: MONDO:0019046
     label: Leukodystrophies
   - id: HP:0002415
     label: Leukodystrophies
-  - id: HP:0003269
-    label: Pelizaeus-Merzbacher disease
-  - id: CHEBI:17234
-    label: '[1-(13)C]glucose'
-  - id: MAXO:0000757
-    label: Infusion
-  - id: MAXO:0001001
-    label: Gene therapy
+  - id: MONDO:0010079
+    label: Canavan disease
   - id: MONDO:0005071
     label: neurologic disease
-  - id: MONDO:0018660
-    label: Hemophilia
-  - id: MONDO:0009061
-    label: Cystic Fibrosis
-  - id: MONDO:0013282
-    label: Alpha-1-antitrypsin Deficiency
+  - id: CHEBI:21547
+    label: N-acetyl-aspartate (NAA)
   - id: CHEBI:17053
     label: l-aspartic acid
   - id: CHEBI:30089
     label: acetate
-  - id: MONDO:0003847
-    label: Hereditary diseases
-  - id: HP:0032988
-    label: Head lag
-  - id: HP:0001257
-    label: Spasticity
-  - id: CHEBI:29987
-    label: Glutamate
-  - id: CHEBI:16865
-    label: GABA
   - id: CHEBI:9661
     label: Glyceryl triacetate
+  - id: MAXO:0001394
+    label: Oral administration
   - id: HP:0001355
     label: Megalencephaly

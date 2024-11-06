@@ -24,10 +24,14 @@ input_text: "Celiac Disease in an Adult Presenting as Behavioral Disturbances. B
   and the clinician should have a high index of suspicion."
 raw_completion_output: |-
   primary_disease: Celiac Disease
-  medical_actions: lactose-free and gluten-free diet; total parenteral nutrition (TPN)
-  symptoms: behavioral disturbances; diarrhea; constipation; foul steatorrhea; flatulence; bloating; malnutrition; fecal incontinence
-  chemicals: 
-  action_annotation_relationships: lactose-free and gluten-free diet TREATS behavioral disturbances IN Celiac Disease; lactose-free and gluten-free diet TREATS diarrhea IN Celiac Disease; lactose-free and gluten-free diet TREATS constipation IN Celiac Disease; lactose-free and gluten-free diet TREATS foul steatorrhea IN Celiac Disease; lactose-free and gluten-free diet TREATS flatulence IN Celiac Disease; lactose-free and gluten-free diet TREATS bloating IN Celiac Disease; total parenteral nutrition (TPN) TREATS malnutrition IN Celiac Disease; lactose-free and gluten-free diet TREATS fecal incontinence IN Celiac Disease
+
+  medical_actions: gluten-free diet; lactose-free diet; total parenteral nutrition (TPN); biopsy
+
+  symptoms: diarrhea; fecal incontinence; severe malnutrition; behavioral disturbances; increased aggression; anxiety
+
+  chemicals: Tissue transglutaminase IgA antibody (TTG); gliadin IgA
+
+  action_annotation_relationships: gluten-free diet TREATS diarrhea IN Celiac Disease; lactose-free diet TREATS diarrhea IN Celiac Disease; total parenteral nutrition (TPN) TREATS severe malnutrition IN Celiac Disease; biopsy CONFIRMS Celiac Disease; gluten-free diet TREATS behavioral disturbances IN Celiac Disease; lactose-free diet TREATS behavioral disturbances IN Celiac Disease
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -42,153 +46,167 @@ prompt: |+
 
 
   Text:
-  lactose-free and gluten-free diet TREATS fecal incontinence IN Celiac Disease
+  lactose-free diet TREATS behavioral disturbances IN Celiac Disease
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0005130
   medical_actions:
-    - lactose-free and gluten-free diet
+    - gluten-free diet
+    - lactose-free diet
     - total parenteral nutrition (TPN)
+    - biopsy
   symptoms:
-    - HP:0000708
     - HP:0002014
-    - HP:0002019
-    - foul steatorrhea
-    - HP:0033589
-    - HP:0003270
-    - HP:0004395
     - HP:0002607
+    - severe malnutrition
+    - HP:0000708
+    - increased aggression
+    - HP:0000739
+  chemicals:
+    - Tissue transglutaminase IgA antibody (TTG)
+    - gliadin IgA
   action_annotation_relationships:
-    - subject: <diet>
-      predicate: <TREATS>
-      object: <behavioral disturbances>
-      qualifier: <Celiac Disease>
-      subject_qualifier: <lactose-free and gluten-free>
-      subject_extension: <lactose-free and gluten-free diet>
-    - subject: lactose-free and gluten-free diet
+    - subject: gluten-free diet
       predicate: TREATS
       object: HP:0002014
       qualifier: MONDO:0005130
-      subject_extension: lactose-free and gluten-free diet
     - subject: <diet>
       predicate: <TREATS>
-      object: <constipation>
+      object: <diarrhea>
       qualifier: <Celiac Disease>
-      subject_qualifier: <lactose-free and gluten-free>
-      subject_extension: <lactose-free and gluten-free diet>
-    - subject: lactose-free and gluten-free diet
-      predicate: TREATS
-      object: foul steatorrhea
-      qualifier: MONDO:0005130
-      subject_extension: lactose-free and gluten-free diet
-    - subject: <Diet>
-      predicate: <TREATS>
-      object: <flatulence>
-      qualifier: <Celiac Disease>
-      subject_qualifier: <lactose-free and gluten-free>
-      subject_extension: <lactose-free and gluten-free diet>
-    - subject: lactose-free and gluten-free diet
-      predicate: TREATS
-      object: HP:0003270
-      qualifier: MONDO:0005130
+      subject_extension: <lactose-free>
     - subject: total parenteral nutrition (TPN)
       predicate: TREATS
-      object: HP:0004395
+      object: severe malnutrition
       qualifier: MONDO:0005130
-    - subject: <lactose-free and gluten-free diet>
-      predicate: <TREATS>
-      object: <fecal incontinence>
-      qualifier: <Celiac Disease>
-      subject_qualifier: <null>
-      object_qualifier: <null>
-      subject_extension: <null>
-      object_extension: <null>
+      object_qualifier: severe
+    - subject: biopsy
+      predicate: CONFIRMS
+      object: HP:0002608
+    - subject: gluten-free diet
+      predicate: TREATS
+      object: HP:0000708
+      qualifier: MONDO:0005130
+      subject_extension: gluten-free diet
+    - subject: lactose-free diet
+      predicate: TREATS
+      object: HP:0000708
+      qualifier: MONDO:0005130
+      subject_extension: lactose-free diet
 named_entities:
-  - id: HP:0040313
-    label: oligoarticular arthritis
-  - id: CHEBI:65312
-    label: Corticotropin releasing hormone
-  - id: CHEBI:197439
-    label: TNFalpha
+  - id: HP:0001251
+    label: ataxia
+  - id: CHEBI:21547
+    label: N-acetylaspartate (NAA)
+  - id: CHEBI:157802
+    label: creatine (Cr)
   - id: MONDO:0005130
-    label: Celiac Disease
-  - id: MAXO:0000058
-    label: pharmacological treatment
+    label: Celiac disease
+  - id: HP:0001394
+    label: Cirrhosis
   - id: HP:0002608
-    label: Celiac Disease
-  - id: HP:0025464
-    label: Oxidative stress
-  - id: CHEBI:26195
-    label: Polyphenols
-  - id: MONDO:0009032
-    label: Celiac disease (CeD)
-  - id: MONDO:0016063
-    label: Celiac Disease (CD)
-  - id: HP:0000739
-    label: Anxiety
-  - id: HP:0000716
-    label: Depression
-  - id: MONDO:0005265
-    label: Inflammatory bowel disease
-  - id: HP:0012538
-    label: Gluten sensitivity
-  - id: MONDO:0007021
-    label: Wheat allergy
-  - id: CHEBI:26271
-    label: proline
-  - id: MONDO:0013209
-    label: Nonalcoholic fatty liver disease (NAFLD)
-  - id: HP:0001397
-    label: Hepatic steatosis
-  - id: MAXO:0000487
-    label: Clinical assessment
-  - id: CHEBI:80165
-    label: Gluten Immunogenic Peptides (GIP)
-  - id: HP:0002019
-    label: Constipation
+    label: Celiac disease
+  - id: MONDO:0005340
+    label: Alopecia areata
+  - id: HP:0001596
+    label: Hair loss
+  - id: HP:0002014
+    label: Diarrhea
+  - id: HP:0002027
+    label: Abdominal pain
+  - id: HP:0012378
+    label: Fatigue
+  - id: HP:0011473
+    label: Villous atrophy
+  - id: CHEBI:3207
+    label: Budesonide
+  - id: HP:0000951
+    label: skin abnormalities
+  - id: HP:0001595
+    label: hair abnormalities
+  - id: HP:0000112
+    label: kidney diseases
   - id: MAXO:0000088
     label: Diet
-  - id: HP:0004395
-    label: Nutritional deficiencies
-  - id: MONDO:0011122
-    label: Obesity
-  - id: CHEBI:28796
-    label: fructans
-  - id: MONDO:0016129
-    label: eosinophilic gastroenteritis
+  - id: MONDO:0009032
+    label: Celiac Disease (CeD)
+  - id: HP:0100252
+    label: Celiac Disease (CeD)
+  - id: CHEBI:18332
+    label: T4
+  - id: CHEBI:30660
+    label: thyroxine
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0002028
+    label: recurrent diarrhea
+  - id: HP:0001824
+    label: weight loss
   - id: HP:0001891
-    label: Iron deficiency anemia
+    label: iron deficiency anemia
+  - id: CHEBI:6909
+    label: metronidazole
+  - id: MAXO:0001017
+    label: Vaccination
+  - id: HP:0002242
+    label: Enteropathy
+  - id: MONDO:0400005
+    label: Refeeding syndrome
+  - id: HP:0003111
+    label: Electrolyte disturbances
+  - id: HP:0000713
+    label: Psychomotor agitation
+  - id: HP:0002098
+    label: Respiratory distress
+  - id: HP:0030149
+    label: Cardiogenic shock
+  - id: CHEBI:28796
+    label: Fructans
+  - id: HP:0031955
+    label: antalgic gait
   - id: CHEBI:18248
     label: Iron
   - id: CHEBI:27470
     label: Folate
   - id: CHEBI:176843
     label: Vitamin B12
-  - id: CHEBI:13193
-    label: As
-  - id: CHEBI:16170
-    label: Hg
-  - id: CHEBI:22977
-    label: Cd
-  - id: CHEBI:25016
-    label: Pb
-  - id: CHEBI:27563
-    label: arsenic
-  - id: HP:0001061
-    label: Acne
+  - id: HP:0000716
+    label: Depression
+  - id: MAXO:0000106
+    label: Nutritional supplementation
+  - id: CHEBI:22984
+    label: Ca
+  - id: CHEBI:25107
+    label: Mg
+  - id: CHEBI:27363
+    label: Zn
   - id: MAXO:0000130
     label: Endoscopy
-  - id: HP:0012050
-    label: Anasarca
-  - id: HP:0000708
-    label: behavioral disturbances
-  - id: HP:0002014
-    label: diarrhea
-  - id: HP:0033589
-    label: flatulence
-  - id: HP:0003270
-    label: bloating
+  - id: CHEBI:80165
+    label: Gluten immunogenic peptides (GIP)
+  - id: MONDO:0015924
+    label: Porto-pulmonary hypertension (PPH)
+  - id: MAXO:0001490
+    label: platelet transfusion
+  - id: HP:0006517
+    label: mean pulmonary artery pressure (PAP) 49 mm Hg
+  - id: MAXO:0000757
+    label: infusions
+  - id: HP:0011107
+    label: recurrent aphthous stomatitis
+  - id: HP:0002315
+    label: Headache
+  - id: HP:0002018
+    label: Nausea
+  - id: CHEBI:231614
+    label: nivolumab
+  - id: CHEBI:231679
+    label: ipilimumab
   - id: HP:0002607
     label: fecal incontinence
+  - id: HP:0000708
+    label: behavioral disturbances
+  - id: HP:0000739
+    label: anxiety

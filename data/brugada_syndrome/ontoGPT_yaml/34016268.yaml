@@ -15,10 +15,14 @@ input_text: 'Precision Medicine Approaches to Cardiac Arrhythmias: JACC Focus Se
   personalized risk stratification to guide the use of arrhythmia-specific therapies.'
 raw_completion_output: |-
   primary_disease: Cardiac Arrhythmias
+
   medical_actions: Genetic testing; Avoidance of triggers; Personalized risk stratification; Use of arrhythmia-specific therapies
-  symptoms: No symptoms mentioned explicitly
-  chemicals: No chemicals or drugs mentioned explicitly
-  action_annotation_relationships: Genetic testing TREATS Cardiac Arrhythmias; Avoidance of triggers PREVENTS Cardiac Arrhythmias; Personalized risk stratification TREATS Cardiac Arrhythmias; Use of arrhythmia-specific therapies TREATS Cardiac Arrhythmias
+
+  symptoms: lethality in childhood or adolescence if untreated
+
+  chemicals: 
+
+  action_annotation_relationships: Genetic testing PREVENTS lethality in childhood or adolescence IN Cardiac Arrhythmias; Avoidance of triggers PREVENTS lethality in childhood or adolescence IN Cardiac Arrhythmias; Personalized risk stratification PREVENTS lethality in childhood or adolescence IN Cardiac Arrhythmias; Use of arrhythmia-specific therapies TREATS lethality in childhood or adolescence IN Cardiac Arrhythmias
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -33,7 +37,7 @@ prompt: |+
 
 
   Text:
-  Use of arrhythmia-specific therapies TREATS Cardiac Arrhythmias
+  Use of arrhythmia-specific therapies TREATS lethality in childhood or adolescence IN Cardiac Arrhythmias
 
   ===
 
@@ -45,22 +49,27 @@ extracted_object:
     - Personalized risk stratification
     - Use of arrhythmia-specific therapies
   symptoms:
-    - No symptoms mentioned explicitly
-  chemicals:
-    - No chemicals or drugs mentioned explicitly
+    - lethality in childhood or adolescence if untreated
   action_annotation_relationships:
     - subject: MAXO:0000127
-      predicate: TREATS
-      object: HP:0011675
+      predicate: PREVENTS
+      object: lethality
+      qualifier: MONDO:0020745
+      object_qualifier: in childhood or adolescence
     - subject: Avoidance of triggers
       predicate: PREVENTS
-      object: HP:0011675
+      object: lethality
+      qualifier: MONDO:0020745
+      object_qualifier: in childhood or adolescence
     - subject: Personalized risk stratification
-      predicate: TREATS
-      object: HP:0011675
+      predicate: PREVENTS
+      object: lethality
+      qualifier: MONDO:0020745
+      object_qualifier: in childhood or adolescence
     - subject: Use of arrhythmia-specific therapies
       predicate: TREATS
-      object: HP:0011675
+      object: lethality in childhood or adolescence
+      qualifier: MONDO:0020745
       subject_extension: arrhythmia-specific therapies
 named_entities:
   - id: HP:0001663
@@ -71,40 +80,40 @@ named_entities:
     label: cognitive impairment
   - id: MONDO:0002076
     label: Pneumothorax
+  - id: MAXO:0000504
+    label: Tracheostomy
   - id: HP:0002094
     label: Dyspnea
+  - id: MONDO:0015263
+    label: Brugada Syndrome
   - id: HP:0001695
-    label: Cardiac arrest
+    label: cardiac arrest
   - id: CHEBI:75984
-    label: Flecainide
-  - id: MAXO:0001017
-    label: Vaccination
+    label: flecainide
   - id: MONDO:0007264
     label: Sudden Cardiac Death
-  - id: HP:0031628
-    label: Sudden cardiac arrest
+  - id: HP:0001639
+    label: Hypertrophic cardiomyopathy (HCM)
+  - id: HP:0001644
+    label: Dilated cardiomyopathy (DCM)
+  - id: HP:0007263
+    label: Sudden cardiac arrest (SCA)
   - id: HP:0001657
-    label: Long QT syndrome
+    label: Long QT syndrome (LQTS)
+  - id: MONDO:0019315
+    label: <Dilated cardiomyopathy (DCM)>
+  - id: MONDO:0016587
+    label: <Arrhythmogenic right ventricular cardiomyopathy (ARVC)>
   - id: HP:0001645
-    label: Sudden cardiac death
-  - id: MONDO:0015263
-    label: Brugada syndrome
+    label: Sudden Cardiac Death
+  - id: MAXO:0000127
+    label: Genetic testing
   - id: HP:0004308
     label: Ventricular arrhythmias
-  - id: HP:0001945
-    label: Fever
-  - id: MONDO:0020745
-    label: Cardiac arrhythmias
-  - id: MAXO:0000900
-    label: Analysis of electrocardiograms (ECGs)
-  - id: MAXO:0000127
-    label: Genetic analyses
   - id: HP:0011675
-    label: cardiac arrhythmias
-  - id: HP:0001699
-    label: sudden death
-  - id: HP:0005110
-    label: atrial fibrillation
+    label: arrhythmia
+  - id: MAXO:0000900
+    label: Electrocardiogram (ECG)
   - id: MAXO:0000474
     label: Implantable cardioverter-defibrillator implantation
   - id: HP:0001279
@@ -115,3 +124,5 @@ named_entities:
     label: confusion
   - id: MAXO:0001001
     label: Gene therapy
+  - id: MONDO:0020745
+    label: Cardiac Arrhythmias

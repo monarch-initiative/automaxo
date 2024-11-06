@@ -23,10 +23,14 @@ input_text: 'Comparison of clinical features, treatment, and outcomes of collage
   overall excellent prognosis.'
 raw_completion_output: |-
   primary_disease: Collagenous sprue
-  medical_actions: Temporary total parenteral nutrition (TPN); Corticosteroids; Gluten-free diet (GFD)
-  symptoms: Diarrhea; Unintentional weight loss
-  chemicals: Corticosteroids
-  action_annotation_relationships: Temporary total parenteral nutrition (TPN) TREATS diarrhea IN Collagenous sprue; Corticosteroids TREATS diarrhea IN Collagenous sprue; Corticosteroids TREATS unintentional weight loss IN Collagenous sprue; Gluten-free diet (GFD) TREATS diarrhea IN Collagenous sprue; Gluten-free diet (GFD) TREATS unintentional weight loss IN Collagenous sprue
+
+  medical_actions: temporary total parenteral nutrition (TPN); gluten-free diet (GFD); corticosteroids
+
+  symptoms: diarrhea; unintentional weight loss
+
+  chemicals: 
+
+  action_annotation_relationships: gluten-free diet TREATS diarrhea IN Collagenous sprue; gluten-free diet TREATS unintentional weight loss IN Collagenous sprue; corticosteroids TREATS diarrhea IN Collagenous sprue; corticosteroids TREATS unintentional weight loss IN Collagenous sprue; temporary total parenteral nutrition (TPN) PREVENTS malnutrition IN Collagenous sprue
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -41,49 +45,51 @@ prompt: |+
 
 
   Text:
-  Gluten-free diet (GFD) TREATS unintentional weight loss IN Collagenous sprue
+  temporary total parenteral nutrition (TPN) PREVENTS malnutrition IN Collagenous sprue
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0044092
   medical_actions:
-    - Temporary total parenteral nutrition (TPN)
-    - Corticosteroids
-    - Gluten-free diet (GFD)
+    - temporary total parenteral nutrition (TPN)
+    - gluten-free diet (GFD)
+    - corticosteroids
   symptoms:
     - HP:0002014
-    - Unintentional weight loss
-  chemicals:
-    - CHEBI:50858
+    - unintentional weight loss
   action_annotation_relationships:
-    - subject: Temporary total parenteral nutrition (TPN)
+    - subject: gluten-free diet
       predicate: TREATS
       object: HP:0002014
       qualifier: MONDO:0044092
-    - subject: Corticosteroids
+    - subject: <diet>
+      predicate: <TREATS>
+      object: <unintentional weight loss>
+      qualifier: <Collagenous sprue>
+      subject_qualifier: <gluten-free>
+      subject_extension: <gluten-free>
+    - subject: corticosteroids
       predicate: TREATS
       object: HP:0002014
       qualifier: MONDO:0044092
       subject_extension: CHEBI:50858
-    - subject: Corticosteroids
+    - subject: TREATS
       predicate: TREATS
       object: unintentional weight loss
       qualifier: MONDO:0044092
       subject_extension: CHEBI:50858
-    - subject: Gluten-free diet (GFD)
-      predicate: TREATS
-      object: HP:0002014
+    - subject: temporary total parenteral nutrition (TPN)
+      predicate: PREVENTS
+      object: HP:0004395
       qualifier: MONDO:0044092
-    - subject: <Gluten-free diet>
-      predicate: <TREATS>
-      object: <unintentional weight loss>
-      qualifier: <Collagenous sprue>
-      subject_extension: <Gluten-free diet>
+      subject_qualifier: temporary
 named_entities:
   - id: MONDO:0044092
     label: Collagenous sprue
   - id: HP:0002014
-    label: Diarrhea
+    label: diarrhea
   - id: CHEBI:50858
-    label: Corticosteroids
+    label: corticosteroids
+  - id: HP:0004395
+    label: malnutrition

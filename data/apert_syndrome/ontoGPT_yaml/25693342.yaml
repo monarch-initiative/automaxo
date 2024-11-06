@@ -12,10 +12,14 @@ input_text: '[Air-Q  intubating laryngeal airway as a conduit for tracheal intub
   patient'
 raw_completion_output: |-
   primary_disease: Apert syndrome
-  medical_actions: Tracheal intubation using air-Q; Ventilation via tracheal tube; Use of fiberscope for guidance; Tracheostomy
-  symptoms: Megaloglossia; Severe airway narrowing
+
+  medical_actions: utilization of intubating laryngeal airway (air-Q) for tracheal intubation; utilization of fiberscope for tracheal intubation; ventilation via tracheal tube
+
+  symptoms: megaloglossia; severe airway narrowing
+
   chemicals: 
-  action_annotation_relationships: Tracheal intubation using air-Q TREATS severe airway narrowing IN Apert syndrome; Ventilation via tracheal tube TREATS severe airway narrowing IN Apert syndrome; Use of fiberscope for guidance TREATS severe airway narrowing IN Apert syndrome; Tracheostomy TREATS severe airway narrowing IN Apert syndrome
+
+  action_annotation_relationships: utilization of intubating laryngeal airway (air-Q) for tracheal intubation TREATS severe airway narrowing IN Apert syndrome; utilization of fiberscope for tracheal intubation TREATS severe airway narrowing IN Apert syndrome; ventilation via tracheal tube TREATS severe airway narrowing IN Apert syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -30,73 +34,63 @@ prompt: |+
 
 
   Text:
-  Tracheostomy TREATS severe airway narrowing IN Apert syndrome
+  ventilation via tracheal tube TREATS severe airway narrowing IN Apert syndrome
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0007041
   medical_actions:
-    - Tracheal intubation using air-Q
-    - Ventilation via tracheal tube
-    - Use of fiberscope for guidance
-    - MAXO:0000504
+    - utilization of intubating laryngeal airway (air-Q) for tracheal intubation
+    - utilization of fiberscope for tracheal intubation
+    - ventilation via tracheal tube
   symptoms:
-    - Megaloglossia
-    - Severe airway narrowing
+    - megaloglossia
+    - severe airway narrowing
   action_annotation_relationships:
+    - subject: utilization of intubating laryngeal airway (air-Q) for tracheal intubation
+      predicate: TREATS
+      object: severe airway narrowing
+      qualifier: MONDO:0007041
+      object_qualifier: severe
     - subject: MAXO:0000502
-      predicate: TREATS
-      object: severe airway narrowing
-      qualifier: MONDO:0007041
-      subject_qualifier: using air-Q
-      object_qualifier: severe
-      subject_extension: air-Q
-    - subject: Ventilation via tracheal tube
-      predicate: TREATS
-      object: severe airway narrowing
-      qualifier: MONDO:0007041
-      object_qualifier: severe
-    - subject: Use of fiberscope for guidance
       predicate: TREATS
       object: severe airway narrowing
       qualifier: MONDO:0007041
       object_qualifier: severe
       subject_extension: fiberscope
-    - subject: MAXO:0000504
+    - subject: ventilation via tracheal tube
       predicate: TREATS
       object: severe airway narrowing
       qualifier: MONDO:0007041
       object_qualifier: severe
 named_entities:
-  - id: HP:0011800
-    label: Midface hypoplasia
   - id: MONDO:0007041
     label: Apert syndrome
   - id: MAXO:0000486
-    label: distraction osteogenesis
+    label: Distraction osteogenesis
   - id: HP:0012531
-    label: pain
+    label: Pain
   - id: HP:0001288
-    label: gait disturbances
-  - id: MONDO:0003432
-    label: Strabismus
+    label: Gait disturbances
   - id: HP:0001159
     label: Syndactyly
-  - id: MAXO:0000004
-    label: surgical procedures
   - id: HP:0001363
     label: craniosynostosis
+  - id: HP:0011800
+    label: midface hypoplasia
   - id: MONDO:0015338
     label: syndromic craniosynostosis
   - id: HP:0001061
     label: Acne
   - id: CHEBI:6067
-    label: isotretinoin
+    label: Isotretinoin
   - id: MONDO:0015469
     label: Craniosynostosis
+  - id: HP:0000504
+    label: Vision issues
   - id: HP:0000572
-    label: Vision loss
+    label: Visual loss
   - id: HP:0000646
     label: Amblyopia
   - id: HP:0001138
@@ -107,7 +101,5 @@ named_entities:
     label: Anisometropia
   - id: HP:0000483
     label: Astigmatism
-  - id: MAXO:0000504
-    label: Tracheostomy
   - id: MAXO:0000502
-    label: Tracheal intubation
+    label: tracheal intubation

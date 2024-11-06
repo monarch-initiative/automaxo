@@ -1,0 +1,99 @@
+---
+input_text: '[Congenital ciliary dyskinesia. Focus]. Primary ciliary dyskinesia (PCD)
+  is a rare autosomal recessive disease, caused by specific primary structural and/or
+  functional abnormalities of the motile cilia. Prevalence, about 1/15,000 to 1/30,000,
+  is probably underestimated, as diagnosis might not be evocated in absence of Kartagener
+  syndrome. Diagnosis is confirmed in presence of abnormal ciliary motility as well
+  as ciliary ultrastructure. Disease-causing mutations in at least 16 genes have already
+  been identified; analysis will be guided by the type of ultrastructural abnormalities.
+  An early and adequate diagnosis and therapy can theoretically improve the prognosis
+  of the disease. '
+raw_completion_output: |-
+  primary_disease: Primary ciliary dyskinesia (PCD)
+
+  medical_actions: Diagnosis; Therapy
+
+  symptoms: Abnormal ciliary motility; Ciliary ultrastructure abnormalities
+
+  chemicals: 
+
+  action_annotation_relationships: Diagnosis TREATS abnormal ciliary motility IN Primary ciliary dyskinesia (PCD); Diagnosis TREATS ciliary ultrastructure abnormalities IN Primary ciliary dyskinesia (PCD); Therapy (with no specific chemical mentioned) PREVENTS progression IN Primary ciliary dyskinesia (PCD)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Therapy (with no specific chemical mentioned) PREVENTS progression IN Primary ciliary dyskinesia (PCD)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0008932
+  medical_actions:
+    - Diagnosis
+    - MAXO:0001298
+  symptoms:
+    - HP:0012262
+    - Ciliary ultrastructure abnormalities
+  action_annotation_relationships:
+    - subject: Diagnosis
+      predicate: TREATS
+      object: HP:0012262
+      qualifier: MONDO:0008932
+    - subject: <Diagnosis>
+      predicate: <TREATS>
+      object: <ciliary ultrastructure abnormalities>
+      qualifier: MONDO:0008932
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <Diagnosis>
+      object_extension: <ciliary ultrastructure abnormalities>
+    - subject: MAXO:0001298
+      predicate: PREVENTS
+      object: progression
+      qualifier: MONDO:0008932
+      subject_qualifier: with no specific chemical mentioned
+named_entities:
+  - id: MONDO:0016575
+    label: Primary Ciliary Dyskinesia
+  - id: HP:0034315
+    label: Chronic cough
+  - id: HP:0002643
+    label: Neonatal respiratory distress
+  - id: HP:0003251
+    label: male infertility
+  - id: HP:0001696
+    label: situs inversus
+  - id: CHEBI:27958
+    label: Cocaine
+  - id: MONDO:0004247
+    label: Peptic Ulcer Disease (PUD)
+  - id: MAXO:0001193
+    label: upper gastrointestinal endoscopy
+  - id: HP:0002239
+    label: gastrointestinal hemorrhage
+  - id: CHEBI:18361
+    label: proton pump inhibitor (PPI)
+  - id: CHEBI:49200
+    label: proton pump inhibitor
+  - id: MONDO:0008932
+    label: Primary ciliary dyskinesia (PCD)
+  - id: CHEBI:33281
+    label: Antibiotics
+  - id: CHEBI:35523
+    label: Bronchodilators
+  - id: CHEBI:67079
+    label: Anti-inflammatory agents
+  - id: MAXO:0001298
+    label: Therapy
+  - id: HP:0012262
+    label: Abnormal ciliary motility

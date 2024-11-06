@@ -22,14 +22,10 @@ input_text: Use of propofol anesthesia during outpatient radiographic imaging st
   Potential risks and benefits of using propofol in this patient population are discussed.
 raw_completion_output: |-
   primary_disease: Lesch-Nyhan syndrome
-
-  medical_actions: Use of propofol anesthesia; General anesthesia with spontaneous ventilation; Intravenous administration of propofol; Sedation
-
-  symptoms: Hyperuricemia; Spasticity; Choreoathetosis; Dystonia; Self-injurious behavior; Aggression; Sudden, unexplained death; Abnormalities in respiration; Apnea; Severe bradycardia; Vomiting; Chronic pulmonary aspiration
-
+  medical_actions: Use of propofol anesthesia during outpatient radiographic imaging studies; General anesthesia with spontaneous ventilation; Intravenous administration of propofol; Monitoring of end-tidal carbon dioxide; Monitoring of respiratory rates; Monitoring of hemodynamics; Discharge from the hospital after sedation
+  symptoms: Hyperuricemia; Spasticity; Choreoathetosis; Dystonia; Self-injurious behavior; Aggression; Sudden, unexplained death; Abnormalities in respiration; Apnea; Severe bradycardia; Increased incidence of vomiting; Chronic pulmonary aspiration
   chemicals: Propofol
-
-  action_annotation_relationships: Use of propofol anesthesia (with Propofol) TREATS hyperuricemia IN Lesch-Nyhan syndrome; Use of propofol anesthesia (with Propofol) TREATS spasticity IN Lesch-Nyhan syndrome; Use of propofol anesthesia (with Propofol) TREATS choreoathetosis IN Lesch-Nyhan syndrome; Use of propofol anesthesia (with Propofol) TREATS dystonia IN Lesch-Nyhan syndrome; Use of propofol anesthesia (with Propofol) TREATS self-injurious behavior IN Lesch-Nyhan syndrome; Use of propofol anesthesia (with Propofol) TREATS aggression IN Lesch-Nyhan syndrome; Use of propofol anesthesia (with Propofol) PREVENTS sudden, unexplained death IN Lesch-Nyhan syndrome; Use of propofol anesthesia (with Propofol) PREVENTS abnormalities in respiration IN Lesch-Nyhan syndrome; Use of propofol anesthesia (with Propofol) PREVENTS apnea IN Lesch-Nyhan syndrome; Use of propofol anesthesia (with Propofol) PREVENTS severe bradycardia IN Lesch-Nyhan syndrome; Use of propofol anesthesia (with Propofol) PREVENTS vomiting IN Lesch-Nyhan syndrome; Use of propofol anesthesia (with Propofol) PREVENTS chronic pulmonary aspiration IN Lesch-Nyhan syndrome
+  action_annotation_relationships: Use of propofol anesthesia during outpatient radiographic imaging studies TREATS difficulties in radiographic imaging IN Lesch-Nyhan syndrome; General anesthesia with spontaneous ventilation PREVENTS sudden, unexplained death IN Lesch-Nyhan syndrome; General anesthesia with spontaneous ventilation PREVENTS abnormalities in respiration IN Lesch-Nyhan syndrome; Intravenous administration of propofol (with Propofol) TREATS hyperuricemia IN Lesch-Nyhan syndrome; Intravenous administration of propofol (with Propofol) TREATS spasticity IN Lesch-Nyhan syndrome; Monitoring of end-tidal carbon dioxide PREVENTS abnormalities in respiration IN Lesch-Nyhan syndrome; Monitoring of respiratory rates PREVENTS apnea IN Lesch-Nyhan syndrome; Monitoring of hemodynamics PREVENTS severe bradycardia IN Lesch-Nyhan syndrome; Discharge from the hospital after sedation PREVENTS increased incidence of vomiting IN Lesch-Nyhan syndrome; Discharge from the hospital after sedation PREVENTS chronic pulmonary aspiration IN Lesch-Nyhan syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -44,17 +40,20 @@ prompt: |+
 
 
   Text:
-  Use of propofol anesthesia (with Propofol) PREVENTS chronic pulmonary aspiration IN Lesch-Nyhan syndrome
+  Discharge from the hospital after sedation PREVENTS chronic pulmonary aspiration IN Lesch-Nyhan syndrome
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0010298
   medical_actions:
-    - Use of propofol anesthesia
+    - Use of propofol anesthesia during outpatient radiographic imaging studies
     - General anesthesia with spontaneous ventilation
     - Intravenous administration of propofol
-    - Sedation
+    - Monitoring of end-tidal carbon dioxide
+    - Monitoring of respiratory rates
+    - Monitoring of hemodynamics
+    - Discharge from the hospital after sedation
   symptoms:
     - HP:0002149
     - HP:0001257
@@ -66,96 +65,81 @@ extracted_object:
     - Abnormalities in respiration
     - HP:0002104
     - Severe bradycardia
-    - HP:0002013
+    - Increased incidence of vomiting
     - Chronic pulmonary aspiration
   chemicals:
     - CHEBI:44915
   action_annotation_relationships:
-    - subject: propofol anesthesia
+    - subject: anesthesia
+      predicate: TREATS
+      object: difficulties in radiographic imaging
+      qualifier: MONDO:0010298
+      subject_qualifier: outpatient radiographic imaging studies
+      subject_extension: CHEBI:44915
+    - subject: General anesthesia with spontaneous ventilation
+      predicate: PREVENTS
+      object: sudden, unexplained death
+      qualifier: MONDO:0010298
+      subject_extension: general anesthesia
+    - subject: <General anesthesia with spontaneous ventilation>
+      predicate: <PREVENTS>
+      object: <abnormalities in respiration>
+      qualifier: <Lesch-Nyhan syndrome>
+      subject_extension: <General anesthesia>
+    - subject: Intravenous administration of propofol
       predicate: TREATS
       object: HP:0002149
       qualifier: MONDO:0010298
       subject_qualifier: with Propofol
       subject_extension: CHEBI:44915
-    - subject: propofol anesthesia
+    - subject: Intravenous administration of propofol
       predicate: TREATS
       object: HP:0001257
       qualifier: MONDO:0010298
       subject_qualifier: with Propofol
       subject_extension: CHEBI:44915
-    - subject: propofol anesthesia
-      predicate: TREATS
-      object: HP:0001266
-      qualifier: MONDO:0010298
-      subject_qualifier: with Propofol
-      subject_extension: CHEBI:44915
-    - subject: propofol anesthesia
-      predicate: TREATS
-      object: HP:0001332
-      qualifier: MONDO:0010298
-      subject_qualifier: with Propofol
-      subject_extension: CHEBI:44915
-    - subject: propofol anesthesia
-      predicate: TREATS
-      object: HP:0100716
-      qualifier: MONDO:0010298
-      subject_qualifier: with Propofol
-      subject_extension: CHEBI:44915
-    - subject: propofol anesthesia
-      predicate: TREATS
-      object: HP:0000718
-      qualifier: MONDO:0010298
-      subject_qualifier: with Propofol
-      subject_extension: CHEBI:44915
-    - subject: propofol anesthesia
-      predicate: PREVENTS
-      object: sudden, unexplained death
-      qualifier: MONDO:0010298
-      subject_qualifier: with Propofol
-      subject_extension: CHEBI:44915
-      object_extension: sudden, unexplained death
-    - subject: propofol anesthesia
-      predicate: PREVENTS
-      object: abnormalities in respiration
-      qualifier: MONDO:0010298
-      subject_qualifier: with Propofol
-      subject_extension: CHEBI:44915
-    - subject: propofol anesthesia
+    - subject: <Monitoring of end-tidal carbon dioxide>
+      predicate: <PREVENTS>
+      object: <abnormalities in respiration>
+      qualifier: <Lesch-Nyhan syndrome>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: Monitoring of respiratory rates
       predicate: PREVENTS
       object: HP:0002104
       qualifier: MONDO:0010298
-      subject_qualifier: with Propofol
-      subject_extension: CHEBI:44915
-    - subject: propofol anesthesia
+    - subject: Monitoring of hemodynamics
       predicate: PREVENTS
       object: severe bradycardia
       qualifier: MONDO:0010298
-      subject_qualifier: with Propofol
-      subject_extension: CHEBI:44915
-    - subject: propofol anesthesia
+      object_qualifier: severe
+    - subject: Discharge from the hospital
       predicate: PREVENTS
-      object: HP:0002013
+      object: increased incidence of vomiting
       qualifier: MONDO:0010298
-      subject_qualifier: with Propofol
-      subject_extension: CHEBI:44915
-    - subject: propofol anesthesia
+      subject_qualifier: after sedation
+      subject_extension: sedation
+    - subject: Discharge from the hospital
       predicate: PREVENTS
-      object: chronic pulmonary aspiration
+      object: HP:0002835
       qualifier: MONDO:0010298
-      subject_qualifier: with Propofol
-      subject_extension: CHEBI:44915
-      object_extension: chronic pulmonary aspiration
+      subject_qualifier: after
+      object_qualifier: chronic
+      subject_extension: sedation
+      object_extension: chronic
 named_entities:
   - id: MONDO:0010298
     label: Lesch-Nyhan syndrome
-  - id: HP:0002149
-    label: hyperuricemia
-  - id: HP:0100021
-    label: spastic cerebral palsy (CP)
-  - id: HP:0001332
-    label: dystonia
   - id: HP:0000742
-    label: self-mutilation
+    label: Self-mutilation
+  - id: HP:0002149
+    label: Hyperuricemia
+  - id: HP:0001249
+    label: Mental retardation
+  - id: HP:0001332
+    label: Dystonia
   - id: HP:0001257
     label: Spasticity
   - id: HP:0001266
@@ -166,7 +150,7 @@ named_entities:
     label: Aggression
   - id: HP:0002104
     label: Apnea
-  - id: HP:0002013
-    label: Vomiting
   - id: CHEBI:44915
     label: Propofol
+  - id: HP:0002835
+    label: pulmonary aspiration

@@ -23,15 +23,15 @@ input_text: 'Rate, Risk Factors, and Outcomes of Nonadherence in Pediatric Patie
   are needed to determine the best method to ensure adherence and effects on long-term
   health.'
 raw_completion_output: |-
-  primary_disease: celiac disease
+  primary_disease: Celiac Disease
 
-  medical_actions: adherence to a gluten-free diet (GFD);self-report;serology tests;structured dietary interview;biopsies;assays for gluten immunogenic peptides
+  medical_actions: Adherence to a gluten-free diet;Self-report;Serology tests;Structured dietary interview;Biopsies;Assays for gluten immunogenic peptides
 
-  symptoms: non-adherence;patient growth;quality of life
+  symptoms: Non-adherence
 
-  chemicals: 
+  chemicals: Gluten
 
-  action_annotation_relationships: adherence to a gluten-free diet (GFD) TREATS non-adherence IN celiac disease;self-report PREVENTS non-adherence IN celiac disease;serology tests PREVENTS non-adherence IN celiac disease;structured dietary interview PREVENTS non-adherence IN celiac disease;biopsies PREVENTS non-adherence IN celiac disease;assays for gluten immunogenic peptides PREVENTS non-adherence IN celiac disease
+  action_annotation_relationships: Adherence to a gluten-free diet PREVENTS Non-adherence IN Celiac Disease;Adherence to a gluten-free diet (with Gluten) TREATS Celiac Disease
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -46,50 +46,56 @@ prompt: |+
 
 
   Text:
-  assays for gluten immunogenic peptides PREVENTS non-adherence IN celiac disease
+  Adherence to a gluten-free diet (with Gluten) TREATS Celiac Disease
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0005130
   medical_actions:
-    - adherence to a gluten-free diet (GFD)
-    - self-report
-    - serology tests
-    - structured dietary interview
-    - biopsies
-    - assays for gluten immunogenic peptides
+    - Adherence to a gluten-free diet
+    - Self-report
+    - Serology tests
+    - Structured dietary interview
+    - Biopsies
+    - Assays for gluten immunogenic peptides
   symptoms:
-    - non-adherence
-    - patient growth
-    - quality of life
+    - Non-adherence
+  chemicals:
+    - Gluten
   action_annotation_relationships:
-    - subject: <adherence to a gluten-free diet>
-      predicate: <TREATS>
-      object: <non-adherence>
-      qualifier: <celiac disease>
-      subject_extension: <gluten-free diet>
-    - subject: self-report
-      predicate: PREVENTS
-      object: non-adherence
-      qualifier: MONDO:0005130
-    - subject: serology tests
-      predicate: PREVENTS
-      object: non-adherence
-      qualifier: MONDO:0005130
-    - subject: structured dietary interview
-      predicate: PREVENTS
-      object: non-adherence
-      qualifier: MONDO:0005130
-    - subject: biopsies
-      predicate: PREVENTS
-      object: non-adherence
-      qualifier: MONDO:0005130
-    - subject: <assays>
+    - subject: <Adherence>
       predicate: <PREVENTS>
-      object: <non-adherence>
-      qualifier: <celiac disease>
-      subject_extension: <gluten immunogenic peptides>
+      object: <Non-adherence>
+      qualifier: <Celiac Disease>
+      subject_extension: <gluten-free diet>
+    - subject: Adherence to a gluten-free diet
+      predicate: TREATS
+      object: HP:0002608
+      subject_qualifier: with Gluten
+      subject_extension: Gluten
 named_entities:
+  - id: MONDO:0044092
+    label: Collagenous sprue
+  - id: HP:0002014
+    label: diarrhea
+  - id: CHEBI:50858
+    label: corticosteroids
+  - id: HP:0004395
+    label: malnutrition
   - id: MONDO:0005130
-    label: celiac disease
+    label: Celiac disease
+  - id: HP:0000870
+    label: Hyperprolactinemia
+  - id: CHEBI:81580
+    label: Prolactin (PRL)
+  - id: HP:0000938
+    label: Bone loss
+  - id: CHEBI:22984
+    label: Calcium
+  - id: CHEBI:27300
+    label: Vitamin D
+  - id: HP:0001369
+    label: Arthritis
+  - id: HP:0002608
+    label: Celiac Disease

@@ -27,14 +27,10 @@ input_text: 'Pancreatic autoimmunity: An unknown etiology on patients with assis
   impact on their reproductive results and live birth rate.'
 raw_completion_output: |-
   primary_disease: Pancreatic Autoimmunity
-
-  medical_actions: Insulin treatment; Oral Glucose Tolerance Test (OGTT); Insulin administration; Metformin administration; Diet control
-
-  symptoms: Recurrent implantation failure (RIF); Recurrent miscarriage (RM); Low level of insulin secretion; Positive Glutamic acid decarboxylase 65 (GAD 65) antibodies; Positive anti-IA2 antibodies
-
-  chemicals: Insulin; Metformin
-
-  action_annotation_relationships: Insulin treatment TREATS recurrent implantation failure (RIF) IN Pancreatic Autoimmunity; Insulin treatment TREATS recurrent miscarriage (RM) IN Pancreatic Autoimmunity; Oral Glucose Tolerance Test (OGTT) PREVENTS misdiagnosis IN Pancreatic Autoimmunity; Insulin administration (with Insulin) TREATS low level of insulin secretion IN Pancreatic Autoimmunity; Metformin administration (with Metformin) TREATS positive Glutamic acid decarboxylase 65 (GAD 65) antibodies IN Pancreatic Autoimmunity; Diet control PREVENTS positive anti-IA2 antibodies IN Pancreatic Autoimmunity
+  medical_actions: insulin treatment; Oral Glucose Tolerance Test (OGTT); insulin administration; metformin administration; diet control
+  symptoms: recurrent implantation failure (RIF); recurrent miscarriage (RM); low level of insulin secretion; positive Glutamic acid decarboxylase 65 (GAD 65) antibodies; positive anti-IA2 antibodies
+  chemicals: insulin; metformin
+  action_annotation_relationships: insulin treatment TREATS low level of insulin secretion IN Pancreatic Autoimmunity; insulin administration TREATS recurrent implantation failure (RIF) IN Pancreatic Autoimmunity; insulin administration (with insulin) TREATS recurrent miscarriage (RM) IN Pancreatic Autoimmunity; metformin administration TREATS low level of insulin secretion IN Pancreatic Autoimmunity; diet control PREVENTS low level of insulin secretion IN Pancreatic Autoimmunity
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -49,7 +45,7 @@ prompt: |+
 
 
   Text:
-  Diet control PREVENTS positive anti-IA2 antibodies IN Pancreatic Autoimmunity
+  diet control PREVENTS low level of insulin secretion IN Pancreatic Autoimmunity
 
   ===
 
@@ -58,59 +54,104 @@ extracted_object:
   medical_actions:
     - MAXO:0000259
     - Oral Glucose Tolerance Test (OGTT)
-    - Insulin administration
-    - Metformin administration
-    - Diet control
+    - insulin administration
+    - metformin administration
+    - diet control
   symptoms:
     - HP:0033712
-    - Recurrent miscarriage (RM)
-    - Low level of insulin secretion
-    - Positive Glutamic acid decarboxylase 65 (GAD 65) antibodies
-    - Positive anti-IA2 antibodies
+    - recurrent miscarriage (RM)
+    - low level of insulin secretion
+    - positive Glutamic acid decarboxylase 65 (GAD 65) antibodies
+    - positive anti-IA2 antibodies
   chemicals:
     - CHEBI:145810
     - CHEBI:6801
   action_annotation_relationships:
-    - subject: MAXO:0000259
-      predicate: TREATS
-      object: HP:0033712
-      qualifier: Pancreatic Autoimmunity
-      subject_extension: CHEBI:145810
-    - subject: MAXO:0000259
-      predicate: TREATS
-      object: recurrent miscarriage (RM)
-      qualifier: Pancreatic Autoimmunity
-      subject_extension: CHEBI:145810
-    - subject: <Oral Glucose Tolerance Test (OGTT)>
-      predicate: <PREVENTS>
-      object: <misdiagnosis>
-      qualifier: <Pancreatic Autoimmunity>
-      subject_qualifier: <Oral>
-      subject_extension: <Glucose>
-    - subject: Insulin administration
+    - subject: treatment
       predicate: TREATS
       object: low level of insulin secretion
       qualifier: Pancreatic Autoimmunity
-      subject_qualifier: with Insulin
       subject_extension: CHEBI:145810
-    - subject: Metformin administration
+    - subject: insulin administration
       predicate: TREATS
-      object: positive Glutamic acid decarboxylase 65 (GAD 65) antibodies
+      object: HP:0033712
       qualifier: Pancreatic Autoimmunity
-      subject_qualifier: with Metformin
+      object_qualifier: RIF
+      subject_extension: CHEBI:145810
+    - subject: insulin administration
+      predicate: TREATS
+      object: recurrent miscarriage
+      qualifier: Pancreatic Autoimmunity
+      subject_qualifier: with insulin
+      object_qualifier: RM
+      subject_extension: CHEBI:145810
+    - subject: administration
+      predicate: TREATS
+      object: low level of insulin secretion
+      qualifier: Pancreatic Autoimmunity
       subject_extension: CHEBI:6801
-    - subject: Diet control
+    - subject: diet control
       predicate: PREVENTS
-      object: positive anti-IA2 antibodies
+      object: low level of insulin secretion
       qualifier: Pancreatic Autoimmunity
 named_entities:
+  - id: MONDO:0044092
+    label: Collagenous sprue
+  - id: HP:0002014
+    label: diarrhea
+  - id: CHEBI:50858
+    label: corticosteroids
+  - id: HP:0004395
+    label: malnutrition
   - id: MONDO:0005130
-    label: celiac disease
+    label: Celiac disease
+  - id: HP:0000870
+    label: Hyperprolactinemia
+  - id: CHEBI:81580
+    label: Prolactin (PRL)
+  - id: HP:0000938
+    label: Bone loss
+  - id: CHEBI:22984
+    label: Calcium
+  - id: CHEBI:27300
+    label: Vitamin D
+  - id: HP:0001369
+    label: Arthritis
+  - id: HP:0002608
+    label: Celiac Disease
+  - id: MONDO:0019473
+    label: Enteropathy-associated T-cell lymphoma (EATL)
+  - id: HP:0002242
+    label: enteropathy
+  - id: HP:0012378
+    label: fatigue
+  - id: HP:0002039
+    label: anorexia
+  - id: HP:0000823
+    label: delayed puberty
+  - id: HP:0004322
+    label: short stature
+  - id: HP:0000789
+    label: infertility
+  - id: MONDO:0016063
+    label: Celiac Disease (CD)
+  - id: MAXO:0000058
+    label: pharmacological treatment
+  - id: HP:0002027
+    label: abdominal pain
+  - id: HP:0003270
+    label: bloating
+  - id: HP:0001903
+    label: anemia
+  - id: MAXO:0000088
+    label: diet
+  - id: MONDO:0005298
+    label: Osteoporosis
   - id: MAXO:0000259
-    label: Insulin treatment
+    label: insulin treatment
   - id: HP:0033712
-    label: Recurrent implantation failure (RIF)
+    label: recurrent implantation failure (RIF)
   - id: CHEBI:145810
-    label: Insulin
+    label: insulin
   - id: CHEBI:6801
-    label: Metformin
+    label: metformin

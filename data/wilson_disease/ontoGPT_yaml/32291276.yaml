@@ -12,15 +12,15 @@ input_text: 'Wilson Disease With Novel Compound Heterozygote Mutations in the AT
   by decreased insulin dosage for glucose control by 5 units. CONCLUSIONS: This is
   the first report of diabetes caused by WD.'
 raw_completion_output: |-
-  primary_disease: Wilson Disease (WD)
+  primary_disease: Wilson Disease
 
-  medical_actions: Sanger sequencing; d-penicillamine (D-PCA) therapy; Dimercaptosuccinic acid capsules prescribed; Decreased insulin dosage
+  medical_actions: d-penicillamine therapy; prescribed dimercaptosuccinic acid capsules; decreased insulin dosage
 
-  symptoms: severe diabetes; increased serum aminotransferase; decreased ceruloplasmin levels; high HbA1c levels; itchy skin; increased serum levels of fasting blood glucose; memory issues
+  symptoms: severe diabetes; increased serum levels of fasting blood glucose; itchy skin; memory issues
 
-  chemicals: d-penicillamine (D-PCA); Dimercaptosuccinic acid
+  chemicals: d-penicillamine; dimercaptosuccinic acid
 
-  action_annotation_relationships: Sanger sequencing TREATS diagnosis IN Wilson Disease; d-penicillamine (D-PCA) TREATS increased serum aminotransferase IN Wilson Disease; d-penicillamine (D-PCA) TREATS decreased ceruloplasmin levels IN Wilson Disease; d-penicillamine (D-PCA) TREATS high HbA1c levels IN Wilson Disease; Dimercaptosuccinic acid capsules TREATS memory issues IN Wilson Disease; Decreased insulin dosage TREATS severe diabetes IN Wilson Disease
+  action_annotation_relationships: d-penicillamine therapy (with d-penicillamine) TREATS increased serum levels of fasting blood glucose IN Wilson Disease; prescribed dimercaptosuccinic acid capsules (with dimercaptosuccinic acid) TREATS memory issues IN Wilson Disease; decreased insulin dosage PREVENTS severe diabetes IN Wilson Disease
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -35,185 +35,276 @@ prompt: |+
 
 
   Text:
-  Decreased insulin dosage TREATS severe diabetes IN Wilson Disease
+  decreased insulin dosage PREVENTS severe diabetes IN Wilson Disease
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0010200
   medical_actions:
-    - Sanger sequencing
-    - d-penicillamine (D-PCA) therapy
-    - Dimercaptosuccinic acid capsules prescribed
-    - Decreased insulin dosage
+    - d-penicillamine therapy
+    - prescribed dimercaptosuccinic acid capsules
+    - decreased insulin dosage
   symptoms:
     - severe diabetes
-    - increased serum aminotransferase
-    - decreased ceruloplasmin levels
-    - high HbA1c levels
-    - HP:0000989
     - increased serum levels of fasting blood glucose
+    - HP:0000989
     - memory issues
   chemicals:
     - CHEBI:7959
     - CHEBI:63623
   action_annotation_relationships:
-    - subject: Sanger sequencing
+    - subject: d-penicillamine therapy
       predicate: TREATS
-      object: diagnosis
+      object: increased serum levels of fasting blood glucose
       qualifier: MONDO:0010200
-    - subject: D-PCA
-      predicate: TREATS
-      object: increased serum aminotransferase
-      qualifier: MONDO:0010200
+      subject_qualifier: with d-penicillamine
       subject_extension: CHEBI:7959
-    - subject: d-penicillamine (D-PCA) treatment
-      predicate: TREATS
-      object: decreased ceruloplasmin levels
-      qualifier: MONDO:0010200
-      subject_extension: CHEBI:7959
-    - subject: d-penicillamine (D-PCA) therapy
-      predicate: TREATS
-      object: HbA1c levels
-      qualifier: MONDO:0010200
-      object_qualifier: high
-      subject_extension: CHEBI:7959
-      object_extension: high
-    - subject: Dimercaptosuccinic acid capsules
+    - subject: prescribed dimercaptosuccinic acid capsules
       predicate: TREATS
       object: memory issues
       qualifier: MONDO:0010200
+      subject_qualifier: with dimercaptosuccinic acid
       subject_extension: CHEBI:63623
-    - subject: Decreased insulin dosage
-      predicate: TREATS
+    - subject: decreased insulin dosage
+      predicate: PREVENTS
       object: severe diabetes
       qualifier: MONDO:0010200
-      object_qualifier: severe
       subject_extension: CHEBI:145810
 named_entities:
   - id: MONDO:0010200
     label: Wilson's disease
   - id: MAXO:0001175
-    label: liver transplantation
+    label: Liver transplantation
   - id: HP:0001695
-    label: cardiac arrest
+    label: Cardiac arrest
   - id: HP:0001685
-    label: myocardial fibrosis
+    label: Myocardial fibrosis
   - id: HP:0001663
-    label: ventricular fibrillation
+    label: Ventricular fibrillation
+  - id: CHEBI:28694
+    label: Copper
+  - id: CHEBI:18248
+    label: Iron
+  - id: HP:0002910
+    label: abnormal liver functions
+  - id: HP:0001394
+    label: cirrhosis
+  - id: CHEBI:27363
+    label: zinc
+  - id: CHEBI:50868
+    label: penicillamine
+  - id: MAXO:0000016
+    label: Cell therapy
+  - id: MAXO:0001001
+    label: Gene therapy
   - id: CHEBI:30703
-    label: tetrathiomolybdate (TTM)
+    label: Tetrathiomolybdate (TTM)
+  - id: HP:0006554
+    label: acute liver failure
   - id: CHEBI:35176
     label: Zinc sulphate
   - id: CHEBI:35475
     label: NSAIDs
-  - id: MAXO:0001001
-    label: Gene therapy
-  - id: HP:0006554
-    label: acute liver failure
+  - id: MAXO:0009095
+    label: zinc therapy
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0006579
+    label: neonatal jaundice
+  - id: HP:0001409
+    label: portal hypertension
+  - id: HP:0030151
+    label: cholangitis
+  - id: HP:0002612
+    label: congenital hepatic fibrosis
+  - id: MONDO:0013282
+    label: alpha-1-antitrypsin deficiency
+  - id: HP:0001903
+    label: anemia
+  - id: HP:0001410
+    label: liver dysfunction
+  - id: CHEBI:39501
+    label: trientine
+  - id: MAXO:0000070
+    label: Hepatic transplantation
+  - id: HP:0001399
+    label: Hepatic failure
+  - id: HP:0004448
+    label: fulminant hepatic failure
   - id: HP:0003256
-    label: coagulopathy
+    label: coagulopathy (international normalized ratio >2.0)
+  - id: HP:0004445
+    label: hepatic encephalopathy (HE)
   - id: HP:0002480
     label: hepatic encephalopathy
+  - id: CHEBI:35341
+    label: Steroids
+  - id: CHEBI:33281
+    label: Antibiotics
+  - id: MONDO:0100193
+    label: End-stage liver disease
+  - id: HP:0100626
+    label: End-stage liver disease
+  - id: HP:0100660
+    label: dyskinesia
+  - id: HP:0100022
+    label: Movement disorders
   - id: HP:0001337
     label: Tremor
   - id: HP:0001332
     label: Dystonia
-  - id: CHEBI:28694
-    label: Copper
-  - id: HP:0001395
-    label: Liver fibrosis
-  - id: HP:0001394
-    label: Cirrhosis
-  - id: CHEBI:39501
-    label: trientine
-  - id: CHEBI:27363
-    label: zinc
-  - id: HP:0001410
-    label: hepatic dysfunction
+  - id: MONDO:0019542
+    label: Acute liver failure (ALF)
+  - id: CHEBI:27385
+    label: CCL4
+  - id: MAXO:0000127
+    label: Genetic testing
   - id: CHEBI:7959
     label: D-penicillamine
+  - id: MAXO:0001017
+    label: Vaccination
+  - id: HP:0001541
+    label: Ascites
+  - id: HP:0012398
+    label: Peripheral edema
+  - id: HP:0001260
+    label: dysarthria
+  - id: HP:0000708
+    label: psychiatric disorders
+  - id: HP:0200123
+    label: chronic hepatitis
+  - id: CHEBI:38161
+    label: chelators
   - id: MAXO:0000376
-    label: Liver biopsy
+    label: liver biopsy
   - id: HP:0001404
-    label: Hepatocellular necrosis
+    label: hepatocellular necrosis
   - id: CHEBI:61049
     label: Tacrolimus
-  - id: CHEBI:50868
-    label: Penicillamine
   - id: HP:0001744
-    label: splenomegaly
-  - id: HP:0001541
-    label: ascites
-  - id: HP:0001260
-    label: Dysarthria
+    label: Splenomegaly
+  - id: MAXO:0000603
+    label: Peritoneal dialysis
+  - id: HP:0200032
+    label: Kayser-Fleischer rings
+  - id: HP:0002172
+    label: impaired balance
   - id: HP:0001347
-    label: Hyperreflexia
+    label: hyperreflexia
   - id: HP:0031843
-    label: Bradyphrenia
+    label: bradyphrenia
   - id: HP:0002362
-    label: Shuffling gait
-  - id: HP:0002300
-    label: Mutism
+    label: shuffling gait
   - id: HP:0001621
-    label: Hypophonia
+    label: hypophonia
   - id: CHEBI:37153
     label: Calcineurin inhibitors
   - id: CHEBI:8356
-    label: Pramipexole
+    label: pramipexole
   - id: CHEBI:2618
-    label: Amantadine
-  - id: HP:0001399
-    label: liver failure
+    label: amantadine
+  - id: HP:0000093
+    label: proteinuria
+  - id: CHEBI:231592
+    label: zinc salts
+  - id: MAXO:0000167
+    label: antiepileptic therapy
+  - id: CHEBI:9168
+    label: rapamycin
+  - id: CHEBI:55379
+    label: cyclosporine (CsA)
+  - id: CHEBI:35623
+    label: antiepileptic
+  - id: HP:0000083
+    label: renal failure
   - id: HP:0000952
     label: jaundice
   - id: HP:0001919
     label: acute kidney injury
-  - id: HP:0200032
-    label: Kayser-Fleischer rings
-  - id: MONDO:0013792
-    label: Intracerebral Hemorrhage
   - id: HP:0001342
-    label: Intracerebral Hemorrhage
+    label: intracerebral hemorrhage
   - id: MAXO:0000533
-    label: Molecular genetic testing
+    label: molecular genetic testing
   - id: HP:0001873
     label: thrombocytopenia
-  - id: HP:0002344
-    label: worsening neurological symptoms
+  - id: HP:0001298
+    label: Encephalopathy
+  - id: MAXO:0009070
+    label: SPECT
+  - id: HP:0001251
+    label: ataxia
+  - id: CHEBI:166831
+    label: copper chelators
+  - id: MAXO:0035064
+    label: electron microscopic studies
+  - id: MAXO:0000139
+    label: autopsy
+  - id: HP:0006577
+    label: macronodular cirrhosis
+  - id: CHEBI:8830
+    label: rhodanine
   - id: HP:0001272
     label: Cerebellar Atrophy
-  - id: HP:0012896
-    label: abnormal motor evoked potentials (MEPs)
+  - id: HP:0007263
+    label: Spinocerebellar Ataxia
+  - id: MAXO:0001610
+    label: transcranial magnetic stimulation
+  - id: HP:0002015
+    label: dysphagia
   - id: HP:0001392
     label: liver disease
   - id: HP:0001396
     label: cholestasis
   - id: HP:0001403
     label: macrovesicular steatosis
-  - id: CHEBI:8830
-    label: rhodanine
   - id: CHEBI:90299
     label: orcein
+  - id: MONDO:0000437
+    label: Spinocerebellar degeneration
+  - id: CHEBI:2948
+    label: Azathioprine
+  - id: CHEBI:8378
+    label: Prednisolone
+  - id: HP:0031690
+    label: opportunistic infections
+  - id: HP:0001397
+    label: Steatosis
+  - id: HP:0001513
+    label: Obesity
+  - id: HP:0000819
+    label: Diabetes
+  - id: HP:6000457
+    label: Mallory bodies
+  - id: HP:0002829
+    label: Arthralgia
+  - id: CHEBI:9907
+    label: Ursodeoxycholic acid
+  - id: MONDO:0007027
+    label: Non-alcoholic steatohepatitis (NASH)
+  - id: MONDO:0006507
+    label: Hereditary hemochromatosis (HH)
   - id: MONDO:0018874
-    label: Acute Myeloid Leukemia (t-AML or AML-MRC)
+    label: Acute Myeloid Leukemia (AML)
   - id: CHEBI:41977
     label: Daunorubicin
   - id: CHEBI:28680
     label: Cytarabine
-  - id: CHEBI:37404
-    label: Elemental copper
+  - id: HP:0004808
+    label: Acute Myeloid Leukemia (AML)
   - id: CHEBI:16856
-    label: Plasma glutathione (GSH)
+    label: Glutathione (GSH)
   - id: CHEBI:53498
     label: Total antioxidant capacity (TAC)
   - id: CHEBI:566274
     label: Malondialdehyde (MDA)
-  - id: CHEBI:33697
-    label: RNAs
+  - id: HP:0001289
+    label: Confusion
+  - id: CHEBI:46195
+    label: Acetaminophen
   - id: HP:0000989
     label: itchy skin
   - id: CHEBI:63623
-    label: Dimercaptosuccinic acid
+    label: dimercaptosuccinic acid
   - id: CHEBI:145810
     label: insulin

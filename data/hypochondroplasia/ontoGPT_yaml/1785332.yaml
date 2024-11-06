@@ -14,15 +14,15 @@ input_text: Growth-promoting effect of human growth hormone on patients with ach
 raw_completion_output: |-
   primary_disease: Achondroplasia
 
-  medical_actions: Administration of human growth hormone (hGH); Surgical operation to correct atlantoaxial dislocation
+  medical_actions: Administration of human growth hormone (hGH); Operation for atlantoaxial dislocation
 
-  symptoms: Reduced height velocity; Tibial deformation; Sleep apnea; Neurological deficits
+  symptoms: Reduced growth velocity; Atlantoaxial dislocation; Sleep apnea; Neurological deficits
 
-  chemicals: Human growth hormone (hGH)
+  chemicals: human growth hormone (hGH)
 
-  action_annotation_relationships: Administration of human growth hormone (hGH) TREATS reduced height velocity IN Achondroplasia; Administration of human growth hormone (hGH) PREVENTS tibial deformation IN Achondroplasia; Surgical operation to correct atlantoaxial dislocation TREATS sleep apnea IN Achondroplasia; Surgical operation to correct atlantoaxial dislocation TREATS neurological deficits IN Achondroplasia
+  action_annotation_relationships: Administration of human growth hormone (hGH) TREATS reduced growth velocity IN Achondroplasia; Operation TREATS atlantoaxial dislocation IN Achondroplasia; Operation TREATS sleep apnea IN Achondroplasia; Operation TREATS neurological deficits IN Achondroplasia
 prompt: |+
-  From the text below, extract the following entities in the following format:
+  Split the following piece of text into fields in the following format:
 
   subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
   object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
@@ -35,7 +35,7 @@ prompt: |+
 
 
   Text:
-  Surgical operation to correct atlantoaxial dislocation TREATS neurological deficits IN Achondroplasia
+  Operation TREATS neurological deficits IN Achondroplasia
 
   ===
 
@@ -43,63 +43,78 @@ extracted_object:
   primary_disease: MONDO:0007037
   medical_actions:
     - Administration of human growth hormone (hGH)
-    - Surgical operation to correct atlantoaxial dislocation
+    - Operation for atlantoaxial dislocation
   symptoms:
-    - Reduced height velocity
-    - Tibial deformation
+    - Reduced growth velocity
+    - HP:0003414
     - HP:0010535
     - Neurological deficits
   chemicals:
-    - Human growth hormone (hGH)
+    - human growth hormone (hGH)
   action_annotation_relationships:
-    - subject: Administration
+    - subject: Administration of human growth hormone
       predicate: TREATS
-      object: reduced height velocity
+      object: reduced growth velocity
       qualifier: MONDO:0007037
       subject_extension: human growth hormone
-    - subject: Administration
-      predicate: PREVENTS
-      object: tibial deformation
+    - subject: MAXO:0000004
+      predicate: TREATS
+      object: HP:0003414
       qualifier: MONDO:0007037
-      subject_extension: human growth hormone
-    - subject: Surgical operation to correct atlantoaxial dislocation
+    - subject: MAXO:0000004
       predicate: TREATS
       object: HP:0010535
       qualifier: MONDO:0007037
-    - subject: Surgical operation to correct atlantoaxial dislocation
+    - subject: MAXO:0000004
       predicate: TREATS
       object: neurological deficits
       qualifier: MONDO:0007037
 named_entities:
   - id: HP:0031846
     label: Femoral fracture
-  - id: MAXO:0000745
-    label: cytogenetic analysis
   - id: HP:0000256
     label: macrocephaly
   - id: MAXO:0000127
-    label: genetic testing
+    label: Genetic testing
+  - id: MONDO:0007793
+    label: Hypochondroplasia
   - id: HP:0003750
     label: Muscle fatigue
+  - id: MAXO:0000486
+    label: distraction osteogenesis
+  - id: MAXO:0000068
+    label: transplantation
   - id: MONDO:0000050
     label: Growth hormone deficiency
-  - id: MAXO:0000780
-    label: Growth hormone therapy
   - id: CHEBI:37845
     label: Growth hormone
+  - id: MONDO:0001106
+    label: renal insufficiency
+  - id: MONDO:0005030
+    label: intrauterine growth retardation
+  - id: MONDO:0008383
+    label: rheumatoid arthritis
   - id: MAXO:0000526
     label: Clinical examination
   - id: MONDO:0005516
     label: Skeletal dysplasia
   - id: CHEBI:77383
-    label: bisphosphonates
+    label: bisphosphonate
   - id: MAXO:0001298
     label: therapy
   - id: MONDO:0007037
-    label: Achondroplasia
+    label: Skeletal dysplasia (achondroplasia)
+  - id: MONDO:0019019
+    label: Skeletal dysplasia (osteogenesis imperfecta)
+  - id: MONDO:0018570
+    label: Skeletal dysplasia (hypophosphatasia)
+  - id: MAXO:0000780
+    label: growth hormone therapy
   - id: HP:0004322
-    label: Short stature
-  - id: MONDO:0007793
-    label: hypochondroplasia
+    label: short stature
+  - id: HP:0003414
+    label: Atlantoaxial dislocation
   - id: HP:0010535
     label: Sleep apnea
+  - id: MAXO:0000004
+    label: Operation

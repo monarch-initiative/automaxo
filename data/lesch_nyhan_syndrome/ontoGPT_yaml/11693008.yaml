@@ -9,10 +9,10 @@ input_text: 'Prevention of self-mutilation in patients with Lesch-Nyhan syndrome
   advocated by the literature today.'
 raw_completion_output: |-
   primary_disease: Lesch-Nyhan syndrome
-  medical_actions: Use of a nonsurgical splint or mouth guard; Consideration of surgical procedures; Use of medication
-  symptoms: Self-mutilation
-  chemicals: Carbamazepine
-  action_annotation_relationships: Use of a nonsurgical splint or mouth guard PREVENTS Self-mutilation IN Lesch-Nyhan syndrome; Consideration of surgical procedures PREVENTS Self-mutilation IN Lesch-Nyhan syndrome; Use of medication (with Carbamazepine) PREVENTS Self-mutilation IN Lesch-Nyhan syndrome
+  medical_actions: nonsurgical splint; mouth guard; surgical procedures; use of medication
+  symptoms: self-mutilation
+  chemicals: carbamazepine
+  action_annotation_relationships: nonsurgical splint PREVENTS self-mutilation IN Lesch-Nyhan syndrome; mouth guard PREVENTS self-mutilation IN Lesch-Nyhan syndrome; surgical procedures PREVENTS self-mutilation IN Lesch-Nyhan syndrome; use of medication (with carbamazepine) PREVENTS self-mutilation IN Lesch-Nyhan syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -27,46 +27,51 @@ prompt: |+
 
 
   Text:
-  Use of medication (with Carbamazepine) PREVENTS Self-mutilation IN Lesch-Nyhan syndrome
+  use of medication (with carbamazepine) PREVENTS self-mutilation IN Lesch-Nyhan syndrome
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0010298
   medical_actions:
-    - Use of a nonsurgical splint or mouth guard
-    - Consideration of surgical procedures
-    - Use of medication
+    - nonsurgical splint
+    - mouth guard
+    - MAXO:0000004
+    - use of medication
   symptoms:
     - HP:0000742
   chemicals:
     - CHEBI:3387
   action_annotation_relationships:
-    - subject: Use of a nonsurgical splint or mouth guard
+    - subject: nonsurgical splint
       predicate: PREVENTS
       object: HP:0000742
       qualifier: MONDO:0010298
-    - subject: Consideration of surgical procedures
+    - subject: mouth guard
       predicate: PREVENTS
       object: HP:0000742
       qualifier: MONDO:0010298
-    - subject: Use of medication
+    - subject: MAXO:0000004
       predicate: PREVENTS
       object: HP:0000742
       qualifier: MONDO:0010298
-      subject_qualifier: with Carbamazepine
+    - subject: use of medication
+      predicate: PREVENTS
+      object: HP:0000742
+      qualifier: MONDO:0010298
+      subject_qualifier: with carbamazepine
       subject_extension: CHEBI:3387
 named_entities:
   - id: MONDO:0010298
     label: Lesch-Nyhan syndrome
-  - id: HP:0002149
-    label: hyperuricemia
-  - id: HP:0100021
-    label: spastic cerebral palsy (CP)
-  - id: HP:0001332
-    label: dystonia
   - id: HP:0000742
-    label: self-mutilation
+    label: Self-mutilation
+  - id: HP:0002149
+    label: Hyperuricemia
+  - id: HP:0001249
+    label: Mental retardation
+  - id: HP:0001332
+    label: Dystonia
   - id: HP:0001257
     label: Spasticity
   - id: HP:0001266
@@ -77,23 +82,21 @@ named_entities:
     label: Aggression
   - id: HP:0002104
     label: Apnea
-  - id: HP:0002013
-    label: Vomiting
   - id: CHEBI:44915
     label: Propofol
+  - id: HP:0002835
+    label: pulmonary aspiration
   - id: MAXO:0000943
     label: deep brain stimulation surgery (DBS)
   - id: CHEBI:9130
     label: sevoflurane
-  - id: MAXO:0009003
-    label: preimplantation genetic diagnosis (PGD)
-  - id: HP:0001249
-    label: mental retardation
   - id: CHEBI:17368
     label: Hypoxanthine
   - id: CHEBI:15372
-    label: tetrahydrobiopterin
+    label: Tetrahydrobiopterin
   - id: CHEBI:35634
-    label: xanthine oxidase inhibitors
+    label: Xanthine oxidase inhibitors
+  - id: MAXO:0000004
+    label: surgical procedures
   - id: CHEBI:3387
-    label: Carbamazepine
+    label: carbamazepine

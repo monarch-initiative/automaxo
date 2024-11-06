@@ -20,11 +20,11 @@ input_text: "Pre-transplant manipulation processing of umbilical cord blood unit
   York Blood Centre that guarantees an excellent NC recovery and maintains a high
   level of cell viability."
 raw_completion_output: |-
-  primary_disease: Various pathologies
-  medical_actions: Pre-transplant manipulation processing of umbilical cord blood units; Efficacy evaluation of cellular manipulation before transplant; Thawing using Rubinstein's technique
-  symptoms: N/A
-  chemicals: N/A
-  action_annotation_relationships: Thawing using Rubinstein's technique TREATS Various pathologies
+  primary_disease: Umbilical cord blood transplantation
+  medical_actions: Pre-transplant manipulation processing of umbilical cord blood units; Rubinstein's thawing technique
+  symptoms: Low number of stem cells
+  chemicals: 
+  action_annotation_relationships: Pre-transplant manipulation processing of umbilical cord blood units PREVENTS low number of stem cells IN Umbilical cord blood transplantation; Rubinstein's thawing technique TREATS low number of stem cells IN Umbilical cord blood transplantation
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -39,48 +39,53 @@ prompt: |+
 
 
   Text:
-  Thawing using Rubinstein's technique TREATS Various pathologies
+  Rubinstein's thawing technique TREATS low number of stem cells IN Umbilical cord blood transplantation
 
   ===
 
 extracted_object:
-  primary_disease: Various pathologies
+  primary_disease: Umbilical cord blood transplantation
   medical_actions:
     - Pre-transplant manipulation processing of umbilical cord blood units
-    - Efficacy evaluation of cellular manipulation before transplant
-    - Thawing using Rubinstein's technique
+    - Rubinstein's thawing technique
   symptoms:
-    - N/A
-  chemicals:
-    - N/A
+    - Low number of stem cells
   action_annotation_relationships:
-    - subject: Thawing
+    - subject: Pre-transplant manipulation processing
+      predicate: PREVENTS
+      object: low number of stem cells
+      qualifier: Umbilical cord blood transplantation
+      subject_extension: umbilical cord blood units
+    - subject: Rubinstein's thawing technique
       predicate: TREATS
-      object: Various pathologies
-      subject_qualifier: using
-      subject_extension: Rubinstein's technique
+      object: low number of stem cells
+      qualifier: Umbilical cord blood transplantation
 named_entities:
+  - id: HP:0012531
+    label: pain
   - id: MAXO:0010030
-    label: Bone marrow transplantation (BMT)
+    label: bone marrow transplantation (BMT)
   - id: MONDO:0008963
     label: Chediak-Higashi syndrome
   - id: MAXO:0010033
-    label: Unrelated cord blood transplantation (UCBT)
+    label: unrelated cord blood transplantation (UCBT)
   - id: MAXO:0000747
     label: HSCT
   - id: MAXO:0000750
-    label: Conditioning regimens
+    label: conditioning regimens
   - id: CHEBI:41264
     label: BU
   - id: CHEBI:4027
-    label: Cyclophosphamide
+    label: cyclophosphamide
   - id: CHEBI:4911
-    label: Etoposide
+    label: etoposide
+  - id: MONDO:0008090
+    label: Chediak-Higashi syndrome (CHS)
   - id: HP:0001433
-    label: hepatosplenomegaly
+    label: Hepatosplenomegaly
   - id: HP:0003270
-    label: abdominal distention
+    label: Abdominal distention
   - id: MONDO:0024686
     label: Pigmented villonodular synovitis (PVNS)
   - id: HP:0001945
-    label: fever
+    label: Fever

@@ -1,0 +1,166 @@
+---
+input_text: 'Perceived burden of respiratory physiotherapy in people with cystic fibrosis
+  taking elexacaftor-tezacaftor-ivacaftor combination: a 1-year observational study.
+  BACKGROUND: To limit the progression of disease, people with cystic fibrosis (pwCF)
+  perform daily respiratory physiotherapy, which is perceived as the most burdensome
+  routine in managing their condition. The elexacaftor-tezacaftor-ivacaftor (ETI)
+  combination has changed respiratory management. OBJECTIVE: To investigate how the
+  perceived treatment burden changed in 1 year of treatment with ETI. DESIGN: Prospective
+  observational study. METHODS: Ad hoc questionnaires for the pwCF and for the caregivers
+  of pwCF < 18 years were administered before the initiation of ETI therapy and then
+  at 6-12 months. The Cystic Fibrosis Questionnaire-Revised (CFQ-R) and the Sinonasal
+  Outcome Test (SNOT-22) were administered to explore disease-related symptoms and
+  social limitations. The International Physical Activity Questionnaire was used to
+  determine levels of physical activity. Mixed-effect models were fitted to explore
+  whether the time engaged in respiratory physiotherapy changed during 1 year. RESULTS:
+  The study included 47/184 pwCF aged 21.4 (5.7) years, who completed 1 year of ETI
+  therapy. At 6 months, time on aerosol therapy was decreased by 2.5 (95% CI -32.9
+  to 27.8) min/day, time on airway clearance therapies (ACTs) was decreased by 8.8
+  (95% CI -25.9 to 8.3) min/day, and time for cleaning and disinfecting respiratory
+  equipment was decreased by 10.6 (95% CI -26.5 to 5.3) min/day. At 1 year, gains
+  in time saved were nearly 15 min/day on average. At 1 year, 5/47 (10.6%) pwCF reported
+  that they had discontinued positive expiratory pressure mask. CONCLUSION: PwCF on
+  ETI may note less time engaged in their daily respiratory physiotherapy routine.
+  Nonetheless, aerosol therapy, ACTs and maintaining respiratory equipment were still
+  perceived as time-consuming daily activities.'
+raw_completion_output: |-
+  primary_disease: cystic fibrosis
+  medical_actions: aerosol therapy; airway clearance therapies (ACTs); cleaning and disinfecting respiratory equipment; use of positive expiratory pressure mask; respiratory physiotherapy
+  symptoms: disease progression; social limitations
+  chemicals: elexacaftor-tezacaftor-ivacaftor (ETI)
+  action_annotation_relationships: aerosol therapy TREATS disease progression IN cystic fibrosis; airway clearance therapies (ACTs) TREATS disease progression IN cystic fibrosis; cleaning and disinfecting respiratory equipment TREATS disease progression IN cystic fibrosis; use of positive expiratory pressure mask TREATS disease progression IN cystic fibrosis; respiratory physiotherapy TREATS disease progression IN cystic fibrosis; respiratory physiotherapy TREATS social limitations IN cystic fibrosis; elexacaftor-tezacaftor-ivacaftor (ETI) TREATS disease progression IN cystic fibrosis
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  elexacaftor-tezacaftor-ivacaftor (ETI) TREATS disease progression IN cystic fibrosis
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009061
+  medical_actions:
+    - aerosol therapy
+    - airway clearance therapies (ACTs)
+    - cleaning and disinfecting respiratory equipment
+    - use of positive expiratory pressure mask
+    - respiratory physiotherapy
+  symptoms:
+    - disease progression
+    - social limitations
+  chemicals:
+    - CHEBI:53454
+  action_annotation_relationships:
+    - subject: aerosol therapy
+      predicate: TREATS
+      object: disease progression
+      qualifier: MONDO:0009061
+      subject_extension: aerosol therapy
+    - subject: airway clearance therapies (ACTs)
+      predicate: TREATS
+      object: disease progression
+      qualifier: MONDO:0009061
+    - subject: cleaning and disinfecting respiratory equipment
+      predicate: TREATS
+      object: disease progression
+      qualifier: MONDO:0009061
+    - subject: <use of positive expiratory pressure mask>
+      predicate: <TREATS>
+      object: <disease progression>
+      qualifier: <cystic fibrosis>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <positive expiratory pressure mask>
+      object_extension: <>
+    - subject: respiratory physiotherapy
+      predicate: TREATS
+      object: disease progression
+      qualifier: MONDO:0009061
+    - subject: respiratory physiotherapy
+      predicate: TREATS
+      object: social limitations
+      qualifier: MONDO:0009061
+    - subject: ETI
+      predicate: TREATS
+      object: disease progression
+      qualifier: MONDO:0009061
+      subject_extension: elexacaftor-tezacaftor-ivacaftor
+named_entities:
+  - id: MONDO:0009061
+    label: Cystic Fibrosis
+  - id: CHEBI:22507
+    label: Aminoglycoside antibiotics
+  - id: CHEBI:28864
+    label: Tobramycin
+  - id: MONDO:0005460
+    label: Influenza A (H1N1)
+  - id: HP:0002098
+    label: respiratory distress
+  - id: HP:0001945
+    label: fever
+  - id: HP:0002014
+    label: diarrhea
+  - id: HP:0002013
+    label: vomiting
+  - id: HP:0011950
+    label: viral bronchiolitis
+  - id: HP:0002090
+    label: pneumonia
+  - id: CHEBI:7798
+    label: oseltamivir
+  - id: MAXO:0001017
+    label: vaccination
+  - id: MONDO:0005275
+    label: Pulmonary Diseases
+  - id: CHEBI:16991
+    label: DNA
+  - id: CHEBI:33699
+    label: mRNA
+  - id: HP:0012735
+    label: Cough
+  - id: CHEBI:50858
+    label: corticosteroids
+  - id: HP:0002910
+    label: Elevated transaminases
+  - id: CHEBI:61049
+    label: Tacrolimus
+  - id: CHEBI:53454
+    label: ETI
+  - id: MAXO:0000259
+    label: Insulin treatment
+  - id: HP:0001394
+    label: Cirrhosis
+  - id: HP:0001738
+    label: Exocrine pancreatic insufficiency
+  - id: HP:0100651
+    label: Insulin-dependent diabetes mellitus
+  - id: HP:0001988
+    label: Recurrent hypoglycemia
+  - id: HP:0001744
+    label: Splenomegaly
+  - id: CHEBI:145810
+    label: Insulin
+  - id: CHEBI:27027
+    label: Trace elements
+  - id: CHEBI:33229
+    label: Vitamins
+  - id: CHEBI:141442
+    label: MN
+  - id: MAXO:0000376
+    label: Liver biopsy
+  - id: MAXO:0035106
+    label: Paracentesis
+  - id: MAXO:0001175
+    label: Liver transplantation
+  - id: MONDO:0001684
+    label: Exocrine pancreatic insufficiency (EPI)

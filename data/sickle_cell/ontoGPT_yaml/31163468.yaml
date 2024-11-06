@@ -12,11 +12,15 @@ input_text: "[What's new in diagnostics and treatment of hemoglobinopathies?] Im
   vaso-occlusive complications e. g. by inhibiting selectins are currently thoroughly
   investigated and some of them will probably get approval very soon."
 raw_completion_output: |-
-  primary_disease: <hemoglobinopathies>
-  medical_actions: <diagnostic modalities; treatment modalities; regular transfusion; hematopoetic stem transplantation; gene therapy; medical treatment with luspatercept; treatment with R-state-stabilising agents; treatment by inhibiting selectins>
-  symptoms: <secondary hemochromatosis; sickling; vaso-occlusive complications>
-  chemicals: <luspatercept>
-  action_annotation_relationships: <regular transfusion TREATS secondary hemochromatosis IN hemoglobinopathies; hematopoetic stem transplantation TREATS hemoglobinopathies; gene therapy TREATS sickling IN hemoglobinopathies; gene therapy TREATS hemoglobinopathies; medical treatment with luspatercept TREATS hemoglobinopathies; treatment with R-state-stabilising agents TREATS sickling IN hemoglobinopathies; treatment by inhibiting selectins TREATS vaso-occlusive complications IN hemoglobinopathies>
+  primary_disease: Hemoglobinopathies
+
+  medical_actions: Regular transfusion; Hematopoetic stem transplantation; Additive gene therapy; Medical treatment with new drugs; Correct the genetic change by gene therapy; Affect the underlying mechanism of sickling by R-state-stabilising agents; Inhibit selectins
+
+  symptoms: Secondary hemochromatosis; Sickle cell disease; Vaso-occlusive complications
+
+  chemicals: Luspatercept
+
+  action_annotation_relationships: Regular transfusion TREATS Secondary hemochromatosis IN Hemoglobinopathies; Hematopoetic stem transplantation TREATS Hemoglobinopathies; Additive gene therapy TREATS Hemoglobinopathies; Medical treatment (with Luspatercept) TREATS Hemoglobinopathies; Gene therapy PREVENTS Sickle cell disease IN Hemoglobinopathies; R-state-stabilising agents TREATS Sickle cell disease IN Hemoglobinopathies; Inhibiting selectins TREATS Vaso-occlusive complications IN Hemoglobinopathies
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -31,66 +35,84 @@ prompt: |+
 
 
   Text:
-  treatment by inhibiting selectins TREATS vaso-occlusive complications IN hemoglobinopathies>
+  Inhibiting selectins TREATS Vaso-occlusive complications IN Hemoglobinopathies
 
   ===
 
 extracted_object:
-  primary_disease: <hemoglobinopathies>
+  primary_disease: MONDO:0044348
   medical_actions:
-    - <diagnostic modalities
-    - treatment modalities
-    - regular transfusion
-    - hematopoetic stem transplantation
-    - MAXO:0001001
-    - medical treatment with luspatercept
-    - treatment with R-state-stabilising agents
-    - treatment by inhibiting selectins>
+    - Regular transfusion
+    - Hematopoetic stem transplantation
+    - Additive gene therapy
+    - Medical treatment with new drugs
+    - Correct the genetic change by gene therapy
+    - Affect the underlying mechanism of sickling by R-state-stabilising agents
+    - Inhibit selectins
   symptoms:
-    - <secondary hemochromatosis
-    - sickling
-    - vaso-occlusive complications>
+    - Secondary hemochromatosis
+    - Sickle cell disease
+    - Vaso-occlusive complications
   chemicals:
-    - <luspatercept>
+    - Luspatercept
   action_annotation_relationships:
-    - subject: regular transfusion
+    - subject: Regular transfusion
       predicate: TREATS
-      object: secondary hemochromatosis
+      object: Secondary hemochromatosis
       qualifier: MONDO:0044348
-    - subject: hematopoetic stem transplantation
+    - subject: Hematopoetic stem transplantation
       predicate: TREATS
-      object: hemoglobinopathies
+      object: Hemoglobinopathies
+    - subject: Additive gene therapy
+      predicate: TREATS
+      object: Hemoglobinopathies
+      subject_qualifier: Additive
+      subject_extension: gene therapy
+    - subject: Medical treatment
+      predicate: TREATS
+      object: Hemoglobinopathies
+      subject_qualifier: with Luspatercept
+      subject_extension: Luspatercept
     - subject: MAXO:0001001
-      predicate: TREATS
-      object: sickling
+      predicate: PREVENTS
+      object: Sickle cell disease
       qualifier: MONDO:0044348
-    - subject: MAXO:0001001
+    - subject: R-state-stabilising agents
       predicate: TREATS
-      object: hemoglobinopathies
-    - subject: medical treatment
-      predicate: TREATS
-      object: hemoglobinopathies
-      subject_extension: luspatercept
-    - subject: treatment
-      predicate: TREATS
-      object: sickling
+      object: Sickle cell disease
       qualifier: MONDO:0044348
       subject_extension: R-state-stabilising agents
-    - subject: treatment
+    - subject: Inhibiting selectins
       predicate: TREATS
-      object: vaso-occlusive complications
+      object: Vaso-occlusive complications
       qualifier: MONDO:0044348
-      subject_extension: inhibiting selectins
+      subject_extension: selectins
 named_entities:
-  - id: MONDO:0007374
-    label: Sickle Cell Disease (SCD)
+  - id: MONDO:0011382
+    label: sickle cell disease
+  - id: CHEBI:64357
+    label: rituximab
+  - id: CHEBI:35341
+    label: steroids
+  - id: CHEBI:81579
+    label: erythropoietin
   - id: MAXO:0001017
     label: Vaccination
-  - id: MAXO:0000756
-    label: Blood transfusion
+  - id: MONDO:0007374
+    label: Sickle Cell Disease (SCD)
+  - id: MAXO:0000747
+    label: Allogeneic hematopoietic stem cell transplantation (HSCT)
+  - id: HP:0007760
+    label: Sickle Cell Disease (SCD)
   - id: MAXO:0001001
     label: Gene therapy
-  - id: HP:0012824
-    label: severity
+  - id: CHEBI:35480
+    label: analgesics
+  - id: CHEBI:33281
+    label: antibiotics
+  - id: MAXO:0001077
+    label: Splenectomy
+  - id: MAXO:0000756
+    label: Blood transfusion
   - id: MONDO:0044348
-    label: hemoglobinopathies
+    label: Hemoglobinopathies

@@ -28,13 +28,13 @@ input_text: 'Rate and determinants of non-adherence to a gluten-free diet and nu
 raw_completion_output: |-
   primary_disease: Celiac Disease
 
-  medical_actions: Dietary guidance; Treatment with a gluten-free diet; Nutritional and physical health assessment; Serologic test; Anthropometric data collection
+  medical_actions: Dietary guidance; Nutritional and physical health assessment; Gluten-free diet (GFD) adherence support; Serologic test; Anthropometric data collection
 
-  symptoms: Weight and height deficit; Excessive weight gain; Non-adherence to a gluten-free diet
+  symptoms: Non-adherence to gluten-free diet; Weight and height deficit; Excessive weight gain
 
   chemicals: 
 
-  action_annotation_relationships: Dietary guidance TREATS non-adherence to a gluten-free diet IN Celiac Disease; Treatment with a gluten-free diet TREATS weight and height deficit IN Celiac Disease; Nutritional and physical health assessment PREVENTS excessive weight gain IN Celiac Disease; Serologic test TREATS non-adherence to a gluten-free diet IN Celiac Disease; Anthropometric data collection PREVENTS excessive weight gain IN Celiac Disease
+  action_annotation_relationships: Dietary guidance TREATS Non-adherence to gluten-free diet IN Celiac Disease; Gluten-free diet (GFD) adherence support TREATS Non-adherence to gluten-free diet IN Celiac Disease; Serologic test ASSESSES Celiac Disease; Anthropometric data collection ASSESSES Weight and height deficit IN Celiac Disease; Nutritional and physical health assessment PREVENTS Excessive weight gain IN Celiac Disease
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -49,7 +49,7 @@ prompt: |+
 
 
   Text:
-  Anthropometric data collection PREVENTS excessive weight gain IN Celiac Disease
+  Nutritional and physical health assessment PREVENTS Excessive weight gain IN Celiac Disease
 
   ===
 
@@ -57,48 +57,106 @@ extracted_object:
   primary_disease: MONDO:0005130
   medical_actions:
     - Dietary guidance
-    - Treatment with a gluten-free diet
     - Nutritional and physical health assessment
+    - Gluten-free diet (GFD) adherence support
     - Serologic test
     - Anthropometric data collection
   symptoms:
+    - Non-adherence to gluten-free diet
     - Weight and height deficit
     - Excessive weight gain
-    - Non-adherence to a gluten-free diet
   action_annotation_relationships:
-    - subject: Dietary guidance
-      predicate: TREATS
-      object: non-adherence to a gluten-free diet
-      qualifier: MONDO:0005130
-    - subject: Treatment
-      predicate: TREATS
-      object: weight and height deficit
-      qualifier: MONDO:0005130
-      subject_extension: gluten-free diet
-    - subject: Nutritional and physical health assessment
-      predicate: PREVENTS
-      object: excessive weight gain
-      qualifier: MONDO:0005130
-    - subject: <Serologic test>
+    - subject: <Dietary guidance>
       predicate: <TREATS>
-      object: <non-adherence to a gluten-free diet>
+      object: <Non-adherence to diet>
       qualifier: <Celiac Disease>
       subject_qualifier: <None>
       object_qualifier: <None>
       subject_extension: <None>
-      object_extension: <None>
+      object_extension: <gluten-free>
+    - subject: Gluten-free diet (GFD) adherence support
+      predicate: TREATS
+      object: Non-adherence to gluten-free diet
+      qualifier: MONDO:0005130
+      subject_extension: Gluten-free diet
+      object_extension: Non-adherence to gluten-free diet
+    - subject: Serologic test
+      predicate: ASSESSES
+      qualifier: MONDO:0005130
     - subject: Anthropometric data collection
+      predicate: ASSESSES
+      object: Weight and height deficit
+      qualifier: MONDO:0005130
+    - subject: Nutritional and physical health assessment
       predicate: PREVENTS
-      object: excessive weight gain
+      object: Excessive weight gain
       qualifier: MONDO:0005130
 named_entities:
+  - id: MONDO:0044092
+    label: Collagenous sprue
+  - id: HP:0002014
+    label: diarrhea
+  - id: CHEBI:50858
+    label: corticosteroids
+  - id: HP:0004395
+    label: malnutrition
   - id: MONDO:0005130
-    label: celiac disease
+    label: Celiac disease
+  - id: HP:0000870
+    label: Hyperprolactinemia
+  - id: CHEBI:81580
+    label: Prolactin (PRL)
+  - id: HP:0000938
+    label: Bone loss
+  - id: CHEBI:22984
+    label: Calcium
+  - id: CHEBI:27300
+    label: Vitamin D
+  - id: HP:0001369
+    label: Arthritis
+  - id: HP:0002608
+    label: Celiac Disease
+  - id: MONDO:0019473
+    label: Enteropathy-associated T-cell lymphoma (EATL)
+  - id: HP:0002242
+    label: enteropathy
+  - id: HP:0012378
+    label: fatigue
+  - id: HP:0002039
+    label: anorexia
+  - id: HP:0000823
+    label: delayed puberty
+  - id: HP:0004322
+    label: short stature
+  - id: HP:0000789
+    label: infertility
+  - id: MONDO:0016063
+    label: Celiac Disease (CD)
+  - id: MAXO:0000058
+    label: pharmacological treatment
+  - id: HP:0002027
+    label: abdominal pain
+  - id: HP:0003270
+    label: bloating
+  - id: HP:0001903
+    label: anemia
+  - id: MAXO:0000088
+    label: diet
+  - id: MONDO:0005298
+    label: Osteoporosis
   - id: MAXO:0000259
-    label: Insulin treatment
+    label: insulin treatment
   - id: HP:0033712
-    label: Recurrent implantation failure (RIF)
+    label: recurrent implantation failure (RIF)
   - id: CHEBI:145810
-    label: Insulin
+    label: insulin
   - id: CHEBI:6801
-    label: Metformin
+    label: metformin
+  - id: HP:0012531
+    label: Pain
+  - id: HP:0000716
+    label: Depression
+  - id: HP:0011107
+    label: Aphthous stomatitis
+  - id: MONDO:0013626
+    label: Acrodermatitis continua of Hallopeau

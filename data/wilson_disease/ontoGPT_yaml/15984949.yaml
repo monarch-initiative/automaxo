@@ -15,15 +15,11 @@ input_text: Severe hypogammaglobulinemia associated with hepatic vein stenosis c
   reactivation and sepsis occurred. Serum IgG levels should be monitored to prevent
   opportunistic infections when hepatic vein stenosis is diagnosed after LRLT.
 raw_completion_output: |-
-  primary_disease: Severe hypogammaglobulinemia
-
-  medical_actions: Percutaneous balloon angioplasty; Monitoring of serum IgG levels; Addition of immunoglobulin; Prescription of azathioprine and prednisolone
-
-  symptoms: Ascites; Cytomegalovirus infection; Sepsis
-
-  chemicals: Immunoglobulin; Azathioprine; Prednisolone; Tacrolimus
-
-  action_annotation_relationships: Percutaneous balloon angioplasty TREATS ascites IN Severe hypogammaglobulinemia; Monitoring of serum IgG levels PREVENTS opportunistic infections IN Severe hypogammaglobulinemia; Addition of immunoglobulin (with Immunoglobulin) TREATS Severe hypogammaglobulinemia; Prescription of azathioprine (with Azathioprine) TREATS Severe hypogammaglobulinemia; Prescription of prednisolone (with Prednisolone) TREATS Severe hypogammaglobulinemia; Prescription of tacrolimus PREVENTS graft loss IN Severe hypogammaglobulinemia
+  primary_disease: Hepatic vein stenosis
+  medical_actions: Liver transplantation; Peritoneal balloon angioplasty; Serum IgG level monitoring; Addition of immunoglobulin; Baseline immunosuppression including tacrolimus, azathioprine, and prednisolone
+  symptoms: Ascites; Severe hypogammaglobulinemia; Cytomegalovirus infection
+  chemicals: Azathioprine; Prednisolone; Tacrolimus; Immunoglobulin
+  action_annotation_relationships: Liver transplantation TREATS hepatocellular failure IN Wilson disease; Percutaneous balloon angioplasty TREATS ascites IN Hepatic vein stenosis; Serum IgG level monitoring PREVENTS opportunistic infections IN Hepatic vein stenosis; Addition of immunoglobulin (with Immunoglobulin) TREATS severe hypogammaglobulinemia IN Hepatic vein stenosis; Baseline immunosuppression including tacrolimus, azathioprine, and prednisolone TREATS de novo autoimmune hepatitis IN Liver transplantation
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -38,69 +34,68 @@ prompt: |+
 
 
   Text:
-  Prescription of tacrolimus PREVENTS graft loss IN Severe hypogammaglobulinemia
+  Baseline immunosuppression including tacrolimus, azathioprine, and prednisolone TREATS de novo autoimmune hepatitis IN Liver transplantation
 
   ===
 
 extracted_object:
-  primary_disease: Severe hypogammaglobulinemia
+  primary_disease: Hepatic vein stenosis
   medical_actions:
-    - Percutaneous balloon angioplasty
-    - Monitoring of serum IgG levels
+    - MAXO:0001175
+    - Peritoneal balloon angioplasty
+    - Serum IgG level monitoring
     - Addition of immunoglobulin
-    - Prescription of azathioprine and prednisolone
+    - Baseline immunosuppression including tacrolimus, azathioprine, and prednisolone
   symptoms:
     - HP:0001541
+    - Severe hypogammaglobulinemia
     - Cytomegalovirus infection
-    - HP:0100806
   chemicals:
-    - Immunoglobulin
     - CHEBI:2948
     - CHEBI:8378
     - CHEBI:61049
+    - Immunoglobulin
   action_annotation_relationships:
-    - subject: <Percutaneous balloon angioplasty>
-      predicate: <TREATS>
-      object: <ascites>
-      qualifier: <Severe hypogammaglobulinemia>
-      subject_qualifier: <>
-      object_qualifier: <>
-      subject_extension: <Percutaneous balloon angioplasty>
-      object_extension: <ascites>
-    - subject: Monitoring of serum IgG levels
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: hepatocellular failure
+      qualifier: MONDO:0010200
+    - subject: Percutaneous balloon angioplasty
+      predicate: TREATS
+      object: HP:0001541
+      qualifier: Hepatic vein stenosis
+    - subject: Serum IgG level monitoring
       predicate: PREVENTS
       object: HP:0031690
-      qualifier: Severe hypogammaglobulinemia
+      qualifier: Hepatic vein stenosis
     - subject: Addition of immunoglobulin
       predicate: TREATS
-      object: Severe hypogammaglobulinemia
-      object_qualifier: Severe
+      object: severe hypogammaglobulinemia
+      qualifier: Hepatic vein stenosis
+      subject_qualifier: with Immunoglobulin
+      object_qualifier: severe
       subject_extension: Immunoglobulin
-    - subject: Prescription of azathioprine
+    - subject: Baseline immunosuppression
       predicate: TREATS
-      object: Severe hypogammaglobulinemia
-      subject_qualifier: with Azathioprine
-      object_qualifier: Severe
-      subject_extension: CHEBI:2948
-    - subject: Prescription of prednisolone
-      predicate: TREATS
-      object: Severe hypogammaglobulinemia
-      subject_qualifier: with Prednisolone
-      object_qualifier: Severe
-      subject_extension: CHEBI:8378
-    - subject: Prescription
-      predicate: PREVENTS
-      object: graft loss
-      qualifier: Severe hypogammaglobulinemia
-      subject_extension: CHEBI:61049
+      object: de novo autoimmune hepatitis
+      qualifier: Liver transplantation
+      subject_qualifier: including tacrolimus, azathioprine, and prednisolone
+      subject_extension: tacrolimus, azathioprine, prednisolone
 named_entities:
   - id: MONDO:0010200
-    label: Wilson disease
+    label: Wilson's disease
   - id: MAXO:0001175
-    label: liver transplantation
-  - id: MAXO:0000004
-    label: surgery (laparotomy, rectal mobilization, rectopexy, the partial sigmoid
-      colon resection with the primary anastomosis)
+    label: Liver transplantation
+  - id: HP:0001695
+    label: Cardiac arrest
+  - id: HP:0001685
+    label: Myocardial fibrosis
+  - id: HP:0001663
+    label: Ventricular fibrillation
+  - id: CHEBI:28694
+    label: Copper
+  - id: CHEBI:18248
+    label: Iron
   - id: HP:0002910
     label: abnormal liver functions
   - id: HP:0001394
@@ -109,82 +104,80 @@ named_entities:
     label: zinc
   - id: CHEBI:50868
     label: penicillamine
-  - id: CHEBI:51232
-    label: Hoechst 33342
+  - id: MAXO:0000016
+    label: Cell therapy
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: CHEBI:30703
+    label: Tetrathiomolybdate (TTM)
   - id: HP:0006554
     label: acute liver failure
-  - id: MAXO:0000068
-    label: transplantation
+  - id: CHEBI:35176
+    label: Zinc sulphate
+  - id: CHEBI:35475
+    label: NSAIDs
   - id: MAXO:0009095
-    label: Zinc therapy
-  - id: HP:0002344
-    label: Neurologic deterioration
+    label: zinc therapy
   - id: MAXO:0001298
     label: therapy
-  - id: HP:0001392
-    label: liver disease
   - id: HP:0006579
     label: neonatal jaundice
-  - id: HP:0002612
-    label: congenital hepatic fibrosis
   - id: HP:0001409
     label: portal hypertension
   - id: HP:0030151
     label: cholangitis
+  - id: HP:0002612
+    label: congenital hepatic fibrosis
   - id: MONDO:0013282
     label: alpha-1-antitrypsin deficiency
-  - id: MONDO:0009061
-    label: cystic fibrosis
-  - id: MONDO:0009044
-    label: Crigler-Najjar syndrome
-  - id: MAXO:0000376
-    label: liver biopsy
-  - id: MAXO:0000127
-    label: genetic testing
   - id: HP:0001903
     label: anemia
   - id: HP:0001410
     label: liver dysfunction
   - id: CHEBI:39501
     label: trientine
-  - id: CHEBI:28694
-    label: copper
+  - id: MAXO:0000070
+    label: Hepatic transplantation
   - id: HP:0001399
-    label: hepatic failure
+    label: Hepatic failure
   - id: HP:0004448
     label: fulminant hepatic failure
+  - id: HP:0003256
+    label: coagulopathy (international normalized ratio >2.0)
+  - id: HP:0004445
+    label: hepatic encephalopathy (HE)
+  - id: HP:0002480
+    label: hepatic encephalopathy
   - id: CHEBI:35341
     label: Steroids
   - id: CHEBI:33281
     label: Antibiotics
   - id: MONDO:0100193
-    label: end-stage liver disease
+    label: End-stage liver disease
   - id: HP:0100626
-    label: end-stage liver disease
+    label: End-stage liver disease
   - id: HP:0100660
     label: dyskinesia
-  - id: HP:0004787
-    label: fulminant hepatitis
-  - id: HP:0031811
-    label: bilirubinuria
-  - id: HP:0001397
-    label: hepatic steatosis
-  - id: CHEBI:16359
-    label: cholic acid
+  - id: HP:0100022
+    label: Movement disorders
+  - id: HP:0001337
+    label: Tremor
+  - id: HP:0001332
+    label: Dystonia
   - id: MONDO:0019542
     label: Acute liver failure (ALF)
-  - id: HP:0002480
-    label: Hepatic encephalopathy
   - id: CHEBI:27385
     label: CCL4
+  - id: MAXO:0000127
+    label: Genetic testing
+  - id: CHEBI:7959
+    label: D-penicillamine
   - id: MAXO:0001017
     label: Vaccination
   - id: HP:0001541
     label: Ascites
   - id: HP:0012398
     label: Peripheral edema
-  - id: HP:0001337
-    label: tremor
   - id: HP:0001260
     label: dysarthria
   - id: HP:0000708
@@ -193,56 +186,92 @@ named_entities:
     label: chronic hepatitis
   - id: CHEBI:38161
     label: chelators
+  - id: MAXO:0000376
+    label: liver biopsy
+  - id: HP:0001404
+    label: hepatocellular necrosis
+  - id: CHEBI:61049
+    label: Tacrolimus
+  - id: HP:0001744
+    label: Splenomegaly
   - id: MAXO:0000603
-    label: peritoneal dialysis
-  - id: CHEBI:7959
-    label: D-penicillamine
+    label: Peritoneal dialysis
   - id: HP:0200032
     label: Kayser-Fleischer rings
   - id: HP:0002172
-    label: imbalance
+    label: impaired balance
+  - id: HP:0001347
+    label: hyperreflexia
+  - id: HP:0031843
+    label: bradyphrenia
+  - id: HP:0002362
+    label: shuffling gait
+  - id: HP:0001621
+    label: hypophonia
+  - id: CHEBI:37153
+    label: Calcineurin inhibitors
+  - id: CHEBI:8356
+    label: pramipexole
+  - id: CHEBI:2618
+    label: amantadine
   - id: HP:0000093
     label: proteinuria
-  - id: HP:0032199
-    label: abnormal prothrombin time
+  - id: CHEBI:231592
+    label: zinc salts
   - id: MAXO:0000167
-    label: Antiepileptic therapy
-  - id: CHEBI:61049
-    label: Tacrolimus
+    label: antiepileptic therapy
   - id: CHEBI:9168
-    label: Rapamycin
+    label: rapamycin
   - id: CHEBI:55379
-    label: Cyclosporine (CsA)
+    label: cyclosporine (CsA)
   - id: CHEBI:35623
     label: antiepileptic
-  - id: CHEBI:4031
-    label: Cyclosporine
   - id: HP:0000083
     label: renal failure
-  - id: CHEBI:26708
-    label: NA
-  - id: CHEBI:35176
-    label: zinc sulphate
+  - id: HP:0000952
+    label: jaundice
+  - id: HP:0001919
+    label: acute kidney injury
+  - id: HP:0001342
+    label: intracerebral hemorrhage
+  - id: MAXO:0000533
+    label: molecular genetic testing
+  - id: HP:0001873
+    label: thrombocytopenia
+  - id: HP:0001298
+    label: Encephalopathy
+  - id: MAXO:0009070
+    label: SPECT
   - id: HP:0001251
     label: ataxia
   - id: CHEBI:166831
     label: copper chelators
+  - id: MAXO:0035064
+    label: electron microscopic studies
+  - id: MAXO:0000139
+    label: autopsy
   - id: HP:0006577
     label: macronodular cirrhosis
   - id: CHEBI:8830
     label: rhodanine
-  - id: CHEBI:18248
-    label: iron
+  - id: HP:0001272
+    label: Cerebellar Atrophy
+  - id: HP:0007263
+    label: Spinocerebellar Ataxia
+  - id: MAXO:0001610
+    label: transcranial magnetic stimulation
   - id: HP:0002015
     label: dysphagia
-  - id: MONDO:0021200
-    label: Rare diseases
-  - id: MAXO:0000011
-    label: Physiotherapy
-  - id: MONDO:0001516
-    label: spinal muscular atrophy
-  - id: HP:0100806
-    label: Sepsis
+  - id: HP:0001392
+    label: liver disease
+  - id: HP:0001396
+    label: cholestasis
+  - id: HP:0001403
+    label: macrovesicular steatosis
+  - id: CHEBI:90299
+    label: orcein
+  - id: MONDO:0000437
+    label: Spinocerebellar degeneration
   - id: CHEBI:2948
     label: Azathioprine
   - id: CHEBI:8378

@@ -1,0 +1,130 @@
+---
+input_text: 'Long-term outcomes of pediatric and young adult patients receiving radiotherapy
+  for nonmalignant vascular anomalies. BACKGROUND: Nonmalignant vascular anomalies
+  (VA) comprise a heterogeneous spectrum of conditions characterized by aberrant growth
+  or development of blood and/or lymphatic vessels and can cause significant morbidity.
+  Little is known about outcomes after radiotherapy in pediatric and young adult patients
+  with nonmalignant VA. METHODS: Thirty patients who were diagnosed with nonmalignant
+  VA and treated with radiotherapy prior to 2017 and before the age of 30 were identified.
+  Clinical and treatment characteristics and outcomes were recorded. RESULTS: Median
+  age at first radiotherapy was 15 years (range 0.02-27). Median follow-up from completion
+  of first radiotherapy was 9.8 years (range 0.02-67.4). Lymphatic malformations (33%),
+  kaposiform hemangioendothelioma (17%), and venous malformations (17%) were the most
+  common diagnoses. The most common indication for first radiotherapy was progression
+  despite standard therapy and/or urgent palliation for symptoms (57%). After first
+  radiotherapy, 14 patients (47%) had a complete response or partial response, defined
+  as decrease in size of treated lesion or symptomatic improvement. After first radiotherapy,
+  27 (90%) required additional treatment for progression or recurrence. Long-term
+  complications included telangiectasias, fibrosis, xerophthalmia, radiation pneumonitis,
+  ovarian failure, and central hypothyroidism. No patient developed secondary malignancies.
+  At last follow-up, three patients (10%) were without evidence of disease, 26 (87%)
+  with disease, and one died of complications (3.3%). CONCLUSIONS: A small group of
+  pediatric and young adult patients with nonmalignant, high-risk VA experienced clinical
+  benefit from radiotherapy with expected toxicity; however, most experienced progression.
+  Prospective studies are needed to characterize indications for radiotherapy in VA
+  refractory to medical therapy, including targeted inhibitors.'
+raw_completion_output: |-
+  primary_disease: Nonmalignant vascular anomalies (VA)
+
+  medical_actions: Radiotherapy; Prospective studies; Medical therapy including targeted inhibitors
+
+  symptoms: Progression despite standard therapy; Urgent palliation for symptoms; Decrease in size of treated lesion; Symptomatic improvement; Telangiectasias; Fibrosis; Xerophthalmia; Radiation pneumonitis; Ovarian failure; Central hypothyroidism
+
+  chemicals: 
+
+  action_annotation_relationships: Radiotherapy TREATS progression despite standard therapy IN Nonmalignant vascular anomalies (VA); Radiotherapy TREATS urgent palliation for symptoms IN Nonmalignant vascular anomalies (VA); Radiotherapy TREATS decrease in size of treated lesion IN Nonmalignant vascular anomalies (VA); Radiotherapy TREATS symptomatic improvement IN Nonmalignant vascular anomalies (VA); Radiotherapy PREVENTS progression IN Nonmalignant vascular anomalies (VA); Radiotherapy (with targeted inhibitors) TREATS Nonmalignant vascular anomalies (VA)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Radiotherapy (with targeted inhibitors) TREATS Nonmalignant vascular anomalies (VA)
+
+  ===
+
+extracted_object:
+  primary_disease: Nonmalignant vascular anomalies (VA)
+  medical_actions:
+    - MAXO:0000014
+    - Prospective studies
+    - Medical therapy including targeted inhibitors
+  symptoms:
+    - Progression despite standard therapy
+    - Urgent palliation for symptoms
+    - Decrease in size of treated lesion
+    - Symptomatic improvement
+    - HP:0001009
+    - Fibrosis
+    - HP:0001097
+    - Radiation pneumonitis
+    - Ovarian failure
+    - HP:0011787
+  action_annotation_relationships:
+    - subject: MAXO:0000014
+      predicate: TREATS
+      object: progression despite standard therapy
+      qualifier: Nonmalignant vascular anomalies (VA)
+    - subject: MAXO:0000014
+      predicate: TREATS
+      object: urgent palliation for symptoms
+      qualifier: Nonmalignant vascular anomalies
+    - subject: MAXO:0000014
+      predicate: TREATS
+      object: decrease in size of treated lesion
+      qualifier: Nonmalignant vascular anomalies (VA)
+    - subject: MAXO:0000014
+      predicate: TREATS
+      object: symptomatic improvement
+      qualifier: Nonmalignant vascular anomalies
+    - subject: MAXO:0000014
+      predicate: PREVENTS
+      object: progression
+      qualifier: Nonmalignant vascular anomalies
+    - subject: MAXO:0000014
+      predicate: TREATS
+      object: vascular anomalies
+      qualifier: VA
+      subject_qualifier: with targeted inhibitors
+      object_qualifier: Nonmalignant
+      subject_extension: targeted inhibitors
+      object_extension: Nonmalignant
+named_entities:
+  - id: MAXO:0000004
+    label: Surgery
+  - id: MAXO:0000504
+    label: tracheotomy
+  - id: HP:0006536
+    label: airway obstruction
+  - id: HP:0010628
+    label: facial nerve palsy
+  - id: CHEBI:9168
+    label: Rapamycin
+  - id: MAXO:0000448
+    label: Surgical resection
+  - id: MONDO:0002013
+    label: lymphatic malformation (LM)
+  - id: HP:0012532
+    label: Chronic pain
+  - id: CHEBI:134778
+    label: n-butyl cyanoacrylate
+  - id: CHEBI:22907
+    label: bleomycin
+  - id: MONDO:0019313
+    label: Lymphatic malformations
+  - id: MAXO:0000014
+    label: Radiotherapy
+  - id: HP:0001009
+    label: Telangiectasias
+  - id: HP:0001097
+    label: Xerophthalmia
+  - id: HP:0011787
+    label: Central hypothyroidism

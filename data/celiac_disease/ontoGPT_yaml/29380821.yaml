@@ -23,13 +23,13 @@ input_text: 'Randomized Double-Blind Placebo-Controlled Crossover Trial for the 
 raw_completion_output: |-
   primary_disease: Non-celiac gluten sensitivity (NCGS)
 
-  medical_actions: Double-blind placebo-controlled (DBPC) gluten challenge with crossover; Open gluten-free diet (GFD); Randomization to gluten or placebo; Diagnostic challenge
+  medical_actions: Double-blind placebo-controlled (DBPC) gluten challenge with crossover; Run-in; Open gluten-free diet (GFD)
 
-  symptoms: Chronic functional gastrointestinal symptoms; Intestinal and extra-intestinal symptoms
+  symptoms: Chronic functional gastrointestinal symptoms; Intestinal symptoms; Extra-intestinal symptoms
 
   chemicals: Gluten; Rice starch
 
-  action_annotation_relationships: Double-blind placebo-controlled (DBPC) gluten challenge with crossover TREATS symptoms IN Non-celiac gluten sensitivity (NCGS); Open gluten-free diet (GFD) TREATS symptoms IN Non-celiac gluten sensitivity (NCGS); Randomization to gluten TREATS symptoms IN Non-celiac gluten sensitivity (NCGS); Diagnostic challenge TREATS symptoms IN Non-celiac gluten sensitivity (NCGS); Gluten PREVENTS symptoms IN Non-celiac gluten sensitivity (NCGS)
+  action_annotation_relationships: Open gluten-free diet (GFD) TREATS chronic functional gastrointestinal symptoms IN Non-celiac gluten sensitivity (NCGS); Double-blind placebo-controlled (DBPC) gluten challenge with crossover (with Gluten) TREATS intestinal symptoms IN Non-celiac gluten sensitivity (NCGS); Double-blind placebo-controlled (DBPC) gluten challenge with crossover (with Gluten) TREATS extra-intestinal symptoms IN Non-celiac gluten sensitivity (NCGS)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -44,7 +44,7 @@ prompt: |+
 
 
   Text:
-  Gluten PREVENTS symptoms IN Non-celiac gluten sensitivity (NCGS)
+  Double-blind placebo-controlled (DBPC) gluten challenge with crossover (with Gluten) TREATS extra-intestinal symptoms IN Non-celiac gluten sensitivity (NCGS)
 
   ===
 
@@ -52,131 +52,67 @@ extracted_object:
   primary_disease: Non-celiac gluten sensitivity (NCGS)
   medical_actions:
     - Double-blind placebo-controlled (DBPC) gluten challenge with crossover
+    - Run-in
     - Open gluten-free diet (GFD)
-    - Randomization to gluten or placebo
-    - Diagnostic challenge
   symptoms:
     - Chronic functional gastrointestinal symptoms
-    - Intestinal and extra-intestinal symptoms
+    - Intestinal symptoms
+    - Extra-intestinal symptoms
   chemicals:
     - Gluten
     - Rice starch
   action_annotation_relationships:
-    - subject: Double-blind placebo-controlled (DBPC) gluten challenge with crossover
-      predicate: TREATS
-      object: symptoms
-      qualifier: Non-celiac gluten sensitivity (NCGS)
-      subject_extension: gluten
     - subject: Open gluten-free diet
       predicate: TREATS
-      object: symptoms
+      object: chronic functional gastrointestinal symptoms
       qualifier: Non-celiac gluten sensitivity
       subject_extension: gluten-free diet
-    - subject: Randomization
+    - subject: <Double-blind placebo-controlled (DBPC) gluten challenge with crossover>
+      predicate: <TREATS>
+      object: <intestinal symptoms>
+      qualifier: <Non-celiac gluten sensitivity>
+      subject_qualifier: <with Gluten>
+      subject_extension: <gluten>
+    - subject: Double-blind placebo-controlled (DBPC) gluten challenge with crossover
+        (with Gluten)
       predicate: TREATS
       object: symptoms
       qualifier: Non-celiac gluten sensitivity (NCGS)
-      subject_extension: gluten
-    - subject: Diagnostic challenge
-      predicate: TREATS
-      object: symptoms
-      qualifier: Non-celiac gluten sensitivity (NCGS)
-    - predicate: PREVENTS
-      object: symptoms
-      qualifier: Non-celiac gluten sensitivity (NCGS)
-      subject_extension: Gluten
+      object_qualifier: extra-intestinal
+      subject_extension: gluten challenge
+      object_extension: extra-intestinal
 named_entities:
+  - id: HP:0001251
+    label: ataxia
+  - id: CHEBI:21547
+    label: N-acetylaspartate (NAA)
+  - id: CHEBI:157802
+    label: creatine (Cr)
   - id: MONDO:0005130
-    label: celiac disease
-  - id: MAXO:0000259
-    label: Insulin treatment
-  - id: HP:0033712
-    label: Recurrent implantation failure (RIF)
-  - id: CHEBI:145810
-    label: Insulin
-  - id: CHEBI:6801
-    label: Metformin
-  - id: HP:0002024
-    label: malabsorption
-  - id: HP:0012050
-    label: anasarca
-  - id: HP:0003111
-    label: electrolyte disorders
-  - id: MAXO:0000088
-    label: diet
-  - id: HP:0025502
-    label: Overweight
-  - id: HP:0001513
-    label: Obesity
-  - id: HP:0012393
-    label: Allergic diseases
+    label: Celiac disease
+  - id: HP:0001394
+    label: Cirrhosis
   - id: HP:0002608
     label: Celiac disease
-  - id: HP:0000819
-    label: Diabetes
-  - id: HP:0030016
-    label: dyspareunia
-  - id: HP:0012786
-    label: recurrent cystitis
-  - id: HP:0400007
-    label: menstrual disorders
-  - id: MONDO:0100096
-    label: COVID-19
-  - id: MONDO:0005147
-    label: Type 1 diabetes mellitus
-  - id: HP:0000821
-    label: Hypothyroidism
-  - id: HP:0000822
-    label: Hypertension
-  - id: HP:0003119
-    label: Dyslipidemia
-  - id: HP:0009830
-    label: Neuropathy
-  - id: HP:0001626
-    label: Cardiovascular diseases
-  - id: HP:0005268
-    label: Miscarriage
-  - id: HP:0030991
-    label: primary sclerosing cholangitis
-  - id: MONDO:0005265
-    label: Inflammatory bowel disease
-  - id: CHEBI:18248
-    label: Iron
-  - id: HP:0002014
-    label: diarrhea
-  - id: HP:0012538
-    label: Gluten sensitivity
-  - id: MONDO:0016063
-    label: Celiac Disease (CD)
-  - id: MAXO:0001193
-    label: esophagogastroduodenoscopy
-  - id: HP:0002027
-    label: abdominal pain
-  - id: HP:0003270
-    label: bloating
-  - id: HP:0001903
-    label: anaemia
-  - id: HP:0001944
-    label: Dehydration
-  - id: HP:0002239
-    label: Gastrointestinal bleeding
-  - id: HP:0001942
-    label: Metabolic acidosis
-  - id: CHEBI:28384
-    label: Vitamin K
-  - id: CHEBI:35341
-    label: Steroids
-  - id: HP:0000855
-    label: Insulin resistance
   - id: MONDO:0005340
-    label: Alopecia Areata
+    label: Alopecia areata
   - id: HP:0001596
-    label: hair loss
-  - id: HP:0002232
-    label: Alopecia Areata
+    label: Hair loss
+  - id: HP:0002014
+    label: Diarrhea
+  - id: HP:0002027
+    label: Abdominal pain
   - id: HP:0012378
     label: Fatigue
   - id: HP:0011473
     label: Villous atrophy
   - id: CHEBI:3207
     label: Budesonide
+  - id: HP:0000951
+    label: skin abnormalities
+  - id: HP:0001595
+    label: hair abnormalities
+  - id: HP:0000112
+    label: kidney diseases
+  - id: MAXO:0000088
+    label: Diet

@@ -20,13 +20,13 @@ input_text: 'Efficacy and safety of growth hormone treatment in children with hy
 raw_completion_output: |-
   primary_disease: Hypochondroplasia (HCH)
 
-  medical_actions: Growth hormone treatment; Monitoring for adverse events
+  medical_actions: Growth hormone treatment with recombinant human growth hormone (r-hGH); Evaluation of efficacy and safety of r-hGH therapy; Derivation of growth charts from historical cohort
 
   symptoms: Disproportionate short stature
 
   chemicals: Recombinant human growth hormone (r-hGH)
 
-  action_annotation_relationships: Growth hormone treatment (with Recombinant human growth hormone) TREATS Disproportionate short stature IN Hypochondroplasia (HCH); Monitoring for adverse events PREVENTS treatment-related serious adverse events IN Hypochondroplasia (HCH)
+  action_annotation_relationships: Growth hormone treatment with recombinant human growth hormone (r-hGH) TREATS Disproportionate short stature IN Hypochondroplasia (HCH); Evaluation of efficacy and safety of r-hGH therapy PREVENTS adverse outcomes IN Hypochondroplasia (HCH)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -41,15 +41,16 @@ prompt: |+
 
 
   Text:
-  Monitoring for adverse events PREVENTS treatment-related serious adverse events IN Hypochondroplasia (HCH)
+  Evaluation of efficacy and safety of r-hGH therapy PREVENTS adverse outcomes IN Hypochondroplasia (HCH)
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0007793
   medical_actions:
-    - Growth hormone treatment
-    - Monitoring for adverse events
+    - Growth hormone treatment with recombinant human growth hormone (r-hGH)
+    - Evaluation of efficacy and safety of r-hGH therapy
+    - Derivation of growth charts from historical cohort
   symptoms:
     - HP:0003498
   chemicals:
@@ -59,45 +60,62 @@ extracted_object:
       predicate: TREATS
       object: HP:0003498
       qualifier: MONDO:0007793
-      subject_qualifier: with
-      subject_extension: Recombinant human growth hormone
-    - subject: Monitoring for adverse events
+      subject_extension: recombinant human growth hormone
+    - subject: MAXO:0001298
       predicate: PREVENTS
-      object: treatment-related serious adverse events
+      object: adverse outcomes
       qualifier: MONDO:0007793
+      subject_extension: r-hGH
+      object_extension: adverse outcomes
 named_entities:
   - id: HP:0031846
     label: Femoral fracture
-  - id: MAXO:0000745
-    label: cytogenetic analysis
   - id: HP:0000256
     label: macrocephaly
   - id: MAXO:0000127
-    label: genetic testing
+    label: Genetic testing
+  - id: MONDO:0007793
+    label: Hypochondroplasia
   - id: HP:0003750
     label: Muscle fatigue
+  - id: MAXO:0000486
+    label: distraction osteogenesis
+  - id: MAXO:0000068
+    label: transplantation
   - id: MONDO:0000050
     label: Growth hormone deficiency
-  - id: MAXO:0000780
-    label: Growth hormone therapy
   - id: CHEBI:37845
     label: Growth hormone
+  - id: MONDO:0001106
+    label: renal insufficiency
+  - id: MONDO:0005030
+    label: intrauterine growth retardation
+  - id: MONDO:0008383
+    label: rheumatoid arthritis
   - id: MAXO:0000526
     label: Clinical examination
   - id: MONDO:0005516
     label: Skeletal dysplasia
   - id: CHEBI:77383
-    label: bisphosphonates
+    label: bisphosphonate
   - id: MAXO:0001298
     label: therapy
   - id: MONDO:0007037
-    label: Achondroplasia
+    label: Skeletal dysplasia (achondroplasia)
+  - id: MONDO:0019019
+    label: Skeletal dysplasia (osteogenesis imperfecta)
+  - id: MONDO:0018570
+    label: Skeletal dysplasia (hypophosphatasia)
+  - id: MAXO:0000780
+    label: growth hormone therapy
   - id: HP:0004322
-    label: Short stature
-  - id: MONDO:0007793
-    label: hypochondroplasia
+    label: short stature
+  - id: HP:0003414
+    label: Atlantoaxial dislocation
   - id: HP:0010535
     label: Sleep apnea
+  - id: MAXO:0000004
+    label: Operation
   - id: MONDO:0017194
     label: Blount's disease
   - id: HP:0003498

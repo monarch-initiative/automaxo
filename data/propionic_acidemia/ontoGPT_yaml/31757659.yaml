@@ -32,13 +32,13 @@ input_text: 'Liver transplantation in propionic and methylmalonic acidemia: A si
 raw_completion_output: |-
   primary_disease: propionic acidemia (PA) and methylmalonic acidemia (MMA)
 
-  medical_actions: liver transplantation (LT); kidney transplantation (KT); dietary protein intake restriction; newborn screening; medical management
+  medical_actions: Liver transplantation (LT); Kidney transplantation (KT); Newborn screening; Dietary protein restriction
 
-  symptoms: metabolic acidosis; hyperlactatemia; hyperammonemia; recurrent episodes of metabolic acidosis; recurrent episodes of hyperammonemia
+  symptoms: Metabolic acidosis; Hyperlactatemia; Hyperammonemia; Recurrent episodes of metabolic acidosis; Recurrent episodes of hyperammonemia; Pancreatitis
 
-  chemicals: plasma glycine
+  chemicals: Plasma glycine
 
-  action_annotation_relationships: liver transplantation (LT) TREATS metabolic decompensation IN propionic acidemia (PA) and methylmalonic acidemia (MMA); kidney transplantation (KT) TREATS metabolic decompensation IN methylmalonic acidemia (MMA); dietary protein intake restriction PREVENTS metabolic acidosis IN propionic acidemia (PA) and methylmalonic acidemia (MMA); dietary protein intake restriction PREVENTS hyperammonemia IN propionic acidemia (PA) and methylmalonic acidemia (MMA); newborn screening PREVENTS early mortality IN propionic acidemia (PA) and methylmalonic acidemia (MMA); medical management PREVENTS metabolic decompensation IN propionic acidemia (PA) and methylmalonic acidemia (MMA); liver transplantation (LT) REDUCES number of hospitalizations IN propionic acidemia (PA) and methylmalonic acidemia (MMA); liver transplantation (LT) IMPROVES linear growth IN propionic acidemia (PA) and methylmalonic acidemia (MMA); liver transplantation (LT) REDUCES plasma glycine IN propionic acidemia (PA) and methylmalonic acidemia (MMA)
+  action_annotation_relationships: Liver transplantation TREATS metabolic acidosis IN propionic acidemia (PA) and methylmalonic acidemia (MMA); Liver transplantation TREATS hyperlactatemia IN propionic acidemia (PA) and methylmalonic acidemia (MMA); Liver transplantation TREATS hyperammonemia IN propionic acidemia (PA) and methylmalonic acidemia (MMA); Liver transplantation TREATS recurrent episodes of metabolic acidosis IN propionic acidemia (PA) and methylmalonic acidemia (MMA); Liver transplantation TREATS recurrent episodes of hyperammonemia IN propionic acidemia (PA) and methylmalonic acidemia (MMA); Newborn screening PREVENTS metabolic acidosis IN propionic acidemia (PA) and methylmalonic acidemia (MMA); Newborn screening PREVENTS hyperlactatemia IN propionic acidemia (PA) and methylmalonic acidemia (MMA); Newborn screening PREVENTS hyperammonemia IN propionic acidemia (PA) and methylmalonic acidemia (MMA); Dietary protein restriction PREVENTS hyperammonemia IN propionic acidemia (PA) and methylmalonic acidemia (MMA); Dietary protein restriction PREVENTS metabolic acidosis IN propionic acidemia (PA) and methylmalonic acidemia (MMA)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -53,7 +53,7 @@ prompt: |+
 
 
   Text:
-  liver transplantation (LT) REDUCES plasma glycine IN propionic acidemia (PA) and methylmalonic acidemia (MMA)
+  Dietary protein restriction PREVENTS metabolic acidosis IN propionic acidemia (PA) and methylmalonic acidemia (MMA)
 
   ===
 
@@ -61,93 +61,98 @@ extracted_object:
   primary_disease: propionic acidemia (PA) and methylmalonic acidemia (MMA)
   medical_actions:
     - MAXO:0001175
-    - kidney transplantation (KT)
-    - dietary protein intake restriction
-    - newborn screening
-    - medical management
+    - Kidney transplantation (KT)
+    - Newborn screening
+    - Dietary protein restriction
   symptoms:
     - HP:0001942
-    - hyperlactatemia
+    - Hyperlactatemia
     - HP:0001987
-    - recurrent episodes of metabolic acidosis
-    - recurrent episodes of hyperammonemia
+    - Recurrent episodes of metabolic acidosis
+    - Recurrent episodes of hyperammonemia
+    - HP:0001733
   chemicals:
-    - plasma glycine
+    - Plasma glycine
   action_annotation_relationships:
-    - subject: LT
+    - subject: MAXO:0001175
       predicate: TREATS
-      object: metabolic decompensation
-      qualifier: propionic acidemia (PA) and methylmalonic acidemia (MMA)
-      subject_extension: liver transplantation
-    - subject: kidney transplantation
-      predicate: TREATS
-      object: metabolic decompensation
-      qualifier: MONDO:0002012
-    - subject: dietary protein intake restriction
-      predicate: PREVENTS
       object: HP:0001942
-      qualifier: propionic acidemia (PA) and methylmalonic acidemia (MMA)
-      subject_extension: dietary protein intake restriction
-    - subject: dietary protein intake restriction
-      predicate: PREVENTS
-      object: HP:0001987
-      qualifier: propionic acidemia (PA), methylmalonic acidemia (MMA)
-      subject_extension: dietary protein intake restriction
-    - subject: newborn screening
-      predicate: PREVENTS
-      object: early mortality
-      qualifier: propionic acidemia (PA) and methylmalonic acidemia (MMA)
-    - subject: medical management
-      predicate: PREVENTS
-      object: metabolic decompensation
       qualifier: propionic acidemia (PA), methylmalonic acidemia (MMA)
     - subject: MAXO:0001175
-      predicate: REDUCES
-      object: number of hospitalizations
+      predicate: TREATS
+      object: hyperlactatemia
+      qualifier: propionic acidemia (PA) and methylmalonic acidemia (MMA)
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: HP:0001987
+      qualifier: propionic acidemia (PA) and methylmalonic acidemia (MMA)
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: recurrent episodes of metabolic acidosis
+      qualifier: propionic acidemia (PA) and methylmalonic acidemia (MMA)
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: recurrent episodes of hyperammonemia
+      qualifier: propionic acidemia (PA) and methylmalonic acidemia (MMA)
+    - subject: Newborn screening
+      predicate: PREVENTS
+      object: HP:0001942
       qualifier: propionic acidemia (PA), methylmalonic acidemia (MMA)
-    - subject: <liver transplantation>
-      predicate: <IMPROVES>
-      object: <linear growth>
-      qualifier: <propionic acidemia, methylmalonic acidemia>
-      subject_qualifier: <NA>
-      object_qualifier: <NA>
-      subject_extension: <NA>
-      object_extension: <NA>
-    - subject: <liver transplantation>
-      predicate: <REDUCES>
-      object: <plasma glycine>
-      qualifier: <propionic acidemia, methylmalonic acidemia>
-      subject_extension: <liver transplantation>
+    - subject: <Newborn screening>
+      predicate: <PREVENTS>
+      object: <hyperlactatemia>
+      qualifier: <propionic acidemia (PA) and methylmalonic acidemia (MMA)>
+      subject_extension: <Newborn screening>
+    - subject: <Newborn screening>
+      predicate: <PREVENTS>
+      object: <hyperammonemia>
+      qualifier: <propionic acidemia (PA) and methylmalonic acidemia (MMA)>
+      subject_extension: <Newborn screening>
+    - subject: <Dietary protein restriction>
+      predicate: <PREVENTS>
+      object: <hyperammonemia>
+      qualifier: <propionic acidemia (PA) and methylmalonic acidemia (MMA)>
+      subject_qualifier: <Dietary>
+      subject_extension: <protein restriction>
+    - subject: <Dietary protein restriction>
+      predicate: <PREVENTS>
+      object: <metabolic acidosis>
+      qualifier: <propionic acidemia (PA), methylmalonic acidemia (MMA)>
+      subject_extension: <dietary protein restriction>
 named_entities:
   - id: MONDO:0010184
-    label: methylmalonic acidemia (MMA); propionic acidemia; cobalamin C (cblC) deficiency
+    label: Methylmalonic acidemia (MMA); Propionic acidemia; Cobalamin C (cblC) deficiency
   - id: CHEBI:15603
-    label: leucine (Leu)
+    label: Leucine (Leu)
   - id: CHEBI:16414
-    label: valine (Val)
+    label: Valine (Val)
   - id: CHEBI:17191
-    label: isoleucine (Ile)
+    label: Isoleucine (Ile)
   - id: CHEBI:16044
-    label: methionine (Met)
-  - id: MONDO:0002012
-    label: methylmalonic acidemia (MMA)
-  - id: MONDO:0011628
-    label: propionic acidemia
+    label: Methionine (Met)
   - id: CHEBI:25017
     label: leucine
+  - id: MONDO:0002012
+    label: Methylmalonic acidemia
+  - id: HP:0003571
+    label: Propionic acidemia
+  - id: MONDO:0011628
+    label: Propionic acidemia
   - id: MAXO:0001175
-    label: liver transplantation
+    label: Liver transplantation
   - id: HP:0001638
-    label: cardiomyopathy
-  - id: HP:0100543
-    label: Cognitive impairment
+    label: Cardiomyopathy
   - id: CHEBI:176843
     label: Vitamin B12
   - id: MONDO:0019052
     label: Inborn errors of metabolism (IEMs)
   - id: MAXO:0010039
-    label: organ transplantation
+    label: Organ transplantation
+  - id: MAXO:0001298
+    label: therapy
   - id: HP:0001942
-    label: metabolic acidosis
+    label: Metabolic acidosis
   - id: HP:0001987
-    label: hyperammonemia
+    label: Hyperammonemia
+  - id: HP:0001733
+    label: Pancreatitis

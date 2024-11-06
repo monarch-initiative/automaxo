@@ -19,13 +19,9 @@ input_text: "Surgical treatment of Milroy disease. BACKGROUND AND OBJECTIVES: Mi
   of life."
 raw_completion_output: |-
   primary_disease: Milroy disease
-
   medical_actions: Surgical treatment; Vascularized lymph node transfer (VLNT); Extensive therapeutic lipectomy
-
   symptoms: Hereditary bilateral legs swelling
-
   chemicals: 
-
   action_annotation_relationships: Vascularized lymph node transfer (VLNT) TREATS Hereditary bilateral legs swelling IN Milroy disease; Extensive therapeutic lipectomy TREATS Hereditary bilateral legs swelling IN Milroy disease
 prompt: |+
   From the text below, extract the following entities in the following format:
@@ -54,14 +50,22 @@ extracted_object:
   symptoms:
     - Hereditary bilateral legs swelling
   action_annotation_relationships:
-    - subject: Vascularized lymph node transfer (VLNT)
-      predicate: TREATS
-      object: Hereditary bilateral legs swelling
-      qualifier: MONDO:0007919
-    - subject: Extensive therapeutic lipectomy
-      predicate: TREATS
-      object: Hereditary bilateral legs swelling
-      qualifier: MONDO:0007919
+    - subject: <Vascularized lymph node transfer>
+      predicate: <TREATS>
+      object: <Hereditary bilateral legs swelling>
+      qualifier: <Milroy disease>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <Vascularized lymph node transfer>
+      object_extension: <Hereditary bilateral legs swelling>
+    - subject: <therapeutic lipectomy>
+      predicate: <TREATS>
+      object: <Hereditary bilateral legs swelling>
+      qualifier: <Milroy disease>
+      subject_qualifier: <Extensive>
+      object_qualifier: <>
+      subject_extension: <lipectomy>
+      object_extension: <bilateral legs swelling>
 named_entities:
   - id: MONDO:0007919
     label: Milroy disease

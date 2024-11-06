@@ -33,14 +33,10 @@ input_text: 'Complications in 54 frontofacial distraction procedures in patients
   of infections compared with buried distractors. '
 raw_completion_output: |-
   primary_disease: syndromic craniosynostosis
-
-  medical_actions: midfacial advancement; distraction osteogenesis; retrospective review; operative intervention; medication; subcranial Le Fort III distraction procedure; monobloc distraction procedure; distractor placement; distractor removal; operative repositioning
-
+  medical_actions: midfacial advancement; distraction osteogenesis; retrospective review; operative intervention; medication; surgical repositioning
   symptoms: midfacial hypoplasia; hardware-related complications; infectious complications; malposition; transcranial pin migration
-
   chemicals: 
-
-  action_annotation_relationships: distraction osteogenesis TREATS midfacial hypoplasia IN syndromic craniosynostosis; operative intervention TREATS hardware-related complications IN syndromic craniosynostosis; medication TREATS infectious complications IN syndromic craniosynostosis; operative repositioning TREATS malposition IN syndromic craniosynostosis; operative repositioning TREATS transcranial pin migration IN syndromic craniosynostosis
+  action_annotation_relationships: midfacial advancement TREATS midfacial hypoplasia IN syndromic craniosynostosis; distraction osteogenesis TREATS midfacial hypoplasia IN syndromic craniosynostosis; operative intervention TREATS hardware-related complications IN syndromic craniosynostosis; medication TREATS infectious complications IN syndromic craniosynostosis; surgical repositioning TREATS malposition IN syndromic craniosynostosis; surgical repositioning TREATS transcranial pin migration IN syndromic craniosynostosis
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -55,7 +51,7 @@ prompt: |+
 
 
   Text:
-  operative repositioning TREATS transcranial pin migration IN syndromic craniosynostosis
+  surgical repositioning TREATS transcranial pin migration IN syndromic craniosynostosis
 
   ===
 
@@ -67,11 +63,7 @@ extracted_object:
     - retrospective review
     - operative intervention
     - medication
-    - subcranial Le Fort III distraction procedure
-    - monobloc distraction procedure
-    - distractor placement
-    - distractor removal
-    - operative repositioning
+    - surgical repositioning
   symptoms:
     - midfacial hypoplasia
     - hardware-related complications
@@ -79,46 +71,44 @@ extracted_object:
     - malposition
     - transcranial pin migration
   action_annotation_relationships:
+    - subject: midfacial advancement
+      predicate: TREATS
+      object: midfacial hypoplasia
+      qualifier: MONDO:0015338
     - subject: MAXO:0000486
       predicate: TREATS
       object: midfacial hypoplasia
       qualifier: MONDO:0015338
     - subject: operative intervention
       predicate: TREATS
-      object: complications
+      object: hardware-related complications
       qualifier: MONDO:0015338
-      object_qualifier: hardware-related
-      object_extension: hardware-related
     - subject: medication
       predicate: TREATS
       object: infectious complications
       qualifier: MONDO:0015338
-    - subject: operative repositioning
+    - subject: surgical repositioning
       predicate: TREATS
       object: malposition
       qualifier: MONDO:0015338
-    - subject: operative repositioning
+    - subject: surgical repositioning
       predicate: TREATS
       object: transcranial pin migration
       qualifier: MONDO:0015338
 named_entities:
-  - id: HP:0011800
-    label: Midface hypoplasia
   - id: MONDO:0007041
     label: Apert syndrome
   - id: MAXO:0000486
-    label: distraction osteogenesis
+    label: Distraction osteogenesis
   - id: HP:0012531
-    label: pain
+    label: Pain
   - id: HP:0001288
-    label: gait disturbances
-  - id: MONDO:0003432
-    label: Strabismus
+    label: Gait disturbances
   - id: HP:0001159
     label: Syndactyly
-  - id: MAXO:0000004
-    label: surgical procedures
   - id: HP:0001363
     label: craniosynostosis
+  - id: HP:0011800
+    label: midface hypoplasia
   - id: MONDO:0015338
     label: syndromic craniosynostosis

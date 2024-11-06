@@ -23,10 +23,14 @@ input_text: "Marfan Syndrome: new diagnostic criteria, same anesthesia care? Cas
   vitally important to avoid the detrimental effects of hypertension and tachycardia."
 raw_completion_output: |-
   primary_disease: Marfan Syndrome
-  medical_actions: Preoperative evaluation focusing on cardiopulmonary abnormalities; Difficult intubation preparation; Proper positioning and limb support before induction; Antibiotic prophylaxis for subacute bacterial endocarditis; Careful patient positioning to avoid joint injuries; Intraoperative cardiovascular monitoring; Avoid maneuvers that lead to tachycardia or hypertension; Control airway pressure to prevent pneumothorax; Maintain adequate volemia; Adequate postoperative pain management
-  symptoms: Pectus carinatum; Scoliosis; Ectopia lens; Spontaneous pneumothorax; Aortal aneurysm and dissection; Thoracolumbar kyphoscoliosis; Metallic murmur on cardiac exam; Hypertension; Tachycardia
+
+  medical_actions: Anesthetic management; Proper positioning and limb support prior to induction; Antibiotic prophylaxis for subacute bacterial endocarditis; Cardiovascular monitoring; Control of airway pressure; Maintaining adequate volemia; Postoperative pain management
+
+  symptoms: Pectus carinatum; Scoliosis; Ectopia lens; Spontaneous pneumothorax; Aortal aneurysm and dissection; Thoracolumbar kyphoscoliosis; Metallic murmur on cardiac exam
+
   chemicals: 
-  action_annotation_relationships: Preoperative evaluation focusing on cardiopulmonary abnormalities TREATS cardiopulmonary abnormalities IN Marfan Syndrome; Difficult intubation preparation PREVENTS difficult intubation IN Marfan Syndrome; Proper positioning and limb support before induction PREVENTS joint injuries IN Marfan Syndrome; Antibiotic prophylaxis for subacute bacterial endocarditis PREVENTS subacute bacterial endocarditis IN Marfan Syndrome; Careful patient positioning to avoid joint injuries PREVENTS joint injuries IN Marfan Syndrome; Intraoperative cardiovascular monitoring PREVENTS cardiovascular instability IN Marfan Syndrome; Avoid maneuvers that lead to tachycardia or hypertension PREVENTS tachycardia IN Marfan Syndrome; Control airway pressure to prevent pneumothorax PREVENTS pneumothorax IN Marfan Syndrome; Maintain adequate volemia PREVENTS prolapse IN Marfan Syndrome; Adequate postoperative pain management TREATS pain IN Marfan Syndrome
+
+  action_annotation_relationships: Anesthetic management TREATS perioperative morbidity IN Marfan Syndrome; Proper positioning and limb support prior to induction PREVENTS joint injuries IN Marfan Syndrome; Antibiotic prophylaxis PREVENTS subacute bacterial endocarditis IN Marfan Syndrome; Cardiovascular monitoring PREVENTS tachycardia or hypertension IN Marfan Syndrome; Control of airway pressure PREVENTS pneumothorax IN Marfan Syndrome; Maintaining adequate volemia PREVENTS prolapse IN Marfan Syndrome; Postoperative pain management PREVENTS hypertension and tachycardia IN Marfan Syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -41,23 +45,20 @@ prompt: |+
 
 
   Text:
-  Adequate postoperative pain management TREATS pain IN Marfan Syndrome
+  Postoperative pain management PREVENTS hypertension and tachycardia IN Marfan Syndrome
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0007947
   medical_actions:
-    - Preoperative evaluation focusing on cardiopulmonary abnormalities
-    - Difficult intubation preparation
-    - Proper positioning and limb support before induction
+    - Anesthetic management
+    - Proper positioning and limb support prior to induction
     - Antibiotic prophylaxis for subacute bacterial endocarditis
-    - Careful patient positioning to avoid joint injuries
-    - Intraoperative cardiovascular monitoring
-    - Avoid maneuvers that lead to tachycardia or hypertension
-    - Control airway pressure to prevent pneumothorax
-    - Maintain adequate volemia
-    - Adequate postoperative pain management
+    - Cardiovascular monitoring
+    - Control of airway pressure
+    - Maintaining adequate volemia
+    - Postoperative pain management
   symptoms:
     - HP:0000768
     - HP:0002650
@@ -66,55 +67,36 @@ extracted_object:
     - Aortal aneurysm and dissection
     - HP:0003423
     - Metallic murmur on cardiac exam
-    - HP:0000822
-    - HP:0001649
   action_annotation_relationships:
-    - subject: Preoperative evaluation focusing on cardiopulmonary abnormalities
+    - subject: Anesthetic management
       predicate: TREATS
-      object: cardiopulmonary abnormalities
+      object: perioperative morbidity
       qualifier: MONDO:0007947
-    - subject: Difficult intubation preparation
-      predicate: PREVENTS
-      object: difficult intubation
-      qualifier: MONDO:0007947
-    - subject: Proper positioning and limb support before induction
+    - subject: Proper positioning and limb support prior to induction
       predicate: PREVENTS
       object: joint injuries
       qualifier: MONDO:0007947
-    - subject: <Antibiotic prophylaxis>
-      predicate: <PREVENTS>
-      object: <subacute bacterial endocarditis>
-      qualifier: <Marfan Syndrome>
-      subject_extension: <Antibiotic>
-    - subject: Careful patient positioning to avoid joint injuries
+    - subject: prophylaxis
       predicate: PREVENTS
-      object: joint injuries
+      object: subacute bacterial endocarditis
       qualifier: MONDO:0007947
-    - subject: Intraoperative cardiovascular monitoring
+      subject_extension: CHEBI:33281
+    - subject: Cardiovascular monitoring
       predicate: PREVENTS
-      object: cardiovascular instability
+      object: tachycardia or hypertension
       qualifier: MONDO:0007947
-    - subject: Avoid maneuvers that lead to tachycardia or hypertension
+    - subject: Control of airway pressure
       predicate: PREVENTS
-      object: HP:0001649
+      object: HP:0002107
       qualifier: MONDO:0007947
-    - subject: <Control airway pressure>
-      predicate: <PREVENTS>
-      object: <pneumothorax>
-      qualifier: <Marfan Syndrome>
-      subject_qualifier: <None>
-      object_qualifier: <None>
-      subject_extension: <None>
-      object_extension: <None>
-    - subject: Maintain adequate volemia
+    - subject: Maintaining adequate volemia
       predicate: PREVENTS
       object: prolapse
       qualifier: MONDO:0007947
-    - subject: postoperative pain management
-      predicate: TREATS
-      object: HP:0012531
+    - subject: Postoperative pain management
+      predicate: PREVENTS
+      object: hypertension and tachycardia
       qualifier: MONDO:0007947
-      subject_qualifier: Adequate
 named_entities:
   - id: MONDO:0007947
     label: Marfan Syndrome
@@ -126,9 +108,7 @@ named_entities:
     label: Spontaneous pneumothorax
   - id: HP:0003423
     label: Thoracolumbar kyphoscoliosis
-  - id: HP:0000822
-    label: Hypertension
-  - id: HP:0001649
-    label: Tachycardia
-  - id: HP:0012531
-    label: pain
+  - id: CHEBI:33281
+    label: Antibiotic
+  - id: HP:0002107
+    label: pneumothorax

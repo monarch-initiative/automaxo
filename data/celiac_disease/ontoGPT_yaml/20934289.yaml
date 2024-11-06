@@ -1,0 +1,267 @@
+---
+input_text: 'Association of Budd-Chiari syndrome and celiac disease. BACKGROUND AND
+  AIMS: An association between Budd-Chiari syndrome (BCS) and celiac disease (CD)
+  is uncommon. The aims of our study were to investigate the etiology of BCS and to
+  search for a particular HLA Ag pattern among patients. PATIENTS AND METHODS: BCS
+  diagnosis was based on Doppler ultrasound and CD diagnosis on duodenal biopsy, transglutaminase
+  (TGAb) and gliadin antibodies (GAb). Patients were screened for prothrombotic disorders
+  and seven had a PCR-SSO test for HLA genotypes. Patients were treated with anticoagulants
+  and gluten-free diet. RESULTS: Nine patients were included; mean age 27 years (20-42);
+  sex ratio (F/M) 2; mean follow-up duration 31 months (6-54). All patients had endoscopic
+  and histological features of CD. GAb/TGAb were found in 78 % (n=7). Ag HLA found
+  were HLA DQbeta1(*)02 (n=6) and DQbeta1(*)03 (n=3). Prothrombotic conditions identified
+  were latent myeloproliferative disorder (n=1), protein C deficiency (n=1), probable
+  factor V Leiden (n=1) and oral contraceptive use (n=1). No prothrombotic state could
+  be identified in the five other patients. CONCLUSION: The BCS-CD association is
+  relatively frequent in our country. Underlying prothrombotic conditions were absent
+  in more than 50 % of cases, suggesting CD plays a role in the occurrence of thrombosis.
+  HLA alleles found are strongly associated with CD, without any particular pattern
+  for the BCS-CD association.'
+raw_completion_output: |-
+  primary_disease: Budd-Chiari syndrome and celiac disease
+
+  medical_actions: Doppler ultrasound; duodenal biopsy; transglutaminase (TGAb) and gliadin antibodies (GAb) tests; PCR-SSO test for HLA genotypes; anticoagulants; gluten-free diet
+
+  symptoms: thrombosis
+
+  chemicals: anticoagulants
+
+  action_annotation_relationships: Doppler ultrasound DIAGNOSES Budd-Chiari syndrome; duodenal biopsy DIAGNOSES celiac disease; transglutaminase (TGAb) and gliadin antibodies (GAb) tests DIAGNOSE celiac disease; PCR-SSO test for HLA genotypes IDENTIFIES genetic susceptibility IN celiac disease; anticoagulants (with anticoagulants) TREAT thrombosis IN Budd-Chiari syndrome; gluten-free diet MANAGES celiac disease
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  gluten-free diet MANAGES celiac disease
+
+  ===
+
+extracted_object:
+  primary_disease: Budd-Chiari syndrome and celiac disease
+  medical_actions:
+    - Doppler ultrasound
+    - duodenal biopsy
+    - transglutaminase (TGAb) and gliadin antibodies (GAb) tests
+    - PCR-SSO test for HLA genotypes
+    - anticoagulants
+    - gluten-free diet
+  symptoms:
+    - thrombosis
+  chemicals:
+    - CHEBI:50249
+  action_annotation_relationships:
+    - subject: Doppler ultrasound
+      predicate: DIAGNOSES
+      object: HP:0002639
+    - subject: duodenal biopsy
+      predicate: DIAGNOSES
+      object: HP:0002608
+    - subject: <tests>
+      predicate: <DIAGNOSE>
+      object: <celiac disease>
+      qualifier: <>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <transglutaminase (TGAb) and gliadin antibodies (GAb)>
+      object_extension: <>
+    - subject: <PCR-SSO test>
+      predicate: <IDENTIFIES>
+      object: <genetic susceptibility>
+      qualifier: <celiac disease>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <HLA genotypes>
+      object_extension: <>
+    - subject: anticoagulants
+      predicate: TREATS
+      object: thrombosis
+      qualifier: MONDO:0010947
+      subject_qualifier: with anticoagulants
+      subject_extension: CHEBI:50249
+    - subject: gluten-free diet
+      predicate: MANAGES
+      object: HP:0002608
+named_entities:
+  - id: MONDO:0005130
+    label: Celiac Disease
+  - id: HP:0011473
+    label: villous atrophy
+  - id: MAXO:0000088
+    label: diet
+  - id: HP:0002014
+    label: diarrhea
+  - id: HP:0001903
+    label: anemia
+  - id: HP:0000939
+    label: osteoporosis
+  - id: HP:0002608
+    label: Celiac Disease
+  - id: MAXO:0010200
+    label: Abdominal ultrasonography
+  - id: HP:0003270
+    label: Abdominal distension
+  - id: HP:0002748
+    label: Rickets
+  - id: HP:0002576
+    label: intussusception
+  - id: CHEBI:72716
+    label: TG2 inhibitors
+  - id: MAXO:0000130
+    label: endoscopy
+  - id: MONDO:0016063
+    label: Celiac disease (CD)
+  - id: CHEBI:73291
+    label: Anti-deamidated gliadin peptides (DGP)
+  - id: HP:0011107
+    label: Aphthous stomatitis
+  - id: HP:0002019
+    label: Constipation
+  - id: HP:0002020
+    label: Gastroesophageal reflux disease
+  - id: CHEBI:18163
+    label: GD1a
+  - id: CHEBI:28175
+    label: GD1b
+  - id: CHEBI:28424
+    label: GD3
+  - id: CHEBI:27691
+    label: GT1a
+  - id: CHEBI:28058
+    label: GT1b
+  - id: CHEBI:27515
+    label: GQ1b
+  - id: CHEBI:8382
+    label: prednisone
+  - id: CHEBI:2948
+    label: azathioprine
+  - id: CHEBI:4031
+    label: cyclosporine
+  - id: HP:0410281
+    label: Indigestion
+  - id: HP:0002027
+    label: Abdominal pain
+  - id: HP:0025502
+    label: overweight
+  - id: HP:0001513
+    label: obesity
+  - id: MONDO:0018353
+    label: Refractory Celiac Disease (RCD)
+  - id: MAXO:0000757
+    label: Infusions
+  - id: HP:0000739
+    label: anxiety
+  - id: HP:0002315
+    label: Headache
+  - id: HP:0100785
+    label: Insomnia
+  - id: HP:0004396
+    label: Loss of appetite
+  - id: CHEBI:63623
+    label: Dimercaptosuccinic acid
+  - id: CHEBI:25140
+    label: Maltodextrin
+  - id: CHEBI:27300
+    label: Vitamin D
+  - id: CHEBI:22984
+    label: Calcium
+  - id: MAXO:0001610
+    label: Transcranial Magnetic Stimulation
+  - id: CHEBI:29987
+    label: glutamate
+  - id: HP:0000988
+    label: Rash
+  - id: MONDO:0009032
+    label: Celiac disease (CeD)
+  - id: HP:0002013
+    label: vomiting
+  - id: HP:0002024
+    label: malabsorption
+  - id: CHEBI:48416
+    label: Olmesartan
+  - id: CHEBI:35457
+    label: ACE inhibitors (ACEIs)
+  - id: MAXO:0000824
+    label: Hemoglobin measurement
+  - id: HP:0002102
+    label: pleurisy
+  - id: HP:0001701
+    label: pericarditis
+  - id: HP:0001541
+    label: ascites
+  - id: HP:0000238
+    label: hydrocephalus
+  - id: HP:0002018
+    label: Nausea
+  - id: CHEBI:74859
+    label: anti-tissue transglutaminase IgA (TG)
+  - id: CHEBI:6541
+    label: Losartan
+  - id: MAXO:0035049
+    label: Endoscopic retrograde cholangiopancreatography
+  - id: HP:0005214
+    label: intestinal obstruction
+  - id: MAXO:0001175
+    label: Liver transplantation
+  - id: MAXO:0000503
+    label: Mechanical ventilation
+  - id: MAXO:0000602
+    label: Hemodialysis
+  - id: HP:0031258
+    label: Delirium
+  - id: HP:0001250
+    label: Seizures
+  - id: HP:0001259
+    label: Coma
+  - id: HP:0007185
+    label: Loss of consciousness
+  - id: CHEBI:49575
+    label: Diazepam
+  - id: HP:0100753
+    label: Schizophrenia
+  - id: MAXO:0001193
+    label: Upper gastrointestinal endoscopy
+  - id: MAXO:0000108
+    label: Iron supplementations
+  - id: MAXO:0001129
+    label: Vitamin supplementations
+  - id: HP:0001891
+    label: Iron deficiency anemia
+  - id: HP:0001889
+    label: Megaloblastic anemia
+  - id: HP:0002028
+    label: Chronic diarrhea
+  - id: CHEBI:18248
+    label: Iron
+  - id: CHEBI:176843
+    label: Vitamin B12
+  - id: MONDO:0005344
+    label: Hepatitis B
+  - id: MAXO:0000610
+    label: enzyme-linked immunosorbent assays (ELISA)
+  - id: CHEBI:80165
+    label: GIPs
+  - id: MONDO:0023605
+    label: Lane-Hamilton syndrome (LHS)
+  - id: HP:4000055
+    label: Intestinal inflammation
+  - id: CHEBI:16301
+    label: Nitrite
+  - id: CHEBI:17632
+    label: Nitrate
+  - id: HP:0011793
+    label: malignancy
+  - id: CHEBI:50249
+    label: anticoagulants
+  - id: HP:0002639
+    label: Budd-Chiari syndrome
+  - id: MONDO:0010947
+    label: Budd-Chiari syndrome

@@ -18,10 +18,14 @@ input_text: 'Prolactin may be increased in newly diagnosed celiac children and a
   seem more prone to develop hyperprolactinemia than older ones.'
 raw_completion_output: |-
   primary_disease: Celiac disease
-  medical_actions: Gluten-free diet
-  symrops: Hyperprolactinemia
-  chemicals: Prolactin
-  action_annotation_relationships: Gluten-free diet TREATS Hyperprolactinemia IN Celiac disease; Gluten-free diet (with Prolactin) TREATS Hyperprolactinemia IN Celiac disease
+
+  medical_actions: Evaluate PRL secretion; Gluten-free diet
+
+  symptoms: Hyperprolactinemia
+
+  chemicals: Prolactin (PRL)
+
+  action_annotation_relationships: Gluten-free diet TREATS Hyperprolactinemia IN Celiac disease; Evaluate PRL secretion (with Prolactin) TREATS Hyperprolactinemia IN Celiac disease
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -36,14 +40,17 @@ prompt: |+
 
 
   Text:
-  Gluten-free diet (with Prolactin) TREATS Hyperprolactinemia IN Celiac disease
+  Evaluate PRL secretion (with Prolactin) TREATS Hyperprolactinemia IN Celiac disease
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0005130
   medical_actions:
+    - Evaluate PRL secretion
     - Gluten-free diet
+  symptoms:
+    - HP:0000870
   chemicals:
     - CHEBI:81580
   action_annotation_relationships:
@@ -51,16 +58,25 @@ extracted_object:
       predicate: TREATS
       object: HP:0000870
       qualifier: MONDO:0005130
-    - subject: Gluten-free diet
+      subject_extension: Gluten
+    - subject: Evaluate PRL secretion
       predicate: TREATS
       object: HP:0000870
       qualifier: MONDO:0005130
       subject_qualifier: with Prolactin
       subject_extension: CHEBI:81580
 named_entities:
+  - id: MONDO:0044092
+    label: Collagenous sprue
+  - id: HP:0002014
+    label: diarrhea
+  - id: CHEBI:50858
+    label: corticosteroids
+  - id: HP:0004395
+    label: malnutrition
   - id: MONDO:0005130
     label: Celiac disease
-  - id: CHEBI:81580
-    label: Prolactin
   - id: HP:0000870
     label: Hyperprolactinemia
+  - id: CHEBI:81580
+    label: Prolactin (PRL)

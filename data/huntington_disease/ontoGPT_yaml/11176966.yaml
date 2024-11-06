@@ -30,15 +30,15 @@ input_text: "Progression of symptoms in the early and middle stages of Huntingto
 raw_completion_output: |-
   primary_disease: Huntington disease
 
-  medical_actions: 
+  medical_actions: Survey of symptomatic HD progression; Evaluation of therapeutic agents
 
-  symptoms: involuntary movements; sadness; depression; difficulty getting along with others; clumsiness; sexual problems; lack of motivation; suspiciousness; paranoia; unsteadiness; trouble holding onto things; trouble walking; changes in sleeping patterns; delusions; hallucinations; intellectual decline; memory loss; speech difficulty; weight loss; loss of bowel and bladder control
+  symptoms: Involuntary movements; Sadness; Depression; Difficulty getting along with; Clumsiness; Sexual problems; Lack of motivation; Suspiciousness/paranoia; Unsteadiness; Trouble holding onto things; Trouble walking; Changes in sleeping patterns; Delusions and hallucinations; Intellectual decline; Memory loss; Speech difficulty; Weight loss; Loss of bowel and bladder control
 
   chemicals: 
 
-  action_annotation_relationships: involuntary movements IN Huntington disease; sadness IN Huntington disease; depression IN Huntington disease; difficulty getting along with others IN Huntington disease; clumsiness IN Huntington disease; sexual problems IN Huntington disease; lack of motivation IN Huntington disease; suspiciousness IN Huntington disease; paranoia IN Huntington disease; unsteadiness IN Huntington disease; trouble holding onto things IN Huntington disease; trouble walking IN Huntington disease; changes in sleeping patterns IN Huntington disease; delusions IN Huntington disease; hallucinations IN Huntington disease; intellectual decline IN Huntington disease; memory loss IN Huntington disease; speech difficulty IN Huntington disease; weight loss IN Huntington disease; loss of bowel and bladder control IN Huntington disease
+  action_annotation_relationships: Survey of symptomatic HD progression TREATS Involuntary movements IN Huntington disease; Survey of symptomatic HD progression TREATS Sadness IN Huntington disease; Survey of symptomatic HD progression TREATS Depression IN Huntington disease; Survey of symptomatic HD progression TREATS Difficulty getting along with IN Huntington disease; Survey of symptomatic HD progression TREATS Clumsiness IN Huntington disease; Survey of symptomatic HD progression TREATS Sexual problems IN Huntington disease; Survey of symptomatic HD progression TREATS Lack of motivation IN Huntington disease; Survey of symptomatic HD progression TREATS Suspiciousness/paranoia IN Huntington disease; Survey of symptomatic HD progression TREATS Unsteadiness IN Huntington disease; Survey of symptomatic HD progression TREATS Trouble holding onto things IN Huntington disease; Survey of symptomatic HD progression TREATS Trouble walking IN Huntington disease; Survey of symptomatic HD progression TREATS Changes in sleeping patterns IN Huntington disease; Survey of symptomatic HD progression TREATS Delusions and hallucinations IN Huntington disease; Survey of symptomatic HD progression TREATS Intellectual decline IN Huntington disease; Survey of symptomatic HD progression TREATS Memory loss IN Huntington disease; Survey of symptomatic HD progression TREATS Speech difficulty IN Huntington disease; Survey of symptomatic HD progression TREATS Weight loss IN Huntington disease; Survey of symptomatic HD progression TREATS Loss of bowel and bladder control IN Huntington disease; Evaluation of therapeutic agents TREATS progression of disease IN Huntington disease
 prompt: |+
-  Split the following piece of text into fields in the following format:
+  From the text below, extract the following entities in the following format:
 
   subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
   object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
@@ -51,143 +51,300 @@ prompt: |+
 
 
   Text:
-  loss of bowel and bladder control IN Huntington disease
+  Evaluation of therapeutic agents TREATS progression of disease IN Huntington disease
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0007739
+  medical_actions:
+    - Survey of symptomatic HD progression
+    - Evaluation of therapeutic agents
   symptoms:
     - HP:0004305
-    - sadness
+    - Sadness
     - HP:0000716
-    - difficulty getting along with others
+    - Difficulty getting along with
     - HP:0002312
-    - sexual problems
+    - Sexual problems
     - HP:0000745
-    - suspiciousness
-    - HP:0011999
-    - unsteadiness
-    - trouble holding onto things
-    - trouble walking
-    - changes in sleeping patterns
-    - HP:0000746
-    - HP:0000738
-    - intellectual decline
+    - Suspiciousness/paranoia
+    - Unsteadiness
+    - Trouble holding onto things
+    - Trouble walking
+    - Changes in sleeping patterns
+    - Delusions and hallucinations
+    - Intellectual decline
     - HP:0002354
-    - speech difficulty
+    - Speech difficulty
     - HP:0001824
-    - loss of bowel and bladder control
+    - Loss of bowel and bladder control
   action_annotation_relationships:
-    - subject: involuntary movements
-      predicate: IN
+    - subject: Survey of symptomatic HD progression
+      predicate: TREATS
+      object: HP:0004305
       qualifier: MONDO:0007739
-    - predicate: IN
-      object: sadness
+    - subject: Survey of symptomatic HD progression
+      predicate: TREATS
+      object: Sadness
       qualifier: MONDO:0007739
-    - predicate: IN
+    - subject: Survey of symptomatic HD progression
+      predicate: TREATS
       object: HP:0000716
       qualifier: MONDO:0007739
-    - subject: difficulty getting along with others
-      predicate: IN
+    - subject: Survey of symptomatic HD progression
+      predicate: TREATS
+      object: Difficulty getting along
       qualifier: MONDO:0007739
-    - predicate: IN
+      object_qualifier: IN
+    - subject: Survey of symptomatic HD progression
+      predicate: TREATS
       object: HP:0002312
       qualifier: MONDO:0007739
-    - subject: Sexual therapy
+    - subject: Survey of symptomatic HD progression
       predicate: TREATS
       object: Sexual problems
       qualifier: MONDO:0007739
-    - predicate: TREATs
+    - subject: Survey
+      predicate: TREATS
       object: HP:0000745
       qualifier: MONDO:0007739
-    - predicate: IN
-      object: suspiciousness
-      qualifier: MONDO:0007739
-    - predicate: IN
-      object: HP:0011999
-      qualifier: MONDO:0007739
-    - predicate: TREATS
-      object: unsteadiness
-      qualifier: MONDO:0007739
-    - predicate: IN
-      object: trouble holding onto things
-      qualifier: MONDO:0007739
-    - predicate: IN
-      object: trouble walking
-      qualifier: MONDO:0007739
-    - subject: changes in sleeping patterns
-      predicate: IN
-      qualifier: MONDO:0007739
-    - predicate: TREATS
-      object: HP:0000746
-      qualifier: MONDO:0007739
-    - predicate: TREATS
-      object: HP:0000738
-      qualifier: MONDO:0007739
-    - object: intellectual decline
-      qualifier: MONDO:0007739
-    - predicate: TREATS
-      object: HP:0002354
-      qualifier: MONDO:0007739
-    - subject: MAXO:0000930
+      subject_qualifier: symptomatic
+      subject_extension: HD progression
+    - subject: Survey of symptomatic HD progression
       predicate: TREATS
-      object: speech difficulty
+      object: Suspiciousness/paranoia
       qualifier: MONDO:0007739
-    - subject: weight loss
-      predicate: IN
-      object: Huntington disease
-    - subject: loss of bowel and bladder control
-      predicate: IN
-      object: Huntington disease
+    - subject: <Survey of symptomatic HD progression>
+      predicate: <TREATS>
+      object: <Unsteadiness>
+      qualifier: <Huntington disease>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <HD progression>
+      object_extension: <Unsteadiness>
+    - subject: Survey of symptomatic HD progression
+      predicate: TREATS
+      object: Trouble holding onto things
+      qualifier: MONDO:0007739
+    - subject: <Survey of symptomatic HD progression>
+      predicate: <TREATS>
+      object: <Trouble walking>
+      qualifier: <Huntington disease>
+      subject_extension: <HD progression>
+    - subject: Survey of symptomatic HD progression
+      predicate: TREATS
+      object: Changes in sleeping patterns
+      qualifier: MONDO:0007739
+    - subject: Survey of symptomatic HD progression
+      predicate: TREATS
+      object: Delusions and hallucinations
+      qualifier: MONDO:0007739
+    - subject: Survey of symptomatic HD progression
+      predicate: TREATS
+      object: Intellectual decline
+      qualifier: MONDO:0007739
+    - subject: <Survey of symptomatic HD progression>
+      predicate: <TREATS>
+      object: <Memory loss>
+      qualifier: <Huntington disease>
+      subject_qualifier: <symptomatic>
+      subject_extension: <HD progression>
+    - subject: Survey of symptomatic HD progression
+      predicate: TREATS
+      object: Speech difficulty
+      qualifier: MONDO:0007739
+    - subject: Survey of symptomatic HD progression
+      predicate: TREATS
+      object: HP:0001824
+      qualifier: MONDO:0007739
+    - subject: <Survey of symptomatic HD progression>
+      predicate: <TREATS>
+      object: <Loss of bowel and bladder control>
+      qualifier: <Huntington disease>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <Survey of symptomatic HD progression>
+      object_extension: <>
+    - subject: Evaluation of therapeutic agents
+      predicate: TREATS
+      object: progression of disease
+      qualifier: MONDO:0007739
+      subject_extension: therapeutic agents
 named_entities:
   - id: MONDO:0007739
     label: Huntington disease
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0002180
+    label: neurodegeneration
+  - id: HP:0001268
+    label: cognitive decline
+  - id: HP:0100022
+    label: movement disorders
+  - id: HP:0002072
+    label: choreic movements
   - id: MAXO:0009003
     label: preimplantation genetic testing
+  - id: MAXO:0001592
+    label: RNA interference therapy
   - id: HP:0000716
     label: depression
   - id: HP:0000739
     label: anxiety
   - id: HP:0000737
     label: irritability
-  - id: HP:0002072
-    label: choreic movements
   - id: CHEBI:7735
     label: olanzapine
+  - id: MAXO:0000882
+    label: behavioral interventions
+  - id: HP:0004395
+    label: malnutrition
+  - id: MAXO:0000011
+    label: physical therapy
+  - id: CHEBI:22720
+    label: benzodiazepines
+  - id: CHEBI:2618
+    label: amantadine
+  - id: CHEBI:15765
+    label: levodopa
+  - id: HP:0002315
+    label: Headache
+  - id: CHEBI:134738
+    label: Laquinimod
+  - id: CHEBI:4903
+    label: Ethinylestradiol
+  - id: CHEBI:6443
+    label: Levonorgestrel
+  - id: HP:0001251
+    label: Ataxia
+  - id: HP:0001260
+    label: Dysarthria
+  - id: HP:0002119
+    label: Ventricular dilatation
+  - id: HP:0100543
+    label: cognitive deficits
+  - id: HP:0000708
+    label: Behavioral changes
+  - id: CHEBI:92976
+    label: Latrepirdine
+  - id: MONDO:0005559
+    label: Neurodegenerative diseases
+  - id: CHEBI:16243
+    label: Quercetin
+  - id: CHEBI:3962
+    label: Curcumin
+  - id: CHEBI:27881
+    label: Resveratrol
+  - id: CHEBI:75095
+    label: Chrysin
+  - id: CHEBI:28821
+    label: Piperine
+  - id: CHEBI:17620
+    label: Ferulic acid
+  - id: CHEBI:78330
+    label: Huperzine A
+  - id: CHEBI:16118
+    label: Berberine
+  - id: CHEBI:2979
+    label: Baicalein
+  - id: CHEBI:28230
+    label: Hesperetin
+  - id: CHEBI:26536
+    label: Retinoic acid
+  - id: MAXO:0000127
+    label: Genetic testing
+  - id: CHEBI:76004
+    label: Dimethyl fumarate
+  - id: MAXO:0010012
+    label: coenzyme Q10 supplementation
+  - id: HP:0003287
+    label: mitochondrial dysfunction
+  - id: HP:0025464
+    label: oxidative stress
+  - id: CHEBI:46245
+    label: coenzyme Q10
+  - id: CHEBI:31687
+    label: idebenone
+  - id: MONDO:0100339
+    label: Friedreich ataxia
+  - id: MONDO:0016621
+    label: Juvenile Huntington Disease
+  - id: MAXO:0000021
+    label: Palliative care
   - id: CHEBI:6030
     label: Isoniazid (INH)
   - id: CHEBI:16865
     label: gamma-aminobutyric acid (GABA)
-  - id: MAXO:0001298
-    label: therapy
-  - id: HP:0001824
-    label: Weight loss
-  - id: HP:0004324
-    label: Weight gain
+  - id: HP:0000709
+    label: psychosis
+  - id: HP:0011951
+    label: aspiration pneumonia
+  - id: MAXO:0000065
+    label: aerobic exercises
+  - id: MAXO:0000487
+    label: clinical assessments
+  - id: MAXO:0000387
+    label: muscle biopsy
+  - id: CHEBI:9467
+    label: Tetrabenazine
+  - id: MAXO:0000943
+    label: Deep brain stimulation
+  - id: HP:0001332
+    label: Dystonia
+  - id: HP:0001336
+    label: Myoclonus
+  - id: HP:0100033
+    label: Tics
+  - id: HP:0001300
+    label: Parkinsonism
+  - id: CHEBI:35469
+    label: Antidepressants
+  - id: CHEBI:51373
+    label: GABA agonists
+  - id: CHEBI:38462
+    label: Acetylcholinesterase inhibitors
+  - id: MONDO:0005071
+    label: Neurological disorders
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: HP:0033429
+    label: neuroinflammation
+  - id: MAXO:0000079
+    label: genetic counseling
+  - id: MAXO:0000016
+    label: Cell Therapy
+  - id: MONDO:0008199
+    label: Parkinson Disease (PD) and Huntington Disease (HD)
+  - id: MONDO:0005314
+    label: Relapsing-remitting multiple sclerosis (RRMS)
+  - id: MAXO:0001394
+    label: oral administration
+  - id: MAXO:0001610
+    label: repetitive transcranial magnetic stimulation (rTMS)
+  - id: CHEBI:76720
+    label: Antisense oligonucleotides
+  - id: MONDO:0001516
+    label: spinal muscular atrophy
+  - id: CHEBI:16919
+    label: creatine
   - id: CHEBI:35476
     label: Neuroleptics
-  - id: HP:0002120
-    label: cortical atrophy
-  - id: CHEBI:52815
-    label: Cresyl violet
-  - id: HP:0100543
-    label: cognitive deficits
-  - id: HP:0001332
-    label: dystonia
+  - id: HP:0002015
+    label: dysphagia
+  - id: HP:0000873
+    label: diabetes insipidus
+  - id: HP:0001622
+    label: preterm delivery
+  - id: HP:0012330
+    label: pyelonephritis
   - id: HP:0004305
-    label: involuntary movements
+    label: Involuntary movements
   - id: HP:0002312
-    label: clumsiness
+    label: Clumsiness
   - id: HP:0000745
-    label: lack of motivation
-  - id: HP:0011999
-    label: paranoia
-  - id: HP:0000746
-    label: delusions
-  - id: HP:0000738
-    label: hallucinations
+    label: Lack of motivation
   - id: HP:0002354
-    label: memory loss
-  - id: MAXO:0000930
-    label: speech therapy
+    label: Memory loss
+  - id: HP:0001824
+    label: Weight loss

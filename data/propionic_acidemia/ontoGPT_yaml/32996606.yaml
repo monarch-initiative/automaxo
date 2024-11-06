@@ -25,10 +25,14 @@ input_text: 'Liver and/or kidney transplantation in amino and organic acid-relat
   indispensable to improve patient care and outcomes.'
 raw_completion_output: |-
   primary_disease: amino and organic acid-related disorders (AOA)
+
   medical_actions: liver transplantation; kidney transplantation; combined liver and kidney transplantation; psychological testing
-  symptoms: neurological complications; nonneurological complications
+
+  symptoms: posttransplant survival issues; neurological complications; nonneurological complications; unchanged intelligence quotient (IQ); improved intelligence quotient (IQ)
+
   chemicals: 
-  action_annotation_relationships: liver transplantation TREATS neurological complications IN amino and organic acid-related disorders (AOA); kidney transplantation TREATS neurological complications IN amino and organic acid-related disorders (AOA); combined liver and kidney transplantation TREATS neurological complications IN amino and organic acid-related disorders (AOA); liver transplantation TREATS nonneurological complications IN amino and organic acid-related disorders (AOA); kidney transplantation TREATS nonneurological complications IN amino and organic acid-related disorders (AOA); combined liver and kidney transplantation TREATS nonneurological complications IN amino and organic acid-related disorders (AOA); psychological testing TREATS neurological complications IN amino and organic acid-related disorders (AOA)
+
+  action_annotation_relationships: liver transplantation TREATS posttransplant survival issues IN amino and organic acid-related disorders (AOA); kidney transplantation TREATS posttransplant survival issues IN amino and organic acid-related disorders (AOA); combined liver and kidney transplantation TREATS posttransplant survival issues IN amino and organic acid-related disorders (AOA); liver transplantation TREATS neurological complications IN amino and organic acid-related disorders (AOA); liver transplantation TREATS nonneurological complications IN amino and organic acid-related disorders (AOA); psychological testing TREATS unchanged intelligence quotient (IQ) IN amino and organic acid-related disorders (AOA); psychological testing TREATS improved intelligence quotient (IQ) IN amino and organic acid-related disorders (AOA)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -43,7 +47,7 @@ prompt: |+
 
 
   Text:
-  psychological testing TREATS neurological complications IN amino and organic acid-related disorders (AOA)
+  psychological testing TREATS improved intelligence quotient (IQ) IN amino and organic acid-related disorders (AOA)
 
   ===
 
@@ -55,19 +59,25 @@ extracted_object:
     - combined liver and kidney transplantation
     - psychological testing
   symptoms:
+    - posttransplant survival issues
     - neurological complications
     - nonneurological complications
+    - unchanged intelligence quotient (IQ)
+    - improved intelligence quotient (IQ)
   action_annotation_relationships:
     - subject: MAXO:0001175
       predicate: TREATS
-      object: neurological complications
+      object: posttransplant survival issues
       qualifier: amino and organic acid-related disorders (AOA)
     - subject: kidney transplantation
       predicate: TREATS
-      object: neurological complications
+      object: posttransplant survival issues
       qualifier: amino and organic acid-related disorders (AOA)
-      subject_extension: kidney transplantation
     - subject: combined liver and kidney transplantation
+      predicate: TREATS
+      object: posttransplant survival issues
+      qualifier: amino and organic acid-related disorders (AOA)
+    - subject: MAXO:0001175
       predicate: TREATS
       object: neurological complications
       qualifier: amino and organic acid-related disorders (AOA)
@@ -75,132 +85,103 @@ extracted_object:
       predicate: TREATS
       object: nonneurological complications
       qualifier: amino and organic acid-related disorders (AOA)
-    - subject: kidney transplantation
-      predicate: TREATS
-      object: nonneurological complications
-      qualifier: amino and organic acid-related disorders (AOA)
-    - subject: combined liver and kidney transplantation
-      predicate: TREATS
-      object: nonneurological complications
-      qualifier: amino and organic acid-related disorders (AOA)
-    - subject: psychological testing
-      predicate: TREATS
-      object: neurological complications
-      qualifier: amino and organic acid-related disorders (AOA)
+    - subject: <psychological testing>
+      predicate: <TREATS>
+      object: <unchanged intelligence quotient (IQ)>
+      qualifier: <amino and organic acid-related disorders (AOA)>
+      subject_extension: <psychological testing>
+    - subject: <psychological testing>
+      predicate: <TREATS>
+      object: <improved intelligence quotient (IQ)>
+      qualifier: <amino and organic acid-related disorders (AOA)>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
 named_entities:
   - id: MONDO:0010184
-    label: methylmalonic acidemia (MMA); propionic acidemia; cobalamin C (cblC) deficiency
+    label: Methylmalonic acidemia (MMA); Propionic acidemia; Cobalamin C (cblC) deficiency
   - id: CHEBI:15603
-    label: leucine (Leu)
+    label: Leucine (Leu)
   - id: CHEBI:16414
-    label: valine (Val)
+    label: Valine (Val)
   - id: CHEBI:17191
-    label: isoleucine (Ile)
+    label: Isoleucine (Ile)
   - id: CHEBI:16044
-    label: methionine (Met)
-  - id: MONDO:0002012
-    label: methylmalonic acidemia (MMA)
-  - id: MONDO:0011628
-    label: propionic acidemia
+    label: Methionine (Met)
   - id: CHEBI:25017
     label: leucine
+  - id: MONDO:0002012
+    label: Methylmalonic acidemia
+  - id: HP:0003571
+    label: Propionic acidemia
+  - id: MONDO:0011628
+    label: Propionic acidemia
   - id: MAXO:0001175
-    label: liver transplantation
+    label: Liver transplantation
   - id: HP:0001638
-    label: cardiomyopathy
-  - id: HP:0100543
-    label: Cognitive impairment
+    label: Cardiomyopathy
   - id: CHEBI:176843
     label: Vitamin B12
   - id: MONDO:0019052
     label: Inborn errors of metabolism (IEMs)
   - id: MAXO:0010039
-    label: organ transplantation
+    label: Organ transplantation
+  - id: MAXO:0001298
+    label: therapy
   - id: HP:0001942
-    label: metabolic acidosis
+    label: Metabolic acidosis
   - id: HP:0001987
-    label: hyperammonemia
-  - id: HP:0003571
-    label: Propionic acidemia
+    label: Hyperammonemia
+  - id: HP:0001733
+    label: Pancreatitis
   - id: HP:0001695
     label: cardiac arrest
   - id: HP:0001263
     label: Developmental delay
+  - id: HP:0002863
+    label: Metabolic decompensations (MDs)
   - id: CHEBI:15428
     label: Glycine
   - id: CHEBI:28867
     label: Propionylcarnitine
   - id: HP:0001138
-    label: optic neuropathy
+    label: Optic neuropathy
   - id: HP:0000083
     label: Renal failure
   - id: MONDO:0005290
     label: Rhabdomyolysis
-  - id: MAXO:0000950
-    label: Supportive care
   - id: HP:0003287
     label: Mitochondrial dysfunction
-  - id: HP:0001250
-    label: seizures
-  - id: HP:0002071
-    label: extrapyramidal symptoms
-  - id: HP:0001733
-    label: pancreatitis
-  - id: CHEBI:27881
-    label: resveratrol
-  - id: CHEBI:22586
-    label: antioxidants
   - id: MONDO:0009563
-    label: Maple Syrup Urine Disease (MSUD)
-  - id: CHEBI:15539
-    label: propionyl-CoA
-  - id: CHEBI:33709
-    label: amino acids
-  - id: MAXO:0001001
-    label: Gene therapy
-  - id: CHEBI:36080
-    label: protein
-  - id: MONDO:0000688
-    label: organic acidemias
+    label: maple syrup urine disease (MSUD)
+  - id: MONDO:0100096
+    label: COVID-19
   - id: HP:0008281
-    label: Acute hyperammonemia
-  - id: CHEBI:26708
-    label: NA
+    label: acute hyperammonemia
+  - id: MONDO:0000688
+    label: Organic Acidemias
+  - id: MAXO:0001001
+    label: gene therapy
   - id: HP:0002829
-    label: arthralgia
-  - id: HP:0001410
-    label: liver dysfunction
-  - id: HP:0001919
-    label: acute renal failure
-  - id: HP:0033677
-    label: ARDS
+    label: Arthralgia
   - id: CHEBI:64357
-    label: rituximab
+    label: Rituximab
   - id: CHEBI:35341
     label: steroid
   - id: MAXO:0010032
     label: Heart transplantation
   - id: HP:0001644
-    label: Dilated cardiomyopathy (DCM)
+    label: Dilated cardiomyopathy
   - id: HP:0012758
     label: Neurodevelopmental delay
-  - id: CHEBI:17272
-    label: propionate
-  - id: CHEBI:16510
-    label: 3-hydroxypropionate (3HP)
-  - id: CHEBI:28938
-    label: ammonium
   - id: MONDO:0008723
-    label: Very-Long Chain Acyl-CoA Dehydrogenase Deficiency (VLCAD)
-  - id: HP:0001903
-    label: anemia
+    label: very-long chain acyl-CoA dehydrogenase deficiency (VLCAD)
   - id: HP:0011874
     label: hepatic arterial thrombosis (HAT)
-  - id: CHEBI:16449
-    label: alanine
-  - id: CHEBI:17822
-    label: serine
-  - id: CHEBI:33699
-    label: messenger RNAs
-  - id: CHEBI:71028
-    label: carglumic acid
+  - id: HP:0001876
+    label: pancytopenias
+  - id: HP:0000789
+    label: infertility
+  - id: HP:6000104
+    label: twin pregnancy

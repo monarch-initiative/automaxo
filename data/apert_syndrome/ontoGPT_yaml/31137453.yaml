@@ -9,12 +9,12 @@ input_text: 'Apert Syndrome: Intraoperative and Postoperative Hyponatremia. Aper
   craniosynostosis surgery was presented in this study.'
 raw_completion_output: |-
   primary_disease: Apert Syndrome
-  medical_actions: Intraoperative and Postoperative management; Anesthesia management; calvarial remodeling surgeries
-  symptoms: difficult airway; hyponatremia; neurologic damage
+  medical_actions: Anesthesia management; Calvarial remodeling surgeries
+  symptoms: Difficult airway; Hyponatremia; Neurologic damage
   chemicals: 
-  action_annotation_relationships: Anesthesia management TREATS difficult airway IN Apert Syndrome; Intraoperative and Postoperative management PREVENTS hyponatremia IN Apert Syndrome; calvarial remodeling surgeries TREATS calvarial an extremity deformities IN Apert Syndrome; hyponatremia PREVENTS neurologic damage IN Apert Syndrome
+  action_annotation_relationships: Anesthesia management TREATS Difficult airway IN Apert Syndrome; Calvarial remodeling surgeries PREVENTS Neurologic damage IN Apert Syndrome; Calvarial remodeling surgeries CAUSES Hyponatremia IN Apert Syndrome
 prompt: |+
-  Split the following piece of text into fields in the following format:
+  From the text below, extract the following entities in the following format:
 
   subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
   object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
@@ -27,66 +27,67 @@ prompt: |+
 
 
   Text:
-  hyponatremia PREVENTS neurologic damage IN Apert Syndrome
+  Calvarial remodeling surgeries CAUSES Hyponatremia IN Apert Syndrome
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0007041
   medical_actions:
-    - Intraoperative and Postoperative management
     - Anesthesia management
-    - calvarial remodeling surgeries
+    - Calvarial remodeling surgeries
   symptoms:
-    - difficult airway
+    - Difficult airway
     - HP:0002902
-    - neurologic damage
+    - Neurologic damage
   action_annotation_relationships:
     - subject: Anesthesia management
       predicate: TREATS
-      object: difficult airway
+      object: Difficult airway
       qualifier: MONDO:0007041
-    - subject: Intraoperative and Postoperative management
-      predicate: PREVENTS
-      object: HP:0002902
-      qualifier: MONDO:0007041
-    - subject: calvarial remodeling surgeries
-      predicate: TREATS
-      object: calvarial an extremity deformities
-      qualifier: MONDO:0007041
-    - subject: hyponatremia
-      predicate: PREVENTS
-      object: neurologic damage
-      qualifier: MONDO:0007041
+    - subject: <Calvarial remodeling surgeries>
+      predicate: <PREVENTS>
+      object: <Neurologic damage>
+      qualifier: <Apert Syndrome>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <Calvarial remodeling surgeries>
+      object_extension: <Neurologic damage>
+    - subject: <Calvarial remodeling surgeries>
+      predicate: <CAUSES>
+      object: <Hyponatremia>
+      qualifier: <Apert Syndrome>
+      subject_qualifier: <Not applicable>
+      object_qualifier: <Not applicable>
+      subject_extension: <Not applicable>
+      object_extension: <Not applicable>
 named_entities:
-  - id: HP:0011800
-    label: Midface hypoplasia
   - id: MONDO:0007041
     label: Apert syndrome
   - id: MAXO:0000486
-    label: distraction osteogenesis
+    label: Distraction osteogenesis
   - id: HP:0012531
-    label: pain
+    label: Pain
   - id: HP:0001288
-    label: gait disturbances
-  - id: MONDO:0003432
-    label: Strabismus
+    label: Gait disturbances
   - id: HP:0001159
     label: Syndactyly
-  - id: MAXO:0000004
-    label: surgical procedures
   - id: HP:0001363
     label: craniosynostosis
+  - id: HP:0011800
+    label: midface hypoplasia
   - id: MONDO:0015338
     label: syndromic craniosynostosis
   - id: HP:0001061
     label: Acne
   - id: CHEBI:6067
-    label: isotretinoin
+    label: Isotretinoin
   - id: MONDO:0015469
     label: Craniosynostosis
+  - id: HP:0000504
+    label: Vision issues
   - id: HP:0000572
-    label: Vision loss
+    label: Visual loss
   - id: HP:0000646
     label: Amblyopia
   - id: HP:0001138
@@ -97,16 +98,18 @@ named_entities:
     label: Anisometropia
   - id: HP:0000483
     label: Astigmatism
-  - id: MAXO:0000504
-    label: Tracheostomy
   - id: MAXO:0000502
-    label: Tracheal intubation
-  - id: HP:0010807
-    label: Open bite
-  - id: MAXO:0000756
-    label: blood transfusion
+    label: tracheal intubation
+  - id: HP:0009102
+    label: Anterior open bite
   - id: MAXO:0001183
     label: Bronchoscopy
+  - id: MAXO:0000504
+    label: Tracheotomy
+  - id: MAXO:0001029
+    label: Adenoidectomy
+  - id: MAXO:0001081
+    label: Tonsillectomy
   - id: HP:0002104
     label: Apneic episodes
   - id: HP:0002098
@@ -115,9 +118,7 @@ named_entities:
     label: Stridor
   - id: HP:0000961
     label: Cyanosis
-  - id: MONDO:0009735
-    label: Netherton syndrome
-  - id: MONDO:0011438
-    label: Acne vulgaris
+  - id: HP:0000689
+    label: malocclusion
   - id: HP:0002902
-    label: hyponatremia
+    label: Hyponatremia

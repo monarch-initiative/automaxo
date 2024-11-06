@@ -30,17 +30,17 @@ input_text: 'Medical care of patients with Wilson disease in Germany: a multidis
   units and networks in a multidisciplinary setting should be evaluated to improve
   the care of WD patients.'
 raw_completion_output: |-
-  primary_disease: Wilson disease
+  primary_disease: Wilson disease (WD)
 
-  medical_actions: diagnosis; lifelong medical treatment; continuous monitoring; routine family screening; reduction in medical therapy during pregnancy; liver transplantation
+  medical_actions: monitoring; routine family screening; reduction in medical therapy during pregnancy; liver transplantation (LT)
 
   symptoms: variable symptoms and manifestations
 
   chemicals: 
 
-  action_annotation_relationships: diagnosis TREATS variable symptoms and manifestations IN Wilson disease; lifelong medical treatment TREATS variable symptoms and manifestations IN Wilson disease; continuous monitoring TREATS variable symptoms and manifestations IN Wilson disease; routine family screening PREVENTS variable symptoms and manifestations IN Wilson disease; reduction in medical therapy during pregnancy TREATS variable symptoms and manifestations IN Wilson disease; liver transplantation TREATS variable symptoms and manifestations IN Wilson disease
+  action_annotation_relationships: monitoring TREATS variable symptoms and manifestations IN Wilson disease (WD); routine family screening PREVENTS Wilson disease (WD); reduction in medical therapy during pregnancy TREATS variable symptoms and manifestations IN Wilson disease (WD); liver transplantation (LT) TREATS Wilson disease (WD)
 prompt: |+
-  From the text below, extract the following entities in the following format:
+  Split the following piece of text into fields in the following format:
 
   subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
   object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
@@ -53,137 +53,198 @@ prompt: |+
 
 
   Text:
-  liver transplantation TREATS variable symptoms and manifestations IN Wilson disease
+  liver transplantation (LT) TREATS Wilson disease (WD)
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0010200
   medical_actions:
-    - diagnosis
-    - lifelong medical treatment
-    - continuous monitoring
+    - monitoring
     - routine family screening
     - reduction in medical therapy during pregnancy
     - MAXO:0001175
   symptoms:
     - variable symptoms and manifestations
   action_annotation_relationships:
-    - subject: diagnosis
-      predicate: TREATS
-      object: variable symptoms and manifestations
-      qualifier: MONDO:0010200
-      subject_extension: diagnosis
-    - subject: lifelong medical treatment
-      predicate: TREATS
-      object: variable symptoms and manifestations
-      qualifier: MONDO:0010200
-    - subject: continuous monitoring
+    - subject: monitoring
       predicate: TREATS
       object: variable symptoms and manifestations
       qualifier: MONDO:0010200
     - subject: routine family screening
       predicate: PREVENTS
-      object: variable symptoms and manifestations
+      object: Wilson disease (WD)
+    - subject: <reduction in medical therapy>
+      predicate: <TREATS>
+      object: <variable symptoms and manifestations>
       qualifier: MONDO:0010200
-    - subject: reduction in medical therapy
-      predicate: TREATs
-      object: variable symptoms and manifestations
-      qualifier: MONDO:0010200
-      subject_qualifier: during pregnancy
-      subject_extension: medical therapy
+      subject_qualifier: <during pregnancy>
+      subject_extension: <medical therapy>
     - subject: MAXO:0001175
       predicate: TREATS
-      object: variable symptoms and manifestations
-      qualifier: MONDO:0010200
+      object: Wilson disease (WD)
 named_entities:
   - id: MONDO:0010200
     label: Wilson's disease
   - id: MAXO:0001175
-    label: liver transplantation
+    label: Liver transplantation
   - id: HP:0001695
-    label: cardiac arrest
+    label: Cardiac arrest
   - id: HP:0001685
-    label: myocardial fibrosis
+    label: Myocardial fibrosis
   - id: HP:0001663
-    label: ventricular fibrillation
+    label: Ventricular fibrillation
+  - id: CHEBI:28694
+    label: Copper
+  - id: CHEBI:18248
+    label: Iron
+  - id: HP:0002910
+    label: abnormal liver functions
+  - id: HP:0001394
+    label: cirrhosis
+  - id: CHEBI:27363
+    label: zinc
+  - id: CHEBI:50868
+    label: penicillamine
+  - id: MAXO:0000016
+    label: Cell therapy
+  - id: MAXO:0001001
+    label: Gene therapy
   - id: CHEBI:30703
-    label: tetrathiomolybdate (TTM)
+    label: Tetrathiomolybdate (TTM)
+  - id: HP:0006554
+    label: acute liver failure
   - id: CHEBI:35176
     label: Zinc sulphate
   - id: CHEBI:35475
     label: NSAIDs
-  - id: MAXO:0001001
-    label: Gene therapy
-  - id: HP:0006554
-    label: acute liver failure
+  - id: MAXO:0009095
+    label: zinc therapy
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0006579
+    label: neonatal jaundice
+  - id: HP:0001409
+    label: portal hypertension
+  - id: HP:0030151
+    label: cholangitis
+  - id: HP:0002612
+    label: congenital hepatic fibrosis
+  - id: MONDO:0013282
+    label: alpha-1-antitrypsin deficiency
+  - id: HP:0001903
+    label: anemia
+  - id: HP:0001410
+    label: liver dysfunction
+  - id: CHEBI:39501
+    label: trientine
+  - id: MAXO:0000070
+    label: Hepatic transplantation
+  - id: HP:0001399
+    label: Hepatic failure
+  - id: HP:0004448
+    label: fulminant hepatic failure
   - id: HP:0003256
-    label: coagulopathy
+    label: coagulopathy (international normalized ratio >2.0)
+  - id: HP:0004445
+    label: hepatic encephalopathy (HE)
   - id: HP:0002480
     label: hepatic encephalopathy
+  - id: CHEBI:35341
+    label: Steroids
+  - id: CHEBI:33281
+    label: Antibiotics
+  - id: MONDO:0100193
+    label: End-stage liver disease
+  - id: HP:0100626
+    label: End-stage liver disease
+  - id: HP:0100660
+    label: dyskinesia
+  - id: HP:0100022
+    label: Movement disorders
   - id: HP:0001337
     label: Tremor
   - id: HP:0001332
     label: Dystonia
-  - id: CHEBI:28694
-    label: Copper
-  - id: HP:0001395
-    label: Liver fibrosis
-  - id: HP:0001394
-    label: Cirrhosis
-  - id: CHEBI:39501
-    label: trientine
-  - id: CHEBI:27363
-    label: zinc
-  - id: HP:0001410
-    label: hepatic dysfunction
+  - id: MONDO:0019542
+    label: Acute liver failure (ALF)
+  - id: CHEBI:27385
+    label: CCL4
+  - id: MAXO:0000127
+    label: Genetic testing
   - id: CHEBI:7959
     label: D-penicillamine
+  - id: MAXO:0001017
+    label: Vaccination
+  - id: HP:0001541
+    label: Ascites
+  - id: HP:0012398
+    label: Peripheral edema
+  - id: HP:0001260
+    label: dysarthria
+  - id: HP:0000708
+    label: psychiatric disorders
+  - id: HP:0200123
+    label: chronic hepatitis
+  - id: CHEBI:38161
+    label: chelators
   - id: MAXO:0000376
-    label: Liver biopsy
+    label: liver biopsy
   - id: HP:0001404
-    label: Hepatocellular necrosis
+    label: hepatocellular necrosis
   - id: CHEBI:61049
     label: Tacrolimus
-  - id: CHEBI:50868
-    label: Penicillamine
   - id: HP:0001744
-    label: splenomegaly
-  - id: HP:0001541
-    label: ascites
-  - id: HP:0001260
-    label: Dysarthria
+    label: Splenomegaly
+  - id: MAXO:0000603
+    label: Peritoneal dialysis
+  - id: HP:0200032
+    label: Kayser-Fleischer rings
+  - id: HP:0002172
+    label: impaired balance
   - id: HP:0001347
-    label: Hyperreflexia
+    label: hyperreflexia
   - id: HP:0031843
-    label: Bradyphrenia
+    label: bradyphrenia
   - id: HP:0002362
-    label: Shuffling gait
-  - id: HP:0002300
-    label: Mutism
+    label: shuffling gait
   - id: HP:0001621
-    label: Hypophonia
+    label: hypophonia
   - id: CHEBI:37153
     label: Calcineurin inhibitors
   - id: CHEBI:8356
-    label: Pramipexole
+    label: pramipexole
   - id: CHEBI:2618
-    label: Amantadine
-  - id: HP:0001399
-    label: liver failure
+    label: amantadine
+  - id: HP:0000093
+    label: proteinuria
+  - id: CHEBI:231592
+    label: zinc salts
+  - id: MAXO:0000167
+    label: antiepileptic therapy
+  - id: CHEBI:9168
+    label: rapamycin
+  - id: CHEBI:55379
+    label: cyclosporine (CsA)
+  - id: CHEBI:35623
+    label: antiepileptic
+  - id: HP:0000083
+    label: renal failure
   - id: HP:0000952
     label: jaundice
   - id: HP:0001919
     label: acute kidney injury
-  - id: HP:0200032
-    label: Kayser-Fleischer rings
-  - id: MONDO:0013792
-    label: Intracerebral Hemorrhage
   - id: HP:0001342
-    label: Intracerebral Hemorrhage
+    label: intracerebral hemorrhage
   - id: MAXO:0000533
-    label: Molecular genetic testing
+    label: molecular genetic testing
   - id: HP:0001873
     label: thrombocytopenia
-  - id: HP:0002344
-    label: worsening neurological symptoms
+  - id: HP:0001298
+    label: Encephalopathy
+  - id: MAXO:0009070
+    label: SPECT
+  - id: HP:0001251
+    label: ataxia
+  - id: CHEBI:166831
+    label: copper chelators

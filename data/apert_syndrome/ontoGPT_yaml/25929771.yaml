@@ -29,14 +29,10 @@ input_text: "Correction of Brachymetatarsia and Medial Angulation of the Great T
   EVIDENCE: Level IV."
 raw_completion_output: |-
   primary_disease: Apert syndrome
-
-  medical_actions: distraction osteogenesis;correction of metatarsal inclination;correction of the medial angulation of the great toe;evaluation of lengthening rates;evaluation of lengthening percentages;management of pin loosening;management of pin-tract infection;reoperation for early union
-
-  symptoms: pain;callus formation;problems with footwear;gait disturbances;shortness of the first ray;medial angulation of the great toe
-
+  medical_actions: Distraction osteogenesis; Correction of the metatarsal inclination angle; Correction of the medial angulation of the great toe
+  symptoms: Pain; Development of callus formation; Problems with footwear; Gait disturbances
   chemicals: 
-
-  action_annotation_relationships: distraction osteogenesis TREATS pain IN Apert syndrome;distraction osteogenesis TREATS callus formation IN Apert syndrome;distraction osteogenesis TREATS problems with footwear IN Apert syndrome;distraction osteogenesis TREATS gait disturbances IN Apert syndrome;distraction osteogenesis TREATS shortness of the first ray IN Apert syndrome;distraction osteogenesis TREATS medial angulation of the great toe IN Apert syndrome;correction of metatarsal inclination TREATS shortness of the first ray IN Apert syndrome;correction of the medial angulation of the great toe TREATS medial angulation of the great toe IN Apert syndrome;management of pin loosening TREATS pin loosening IN Apert syndrome;management of pin-tract infection TREATS pin-tract infection IN Apert syndrome;reoperation for early union TREATS early union IN Apert syndrome
+  action_annotation_relationships: Distraction osteogenesis TREATS pain IN Apert syndrome; Distraction osteogenesis TREATS development of callus formation IN Apert syndrome; Distraction osteogenesis TREATS problems with footwear IN Apert syndrome; Distraction osteogenesis TREATS gait disturbances IN Apert syndrome; Correction of the metatarsal inclination angle TREATS problems with footwear IN Apert syndrome; Correction of the medial angulation of the great toe TREATS gait disturbances IN Apert syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -51,7 +47,7 @@ prompt: |+
 
 
   Text:
-  reoperation for early union TREATS early union IN Apert syndrome
+  Correction of the medial angulation of the great toe TREATS gait disturbances IN Apert syndrome
 
   ===
 
@@ -59,20 +55,13 @@ extracted_object:
   primary_disease: MONDO:0007041
   medical_actions:
     - MAXO:0000486
-    - correction of metatarsal inclination
-    - correction of the medial angulation of the great toe
-    - evaluation of lengthening rates
-    - evaluation of lengthening percentages
-    - management of pin loosening
-    - management of pin-tract infection
-    - reoperation for early union
+    - Correction of the metatarsal inclination angle
+    - Correction of the medial angulation of the great toe
   symptoms:
     - HP:0012531
-    - callus formation
-    - problems with footwear
+    - Development of callus formation
+    - Problems with footwear
     - HP:0001288
-    - shortness of the first ray
-    - medial angulation of the great toe
   action_annotation_relationships:
     - subject: MAXO:0000486
       predicate: TREATS
@@ -80,57 +69,34 @@ extracted_object:
       qualifier: MONDO:0007041
     - subject: MAXO:0000486
       predicate: TREATS
-      object: callus formation
+      object: development of callus formation
       qualifier: MONDO:0007041
-    - subject: MAXO:0000486
-      predicate: TREATS
-      object: problems with footwear
-      qualifier: MONDO:0007041
+    - subject: <Distraction osteogenesis>
+      predicate: <TREATS>
+      object: <problems with footwear>
+      qualifier: <Apert syndrome>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <Distraction osteogenesis>
+      object_extension: <problems with footwear>
     - subject: MAXO:0000486
       predicate: TREATS
       object: HP:0001288
       qualifier: MONDO:0007041
-    - subject: <distraction osteogenesis>
-      predicate: <TREATS>
-      object: <shortness of the first ray>
-      qualifier: <Apert syndrome>
-      subject_qualifier: <Not applicable>
-      object_qualifier: <Not applicable>
-      subject_extension: <Not applicable>
-      object_extension: <Not applicable>
-    - subject: MAXO:0000486
+    - subject: Correction of the metatarsal inclination angle
       predicate: TREATS
-      object: medial angulation of the great toe
+      object: problems with footwear
       qualifier: MONDO:0007041
-      subject_extension: distraction osteogenesis
-    - subject: correction of metatarsal inclination
+    - subject: Correction of the medial angulation of the great toe
       predicate: TREATS
-      object: shortness of the first ray
-      qualifier: MONDO:0007041
-    - subject: correction of the medial angulation of the great toe
-      predicate: TREATS
-      object: medial angulation of the great toe
-      qualifier: MONDO:0007041
-    - subject: management of pin loosening
-      predicate: TREATS
-      object: pin loosening
-      qualifier: MONDO:0007041
-    - subject: management of pin-tract infection
-      predicate: TREATS
-      object: pin-tract infection
-      qualifier: MONDO:0007041
-    - subject: reoperation for early union
-      predicate: TREATS
-      object: early union
+      object: HP:0001288
       qualifier: MONDO:0007041
 named_entities:
-  - id: HP:0011800
-    label: Midface hypoplasia
   - id: MONDO:0007041
     label: Apert syndrome
   - id: MAXO:0000486
-    label: distraction osteogenesis
+    label: Distraction osteogenesis
   - id: HP:0012531
-    label: pain
+    label: Pain
   - id: HP:0001288
-    label: gait disturbances
+    label: Gait disturbances

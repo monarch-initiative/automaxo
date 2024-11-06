@@ -45,14 +45,10 @@ input_text: 'Trends of vascular surgery procedures in Marfan syndrome and Ehlers
   length of stay and cost for Marfan syndrome patients undergoing aortic surgery.'
 raw_completion_output: |-
   primary_disease: Marfan syndrome and Ehlers-Danlos syndrome
-
-  medical_actions: vascular surgery procedures; open aneurysm repair; thoracic endovascular aortic repair; repair of peripheral arteries
-
-  symptoms: aortic procedures; postoperative hemorrhage; increased respiratory failure
-
+  medical_actions: Vascular surgery procedures; Open aortic aneurysm repair; Endovascular aortic repair; Thoracic endovascular aortic repair; Repair of peripheral arteries; Managing postoperative hemorrhage; Managing increased respiratory failure
+  symptoms: Aortic aneurysm; Peripheral artery disease; Postoperative hemorrhage; Increased respiratory failure
   chemicals: 
-
-  action_annotation_relationships: vascular surgery procedures TREATS aortic procedures IN Marfan syndrome and Ehlers-Danlos syndrome; open aneurysm repair TREATS aortic procedures IN Marfan syndrome and Ehlers-Danlos syndrome; thoracic endovascular aortic repair TREATS aortic procedures IN Marfan syndrome and Ehlers-Danlos syndrome; repair of peripheral arteries TREATS aortic procedures IN Marfan syndrome and Ehlers-Danlos syndrome; vascular surgery procedures TREATS postoperative hemorrhage IN Marfan syndrome and Ehlers-Danlos syndrome; vascular surgery procedures TREATS increased respiratory failure IN Marfan syndrome
+  action_annotation_relationships: Vascular surgery procedures TREATS Aortic aneurysm IN Marfan syndrome and Ehlers-Danlos syndrome; Open aortic aneurysm repair TREATS Aortic aneurysm IN Marfan syndrome and Ehlers-Danlos syndrome; Endovascular aortic repair TREATS Aortic aneurysm IN Marfan syndrome and Ehlers-Danlos syndrome; Thoracic endovascular aortic repair TREATS Aortic aneurysm IN Marfan syndrome and Ehlers-Danlos syndrome; Repair of peripheral arteries TREATS Peripheral artery disease IN Marfan syndrome and Ehlers-Danlos syndrome; Managing postoperative hemorrhage TREATS Postoperative hemorrhage IN Marfan syndrome and Ehlers-Danlos syndrome; Managing increased respiratory failure TREATS Increased respiratory failure IN Marfan syndrome and Ehlers-Danlos syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -67,52 +63,80 @@ prompt: |+
 
 
   Text:
-  vascular surgery procedures TREATS increased respiratory failure IN Marfan syndrome
+  Managing increased respiratory failure TREATS Increased respiratory failure IN Marfan syndrome and Ehlers-Danlos syndrome
 
   ===
 
 extracted_object:
   primary_disease: Marfan syndrome and Ehlers-Danlos syndrome
   medical_actions:
-    - vascular surgery procedures
-    - open aneurysm repair
-    - thoracic endovascular aortic repair
-    - repair of peripheral arteries
+    - Vascular surgery procedures
+    - Open aortic aneurysm repair
+    - Endovascular aortic repair
+    - Thoracic endovascular aortic repair
+    - Repair of peripheral arteries
+    - Managing postoperative hemorrhage
+    - Managing increased respiratory failure
   symptoms:
-    - aortic procedures
-    - postoperative hemorrhage
-    - increased respiratory failure
+    - HP:0004942
+    - HP:0004950
+    - Postoperative hemorrhage
+    - Increased respiratory failure
   action_annotation_relationships:
-    - subject: vascular surgery procedures
+    - subject: Vascular surgery procedures
       predicate: TREATS
-      object: aortic procedures
+      object: HP:0004942
       qualifier: Marfan syndrome and Ehlers-Danlos syndrome
-    - subject: open aneurysm repair
+    - subject: Open aortic aneurysm repair
       predicate: TREATS
-      object: aortic procedures
-      qualifier: MONDO:0007947
-    - subject: thoracic endovascular aortic repair
-      predicate: TREATS
-      object: aortic procedures
+      object: HP:0004942
       qualifier: Marfan syndrome, Ehlers-Danlos syndrome
-    - subject: repair of peripheral arteries
+    - subject: Endovascular aortic repair
       predicate: TREATS
-      object: aortic procedures
+      object: HP:0004942
       qualifier: Marfan syndrome and Ehlers-Danlos syndrome
-    - subject: vascular surgery procedures
+    - subject: Thoracic endovascular aortic repair
       predicate: TREATS
-      object: postoperative hemorrhage
+      object: HP:0004942
       qualifier: Marfan syndrome, Ehlers-Danlos syndrome
-    - subject: vascular surgery procedures
+    - subject: <Repair of peripheral arteries>
+      predicate: <TREATS>
+      object: <Peripheral artery disease>
+      qualifier: <Marfan syndrome and Ehlers-Danlos syndrome>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: Managing postoperative hemorrhage
       predicate: TREATS
-      object: increased respiratory failure
-      qualifier: MONDO:0007947
+      object: Postoperative hemorrhage
+      qualifier: Marfan syndrome, Ehlers-Danlos syndrome
+    - subject: Managing increased respiratory failure
+      predicate: TREATS
+      object: Increased respiratory failure
+      qualifier: Marfan syndrome and Ehlers-Danlos syndrome
 named_entities:
   - id: MONDO:0007947
-    label: Marfan syndrome
+    label: Marfan Syndrome
+  - id: HP:0000768
+    label: Pectus carinatum
+  - id: HP:0002650
+    label: Scoliosis
+  - id: HP:0002108
+    label: Spontaneous pneumothorax
+  - id: HP:0003423
+    label: Thoracolumbar kyphoscoliosis
+  - id: CHEBI:33281
+    label: Antibiotic
+  - id: HP:0002107
+    label: pneumothorax
   - id: MAXO:0010203
-    label: echocardiography
+    label: Echocardiography
+  - id: MAXO:0000494
+    label: Blood pressure monitoring
   - id: HP:0004942
-    label: aortic dilatation
+    label: Aortic dilatation
   - id: CHEBI:5959
-    label: irbesartan
+    label: Irbesartan
+  - id: HP:0004950
+    label: Peripheral artery disease

@@ -23,15 +23,15 @@ input_text: 'Continent Catheterizable Vesicostomy: An Alternative Surgical Modal
   that spares use of the appendix or ileum. Early results are encouraging, providing
   a catheterizable channel through the umbilicus without urinary leakage between catheterization.'
 raw_completion_output: |-
-  primary_disease: Urinary Dysfunction
+  primary_disease: <Large Bladder Capacity>
 
-  medical_actions: Continental catheterizable vesicostomy procedure; Avoiding intraperitoneal dissection; Mobilization of the bladder; Tubularization over a 12Fr catheter with 4-0 vicryl suture; Intussusception of the tubularized flap into the bladder with 4-0 polydioxanone sutures; Tunneling the catheterizable channel to the umbilicus; Maturity of the channel ostomy; Cystotomy closure in two layers; Superficial wound infection treated with antibiotics; Balloon dilation of the catheterizable channel
+  medical_actions: <continent catheterizable vesicostomy procedure; use of a 4-cm Pfannenstiel incision; mobilization of bladder; creation of a 2-cm vertical flap at the bladder dome; tubularization over a 12Fr catheter; intussusception of the tubularized flap into the bladder; tunneling the catheterizable channel to the umbilicus; maturation of the channel ostomy; closure of the cystotomy in two layers; antibiotic treatment; balloon dilation of the catheterizable channel>
 
-  symptoms: Large bladder capacity; Difficulty self-catheterizing; Urinary leakage
+  symptoms: <urinary dysfunction; difficulty self-catheterizing; superficial wound infection>
 
-  chemicals: Vicryl suture; Polydioxanone sutures; Antibiotics
+  chemicals: <4-0 vicryl suture; 4-0 polydioxanone sutures; antibiotics>
 
-  action_annotation_relationships: Continental catheterizable vesicostomy procedure TREATS large bladder capacity IN Urinary Dysfunction; Mobilization of the bladder TREATS large bladder capacity IN Urinary Dysfunction; Tubularization over a 12Fr catheter with 4-0 vicryl suture PREVENTS urinary leakage IN Urinary Dysfunction; Intussusception of the tubularized flap into the bladder with 4-0 polydioxanone sutures PREVENTS urinary leakage IN Urinary Dysfunction; Tunneling the catheterizable channel to the umbilicus PREVENTS urinary leakage IN Urinary Dysfunction; Cystotomy closure in two layers PREVENTS urinary leakage IN Urinary Dysfunction; Superficial wound infection treated with antibiotics (with Antibiotics) TREATS superficial wound infection IN Urinary Dysfunction; Balloon dilation of the catheterizable channel TREATS difficulty self-catheterizing IN Urinary Dysfunction
+  action_annotation_relationships: <continent catheterizable vesicostomy procedure PREVENTS urinary leakage IN Large Bladder Capacity; antibiotic treatment (with antibiotics) TREATS superficial wound infection IN Large Bladder Capacity; balloon dilation of the catheterizable channel TREATS difficulty self-catheterizing IN Large Bladder Capacity>
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -46,76 +46,48 @@ prompt: |+
 
 
   Text:
-  Balloon dilation of the catheterizable channel TREATS difficulty self-catheterizing IN Urinary Dysfunction
+  balloon dilation of the catheterizable channel TREATS difficulty self-catheterizing IN Large Bladder Capacity>
 
   ===
 
 extracted_object:
-  primary_disease: Urinary Dysfunction
+  primary_disease: <Large Bladder Capacity>
   medical_actions:
-    - Continental catheterizable vesicostomy procedure
-    - Avoiding intraperitoneal dissection
-    - Mobilization of the bladder
-    - Tubularization over a 12Fr catheter with 4-0 vicryl suture
-    - Intussusception of the tubularized flap into the bladder with 4-0 polydioxanone
-      sutures
-    - Tunneling the catheterizable channel to the umbilicus
-    - Maturity of the channel ostomy
-    - Cystotomy closure in two layers
-    - Superficial wound infection treated with antibiotics
-    - Balloon dilation of the catheterizable channel
+    - <continent catheterizable vesicostomy procedure
+    - use of a 4-cm Pfannenstiel incision
+    - mobilization of bladder
+    - creation of a 2-cm vertical flap at the bladder dome
+    - tubularization over a 12Fr catheter
+    - intussusception of the tubularized flap into the bladder
+    - tunneling the catheterizable channel to the umbilicus
+    - maturation of the channel ostomy
+    - closure of the cystotomy in two layers
+    - antibiotic treatment
+    - balloon dilation of the catheterizable channel>
   symptoms:
-    - Large bladder capacity
-    - Difficulty self-catheterizing
-    - Urinary leakage
+    - <urinary dysfunction
+    - difficulty self-catheterizing
+    - superficial wound infection>
   chemicals:
-    - Vicryl suture
-    - Polydioxanone sutures
-    - CHEBI:33281
+    - <4-0 vicryl suture
+    - 4-0 polydioxanone sutures
+    - antibiotics>
   action_annotation_relationships:
-    - subject: <Continental catheterizable vesicostomy procedure>
-      predicate: <TREATS>
-      object: <bladder capacity>
-      qualifier: <Urinary Dysfunction>
-      subject_qualifier: <None>
-      object_qualifier: <large>
-      subject_extension: <None>
-      object_extension: <large>
-    - subject: Mobilization of the bladder
-      predicate: TREATS
-      object: large bladder capacity
-      qualifier: Urinary Dysfunction
-    - subject: <Tubularization>
+    - subject: <continent catheterizable vesicostomy procedure>
       predicate: <PREVENTS>
       object: <urinary leakage>
-      qualifier: <Urinary Dysfunction>
-      subject_qualifier: <>
-      object_qualifier: <>
-      subject_extension: <vicryl suture>
-      object_extension: <12Fr catheter>
-    - subject: Intussusception of the tubularized flap into the bladder
-      predicate: PREVENTS
-      object: urinary leakage
-      qualifier: Urinary Dysfunction
-      subject_extension: 4-0 polydioxanone sutures
-    - subject: Tunneling the catheterizable channel to the umbilicus
-      predicate: PREVENTS
-      object: urinary leakage
-      qualifier: Urinary Dysfunction
-    - subject: Cystotomy closure in two layers
-      predicate: PREVENTS
-      object: urinary leakage
-      qualifier: Urinary Dysfunction
-    - subject: Superficial wound infection treated with antibiotics
+      qualifier: <Large Bladder Capacity>
+      subject_extension: <continent catheterizable vesicostomy>
+    - subject: antibiotic treatment
       predicate: TREATS
       object: superficial wound infection
-      qualifier: Urinary Dysfunction
-      subject_qualifier: with Antibiotics
+      qualifier: Large Bladder Capacity
+      subject_qualifier: with antibiotics
       subject_extension: CHEBI:33281
-    - subject: Balloon dilation of the catheterizable channel
+    - subject: balloon dilation of the catheterizable channel
       predicate: TREATS
       object: difficulty self-catheterizing
-      qualifier: Urinary Dysfunction
+      qualifier: Large Bladder Capacity
 named_entities:
   - id: CHEBI:33281
-    label: Antibiotics
+    label: antibiotics
