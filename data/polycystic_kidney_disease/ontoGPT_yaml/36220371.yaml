@@ -1,0 +1,92 @@
+---
+input_text: 'Recurrent urinary tract infections in kidney transplant patients with
+  polycystic kidneys. INTRODUCTION: Kidney transplantation is now a routine method
+  used to treat end-stage renal disease. About 10 % of kidney transplant patients
+  are patients with autosomal dominant polycystic kidney disease (ADPKD). After successful
+  kidney transplantation, recurrent urinary tract infections also occur in initially
+  asymptomatic patients. MATERIAL AND METHODS: The group included 320 patients after
+  kidney transplantation. We compared patients with ADPKD versus patients without
+  ADPKD in terms of the presence of recurrent urinary tract infections. THE RESULTS:
+  The incidence of recurrent urinary tract infections (rIMCs) was 18% in patients
+  without ADPKD and 48% in patients without ADPKD. Nephrectomy after kidney transplantation
+  due to recurrent urinary tract infections eliminated this infectious complication
+  (in 86% of patients). CONCLUSION: Kidney transplant patients with ADPKD have a significantly
+  higher incidence of recurrent urinary tract infections. Removal of polycystic kidneys
+  is a suitable solution if the infection persists.'
+raw_completion_output: |-
+  primary_disease: Recurrent urinary tract infections
+  medical_actions: Kidney transplantation;Nephrectomy
+  symptoms: Recurrent urinary tract infections
+  chemicals: 
+  action_annotation_relationships: Kidney transplantation TREATS end-stage renal disease IN Recurrent urinary tract infections;Nephrectomy PREVENTS Recurrent urinary tract infections IN Recurrent urinary tract infections
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Nephrectomy PREVENTS Recurrent urinary tract infections IN Recurrent urinary tract infections
+
+  ===
+
+extracted_object:
+  primary_disease: Recurrent urinary tract infections
+  medical_actions:
+    - Kidney transplantation
+    - MAXO:0001065
+  symptoms:
+    - HP:0000010
+  action_annotation_relationships:
+    - subject: Kidney transplantation
+      predicate: TREATS
+      object: HP:0000010
+      qualifier: MONDO:0004375
+    - subject: MAXO:0001065
+      predicate: PREVENTS
+      object: HP:0000010
+      qualifier: Recurrent urinary tract infections
+named_entities:
+  - id: CHEBI:35341
+    label: Steroids
+  - id: MAXO:0001017
+    label: Vaccination
+  - id: HP:0002089
+    label: Pulmonary hypoplasia
+  - id: HP:0002092
+    label: Pulmonary hypertension
+  - id: MONDO:0100096
+    label: COVID-19
+  - id: MAXO:0000602
+    label: hemodialysis
+  - id: HP:0003774
+    label: end-stage renal failure
+  - id: CHEBI:61049
+    label: tacrolimus
+  - id: CHEBI:8764
+    label: mycophenolate mofetil
+  - id: CHEBI:6888
+    label: methylprednisolone
+  - id: CHEBI:63583
+    label: basiliximab
+  - id: CHEBI:64357
+    label: rituximab
+  - id: HP:0000121
+    label: nephrocalcinosis
+  - id: CHEBI:50858
+    label: corticosteroids
+  - id: CHEBI:68481
+    label: mammalian target of rapamycin inhibitor
+  - id: MONDO:0004375
+    label: End-stage renal disease
+  - id: MAXO:0001065
+    label: Nephrectomy
+  - id: HP:0000010
+    label: Recurrent urinary tract infections

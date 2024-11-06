@@ -1,0 +1,212 @@
+---
+input_text: "Modality of treatment and potential outcome of Wilson disease in Taiwan:
+  A population-based longitudinal study. BACKGROUND/PURPOSE: This study aimed to investigate
+  the epidemiology, the preference of medication, and the potential outcome of Wilson
+  disease in Taiwan. We aimed to provide better therapeutic options for patients with
+  Wilson disease based on the data generated from this study. METHODS: We utilized
+  the National Health Insurance Research Database (NHIRD), which stores clinical records
+  of nearly 99% of Taiwan's residents. The database used is a random sample of two-million
+  out of 23-million beneficiaries in Taiwan's NHIRD in 2005. The integrated medical
+  records of these two-million cases were collected from 2000 to 2011. Subjects of
+  Wilson disease were identified as those with International Classification of Diseases,
+  Ninth Revision (ICD-9) code 275.1 and the specific prescription drugs (including
+  d-penicillamine, zinc, and trientine) in either outpatient clinic or inpatient records.
+  RESULTS: During the study period, 66 cases of Wilson disease were identified. The
+  male to female ratio was 1.75. The average prevalence rate was 1.81 per 100,000
+  and the average annual diagnosis rate was 0.22 per 100,000. The diagnosis was mostly
+  established at 20-24 and 10-14 years of age, followed by 25-29 years. Fifty four
+  of all subjects (81.8%) started the treatment with d-penicillamine, compared with
+  zinc (12.1%) and trientine (6.1%). Among these 66 cases, 27 (40.9%) had liver cirrhosis
+  and three (4.5%) underwent liver transplantation due to liver failure. CONCLUSION:
+  d-penicillamine is still the most popular prescription of Wilson disease, followed
+  by zinc monotherapy. Although chronic liver injury cannot be avoided, a favorable
+  potential outcome is well demonstrated in this population-based study."
+raw_completion_output: |-
+  primary_disease: Wilson disease
+
+  medical_actions: prescription of d-penicillamine; zinc monotherapy; liver transplantation
+
+  symptoms: liver cirrhosis; liver failure
+
+  chemicals: d-penicillamine; zinc; trientine
+
+  action_annotation_relationships: prescription of d-penicillamine TREATS Wilson disease; zinc monotherapy TREATS Wilson disease; liver transplantation TREATS liver failure IN Wilson disease
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  liver transplantation TREATS liver failure IN Wilson disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010200
+  medical_actions:
+    - prescription of d-penicillamine
+    - zinc monotherapy
+    - MAXO:0001175
+  symptoms:
+    - HP:0001394
+    - HP:0001399
+  chemicals:
+    - CHEBI:7959
+    - CHEBI:27363
+    - CHEBI:39501
+  action_annotation_relationships:
+    - subject: prescription
+      predicate: TREATS
+      object: Wilson disease
+      subject_extension: CHEBI:7959
+    - subject: monotherapy
+      predicate: TREATS
+      object: Wilson disease
+      subject_extension: CHEBI:27363
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: HP:0001399
+      qualifier: MONDO:0010200
+named_entities:
+  - id: MONDO:0010200
+    label: Wilson's disease
+  - id: MAXO:0001175
+    label: Liver transplantation
+  - id: HP:0001695
+    label: Cardiac arrest
+  - id: HP:0001685
+    label: Myocardial fibrosis
+  - id: HP:0001663
+    label: Ventricular fibrillation
+  - id: CHEBI:28694
+    label: Copper
+  - id: CHEBI:18248
+    label: Iron
+  - id: HP:0002910
+    label: abnormal liver functions
+  - id: HP:0001394
+    label: cirrhosis
+  - id: CHEBI:27363
+    label: zinc
+  - id: CHEBI:50868
+    label: penicillamine
+  - id: MAXO:0000016
+    label: Cell therapy
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: CHEBI:30703
+    label: Tetrathiomolybdate (TTM)
+  - id: HP:0006554
+    label: acute liver failure
+  - id: CHEBI:35176
+    label: Zinc sulphate
+  - id: CHEBI:35475
+    label: NSAIDs
+  - id: MAXO:0009095
+    label: zinc therapy
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0006579
+    label: neonatal jaundice
+  - id: HP:0001409
+    label: portal hypertension
+  - id: HP:0030151
+    label: cholangitis
+  - id: HP:0002612
+    label: congenital hepatic fibrosis
+  - id: MONDO:0013282
+    label: alpha-1-antitrypsin deficiency
+  - id: HP:0001903
+    label: anemia
+  - id: HP:0001410
+    label: liver dysfunction
+  - id: CHEBI:39501
+    label: trientine
+  - id: MAXO:0000070
+    label: Hepatic transplantation
+  - id: HP:0001399
+    label: Hepatic failure
+  - id: HP:0004448
+    label: fulminant hepatic failure
+  - id: HP:0003256
+    label: coagulopathy (international normalized ratio >2.0)
+  - id: HP:0004445
+    label: hepatic encephalopathy (HE)
+  - id: HP:0002480
+    label: hepatic encephalopathy
+  - id: CHEBI:35341
+    label: Steroids
+  - id: CHEBI:33281
+    label: Antibiotics
+  - id: MONDO:0100193
+    label: End-stage liver disease
+  - id: HP:0100626
+    label: End-stage liver disease
+  - id: HP:0100660
+    label: dyskinesia
+  - id: HP:0100022
+    label: Movement disorders
+  - id: HP:0001337
+    label: Tremor
+  - id: HP:0001332
+    label: Dystonia
+  - id: MONDO:0019542
+    label: Acute liver failure (ALF)
+  - id: CHEBI:27385
+    label: CCL4
+  - id: MAXO:0000127
+    label: Genetic testing
+  - id: CHEBI:7959
+    label: D-penicillamine
+  - id: MAXO:0001017
+    label: Vaccination
+  - id: HP:0001541
+    label: Ascites
+  - id: HP:0012398
+    label: Peripheral edema
+  - id: HP:0001260
+    label: dysarthria
+  - id: HP:0000708
+    label: psychiatric disorders
+  - id: HP:0200123
+    label: chronic hepatitis
+  - id: CHEBI:38161
+    label: chelators
+  - id: MAXO:0000376
+    label: liver biopsy
+  - id: HP:0001404
+    label: hepatocellular necrosis
+  - id: CHEBI:61049
+    label: Tacrolimus
+  - id: HP:0001744
+    label: Splenomegaly
+  - id: MAXO:0000603
+    label: Peritoneal dialysis
+  - id: HP:0200032
+    label: Kayser-Fleischer rings
+  - id: HP:0002172
+    label: impaired balance
+  - id: HP:0001347
+    label: hyperreflexia
+  - id: HP:0031843
+    label: bradyphrenia
+  - id: HP:0002362
+    label: shuffling gait
+  - id: HP:0001621
+    label: hypophonia
+  - id: CHEBI:37153
+    label: Calcineurin inhibitors
+  - id: CHEBI:8356
+    label: pramipexole
+  - id: CHEBI:2618
+    label: amantadine
+  - id: HP:0000093
+    label: proteinuria

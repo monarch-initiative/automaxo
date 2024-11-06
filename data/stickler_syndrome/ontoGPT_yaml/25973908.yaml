@@ -1,0 +1,150 @@
+---
+input_text: 'Perioperative management of 19 infants undergoing glossopexy (tongue-lip
+  adhesion) procedure: a retrospective study. BACKGROUND: Glossopexy (tongue-lip adhesion)
+  is a procedure in which the tongue is anchored to the lower lip and mandible to
+  relieve the upper airway obstruction mainly in infants with Pierre Robin sequence.
+  Infants suffering from severe upper airway obstruction and feeding difficulties
+  due to glossoptosis are the candidates for this procedure and are predicted to demonstrate
+  difficult airway and difficult intubation. METHODS: We retrospectively examined
+  the perioperative management of 19 infants undergoing glossopexy procedure at our
+  institution from 1992 to 2010. RESULTS: Out of 19 patients, Pierre Robin sequence
+  was diagnosed in 17, Treacher Collins syndrome in 1, and Stickler syndrome in 1.
+  In all of them, inhalation anesthesia was induced with a nasopharyngeal tube in
+  place. Nine patients underwent fiberoptic intubation. After surgery, 12 patients
+  were extubated in the operating room and 11 of them required a nasopharyngeal tube
+  to keep the airway open. Seven patients left the operating room with the trachea
+  intubated. Two patients received tracheostomy at the age of 2 months. Seventeen
+  patients underwent release of tongue-lip adhesion coincidentally with the palate
+  repair at 7-14 months of age. For this surgery, no one required fiberoptic intubation.
+  CONCLUSIONS: The airway of these patients should be managed carefully not only before
+  but also after the operation. A nasopharyngeal tube was effective in maintaining
+  the upper airway patency during anesthesia induction and before and after operation.'
+raw_completion_output: |-
+  primary_disease: Pierre Robin sequence
+
+  medical_actions: glossopexy procedure; inhalation anesthesia; fiberoptic intubation; extubation; nasopharyngeal tube placement; tracheostomy; release of tongue-lip adhesion; palate repair
+
+  symptoms: severe upper airway obstruction; feeding difficulties; glossoptosis; difficult airway; difficult intubation
+
+  chemicals: 
+
+  action_annotation_relationships: glossopexy procedure TREATS severe upper airway obstruction IN Pierre Robin sequence; glossopexy procedure TREATS feeding difficulties IN Pierre Robin sequence; inhalation anesthesia TREATS difficult intubation IN Pierre Robin sequence; nasopharyngeal tube placement PREVENTS severe upper airway obstruction IN Pierre Robin sequence; tracheostomy TREATS severe upper airway obstruction IN Pierre Robin sequence; release of tongue-lip adhesion TREATS severe upper airway obstruction IN Pierre Robin sequence; palate repair TREATS severe upper airway obstruction IN Pierre Robin sequence
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  palate repair TREATS severe upper airway obstruction IN Pierre Robin sequence
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009869
+  medical_actions:
+    - glossopexy procedure
+    - inhalation anesthesia
+    - MAXO:0001550
+    - extubation
+    - nasopharyngeal tube placement
+    - MAXO:0000504
+    - release of tongue-lip adhesion
+    - palate repair
+  symptoms:
+    - severe upper airway obstruction
+    - HP:0011968
+    - HP:0000162
+    - difficult airway
+    - difficult intubation
+  action_annotation_relationships:
+    - subject: glossopexy procedure
+      predicate: TREATS
+      object: severe upper airway obstruction
+      qualifier: MONDO:0009869
+      object_qualifier: severe
+      subject_extension: glossopexy
+    - subject: glossopexy procedure
+      predicate: TREATS
+      object: HP:0011968
+      qualifier: MONDO:0009869
+    - subject: inhalation anesthesia
+      predicate: TREATS
+      object: difficult intubation
+      qualifier: MONDO:0009869
+      subject_extension: inhalation anesthesia
+    - subject: <nasopharyngeal tube placement>
+      predicate: <PREVENTS>
+      object: <severe upper airway obstruction>
+      qualifier: <Pierre Robin sequence>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: MAXO:0000504
+      predicate: TREATS
+      object: severe upper airway obstruction
+      qualifier: MONDO:0009869
+      object_qualifier: severe
+    - subject: release of tongue-lip adhesion
+      predicate: TREATS
+      object: severe upper airway obstruction
+      qualifier: MONDO:0009869
+      object_qualifier: severe
+    - subject: palate repair
+      predicate: TREATS
+      object: severe upper airway obstruction
+      qualifier: MONDO:0009869
+      object_qualifier: severe
+named_entities:
+  - id: MONDO:0009869
+    label: Pierre Robin sequence
+  - id: HP:0006536
+    label: airway obstruction
+  - id: HP:0011968
+    label: feeding difficulties
+  - id: HP:0040262
+    label: serous otitis media
+  - id: HP:0000405
+    label: conductive hearing loss
+  - id: MONDO:0019354
+    label: Stickler syndrome
+  - id: MAXO:0000505
+    label: Mask ventilation
+  - id: MAXO:0000502
+    label: Endotracheal intubation
+  - id: HP:0011800
+    label: Midface hypoplasia
+  - id: HP:0000308
+    label: Retromicrognathia
+  - id: HP:0000175
+    label: Cleft palate
+  - id: HP:0000546
+    label: Retinal degeneration
+  - id: MAXO:0000504
+    label: tracheotomy
+  - id: HP:0002878
+    label: respiratory failure
+  - id: MONDO:0005364
+    label: Graves' disease
+  - id: MONDO:0009973
+    label: Retinal Detachment (RD)
+  - id: MAXO:0009072
+    label: Surgical repair
+  - id: HP:0007917
+    label: Tractional retinal detachment (TRD)
+  - id: HP:0012230
+    label: Rhegmatogenous retinal detachment
+  - id: MONDO:0008375
+    label: Retinal Detachment
+  - id: MAXO:0001550
+    label: fiberoptic intubation
+  - id: HP:0000162
+    label: glossoptosis

@@ -1,0 +1,98 @@
+---
+input_text: 'Drug-Coated Balloon Angioplasty: A Novel Treatment for Pulmonary Artery
+  In-Stent Stenosis in a Patient with Williams Syndrome. A 20-month-old boy with Williams
+  syndrome had undergone multiple surgical and catheter-based interventions for resistant
+  peripheral pulmonary arterial stenoses with eventual bilateral stent placement and
+  conventional balloon angioplasty. He persistently developed suprasystemic right
+  ventricular (RV) pressure. Angioplasty with a drug-coated balloon (DCB) was performed
+  for in-stent restenosis and to remodel his distal pulmonary vessels bilaterally.
+  This resulted in immediate improvement in the in-stent stenosis and resultant decrease
+  in RV pressure. Follow-up catheterization two months later continued to show long-lasting
+  improvement in the in-stent stenosis. We hypothesize that the anti-proliferative
+  effects of DCBs may be of benefit in the arteriopathy associated with Williams syndrome.
+  We report this as a novel use of a DCB in the pulmonary arterial circulation in
+  a patient with Williams syndrome.'
+raw_completion_output: |-
+  primary_disease: Pulmonary Artery In-Stent Stenosis in Williams Syndrome
+
+  medical_actions: Drug-Coated Balloon Angioplasty; Surgical interventions; Catheter-based interventions; Conventional balloon angioplasty; Follow-up catheterization
+
+  symptoms: Suprasystemic right ventricular (RV) pressure; In-stent restenosis
+
+  chemicals: 
+
+  action_annotation_relationships: Drug-Coated Balloon Angioplasty TREATS In-stent restenosis IN Pulmonary Artery In-Stent Stenosis in Williams Syndrome; Drug-Coated Balloon Angioplasty TREATS Suprasystemic right ventricular (RV) pressure IN Pulmonary Artery In-Stent Stenosis in Williams Syndrome; Surgical interventions TREATS Peripheral pulmonary arterial stenoses IN Pulmonary Artery In-Stent Stenosis in Williams Syndrome; Catheter-based interventions TREATS Peripheral pulmonary arterial stenoses IN Pulmonary Artery In-Stent Stenosis in Williams Syndrome; Conventional balloon angioplasty TREATS Peripheral pulmonary arterial stenoses IN Pulmonary Artery In-Stent Stenosis in Williams Syndrome; Follow-up catheterization PREVENTS In-stent restenosis IN Pulmonary Artery In-Stent Stenosis in Williams Syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Follow-up catheterization PREVENTS In-stent restenosis IN Pulmonary Artery In-Stent Stenosis in Williams Syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: Pulmonary Artery In-Stent Stenosis in Williams Syndrome
+  medical_actions:
+    - Drug-Coated Balloon Angioplasty
+    - MAXO:0000004
+    - Catheter-based interventions
+    - Conventional balloon angioplasty
+    - Follow-up catheterization
+  symptoms:
+    - Suprasystemic right ventricular (RV) pressure
+    - In-stent restenosis
+  action_annotation_relationships:
+    - subject: <Angioplasty>
+      predicate: <TREATS>
+      object: <In-stent restenosis>
+      qualifier: <Pulmonary Artery In-Stent Stenosis in Williams Syndrome>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <Drug-Coated Balloon>
+      object_extension: <>
+    - subject: Angioplasty
+      predicate: TREATS
+      object: Suprasystemic right ventricular (RV) pressure
+      qualifier: Pulmonary Artery In-Stent Stenosis in Williams Syndrome
+      subject_extension: Drug-Coated Balloon
+    - subject: MAXO:0000004
+      predicate: TREATS
+      object: Peripheral pulmonary arterial stenoses
+      qualifier: Pulmonary Artery In-Stent Stenosis in Williams Syndrome
+    - subject: Catheter-based interventions
+      predicate: TREATS
+      object: Peripheral pulmonary arterial stenoses
+      qualifier: Pulmonary Artery In-Stent Stenosis in Williams Syndrome
+    - subject: Conventional balloon angioplasty
+      predicate: TREATS
+      object: Peripheral pulmonary arterial stenoses
+      qualifier: Pulmonary Artery In-Stent Stenosis in Williams Syndrome
+    - subject: Follow-up catheterization
+      predicate: PREVENTS
+      object: In-stent restenosis
+      qualifier: Pulmonary Artery In-Stent Stenosis in Williams Syndrome
+named_entities:
+  - id: MONDO:0008678
+    label: Williams syndrome
+  - id: MAXO:0009072
+    label: surgical repair
+  - id: HP:0004969
+    label: peripheral pulmonary stenosis
+  - id: HP:0002617
+    label: aneurysms
+  - id: HP:0001626
+    label: Cardiovascular abnormalities
+  - id: MONDO:0004492
+    label: Mediastinitis
+  - id: MAXO:0000004
+    label: Surgical interventions

@@ -1,0 +1,191 @@
+---
+input_text: 'Mucormycosis Presented with Facial Pain in a Renal Transplant Patient:
+  A Case Report. INTRODUCTION: Mucormycosis is a severe infection in renal transplant
+  recipients. Here, we report a case of maxillary sinus mucormycosis in a patient
+  who presented with a facial pain complaint. CASE: A 51-year-old female patient with
+  renal transplantation due to autosomal dominant, polycystic kidney disease and diabetic
+  nephropathy was admitted to our hospital with facial pain and minimal edema of the
+  left half of her face on the 8th month of transplantation. On physical examination,
+  there was only tenderness and slight edema on the left half of the face. On the
+  paranasal computed tomography, extensive soft tissue densities involving septations,
+  filling the left maxillary sinus, extending to the nasal cavity, and obliterating
+  the left osteometeal unit were observed. Because facial pain was not relieved by
+  antibiotics and several, potent analgesic drugs on the second day, mucormycosis
+  infection with bone involvement was suspected. A left maxillary sinus excision was
+  performed. Microscopic examination of the debridement specimen revealed necrotic
+  bone interspersed with fungal hyphae, and culture isolated Rhizopus oryzae. Liposomal
+  amphotericin B was started. The patient was on tacrolimus, prednisolone, and mycophenolate
+  mofetil. Tacrolimus was switched to cyclosporine to regulate serum glucose levels.
+  The left maxillary sinus was washed with liposomal amphoterin B daily and curetted
+  with intervals. The patient started dialysis because of severe renal function loss.
+  The patient was discharged on the 96th day of liposomal amphotericin B. CONCLUSION:
+  It should be kept in mind that mucormycosis may be present in the sinuses even if
+  there is no evidence for nasal, oral, and dental examination in renal transplant
+  patients with facial pain.'
+raw_completion_output: |-
+  primary_disease: Mucormycosis
+
+  medical_actions: left maxillary sinus excision; administration of liposomal amphotericin B; switching tacrolimus to cyclosporine; washing and curetting left maxillary sinus with liposomal amphotericin B; starting dialysis
+
+  symptoms: facial pain; minimal edema of the face; tenderness and slight edema on the left half of the face
+
+  chemicals: liposomal amphotericin B; tacrolimus; cyclosporine; mycophenolate mofetil; prednisolone
+
+  action_annotation_relationships: left maxillary sinus excision TREATS facial pain IN Mucormycosis; administration of liposomal amphotericin B TREATS Mucormycosis; switching tacrolimus to cyclosporine PREVENTS aggravated symptoms IN Mucormycosis; washing and curetting left maxillary sinus with liposomal amphotericin B TREATS facial pain IN Mucormycosis; starting dialysis TREATS renal function loss IN Mucormycosis
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  starting dialysis TREATS renal function loss IN Mucormycosis
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0019136
+  medical_actions:
+    - left maxillary sinus excision
+    - administration of liposomal amphotericin B
+    - switching tacrolimus to cyclosporine
+    - washing and curetting left maxillary sinus with liposomal amphotericin B
+    - starting dialysis
+  symptoms:
+    - facial pain
+    - minimal edema of the face
+    - tenderness and slight edema on the left half of the face
+  chemicals:
+    - CHEBI:2682
+    - CHEBI:61049
+    - CHEBI:4031
+    - CHEBI:8764
+    - CHEBI:8378
+  action_annotation_relationships:
+    - subject: left maxillary sinus excision
+      predicate: TREATS
+      object: facial pain
+      qualifier: MONDO:0019136
+    - subject: administration
+      predicate: TREATS
+      object: Mucormycosis
+      subject_extension: CHEBI:2682
+    - subject: switching tacrolimus to cyclosporine
+      predicate: PREVENTS
+      object: aggravated symptoms
+      qualifier: MONDO:0019136
+      subject_extension: CHEBI:4031
+    - subject: washing and curetting left maxillary sinus
+      predicate: TREATS
+      object: facial pain
+      qualifier: MONDO:0019136
+      subject_extension: CHEBI:2682
+    - subject: starting dialysis
+      predicate: TREATS
+      object: renal function loss
+      qualifier: MONDO:0019136
+named_entities:
+  - id: MONDO:0004691
+    label: Autosomal Dominant Polycystic Kidney Disease (ADPKD)
+  - id: HP:0003774
+    label: end-stage renal disease
+  - id: MAXO:0000601
+    label: Dialysis
+  - id: MAXO:0000756
+    label: Transfusion
+  - id: HP:0012531
+    label: Pain
+  - id: HP:0001824
+    label: Weight loss
+  - id: HP:0012158
+    label: Carotid artery dissection
+  - id: MONDO:0010979
+    label: Tuberous sclerosis (TS) and autosomal dominant polycystic kidney disease
+      (ADPKD)
+  - id: HP:0002027
+    label: Abdominal pain
+  - id: HP:0001903
+    label: Anaemia
+  - id: CHEBI:68481
+    label: mTOR inhibitors
+  - id: MONDO:0010913
+    label: Caroli Disease
+  - id: HP:0004395
+    label: Malnutrition
+  - id: CHEBI:16113
+    label: Cholesterol
+  - id: MAXO:0000624
+    label: Nutritional assessment
+  - id: HP:0004872
+    label: incisional hernias
+  - id: HP:0003259
+    label: increased serum creatinine
+  - id: MONDO:0005300
+    label: Chronic kidney disease (CKD)
+  - id: CHEBI:4670
+    label: Dobutamine
+  - id: MONDO:0020642
+    label: Polycystic Kidney Disease
+  - id: HP:0002138
+    label: Subarachnoid hemorrhage
+  - id: CHEBI:35341
+    label: Steroid
+  - id: MAXO:0000004
+    label: Surgery
+  - id: HP:0000113
+    label: Polycystic kidney disease
+  - id: HP:0006772
+    label: Angiomyolipomas
+  - id: HP:0100026
+    label: Arteriovenous malformations
+  - id: HP:0000819
+    label: diabetes mellitus
+  - id: HP:0003119
+    label: dyslipidemia
+  - id: HP:0002149
+    label: hyperuricemia
+  - id: MONDO:0000447
+    label: Polycystic Liver Disease
+  - id: MAXO:0009003
+    label: Preimplantation genetic diagnosis (PGD)
+  - id: HP:0000027
+    label: Azoospermia
+  - id: HP:0000083
+    label: renal failure
+  - id: MONDO:0006983
+    label: Subclavian steal syndrome
+  - id: HP:0002321
+    label: Dizziness
+  - id: MONDO:0000001
+    label: DIAGNOSIS
+  - id: HP:0000017
+    label: nocturia
+  - id: HP:0000790
+    label: hematuria
+  - id: HP:0000787
+    label: nephrolithiasis
+  - id: HP:0000822
+    label: hypertension
+  - id: HP:0006557
+    label: polycystic liver disease
+  - id: HP:0001297
+    label: stroke
+  - id: MONDO:0019136
+    label: Mucormycosis
+  - id: CHEBI:2682
+    label: liposomal amphotericin B
+  - id: CHEBI:61049
+    label: tacrolimus
+  - id: CHEBI:4031
+    label: cyclosporine
+  - id: CHEBI:8764
+    label: mycophenolate mofetil
+  - id: CHEBI:8378
+    label: prednisolone

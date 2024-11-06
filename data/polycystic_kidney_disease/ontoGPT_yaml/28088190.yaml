@@ -1,0 +1,103 @@
+---
+input_text: 'Total kidney and liver volume is a major risk factor for malnutrition
+  in ambulatory patients with autosomal dominant polycystic kidney disease. BACKGROUND:
+  In patients with autosomal dominant polycystic kidney disease (ADPKD), malnutrition
+  may develop as renal function declines and the abdominal organs become enlarged.
+  We investigated the relationship of intra-abdominal mass with nutritional status.
+  METHODS: This cross-sectional study was performed at a tertiary hospital outpatient
+  clinic. Anthropometric and laboratory data including serum creatinine, albumin,
+  and cholesterol were collected, and kidney and liver volumes were measured. Total
+  kidney and liver volume was defined as the sum of the kidney and liver volumes and
+  adjusted by height (htTKLV). Nutritional status was evaluated by using modified
+  subjective global assessment (SGA). RESULTS: In a total of 288 patients (47.9% female),
+  the mean age was 48.3 +- 12.2 years and the mean estimated glomerular filtration
+  rate (eGFR) was 65.3 +- 25.3 mL/min/1.73 m2. Of these patients, 21 (7.3%) were mildly
+  to moderately malnourished (SGA score of 4 and 5) and 63 (21.7%) were at risk of
+  malnutrition (SGA score of 6). Overall, patients with or at risk of malnutrition
+  were older, had a lower body mass index, lower hemoglobin levels, and poorer renal
+  function compared to the well-nourished group. However, statistically significant
+  differences in these parameters were not observed in female patients, except for
+  eGFR. In contrast, a higher htTKLV correlated with a lower SGA score, even in subjects
+  with an eGFR >=45 mL/min/1.73 m2. Subjects with an htTKLV >=2340 mL/m showed an
+  8.7-fold higher risk of malnutrition, after adjusting for age, hemoglobin, and eGFR.
+  CONCLUSIONS: Nutritional risk was detected in 30% of ambulatory ADPKD patients with
+  relatively good renal function. Intra-abdominal organomegaly was related to nutritional
+  status independently from renal function deterioration.'
+raw_completion_output: |-
+  primary_disease: Autosomal dominant polycystic kidney disease (ADPKD)
+  medical_actions: Nutritional assessment (using modified subjective global assessment (SGA)); Measurement of total kidney and liver volume
+  symptoms: Malnutrition; Renal function decline; Abdominal organ enlargement
+  chemicals: Serum creatinine; Albumin; Cholesterol
+  action_annotation_relationships: Nutritional assessment TREATS malnutrition IN Autosomal dominant polycystic kidney disease (ADPKD); Measurement of total kidney and liver volume PREVENTS malnutrition IN Autosomal dominant polycystic kidney disease (ADPKD)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Measurement of total kidney and liver volume PREVENTS malnutrition IN Autosomal dominant polycystic kidney disease (ADPKD)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0004691
+  medical_actions:
+    - Nutritional assessment (using modified subjective global assessment (SGA))
+    - Measurement of total kidney and liver volume
+  symptoms:
+    - HP:0004395
+    - Renal function decline
+    - Abdominal organ enlargement
+  chemicals:
+    - Serum creatinine
+    - Albumin
+    - CHEBI:16113
+  action_annotation_relationships:
+    - subject: MAXO:0000624
+      predicate: TREATS
+      object: HP:0004395
+      qualifier: MONDO:0004691
+    - subject: Measurement of total kidney and liver volume
+      predicate: PREVENTS
+      object: HP:0004395
+      qualifier: MONDO:0004691
+named_entities:
+  - id: MONDO:0004691
+    label: Autosomal Dominant Polycystic Kidney Disease (ADPKD)
+  - id: HP:0003774
+    label: end-stage renal disease
+  - id: MAXO:0000601
+    label: Dialysis
+  - id: MAXO:0000756
+    label: Transfusion
+  - id: HP:0012531
+    label: Pain
+  - id: HP:0001824
+    label: Weight loss
+  - id: HP:0012158
+    label: Carotid artery dissection
+  - id: MONDO:0010979
+    label: Tuberous sclerosis (TS) and autosomal dominant polycystic kidney disease
+      (ADPKD)
+  - id: HP:0002027
+    label: Abdominal pain
+  - id: HP:0001903
+    label: Anaemia
+  - id: CHEBI:68481
+    label: mTOR inhibitors
+  - id: MONDO:0010913
+    label: Caroli Disease
+  - id: HP:0004395
+    label: Malnutrition
+  - id: CHEBI:16113
+    label: Cholesterol
+  - id: MAXO:0000624
+    label: Nutritional assessment

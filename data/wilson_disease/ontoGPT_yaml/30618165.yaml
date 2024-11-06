@@ -1,0 +1,86 @@
+---
+input_text: "Cardiac arrest in Wilson's disease after curative liver transplantation:
+  a life-threatening complication of myocardial copper excess? We report the case
+  of a 38-year-old man who presented with cardiac arrest 1 year after curative liver
+  transplantation for Wilson's disease. Clinical work-up proofed myocardial copper
+  and iron accumulation using mass spectrometry, which led most likely to myocardial
+  fibrosis as visualized by cardiovascular magnetic resonance (unprecedented delayed
+  enhancement pattern) and endomyocardial biopsy. Consequently, cardiac arrest due
+  to ventricular fibrillation and subsequent episodes of sustained ventricular tachycardia
+  were considered as primary cardiac manifestation of Wilson's disease. This can,
+  as illustrated by our case, occur even late after curative liver transplantation,
+  which is an important fact that treating physicians should be aware of during clinical
+  follow-up of these patients."
+raw_completion_output: |-
+  primary_disease: Wilson's disease
+  medical_actions: Liver transplantation; Clinical work-up; Mass spectrometry; Cardiovascular magnetic resonance; Endomyocardial biopsy
+  symptoms: Cardiac arrest; Myocardial fibrosis; Ventricular fibrillation; Sustained ventricular tachycardia
+  chemicals: Copper; Iron
+  action_annotation_relationships: Liver transplantation TREATS Wilson's disease; Clinical work-up (with mass spectrometry) TREATS Cardiac arrest IN Wilson's disease; Cardiovascular magnetic resonance TREATS Myocardial fibrosis IN Wilson's disease; Endomyocardial biopsy TREATS Myocardial fibrosis IN Wilson's disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Endomyocardial biopsy TREATS Myocardial fibrosis IN Wilson's disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010200
+  medical_actions:
+    - MAXO:0001175
+    - Clinical work-up
+    - Mass spectrometry
+    - Cardiovascular magnetic resonance
+    - Endomyocardial biopsy
+  symptoms:
+    - HP:0001695
+    - HP:0001685
+    - HP:0001663
+    - Sustained ventricular tachycardia
+  chemicals:
+    - CHEBI:28694
+    - CHEBI:18248
+  action_annotation_relationships:
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: Wilson's disease
+    - subject: Clinical work-up
+      predicate: TREATS
+      object: HP:0001695
+      qualifier: MONDO:0010200
+      subject_qualifier: with mass spectrometry
+      subject_extension: mass spectrometry
+    - subject: Cardiovascular magnetic resonance
+      predicate: TREATS
+      object: HP:0001685
+      qualifier: MONDO:0010200
+    - subject: Endomyocardial biopsy
+      predicate: TREATS
+      object: HP:0001685
+      qualifier: MONDO:0010200
+named_entities:
+  - id: MONDO:0010200
+    label: Wilson's disease
+  - id: MAXO:0001175
+    label: Liver transplantation
+  - id: HP:0001695
+    label: Cardiac arrest
+  - id: HP:0001685
+    label: Myocardial fibrosis
+  - id: HP:0001663
+    label: Ventricular fibrillation
+  - id: CHEBI:28694
+    label: Copper
+  - id: CHEBI:18248
+    label: Iron

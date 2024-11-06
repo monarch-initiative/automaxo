@@ -1,0 +1,258 @@
+---
+input_text: '[Two occasions of anesthetic management for a patient with Williams syndrome].
+  A 5-year-old boy with Williams syndrome received open reduction of fracture of the
+  antebrachium twice. He had been diagnosed as having Williams syndrome with some
+  characteristic symptoms, including elfin face, mental retardation and primary pulmonary
+  hypertension. Williams syndrome has a tetrad of cardiovascular disease, elfin face,
+  mental retardation and hypercalcemia. Operations were performed twice under general
+  anesthesia. Airway management with mask technique was easily performed. Tracheal
+  intubation was accomplished successfully. Anesthesia was induced with propofol,
+  fentanyl, and vecuronium, and maintained with propofol, fentanyl and the inhalation
+  of oxygen with nitrous oxide. Both anesthetic courses were uneventful and he was
+  discharged without any complications. Special anesthetic considerations should be
+  taken for difficulties of intubation, management of circulatory system, malignant
+  hyperthermia, and hypercalcemia in this syndrome.'
+raw_completion_output: |-
+  primary_disease: Williams syndrome
+
+  medical_actions: Open reduction of fracture; General anesthesia; Airway management with mask technique; Tracheal intubation; Anesthesia induction; Anesthesia maintenance
+
+  symptoms: Elfin face; Mental retardation; Primary pulmonary hypertension; Cardiovascular disease; Hypercalcemia
+
+  chemicals: Propofol; Fentanyl; Vecuronium; Nitrous oxide
+
+  action_annotation_relationships: General anesthesia TREATS difficulty of intubation IN Williams syndrome; Anesthesia induction (with Propofol; Fentanyl; Vecuronium) TREATS difficulty of intubation IN Williams syndrome; Anesthesia maintenance (with Propofol; Fentanyl; Nitrous oxide) TREATS difficulty of intubation IN Williams syndrome; Airway management with mask technique TREATS difficulty of intubation IN Williams syndrome; Tracheal intubation TREATS difficulty of intubation IN Williams syndrome; Special anesthetic considerations PREVENTS complications IN Williams syndrome; Special anesthetic considerations PREVENTS malignant hyperthermia IN Williams syndrome; Special anesthetic considerations PREVENTS hypercalcemia IN Williams syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Special anesthetic considerations PREVENTS hypercalcemia IN Williams syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0008678
+  medical_actions:
+    - Open reduction of fracture
+    - General anesthesia
+    - Airway management with mask technique
+    - MAXO:0000502
+    - Anesthesia induction
+    - Anesthesia maintenance
+  symptoms:
+    - Elfin face
+    - HP:0001249
+    - HP:0002092
+    - HP:0001626
+    - HP:0003072
+  chemicals:
+    - CHEBI:44915
+    - CHEBI:119915
+    - CHEBI:9939
+    - CHEBI:17045
+  action_annotation_relationships:
+    - subject: <General anesthesia>
+      predicate: <TREATS>
+      object: <difficulty of intubation>
+      qualifier: <Williams syndrome>
+      subject_extension: <General anesthesia>
+    - subject: Anesthesia induction
+      subject_qualifier: with
+      subject_extension: CHEBI:44915
+    - predicate: TREATS
+      object: difficulty of intubation
+      qualifier: MONDO:0008678
+      subject_extension: CHEBI:9939
+    - subject: Anesthesia maintenance
+      subject_qualifier: with
+      subject_extension: CHEBI:44915
+    - subject: Nitrous oxide
+      predicate: TREATS
+      object: difficulty of intubation
+      qualifier: MONDO:0008678
+      subject_extension: CHEBI:17045
+    - subject: Airway management with mask technique
+      predicate: TREATS
+      object: difficulty of intubation
+      qualifier: MONDO:0008678
+    - subject: MAXO:0000502
+      predicate: TREATS
+      object: difficulty of intubation
+      qualifier: MONDO:0008678
+    - subject: <Special anesthetic considerations>
+      predicate: <PREVENTS>
+      object: <complications>
+      qualifier: <Williams syndrome>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <anesthetic considerations>
+      object_extension: <>
+    - subject: Special anesthetic considerations
+      predicate: PREVENTS
+      object: HP:0002047
+      qualifier: MONDO:0008678
+    - subject: Special anesthetic considerations
+      predicate: PREVENTS
+      object: HP:0003072
+      qualifier: MONDO:0008678
+      subject_qualifier: Special
+      subject_extension: anesthetic considerations
+named_entities:
+  - id: MONDO:0008678
+    label: Williams syndrome
+  - id: MAXO:0009072
+    label: surgical repair
+  - id: HP:0004969
+    label: peripheral pulmonary stenosis
+  - id: HP:0002617
+    label: aneurysms
+  - id: HP:0001626
+    label: Cardiovascular abnormalities
+  - id: MONDO:0004492
+    label: Mediastinitis
+  - id: MAXO:0000004
+    label: Surgical interventions
+  - id: MONDO:0008504
+    label: Supravalvar aortic stenosis
+  - id: HP:0001712
+    label: Left ventricular hypertrophy
+  - id: HP:0001659
+    label: Aortic regurgitation
+  - id: HP:0004970
+    label: Ascending aortic aneurysm
+  - id: HP:0004381
+    label: Supravalvar aortic stenosis
+  - id: MONDO:0015197
+    label: Supravalvular aortic stenosis (SVAS)
+  - id: HP:0011645
+    label: <Supravalvular aortic stenosis (SVAS)>
+  - id: MONDO:0004277
+    label: branch pulmonary artery stenosis (PAS)
+  - id: MAXO:0000505
+    label: mask ventilation
+  - id: HP:0000347
+    label: micrognathia
+  - id: HP:0000158
+    label: macroglossia
+  - id: CHEBI:49575
+    label: diazepam
+  - id: CHEBI:119915
+    label: fentanyl
+  - id: CHEBI:6456
+    label: lidocaine
+  - id: CHEBI:38867
+    label: anesthetic agents
+  - id: HP:0002318
+    label: cervical myelopathy
+  - id: HP:0001695
+    label: cardiac arrest
+  - id: MONDO:0006947
+    label: Renovascular hypertension (RVH)
+  - id: MAXO:0009008
+    label: Doppler ultrasonography
+  - id: HP:0000822
+    label: Hypertension
+  - id: HP:0001635
+    label: Heart failure
+  - id: CHEBI:35674
+    label: Antihypertensive drugs
+  - id: CHEBI:3380
+    label: Captopril
+  - id: HP:0100817
+    label: Renovascular hypertension
+  - id: HP:0002020
+    label: gastroesophageal reflux
+  - id: MAXO:0000571
+    label: Computed tomography (CT) imaging for preoperative evaluation
+  - id: HP:0001650
+    label: Aortic stenosis
+  - id: HP:0004415
+    label: pulmonary artery stenosis
+  - id: HP:0002616
+    label: aortic root dilatation
+  - id: HP:0004749
+    label: atrial flutter
+  - id: HP:0010780
+    label: Hyperacusis
+  - id: HP:0008513
+    label: Bilateral conductive hearing loss
+  - id: HP:0040262
+    label: Secretory otitis media
+  - id: HP:0002650
+    label: scoliosis
+  - id: HP:0001263
+    label: developmental delay
+  - id: HP:0001249
+    label: Mental retardation
+  - id: HP:0011675
+    label: Arrhythmias
+  - id: HP:0001699
+    label: Sudden death
+  - id: MAXO:0010203
+    label: echocardiography
+  - id: MAXO:0035118
+    label: cardiac catheterization
+  - id: HP:0005216
+    label: chewing difficulties
+  - id: MAXO:0000647
+    label: chemotherapy
+  - id: HP:0003774
+    label: end stage kidney disease
+  - id: CHEBI:37845
+    label: growth hormone
+  - id: CHEBI:8382
+    label: prednisone
+  - id: CHEBI:2948
+    label: azathioprine
+  - id: CHEBI:4031
+    label: cyclosporine
+  - id: HP:0012304
+    label: aortic arch hypoplasia
+  - id: MONDO:0017014
+    label: children
+  - id: HP:0001962
+    label: Palpitation
+  - id: HP:0005165
+    label: Short PR interval
+  - id: HP:0100806
+    label: Sepsis
+  - id: HP:5200060
+    label: Auditory hypersensitivity
+  - id: HP:0002183
+    label: Phonophobia
+  - id: MONDO:0020420
+    label: Peripheral pulmonary stenosis
+  - id: MONDO:0007345
+    label: Aortic coarctation
+  - id: HP:0001680
+    label: Aortic coarctation
+  - id: CHEBI:7903
+    label: pamidronate
+  - id: CHEBI:47426
+    label: furosemide
+  - id: MAXO:0000757
+    label: infusion
+  - id: HP:0003072
+    label: hypercalcemia
+  - id: MAXO:0000502
+    label: Tracheal intubation
+  - id: HP:0002092
+    label: Primary pulmonary hypertension
+  - id: CHEBI:44915
+    label: Propofol
+  - id: CHEBI:9939
+    label: Vecuronium
+  - id: CHEBI:17045
+    label: Nitrous oxide
+  - id: HP:0002047
+    label: malignant hyperthermia

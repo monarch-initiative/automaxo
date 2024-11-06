@@ -1,0 +1,118 @@
+---
+input_text: "[Compliance with treatment in Wilson's disease: On the interest of a
+  multidisciplinary closer follow-up]. BACKGROUND: Compliance with treatment is very
+  important for patients who suffer from Wilson's disease, a rare genetic disorder.
+  They can benefit a long-life and effective treatment. The purpose of our study is
+  to identify the level of compliance in Wilson's disease patients and features associated
+  with compliance as well. METHODS: This is a prospective study carried out in the
+  National Reference Center for Wilson Disease (based in Paris and Lyon) over a 8
+  months period. Patients were evaluated on the first (M0) and last month (M8) with
+  a questionnaire evaluating the number of missed treatment doses, a self-questionnaire
+  collecting the reasons for non-compliance, and analogic scales analyzing the doctor-patient
+  relationship and their behavior towards the treatment. The severity of depression
+  symptoms was investigated by the Beck Depression Inventory (BDI). A detailed phone
+  call interview was conducted by a psychologist every two months to evaluate their
+  compliance and feeling. RESULTS: Thirty-nine patients were included. The mean age
+  of patients was 34 years (+-9.9). At M0, 84.6% had a poor compliance with treatment.
+  They were diagnosed more recently (P=0.049) with a higher proportion involving neurological
+  disorders (P=0.007). Age, the type of treatment and the quality of the doctor-patient
+  relationship were not associated with the outcome; 38.5% suffered from depressive
+  symptoms. At M8, 56.8% of patients were poor compliants and 21.6% presented depressive
+  symptoms. CONCLUSION: Wilsons's disease patients have important problems with compliance,
+  without necessary being depressed. A close follow-up may help them become compliant,
+  particularly those with neurological symptoms."
+raw_completion_output: |-
+  primary_disease: Wilson's disease
+  medical_actions: closer follow-up; detailed phone call interview
+  symptoms: poor compliance with treatment; depressive symptoms; neurological disorders
+  chemicals: 
+  action_annotation_relationships: closer follow-up PREVENTS poor compliance with treatment IN Wilson's disease; detailed phone call interview PREVENTS poor compliance with treatment IN Wilson's disease; closer follow-up TREATS depressive symptoms IN Wilson's disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  closer follow-up TREATS depressive symptoms IN Wilson's disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010200
+  medical_actions:
+    - closer follow-up
+    - detailed phone call interview
+  symptoms:
+    - poor compliance with treatment
+    - depressive symptoms
+    - neurological disorders
+  action_annotation_relationships:
+    - subject: closer follow-up
+      predicate: PREVENTS
+      object: poor compliance with treatment
+      qualifier: MONDO:0010200
+    - subject: detailed phone call interview
+      predicate: PREVENTS
+      object: poor compliance with treatment
+      qualifier: MONDO:0010200
+    - subject: closer follow-up
+      predicate: TREATS
+      object: depressive symptoms
+      qualifier: MONDO:0010200
+named_entities:
+  - id: MONDO:0010200
+    label: Wilson's disease
+  - id: MAXO:0001175
+    label: Liver transplantation
+  - id: HP:0001695
+    label: Cardiac arrest
+  - id: HP:0001685
+    label: Myocardial fibrosis
+  - id: HP:0001663
+    label: Ventricular fibrillation
+  - id: CHEBI:28694
+    label: Copper
+  - id: CHEBI:18248
+    label: Iron
+  - id: HP:0002910
+    label: abnormal liver functions
+  - id: HP:0001394
+    label: cirrhosis
+  - id: CHEBI:27363
+    label: zinc
+  - id: CHEBI:50868
+    label: penicillamine
+  - id: MAXO:0000016
+    label: Cell therapy
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: CHEBI:30703
+    label: Tetrathiomolybdate (TTM)
+  - id: HP:0006554
+    label: acute liver failure
+  - id: CHEBI:35176
+    label: Zinc sulphate
+  - id: CHEBI:35475
+    label: NSAIDs
+  - id: MAXO:0009095
+    label: zinc therapy
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0006579
+    label: neonatal jaundice
+  - id: HP:0001409
+    label: portal hypertension
+  - id: HP:0030151
+    label: cholangitis
+  - id: HP:0002612
+    label: congenital hepatic fibrosis
+  - id: MONDO:0013282
+    label: alpha-1-antitrypsin deficiency

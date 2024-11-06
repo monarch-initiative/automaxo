@@ -1,0 +1,174 @@
+---
+input_text: "Renovascular hypertension in children. OBJECTIVE: To study the etiology,
+  clinical spectrum. image findings, management and outcome of children with renovascular
+  hypertension (RVH). MATERIAL AND METHODS: Twenty children (aged 5 days to 15 years)
+  were studied and treated for RVH during 1977-1998. In 14 cases hypertension was
+  found during a routine examination. Six cases had heart failure and/or hypertensive
+  encephalopathy. Diagnosis was made with aortography. Post-captopril renography and
+  Doppler ultrasonography were obtained in 8 patients and spiral computed tomography
+  angiography in 2. Treatment consisted of surgery (8 patients), percutaneous transluminal
+  angioplasty (PTA) (5) or antihypertensive drugs only (8). RESULTS: Initial blood
+  pressure was 62 +/- 31 mmHg > 95th percentile for systolic and 44 +/- 22 mmHg for
+  diastolic blood pressure. Twelve children had unilateral and 8 had bilateral arterial
+  stenosis. In 3 cases lesions were intrarenal. RVH was due to fibromuscular dysplasia
+  (7 patients) and associated to middle aortic syndrome (5). neurofibromatosis (3),
+  William's syndrome (2). Takayasu's arteritis (1) and pheochromocytoma (1). Treatment
+  of choice was decided depending on the size of the child and location and severity
+  of the stenosis. At the end of the follow-up (78 +/- 49 months), 9 patients are
+  normotensive without medication and 7 are normotensive with drugs. Three patients
+  have died, 2 for unrelated causes and I for cardiac failure; 1 child was lost to
+  the follow-up. CONCLUSIONS: Although symptoms are relatively uncommon. renovascular
+  disease is a frequent cause of severe hypertension in childhood. Non-invasive diagnostic
+  techniques appear useful as screening methods. Treatment by surgery or PTA is successful
+  if patients are carefully selected."
+raw_completion_output: |-
+  primary_disease: Renovascular hypertension (RVH)
+
+  medical_actions: Surgery; Percutaneous transluminal angioplasty (PTA); Antihypertensive drugs; Aortography; Post-captopril renography; Doppler ultrasonography; Spiral computed tomography angiography
+
+  symptoms: Hypertension; Heart failure; Hypertensive encephalopathy
+
+  chemicals: Antihypertensive drugs; Captopril
+
+  action_annotation_relationships: Surgery TREATS hypertension IN Renovascular hypertension; Percutaneous transluminal angioplasty (PTA) TREATS hypertension IN Renovascular hypertension; Antihypertensive drugs TREATS hypertension IN Renovascular hypertension; Aortography DIAGNOSES Renovascular hypertension; Post-captopril renography DIAGNOSES Renovascular hypertension; Doppler ultrasonography DIAGNOSES Renovascular hypertension; Spiral computed tomography angiography DIAGNOSES Renovascular hypertension; Antihypertensive drugs (with Captopril) TREATS hypertension IN Renovascular hypertension
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Antihypertensive drugs (with Captopril) TREATS hypertension IN Renovascular hypertension
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0006947
+  medical_actions:
+    - MAXO:0000004
+    - Percutaneous transluminal angioplasty (PTA)
+    - Antihypertensive drugs
+    - Aortography
+    - Post-captopril renography
+    - MAXO:0009008
+    - Spiral computed tomography angiography
+  symptoms:
+    - HP:0000822
+    - HP:0001635
+    - Hypertensive encephalopathy
+  chemicals:
+    - CHEBI:35674
+    - CHEBI:3380
+  action_annotation_relationships:
+    - subject: MAXO:0000004
+      predicate: TREATS
+      object: HP:0000822
+      qualifier: MONDO:0006947
+    - subject: <Percutaneous transluminal angioplasty>
+      predicate: <TREATS>
+      object: <hypertension>
+      qualifier: <Renovascular hypertension>
+      subject_extension: <Percutaneous transluminal angioplasty>
+    - subject: Antihypertensive drugs
+      predicate: TREATS
+      object: HP:0000822
+      qualifier: MONDO:0006947
+      subject_extension: CHEBI:35674
+    - subject: Aortography
+      predicate: DIAGNOSES
+      object: HP:0100817
+    - subject: <Post-captopril renography>
+      predicate: <DIAGNOSES>
+      object: <Renovascular hypertension>
+      qualifier: <NA>
+      subject_qualifier: <Post>
+      object_qualifier: <NA>
+      subject_extension: <captopril>
+      object_extension: <NA>
+    - subject: MAXO:0009008
+      predicate: DIAGNOSES
+      object: HP:0100817
+    - subject: <Spiral computed tomography angiography>
+      predicate: <DIAGNOSES>
+      object: <Renovascular hypertension>
+      qualifier: <>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <Spiral computed tomography angiography>
+      object_extension: <>
+    - subject: Antihypertensive drugs
+      predicate: TREATS
+      object: HP:0000822
+      qualifier: MONDO:0006947
+      subject_qualifier: with Captopril
+      subject_extension: CHEBI:3380
+named_entities:
+  - id: MONDO:0008678
+    label: Williams syndrome
+  - id: MAXO:0009072
+    label: surgical repair
+  - id: HP:0004969
+    label: peripheral pulmonary stenosis
+  - id: HP:0002617
+    label: aneurysms
+  - id: HP:0001626
+    label: Cardiovascular abnormalities
+  - id: MONDO:0004492
+    label: Mediastinitis
+  - id: MAXO:0000004
+    label: Surgical interventions
+  - id: MONDO:0008504
+    label: Supravalvar aortic stenosis
+  - id: HP:0001712
+    label: Left ventricular hypertrophy
+  - id: HP:0001659
+    label: Aortic regurgitation
+  - id: HP:0004970
+    label: Ascending aortic aneurysm
+  - id: HP:0004381
+    label: Supravalvar aortic stenosis
+  - id: MONDO:0015197
+    label: Supravalvular aortic stenosis (SVAS)
+  - id: HP:0011645
+    label: <Supravalvular aortic stenosis (SVAS)>
+  - id: MONDO:0004277
+    label: branch pulmonary artery stenosis (PAS)
+  - id: MAXO:0000505
+    label: mask ventilation
+  - id: HP:0000347
+    label: micrognathia
+  - id: HP:0000158
+    label: macroglossia
+  - id: CHEBI:49575
+    label: diazepam
+  - id: CHEBI:119915
+    label: fentanyl
+  - id: CHEBI:6456
+    label: lidocaine
+  - id: CHEBI:38867
+    label: anesthetic agents
+  - id: HP:0002318
+    label: cervical myelopathy
+  - id: HP:0001695
+    label: cardiac arrest
+  - id: MONDO:0006947
+    label: Renovascular hypertension (RVH)
+  - id: MAXO:0009008
+    label: Doppler ultrasonography
+  - id: HP:0000822
+    label: Hypertension
+  - id: HP:0001635
+    label: Heart failure
+  - id: CHEBI:35674
+    label: Antihypertensive drugs
+  - id: CHEBI:3380
+    label: Captopril
+  - id: HP:0100817
+    label: Renovascular hypertension

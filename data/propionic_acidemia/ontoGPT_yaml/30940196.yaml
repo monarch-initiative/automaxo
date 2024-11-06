@@ -1,0 +1,154 @@
+---
+input_text: 'Methylmalonic acidemia/propionic acidemia - the biochemical presentation
+  and comparing the outcome between liver transplantation versus non-liver transplantation
+  groups. BACKGROUND: Most patients with isolated methylmalonic acidemia (MMA) /propionic
+  acidemia (PA) presenting during the neonatal period with acute metabolic distress
+  are at risk for death and significant neurodevelopmental disability. The nationwide
+  newborn screening for MMA/PA has been in place in Taiwan from January, 2000 and
+  data was collected until December, 2016. RESULTS: During the study period, 3,155,263
+  newborns were screened. The overall incidence of MMA mutase type cases was 1/121,356
+  (n = 26), 1 cobalamin B was detected and that for PA cases (n = 4) was 1/788,816.
+  The time of referral is 8.8 days for MMA patients, and 7.5 days for PA patients.
+  The MMA mutase type patients have higher AST, ALT, and NH3 values as well as a lower
+  pH value (p < 0.05). The mean age for liver transplantation (LT) is 402 days (range
+  from 0.6-6.7 yr) with 16 out of 20 cases (80.0%) using living donors. The mean admission
+  length shortened from 90.6 days/year (pre-LT) to 5.3 days/year (at 3rd year post-LT)
+  (p < 0.0005). Similarly, the tube feeding ratio decreased from 67.8 to 0.50% (p
+  < 0.00005). The anxiety level of the caregiver was reduced from 33.4 to 27.2 after
+  LT (p = 0.001) and the DQ/IQ performance of the patients was improved after LT from
+  50 to 60.1 (p = 0.07). CONCLUSION: MMA/PA patients with LT do survive and have reduced
+  admission time, reduced tube feeding and the caregiver is less anxious.'
+raw_completion_output: |-
+  primary_disease: Methylmalonic acidemia/propionic acidemia
+  medical_actions: liver transplantation; neonatal screening; reducing tube feeding; monitoring AST, ALT, and NH3 values; adjusting pH value; anxiety management for caregivers; improving DQ/IQ performance
+  symptoms: acute metabolic distress; high AST; high ALT; high NH3; low pH; neurodevelopmental disability; anxiety in caregiver
+  chemicals: 
+  action_annotation_relationships: liver transplantation TREATS acute metabolic distress IN Methylmalonic acidemia/propionic acidemia; neonatal screening PREVENTS death IN Methylmalonic acidemia/propionic acidemia; reducing tube feeding TREATS neurodevelopmental disability IN Methylmalonic acidemia/propionic acidemia; monitoring AST, ALT, and NH3 values TREATS acute metabolic distress IN Methylmalonic acidemia/propionic acidemia; adjusting pH value TREATS low pH IN Methylmalonic acidemia/propionic acidemia; anxiety management for caregivers TREATS anxiety in caregiver IN Methylmalonic acidemia/propionic acidemia; improving DQ/IQ performance TREATS neurodevelopmental disability IN Methylmalonic acidemia/propionic acidemia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  improving DQ/IQ performance TREATS neurodevelopmental disability IN Methylmalonic acidemia/propionic acidemia
+
+  ===
+
+extracted_object:
+  primary_disease: Methylmalonic acidemia/propionic acidemia
+  medical_actions:
+    - MAXO:0001175
+    - neonatal screening
+    - reducing tube feeding
+    - monitoring AST, ALT, and NH3 values
+    - adjusting pH value
+    - anxiety management for caregivers
+    - improving DQ/IQ performance
+  symptoms:
+    - acute metabolic distress
+    - high AST
+    - high ALT
+    - high NH3
+    - low pH
+    - neurodevelopmental disability
+    - anxiety in caregiver
+  action_annotation_relationships:
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: acute metabolic distress
+      qualifier: Methylmalonic acidemia/propionic acidemia
+    - subject: neonatal screening
+      predicate: PREVENTS
+      object: death
+      qualifier: Methylmalonic acidemia/propionic acidemia
+    - subject: <reducing tube feeding>
+      predicate: <TREATS>
+      object: <neurodevelopmental disability>
+      qualifier: <Methylmalonic acidemia/propionic acidemia>
+      subject_qualifier: <null>
+      object_qualifier: <null>
+      subject_extension: <null>
+      object_extension: <null>
+    - subject: monitoring AST, ALT, and NH3 values
+      predicate: TREATS
+      object: acute metabolic distress
+      qualifier: Methylmalonic acidemia/propionic acidemia
+    - subject: adjusting pH value
+      predicate: TREATS
+      object: low pH
+      qualifier: Methylmalonic acidemia/propionic acidemia
+    - subject: <anxiety management for caregivers>
+      predicate: <TREATS>
+      object: <anxiety in caregiver>
+      qualifier: <Methylmalonic acidemia/propionic acidemia>
+      subject_qualifier: <null>
+      object_qualifier: <null>
+      subject_extension: <null>
+      object_extension: <null>
+    - subject: improving DQ/IQ performance
+      predicate: TREATS
+      object: neurodevelopmental disability
+      qualifier: Methylmalonic acidemia/propionic acidemia
+named_entities:
+  - id: MONDO:0010184
+    label: Methylmalonic acidemia (MMA); Propionic acidemia; Cobalamin C (cblC) deficiency
+  - id: CHEBI:15603
+    label: Leucine (Leu)
+  - id: CHEBI:16414
+    label: Valine (Val)
+  - id: CHEBI:17191
+    label: Isoleucine (Ile)
+  - id: CHEBI:16044
+    label: Methionine (Met)
+  - id: CHEBI:25017
+    label: leucine
+  - id: MONDO:0002012
+    label: Methylmalonic acidemia
+  - id: HP:0003571
+    label: Propionic acidemia
+  - id: MONDO:0011628
+    label: Propionic acidemia
+  - id: MAXO:0001175
+    label: Liver transplantation
+  - id: HP:0001638
+    label: Cardiomyopathy
+  - id: CHEBI:176843
+    label: Vitamin B12
+  - id: MONDO:0019052
+    label: Inborn errors of metabolism (IEMs)
+  - id: MAXO:0010039
+    label: Organ transplantation
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0001942
+    label: Metabolic acidosis
+  - id: HP:0001987
+    label: Hyperammonemia
+  - id: HP:0001733
+    label: Pancreatitis
+  - id: HP:0001695
+    label: cardiac arrest
+  - id: HP:0001263
+    label: Developmental delay
+  - id: HP:0002863
+    label: Metabolic decompensations (MDs)
+  - id: CHEBI:15428
+    label: Glycine
+  - id: CHEBI:28867
+    label: Propionylcarnitine
+  - id: HP:0001138
+    label: Optic neuropathy
+  - id: HP:0000083
+    label: Renal failure
+  - id: MONDO:0005290
+    label: Rhabdomyolysis
+  - id: HP:0003287
+    label: Mitochondrial dysfunction

@@ -1,0 +1,166 @@
+---
+input_text: 'Antibody-mediated rejection after ABO-incompatible pediatric living donor
+  liver transplantation for propionic acidemia: A case report. We herein present the
+  case of a four-yr-old boy with PA who developed AMR after ABO-incompatible LDLT
+  despite undergoing B cell desensitization using rituximab. Although the CD19+ lymphocyte
+  count decreased to 0.1% nine days after the administration of rituximab, he developed
+  a high fever which was accompanied by arthralgia due to a streptococcal infection
+  13 days after rituximab prophylaxis. After the clearance of the infection, he underwent
+  ABO-incompatible LDLT 36 days after the administration of rituximab. The CD19+ lymphocyte
+  count just prior to LDLT was 1.2%. He developed AMR five days after LDLT, and the
+  antidonor-type IgM and IgG antibody titers increased to 1:1024 and 1:1024, respectively.
+  He was treated by plasma exchange, IVIG, steroid pulse therapy, and rituximab re-administration;
+  however, his liver dysfunction continued. Despite intensive treatment, he died due
+  to complicated abdominal hernia, acute renal failure, and ARDS. This case suggests
+  that a streptococcal infection may induce the activation of innate immune responses;
+  thus, additional desensitization therapy should be considered prior to ABO-incompatible
+  LDLT if B cell reactivation is suspected. '
+raw_completion_output: |-
+  primary_disease: Antibody-mediated rejection (AMR)
+
+  medical_actions: B cell desensitization using rituximab; Plasma exchange; IVIG; Steroid pulse therapy; Rituximab re-administration
+
+  symptoms: High fever; Arthralgia
+
+  chemicals: Rituximab
+
+  action_annotation_relationships: B cell desensitization using rituximab PREVENTS AMR IN Antibody-mediated rejection; Plasma exchange TREATS AMR IN Antibody-mediated rejection; IVIG TREATS AMR IN Antibody-mediated rejection; Steroid pulse therapy TREATS AMR IN Antibody-mediated rejection; Rituximab re-administration TREATS AMR IN Antibody-mediated rejection; B cell desensitization using rituximab (with Rituximab) PREVENTS High fever IN Antibody-mediated rejection; B cell desensitization using rituximab (with Rituximab) PREVENTS Arthralgia IN Antibody-mediated rejection
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  B cell desensitization using rituximab (with Rituximab) PREVENTS Arthralgia IN Antibody-mediated rejection
+
+  ===
+
+extracted_object:
+  primary_disease: Antibody-mediated rejection (AMR)
+  medical_actions:
+    - B cell desensitization using rituximab
+    - Plasma exchange
+    - IVIG
+    - Steroid pulse therapy
+    - Rituximab re-administration
+  symptoms:
+    - High fever
+    - HP:0002829
+  chemicals:
+    - CHEBI:64357
+  action_annotation_relationships:
+    - subject: B cell desensitization
+      predicate: PREVENTS
+      object: AMR
+      qualifier: Antibody-mediated rejection
+      subject_qualifier: using rituximab
+      subject_extension: CHEBI:64357
+    - subject: Plasma exchange
+      predicate: TREATS
+      object: AMR
+      qualifier: Antibody-mediated rejection
+    - subject: IVIG
+      predicate: TREATS
+      object: AMR
+      qualifier: Antibody-mediated rejection
+    - subject: pulse therapy
+      predicate: TREATS
+      object: AMR
+      qualifier: Antibody-mediated rejection
+      subject_extension: CHEBI:35341
+    - subject: re-administration
+      predicate: TREATS
+      object: AMR
+      qualifier: Antibody-mediated rejection
+      subject_extension: CHEBI:64357
+    - subject: B cell desensitization
+      predicate: PREVENTS
+      object: High fever
+      qualifier: Antibody-mediated rejection
+      subject_qualifier: with Rituximab
+      subject_extension: CHEBI:64357
+    - subject: B cell desensitization
+      predicate: PREVENTS
+      object: HP:0002829
+      qualifier: Antibody-mediated rejection
+      subject_qualifier: with Rituximab
+      subject_extension: CHEBI:64357
+named_entities:
+  - id: MONDO:0010184
+    label: Methylmalonic acidemia (MMA); Propionic acidemia; Cobalamin C (cblC) deficiency
+  - id: CHEBI:15603
+    label: Leucine (Leu)
+  - id: CHEBI:16414
+    label: Valine (Val)
+  - id: CHEBI:17191
+    label: Isoleucine (Ile)
+  - id: CHEBI:16044
+    label: Methionine (Met)
+  - id: CHEBI:25017
+    label: leucine
+  - id: MONDO:0002012
+    label: Methylmalonic acidemia
+  - id: HP:0003571
+    label: Propionic acidemia
+  - id: MONDO:0011628
+    label: Propionic acidemia
+  - id: MAXO:0001175
+    label: Liver transplantation
+  - id: HP:0001638
+    label: Cardiomyopathy
+  - id: CHEBI:176843
+    label: Vitamin B12
+  - id: MONDO:0019052
+    label: Inborn errors of metabolism (IEMs)
+  - id: MAXO:0010039
+    label: Organ transplantation
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0001942
+    label: Metabolic acidosis
+  - id: HP:0001987
+    label: Hyperammonemia
+  - id: HP:0001733
+    label: Pancreatitis
+  - id: HP:0001695
+    label: cardiac arrest
+  - id: HP:0001263
+    label: Developmental delay
+  - id: HP:0002863
+    label: Metabolic decompensations (MDs)
+  - id: CHEBI:15428
+    label: Glycine
+  - id: CHEBI:28867
+    label: Propionylcarnitine
+  - id: HP:0001138
+    label: Optic neuropathy
+  - id: HP:0000083
+    label: Renal failure
+  - id: MONDO:0005290
+    label: Rhabdomyolysis
+  - id: HP:0003287
+    label: Mitochondrial dysfunction
+  - id: MONDO:0009563
+    label: maple syrup urine disease (MSUD)
+  - id: MONDO:0100096
+    label: COVID-19
+  - id: HP:0008281
+    label: acute hyperammonemia
+  - id: MONDO:0000688
+    label: Organic Acidemias
+  - id: MAXO:0001001
+    label: gene therapy
+  - id: HP:0002829
+    label: Arthralgia
+  - id: CHEBI:64357
+    label: Rituximab
+  - id: CHEBI:35341
+    label: steroid

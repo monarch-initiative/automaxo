@@ -1,0 +1,133 @@
+---
+input_text: 'Renal embolization. Recent developments in endovascular radiological
+  techniques and devices make embolization as a major therapeutic option in many renal
+  vascular or neoplastic diseases, before surgery. These techniques show a very good
+  efficacy with a low morbidity and a better renal tolerance. Indications of embolization
+  in nephrology are post-biopsy arteriovenous fistulas, renal graft intolerance, functional
+  exclusion and polycystic kidney disease before transplantation. Others are at the
+  interface between nephrology and urology as angiomyolipomas (mostly in tuberous
+  sclerosis context), arterial aneurysms and arteriovenous malformations. '
+raw_completion_output: |-
+  primary_disease: Renal vascular or neoplastic diseases
+  medical_actions: Embolization;Surgery
+  symptoms: Post-biopsy arteriovenous fistulas;Renal graft intolerance;Functional exclusion;Polycystic kidney disease;Angiomyolipomas;Arterial aneurysms;Arteriovenous malformations
+  chemicals: 
+  action_annotation_relationships: Embolization TREATS post-biopsy arteriovenous fistulas IN Renal vascular or neoplastic diseases;Embolization TREATS renal graft intolerance IN Renal vascular or neoplastic diseases;Embolization TREATS functional exclusion IN Renal vascular or neoplastic diseases;Embolization TREATS polycystic kidney disease IN Renal vascular or neoplastic diseases;Embolization TREATS angiomyolipomas IN Renal vascular or neoplastic diseases;Embolization TREATS arterial aneurysms IN Renal vascular or neoplastic diseases;Embolization TREATS arteriovenous malformations IN Renal vascular or neoplastic diseases
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Embolization TREATS arteriovenous malformations IN Renal vascular or neoplastic diseases
+
+  ===
+
+extracted_object:
+  primary_disease: Renal vascular or neoplastic diseases
+  medical_actions:
+    - Embolization
+    - MAXO:0000004
+  symptoms:
+    - Post-biopsy arteriovenous fistulas
+    - Renal graft intolerance
+    - Functional exclusion
+    - HP:0000113
+    - HP:0006772
+    - Arterial aneurysms
+    - HP:0100026
+  action_annotation_relationships:
+    - subject: Embolization
+      predicate: TREATS
+      object: post-biopsy arteriovenous fistulas
+      qualifier: Renal vascular or neoplastic diseases
+    - subject: Embolization
+      predicate: TREATS
+      object: renal graft intolerance
+      qualifier: Renal vascular or neoplastic diseases
+    - subject: Embolization
+      predicate: TREATS
+      object: functional exclusion
+      qualifier: Renal vascular or neoplastic diseases
+    - subject: Embolization
+      predicate: TREATS
+      object: HP:0000113
+      qualifier: Renal vascular or neoplastic diseases
+    - subject: Embolization
+      predicate: TREATS
+      object: HP:0006772
+      qualifier: Renal vascular or neoplastic diseases
+    - subject: <Embolization>
+      predicate: <TREATS>
+      object: <arterial aneurysms>
+      qualifier: <Renal vascular or neoplastic diseases>
+      subject_qualifier: <NA>
+      object_qualifier: <NA>
+      subject_extension: <NA>
+      object_extension: <NA>
+    - subject: Embolization
+      predicate: TREATS
+      object: HP:0100026
+      qualifier: Renal vascular or neoplastic diseases
+named_entities:
+  - id: MONDO:0004691
+    label: Autosomal Dominant Polycystic Kidney Disease (ADPKD)
+  - id: HP:0003774
+    label: end-stage renal disease
+  - id: MAXO:0000601
+    label: Dialysis
+  - id: MAXO:0000756
+    label: Transfusion
+  - id: HP:0012531
+    label: Pain
+  - id: HP:0001824
+    label: Weight loss
+  - id: HP:0012158
+    label: Carotid artery dissection
+  - id: MONDO:0010979
+    label: Tuberous sclerosis (TS) and autosomal dominant polycystic kidney disease
+      (ADPKD)
+  - id: HP:0002027
+    label: Abdominal pain
+  - id: HP:0001903
+    label: Anaemia
+  - id: CHEBI:68481
+    label: mTOR inhibitors
+  - id: MONDO:0010913
+    label: Caroli Disease
+  - id: HP:0004395
+    label: Malnutrition
+  - id: CHEBI:16113
+    label: Cholesterol
+  - id: MAXO:0000624
+    label: Nutritional assessment
+  - id: HP:0004872
+    label: incisional hernias
+  - id: HP:0003259
+    label: increased serum creatinine
+  - id: MONDO:0005300
+    label: Chronic kidney disease (CKD)
+  - id: CHEBI:4670
+    label: Dobutamine
+  - id: MONDO:0020642
+    label: Polycystic Kidney Disease
+  - id: HP:0002138
+    label: Subarachnoid hemorrhage
+  - id: CHEBI:35341
+    label: Steroid
+  - id: MAXO:0000004
+    label: Surgery
+  - id: HP:0000113
+    label: Polycystic kidney disease
+  - id: HP:0006772
+    label: Angiomyolipomas
+  - id: HP:0100026
+    label: Arteriovenous malformations

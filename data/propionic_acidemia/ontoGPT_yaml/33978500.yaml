@@ -1,0 +1,163 @@
+---
+input_text: 'Anesthetic Management for Pediatric Liver Transplantation in a Patient
+  With Propionic Acidemia: A Case Report. Propionic acidemia is an inborn error of
+  metabolism characterized by accumulation of propionic acid due to deficiency of
+  propionyl-CoA carboxylase. Main stay of treatment focuses on reducing dietary protein.
+  However, orthotropic liver transplantation decreases the frequency of metabolic
+  decompensations and improves life expectancy. We report a case of a 4-year-old boy
+  undergoing orthotropic liver transplantation to treat propionic acidemia. This case
+  highlights the use of intraoperative monitoring of metabolic markers like urine
+  ketones, arterial ammonia, and lactate levels as these patients are at risk for
+  hyperammonemia and metabolic acidosis. Also, the relevance in outcomes when performing
+  early extubation in fast-tracking recovery.'
+raw_completion_output: |-
+  primary_disease: Propionic Acidemia
+
+  medical_actions: reducing dietary protein; orthotropic liver transplantation; intraoperative monitoring of metabolic markers; early extubation
+
+  symptoms: accumulation of propionic acid; hyperammonemia; metabolic acidosis
+
+  chemicals: 
+
+  action_annotation_relationships: reducing dietary protein TREATS accumulation of propionic acid IN Propionic Acidemia; orthotropic liver transplantation TREATS Propionic Acidemia; intraoperative monitoring of metabolic markers (like urine ketones, arterial ammonia, and lactate levels) TREATS hyperammonemia IN Propionic Acidemia; intraoperative monitoring of metabolic markers (like urine ketones, arterial ammonia, and lactate levels) TREATS metabolic acidosis IN Propionic Acidemia; early extubation PREVENTS complications IN Propionic Acidemia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  early extubation PREVENTS complications IN Propionic Acidemia
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0011628
+  medical_actions:
+    - reducing dietary protein
+    - orthotropic liver transplantation
+    - intraoperative monitoring of metabolic markers
+    - early extubation
+  symptoms:
+    - accumulation of propionic acid
+    - HP:0001987
+    - HP:0001942
+  action_annotation_relationships:
+    - subject: <reducing dietary protein>
+      predicate: <TREATS>
+      object: <accumulation of propionic acid>
+      qualifier: <Propionic Acidemia>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <dietary protein>
+      object_extension: <propionic acid>
+    - subject: orthotropic liver transplantation
+      predicate: TREATS
+      object: HP:0003571
+    - subject: intraoperative monitoring of metabolic markers
+      predicate: TREATS
+      object: HP:0001987
+      qualifier: MONDO:0011628
+    - subject: <intraoperative monitoring>
+      predicate: <TREATS>
+      object: <metabolic acidosis>
+      qualifier: <Propionic Acidemia>
+      subject_extension: <metabolic markers>
+    - subject: early extubation
+      predicate: PREVENTS
+      object: complications
+      qualifier: MONDO:0011628
+named_entities:
+  - id: MONDO:0010184
+    label: Methylmalonic acidemia (MMA); Propionic acidemia; Cobalamin C (cblC) deficiency
+  - id: CHEBI:15603
+    label: Leucine (Leu)
+  - id: CHEBI:16414
+    label: Valine (Val)
+  - id: CHEBI:17191
+    label: Isoleucine (Ile)
+  - id: CHEBI:16044
+    label: Methionine (Met)
+  - id: CHEBI:25017
+    label: leucine
+  - id: MONDO:0002012
+    label: Methylmalonic acidemia
+  - id: HP:0003571
+    label: Propionic acidemia
+  - id: MONDO:0011628
+    label: Propionic acidemia
+  - id: MAXO:0001175
+    label: Liver transplantation
+  - id: HP:0001638
+    label: Cardiomyopathy
+  - id: CHEBI:176843
+    label: Vitamin B12
+  - id: MONDO:0019052
+    label: Inborn errors of metabolism (IEMs)
+  - id: MAXO:0010039
+    label: Organ transplantation
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0001942
+    label: Metabolic acidosis
+  - id: HP:0001987
+    label: Hyperammonemia
+  - id: HP:0001733
+    label: Pancreatitis
+  - id: HP:0001695
+    label: cardiac arrest
+  - id: HP:0001263
+    label: Developmental delay
+  - id: HP:0002863
+    label: Metabolic decompensations (MDs)
+  - id: CHEBI:15428
+    label: Glycine
+  - id: CHEBI:28867
+    label: Propionylcarnitine
+  - id: HP:0001138
+    label: Optic neuropathy
+  - id: HP:0000083
+    label: Renal failure
+  - id: MONDO:0005290
+    label: Rhabdomyolysis
+  - id: HP:0003287
+    label: Mitochondrial dysfunction
+  - id: MONDO:0009563
+    label: maple syrup urine disease (MSUD)
+  - id: MONDO:0100096
+    label: COVID-19
+  - id: HP:0008281
+    label: acute hyperammonemia
+  - id: MONDO:0000688
+    label: Organic Acidemias
+  - id: MAXO:0001001
+    label: gene therapy
+  - id: HP:0002829
+    label: Arthralgia
+  - id: CHEBI:64357
+    label: Rituximab
+  - id: CHEBI:35341
+    label: steroid
+  - id: MAXO:0010032
+    label: Heart transplantation
+  - id: HP:0001644
+    label: Dilated cardiomyopathy
+  - id: HP:0012758
+    label: Neurodevelopmental delay
+  - id: MONDO:0008723
+    label: very-long chain acyl-CoA dehydrogenase deficiency (VLCAD)
+  - id: HP:0011874
+    label: hepatic arterial thrombosis (HAT)
+  - id: HP:0001876
+    label: pancytopenias
+  - id: HP:0000789
+    label: infertility
+  - id: HP:6000104
+    label: twin pregnancy

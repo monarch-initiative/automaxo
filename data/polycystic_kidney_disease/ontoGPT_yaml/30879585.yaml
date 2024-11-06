@@ -1,0 +1,104 @@
+---
+input_text: 'Caroli Disease Revisited: A Case of a Kidney Transplant Patient With
+  Autosomal Polycystic Kidney Disease and Recurrent Episodes of Cholangitis. Polycystic
+  kidney disease (PKD) is a genetic disorder leading to end-stage renal disease more
+  commonly in the fourth to sixth decades of life. Cyst formation in the kidneys and
+  other organs such as the liver and pancreas is the main characteristic of this disease.
+  A significant number of patients with PKD undergo kidney transplantation and receive
+  significant immunosuppression, predisposing them to comorbidities such as infections
+  and malignancies. The link between these cystic syndromes and Caroli disease (which
+  is radiologically demonstrated as bile duct ectasia, segmental cystic dilation of
+  intrahepatic bile ducts, with a normal common bile duct and absence of hepatic fibrosis
+  or portal hypertension), is extremely important. Suspicion, screening, and timely
+  diagnosis of the presence of Caroli disease in patients with PKD prior or post receiving
+  a kidney transplant will reduce morbidity in these patients and possibly prolong
+  both graft and patient survival. We describe a patient with autosomal dominant polycystic
+  kidney disease who underwent recurrent admissions for presumed cholangitis and was
+  eventually diagnosed with Caroli disease.'
+raw_completion_output: |-
+  primary_disease: Caroli Disease
+
+  medical_actions: Kidney transplantation; Immunosuppression; Suspicion; Screening; Timely diagnosis
+
+  symptoms: Cyst formation in the kidneys; Recurrent episodes of cholangitis
+
+  chemicals: 
+
+  action_annotation_relationships: Kidney transplantation PREVENTS end-stage renal disease IN Polycystic kidney disease; Immunosuppression PREVENTS rejection IN Kidney transplantation; Screening (for Caroli Disease) TREATS recurrent episodes of cholangitis IN Caroli Disease; Timely diagnosis TREATS recurrent episodes of cholangitis IN Caroli Disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Timely diagnosis TREATS recurrent episodes of cholangitis IN Caroli Disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010913
+  medical_actions:
+    - Kidney transplantation
+    - Immunosuppression
+    - Suspicion
+    - Screening
+    - Timely diagnosis
+  symptoms:
+    - Cyst formation in the kidneys
+    - Recurrent episodes of cholangitis
+  action_annotation_relationships:
+    - subject: <Kidney transplantation>
+      predicate: <PREVENTS>
+      object: <end-stage renal disease>
+      qualifier: <Polycystic kidney disease>
+      subject_qualifier: <null>
+      object_qualifier: <null>
+      subject_extension: <null>
+      object_extension: <null>
+    - subject: Immunosuppression
+      predicate: PREVENTS
+      object: rejection
+      qualifier: Kidney transplantation
+    - subject: Screening
+      predicate: TREATS
+      object: recurrent episodes of cholangitis
+      qualifier: MONDO:0010913
+      subject_qualifier: for Caroli Disease
+    - subject: Timely diagnosis
+      predicate: TREATS
+      object: recurrent episodes of cholangitis
+      qualifier: MONDO:0010913
+named_entities:
+  - id: MONDO:0004691
+    label: Autosomal Dominant Polycystic Kidney Disease (ADPKD)
+  - id: HP:0003774
+    label: end-stage renal disease
+  - id: MAXO:0000601
+    label: Dialysis
+  - id: MAXO:0000756
+    label: Transfusion
+  - id: HP:0012531
+    label: Pain
+  - id: HP:0001824
+    label: Weight loss
+  - id: HP:0012158
+    label: Carotid artery dissection
+  - id: MONDO:0010979
+    label: Tuberous sclerosis (TS) and autosomal dominant polycystic kidney disease
+      (ADPKD)
+  - id: HP:0002027
+    label: Abdominal pain
+  - id: HP:0001903
+    label: Anaemia
+  - id: CHEBI:68481
+    label: mTOR inhibitors
+  - id: MONDO:0010913
+    label: Caroli Disease

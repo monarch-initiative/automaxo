@@ -1,0 +1,262 @@
+---
+input_text: "Anesthetic management in a pediatric patient with Noonan syndrome, mastocytosis,
+  and von Willebrand disease: a case report. This case report describes anesthetic
+  considerations for a 6-year-old boy, admitted for adenoidectomy under general anesthesia,
+  who had a complicated medical history, including mastocytosis, Noonan syndrome,
+  and von Willebrand disease. Each affected the anesthetic plan and was addressed
+  preoperatively among all surgical and anesthesia providers. Mastocytosis created
+  a major concern, with its increased numbers of histamine-filled mast cells. Each
+  drug that was added or eliminated from the anesthetic plan, to prevent histamine
+  release by the activation of triggers, was considered. Patient handling and temperature
+  control were also concerns. One of Noonan syndrome's characteristics is heart anomalies.
+  This patient had a history of a patent foramen ovale and pulmonary stenosis; therefore,
+  air was carefully removed from all intravenous lines and syringes. The main concern
+  for bleeding difficulties was attributed to the history of von Willebrand disease,
+  which results in prolonged bleeding time and can lead to delayed bleeding or serious
+  postsurgical hemorrhage. Desmopressin was administered preoperatively to increase
+  platelet aggregation and the von Willebrand factor level. The use of aspirin and
+  other nonsteroidal anti-inflammatory drugs was avoided. We discuss the clinical
+  and anesthetic management of this case with a review of pertinent literature."
+raw_completion_output: |-
+  primary_disease: Noonan syndrome; mastocytosis; von Willebrand disease
+
+  medical_actions: anesthetic considerations; admitted for adenoidectomy under general anesthesia; drugs added or eliminated; patient handling and temperature control; air carefully removed from all intravenous lines and syringes; administered Desmopressin preoperatively; use of aspirin and other nonsteroidal anti-inflammatory drugs was avoided
+
+  symptoms: increased numbers of histamine-filled mast cells; heart anomalies; prolonged bleeding time; delayed bleeding; serious postsurgical hemorrhage
+
+  chemicals: Desmopressin; aspirin; nonsteroidal anti-inflammatory drugs
+
+  action_annotation_relationships: anesthetic considerations PREVENTS increased numbers of histamine-filled mast cells IN mastocytosis; drugs added or eliminated PREVENTS increased numbers of histamine-filled mast cells IN mastocytosis; patient handling and temperature control PREVENTS heart anomalies IN Noonan syndrome; air carefully removed from all intravenous lines and syringes PREVENTS heart anomalies IN Noonan syndrome; administered Desmopressin (with Desmopressin) TREATS prolonged bleeding time IN von Willebrand disease; use of aspirin and other nonsteroidal anti-inflammatory drugs was avoided PREVENTS prolonged bleeding time IN von Willebrand disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  use of aspirin and other nonsteroidal anti-inflammatory drugs was avoided PREVENTS prolonged bleeding time IN von Willebrand disease
+
+  ===
+
+extracted_object:
+  primary_disease: Noonan syndrome; mastocytosis; von Willebrand disease
+  medical_actions:
+    - anesthetic considerations
+    - admitted for adenoidectomy under general anesthesia
+    - drugs added or eliminated
+    - patient handling and temperature control
+    - air carefully removed from all intravenous lines and syringes
+    - administered Desmopressin preoperatively
+    - use of aspirin and other nonsteroidal anti-inflammatory drugs was avoided
+  symptoms:
+    - increased numbers of histamine-filled mast cells
+    - heart anomalies
+    - HP:0003010
+    - delayed bleeding
+    - serious postsurgical hemorrhage
+  chemicals:
+    - CHEBI:4450
+    - CHEBI:15365
+    - nonsteroidal anti-inflammatory drugs
+  action_annotation_relationships:
+    - subject: anesthetic considerations
+      predicate: PREVENTS
+      object: increased numbers of histamine-filled mast cells
+      qualifier: MONDO:0007950
+      object_qualifier: IN
+      subject_extension: anesthetic considerations
+    - subject: drugs added or eliminated
+      predicate: PREVENTS
+      object: increased numbers of histamine-filled mast cells
+      qualifier: MONDO:0007950
+    - subject: patient handling and temperature control
+      predicate: PREVENTS
+      object: heart anomalies
+      qualifier: MONDO:0018997
+    - subject: air carefully removed from all intravenous lines and syringes
+      predicate: PREVENTS
+      object: heart anomalies
+      qualifier: MONDO:0018997
+    - subject: administered Desmopressin
+      predicate: TREATS
+      object: HP:0003010
+      qualifier: MONDO:0019565
+      subject_qualifier: with Desmopressin
+      subject_extension: CHEBI:4450
+    - subject: use of aspirin and other nonsteroidal anti-inflammatory drugs
+      predicate: PREVENTS
+      object: HP:0003010
+      qualifier: MONDO:0019565
+      subject_extension: nonsteroidal anti-inflammatory drugs
+named_entities:
+  - id: CHEBI:33281
+    label: antibiotics
+  - id: MONDO:0006936
+    label: pulmonary valve stenosis
+  - id: MAXO:0009072
+    label: surgical repair
+  - id: HP:0001642
+    label: pulmonary valve stenosis
+  - id: MONDO:0018997
+    label: Noonan syndrome
+  - id: HP:0004322
+    label: short stature
+  - id: CHEBI:37845
+    label: GH
+  - id: MONDO:0011908
+    label: Juvenile myelomonocytic leukemia (JMML)
+  - id: MAXO:0000747
+    label: hematopoietic stem cell transplantation (HSCT)
+  - id: HP:0012209
+    label: Juvenile myelomonocytic leukemia (JMML)
+  - id: MAXO:0010203
+    label: echocardiography
+  - id: HP:0001663
+    label: ventricular fibrillation
+  - id: HP:0001639
+    label: hypertrophic cardiomyopathy
+  - id: HP:0032092
+    label: left ventricular outflow tract obstruction
+  - id: HP:0030828
+    label: Wheezing
+  - id: CHEBI:90960
+    label: Tiotropium
+  - id: HP:0002099
+    label: bronchial asthma
+  - id: MONDO:0007037
+    label: Achondroplasia
+  - id: MAXO:0000014
+    label: radiotherapy
+  - id: MAXO:0035118
+    label: Cardiac catheterization
+  - id: HP:0001659
+    label: Aortic regurgitation
+  - id: HP:0001004
+    label: Lymphedema
+  - id: CHEBI:17347
+    label: Testosterone
+  - id: MONDO:0005516
+    label: osteochondrodysplasias
+  - id: MONDO:0008300
+    label: Prader-Willi syndrome
+  - id: MONDO:0000050
+    label: Growth Hormone Deficiency (GHD)
+  - id: HP:0001510
+    label: Poor growth
+  - id: MONDO:0007414
+    label: Gorham disease
+  - id: HP:0012531
+    label: Pain
+  - id: HP:0010310
+    label: Chylothorax
+  - id: MONDO:0007893
+    label: Noonan syndrome with multiple lentigines
+  - id: HP:0001670
+    label: asymmetric septal hypertrophy
+  - id: MONDO:0011035
+    label: Neurofibromatosis-Noonan syndrome
+  - id: HP:0000001
+    label: acute lymphoblastic leukemia (ALL)
+  - id: HP:0000818
+    label: endocrinopathies
+  - id: HP:0000789
+    label: infertility
+  - id: MONDO:0019499
+    label: Turner syndrome
+  - id: MONDO:0006769
+    label: Gastroparesis
+  - id: MAXO:0000079
+    label: Genetic counseling
+  - id: HP:0003270
+    label: Bloating
+  - id: CHEBI:31515
+    label: Domperidone
+  - id: HP:0002018
+    label: nausea
+  - id: MAXO:0010032
+    label: heart transplantation
+  - id: HP:0001635
+    label: heart failure
+  - id: HP:0031318
+    label: myofiber disarray
+  - id: CHEBI:68478
+    label: everolimus
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0003006
+    label: neuroblastoma
+  - id: MAXO:0025001
+    label: cardiac surgery
+  - id: HP:0001627
+    label: congenital heart disease
+  - id: HP:0011675
+    label: Arrhythmias
+  - id: HP:0002093
+    label: Respiratory insufficiency
+  - id: HP:0002090
+    label: Pneumonia
+  - id: HP:0001631
+    label: atrial septal defect
+  - id: HP:0001999
+    label: Dysmorphic facial features
+  - id: HP:0000729
+    label: Secundum atrial septal defect (ASD)
+  - id: HP:0030957
+    label: Ventricular septal aneurysm
+  - id: HP:0002875
+    label: Exertional dyspnea
+  - id: HP:0000316
+    label: Hypertelorism
+  - id: HP:0000914
+    label: Shield chest
+  - id: HP:0002943
+    label: Thoracic scoliosis
+  - id: MONDO:0005212
+    label: Rhabdomyosarcoma
+  - id: HP:0001263
+    label: developmental delay
+  - id: HP:0005152
+    label: congenital cardiomyopathy
+  - id: HP:0002027
+    label: abdominal pain
+  - id: HP:0002019
+    label: constipation
+  - id: HP:0031500
+    label: abdominal mass
+  - id: MONDO:0054588
+    label: Noonan syndrome-like disorder with loose anagen hair-2 (NSLH2)
+  - id: HP:0001252
+    label: Hypotonia
+  - id: HP:0001249
+    label: Intellectual disability
+  - id: HP:0011097
+    label: epileptic spasms
+  - id: MONDO:0021060
+    label: RASopathies
+  - id: HP:0010816
+    label: epidermal nevi
+  - id: HP:0010815
+    label: nevus sebaceous
+  - id: MONDO:0007783
+    label: King syndrome
+  - id: HP:0002047
+    label: malignant hyperthermia
+  - id: MONDO:0006664
+    label: Atrial Septal Defect
+  - id: HP:0003010
+    label: prolonged bleeding time
+  - id: CHEBI:4450
+    label: Desmopressin
+  - id: CHEBI:15365
+    label: aspirin
+  - id: MONDO:0007950
+    label: mastocytosis
+  - id: MONDO:0019565
+    label: von Willebrand disease

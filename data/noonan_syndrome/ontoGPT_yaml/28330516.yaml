@@ -1,0 +1,58 @@
+---
+input_text: Treatment of severe refractory valvar pulmonary stenosis with primary
+  transcatheter pulmonary valve implantation. Some patients with pulmonary valve stenosis
+  do not respond to balloon valvuloplasty and must undergo surgical repair. We report
+  the case of a 12-year-old child with pulmonary valve stenosis and Noonan syndrome
+  in whom we performed transcatheter Melody pulmonary valve implantation after balloon
+  dilation failed. The result was excellent. This technique can be proposed as an
+  alternative to surgery in such cases.
+raw_completion_output: |-
+  primary_disease: pulmonary valve stenosis
+  medical_actions: balloon valvuloplasty; surgical repair; transcatheter Melody pulmonary valve implantation
+  symptoms: 
+  chemicals: 
+  action_annotation_relationships: transcatheter Melody pulmonary valve implantation TREATS pulmonary valve stenosis; balloon valvuloplasty TREATS pulmonary valve stenosis; surgical repair TREATS pulmonary valve stenosis
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  surgical repair TREATS pulmonary valve stenosis
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0006936
+  medical_actions:
+    - balloon valvuloplasty
+    - MAXO:0009072
+    - transcatheter Melody pulmonary valve implantation
+  action_annotation_relationships:
+    - subject: transcatheter pulmonary valve implantation
+      predicate: TREATS
+      object: HP:0001642
+      subject_extension: Melody pulmonary valve
+    - subject: balloon valvuloplasty
+      predicate: TREATS
+      object: HP:0001642
+    - subject: MAXO:0009072
+      predicate: TREATS
+      object: HP:0001642
+named_entities:
+  - id: CHEBI:33281
+    label: antibiotics
+  - id: MONDO:0006936
+    label: pulmonary valve stenosis
+  - id: MAXO:0009072
+    label: surgical repair
+  - id: HP:0001642
+    label: pulmonary valve stenosis

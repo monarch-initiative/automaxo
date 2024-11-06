@@ -1,0 +1,106 @@
+---
+input_text: 'Intravascular Renal Denervation in Renal Dialysis Patients with Uncontrolled
+  Hypertension: A Case Series of Four Patients. BACKGROUND Hypertension is a common
+  complication of renal dialysis and is inadequately controlled in approximately one-third
+  of patients. Intravascular renal denervation is an option to control sympathetic
+  overdrive and decrease blood pressure. Four renal dialysis patients are presented
+  with uncontrolled hypertension who were treated with intravascular renal denervation.
+  CASE REPORT In a renal dialysis unit, patients were screened for therapy-resistant
+  hypertension, which was defined as an outpatient blood pressure >160/100 mmHg and
+  a blood pressure by interdialytic ambulatory blood pressure monitoring (ABPM) >130/80
+  mmHg. Four patients were identified with a mean ABPM of 175/95 mmHg. The four patients
+  included a 24-year-old man with neurogenic bladder undergoing hemodialysis; a 55-year-old
+  woman with a history of type 1 diabetes mellitus undergoing peritoneal dialysis;
+  a 56-year-old woman with a history of autosomal dominant polycystic kidney disease
+  (ADPKD) undergoing peritoneal dialysis; and a 72-year-old man with a history of
+  ADPKD undergoing hemodialysis Following intravascular renal denervation, one patient
+  had antihypertensive medicines withdrawn at 12 months, and he remained normotensive
+  up to renal transplantation at 24 months. In two patients, ABPM did not decrease
+  until renal transplantation was performed. The fourth patient was not a candidate
+  for renal transplantation, and he was also a non-responder for intravascular renal
+  denervation. None of the patients experienced hypotension or other adverse events
+  following intravascular renal denervation. CONCLUSIONS A case series of four patients
+  showed that, for some patients who have unresponsive hypertension while on renal
+  dialysis, intravascular renal denervation is a safe procedure.'
+raw_completion_output: |-
+  primary_disease: Uncontrolled Hypertension
+
+  medical_actions: Intravascular renal denervation;Screening for therapy-resistant hypertension;Withdrawal of antihypertensive medicines;Renal transplantation
+
+  symptoms: Therapy-resistant hypertension;High outpatient blood pressure (>160/100 mmHg);High interdialytic ambulatory blood pressure monitoring (ABPM) (>130/80 mmHg)
+
+  chemicals: Antihypertensive medicines
+
+  action_annotation_relationships: Intravascular renal denervation TREATS therapy-resistant hypertension IN Uncontrolled Hypertension;Screening for therapy-resistant hypertension IDENTIFIES High outpatient blood pressure (>160/100 mmHg) IN Uncontrolled Hypertension;Screening for therapy-resistant hypertension IDENTIFIES High interdialytic ambulatory blood pressure monitoring (ABPM) (>130/80 mmHg) IN Uncontrolled Hypertension;Withdrawal of antihypertensive medicines (with Antihypertensive medicines) FOLLOWS Intravascular renal denervation IN Uncontrolled Hypertension;Renal transplantation TREATS Uncontrolled Hypertension
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Renal transplantation TREATS Uncontrolled Hypertension
+
+  ===
+
+extracted_object:
+  primary_disease: Uncontrolled Hypertension
+  medical_actions:
+    - Intravascular renal denervation
+    - Screening for therapy-resistant hypertension
+    - Withdrawal of antihypertensive medicines
+    - Renal transplantation
+  symptoms:
+    - Therapy-resistant hypertension
+    - High outpatient blood pressure (>160/100 mmHg)
+    - High interdialytic ambulatory blood pressure monitoring (ABPM) (>130/80 mmHg)
+  chemicals:
+    - Antihypertensive medicines
+  action_annotation_relationships:
+    - subject: <Intravascular renal denervation>
+      predicate: <TREATS>
+      object: <therapy-resistant hypertension>
+      qualifier: <Uncontrolled Hypertension>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <renal denervation>
+      object_extension: <>
+    - subject: <Screening>
+      predicate: <IDENTIFIES>
+      object: <High outpatient blood pressure (>160/100 mmHg)>
+      qualifier: <Uncontrolled Hypertension>
+      subject_extension: <therapy-resistant hypertension>
+      object_extension: <Uncontrolled Hypertension>
+    - subject: Screening for therapy-resistant hypertension
+      predicate: IDENTIFIES
+      object: High interdialytic ambulatory blood pressure monitoring (ABPM) (>130/80
+        mmHg)
+      qualifier: Uncontrolled Hypertension
+    - subject: Intravascular renal denervation
+      predicate: FOLLOWS
+      object: Withdrawal of antihypertensive medicines
+      qualifier: Uncontrolled Hypertension
+      subject_extension: Antihypertensive medicines
+    - subject: Renal transplantation
+      predicate: TREATS
+      object: Uncontrolled Hypertension
+named_entities:
+  - id: MONDO:0004691
+    label: Autosomal Dominant Polycystic Kidney Disease (ADPKD)
+  - id: HP:0003774
+    label: end-stage renal disease
+  - id: MAXO:0000601
+    label: Dialysis
+  - id: MAXO:0000756
+    label: Transfusion
+  - id: HP:0012531
+    label: Pain
+  - id: HP:0001824
+    label: Weight loss

@@ -1,0 +1,233 @@
+---
+input_text: "Acute Liver Failure due to Wilson Disease: Eight Years of the National
+  Liver Transplant Program in Uruguay. INTRODUCTION AND AIM: Wilson's disease (WD)
+  is an uncommon cause of acute liver failure (ALF). Our aim was to describe clinical
+  features, diagnostic findings, treatments, and outcomes of patients with ALF due
+  to WD. MATERIAL AND METHODS: Retrospective medical record reviews of all patients
+  with ALF due to WD in eight years in Uruguay. RESULTS: WD was the cause of six (15%)
+  of thirty-nine ALF cases. All patients were females, with a mean age of 18 years.
+  Four patients presented with hyperacute liver failure and two with acute failure.
+  Jaundice was the main complaint of all patients. Mean total bilirubin (TB), alkaline
+  phosphatase (AP), AST, and ALT were 27.5 mg/dL, 45.5 lU/l, 156 IU/L, and 51 IU/L,
+  respectively. Ceruloplasmin levels were low in four patients, urinary cooper was
+  high in four, and two had Kayser-Fleischer rings. All patients had Coombs-negative
+  hemolytic anemia, acute kidney injury, histochemical identifiable copper, and advanced
+  fibrosis on liver histology. The average MELD score was 36. All patients were treated
+  with d-penicillamine and listed for urgent liver transplantation (LT). Prometheus\
+  \  was performed in one patient. Three patients died: two without LT and one after
+  LT. Three patients survived: one without LT (New Wilson Index<11) and two with LT.
+  The referral time to the program and the total time (referral plus waiting list
+  time) were longer for non-survivors than for survivors (14 vs. 3 days and 23 vs.
+  8 respectively). CONCLUSION: All cases had typical clinical, analytical and histopathology
+  characteristics. Early referral was determinant of prognosis."
+raw_completion_output: |-
+  primary_disease: Wilson's disease (WD)
+
+  medical_actions: liver transplantation (LT); d-penicillamine treatment; Prometheus procedure; urgent listing for liver transplantation
+
+  symptoms: jaundice; hyperacute liver failure; acute liver failure; low ceruloplasmin levels; high urinary copper; Kayser-Fleischer rings; Coombs-negative hemolytic anemia; acute kidney injury; histochemical identifiable copper; advanced fibrosis on liver histology
+
+  chemicals: d-penicillamine
+
+  action_annotation_relationships: d-penicillamine TREATS Wilson's disease; urgent listing for liver transplantation TREATS acute liver failure IN Wilson's disease; Prometheus procedure TREATS acute liver failure IN Wilson's disease; liver transplantation (LT) TREATS acute liver failure IN Wilson's disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  liver transplantation (LT) TREATS acute liver failure IN Wilson's disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010200
+  medical_actions:
+    - MAXO:0001175
+    - d-penicillamine treatment
+    - Prometheus procedure
+    - urgent listing for liver transplantation
+  symptoms:
+    - HP:0000952
+    - hyperacute liver failure
+    - HP:0006554
+    - low ceruloplasmin levels
+    - high urinary copper
+    - HP:0200032
+    - Coombs-negative hemolytic anemia
+    - HP:0001919
+    - histochemical identifiable copper
+    - advanced fibrosis on liver histology
+  chemicals:
+    - CHEBI:7959
+  action_annotation_relationships:
+    - subject: d-penicillamine
+      predicate: TREATS
+      object: Wilson's disease
+    - subject: Prometheus procedure
+      predicate: TREATS
+      object: HP:0006554
+      qualifier: MONDO:0010200
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: HP:0006554
+      qualifier: MONDO:0010200
+named_entities:
+  - id: MONDO:0010200
+    label: Wilson's disease
+  - id: MAXO:0001175
+    label: Liver transplantation
+  - id: HP:0001695
+    label: Cardiac arrest
+  - id: HP:0001685
+    label: Myocardial fibrosis
+  - id: HP:0001663
+    label: Ventricular fibrillation
+  - id: CHEBI:28694
+    label: Copper
+  - id: CHEBI:18248
+    label: Iron
+  - id: HP:0002910
+    label: abnormal liver functions
+  - id: HP:0001394
+    label: cirrhosis
+  - id: CHEBI:27363
+    label: zinc
+  - id: CHEBI:50868
+    label: penicillamine
+  - id: MAXO:0000016
+    label: Cell therapy
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: CHEBI:30703
+    label: Tetrathiomolybdate (TTM)
+  - id: HP:0006554
+    label: acute liver failure
+  - id: CHEBI:35176
+    label: Zinc sulphate
+  - id: CHEBI:35475
+    label: NSAIDs
+  - id: MAXO:0009095
+    label: zinc therapy
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0006579
+    label: neonatal jaundice
+  - id: HP:0001409
+    label: portal hypertension
+  - id: HP:0030151
+    label: cholangitis
+  - id: HP:0002612
+    label: congenital hepatic fibrosis
+  - id: MONDO:0013282
+    label: alpha-1-antitrypsin deficiency
+  - id: HP:0001903
+    label: anemia
+  - id: HP:0001410
+    label: liver dysfunction
+  - id: CHEBI:39501
+    label: trientine
+  - id: MAXO:0000070
+    label: Hepatic transplantation
+  - id: HP:0001399
+    label: Hepatic failure
+  - id: HP:0004448
+    label: fulminant hepatic failure
+  - id: HP:0003256
+    label: coagulopathy (international normalized ratio >2.0)
+  - id: HP:0004445
+    label: hepatic encephalopathy (HE)
+  - id: HP:0002480
+    label: hepatic encephalopathy
+  - id: CHEBI:35341
+    label: Steroids
+  - id: CHEBI:33281
+    label: Antibiotics
+  - id: MONDO:0100193
+    label: End-stage liver disease
+  - id: HP:0100626
+    label: End-stage liver disease
+  - id: HP:0100660
+    label: dyskinesia
+  - id: HP:0100022
+    label: Movement disorders
+  - id: HP:0001337
+    label: Tremor
+  - id: HP:0001332
+    label: Dystonia
+  - id: MONDO:0019542
+    label: Acute liver failure (ALF)
+  - id: CHEBI:27385
+    label: CCL4
+  - id: MAXO:0000127
+    label: Genetic testing
+  - id: CHEBI:7959
+    label: D-penicillamine
+  - id: MAXO:0001017
+    label: Vaccination
+  - id: HP:0001541
+    label: Ascites
+  - id: HP:0012398
+    label: Peripheral edema
+  - id: HP:0001260
+    label: dysarthria
+  - id: HP:0000708
+    label: psychiatric disorders
+  - id: HP:0200123
+    label: chronic hepatitis
+  - id: CHEBI:38161
+    label: chelators
+  - id: MAXO:0000376
+    label: liver biopsy
+  - id: HP:0001404
+    label: hepatocellular necrosis
+  - id: CHEBI:61049
+    label: Tacrolimus
+  - id: HP:0001744
+    label: Splenomegaly
+  - id: MAXO:0000603
+    label: Peritoneal dialysis
+  - id: HP:0200032
+    label: Kayser-Fleischer rings
+  - id: HP:0002172
+    label: impaired balance
+  - id: HP:0001347
+    label: hyperreflexia
+  - id: HP:0031843
+    label: bradyphrenia
+  - id: HP:0002362
+    label: shuffling gait
+  - id: HP:0001621
+    label: hypophonia
+  - id: CHEBI:37153
+    label: Calcineurin inhibitors
+  - id: CHEBI:8356
+    label: pramipexole
+  - id: CHEBI:2618
+    label: amantadine
+  - id: HP:0000093
+    label: proteinuria
+  - id: CHEBI:231592
+    label: zinc salts
+  - id: MAXO:0000167
+    label: antiepileptic therapy
+  - id: CHEBI:9168
+    label: rapamycin
+  - id: CHEBI:55379
+    label: cyclosporine (CsA)
+  - id: CHEBI:35623
+    label: antiepileptic
+  - id: HP:0000083
+    label: renal failure
+  - id: HP:0000952
+    label: jaundice
+  - id: HP:0001919
+    label: acute kidney injury

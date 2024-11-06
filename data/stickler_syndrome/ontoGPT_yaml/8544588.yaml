@@ -1,0 +1,93 @@
+---
+input_text: Airway obstruction in the Pierre Robin sequence. Airway obstruction and
+  feeding difficulties vary among patients with Pierre Robin sequence (PRS). Treatment
+  is challenging and the appropriate management may not be readily identified, leading
+  to delay in securing the airway. A retrospective review of 90 children with PRS
+  was done to identify subgroups at a higher risk of developing severe airway obstruction
+  using oxygen and apnea monitoring, sleep studies, and response to treatment. Patients
+  with isolated PRS (group I, 27 patients) and Stickler syndrome (group II, 32 patients)
+  do not suffer from debilitating airway and feeding difficulties when compared to
+  those with unique syndromes (group III, 16 patients) and recognized named syndromes
+  (group IV, 15 patients). Feeding difficulties were universal with the severity proportional
+  to airway obstruction. Aggressive intervention should be considered early in group
+  III and IV patients.
+raw_completion_output: |-
+  primary_disease: Pierre Robin sequence
+  medical_actions: oxygen and apnea monitoring; sleep studies; response to treatment; aggressive intervention
+  symptoms: airway obstruction; feeding difficulties
+  chemicals: 
+  action_annotation_relationships: oxygen and apnea monitoring TREATS airway obstruction IN Pierre Robin sequence; sleep studies TREATS airway obstruction IN Pierre Robin sequence; response to treatment TREATS airway obstruction IN Pierre Robin sequence; aggressive intervention TREATS feeding difficulties IN Pierre Robin sequence
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  aggressive intervention TREATS feeding difficulties IN Pierre Robin sequence
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009869
+  medical_actions:
+    - oxygen and apnea monitoring
+    - sleep studies
+    - response to treatment
+    - aggressive intervention
+  symptoms:
+    - HP:0006536
+    - HP:0011968
+  action_annotation_relationships:
+    - subject: oxygen and apnea monitoring
+      predicate: TREATS
+      object: HP:0006536
+      qualifier: MONDO:0009869
+    - subject: sleep studies
+      predicate: TREATS
+      object: HP:0006536
+      qualifier: MONDO:0009869
+    - subject: response to treatment
+      predicate: TREATS
+      object: HP:0006536
+      qualifier: MONDO:0009869
+    - subject: aggressive intervention
+      predicate: TREATS
+      object: HP:0011968
+      qualifier: MONDO:0009869
+named_entities:
+  - id: MONDO:0009869
+    label: Pierre Robin sequence
+  - id: HP:0006536
+    label: airway obstruction
+  - id: HP:0011968
+    label: feeding difficulties
+  - id: HP:0040262
+    label: serous otitis media
+  - id: HP:0000405
+    label: conductive hearing loss
+  - id: MONDO:0019354
+    label: Stickler syndrome
+  - id: MAXO:0000505
+    label: Mask ventilation
+  - id: MAXO:0000502
+    label: Endotracheal intubation
+  - id: HP:0011800
+    label: Midface hypoplasia
+  - id: HP:0000308
+    label: Retromicrognathia
+  - id: HP:0000175
+    label: Cleft palate
+  - id: HP:0000546
+    label: Retinal degeneration
+  - id: MAXO:0000504
+    label: tracheotomy
+  - id: HP:0002878
+    label: respiratory failure

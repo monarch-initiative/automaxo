@@ -1,0 +1,121 @@
+---
+input_text: 'A Large Database Analysis of Rates of Aneurysm Screening, Elective Treatment,
+  and Subarachnoid Hemorrhage in Patients With Polycystic Kidney Disease. BACKGROUND:
+  Professional societies provide conflicting guidelines on aneurysm screening in patients
+  with polycystic kidney disease (PKD), and the rate of subarachnoid hemorrhage (SAH)
+  is poorly understood. OBJECTIVE: To evaluate screening, elective treatment, and
+  the rate of SAH in patients with known PKD. METHODS: We examined longitudinally
+  linked claims data from a large private insurer, identifying screening, elective
+  treatment, aneurysmal subarachnoid hemorrhage (aSAH) and secured aneurysmal SAH
+  (saSAH) in 2004 to 2014 amongst patients with known PKD. RESULTS: We identified
+  20 704 patients diagnosed with PKD. Among patients with an initial PKD diagnosis,
+  51/446 (15.9%) underwent angiographic screening within 2 yr. Forty aneurysms were
+  treated electively in 48 868 yr at risk in PKD patients (82/100K patient yr, 95%
+  confidence interval [CI] 60-112) vs 24 elective treatments in 349 861 yr at risk
+  in age- and sex-matched controls (7/100K patient yr, 95% CI 5-10, P < .0001). Eleven
+  admissions for aSAH were identified in PKD patients (23/100K patient yr, 95% CI
+  13-41) and 22 admissions for aSAH in controls (6/100K patient yr, 95% CI 4-10),
+  giving an incidence rate ratio (IRR) of 3.6 (95% CI 1.7-7.4, P < .0001) and a comorbidity-adjusted
+  IRR of 3.1 (95% CI 1.4-6.9). The incidence of saSAH was proportionally even higher
+  in PKD patients than controls, 16 vs 2/100K patient years, IRR 9.5 (95% CI 3.3-27.5,
+  P < .0001). CONCLUSION: Screening in PKD is performed only selectively, though resulting
+  rates of elective treatment were over 10x those of controls. Despite screening and
+  treatment, the rate of SAH remains significantly elevated over that of controls.'
+raw_completion_output: |-
+  primary_disease: Polycystic Kidney Disease
+
+  medical_actions: Aneurysm screening;Elective treatment
+
+  symptoms: Subarachnoid hemorrhage;Aneurysmal subarachnoid hemorrhage;Secured aneurysmal subarachnoid hemorrhage
+
+  chemicals: 
+
+  action_annotation_relationships: Aneurysm screening PREVENTS Subarachnoid hemorrhage IN Polycystic Kidney Disease;Elective treatment TREATS Subarachnoid hemorrhage IN Polycystic Kidney Disease;Elective treatment TREATS Aneurysmal subarachnoid hemorrhage IN Polycystic Kidney Disease;Elective treatment TREATS Secured aneurysmal subarachnoid hemorrhage IN Polycystic Kidney Disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Elective treatment TREATS Secured aneurysmal subarachnoid hemorrhage IN Polycystic Kidney Disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0020642
+  medical_actions:
+    - Aneurysm screening
+    - Elective treatment
+  symptoms:
+    - HP:0002138
+    - Aneurysmal subarachnoid hemorrhage
+    - Secured aneurysmal subarachnoid hemorrhage
+  action_annotation_relationships:
+    - subject: Aneurysm screening
+      predicate: PREVENTS
+      object: HP:0002138
+      qualifier: MONDO:0020642
+    - subject: Elective treatment
+      predicate: TREATS
+      object: HP:0002138
+      qualifier: MONDO:0020642
+    - subject: Elective treatment
+      predicate: TREATS
+      object: Aneurysmal subarachnoid hemorrhage
+      qualifier: MONDO:0020642
+    - subject: Elective treatment
+      predicate: TREATS
+      object: Secured aneurysmal subarachnoid hemorrhage
+      qualifier: MONDO:0020642
+named_entities:
+  - id: MONDO:0004691
+    label: Autosomal Dominant Polycystic Kidney Disease (ADPKD)
+  - id: HP:0003774
+    label: end-stage renal disease
+  - id: MAXO:0000601
+    label: Dialysis
+  - id: MAXO:0000756
+    label: Transfusion
+  - id: HP:0012531
+    label: Pain
+  - id: HP:0001824
+    label: Weight loss
+  - id: HP:0012158
+    label: Carotid artery dissection
+  - id: MONDO:0010979
+    label: Tuberous sclerosis (TS) and autosomal dominant polycystic kidney disease
+      (ADPKD)
+  - id: HP:0002027
+    label: Abdominal pain
+  - id: HP:0001903
+    label: Anaemia
+  - id: CHEBI:68481
+    label: mTOR inhibitors
+  - id: MONDO:0010913
+    label: Caroli Disease
+  - id: HP:0004395
+    label: Malnutrition
+  - id: CHEBI:16113
+    label: Cholesterol
+  - id: MAXO:0000624
+    label: Nutritional assessment
+  - id: HP:0004872
+    label: incisional hernias
+  - id: HP:0003259
+    label: increased serum creatinine
+  - id: MONDO:0005300
+    label: Chronic kidney disease (CKD)
+  - id: CHEBI:4670
+    label: Dobutamine
+  - id: MONDO:0020642
+    label: Polycystic Kidney Disease
+  - id: HP:0002138
+    label: Subarachnoid hemorrhage

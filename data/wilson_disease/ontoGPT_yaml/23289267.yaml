@@ -1,0 +1,122 @@
+---
+input_text: '[Wilson disease as the significant risk factor of surgical treatment--clinical
+  case report]. Wilson Disease (W ) is a rare inborn disorder of cooper metabolism.
+  In approximately 40% of cases signs and symptoms of abnormal liver functions are
+  observed due to hepatic inflammation, cirrhosis or insufficiency. The mainstay treatment
+  is the conservative treatment with zinc (eg Zincteral) or penicillamine. The Authors
+  present a patient with WD who underwent surgery because of an advanced rectal prolapse
+  (laparotomy, rectal mobilization, rectopexy, the partial sigmoid colon resection
+  with the primary anastomosis). The postoperative course was complicated by anastomotic
+  leakage and a subsequent diffuse peritonitis. The patient required relaparotomy
+  and three weeks treatment in the intensive therapy unit. The Authors consider the
+  WD as a significant risk factor for surgical patients. Surgical treatment of patients
+  with WD should be least invasive.'
+raw_completion_output: |-
+  primary_disease: Wilson Disease
+  medical_actions: conservative treatment; laparotomy; rectal mobilization; rectopexy; partial sigmoid colon resection with primary anastomosis; relaparotomy; treatment in the intensive therapy unit
+  symptoms: abnormal liver functions; hepatic inflammation; cirrhosis; insufficiency; advanced rectal prolapse; anastomotic leakage; diffuse peritonitis
+  chemicals: zinc; penicillamine
+  action_annotation_relationships: conservative treatment (with zinc) TREATS abnormal liver functions IN Wilson Disease; conservative treatment (with penicillamine) TREATS abnormal liver functions IN Wilson Disease; laparotomy TREATS advanced rectal prolapse IN Wilson Disease; rectal mobilization TREATS advanced rectal prolapse IN Wilson Disease; rectopexy TREATS advanced rectal prolapse IN Wilson Disease; partial sigmoid colon resection with primary anastomosis TREATS advanced rectal prolapse IN Wilson Disease; relaparotomy TREATS anastomotic leakage IN Wilson Disease; treatment in the intensive therapy unit TREATS diffuse peritonitis IN Wilson Disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  treatment in the intensive therapy unit TREATS diffuse peritonitis IN Wilson Disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010200
+  medical_actions:
+    - conservative treatment
+    - laparotomy
+    - rectal mobilization
+    - rectopexy
+    - partial sigmoid colon resection with primary anastomosis
+    - relaparotomy
+    - treatment in the intensive therapy unit
+  symptoms:
+    - HP:0002910
+    - hepatic inflammation
+    - HP:0001394
+    - insufficiency
+    - advanced rectal prolapse
+    - anastomotic leakage
+    - diffuse peritonitis
+  chemicals:
+    - CHEBI:27363
+    - CHEBI:50868
+  action_annotation_relationships:
+    - subject: conservative treatment
+      predicate: TREATS
+      object: HP:0002910
+      qualifier: MONDO:0010200
+      subject_qualifier: with zinc
+      subject_extension: CHEBI:27363
+    - subject: conservative treatment
+      predicate: TREATS
+      object: HP:0002910
+      qualifier: MONDO:0010200
+      subject_qualifier: with penicillamine
+      subject_extension: CHEBI:50868
+    - subject: laparotomy
+      predicate: TREATS
+      object: advanced rectal prolapse
+      qualifier: MONDO:0010200
+    - subject: rectal mobilization
+      predicate: TREATS
+      object: advanced rectal prolapse
+      qualifier: MONDO:0010200
+    - subject: rectopexy
+      predicate: TREATS
+      object: advanced rectal prolapse
+      qualifier: MONDO:0010200
+    - subject: <partial sigmoid colon resection with primary anastomosis>
+      predicate: <TREATS>
+      object: <advanced rectal prolapse>
+      qualifier: <Wilson Disease>
+      subject_qualifier: <Not applicable>
+      object_qualifier: <Not applicable>
+      subject_extension: <Not applicable>
+      object_extension: <Not applicable>
+    - subject: relaparotomy
+      predicate: TREATS
+      object: anastomotic leakage
+      qualifier: MONDO:0010200
+    - subject: treatment in the intensive therapy unit
+      predicate: TREATS
+      object: diffuse peritonitis
+      qualifier: MONDO:0010200
+named_entities:
+  - id: MONDO:0010200
+    label: Wilson's disease
+  - id: MAXO:0001175
+    label: Liver transplantation
+  - id: HP:0001695
+    label: Cardiac arrest
+  - id: HP:0001685
+    label: Myocardial fibrosis
+  - id: HP:0001663
+    label: Ventricular fibrillation
+  - id: CHEBI:28694
+    label: Copper
+  - id: CHEBI:18248
+    label: Iron
+  - id: HP:0002910
+    label: abnormal liver functions
+  - id: HP:0001394
+    label: cirrhosis
+  - id: CHEBI:27363
+    label: zinc
+  - id: CHEBI:50868
+    label: penicillamine

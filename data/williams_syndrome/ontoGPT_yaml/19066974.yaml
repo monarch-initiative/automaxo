@@ -1,0 +1,195 @@
+---
+input_text: 'Renal dysplasia/hypoplasia, Williams Syndrome phenotype and non-Hodgkin
+  lymphoma in the same patient: only a coincidence? Congenital renal anomalies, Williams
+  Syndrome and non-Hodgkin lymphoma all occur separately at low incidence, so their
+  simultaneous presence in the same patient is exceptional. We present a young patient
+  manifesting all three conditions. This child is a boy with a Williams Syndrome phenotype
+  who was diagnosed with severe chronic kidney disease secondary to bilateral renal
+  dysplasia/hypoplasia. Due to his small size, he received treatment with growth hormone.
+  He progressed to end stage kidney disease and, after 8 months, a renal transplant
+  was performed. A number of suspicious abdominal adenopathies were removed during
+  the surgery and, thereafter, immunosupressive treatment with prednisone, azathioprine
+  and cyclosporine was initiated. Examination of the biopsy tissue confirmed the presence
+  of a T-cell lymphoblastic lymphoma. Appropriate chemotherapy was given, and the
+  immunosupressive regimen was eventually reduced to prednisone alone. Now, 8 years
+  since the initial diagnosis of T-cell lymphoblastic lymphoma and 6 years after the
+  completion of the chemotherapy, the patient is still in complete remission with
+  a functional donor kidney. We discuss some possible explanations of this association.
+  Chemotherapy has not appeared to have affected the viability of the grafted kidney
+  and, in fact, it may even have induced immunotolerance.'
+raw_completion_output: |-
+  primary_disease: T-cell lymphoblastic lymphoma; Renal dysplasia/hypoplasia; Williams Syndrome
+
+  medical_actions: treatment with growth hormone; renal transplant; treatment with prednisone, azathioprine, and cyclosporine; chemotherapy
+
+  symptoms: severe chronic kidney disease; small size; suspicious abdominal adenopathies; end stage kidney disease
+
+  chemicals: growth hormone; prednisone; azathioprine; cyclosporine
+
+  action_annotation_relationships: treatment with growth hormone TREATS small size IN Williams Syndrome; renal transplant TREATS end stage kidney disease IN Renal dysplasia/hypoplasia; treatment with prednisone, azathioprine, and cyclosporine PREVENTS graft rejection IN renal transplant; chemotherapy TREATS T-cell lymphoblastic lymphoma
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  chemotherapy TREATS T-cell lymphoblastic lymphoma
+
+  ===
+
+extracted_object:
+  primary_disease: T-cell lymphoblastic lymphoma; Renal dysplasia/hypoplasia; Williams
+    Syndrome
+  medical_actions:
+    - treatment with growth hormone
+    - renal transplant
+    - treatment with prednisone, azathioprine, and cyclosporine
+    - MAXO:0000647
+  symptoms:
+    - severe chronic kidney disease
+    - small size
+    - suspicious abdominal adenopathies
+    - HP:0003774
+  chemicals:
+    - CHEBI:37845
+    - CHEBI:8382
+    - CHEBI:2948
+    - CHEBI:4031
+  action_annotation_relationships:
+    - subject: treatment
+      predicate: TREATS
+      object: small size
+      qualifier: MONDO:0008678
+      subject_extension: CHEBI:37845
+    - subject: renal transplant
+      predicate: TREATS
+      object: HP:0003774
+      qualifier: Renal dysplasia/hypoplasia
+    - subject: treatment
+      predicate: PREVENTS
+      object: graft rejection
+      qualifier: renal transplant
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: prednisone, azathioprine, and cyclosporine
+      object_extension: None
+    - subject: MAXO:0000647
+      predicate: TREATS
+      object: T-cell lymphoblastic lymphoma
+named_entities:
+  - id: MONDO:0008678
+    label: Williams syndrome
+  - id: MAXO:0009072
+    label: surgical repair
+  - id: HP:0004969
+    label: peripheral pulmonary stenosis
+  - id: HP:0002617
+    label: aneurysms
+  - id: HP:0001626
+    label: Cardiovascular abnormalities
+  - id: MONDO:0004492
+    label: Mediastinitis
+  - id: MAXO:0000004
+    label: Surgical interventions
+  - id: MONDO:0008504
+    label: Supravalvar aortic stenosis
+  - id: HP:0001712
+    label: Left ventricular hypertrophy
+  - id: HP:0001659
+    label: Aortic regurgitation
+  - id: HP:0004970
+    label: Ascending aortic aneurysm
+  - id: HP:0004381
+    label: Supravalvar aortic stenosis
+  - id: MONDO:0015197
+    label: Supravalvular aortic stenosis (SVAS)
+  - id: HP:0011645
+    label: <Supravalvular aortic stenosis (SVAS)>
+  - id: MONDO:0004277
+    label: branch pulmonary artery stenosis (PAS)
+  - id: MAXO:0000505
+    label: mask ventilation
+  - id: HP:0000347
+    label: micrognathia
+  - id: HP:0000158
+    label: macroglossia
+  - id: CHEBI:49575
+    label: diazepam
+  - id: CHEBI:119915
+    label: fentanyl
+  - id: CHEBI:6456
+    label: lidocaine
+  - id: CHEBI:38867
+    label: anesthetic agents
+  - id: HP:0002318
+    label: cervical myelopathy
+  - id: HP:0001695
+    label: cardiac arrest
+  - id: MONDO:0006947
+    label: Renovascular hypertension (RVH)
+  - id: MAXO:0009008
+    label: Doppler ultrasonography
+  - id: HP:0000822
+    label: Hypertension
+  - id: HP:0001635
+    label: Heart failure
+  - id: CHEBI:35674
+    label: Antihypertensive drugs
+  - id: CHEBI:3380
+    label: Captopril
+  - id: HP:0100817
+    label: Renovascular hypertension
+  - id: HP:0002020
+    label: gastroesophageal reflux
+  - id: MAXO:0000571
+    label: Computed tomography (CT) imaging for preoperative evaluation
+  - id: HP:0001650
+    label: Aortic stenosis
+  - id: HP:0004415
+    label: pulmonary artery stenosis
+  - id: HP:0002616
+    label: aortic root dilatation
+  - id: HP:0004749
+    label: atrial flutter
+  - id: HP:0010780
+    label: Hyperacusis
+  - id: HP:0008513
+    label: Bilateral conductive hearing loss
+  - id: HP:0040262
+    label: Secretory otitis media
+  - id: HP:0002650
+    label: scoliosis
+  - id: HP:0001263
+    label: developmental delay
+  - id: HP:0001249
+    label: Mental retardation
+  - id: HP:0011675
+    label: Arrhythmias
+  - id: HP:0001699
+    label: Sudden death
+  - id: MAXO:0010203
+    label: echocardiography
+  - id: MAXO:0035118
+    label: cardiac catheterization
+  - id: HP:0005216
+    label: chewing difficulties
+  - id: MAXO:0000647
+    label: chemotherapy
+  - id: HP:0003774
+    label: end stage kidney disease
+  - id: CHEBI:37845
+    label: growth hormone
+  - id: CHEBI:8382
+    label: prednisone
+  - id: CHEBI:2948
+    label: azathioprine
+  - id: CHEBI:4031
+    label: cyclosporine

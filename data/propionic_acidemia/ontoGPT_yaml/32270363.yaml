@@ -1,0 +1,180 @@
+---
+input_text: 'Post-transplantation Outcomes in Patients with PA or MMA: A Review of
+  the Literature. INTRODUCTION: Liver transplantation is recognised as a treatment
+  option for patients with propionic acidemia (PA) and those with methylmalonic acidemia
+  (MMA) without renal impairment. In patients with MMA and moderate-to-severe renal
+  impairment, combined liver-kidney transplantation is indicated. However, clinical
+  experience of these transplantation options in patients with PA and MMA remains
+  limited and fragmented. We undertook an overview of post-transplantation outcomes
+  in patients with PA and MMA using the current available evidence. METHODS: A literature
+  search identified publications on the use of transplantation in patients with PA
+  and MMA. Publications were considered if they presented adequate demographic and
+  outcome data from patients with PA or MMA. Publications that did not report any
+  specific outcomes for patients or provided insufficient data were excluded. RESULTS:
+  Seventy publications were identified of which 38 were full papers. A total of 373
+  patients underwent liver/kidney/combined liver-kidney transplantation for PA or
+  MMA. The most typical reason for transplantation was recurrent metabolic decompensation.
+  A total of 27 post-transplant deaths were reported in patients with PA [14.0% (27/194)].
+  For patients with MMA, 18 post-transplant deaths were reported [11% (18/167)]. A
+  total of 62 complications were reported in 115 patients with PA (54%) with cardiomyopathy
+  (n = 12), hepatic arterial thrombosis (HAT; n = 14) and viral infections (n = 12)
+  being the most commonly reported. A total of 52 complications were reported in 106
+  patients with MMA (49%) with viral infections (n = 14) and renal failure/impairment
+  (n = 10) being the most commonly reported. CONCLUSIONS: Liver transplantation and
+  combined liver-kidney transplantation appears to benefit some patients with PA or
+  MMA, respectively, but this approach does not provide complete correction of the
+  metabolic defect and some patients remain at risk from disease-related and transplantation-related
+  complications, including death. Thus, all treatment avenues should be exhausted
+  before consideration of organ transplantation and the benefits of this approach
+  must be weighed against the risk of perioperative complications on an individual
+  basis.'
+raw_completion_output: |-
+  primary_disease: propionic acidemia (PA); methylmalonic acidemia (MMA)
+  medical_actions: liver transplantation; combined liver-kidney transplantation
+  symptoms: metabolic decompensation; cardiomyopathy; hepatic arterial thrombosis (HAT); viral infections; renal failure/impairment
+  chemicals: 
+  action_annotation_relationships: liver transplantation TREATS metabolic decompensation IN propionic acidemia (PA); liver transplantation TREATS metabolic decompensation IN methylmalonic acidemia (MMA); combined liver-kidney transplantation TREATS metabolic decompensation IN methylmalonic acidemia (MMA); liver transplantation TREATS cardiomyopathy IN propionic acidemia (PA); liver transplantation TREATS hepatic arterial thrombosis (HAT) IN propionic acidemia (PA); liver transplantation PREVENTS viral infections IN propionic acidemia (PA); liver transplantation PREVENTS viral infections IN methylmalonic acidemia (MMA); combined liver-kidney transplantation TREATS renal failure/impairment IN methylmalonic acidemia (MMA)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  combined liver-kidney transplantation TREATS renal failure/impairment IN methylmalonic acidemia (MMA)
+
+  ===
+
+extracted_object:
+  primary_disease: propionic acidemia (PA); methylmalonic acidemia (MMA)
+  medical_actions:
+    - MAXO:0001175
+    - combined liver-kidney transplantation
+  symptoms:
+    - metabolic decompensation
+    - HP:0001638
+    - HP:0011874
+    - viral infections
+    - renal failure/impairment
+  action_annotation_relationships:
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: metabolic decompensation
+      qualifier: MONDO:0011628
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: metabolic decompensation
+      qualifier: MONDO:0002012
+    - subject: combined liver-kidney transplantation
+      predicate: TREATS
+      object: metabolic decompensation
+      qualifier: MONDO:0002012
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: HP:0001638
+      qualifier: MONDO:0011628
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: HP:0011874
+      qualifier: MONDO:0011628
+    - subject: MAXO:0001175
+      predicate: PREVENTS
+      object: viral infections
+      qualifier: MONDO:0011628
+    - subject: MAXO:0001175
+      predicate: PREVENTS
+      object: viral infections
+      qualifier: MONDO:0002012
+    - subject: <combined liver-kidney transplantation>
+      predicate: <TREATS>
+      object: <renal failure/impairment>
+      qualifier: <methylmalonic acidemia (MMA)>
+      subject_extension: <combined liver-kidney transplantation>
+named_entities:
+  - id: MONDO:0010184
+    label: Methylmalonic acidemia (MMA); Propionic acidemia; Cobalamin C (cblC) deficiency
+  - id: CHEBI:15603
+    label: Leucine (Leu)
+  - id: CHEBI:16414
+    label: Valine (Val)
+  - id: CHEBI:17191
+    label: Isoleucine (Ile)
+  - id: CHEBI:16044
+    label: Methionine (Met)
+  - id: CHEBI:25017
+    label: leucine
+  - id: MONDO:0002012
+    label: Methylmalonic acidemia
+  - id: HP:0003571
+    label: Propionic acidemia
+  - id: MONDO:0011628
+    label: Propionic acidemia
+  - id: MAXO:0001175
+    label: Liver transplantation
+  - id: HP:0001638
+    label: Cardiomyopathy
+  - id: CHEBI:176843
+    label: Vitamin B12
+  - id: MONDO:0019052
+    label: Inborn errors of metabolism (IEMs)
+  - id: MAXO:0010039
+    label: Organ transplantation
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0001942
+    label: Metabolic acidosis
+  - id: HP:0001987
+    label: Hyperammonemia
+  - id: HP:0001733
+    label: Pancreatitis
+  - id: HP:0001695
+    label: cardiac arrest
+  - id: HP:0001263
+    label: Developmental delay
+  - id: HP:0002863
+    label: Metabolic decompensations (MDs)
+  - id: CHEBI:15428
+    label: Glycine
+  - id: CHEBI:28867
+    label: Propionylcarnitine
+  - id: HP:0001138
+    label: Optic neuropathy
+  - id: HP:0000083
+    label: Renal failure
+  - id: MONDO:0005290
+    label: Rhabdomyolysis
+  - id: HP:0003287
+    label: Mitochondrial dysfunction
+  - id: MONDO:0009563
+    label: maple syrup urine disease (MSUD)
+  - id: MONDO:0100096
+    label: COVID-19
+  - id: HP:0008281
+    label: acute hyperammonemia
+  - id: MONDO:0000688
+    label: Organic Acidemias
+  - id: MAXO:0001001
+    label: gene therapy
+  - id: HP:0002829
+    label: Arthralgia
+  - id: CHEBI:64357
+    label: Rituximab
+  - id: CHEBI:35341
+    label: steroid
+  - id: MAXO:0010032
+    label: Heart transplantation
+  - id: HP:0001644
+    label: Dilated cardiomyopathy
+  - id: HP:0012758
+    label: Neurodevelopmental delay
+  - id: MONDO:0008723
+    label: very-long chain acyl-CoA dehydrogenase deficiency (VLCAD)
+  - id: HP:0011874
+    label: hepatic arterial thrombosis (HAT)

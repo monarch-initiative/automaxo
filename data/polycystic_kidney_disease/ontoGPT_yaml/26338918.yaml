@@ -1,0 +1,94 @@
+---
+input_text: 'Autosomal Dominant Polycystic Kidney Disease and Intracranial Aneurysms:
+  Is There an Increased Risk of Treatment? BACKGROUND AND PURPOSE: Autosomal dominant
+  polycystic kidney disease is associated with an increased risk of intracranial aneurysms.
+  Our purpose was to assess whether there is an increased risk during aneurysm coiling
+  and clipping. MATERIALS AND METHODS: Data were obtained from the National Inpatient
+  Sample (2000-2011). All subjects had an unruptured aneurysm clipped or coiled and
+  were divided into polycystic kidney (n = 189) and control (n = 3555) groups. Primary
+  end points included in-hospital mortality, length of stay, and total hospital charges.
+  Secondary end points included the International Classification of Diseases, Ninth
+  Revision codes for iatrogenic hemorrhage or infarction; intracranial hemorrhage;
+  embolic infarction; and carotid and vertebral artery dissections. RESULTS: There
+  was a significantly greater incidence of iatrogenic hemorrhage or infarction, embolic
+  infarction, and carotid artery dissection in the patients with polycystic kidney
+  disease compared with the control group after endovascular coiling. There was also
+  a significantly greater incidence of iatrogenic hemorrhage or infarction in the
+  polycystic kidney group after surgical clipping. However, the hospital stay was
+  not longer in the polycystic kidney group, and the total hospital charges were not
+  higher. Additional analysis within the polycystic kidney group revealed a significantly
+  shorter length of stay but similar in-hospital costs when subjects underwent coiling
+  versus clipping. CONCLUSIONS: Patients with polycystic kidney disease face an increased
+  risk during intracranial aneurysm treatment, whether by coiling or clipping. This
+  risk, however, does not translate into longer hospital stays or increased hospital
+  costs. Despite the additional catheterization-related risks of dissection and embolization,
+  coiling results in shorter hospital stays and similar mortality compared with clipping.'
+raw_completion_output: |-
+  primary_disease: Autosomal Dominant Polycystic Kidney Disease
+
+  medical_actions: Aneurysm coiling; Aneurysm clipping
+
+  symptoms: Iatrogenic hemorrhage or infarction; Embolic infarction; Carotid artery dissection
+
+  chemicals: 
+
+  action_annotation_relationships: Aneurysm coiling TREATS iatrogenic hemorrhage or infarction IN Autosomal Dominant Polycystic Kidney Disease; Aneurysm coiling TREATS embolic infarction IN Autosomal Dominant Polycystic Kidney Disease; Aneurysm coiling TREATS carotid artery dissection IN Autosomal Dominant Polycystic Kidney Disease; Aneurysm clipping TREATS iatrogenic hemorrhage or infarction IN Autosomal Dominant Polycystic Kidney Disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Aneurysm clipping TREATS iatrogenic hemorrhage or infarction IN Autosomal Dominant Polycystic Kidney Disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0004691
+  medical_actions:
+    - Aneurysm coiling
+    - Aneurysm clipping
+  symptoms:
+    - Iatrogenic hemorrhage or infarction
+    - Embolic infarction
+    - HP:0012158
+  action_annotation_relationships:
+    - subject: Aneurysm coiling
+      predicate: TREATS
+      object: iatrogenic hemorrhage or infarction
+      qualifier: MONDO:0004691
+    - subject: Aneurysm coiling
+      predicate: TREATS
+      object: embolic infarction
+      qualifier: MONDO:0004691
+    - subject: Aneurysm coiling
+      predicate: TREATS
+      object: HP:0012158
+      qualifier: MONDO:0004691
+    - subject: Aneurysm clipping
+      predicate: TREATS
+      object: iatrogenic hemorrhage or infarction
+      qualifier: MONDO:0004691
+named_entities:
+  - id: MONDO:0004691
+    label: Autosomal Dominant Polycystic Kidney Disease (ADPKD)
+  - id: HP:0003774
+    label: end-stage renal disease
+  - id: MAXO:0000601
+    label: Dialysis
+  - id: MAXO:0000756
+    label: Transfusion
+  - id: HP:0012531
+    label: Pain
+  - id: HP:0001824
+    label: Weight loss
+  - id: HP:0012158
+    label: Carotid artery dissection

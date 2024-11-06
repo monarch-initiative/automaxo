@@ -1,0 +1,115 @@
+---
+input_text: "Haemolytic anaemia and acute liver failure--the initial manifestations
+  of Wilson's disease. We describe a case of a 16-year-old girl with Wilson disease,
+  which was initially presented as Coombs-negative haemolytic anaemia and acute liver
+  failure. The diagnosis was based on the findings of low ceruloplasmin serum level
+  and high copper levels both in serum and 24-hour urinary excretion. The patient
+  underwent orthotopic liver transplantation. A DNA-based diagnostic tool confirmed
+  Wilson's disease: the patient was p.H1069Q homozygote. Based on further molecular-genetic
+  examinations in the family, Wilson disease was diagnosed seven days later in one
+  of the patient's asymptomatic brothers. The proband's cousin was confirmed as a
+  carrier of the p.H1069Q mutation (Fig. 1, Ref. 24)."
+raw_completion_output: |-
+  primary_disease: Wilson's disease
+  medical_actions: orthotopic liver transplantation; DNA-based diagnostic tool; molecular-genetic examinations
+  symptoms: Coombs-negative haemolytic anaemia; acute liver failure
+  chemicals: ceruloplasmin; copper
+  action_annotation_relationships: orthotopic liver transplantation TREATS acute liver failure IN Wilson's disease; DNA-based diagnostic tool CONFIRMS diagnosis IN Wilson's disease; molecular-genetic examinations DIAGNOSE Wilson's disease IN family members
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  molecular-genetic examinations DIAGNOSE Wilson's disease IN family members
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010200
+  medical_actions:
+    - orthotopic liver transplantation
+    - DNA-based diagnostic tool
+    - molecular-genetic examinations
+  symptoms:
+    - Coombs-negative haemolytic anaemia
+    - HP:0006554
+  chemicals:
+    - ceruloplasmin
+    - CHEBI:28694
+  action_annotation_relationships:
+    - subject: orthotopic liver transplantation
+      predicate: TREATS
+      object: HP:0006554
+      qualifier: MONDO:0010200
+    - subject: DNA-based diagnostic tool
+      predicate: CONFIRMS diagnosis IN
+      object: diagnosis
+      qualifier: MONDO:0010200
+    - subject: molecular-genetic examinations
+      predicate: DIAGNOSE
+      object: Wilson's disease
+      qualifier: family members
+named_entities:
+  - id: MONDO:0010200
+    label: Wilson's disease
+  - id: MAXO:0001175
+    label: Liver transplantation
+  - id: HP:0001695
+    label: Cardiac arrest
+  - id: HP:0001685
+    label: Myocardial fibrosis
+  - id: HP:0001663
+    label: Ventricular fibrillation
+  - id: CHEBI:28694
+    label: Copper
+  - id: CHEBI:18248
+    label: Iron
+  - id: HP:0002910
+    label: abnormal liver functions
+  - id: HP:0001394
+    label: cirrhosis
+  - id: CHEBI:27363
+    label: zinc
+  - id: CHEBI:50868
+    label: penicillamine
+  - id: MAXO:0000016
+    label: Cell therapy
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: CHEBI:30703
+    label: Tetrathiomolybdate (TTM)
+  - id: HP:0006554
+    label: acute liver failure
+  - id: CHEBI:35176
+    label: Zinc sulphate
+  - id: CHEBI:35475
+    label: NSAIDs
+  - id: MAXO:0009095
+    label: zinc therapy
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0006579
+    label: neonatal jaundice
+  - id: HP:0001409
+    label: portal hypertension
+  - id: HP:0030151
+    label: cholangitis
+  - id: HP:0002612
+    label: congenital hepatic fibrosis
+  - id: MONDO:0013282
+    label: alpha-1-antitrypsin deficiency
+  - id: HP:0001903
+    label: anemia
+  - id: HP:0001410
+    label: liver dysfunction
+  - id: CHEBI:39501
+    label: trientine

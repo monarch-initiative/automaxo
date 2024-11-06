@@ -1,0 +1,125 @@
+---
+input_text: 'High protein prescription in methylmalonic and propionic acidemia patients
+  and its negative association with long-term outcome. BACKGROUND AND OBJECTIVE: Methylmalonic
+  acidemia (MMA) and propionic acidemia (PA) are inborn errors of metabolism. While
+  survival of MMA and PA patients has improved in recent decades, long-term outcome
+  is still unsatisfactory. A protein restricted diet is the mainstay for treatment.
+  Additional amino acid mixtures (AAM) can be prescribed if natural protein is insufficient.
+  It is unknown if dietary treatment can have an impact on outcome. DESIGN: We performed
+  a nationwide retrospective cohort study and evaluated both longitudinal dietary
+  treatment and clinical course of Dutch MMA and PA patients. Protein prescription
+  was compared to the recommended daily allowances (RDA); the safe level of protein
+  intake as provided by the World Health Organization. The association of longitudinal
+  dietary treatment with long-term outcome was evaluated. RESULTS: The cohort included
+  76 patients with a median retrospective follow-up period of 15 years (min-max: 0-48
+  years) and a total of 1063 patient years on a protein restricted diet. Natural protein
+  prescription exceeded the RDA in 37% (470/1287) of all prescriptions and due to
+  AAM prescription, the total protein prescription exceeded RDA in 84% (1070/1277).
+  Higher protein prescriptions were associated with adverse outcomes in severely affected
+  patients. In PA early onset patients a higher natural protein prescription was associated
+  with more frequent AMD. In MMA vitamin B12 unresponsive patients, both a higher
+  total protein prescription and AAM protein prescription were associated with more
+  mitochondrial complications. A higher AAM protein prescription was associated with
+  an increased frequency of cognitive impairment in the entire. CONCLUSION: Protein
+  intake in excess of recommendations is frequent and is associated with poor outcome.'
+raw_completion_output: |-
+  primary_disease: Methylmalonic acidemia (MMA) and propionic acidemia (PA)
+
+  medical_actions: Protein restricted diet; Prescription of additional amino acid mixtures (AAM)
+
+  symptoms: Adverse outcomes; More frequent AMD; Mitochondrial complications; Increased frequency of cognitive impairment
+
+  chemicals: Vitamin B12
+
+  action_annotation_relationships: Protein restricted diet PREVENTS adverse outcomes IN Methylmalonic acidemia (MMA) and propionic acidemia (PA); Prescription of additional amino acid mixtures (AAM) PREVENTS adverse outcomes IN Methylmalonic acidemia (MMA) and propionic acidemia (PA); Higher natural protein prescription TREATS more frequent AMD IN Propionic acidemia (PA); Higher total protein and AAM protein prescription TREATS mitochondrial complications IN Methylmalonic acidemia (MMA); Vitamin B12 unresponsive condition TREATS mitochondrial complications IN Methylmalonic acidemia (MMA); Higher AAM protein prescription TREATS increased frequency of cognitive impairment IN Methylmalonic acidemia (MMA) and propionic acidemia (PA)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Higher AAM protein prescription TREATS increased frequency of cognitive impairment IN Methylmalonic acidemia (MMA) and propionic acidemia (PA)
+
+  ===
+
+extracted_object:
+  primary_disease: Methylmalonic acidemia (MMA) and propionic acidemia (PA)
+  medical_actions:
+    - Protein restricted diet
+    - Prescription of additional amino acid mixtures (AAM)
+  symptoms:
+    - Adverse outcomes
+    - More frequent AMD
+    - Mitochondrial complications
+    - Increased frequency of cognitive impairment
+  chemicals:
+    - CHEBI:176843
+  action_annotation_relationships:
+    - subject: <Protein restricted diet>
+      predicate: <PREVENTS>
+      object: <adverse outcomes>
+      qualifier: <Methylmalonic acidemia (MMA) and propionic acidemia (PA)>
+      subject_extension: <Protein restricted diet>
+    - subject: Prescription of additional amino acid mixtures
+      predicate: PREVENTS
+      object: adverse outcomes
+      qualifier: Methylmalonic acidemia, propionic acidemia
+      subject_qualifier: additional
+      subject_extension: amino acid mixtures
+    - subject: Higher natural protein prescription
+      predicate: TREATS
+      object: more frequent AMD
+      qualifier: MONDO:0011628
+      subject_qualifier: Higher
+      subject_extension: natural protein prescription
+    - subject: prescription
+      predicate: TREATS
+      object: mitochondrial complications
+      qualifier: MONDO:0002012
+      subject_qualifier: Higher
+      subject_extension: total protein and AAM protein
+    - subject: unresponsive condition
+      predicate: TREATS
+      object: complications
+      qualifier: MONDO:0002012
+      subject_extension: CHEBI:176843
+      object_extension: mitochondrial
+    - subject: prescription
+      predicate: TREATS
+      object: increased frequency of cognitive impairment
+      qualifier: Methylmalonic acidemia (MMA) and propionic acidemia (PA)
+      subject_qualifier: Higher
+      subject_extension: AAM protein
+named_entities:
+  - id: MONDO:0010184
+    label: Methylmalonic acidemia (MMA); Propionic acidemia; Cobalamin C (cblC) deficiency
+  - id: CHEBI:15603
+    label: Leucine (Leu)
+  - id: CHEBI:16414
+    label: Valine (Val)
+  - id: CHEBI:17191
+    label: Isoleucine (Ile)
+  - id: CHEBI:16044
+    label: Methionine (Met)
+  - id: CHEBI:25017
+    label: leucine
+  - id: MONDO:0002012
+    label: Methylmalonic acidemia
+  - id: HP:0003571
+    label: Propionic acidemia
+  - id: MONDO:0011628
+    label: Propionic acidemia
+  - id: MAXO:0001175
+    label: Liver transplantation
+  - id: HP:0001638
+    label: Cardiomyopathy
+  - id: CHEBI:176843
+    label: Vitamin B12

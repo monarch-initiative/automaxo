@@ -1,0 +1,109 @@
+---
+input_text: Other genetic liver diseases in children. Wilson disease is rare but proteiform,
+  and should be suspected in any child with liver disease and older than 3 years of
+  age. The treatment is very efficient, and must be taken life-long. Fifteen percent
+  of patients with alpha-1-antitrypsin deficiency develop a neonatal jaundice, and
+  3% a cirrhosis in childhood. There is no specific treatment except liver transplantation.
+  Five percent of cystic fibrosis patients develop a cirrhosis, with a very slow progression.
+  Milder abnormalities are frequent, as well as biliary stones. Liver disease in ciliopathies
+  may be a congenital hepatic fibrosis, with risks of portal hypertension and cholangitis,
+  or a more variable biliary disease. Gilbert disease is frequent and benign. Crigler-Najjar
+  syndrome is rare, severe, and may be an indication for liver or liver-cell transplantation.
+raw_completion_output: |-
+  primary_disease: Wilson disease
+  medical_actions: liver transplantation; liver or liver-cell transplantation
+  symptoms: neonatal jaundice; cirrhosis; biliary stones; portal hypertension; cholangitis; congenital hepatic fibrosis
+  chemicals: 
+  action_annotation_relationships: liver transplantation TREATS cirrhosis IN alpha-1-antitrypsin deficiency; liver or liver-cell transplantation TREATS Crigler-Najjar syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  liver or liver-cell transplantation TREATS Crigler-Najjar syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010200
+  medical_actions:
+    - MAXO:0001175
+    - liver or liver-cell transplantation
+  symptoms:
+    - HP:0006579
+    - HP:0001394
+    - biliary stones
+    - HP:0001409
+    - HP:0030151
+    - HP:0002612
+  action_annotation_relationships:
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: HP:0001394
+      qualifier: MONDO:0013282
+    - subject: <liver or liver-cell transplantation>
+      predicate: <TREATS>
+      object: <Crigler-Najjar syndrome>
+      qualifier: <>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <liver-cell>
+      object_extension: <>
+named_entities:
+  - id: MONDO:0010200
+    label: Wilson's disease
+  - id: MAXO:0001175
+    label: Liver transplantation
+  - id: HP:0001695
+    label: Cardiac arrest
+  - id: HP:0001685
+    label: Myocardial fibrosis
+  - id: HP:0001663
+    label: Ventricular fibrillation
+  - id: CHEBI:28694
+    label: Copper
+  - id: CHEBI:18248
+    label: Iron
+  - id: HP:0002910
+    label: abnormal liver functions
+  - id: HP:0001394
+    label: cirrhosis
+  - id: CHEBI:27363
+    label: zinc
+  - id: CHEBI:50868
+    label: penicillamine
+  - id: MAXO:0000016
+    label: Cell therapy
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: CHEBI:30703
+    label: Tetrathiomolybdate (TTM)
+  - id: HP:0006554
+    label: acute liver failure
+  - id: CHEBI:35176
+    label: Zinc sulphate
+  - id: CHEBI:35475
+    label: NSAIDs
+  - id: MAXO:0009095
+    label: zinc therapy
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0006579
+    label: neonatal jaundice
+  - id: HP:0001409
+    label: portal hypertension
+  - id: HP:0030151
+    label: cholangitis
+  - id: HP:0002612
+    label: congenital hepatic fibrosis
+  - id: MONDO:0013282
+    label: alpha-1-antitrypsin deficiency

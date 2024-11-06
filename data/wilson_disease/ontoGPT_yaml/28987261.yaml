@@ -1,0 +1,279 @@
+---
+input_text: 'Wilson Disease: Diagnosis, Treatment, and Follow-up. Consideration of
+  a diagnosis of Wilson disease is still the critical factor in testing for and establishing
+  disease diagnosis. In association with other clinical and biochemical tests, liver
+  biopsy results and molecular genetic testing can also be used to generate a score
+  for diagnosing Wilson disease. Medical therapy is effective for most patients; liver
+  transplant can rescue those with acute liver failure or those with advanced liver
+  disease who fail to respond to or discontinue medical therapy. Treatment monitoring
+  must be done at regular intervals and includes clinical evaluation, liver tests
+  and blood counts, and copper metabolic parameters.'
+raw_completion_output: |-
+  primary_disease: Wilson Disease
+
+  medical_actions: liver biopsy; molecular genetic testing; medical therapy; liver transplant; treatment monitoring; clinical evaluation; liver tests; blood counts; copper metabolic parameters assessment
+
+  symptoms: acute liver failure; advanced liver disease
+
+  chemicals: 
+
+  action_annotation_relationships: liver biopsy TREATS diagnosis uncertainty IN Wilson Disease; molecular genetic testing TREATS diagnosis uncertainty IN Wilson Disease; medical therapy TREATS acute liver failure IN Wilson Disease; medical therapy TREATS advanced liver disease IN Wilson Disease; liver transplant TREATS acute liver failure IN Wilson Disease; liver transplant TREATS advanced liver disease IN Wilson Disease; treatment monitoring TREATS acute liver failure IN Wilson Disease; treatment monitoring TREATS advanced liver disease IN Wilson Disease; clinical evaluation TREATS acute liver failure IN Wilson Disease; clinical evaluation TREATS advanced liver disease IN Wilson Disease; liver tests TREATS acute liver failure IN Wilson Disease; liver tests TREATS advanced liver disease IN Wilson Disease; blood counts TREATS acute liver failure IN Wilson Disease; blood counts TREATS advanced liver disease IN Wilson Disease; copper metabolic parameters assessment TREATS acute liver failure IN Wilson Disease; copper metabolic parameters assessment TREATS advanced liver disease IN Wilson Disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  copper metabolic parameters assessment TREATS advanced liver disease IN Wilson Disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010200
+  medical_actions:
+    - MAXO:0000376
+    - MAXO:0000533
+    - medical therapy
+    - liver transplant
+    - treatment monitoring
+    - clinical evaluation
+    - liver tests
+    - blood counts
+    - copper metabolic parameters assessment
+  symptoms:
+    - HP:0006554
+    - advanced liver disease
+  action_annotation_relationships:
+    - subject: MAXO:0000376
+      predicate: TREATS
+      object: diagnosis uncertainty
+      qualifier: MONDO:0010200
+    - subject: MAXO:0000533
+      predicate: TREATS
+      object: diagnosis uncertainty
+      qualifier: MONDO:0010200
+    - subject: medical therapy
+      predicate: TREATS
+      object: HP:0006554
+      qualifier: MONDO:0010200
+    - subject: medical therapy
+      predicate: TREATS
+      object: advanced liver disease
+      qualifier: MONDO:0010200
+    - subject: liver transplant
+      predicate: TREATS
+      object: HP:0006554
+      qualifier: MONDO:0010200
+    - subject: <liver transplant>
+      predicate: <TREATS>
+      object: <advanced liver disease>
+      qualifier: <Wilson Disease>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <liver transplant>
+      object_extension: <advanced liver disease>
+    - subject: treatment monitoring
+      predicate: TREATS
+      object: HP:0006554
+      qualifier: MONDO:0010200
+    - subject: treatment monitoring
+      predicate: TREATS
+      object: advanced liver disease
+      qualifier: MONDO:0010200
+    - subject: clinical evaluation
+      predicate: TREATS
+      object: HP:0006554
+      qualifier: MONDO:0010200
+    - subject: clinical evaluation
+      predicate: TREATS
+      object: advanced liver disease
+      qualifier: MONDO:0010200
+    - subject: liver tests
+      predicate: TREATS
+      object: HP:0006554
+      qualifier: MONDO:0010200
+    - subject: liver tests
+      predicate: TREATS
+      object: advanced liver disease
+      qualifier: MONDO:0010200
+    - subject: blood counts
+      predicate: TREATS
+      object: HP:0006554
+      qualifier: MONDO:0010200
+    - subject: blood counts
+      predicate: TREATS
+      object: advanced liver disease
+      qualifier: MONDO:0010200
+    - subject: copper metabolic parameters assessment
+      predicate: TREATS
+      object: HP:0006554
+      qualifier: MONDO:0010200
+      subject_extension: copper metabolic parameters assessment
+    - subject: copper metabolic parameters assessment
+      predicate: TREATS
+      object: advanced liver disease
+      qualifier: MONDO:0010200
+      subject_extension: copper metabolic parameters assessment
+named_entities:
+  - id: MONDO:0010200
+    label: Wilson's disease
+  - id: MAXO:0001175
+    label: Liver transplantation
+  - id: HP:0001695
+    label: Cardiac arrest
+  - id: HP:0001685
+    label: Myocardial fibrosis
+  - id: HP:0001663
+    label: Ventricular fibrillation
+  - id: CHEBI:28694
+    label: Copper
+  - id: CHEBI:18248
+    label: Iron
+  - id: HP:0002910
+    label: abnormal liver functions
+  - id: HP:0001394
+    label: cirrhosis
+  - id: CHEBI:27363
+    label: zinc
+  - id: CHEBI:50868
+    label: penicillamine
+  - id: MAXO:0000016
+    label: Cell therapy
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: CHEBI:30703
+    label: Tetrathiomolybdate (TTM)
+  - id: HP:0006554
+    label: acute liver failure
+  - id: CHEBI:35176
+    label: Zinc sulphate
+  - id: CHEBI:35475
+    label: NSAIDs
+  - id: MAXO:0009095
+    label: zinc therapy
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0006579
+    label: neonatal jaundice
+  - id: HP:0001409
+    label: portal hypertension
+  - id: HP:0030151
+    label: cholangitis
+  - id: HP:0002612
+    label: congenital hepatic fibrosis
+  - id: MONDO:0013282
+    label: alpha-1-antitrypsin deficiency
+  - id: HP:0001903
+    label: anemia
+  - id: HP:0001410
+    label: liver dysfunction
+  - id: CHEBI:39501
+    label: trientine
+  - id: MAXO:0000070
+    label: Hepatic transplantation
+  - id: HP:0001399
+    label: Hepatic failure
+  - id: HP:0004448
+    label: fulminant hepatic failure
+  - id: HP:0003256
+    label: coagulopathy (international normalized ratio >2.0)
+  - id: HP:0004445
+    label: hepatic encephalopathy (HE)
+  - id: HP:0002480
+    label: hepatic encephalopathy
+  - id: CHEBI:35341
+    label: Steroids
+  - id: CHEBI:33281
+    label: Antibiotics
+  - id: MONDO:0100193
+    label: End-stage liver disease
+  - id: HP:0100626
+    label: End-stage liver disease
+  - id: HP:0100660
+    label: dyskinesia
+  - id: HP:0100022
+    label: Movement disorders
+  - id: HP:0001337
+    label: Tremor
+  - id: HP:0001332
+    label: Dystonia
+  - id: MONDO:0019542
+    label: Acute liver failure (ALF)
+  - id: CHEBI:27385
+    label: CCL4
+  - id: MAXO:0000127
+    label: Genetic testing
+  - id: CHEBI:7959
+    label: D-penicillamine
+  - id: MAXO:0001017
+    label: Vaccination
+  - id: HP:0001541
+    label: Ascites
+  - id: HP:0012398
+    label: Peripheral edema
+  - id: HP:0001260
+    label: dysarthria
+  - id: HP:0000708
+    label: psychiatric disorders
+  - id: HP:0200123
+    label: chronic hepatitis
+  - id: CHEBI:38161
+    label: chelators
+  - id: MAXO:0000376
+    label: liver biopsy
+  - id: HP:0001404
+    label: hepatocellular necrosis
+  - id: CHEBI:61049
+    label: Tacrolimus
+  - id: HP:0001744
+    label: Splenomegaly
+  - id: MAXO:0000603
+    label: Peritoneal dialysis
+  - id: HP:0200032
+    label: Kayser-Fleischer rings
+  - id: HP:0002172
+    label: impaired balance
+  - id: HP:0001347
+    label: hyperreflexia
+  - id: HP:0031843
+    label: bradyphrenia
+  - id: HP:0002362
+    label: shuffling gait
+  - id: HP:0001621
+    label: hypophonia
+  - id: CHEBI:37153
+    label: Calcineurin inhibitors
+  - id: CHEBI:8356
+    label: pramipexole
+  - id: CHEBI:2618
+    label: amantadine
+  - id: HP:0000093
+    label: proteinuria
+  - id: CHEBI:231592
+    label: zinc salts
+  - id: MAXO:0000167
+    label: antiepileptic therapy
+  - id: CHEBI:9168
+    label: rapamycin
+  - id: CHEBI:55379
+    label: cyclosporine (CsA)
+  - id: CHEBI:35623
+    label: antiepileptic
+  - id: HP:0000083
+    label: renal failure
+  - id: HP:0000952
+    label: jaundice
+  - id: HP:0001919
+    label: acute kidney injury
+  - id: HP:0001342
+    label: intracerebral hemorrhage
+  - id: MAXO:0000533
+    label: molecular genetic testing

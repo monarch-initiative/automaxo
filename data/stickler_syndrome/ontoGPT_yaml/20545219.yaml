@@ -1,0 +1,166 @@
+---
+input_text: '[Stickler syndrome with rhegmatogenous retinal detachment]. BACKGROUND:
+  Stickler syndrome is an autosomal dominant disease characterized by various disorders
+  of the eyes and the connective tissues throughout the body. It can arise from a
+  mutation in the collagen associated gene. We present a case of Stickler syndrome
+  with rhegmatogenous retinal detachment. CASE: A 10-years-old boy was referred to
+  us with rhegmatogenous retinal detachment of the right eye. His family history included
+  eye disease and a cleft palate. He had high myopia, vitreous liquefaction and lattice
+  degeneration in the both eye. He also had a cleft palate and a broad nasal bridge.
+  His condition was diagnosed as Stickler syndrome. We performed vitrectomy, scleral
+  buckling and encircling, and silicone oil injection in the right eye. We also did
+  a reattachment of the retina in the right eye. CONCLUSIONS: Pediatric retinal detachment
+  may indicate the presence of Stickler syndrome and a complete examination of the
+  eye as well as a full family history must be obtained in such cases.'
+raw_completion_output: |-
+  primary_disease: Stickler syndrome
+
+  medical_actions: Vitrectomy; Scleral buckling and encircling; Silicone oil injection; Reattachment of the retina
+
+  symptoms: Rhegmatogenous retinal detachment; High myopia; Vitreous liquefaction; Lattice degeneration; Cleft palate; Broad nasal bridge
+
+  chemicals: Silicone oil
+
+  action_annotation_relationships: Vitrectomy TREATS rhegmatogenous retinal detachment IN Stickler syndrome; Scleral buckling and encircling TREATS rhegmatogenous retinal detachment IN Stickler syndrome; Silicone oil injection (with Silicone oil) TREATS rhegmatogenous retinal detachment IN Stickler syndrome; Reattachment of the retina TREATS rhegmatogenous retinal detachment IN Stickler syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Reattachment of the retina TREATS rhegmatogenous retinal detachment IN Stickler syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0019354
+  medical_actions:
+    - MAXO:0001085
+    - Scleral buckling and encircling
+    - Silicone oil injection
+    - Reattachment of the retina
+  symptoms:
+    - HP:0012230
+    - HP:0011003
+    - Vitreous liquefaction
+    - Lattice degeneration
+    - HP:0000175
+    - HP:0000431
+  chemicals:
+    - Silicone oil
+  action_annotation_relationships:
+    - subject: MAXO:0001085
+      predicate: TREATS
+      object: HP:0012230
+      qualifier: MONDO:0019354
+    - subject: Scleral buckling and encircling
+      predicate: TREATS
+      object: HP:0012230
+      qualifier: MONDO:0019354
+    - subject: Silicone oil injection
+      predicate: TREATS
+      object: HP:0012230
+      qualifier: MONDO:0019354
+      subject_qualifier: with Silicone oil
+      subject_extension: Silicone oil
+    - subject: Reattachment of the retina
+      predicate: TREATS
+      object: HP:0012230
+      qualifier: MONDO:0019354
+named_entities:
+  - id: MONDO:0009869
+    label: Pierre Robin sequence
+  - id: HP:0006536
+    label: airway obstruction
+  - id: HP:0011968
+    label: feeding difficulties
+  - id: HP:0040262
+    label: serous otitis media
+  - id: HP:0000405
+    label: conductive hearing loss
+  - id: MONDO:0019354
+    label: Stickler syndrome
+  - id: MAXO:0000505
+    label: Mask ventilation
+  - id: MAXO:0000502
+    label: Endotracheal intubation
+  - id: HP:0011800
+    label: Midface hypoplasia
+  - id: HP:0000308
+    label: Retromicrognathia
+  - id: HP:0000175
+    label: Cleft palate
+  - id: HP:0000546
+    label: Retinal degeneration
+  - id: MAXO:0000504
+    label: tracheotomy
+  - id: HP:0002878
+    label: respiratory failure
+  - id: MONDO:0005364
+    label: Graves' disease
+  - id: MONDO:0009973
+    label: Retinal Detachment (RD)
+  - id: MAXO:0009072
+    label: Surgical repair
+  - id: HP:0007917
+    label: Tractional retinal detachment (TRD)
+  - id: HP:0012230
+    label: Rhegmatogenous retinal detachment
+  - id: MONDO:0008375
+    label: Retinal Detachment
+  - id: MAXO:0001550
+    label: fiberoptic intubation
+  - id: HP:0000162
+    label: glossoptosis
+  - id: MONDO:0009242
+    label: Brittle cornea syndrome (BCS)
+  - id: MAXO:0010034
+    label: Corneal transplantation
+  - id: HP:0000365
+    label: Hearing loss
+  - id: HP:0000618
+    label: blindness
+  - id: HP:0000545
+    label: short-sightedness
+  - id: HP:0000518
+    label: cataracts
+  - id: HP:0000541
+    label: retinal detachment
+  - id: MONDO:0003343
+    label: Retinal capillary hemangioma
+  - id: MAXO:0000127
+    label: Genetic testing
+  - id: HP:0007700
+    label: Anterior segment dysgenesis
+  - id: HP:0000519
+    label: Congenital cataract
+  - id: HP:0000648
+    label: Optic atrophy
+  - id: HP:0000556
+    label: Retinal dystrophy
+  - id: HP:0003281
+    label: hyperferritinemia
+  - id: MONDO:0010952
+    label: hyperferritinemia-cataract syndrome
+  - id: HP:0000201
+    label: Pierre-Robin sequence
+  - id: HP:0000278
+    label: Receding mandible
+  - id: MONDO:0010667
+    label: Pierre Robin sequence (PRS)
+  - id: HP:0000347
+    label: micrognathia
+  - id: MAXO:0001085
+    label: Vitrectomy
+  - id: HP:0011003
+    label: High myopia
+  - id: HP:0000431
+    label: Broad nasal bridge

@@ -1,0 +1,139 @@
+---
+input_text: Excess copper chelating therapy for Wilson disease induces anemia and
+  liver dysfunction. A 37-year-old man was diagnosed with Wilson disease at the age
+  of 14. His first manifestations were neurological. He was treated with trientine
+  for more than 10 years and suffered from anemia and liver dysfunction. Wilson disease
+  is a genetic disorder characterized by accumulation of copper in the body. Excess
+  copper is toxic, but copper is an essential trace element. Copper-binding ceruloplasmin
+  is important for iron metabolism. Excess copper chelating treatment-induced anemia
+  and iron deposition in the liver was suspected. Proper monitoring of copper status
+  is important for the management of Wilson disease.
+raw_completion_output: |-
+  primary_disease: Wilson disease
+  medical_actions: Excess copper chelating therapy; Proper monitoring of copper status
+  symptoms: anemia; liver dysfunction; neurological manifestations
+  chemicals: trientine
+  action_annotation_relationships: Excess copper chelating therapy TREATS excess copper IN Wilson disease; trientine (with trientine) TREATS neurological manifestations IN Wilson disease; Excess copper chelating therapy INDUCES anemia IN Wilson disease; Excess copper chelating therapy INDUCES liver dysfunction IN Wilson disease; Proper monitoring of copper status PREVENTS anemia IN Wilson disease; Proper monitoring of copper status PREVENTS liver dysfunction IN Wilson disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Proper monitoring of copper status PREVENTS liver dysfunction IN Wilson disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010200
+  medical_actions:
+    - Excess copper chelating therapy
+    - Proper monitoring of copper status
+  symptoms:
+    - HP:0001903
+    - HP:0001410
+    - neurological manifestations
+  chemicals:
+    - CHEBI:39501
+  action_annotation_relationships:
+    - subject: Excess copper chelating therapy
+      predicate: TREATS
+      object: excess copper
+      qualifier: MONDO:0010200
+      subject_extension: copper chelating therapy
+      object_extension: excess copper
+    - subject: trientine
+      predicate: TREATS
+      object: neurological manifestations
+      qualifier: MONDO:0010200
+      subject_qualifier: with trientine
+      subject_extension: CHEBI:39501
+      object_extension: neurological manifestations
+    - subject: copper chelating therapy
+      predicate: INDUCES
+      object: HP:0001903
+      qualifier: MONDO:0010200
+      subject_qualifier: excess
+      subject_extension: copper chelating therapy
+    - subject: Excess copper chelating therapy
+      predicate: INDUCES
+      object: HP:0001410
+      qualifier: MONDO:0010200
+      subject_qualifier: Excess
+      subject_extension: copper chelating therapy
+    - subject: Proper monitoring
+      predicate: PREVENTS
+      object: HP:0001903
+      qualifier: MONDO:0010200
+      subject_extension: copper status
+    - subject: Proper monitoring
+      predicate: PREVENTS
+      object: HP:0001410
+      qualifier: MONDO:0010200
+      subject_qualifier: 'NULL'
+      object_qualifier: 'NULL'
+      subject_extension: copper status
+      object_extension: 'NULL'
+named_entities:
+  - id: MONDO:0010200
+    label: Wilson's disease
+  - id: MAXO:0001175
+    label: Liver transplantation
+  - id: HP:0001695
+    label: Cardiac arrest
+  - id: HP:0001685
+    label: Myocardial fibrosis
+  - id: HP:0001663
+    label: Ventricular fibrillation
+  - id: CHEBI:28694
+    label: Copper
+  - id: CHEBI:18248
+    label: Iron
+  - id: HP:0002910
+    label: abnormal liver functions
+  - id: HP:0001394
+    label: cirrhosis
+  - id: CHEBI:27363
+    label: zinc
+  - id: CHEBI:50868
+    label: penicillamine
+  - id: MAXO:0000016
+    label: Cell therapy
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: CHEBI:30703
+    label: Tetrathiomolybdate (TTM)
+  - id: HP:0006554
+    label: acute liver failure
+  - id: CHEBI:35176
+    label: Zinc sulphate
+  - id: CHEBI:35475
+    label: NSAIDs
+  - id: MAXO:0009095
+    label: zinc therapy
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0006579
+    label: neonatal jaundice
+  - id: HP:0001409
+    label: portal hypertension
+  - id: HP:0030151
+    label: cholangitis
+  - id: HP:0002612
+    label: congenital hepatic fibrosis
+  - id: MONDO:0013282
+    label: alpha-1-antitrypsin deficiency
+  - id: HP:0001903
+    label: anemia
+  - id: HP:0001410
+    label: liver dysfunction
+  - id: CHEBI:39501
+    label: trientine

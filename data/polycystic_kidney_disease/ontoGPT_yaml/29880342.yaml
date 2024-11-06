@@ -1,0 +1,268 @@
+---
+input_text: 'Effect of Sirolimus on Native Total Kidney Volume After Transplantation
+  in Patients with Autosomal Dominant Polycystic Kidney Disease: A Randomized Controlled
+  Pilot Study. BACKGROUND: The mammalian target of rapamycin (mTOR) pathway has been
+  shown to be central to cyst formation and growth in patients with autosomal dominant
+  polycystic kidney disease (ADPKD). Drugs that suppress mTOR signaling are frequently
+  used as antiproliferative agents for maintenance immunosuppression in patients who
+  have undergone kidney transplantation. The aim of this study was to determine the
+  effect of sirolimus, an mTOR inhibitor, on cyst volume regression in patients with
+  ADPKD who have undergone renal transplantation. METHODS: In this single-center,
+  prospective, open-label, parallel-group, randomized trial, 23 adult patients with
+  ADPKD who successfully underwent renal transplantation from 2008 to 2012 were subsequently
+  randomized (on a 1:1 basis) to a maintenance immunosuppression regimen with either
+  sirolimus (sirolimus, tacrolimus, prednisone) or mycophenolate (mycophenolate, tacrolimus,
+  prednisone). Total kidney volumes were measured by means of high-resolution magnetic
+  resonance imaging within 2 weeks after transplantation and at 1 year. The primary
+  end point was change in total kidney volume at 1 year. RESULTS: Sixteen patients
+  completed the 1-year study (8 patients in each group). There was a decrease in kidney
+  volume in both the sirolimus group (percentage change from baseline, 20.5%; P <
+  .001) and mycophenolate group (percentage change from baseline, 17%; P = .048),
+  but there was no significant difference in percentage change of total kidney volume
+  between the groups (P = .665). CONCLUSIONS: In ADPKD patients at 1 year after kidney
+  transplantation, there was a similar decrease in polycystic kidney volume in patients
+  receiving an immunosuppression regimen containing sirolimus compared with patients
+  receiving mycophenolate.'
+raw_completion_output: |-
+  primary_disease: Autosomal Dominant Polycystic Kidney Disease
+  medical_actions: renal transplantation; maintenance immunosuppression; measurement of total kidney volume via high-resolution magnetic resonance imaging
+  symptoms: cyst formation and growth
+  chemicals: Sirolimus; mTOR; Tacrolimus; Prednisone; Mycophenolate
+  action_annotation_relationships: renal transplantation TREATS cyst formation and growth IN Autosomal Dominant Polycystic Kidney Disease; maintenance immunosuppression (with Sirolimus) TREATS cyst formation and growth IN Autosomal Dominant Polycystic Kidney Disease; maintenance immunosuppression (with Mycophenolate) TREATS cyst formation and growth IN Autosomal Dominant Polycystic Kidney Disease; measurement of total kidney volume via high-resolution magnetic resonance imaging TREATS (monitors) cyst formation and growth IN Autosomal Dominant Polycystic Kidney Disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  measurement of total kidney volume via high-resolution magnetic resonance imaging TREATS (monitors) cyst formation and growth IN Autosomal Dominant Polycystic Kidney Disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0004691
+  medical_actions:
+    - renal transplantation
+    - maintenance immunosuppression
+    - measurement of total kidney volume via high-resolution magnetic resonance imaging
+  symptoms:
+    - cyst formation and growth
+  chemicals:
+    - CHEBI:9168
+    - mTOR
+    - CHEBI:61049
+    - CHEBI:8382
+    - CHEBI:62932
+  action_annotation_relationships:
+    - subject: renal transplantation
+      predicate: TREATS
+      object: cyst formation and growth
+      qualifier: MONDO:0004691
+    - subject: maintenance immunosuppression
+      predicate: TREATS
+      object: cyst formation and growth
+      qualifier: MONDO:0004691
+      subject_qualifier: with Sirolimus
+      subject_extension: CHEBI:9168
+    - subject: maintenance immunosuppression
+      predicate: TREATS
+      object: cyst formation and growth
+      qualifier: MONDO:0004691
+      subject_qualifier: with Mycophenolate
+      subject_extension: CHEBI:62932
+    - subject: <measurement of total kidney volume>
+      predicate: <TREATS (monitors)>
+      object: <cyst formation and growth>
+      qualifier: <Autosomal Dominant Polycystic Kidney Disease>
+      subject_qualifier: <via>
+      subject_extension: <high-resolution magnetic resonance imaging>
+named_entities:
+  - id: MONDO:0004691
+    label: Autosomal Dominant Polycystic Kidney Disease (ADPKD)
+  - id: HP:0003774
+    label: end-stage renal disease
+  - id: MAXO:0000601
+    label: Dialysis
+  - id: MAXO:0000756
+    label: Transfusion
+  - id: HP:0012531
+    label: Pain
+  - id: HP:0001824
+    label: Weight loss
+  - id: HP:0012158
+    label: Carotid artery dissection
+  - id: MONDO:0010979
+    label: Tuberous sclerosis (TS) and autosomal dominant polycystic kidney disease
+      (ADPKD)
+  - id: HP:0002027
+    label: Abdominal pain
+  - id: HP:0001903
+    label: Anaemia
+  - id: CHEBI:68481
+    label: mTOR inhibitors
+  - id: MONDO:0010913
+    label: Caroli Disease
+  - id: HP:0004395
+    label: Malnutrition
+  - id: CHEBI:16113
+    label: Cholesterol
+  - id: MAXO:0000624
+    label: Nutritional assessment
+  - id: HP:0004872
+    label: incisional hernias
+  - id: HP:0003259
+    label: increased serum creatinine
+  - id: MONDO:0005300
+    label: Chronic kidney disease (CKD)
+  - id: CHEBI:4670
+    label: Dobutamine
+  - id: MONDO:0020642
+    label: Polycystic Kidney Disease
+  - id: HP:0002138
+    label: Subarachnoid hemorrhage
+  - id: CHEBI:35341
+    label: Steroid
+  - id: MAXO:0000004
+    label: Surgery
+  - id: HP:0000113
+    label: Polycystic kidney disease
+  - id: HP:0006772
+    label: Angiomyolipomas
+  - id: HP:0100026
+    label: Arteriovenous malformations
+  - id: HP:0000819
+    label: diabetes mellitus
+  - id: HP:0003119
+    label: dyslipidemia
+  - id: HP:0002149
+    label: hyperuricemia
+  - id: MONDO:0000447
+    label: Polycystic Liver Disease
+  - id: MAXO:0009003
+    label: Preimplantation genetic diagnosis (PGD)
+  - id: HP:0000027
+    label: Azoospermia
+  - id: HP:0000083
+    label: renal failure
+  - id: MONDO:0006983
+    label: Subclavian steal syndrome
+  - id: HP:0002321
+    label: Dizziness
+  - id: MONDO:0000001
+    label: DIAGNOSIS
+  - id: HP:0000017
+    label: nocturia
+  - id: HP:0000790
+    label: hematuria
+  - id: HP:0000787
+    label: nephrolithiasis
+  - id: HP:0000822
+    label: hypertension
+  - id: HP:0006557
+    label: polycystic liver disease
+  - id: HP:0001297
+    label: stroke
+  - id: MONDO:0019136
+    label: Mucormycosis
+  - id: CHEBI:2682
+    label: liposomal amphotericin B
+  - id: CHEBI:61049
+    label: tacrolimus
+  - id: CHEBI:4031
+    label: cyclosporine
+  - id: CHEBI:8764
+    label: mycophenolate mofetil
+  - id: CHEBI:8378
+    label: prednisolone
+  - id: MONDO:0009889
+    label: Autosomal Recessive Polycystic Kidney Disease (ARPKD)
+  - id: HP:0001562
+    label: Oligohydramnios
+  - id: HP:0025700
+    label: Anhydramnios
+  - id: HP:0030917
+    label: Low Apgar score
+  - id: MAXO:0000376
+    label: Liver biopsy
+  - id: CHEBI:35674
+    label: Antihypertensive drugs
+  - id: MONDO:0004522
+    label: Peritonitis
+  - id: CHEBI:7025
+    label: Mupirocin
+  - id: HP:0002586
+    label: peritonitis
+  - id: MONDO:0008199
+    label: peritoneal dialysis (PD) patients
+  - id: MAXO:0001175
+    label: liver transplantation
+  - id: MAXO:0001065
+    label: Nephrectomy
+  - id: MAXO:0000602
+    label: Hemodialysis
+  - id: CHEBI:7726
+    label: Octreotide
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0001999
+    label: dysmorphic facies
+  - id: HP:0001252
+    label: hypotonia
+  - id: MAXO:0000603
+    label: Peritoneal dialysis
+  - id: HP:0001409
+    label: Portal hypertension
+  - id: HP:0000105
+    label: Enlarged kidneys
+  - id: HP:0001392
+    label: Liver abnormalities
+  - id: HP:0100806
+    label: Sepsis
+  - id: HP:0002878
+    label: Respiratory failure
+  - id: MONDO:0005247
+    label: chronic urinary tract infection (UTI)
+  - id: HP:0000010
+    label: recurrent UTIs
+  - id: CHEBI:46765
+    label: carbapenems
+  - id: CHEBI:37943
+    label: colistin
+  - id: HP:0033119
+    label: Elevated right ventricular systolic pressure
+  - id: HP:0100626
+    label: End-stage liver disease
+  - id: MONDO:0100193
+    label: End-stage liver disease
+  - id: MONDO:0004375
+    label: End-stage renal disease
+  - id: MONDO:0005206
+    label: Renal cancer
+  - id: CHEBI:37153
+    label: calcineurin inhibitors
+  - id: CHEBI:68478
+    label: everolimus
+  - id: CHEBI:9168
+    label: sirolimus
+  - id: MAXO:0001056
+    label: hepatectomy
+  - id: HP:0001945
+    label: fever
+  - id: CHEBI:33281
+    label: antibiotics
+  - id: MONDO:8000010
+    label: Antiphospholipid antibody syndrome (APAS)
+  - id: CHEBI:10033
+    label: warfarin
+  - id: CHEBI:8382
+    label: Prednisone
+  - id: CHEBI:62932
+    label: Mycophenolate
