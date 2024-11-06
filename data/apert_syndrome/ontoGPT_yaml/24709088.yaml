@@ -25,13 +25,13 @@ input_text: 'Assessing the corrective effects of facial bipartition distraction 
 raw_completion_output: |-
   primary_disease: Apert syndrome
 
-  medical_actions: facial bipartition distraction; three-dimensional computed tomography (3DCT) scans; principal component analysis (PCA); surgical procedures
+  medical_actions: bipartition distraction; analysing surgical outcomes with geometric morphometrics
 
   symptoms: craniosynostosis; midface hypoplasia
 
   chemicals: 
 
-  action_annotation_relationships: facial bipartition distraction TREATS craniosynostosis IN Apert syndrome; facial bipartition distraction TREATS midface hypoplasia IN Apert syndrome
+  action_annotation_relationships: bipartition distraction TREATS craniosynostosis IN Apert syndrome; bipartition distraction TREATS midface hypoplasia IN Apert syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -46,45 +46,47 @@ prompt: |+
 
 
   Text:
-  facial bipartition distraction TREATS midface hypoplasia IN Apert syndrome
+  bipartition distraction TREATS midface hypoplasia IN Apert syndrome
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0007041
   medical_actions:
-    - facial bipartition distraction
-    - three-dimensional computed tomography (3DCT) scans
-    - principal component analysis (PCA)
-    - MAXO:0000004
+    - bipartition distraction
+    - analysing surgical outcomes with geometric morphometrics
   symptoms:
     - HP:0001363
     - HP:0011800
   action_annotation_relationships:
-    - subject: facial bipartition distraction
-      predicate: TREATS
-      object: HP:0001363
-      qualifier: MONDO:0007041
-    - subject: facial bipartition distraction
-      predicate: TREATS
-      object: HP:0011800
-      qualifier: MONDO:0007041
+    - subject: <bipartition distraction>
+      predicate: <TREATS>
+      object: <craniosynostosis>
+      qualifier: <Apert syndrome>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: <bipartition distraction>
+      predicate: <TREATS>
+      object: <midface hypoplasia>
+      qualifier: <Apert syndrome>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <bipartition distraction>
+      object_extension: <midface hypoplasia>
 named_entities:
-  - id: HP:0011800
-    label: Midface hypoplasia
   - id: MONDO:0007041
     label: Apert syndrome
   - id: MAXO:0000486
-    label: distraction osteogenesis
+    label: Distraction osteogenesis
   - id: HP:0012531
-    label: pain
+    label: Pain
   - id: HP:0001288
-    label: gait disturbances
-  - id: MONDO:0003432
-    label: Strabismus
+    label: Gait disturbances
   - id: HP:0001159
     label: Syndactyly
-  - id: MAXO:0000004
-    label: surgical procedures
   - id: HP:0001363
     label: craniosynostosis
+  - id: HP:0011800
+    label: midface hypoplasia

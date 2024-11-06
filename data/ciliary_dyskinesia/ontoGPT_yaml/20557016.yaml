@@ -1,0 +1,77 @@
+---
+input_text: '[Primary ciliary dyskinesia in highlights of consensus statement. Presentation
+  of pediatric cases]. UNLABELLED: Cilia are evolutionarily conserved structures that
+  play a role in diverse cell types. Motile cilia are involved in the most prominent
+  ciliopathy called primary ciliary dyskinesia (PCD), which combines oto-sino-pulmonary
+  symptoms (impaired mucociliary clearance that is important innate defense mechanism),
+  male infertility and in nearly 50% cases situs inversus. Disease is usually inherited
+  as autosomal recessive disorder, concerning mainly outer and/or inner dynein arms
+  of cilia. Diagnosis of PCD requires the presence of characteristic clinical phenotype
+  and confirmation the diagnosis by either identification of specific defect in electron
+  microscopy or other evidence of abnormal ciliary function. The diagnosis of PCD
+  may be delayed, missed or made incorrectly. The first ERS consensus statement which
+  formulates recommendations regarding diagnostic as well as therapeutic approaches
+  to children with PCD, is a very helpful tool in the management of this patients.
+  We present our own experience with three children with PCD diagnosed in our Department.
+  CONCLUSION: in children with clinical symptoms suggesting PCD, even with negative
+  screening tests, the estimation of specific cilia defect in electron microscopy
+  is indicated.'
+raw_completion_output: |-
+  primary_disease: Primary ciliary dyskinesia
+
+  medical_actions: estimation of specific cilia defect in electron microscopy; identification of specific defect in electron microscopy
+
+  symptoms: oto-sino-pulmonary symptoms; impaired mucociliary clearance; male infertility; situs inversus
+
+  chemicals: 
+
+  action_annotation_relationships: estimation of specific cilia defect in electron microscopy TREATS oto-sino-pulmonary symptoms IN Primary ciliary dyskinesia; identification of specific defect in electron microscopy TREATS impaired mucociliary clearance IN Primary ciliary dyskinesia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  identification of specific defect in electron microscopy TREATS impaired mucociliary clearance IN Primary ciliary dyskinesia
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0016575
+  medical_actions:
+    - estimation of specific cilia defect in electron microscopy
+    - identification of specific defect in electron microscopy
+  symptoms:
+    - oto-sino-pulmonary symptoms
+    - impaired mucociliary clearance
+    - HP:0003251
+    - HP:0001696
+  action_annotation_relationships:
+    - subject: estimation of specific cilia defect in electron microscopy
+      predicate: TREATS
+      object: oto-sino-pulmonary symptoms
+      qualifier: MONDO:0016575
+    - subject: identification of specific defect
+      predicate: TREATS
+      object: impaired mucociliary clearance
+      qualifier: MONDO:0016575
+      subject_extension: electron microscopy
+named_entities:
+  - id: MONDO:0016575
+    label: Primary Ciliary Dyskinesia
+  - id: HP:0034315
+    label: Chronic cough
+  - id: HP:0002643
+    label: Neonatal respiratory distress
+  - id: HP:0003251
+    label: male infertility
+  - id: HP:0001696
+    label: situs inversus

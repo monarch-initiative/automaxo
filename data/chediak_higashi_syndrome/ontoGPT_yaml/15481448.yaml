@@ -24,11 +24,11 @@ input_text: 'Unrelated donor marrow transplantation for congenital immunodeficie
   outcome, unrelated BMT is a curative therapeutic option for children with congenital
   genetic diseases who have no HLA-matched family donors.'
 raw_completion_output: |-
-  primary_disease: Congenital genetic diseases
-  medical_actions: Bone marrow transplantation (BMT); HLA matching; Treatment for graft-versus-host disease; Survival analysis
-  symptoms: Early or late graft failure; Grade II to IV acute graft-versus-host disease (GVHD); Chronic GVHD
+  primary_disease: congenital genetic diseases
+  medical_actions: bone marrow transplantation (BMT);HLA matching
+  symptoms: early or late graft failure;acute graft-versus-host disease (GVHD);chronic GVHD
   chemicals: 
-  action_annotation_relationships: Bone marrow transplantation (BMT) TREATS early or late graft failure IN Congenital genetic diseases; Bone marrow transplantation (BMT) TREATS Grade II to IV acute graft-versus-host disease (GVHD) IN Congenital genetic diseases; Bone marrow transplantation (BMT) TREATS Chronic GVHD IN Congenital genetic diseases; HLA matching PREVENTS early or late graft failure IN Congenital genetic diseases; HLA matching PREVENTS Grade II to IV acute graft-versus-host disease (GVHD) IN Congenital genetic diseases; Treatment for graft-versus-host disease TREATS Grade II to IV acute graft-versus-host disease (GVHD) IN Congenital genetic diseases; Treatment for graft-versus-host disease TREATS Chronic GVHD IN Congenital genetic diseases
+  action_annotation_relationships: bone marrow transplantation (BMT) TREATS congenital genetic diseases IN congenital genetic diseases;HLA matching PREVENTS early or late graft failure IN congenital genetic diseases;bone marrow transplantation (BMT) PREVENTS acute graft-versus-host disease (GVHD) IN congenital genetic diseases;bone marrow transplantation (BMT) PREVENTS chronic GVHD IN congenital genetic diseases
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -43,57 +43,39 @@ prompt: |+
 
 
   Text:
-  Treatment for graft-versus-host disease TREATS Chronic GVHD IN Congenital genetic diseases
+  bone marrow transplantation (BMT) PREVENTS chronic GVHD IN congenital genetic diseases
 
   ===
 
 extracted_object:
-  primary_disease: Congenital genetic diseases
+  primary_disease: congenital genetic diseases
   medical_actions:
     - MAXO:0010030
     - HLA matching
-    - Treatment for graft-versus-host disease
-    - Survival analysis
   symptoms:
-    - Early or late graft failure
-    - Grade II to IV acute graft-versus-host disease (GVHD)
-    - Chronic GVHD
+    - early or late graft failure
+    - acute graft-versus-host disease (GVHD)
+    - chronic GVHD
   action_annotation_relationships:
     - subject: MAXO:0010030
       predicate: TREATS
-      object: early or late graft failure
-      qualifier: Congenital genetic diseases
-      subject_extension: Bone marrow transplantation
-    - subject: <Bone marrow transplantation>
-      predicate: <TREATS>
-      object: <graft-versus-host disease>
-      qualifier: <Congenital genetic diseases>
-      subject_qualifier: <>
-      object_qualifier: <acute>
-      subject_extension: <Bone marrow transplantation>
-      object_extension: <Grade II to IV acute>
-    - subject: MAXO:0010030
-      predicate: TREATS
-      object: Chronic GVHD
-      qualifier: Congenital genetic diseases
+      object: congenital genetic diseases
+      qualifier: congenital genetic diseases
     - subject: <HLA matching>
       predicate: <PREVENTS>
       object: <early or late graft failure>
-      qualifier: <Congenital genetic diseases>
+      qualifier: <congenital genetic diseases>
       subject_extension: <HLA matching>
-    - subject: <HLA matching>
-      predicate: <PREVENTS>
-      object: <Grade II to IV acute graft-versus-host disease (GVHD)>
-      qualifier: <Congenital genetic diseases>
-      subject_extension: <HLA matching>
-    - subject: Treatment for graft-versus-host disease
-      predicate: TREATS
-      object: Grade II to IV acute graft-versus-host disease (GVHD)
-      qualifier: Congenital genetic diseases
-    - subject: Treatment for graft-versus-host disease
-      predicate: TREATS
-      object: Chronic GVHD
-      qualifier: Congenital genetic diseases
+    - subject: MAXO:0010030
+      predicate: PREVENTS
+      object: acute graft-versus-host disease (GVHD)
+      qualifier: congenital genetic diseases
+    - subject: MAXO:0010030
+      predicate: PREVENTS
+      object: chronic GVHD
+      qualifier: congenital genetic diseases
 named_entities:
+  - id: HP:0012531
+    label: pain
   - id: MAXO:0010030
-    label: Bone marrow transplantation (BMT)
+    label: bone marrow transplantation (BMT)

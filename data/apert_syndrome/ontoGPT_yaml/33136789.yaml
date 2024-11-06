@@ -22,12 +22,16 @@ input_text: 'Apert Hand Reconstruction: Do Partial-Thickness Skin Grafts Result 
   morbidity and does not result in flexion scar contracture.'
 raw_completion_output: |-
   primary_disease: Apert syndrome
-  medical_actions: Hand reconstruction; Digit separation; Use of local flaps; Partial-thickness skin grafts
-  symptoms: Flexion scar contracture; Donor site morbidity
+
+  medical_actions: Digit separation; Use of local flaps; Partial-thickness skin grafts 
+
+  symptoms: Flexion scar contracture; Donor site-related complications
+
   chemicals: 
-  action_annotation_relationships: Hand reconstruction TREATS Apert syndrome; Digit separation TREATS Apert syndrome; Use of local flaps (with partial-thickness skin grafts) PREVENTS Flexion scar contracture IN Apert syndrome; Partial-thickness skin grafts PREVENT Flexion scar contracture IN Apert syndrome; Partial-thickness skin grafts REDUCE Donor site morbidity IN Apert syndrome
+
+  action_annotation_relationships: Use of local flaps TREATS Apert syndrome; Partial-thickness skin grafts PREVENT Flexion scar contracture IN Apert syndrome; Digit separation TREATS Apert syndrome
 prompt: |+
-  From the text below, extract the following entities in the following format:
+  Split the following piece of text into fields in the following format:
 
   subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
   object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
@@ -40,74 +44,57 @@ prompt: |+
 
 
   Text:
-  Partial-thickness skin grafts REDUCE Donor site morbidity IN Apert syndrome
+  Digit separation TREATS Apert syndrome
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0007041
   medical_actions:
-    - Hand reconstruction
     - Digit separation
     - Use of local flaps
     - Partial-thickness skin grafts
   symptoms:
     - Flexion scar contracture
-    - Donor site morbidity
+    - Donor site-related complications
   action_annotation_relationships:
-    - subject: Hand reconstruction
+    - subject: Use of local flaps
       predicate: TREATS
       object: Apert syndrome
+    - subject: Partial-thickness skin grafts
+      predicate: PREVENTS
+      object: Flexion scar contracture
+      qualifier: MONDO:0007041
     - subject: Digit separation
       predicate: TREATS
       object: Apert syndrome
-    - subject: Use of local flaps
-      predicate: PREVENTS
-      object: Flexion scar contracture
-      qualifier: MONDO:0007041
-      subject_extension: local flaps
-      object_extension: partial-thickness skin grafts
-    - subject: Partial-thickness skin grafts
-      predicate: PREVENTS
-      object: Flexion scar contracture
-      qualifier: MONDO:0007041
-      subject_qualifier: <null>
-      object_qualifier: <null>
-      subject_extension: <null>
-      object_extension: <null>
-    - subject: Partial-thickness skin grafts
-      predicate: REDUCE
-      object: Donor site morbidity
-      qualifier: MONDO:0007041
 named_entities:
-  - id: HP:0011800
-    label: Midface hypoplasia
   - id: MONDO:0007041
     label: Apert syndrome
   - id: MAXO:0000486
-    label: distraction osteogenesis
+    label: Distraction osteogenesis
   - id: HP:0012531
-    label: pain
+    label: Pain
   - id: HP:0001288
-    label: gait disturbances
-  - id: MONDO:0003432
-    label: Strabismus
+    label: Gait disturbances
   - id: HP:0001159
     label: Syndactyly
-  - id: MAXO:0000004
-    label: surgical procedures
   - id: HP:0001363
     label: craniosynostosis
+  - id: HP:0011800
+    label: midface hypoplasia
   - id: MONDO:0015338
     label: syndromic craniosynostosis
   - id: HP:0001061
     label: Acne
   - id: CHEBI:6067
-    label: isotretinoin
+    label: Isotretinoin
   - id: MONDO:0015469
     label: Craniosynostosis
+  - id: HP:0000504
+    label: Vision issues
   - id: HP:0000572
-    label: Vision loss
+    label: Visual loss
   - id: HP:0000646
     label: Amblyopia
   - id: HP:0001138

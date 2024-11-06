@@ -10,10 +10,10 @@ input_text: Serotonin-GABA treatment is hypothesized for self-injury in Lesch-Ny
   endogenous anticonvulsants (serotonin and gamma aminobutyric acid).
 raw_completion_output: |-
   primary_disease: Lesch-Nyhan syndrome
-  medical_actions: Serotonin-GABA treatment; reducing production of kynurenine; reducing production of quinolinic acid; enhancing serotonin; enhancing gamma aminobutyric acid
-  symptoms: self-injurious movements; elevated levels of xanthine
-  chemicals: serotonin; gamma aminobutyric acid; kynurenine; quinolinic acid; xanthine
-  action_annotation_relationships: Serotonin-GABA treatment TREATS self-injurious movements IN Lesch-Nyhan syndrome; reducing production of kynurenine TREATS elevated levels of xanthine IN Lesch-Nyhan syndrome; reducing production of quinolinic acid TREATS elevated levels of xanthine IN Lesch-Nyhan syndrome; enhancing serotonin PREVENTS self-injurious movements IN Lesch-Nyhan syndrome; enhancing gamma aminobutyric acid PREVENTS self-injurious movements IN Lesch-Nyhan syndrome
+  medical_actions: reducing production of kynurenine; reducing production of quinolinic acid; enhancing serotonin; enhancing gamma aminobutyric acid
+  symptoms: self-injurious movements
+  chemicals: kynurenine; quinolinic acid; serotonin; gamma aminobutyric acid; xanthine
+  action_annotation_relationships: reducing production of kynurenine TREATS self-injurious movements IN Lesch-Nyhan syndrome; reducing production of quinolinic acid TREATS self-injurious movements IN Lesch-Nyhan syndrome; enhancing serotonin (with serotonin) TREATS self-injurious movements IN Lesch-Nyhan syndrome; enhancing gamma aminobutyric acid (with gamma aminobutyric acid) TREATS self-injurious movements IN Lesch-Nyhan syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -28,66 +28,59 @@ prompt: |+
 
 
   Text:
-  enhancing gamma aminobutyric acid PREVENTS self-injurious movements IN Lesch-Nyhan syndrome
+  enhancing gamma aminobutyric acid (with gamma aminobutyric acid) TREATS self-injurious movements IN Lesch-Nyhan syndrome
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0010298
   medical_actions:
-    - Serotonin-GABA treatment
     - reducing production of kynurenine
     - reducing production of quinolinic acid
     - enhancing serotonin
     - enhancing gamma aminobutyric acid
   symptoms:
     - self-injurious movements
-    - elevated levels of xanthine
   chemicals:
-    - CHEBI:28790
-    - gamma aminobutyric acid
     - CHEBI:28683
     - CHEBI:16675
+    - CHEBI:28790
+    - gamma aminobutyric acid
     - CHEBI:15318
   action_annotation_relationships:
-    - subject: treatment
-      predicate: TREATS
-      object: self-injurious movements
-      qualifier: MONDO:0010298
-      subject_extension: Serotonin-GABA
     - subject: reducing production of
       predicate: TREATS
-      object: elevated levels of
+      object: self-injurious movements
       qualifier: MONDO:0010298
       subject_extension: CHEBI:28683
-      object_extension: xanthine
     - subject: reducing production of quinolinic acid
       predicate: TREATS
-      object: elevated levels of xanthine
+      object: self-injurious movements
       qualifier: MONDO:0010298
       subject_extension: CHEBI:16675
-      object_extension: xanthine
     - subject: enhancing serotonin
-      predicate: PREVENTS
+      predicate: TREATS
       object: self-injurious movements
       qualifier: MONDO:0010298
+      subject_qualifier: with serotonin
       subject_extension: CHEBI:28790
-    - subject: enhancing
-      predicate: PREVENTS
+    - subject: enhancing gamma aminobutyric acid
+      predicate: TREATS
       object: self-injurious movements
       qualifier: MONDO:0010298
+      subject_qualifier: with gamma aminobutyric acid
       subject_extension: gamma aminobutyric acid
 named_entities:
   - id: MONDO:0010298
     label: Lesch-Nyhan syndrome
-  - id: HP:0002149
-    label: hyperuricemia
-  - id: HP:0100021
-    label: spastic cerebral palsy (CP)
-  - id: HP:0001332
-    label: dystonia
   - id: HP:0000742
-    label: self-mutilation
+    label: Self-mutilation
+  - id: HP:0002149
+    label: Hyperuricemia
+  - id: HP:0001249
+    label: Mental retardation
+  - id: HP:0001332
+    label: Dystonia
   - id: HP:0001257
     label: Spasticity
   - id: HP:0001266
@@ -98,39 +91,37 @@ named_entities:
     label: Aggression
   - id: HP:0002104
     label: Apnea
-  - id: HP:0002013
-    label: Vomiting
   - id: CHEBI:44915
     label: Propofol
+  - id: HP:0002835
+    label: pulmonary aspiration
   - id: MAXO:0000943
     label: deep brain stimulation surgery (DBS)
   - id: CHEBI:9130
     label: sevoflurane
-  - id: MAXO:0009003
-    label: preimplantation genetic diagnosis (PGD)
-  - id: HP:0001249
-    label: mental retardation
   - id: CHEBI:17368
     label: Hypoxanthine
   - id: CHEBI:15372
-    label: tetrahydrobiopterin
+    label: Tetrahydrobiopterin
   - id: CHEBI:35634
-    label: xanthine oxidase inhibitors
+    label: Xanthine oxidase inhibitors
+  - id: MAXO:0000004
+    label: surgical procedures
   - id: CHEBI:3387
-    label: Carbamazepine
-  - id: HP:0007325
-    label: generalized dystonia
+    label: carbamazepine
+  - id: MONDO:0002486
+    label: Lesch-Nyhan syndrome (LNS)
   - id: HP:0100660
-    label: dyskinesia
+    label: Dyskinesia
   - id: HP:0003149
-    label: Hyperuricosuria
+    label: hyperuricosuria
   - id: HP:0001997
-    label: Gouty arthritis
-  - id: CHEBI:28790
-    label: serotonin
+    label: gouty arthritis
   - id: CHEBI:28683
     label: kynurenine
   - id: CHEBI:16675
     label: quinolinic acid
+  - id: CHEBI:28790
+    label: serotonin
   - id: CHEBI:15318
     label: xanthine

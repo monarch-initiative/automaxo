@@ -13,13 +13,13 @@ input_text: Delayed diagnosis of Loeys-Dietz syndrome revealed through atrial se
 raw_completion_output: |-
   primary_disease: Loeys-Dietz syndrome
 
-  medical_actions: early detection; comprehensive imaging
+  medical_actions: Echocardiography; comprehensive imaging
 
   symptoms: development delay; progressively worsening dyspnea on moderate exertion; orthopnea; right atrial and right ventricle dilation; right ventricle hypertrophy; atrial septal defect; aneurysmal dilation of the pulmonary artery trunk
 
   chemicals: 
 
-  action_annotation_relationships: early detection PREVENTS progression IN Loeys-Dietz syndrome; comprehensive imaging PREVENTS misdiagnosis IN Loeys-Dietz syndrome
+  action_annotation_relationships: Echocardiography TREATS right atrial and right ventricle dilation IN Loeys-Dietz syndrome; Echocardiography TREATS right ventricle hypertrophy IN Loeys-Dietz syndrome; Echocardiography TREATS atrial septal defect IN Loeys-Dietz syndrome; Echocardiography TREATS aneurysmal dilation of the pulmonary artery trunk IN Loeys-Dietz syndrome; comprehensive imaging TREATS development delay IN Loeys-Dietz syndrome; comprehensive imaging TREATS progressively worsening dyspnea on moderate exertion IN Loeys-Dietz syndrome; comprehensive imaging TREATS orthopnea IN Loeys-Dietz syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -34,14 +34,14 @@ prompt: |+
 
 
   Text:
-  comprehensive imaging PREVENTS misdiagnosis IN Loeys-Dietz syndrome
+  comprehensive imaging TREATS orthopnea IN Loeys-Dietz syndrome
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0018954
   medical_actions:
-    - early detection
+    - MAXO:0010203
     - comprehensive imaging
   symptoms:
     - development delay
@@ -52,18 +52,60 @@ extracted_object:
     - HP:0001631
     - aneurysmal dilation of the pulmonary artery trunk
   action_annotation_relationships:
-    - subject: early detection
-      predicate: PREVENTS
-      object: progression
+    - subject: MAXO:0010203
+      predicate: TREATS
+      object: right atrial and right ventricle dilation
+      qualifier: MONDO:0018954
+    - subject: MAXO:0010203
+      predicate: TREATS
+      object: right ventricle hypertrophy
+      qualifier: MONDO:0018954
+    - subject: MAXO:0010203
+      predicate: TREATS
+      object: HP:0001631
+      qualifier: MONDO:0018954
+    - subject: <Echocardiography>
+      predicate: <TREATS>
+      object: <aneurysmal dilation of the pulmonary artery trunk>
+      qualifier: <Loeys-Dietz syndrome>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: comprehensive imaging
+      predicate: TREATS
+      object: HP:0001263
       qualifier: MONDO:0018954
     - subject: comprehensive imaging
-      predicate: PREVENTS
-      object: misdiagnosis
+      predicate: TREATS
+      object: progressively worsening dyspnea on moderate exertion
+      qualifier: MONDO:0018954
+    - subject: comprehensive imaging
+      predicate: TREATS
+      object: HP:0012764
       qualifier: MONDO:0018954
 named_entities:
   - id: MONDO:0018954
     label: Loeys-Dietz syndrome
+  - id: MAXO:0000945
+    label: spinal cord stimulation (SCS)
+  - id: HP:0031625
+    label: Pseudoaneurysms
+  - id: MAXO:0000451
+    label: Implantation
+  - id: HP:0000978
+    label: Easy bruising
+  - id: HP:0002616
+    label: Aortic root dilatation
+  - id: HP:0001382
+    label: Joint laxity
+  - id: CHEBI:35530
+    label: Beta-blocker
+  - id: MAXO:0010203
+    label: Echocardiography
   - id: HP:0012764
     label: orthopnea
   - id: HP:0001631
     label: atrial septal defect
+  - id: HP:0001263
+    label: developmental delay

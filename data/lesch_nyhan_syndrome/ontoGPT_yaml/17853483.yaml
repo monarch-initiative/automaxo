@@ -14,11 +14,11 @@ raw_completion_output: |-
 
   medical_actions: Antero-ventral internal pallidum stimulation; Deep brain stimulation
 
-  symptoms: delayed acquisition of motor skills; dystonia; severe self-mutilations; aggressive behavior; dyskinesia
+  symptoms: Delayed acquisition of motor skills; Dystonia; Severe self-mutilations; Aggressive behavior; Dyskinesia
 
-  chemicals: 
+  chemicals: Hypoxanthine-guanine phosphoribosyl transferase
 
-  action_annotation_relationships: Antero-ventral internal pallidum stimulation TREATS severe self-mutilations IN Lesch-Nyhan disease; Antero-ventral internal pallidum stimulation TREATS dystonia IN Lesch-Nyhan disease; Deep brain stimulation TREATS involuntary movements IN Lesch-Nyhan disease; Deep brain stimulation TREATS psychiatric disorders IN Lesch-Nyhan disease; Antero-ventral internal pallidum stimulation TREATS dyskinesia IN Lesch-Nyhan disease
+  action_annotation_relationships: Antero-ventral internal pallidum stimulation TREATS severe self-mutilations IN Lesch-Nyhan disease; Antero-ventral internal pallidum stimulation TREATS dystonia IN Lesch-Nyhan disease; Antero-ventral internal pallidum stimulation TREATS dyskinesia IN Lesch-Nyhan disease; Deep brain stimulation TREATS involuntary movements IN Lesch-Nyhan disease; Deep brain stimulation TREATS psychiatric disorders IN Lesch-Nyhan disease
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -33,7 +33,7 @@ prompt: |+
 
 
   Text:
-  Antero-ventral internal pallidum stimulation TREATS dyskinesia IN Lesch-Nyhan disease
+  Deep brain stimulation TREATS psychiatric disorders IN Lesch-Nyhan disease
 
   ===
 
@@ -43,25 +43,28 @@ extracted_object:
     - Antero-ventral internal pallidum stimulation
     - MAXO:0000943
   symptoms:
-    - delayed acquisition of motor skills
+    - Delayed acquisition of motor skills
     - HP:0001332
-    - severe self-mutilations
+    - Severe self-mutilations
     - HP:0000718
     - HP:0100660
+  chemicals:
+    - Hypoxanthine-guanine phosphoribosyl transferase
   action_annotation_relationships:
-    - subject: Antero-ventral internal pallidum stimulation
-      predicate: TREATS
-      object: severe self-mutilations
-      qualifier: Lesch-Nyhan disease
-      object_qualifier: severe
     - subject: <Antero-ventral internal pallidum stimulation>
       predicate: <TREATS>
-      object: <dystonia>
+      object: <severe self-mutilations>
       qualifier: <Lesch-Nyhan disease>
-      subject_qualifier: <Not applicable>
-      object_qualifier: <Not applicable>
-      subject_extension: <Not applicable>
-      object_extension: <Not applicable>
+      object_qualifier: <severe>
+      subject_extension: <Antero-ventral internal pallidum stimulation>
+    - subject: Antero-ventral internal pallidum stimulation
+      predicate: TREATS
+      object: HP:0001332
+      qualifier: Lesch-Nyhan disease
+    - subject: Antero-ventral internal pallidum stimulation
+      predicate: TREATS
+      object: HP:0100660
+      qualifier: Lesch-Nyhan disease
     - subject: MAXO:0000943
       predicate: TREATS
       object: HP:0004305
@@ -70,25 +73,17 @@ extracted_object:
       predicate: TREATS
       object: HP:0000708
       qualifier: Lesch-Nyhan disease
-    - subject: <Antero-ventral internal pallidum stimulation>
-      predicate: <TREATS>
-      object: <dyskinesia>
-      qualifier: <Lesch-Nyhan disease>
-      subject_qualifier: <Not mentioned>
-      object_qualifier: <Not mentioned>
-      subject_extension: <Not explicitly mentioned>
-      object_extension: <Not explicitly mentioned>
 named_entities:
   - id: MONDO:0010298
     label: Lesch-Nyhan syndrome
-  - id: HP:0002149
-    label: hyperuricemia
-  - id: HP:0100021
-    label: spastic cerebral palsy (CP)
-  - id: HP:0001332
-    label: dystonia
   - id: HP:0000742
-    label: self-mutilation
+    label: Self-mutilation
+  - id: HP:0002149
+    label: Hyperuricemia
+  - id: HP:0001249
+    label: Mental retardation
+  - id: HP:0001332
+    label: Dystonia
   - id: HP:0001257
     label: Spasticity
   - id: HP:0001266
@@ -99,46 +94,42 @@ named_entities:
     label: Aggression
   - id: HP:0002104
     label: Apnea
-  - id: HP:0002013
-    label: Vomiting
   - id: CHEBI:44915
     label: Propofol
+  - id: HP:0002835
+    label: pulmonary aspiration
   - id: MAXO:0000943
     label: deep brain stimulation surgery (DBS)
   - id: CHEBI:9130
     label: sevoflurane
-  - id: MAXO:0009003
-    label: preimplantation genetic diagnosis (PGD)
-  - id: HP:0001249
-    label: mental retardation
   - id: CHEBI:17368
     label: Hypoxanthine
   - id: CHEBI:15372
-    label: tetrahydrobiopterin
+    label: Tetrahydrobiopterin
   - id: CHEBI:35634
-    label: xanthine oxidase inhibitors
+    label: Xanthine oxidase inhibitors
+  - id: MAXO:0000004
+    label: surgical procedures
   - id: CHEBI:3387
-    label: Carbamazepine
-  - id: HP:0007325
-    label: generalized dystonia
+    label: carbamazepine
+  - id: MONDO:0002486
+    label: Lesch-Nyhan syndrome (LNS)
   - id: HP:0100660
-    label: dyskinesia
+    label: Dyskinesia
   - id: HP:0003149
-    label: Hyperuricosuria
+    label: hyperuricosuria
   - id: HP:0001997
-    label: Gouty arthritis
-  - id: CHEBI:28790
-    label: serotonin
+    label: gouty arthritis
   - id: CHEBI:28683
     label: kynurenine
   - id: CHEBI:16675
     label: quinolinic acid
+  - id: CHEBI:28790
+    label: serotonin
   - id: CHEBI:15318
     label: xanthine
   - id: HP:0001263
     label: developmental retardation
-  - id: MONDO:0002486
-    label: Lesch-Nyhan syndrome (LNS)
   - id: HP:0000708
     label: Behavioral disturbances
   - id: HP:0012758
@@ -146,15 +137,15 @@ named_entities:
   - id: CHEBI:8802
     label: Remifentanil
   - id: MAXO:0010033
-    label: Umbilical cord blood transplant (UCBT)
+    label: Umbilical Cord Blood Transplant (UCBT)
   - id: MAXO:0000139
     label: Autopsy
   - id: HP:0033006
     label: Diffuse alveolar damage
   - id: HP:6000716
     label: Hepatic veno-occlusive disease
-  - id: HP:0011793
-    label: malignant neoplasm
+  - id: HP:0002721
+    label: immunodeficiencies
   - id: MAXO:0000882
     label: behavioral interventions
   - id: MAXO:0000894
@@ -163,18 +154,14 @@ named_entities:
     label: allopurinol
   - id: MAXO:0001298
     label: therapy
-  - id: HP:0030050
-    label: Catalepsy
-  - id: CHEBI:73297
-    label: SCH 23390
-  - id: CHEBI:5123
-    label: fluphenazine
-  - id: CHEBI:32168
-    label: (+/-) sulpiride
-  - id: MONDO:0010100
-    label: Tay-Sachs disease
+  - id: MAXO:0009003
+    label: preimplantation genetic diagnosis (PGD)
+  - id: CHEBI:26337
+    label: <preimplantation genetic diagnosis (PGD)>
   - id: MAXO:0000058
     label: Pharmacological treatment
+  - id: HP:0000739
+    label: Anxiety
   - id: CHEBI:15414
     label: S-adenosylmethionine (SAMe)
   - id: CHEBI:18406

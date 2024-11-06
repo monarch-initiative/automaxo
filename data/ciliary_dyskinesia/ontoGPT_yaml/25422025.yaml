@@ -1,0 +1,176 @@
+---
+input_text: 'Primary ciliary dyskinesia and neonatal respiratory distress. BACKGROUND
+  AND OBJECTIVE: Primary ciliary dyskinesia (PCD) is a rare inherited disease affecting
+  motile cilia lining the respiratory tract. Despite neonatal respiratory distress
+  as an early feature, diagnosis is typically delayed until late childhood. Our objective
+  was to identify characteristics that differentiate PCD from common causes of term
+  neonatal respiratory distress. METHODS: This was a case-control study. Patients
+  with PCD born after 1994 attending a regional PCD clinic who had a history of neonatal
+  respiratory distress (n = 46) were included. Controls (n = 46), term neonates with
+  respiratory distress requiring a chest radiograph, were randomly selected from hospital
+  birth records and matched on gender, birth month/year, and mode of delivery. Multiple
+  logistic regression was used to determine the association between neonatal characteristics
+  and PCD diagnosis. The diagnostic performance of the best predictive variables was
+  estimated by calculating sensitivity and specificity. RESULTS: PCD cases required
+  more oxygen therapy (39 cases, 29 controls, P = .01), longer duration of oxygen
+  therapy (PCD mean = 15.2 days, control mean = 0.80 days, P < .01), had later onset
+  of neonatal respiratory distress (PCD median = 12 hours, control median = 1 hour,
+  P < .001), and higher frequency of lobar collapse and situs inversus (PCD = 70%
+  and 48% respectively, control = 0% for both, P < .001). Situs inversus, lobar collapse,
+  or oxygen need for >2 days had 87% (95% confidence interval: 74-94) sensitivity
+  and 96% (95% confidence interval: 85-99) specificity for PCD. CONCLUSIONS: When
+  encountering term neonates with unexplained respiratory distress, clinicians should
+  consider PCD in those with lobar collapse, situs inversus, and/or prolonged oxygen
+  therapy (>2 days).'
+raw_completion_output: |-
+  primary_disease: Primary ciliary dyskinesia (PCD)
+
+  medical_actions: oxygen therapy
+
+  symptoms: neonatal respiratory distress; later onset of neonatal respiratory distress; lobar collapse; situs inversus
+
+  chemicals: 
+
+  action_annotation_relationships: oxygen therapy TREATS neonatal respiratory distress IN Primary ciliary dyskinesia (PCD); oxygen therapy TREATS lobar collapse IN Primary ciliary dyskinesia (PCD); oxygen therapy (for >2 days) TREATS unexplained respiratory distress IN Primary ciliary dyskinesia (PCD)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  oxygen therapy (for >2 days) TREATS unexplained respiratory distress IN Primary ciliary dyskinesia (PCD)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0008932
+  medical_actions:
+    - oxygen therapy
+  symptoms:
+    - HP:0002643
+    - later onset of neonatal respiratory distress
+    - lobar collapse
+    - HP:0001696
+  action_annotation_relationships:
+    - subject: oxygen therapy
+      predicate: TREATS
+      object: HP:0002643
+      qualifier: MONDO:0008932
+    - subject: <oxygen therapy>
+      predicate: <TREATS>
+      object: <lobar collapse>
+      qualifier: MONDO:0008932
+      subject_extension: <oxygen>
+    - subject: oxygen therapy
+      predicate: TREATS
+      object: unexplained respiratory distress
+      qualifier: MONDO:0008932
+      subject_qualifier: for >2 days
+      subject_extension: CHEBI:25805
+named_entities:
+  - id: MONDO:0016575
+    label: Primary Ciliary Dyskinesia
+  - id: HP:0034315
+    label: Chronic cough
+  - id: HP:0002643
+    label: Neonatal respiratory distress
+  - id: HP:0003251
+    label: male infertility
+  - id: HP:0001696
+    label: situs inversus
+  - id: CHEBI:27958
+    label: Cocaine
+  - id: MONDO:0004247
+    label: Peptic Ulcer Disease (PUD)
+  - id: MAXO:0001193
+    label: upper gastrointestinal endoscopy
+  - id: HP:0002239
+    label: gastrointestinal hemorrhage
+  - id: CHEBI:18361
+    label: proton pump inhibitor (PPI)
+  - id: CHEBI:49200
+    label: proton pump inhibitor
+  - id: MONDO:0008932
+    label: Primary ciliary dyskinesia (PCD)
+  - id: CHEBI:33281
+    label: Antibiotics
+  - id: CHEBI:35523
+    label: Bronchodilators
+  - id: CHEBI:67079
+    label: Anti-inflammatory agents
+  - id: MAXO:0001298
+    label: Therapy
+  - id: HP:0012262
+    label: Abnormal ciliary motility
+  - id: HP:0100750
+    label: atelectasis
+  - id: HP:0002878
+    label: respiratory failure
+  - id: HP:0012265
+    label: Primary Ciliary Dyskinesia
+  - id: HP:0011962
+    label: Obstructive azoospermia
+  - id: MONDO:0005936
+    label: recurrent pneumonia
+  - id: MONDO:0018597
+    label: Plastic bronchitis
+  - id: HP:0002098
+    label: respiratory distress
+  - id: MONDO:0018677
+    label: heterotaxy
+  - id: MAXO:0025001
+    label: cardiac surgery
+  - id: MAXO:0000503
+    label: mechanical ventilation
+  - id: MAXO:0000504
+    label: tracheostomies
+  - id: HP:0001627
+    label: congenital heart disease
+  - id: HP:0001708
+    label: Right-sided heart failure
+  - id: MAXO:0000011
+    label: Physiotherapy
+  - id: HP:0012207
+    label: Asthenozoospermia
+  - id: HP:0000388
+    label: otitis media
+  - id: HP:0031245
+    label: wet cough
+  - id: MAXO:0000516
+    label: chest physiotherapy
+  - id: HP:0001742
+    label: nasal congestion
+  - id: HP:0000989
+    label: itching
+  - id: HP:0011109
+    label: chronic sinusitis
+  - id: HP:0002110
+    label: bronchiectasis
+  - id: HP:0001651
+    label: dextrocardia
+  - id: CHEBI:77034
+    label: mucolytic
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: HP:0002088
+    label: Lung disease
+  - id: MAXO:0000118
+    label: immunization
+  - id: MAXO:0000079
+    label: genetic counseling
+  - id: HP:0031353
+    label: otitis media with effusion
+  - id: HP:0000789
+    label: infertility
+  - id: MAXO:0000127
+    label: Genetic testing
+  - id: CHEBI:25805
+    label: oxygen

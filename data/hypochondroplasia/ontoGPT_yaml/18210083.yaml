@@ -12,10 +12,10 @@ input_text: '[Achondroplasia and hypochondroplasia in paediatric orthopaedics]. 
   used in planning any osteotomy.'
 raw_completion_output: |-
   primary_disease: Achondroplasia and hypochondroplasia
-  medical_actions: Clinical examination; Correction of deformities; Using the CORA method in planning osteotomy
-  symptoms: Diminished body height; Pathologic alterations of the occipitocervical region; Stenosis of the medullary cavity; Bow-leg deformity; Hyperlaxity of the ligaments
+  medical_actions: Clinical examination;Osteotomy using the CORA method
+  symptoms: Diminished body height;Pathologic alterations of the occipitocervical region;Stenosis of the medullary cavity;Bow-leg deformity;Hyperlaxity of the ligaments
   chemicals: 
-  action_annotation_relationships: Clinical examination PREVENTS Misdiagnosis IN Achondroplasia and hypochondroplasia; Correction of deformities TREATS Bow-leg deformity IN Achondroplasia and hypochondroplasia; Using the CORA method in planning osteotomy TREATS Pathologic alterations of the occipitocervical region IN Achondroplasia and hypochondroplasia; Using the CORA method in planning osteotomy TREATS Stenosis of the medullary cavity IN Achondroplasia and hypochondroplasia
+  action_annotation_relationships: Clinical examination TREATS Diminished body height IN Achondroplasia and hypochondroplasia;Osteotomy using the CORA method TREATS Pathologic alterations of the occipitocervical region IN Achondroplasia and hypochondroplasia;Osteotomy using the CORA method TREATS Stenosis of the medullary cavity IN Achondroplasia and hypochondroplasia;Osteotomy using the CORA method TREATS Bow-leg deformity IN Achondroplasia and hypochondroplasia;Osteotomy using the CORA method TREATS Hyperlaxity of the ligaments IN Achondroplasia and hypochondroplasia
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -30,7 +30,7 @@ prompt: |+
 
 
   Text:
-  Using the CORA method in planning osteotomy TREATS Stenosis of the medullary cavity IN Achondroplasia and hypochondroplasia
+  Osteotomy using the CORA method TREATS Hyperlaxity of the ligaments IN Achondroplasia and hypochondroplasia
 
   ===
 
@@ -38,8 +38,7 @@ extracted_object:
   primary_disease: Achondroplasia and hypochondroplasia
   medical_actions:
     - MAXO:0000526
-    - Correction of deformities
-    - Using the CORA method in planning osteotomy
+    - Osteotomy using the CORA method
   symptoms:
     - Diminished body height
     - Pathologic alterations of the occipitocervical region
@@ -47,47 +46,54 @@ extracted_object:
     - Bow-leg deformity
     - Hyperlaxity of the ligaments
   action_annotation_relationships:
-    - subject: <Clinical examination>
-      predicate: <PREVENTS>
-      object: <Misdiagnosis>
-      qualifier: <Achondroplasia and hypochondroplasia>
-      subject_qualifier: <None>
-      object_qualifier: <None>
-      subject_extension: <None>
-      object_extension: <None>
-    - subject: Correction of deformities
+    - subject: MAXO:0000526
       predicate: TREATS
-      object: Bow-leg deformity
+      object: Diminished body height
       qualifier: Achondroplasia and hypochondroplasia
-    - subject: <osteotomy>
-      predicate: <TREATS>
-      object: <Pathologic alterations of the occipitocervical region>
-      qualifier: <Achondroplasia and hypochondroplasia>
-      subject_qualifier: <>
-      object_qualifier: <>
-      subject_extension: <CORA method>
-      object_extension: <Pathologic alterations of the occipitocervical region>
-    - subject: osteotomy
+    - subject: Osteotomy using the CORA method
+      predicate: TREATS
+      object: Pathologic alterations of the occipitocervical region
+      qualifier: Achondroplasia and hypochondroplasia
+    - subject: Osteotomy
       predicate: TREATS
       object: Stenosis of the medullary cavity
-      qualifier: Achondroplasia and hypochondroplasia
-      subject_qualifier: CORA method
+      qualifier: Achondroplasia, hypochondroplasia
+      subject_qualifier: using
+      subject_extension: CORA method
+    - subject: <Osteotomy>
+      predicate: <TREATS>
+      object: <Bow-leg deformity>
+      qualifier: <Achondroplasia and hypochondroplasia>
+      subject_extension: <CORA method>
+    - subject: <Osteotomy>
+      predicate: <TREATS>
+      object: <Hyperlaxity of the ligaments>
+      qualifier: <Achondroplasia and hypochondroplasia>
+      subject_extension: <CORA method>
 named_entities:
   - id: HP:0031846
     label: Femoral fracture
-  - id: MAXO:0000745
-    label: cytogenetic analysis
   - id: HP:0000256
     label: macrocephaly
   - id: MAXO:0000127
-    label: genetic testing
+    label: Genetic testing
+  - id: MONDO:0007793
+    label: Hypochondroplasia
   - id: HP:0003750
     label: Muscle fatigue
+  - id: MAXO:0000486
+    label: distraction osteogenesis
+  - id: MAXO:0000068
+    label: transplantation
   - id: MONDO:0000050
     label: Growth hormone deficiency
-  - id: MAXO:0000780
-    label: Growth hormone therapy
   - id: CHEBI:37845
     label: Growth hormone
+  - id: MONDO:0001106
+    label: renal insufficiency
+  - id: MONDO:0005030
+    label: intrauterine growth retardation
+  - id: MONDO:0008383
+    label: rheumatoid arthritis
   - id: MAXO:0000526
     label: Clinical examination

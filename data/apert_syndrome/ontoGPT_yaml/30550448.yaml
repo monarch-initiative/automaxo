@@ -22,15 +22,11 @@ input_text: 'Single Suture Synostosis and Isolated Cleft Palate in Non-Apert Syn
   does not adversely impact management or outcome for each condition, or increase
   perioperative risk.'
 raw_completion_output: |-
-  primary_disease: Single Suture Craniosynostosis (SSC) and Isolated Cleft Palate (ICP)
-
-  medical_actions: airway optimization; timing surgery appropriately; assessing cranial vault aesthetics; speech outcomes assessment; cranial surgery; cleft surgery; genetic testing; insertion of obturator; speech therapy
-
-  symptoms: developmental delay; speech developmental delay
-
+  primary_disease: Single Suture Synostosis and Isolated Cleft Palate in Non-Apert Syndrome Patients
+  medical_actions: airway optimization; timing surgery appropriately; assessing cranial vault aesthetics; assessing speech outcomes; cranial surgery; cleft surgery; insertion of obturator; genetic testing; speech therapy
+  symptoms: cranial vault aesthetics issues; speech development delay; general development delay; hemi-palatal absence
   chemicals: 
-
-  action_annotation_relationships: airway optimization PREVENTS perioperative airway risk IN Single Suture Craniosynostosis (SSC) and Isolated Cleft Palate (ICP); cranial surgery TREATS Single Suture Craniosynostosis IN Single Suture Craniosynostosis (SSC) and Isolated Cleft Palate (ICP); cleft surgery TREATS Isolated Cleft Palate IN Single Suture Craniosynostosis (SSC) and Isolated Cleft Palate (ICP); insertion of obturator TREATS hemi-palatal absence IN Single Suture Craniosynostosis (SSC) and Isolated Cleft Palate (ICP); speech therapy TREATS speech developmental delay IN Single Suture Craniosynostosis (SSC) and Isolated Cleft Palate (ICP)
+  action_annotation_relationships: airway optimization PREVENTS perioperative airway risk IN Single Suture Synostosis and Isolated Cleft Palate; timing surgery appropriately TREATS cranial vault aesthetics issues IN Single Suture Synostosis and Isolated Cleft Palate; assessing cranial vault aesthetics TREATS cranial vault aesthetics issues IN Single Suture Synostosis and Isolated Cleft Palate; assessing speech outcomes TREATS speech development delay IN Single Suture Synostosis and Isolated Cleft Palate; cranial surgery TREATS cranial vault aesthetics issues IN Single Suture Synostosis and Isolated Cleft Palate; cleft surgery TREATS hemi-palatal absence IN Single Suture Synostosis and Isolated Cleft Palate; insertion of obturator TREATS hemi-palatal absence IN Single Suture Synostosis and Isolated Cleft Palate; speech therapy TREATS speech development delay IN Single Suture Synostosis and Isolated Cleft Palate
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -45,78 +41,89 @@ prompt: |+
 
 
   Text:
-  speech therapy TREATS speech developmental delay IN Single Suture Craniosynostosis (SSC) and Isolated Cleft Palate (ICP)
+  speech therapy TREATS speech development delay IN Single Suture Synostosis and Isolated Cleft Palate
 
   ===
 
 extracted_object:
-  primary_disease: MONDO:0005100
+  primary_disease: Single Suture Synostosis and Isolated Cleft Palate in Non-Apert
+    Syndrome Patients
   medical_actions:
     - airway optimization
     - timing surgery appropriately
     - assessing cranial vault aesthetics
-    - speech outcomes assessment
+    - assessing speech outcomes
     - MAXO:0000948
     - cleft surgery
-    - MAXO:0000127
     - insertion of obturator
+    - MAXO:0000127
     - MAXO:0000930
   symptoms:
-    - HP:0001263
-    - speech developmental delay
+    - cranial vault aesthetics issues
+    - speech development delay
+    - general development delay
+    - hemi-palatal absence
   action_annotation_relationships:
     - subject: airway optimization
       predicate: PREVENTS
       object: perioperative airway risk
-      qualifier: MONDO:0005100
+      qualifier: Single Suture Synostosis, Isolated Cleft Palate
+    - subject: timing surgery appropriately
+      predicate: TREATS
+      object: cranial vault aesthetics issues
+      qualifier: Single Suture Synostosis and Isolated Cleft Palate
+    - subject: assessing cranial vault aesthetics
+      predicate: TREATS
+      object: cranial vault aesthetics issues
+      qualifier: Single Suture Synostosis and Isolated Cleft Palate
+    - subject: assessing speech outcomes
+      predicate: TREATS
+      object: speech development delay
+      qualifier: Single Suture Synostosis and Isolated Cleft Palate
     - subject: MAXO:0000948
       predicate: TREATS
-      object: Single Suture Craniosynostosis
-      qualifier: MONDO:0005100
-    - subject: <cleft surgery>
-      predicate: <TREATS>
-      object: <Isolated Cleft Palate>
-      qualifier: MONDO:0005100
-      subject_extension: <cleft surgery>
+      object: cranial vault aesthetics issues
+      qualifier: Single Suture Synostosis and Isolated Cleft Palate
+    - subject: cleft surgery
+      predicate: TREATS
+      object: hemi-palatal absence
+      qualifier: Single Suture Synostosis, Isolated Cleft Palate
     - subject: insertion of obturator
       predicate: TREATS
       object: hemi-palatal absence
-      qualifier: MONDO:0005100
+      qualifier: Single Suture Synostosis and Isolated Cleft Palate
       subject_extension: obturator
-    - subject: <speech therapy>
-      predicate: <TREATS>
-      object: <speech developmental delay>
-      qualifier: MONDO:0005100
-      subject_extension: <speech therapy>
+    - subject: MAXO:0000930
+      predicate: TREATS
+      object: speech development delay
+      qualifier: Single Suture Synostosis, Isolated Cleft Palate
 named_entities:
-  - id: HP:0011800
-    label: Midface hypoplasia
   - id: MONDO:0007041
     label: Apert syndrome
   - id: MAXO:0000486
-    label: distraction osteogenesis
+    label: Distraction osteogenesis
   - id: HP:0012531
-    label: pain
+    label: Pain
   - id: HP:0001288
-    label: gait disturbances
-  - id: MONDO:0003432
-    label: Strabismus
+    label: Gait disturbances
   - id: HP:0001159
     label: Syndactyly
-  - id: MAXO:0000004
-    label: surgical procedures
   - id: HP:0001363
     label: craniosynostosis
+  - id: HP:0011800
+    label: midface hypoplasia
   - id: MONDO:0015338
     label: syndromic craniosynostosis
   - id: HP:0001061
     label: Acne
   - id: CHEBI:6067
-    label: isotretinoin
+    label: Isotretinoin
   - id: MONDO:0015469
     label: Craniosynostosis
+  - id: HP:0000504
+    label: Vision issues
   - id: HP:0000572
-    label: Vision loss
+    label: Visual loss
   - id: HP:0000646
     label: Amblyopia
   - id: HP:0001138
@@ -127,16 +134,18 @@ named_entities:
     label: Anisometropia
   - id: HP:0000483
     label: Astigmatism
-  - id: MAXO:0000504
-    label: Tracheostomy
   - id: MAXO:0000502
-    label: Tracheal intubation
-  - id: HP:0010807
-    label: Open bite
-  - id: MAXO:0000756
-    label: blood transfusion
+    label: tracheal intubation
+  - id: HP:0009102
+    label: Anterior open bite
   - id: MAXO:0001183
     label: Bronchoscopy
+  - id: MAXO:0000504
+    label: Tracheotomy
+  - id: MAXO:0001029
+    label: Adenoidectomy
+  - id: MAXO:0001081
+    label: Tonsillectomy
   - id: HP:0002104
     label: Apneic episodes
   - id: HP:0002098
@@ -145,26 +154,24 @@ named_entities:
     label: Stridor
   - id: HP:0000961
     label: Cyanosis
-  - id: MONDO:0009735
-    label: Netherton syndrome
-  - id: MONDO:0011438
-    label: Acne vulgaris
+  - id: HP:0000689
+    label: malocclusion
   - id: HP:0002902
-    label: hyponatremia
-  - id: MAXO:0000068
-    label: Transplantation
+    label: Hyponatremia
   - id: MAXO:0010031
     label: bone grafting
+  - id: MAXO:0001291
+    label: cranioplasty
   - id: HP:0001249
     label: mental retardation
+  - id: HP:0001263
+    label: developmental delays
   - id: HP:0002516
     label: raised intracranial pressure
   - id: HP:0010535
     label: sleep apnea
   - id: HP:0000174
     label: palatal anomalies
-  - id: HP:0005347
-    label: Tracheal Cartilaginous Sleeve
   - id: HP:0000175
     label: Cleft palate
   - id: HP:0000365
@@ -175,54 +182,51 @@ named_entities:
     label: Cardiac anomalies
   - id: HP:0001818
     label: Paronychia
-  - id: MAXO:0001029
-    label: adenoidectomy
-  - id: MAXO:0001081
-    label: tonsillectomy
   - id: MAXO:0000506
-    label: noninvasive ventilation
+    label: Noninvasive ventilation
   - id: HP:0002870
-    label: obstructive apneas
+    label: Obstructive apneas
   - id: HP:0000453
-    label: choanal atresia
+    label: Choanal atresia
   - id: HP:0004411
-    label: deviated nasal septum
+    label: Deviated nasal septum
   - id: HP:0002871
-    label: central apneas
+    label: Central apneas
   - id: HP:0002308
     label: Chiari malformations
   - id: MONDO:0002457
-    label: Tracheal cartilaginous sleeve (TCS) in syndromic craniosynostosis
+    label: Tracheal Cartilaginous Sleeve (TCS) in Syndromic Craniosynostosis
   - id: MAXO:0001189
-    label: laryngoscopy
-  - id: HP:0001263
-    label: developmental delay
+    label: Laryngoscopy
   - id: HP:0002119
-    label: enlarged cerebral ventricles
+    label: Enlarged cerebral ventricles
+  - id: HP:0005347
+    label: Tracheal Cartilaginous Sleeve
   - id: MAXO:0000647
     label: Chemotherapy
   - id: MAXO:0000014
     label: Radiotherapy
+  - id: CHEBI:22333
+    label: Alkylating agents
   - id: MAXO:0001001
-    label: Gene therapy
-  - id: MAXO:0000015
-    label: Biological therapies
+    label: Gene therapies
+  - id: MONDO:0020621
+    label: Syndromic Craniosynostosis (SCS)
   - id: HP:0000164
     label: Tooth abnormalities
   - id: MAXO:0000127
     label: Genetic testing
-  - id: MAXO:0000873
-    label: hearing tests
+  - id: MAXO:0000004
+    label: Surgical interventions
   - id: MAXO:0000915
-    label: Comparison of pre- and postoperative polysomnograms (PSGs) and cephalograms
+    label: Evaluation by comparison of the pre- and postoperative polysomnograms (PSGs)
+      and cephalograms
   - id: HP:0006536
     label: Airway obstruction
+  - id: HP:0000158
+    label: Enlarged tongue
   - id: HP:0030784
     label: Word-finding difficulty
-  - id: HP:0012493
-    label: middle cerebral artery (MCA) stenosis
-  - id: MONDO:0005100
-    label: Single Suture Craniosynostosis (SSC) and Isolated Cleft Palate (ICP)
   - id: MAXO:0000948
     label: cranial surgery
   - id: MAXO:0000930

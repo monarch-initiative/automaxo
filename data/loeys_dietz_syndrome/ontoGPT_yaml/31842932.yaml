@@ -30,15 +30,11 @@ input_text: 'Oral health-related quality of life in Loeys-Dietz syndrome, a rare
   guidelines are necessary to ensure optimal quality of life in patients diagnosed
   with LDS.'
 raw_completion_output: |-
-  primary_disease: Loeys-Dietz syndrome (LDS)
-
-  medical_actions: regular dental care; maintaining good-to-excellent daily oral hygiene; dental examination; dental treatment guidelines
-
-  symptoms: dental hypersensitivity; temporomandibular joints (TMJ) abnormalities; self-reported poor-to-fair oral health status; cumulation of four or more oral manifestations
-
+  primary_disease: Loeys-Dietz syndrome
+  medical_actions: regular dental care; comprehensive dental examination; maintaining good-to-excellent daily oral hygiene
+  symptoms: dental hypersensitivity; temporomandibular joints abnormalities; self-reported poor-to-fair oral health status
   chemicals: 
-
-  action_annotation_relationships: regular dental care PREVENTS dental hypersensitivity IN Loeys-Dietz syndrome (LDS); maintaining good-to-excellent daily oral hygiene PREVENTS temporomandibular joints (TMJ) abnormalities IN Loeys-Dietz syndrome (LDS); dental examination TREATS cumulation of four or more oral manifestations IN Loeys-Dietz syndrome (LDS); dental treatment guidelines TREATS dental hypersensitivity IN Loeys-Dietz syndrome (LDS); dental treatment guidelines TREATS temporomandibular joints (TMJ) abnormalities IN Loeys-Dietz syndrome (LDS)
+  action_annotation_relationships: regular dental care TREATS dental hypersensitivity IN Loeys-Dietz syndrome; regular dental care TREATS temporomandibular joints abnormalities IN Loeys-Dietz syndrome; maintaining good-to-excellent daily oral hygiene TREATS dental hypersensitivity IN Loeys-Dietz syndrome; maintaining good-to-excellent daily oral hygiene TREATS temporomandibular joints abnormalities IN Loeys-Dietz syndrome; comprehensive dental examination TREATS dental hypersensitivity IN Loeys-Dietz syndrome; comprehensive dental examination TREATS temporomandibular joints abnormalities IN Loeys-Dietz syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -53,7 +49,7 @@ prompt: |+
 
 
   Text:
-  dental treatment guidelines TREATS temporomandibular joints (TMJ) abnormalities IN Loeys-Dietz syndrome (LDS)
+  comprehensive dental examination TREATS temporomandibular joints abnormalities IN Loeys-Dietz syndrome
 
   ===
 
@@ -61,50 +57,98 @@ extracted_object:
   primary_disease: MONDO:0018954
   medical_actions:
     - regular dental care
+    - comprehensive dental examination
     - maintaining good-to-excellent daily oral hygiene
-    - dental examination
-    - dental treatment guidelines
   symptoms:
     - dental hypersensitivity
-    - temporomandibular joints (TMJ) abnormalities
+    - temporomandibular joints abnormalities
     - self-reported poor-to-fair oral health status
-    - cumulation of four or more oral manifestations
   action_annotation_relationships:
     - subject: regular dental care
-      predicate: PREVENTS
+      predicate: TREATS
       object: dental hypersensitivity
+      qualifier: MONDO:0018954
+    - subject: regular dental care
+      predicate: TREATS
+      object: temporomandibular joints abnormalities
       qualifier: MONDO:0018954
     - subject: maintaining good-to-excellent daily oral hygiene
-      predicate: PREVENTS
-      object: temporomandibular joints (TMJ) abnormalities
-      qualifier: MONDO:0018954
-    - subject: dental examination
-      predicate: TREATS
-      object: cumulation of four or more oral manifestations
-      qualifier: MONDO:0018954
-    - subject: dental treatment guidelines
       predicate: TREATS
       object: dental hypersensitivity
       qualifier: MONDO:0018954
-    - subject: dental treatment guidelines
+      subject_qualifier: <none>
+      object_qualifier: <none>
+      subject_extension: <none>
+      object_extension: <none>
+    - subject: maintaining good-to-excellent daily oral hygiene
       predicate: TREATS
-      object: temporomandibular joints (TMJ) abnormalities
+      object: temporomandibular joints abnormalities
+      qualifier: MONDO:0018954
+    - subject: comprehensive dental examination
+      predicate: TREATS
+      object: dental hypersensitivity
+      qualifier: MONDO:0018954
+    - subject: comprehensive dental examination
+      predicate: TREATS
+      object: temporomandibular joints abnormalities
       qualifier: MONDO:0018954
 named_entities:
   - id: MONDO:0018954
     label: Loeys-Dietz syndrome
+  - id: MAXO:0000945
+    label: spinal cord stimulation (SCS)
+  - id: HP:0031625
+    label: Pseudoaneurysms
+  - id: MAXO:0000451
+    label: Implantation
+  - id: HP:0000978
+    label: Easy bruising
+  - id: HP:0002616
+    label: Aortic root dilatation
+  - id: HP:0001382
+    label: Joint laxity
+  - id: CHEBI:35530
+    label: Beta-blocker
+  - id: MAXO:0010203
+    label: Echocardiography
   - id: HP:0012764
     label: orthopnea
   - id: HP:0001631
     label: atrial septal defect
+  - id: HP:0001263
+    label: developmental delay
+  - id: HP:0003302
+    label: Spondylolisthesis
+  - id: HP:0003304
+    label: Spondylolysis
   - id: HP:0012531
-    label: pain
+    label: Pain
   - id: HP:0004942
     label: aortic aneurysms
+  - id: HP:0002647
+    label: aortic dissection
   - id: HP:0001645
-    label: premature sudden cardiac death
+    label: sudden cardiac death
+  - id: HP:0004944
+    label: Cerebral aneurysms
+  - id: HP:0002617
+    label: Vasculopathy
+  - id: HP:0030745
+    label: Aneurysm of the ductus arteriosus
   - id: MAXO:0000948
-    label: craniotomy
+    label: Craniotomy
+  - id: MAXO:0010319
+    label: CT angiogram
+  - id: MAXO:0010312
+    label: Head CT
+  - id: HP:0007185
+    label: Loss of consciousness
+  - id: HP:0002138
+    label: Subarachnoid hemorrhage
+  - id: HP:0025237
+    label: Unresponsive
+  - id: CHEBI:35620
+    label: vasodilator
   - id: MAXO:0000011
     label: Physical therapy
   - id: MAXO:0001351

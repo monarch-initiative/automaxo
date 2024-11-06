@@ -22,13 +22,13 @@ input_text: Liver transplantation for neonatal-onset citrullinemia. Citrullinemi
 raw_completion_output: |-
   primary_disease: Citrullinemia
 
-  medical_actions: Liver transplantation (LT); Medical and dietary therapy; Retransplantation
+  medical_actions: Liver transplantation (LT); Standard medical therapy; Dietary therapy; Retransplantation due to hepatic artery thrombosis; Additional medical therapy for asymptomatic hyperammonemia
 
-  symptoms: Poor feeding; Hyperammonemia; Encephalopathy; Seizures; Frequent metabolic decompensations; Asymptomatic hyperammonemia
+  symptoms: Poor feeding; Hyperammonemia; Encephalopathy; Seizures; Metabolic decompensations; Asymptomatic hyperammonemia
 
   chemicals: 
 
-  action_annotation_relationships: Liver transplantation TREATS frequent metabolic decompensations IN Citrullinemia; Liver transplantation TREATS poor feeding IN Citrullinemia; Liver transplantation TREATS hyperammonemia IN Citrullinemia; Liver transplantation TREATS encephalopathy IN Citrullinemia; Liver transplantation TREATS seizures IN Citrullinemia; Medical and dietary therapy PREVENTS symptoms IN Citrullinemia; Retransplantation TREATS hepatic artery thrombosis IN Citrullinemia
+  action_annotation_relationships: Liver transplantation TREATS metabolic decompensations IN Citrullinemia; Standard medical therapy TREATS poor feeding IN Citrullinemia; Standard medical therapy TREATS hyperammonemia IN Citrullinemia; Standard medical therapy TREATS encephalopathy IN Citrullinemia; Standard medical therapy TREATS seizures IN Citrullinemia; Dietary therapy TREATS poor feeding IN Citrullinemia; Dietary therapy TREATS hyperammonemia IN Citrullinemia; Retransplantation due to hepatic artery thrombosis TREATS hepatic artery thrombosis IN Citrullinemia; Additional medical therapy for asymptomatic hyperammonemia TREATS asymptomatic hyperammonemia IN Citrullinemia
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -43,7 +43,7 @@ prompt: |+
 
 
   Text:
-  Retransplantation TREATS hepatic artery thrombosis IN Citrullinemia
+  Additional medical therapy for asymptomatic hyperammonemia TREATS asymptomatic hyperammonemia IN Citrullinemia
 
   ===
 
@@ -51,43 +51,54 @@ extracted_object:
   primary_disease: MONDO:0015991
   medical_actions:
     - MAXO:0001175
-    - Medical and dietary therapy
-    - Retransplantation
+    - Standard medical therapy
+    - Dietary therapy
+    - Retransplantation due to hepatic artery thrombosis
+    - Additional medical therapy for asymptomatic hyperammonemia
   symptoms:
     - HP:0011968
     - HP:0001987
     - HP:0001298
     - HP:0001250
-    - Frequent metabolic decompensations
+    - Metabolic decompensations
     - HP:0008162
   action_annotation_relationships:
     - subject: MAXO:0001175
       predicate: TREATS
-      object: frequent metabolic decompensations
+      object: metabolic decompensations
       qualifier: MONDO:0015991
-    - subject: MAXO:0001175
-      predicate: TREATS
-      object: HP:0011968
-      qualifier: MONDO:0015991
-    - subject: MAXO:0001175
+    - subject: <Standard medical therapy>
+      predicate: <TREATS>
+      object: <poor feeding>
+      qualifier: <Citrullinemia>
+      subject_extension: <Standard medical therapy>
+    - subject: Standard medical therapy
       predicate: TREATS
       object: HP:0001987
       qualifier: MONDO:0015991
-    - subject: MAXO:0001175
+    - subject: Standard medical therapy
       predicate: TREATS
       object: HP:0001298
       qualifier: MONDO:0015991
-    - subject: MAXO:0001175
+    - subject: Standard medical therapy
       predicate: TREATS
       object: HP:0001250
       qualifier: MONDO:0015991
-    - subject: Medical and dietary therapy
-      predicate: PREVENTS
-      object: symptoms
+    - subject: Dietary therapy
+      predicate: TREATS
+      object: HP:0011968
       qualifier: MONDO:0015991
-    - subject: Retransplantation
+    - subject: Dietary therapy
+      predicate: TREATS
+      object: HP:0001987
+      qualifier: MONDO:0015991
+    - subject: Retransplantation due to hepatic artery thrombosis
       predicate: TREATS
       object: hepatic artery thrombosis
+      qualifier: MONDO:0015991
+    - subject: Additional medical therapy
+      predicate: TREATS
+      object: HP:0008162
       qualifier: MONDO:0015991
 named_entities:
   - id: MONDO:0019052
@@ -97,25 +108,15 @@ named_entities:
   - id: MONDO:0016603
     label: Adult-onset citrullinemia (CTLN2)
   - id: MONDO:0016602
-    label: Citrin deficiency
-  - id: MONDO:0005311
-    label: atherosclerosis
-  - id: CHEBI:18211
-    label: citrulline
-  - id: CHEBI:29016
-    label: arginine
-  - id: CHEBI:16349
-    label: L-citrulline
-  - id: CHEBI:16467
-    label: L-arginine
-  - id: HP:0002621
-    label: atherosclerosis
+    label: citrin deficiency
   - id: MONDO:0008988
     label: Citrullinemia type 1
   - id: MAXO:0000603
     label: Peritoneal dialysis
   - id: MAXO:0000127
     label: Genetic analysis
+  - id: MAXO:0000376
+    label: Liver biopsy
   - id: HP:0001987
     label: Hyperammonemia
   - id: CHEBI:22918
@@ -126,34 +127,16 @@ named_entities:
     label: Hemodialysis
   - id: CHEBI:16150
     label: Benzoate
-  - id: HP:0000739
-    label: Anxiety
-  - id: CHEBI:28938
-    label: Ammonia
-  - id: CHEBI:16199
-    label: Urea
-  - id: MAXO:0001001
-    label: Gene therapy
   - id: HP:0001945
     label: fever
   - id: HP:0003270
     label: abdominal distention
-  - id: HP:0001508
-    label: failure to thrive
-  - id: HP:0003119
-    label: dyslipidemia
-  - id: HP:0005206
-    label: pancreatic pseudocyst
+  - id: HP:0002155
+    label: hypertriglyceridemia
   - id: MAXO:0001298
     label: therapy
-  - id: MONDO:0004992
-    label: Cancer
-  - id: HP:0001510
-    label: Growth failure
-  - id: CHEBI:16646
-    label: carbohydrates
   - id: MONDO:0009563
-    label: Maple Syrup Urine Disease (MSUD)
+    label: maple syrup urine disease (MSUD)
   - id: MONDO:0019542
     label: Acute liver failure (ALF)
   - id: HP:0000952
@@ -172,6 +155,10 @@ named_entities:
     label: easy fatigability
   - id: HP:0001824
     label: weight loss
+  - id: HP:0001508
+    label: failure to thrive
+  - id: HP:0003119
+    label: dyslipidemia
   - id: CHEBI:16374
     label: vitamin K2
   - id: CHEBI:9907
@@ -182,49 +169,64 @@ named_entities:
     label: glycerol
   - id: CHEBI:28757
     label: fructose
+  - id: CHEBI:30879
+    label: alcohol
   - id: HP:0001250
-    label: Seizures
+    label: seizures
+  - id: HP:0006846
+    label: acute encephalopathy
   - id: HP:0002480
-    label: hepatic encephalopathy
+    label: Hepatic encephalopathy
   - id: MONDO:0020579
     label: Mucositis
   - id: HP:0031864
-    label: Bacteremia
-  - id: HP:0001875
-    label: Neutropenia
+    label: bacteremia
   - id: CHEBI:28876
-    label: Melphalan
+    label: melphalan
   - id: CHEBI:4027
-    label: Cyclophosphamide
-  - id: CHEBI:33281
-    label: antimicrobial
-  - id: MONDO:0006851
-    label: Defects in the Mitochondrial Malate Aspartate Shuttle (MAS) and Pyruvate
-      Carrier (MPC)
+    label: cyclophosphamide
   - id: HP:0001410
-    label: Hepatopathy
+    label: hepatopathy
   - id: MONDO:0004739
     label: Urea Cycle Disorders (UCDs)
+  - id: CHEBI:16349
+    label: L-citrulline
+  - id: CHEBI:29016
+    label: Arginine
   - id: HP:0000708
-    label: Abnormal behaviors
+    label: abnormal behaviors
   - id: HP:0001263
     label: Cognitive delay
   - id: MONDO:0011601
-    label: neonatal intrahepatic cholestasis caused by citrin deficiency (NICCD)
+    label: NICCD (neonatal intrahepatic cholestasis caused by citrin deficiency)
   - id: HP:0001396
-    label: cholestasis
+    label: Cholestasis
   - id: HP:0003256
-    label: coagulopathy
+    label: Coagulopathy
+  - id: MAXO:0000932
+    label: EEG
   - id: MAXO:0000468
     label: peritoneal lavage
   - id: HP:0002045
     label: hypothermia
-  - id: HP:0003765
-    label: psoriasis
+  - id: CHEBI:33363
+    label: PD
+  - id: MONDO:0004789
+    label: Cholangitis
+  - id: CHEBI:16467
+    label: L-arginine
   - id: HP:0001406
     label: Intrahepatic cholestasis
   - id: HP:0012023
     label: Galactosuria
+  - id: CHEBI:36080
+    label: Protein
+  - id: CHEBI:17716
+    label: Lactose
+  - id: CHEBI:16646
+    label: Carbohydrate
+  - id: CHEBI:18211
+    label: Citrulline
   - id: CHEBI:18186
     label: Tyrosine
   - id: CHEBI:16811
@@ -232,9 +234,13 @@ named_entities:
   - id: CHEBI:26986
     label: Threonine
   - id: CHEBI:4466
-    label: Dexmedetomidine
+    label: Precedex (dexmedetomidine)
   - id: CHEBI:9130
     label: Sevoflurane
+  - id: HP:0012531
+    label: pain
+  - id: CHEBI:35482
+    label: narcotics
   - id: HP:0011968
     label: Poor feeding
   - id: HP:0001298

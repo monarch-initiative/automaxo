@@ -1,0 +1,257 @@
+---
+input_text: 'Achondroplasia natural history study (CLARITY): 60-year experience in
+  orthopedic surgery from four skeletal dysplasia centers. BACKGROUND: The purpose
+  of this study was to describe the frequency and risk factors for orthopedic surgery
+  in patients with achondroplasia. CLARITY (The Achondroplasia Natural History Study)
+  includes clinical data from achondroplasia patients receiving treatment at four
+  skeletal dysplasia centers in the United States from 1957 to 2018. Data were entered
+  and stored in a Research Electronic Data Capture (REDCap) database. RESULTS: Information
+  from one thousand three hundred and seventy-four patients with achondroplasia were
+  included in this study. Four hundred and eight (29.7%) patients had at least one
+  orthopedic surgery during their lifetime and 299 (21.8%) patients underwent multiple
+  procedures. 12.7% (n = 175) of patients underwent spine surgery at a mean age at
+  first surgery of 22.4 +- 15.3 years old. The median age was 16.7 years old (0.1-67.4).
+  21.2% (n = 291) of patients underwent lower extremity surgery at a mean age at first
+  surgery of 9.9 +- 8.3 years old with a median age of 8.2 years (0.2-57.8). The most
+  common spinal procedure was decompression (152 patients underwent 271 laminectomy
+  procedures), while the most common lower extremity procedure was osteotomy (200
+  patients underwent 434 procedures). Fifty-eight (4.2%) patients had both a spine
+  and lower extremity surgery. Specific risk factors increasing the likelihood of
+  orthopedic surgery included: patients with hydrocephalus requiring shunt placement
+  having higher odds of undergoing spine surgery (OR 1.97, 95% CI 1.14-3.26); patients
+  having a cervicomedullary decompression also had higher odds of undergoing spine
+  surgery (OR 1.85, 95% CI 1.30-2.63); and having lower extremity surgery increased
+  the odds of spine surgery (OR 2.05, 95% CI 1.45-2.90). CONCLUSIONS: Orthopedic surgery
+  was a common occurrence in achondroplasia with 29.7% of patients undergoing at least
+  one orthopedic procedure. Spine surgery (12.7%) was less common and occurred at
+  a later age than lower extremity surgery (21.2%). Cervicomedullary decompression
+  and hydrocephalus with shunt placement were associated with an increased risk for
+  spine surgery. The results from CLARITY, the largest natural history study of achondroplasia,
+  should aid clinicians in counseling patients and families about orthopedic surgery.'
+raw_completion_output: |-
+  primary_disease: Achondroplasia
+
+  medical_actions: Orthopedic surgery; Spine surgery; Lower extremity surgery; Decompression; Laminectomy; Osteotomy; Shunt placement; Cervicomedullary decompression
+
+  symptoms: Hydrocephalus
+
+  chemicals:
+
+  action_annotation_relationships: Orthopedic surgery TREATS achondroplasia; Spine surgery TREATS achondroplasia; Lower extremity surgery TREATS achondroplasia; Decompression TREATS spinal issues IN achondroplasia; Laminectomy TREATS spinal issues IN achondroplasia; Osteotomy TREATS lower extremity issues IN achondroplasia; Shunt placement TREATS hydrocephalus IN achondroplasia; Cervicomedullary decompression TREATS spinal issues IN achondroplasia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Cervicomedullary decompression TREATS spinal issues IN achondroplasia
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0007037
+  medical_actions:
+    - MAXO:0000479
+    - Spine surgery
+    - Lower extremity surgery
+    - Decompression
+    - MAXO:0001061
+    - Osteotomy
+    - Shunt placement
+    - Cervicomedullary decompression
+  symptoms:
+    - HP:0000238
+  action_annotation_relationships:
+    - subject: MAXO:0000479
+      predicate: TREATS
+      object: achondroplasia
+    - subject: Spine surgery
+      predicate: TREATS
+      object: achondroplasia
+    - subject: Lower extremity surgery
+      predicate: TREATS
+      object: achondroplasia
+    - subject: Decompression
+      predicate: TREATS
+      object: spinal issues
+      qualifier: MONDO:0007037
+    - subject: MAXO:0001061
+      predicate: TREATS
+      object: spinal issues
+      qualifier: MONDO:0007037
+    - subject: Osteotomy
+      predicate: TREATS
+      object: lower extremity issues
+      qualifier: MONDO:0007037
+    - subject: Shunt placement
+      predicate: TREATS
+      object: HP:0000238
+      qualifier: MONDO:0007037
+    - subject: Cervicomedullary decompression
+      predicate: TREATS
+      object: spinal issues
+      qualifier: MONDO:0007037
+named_entities:
+  - id: MONDO:0007037
+    label: Achondroplasia
+  - id: HP:0001513
+    label: Obesity
+  - id: HP:0005667
+    label: os odontoideum
+  - id: CHEBI:31805
+    label: Meclizine hydrochloride
+  - id: CHEBI:6709
+    label: meclizine
+  - id: MAXO:0001394
+    label: Oral administration
+  - id: HP:0031846
+    label: Femoral fracture
+  - id: CHEBI:37845
+    label: Growth hormone
+  - id: CHEBI:31324
+    label: Buserelin acetate
+  - id: HP:0004839
+    label: Hypophosphatasia
+  - id: HP:0004322
+    label: short stature
+  - id: HP:0000256
+    label: macrocephaly
+  - id: MAXO:0000127
+    label: Genetic testing
+  - id: MONDO:0007793
+    label: Hypochondroplasia
+  - id: HP:0012531
+    label: pain
+  - id: MONDO:0017014
+    label: children
+  - id: HP:0009102
+    label: Anterior open bite
+  - id: HP:0001558
+    label: Decreased fetal activity
+  - id: HP:0009826
+    label: Limb shortening
+  - id: MAXO:0001061
+    label: Laminectomy
+  - id: HP:0002104
+    label: Apnea
+  - id: HP:0002196
+    label: Myelopathy
+  - id: HP:0002194
+    label: Delayed motor skills
+  - id: HP:0031952
+    label: Neurogenic claudication
+  - id: HP:0003418
+    label: Back pain
+  - id: HP:0011868
+    label: Sciatica
+  - id: HP:0007100
+    label: Progressive ventriculomegaly
+  - id: HP:0002315
+    label: Headaches
+  - id: HP:0001263
+    label: Delayed cognitive development
+  - id: MAXO:0000004
+    label: Surgical procedures
+  - id: MONDO:0010679
+    label: Duchenne muscular dystrophy (DMD); Metabolic myopathies; Hypermobility;
+      Ehlers-Danlos syndrome (EDS); Osteogenesis imperfecta; Down syndrome (DS); Achondroplasia
+  - id: MAXO:0000011
+    label: Physical therapy
+  - id: MAXO:0000387
+    label: Muscle biopsy
+  - id: HP:0003546
+    label: Exercise intolerance
+  - id: HP:0001382
+    label: Joint hypermobility
+  - id: CHEBI:24261
+    label: Glucocorticoids
+  - id: MONDO:0020123
+    label: Metabolic myopathies
+  - id: MONDO:0019019
+    label: Osteogenesis imperfecta
+  - id: HP:0002540
+    label: non-ambulatory
+  - id: HP:0000327
+    label: Maxillary hypoplasia
+  - id: HP:0011220
+    label: Prominent forehead
+  - id: HP:0002007
+    label: Frontal bossing
+  - id: HP:0011800
+    label: Midface hypoplasia
+  - id: HP:0003416
+    label: spinal stenosis
+  - id: HP:0002987
+    label: Elbow flexion contractures
+  - id: HP:0020110
+    label: Fracture
+  - id: HP:0008905
+    label: rhizomelic dwarfism
+  - id: HP:0002870
+    label: Obstructive sleep apnea
+  - id: HP:0000238
+    label: Hydrocephalus
+  - id: HP:0005619
+    label: Thoracolumbar kyphosis
+  - id: HP:0010536
+    label: Central sleep apnea
+  - id: MONDO:0005516
+    label: Skeletal dysplasia
+  - id: CHEBI:77383
+    label: bisphosphonate
+  - id: MAXO:0001298
+    label: therapy
+  - id: MONDO:0018570
+    label: Skeletal dysplasia (hypophosphatasia)
+  - id: MAXO:0009038
+    label: Percutaneous coronary intervention
+  - id: MAXO:0000917
+    label: Stenting
+  - id: HP:0002615
+    label: Hypotension
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: CHEBI:87631
+    label: Statins
+  - id: CHEBI:80235
+    label: C-type natriuretic peptide (CNP) analog
+  - id: MAXO:0000515
+    label: Extracorporeal Membrane Oxygenation
+  - id: MONDO:0019569
+    label: Central sleep apnea (CSA)
+  - id: MAXO:0000946
+    label: Neurosurgery
+  - id: MAXO:0000647
+    label: Chemotherapy
+  - id: MAXO:0000506
+    label: Noninvasive ventilation
+  - id: HP:0012514
+    label: Leg pain
+  - id: HP:0007340
+    label: Leg weakness
+  - id: MAXO:0000485
+    label: Ilizarov technique
+  - id: MAXO:0000457
+    label: pain management
+  - id: HP:0001510
+    label: delayed growth
+  - id: MONDO:0000050
+    label: growth hormone deficiency
+  - id: CHEBI:50790
+    label: aromatase inhibitor
+  - id: HP:0001251
+    label: ataxia
+  - id: HP:0025406
+    label: weakness
+  - id: HP:0002677
+    label: foramen magnum stenosis
+  - id: MAXO:0000479
+    label: Orthopedic surgery

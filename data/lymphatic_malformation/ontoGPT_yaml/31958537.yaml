@@ -1,0 +1,114 @@
+---
+input_text: 'Peripelvic Lymphatic Malformation Presenting With Gross Hematuria and
+  Renal Colic: A Case Report. Renal lymphangectasia is a benign malformation of the
+  lymphatics which can be perirenal or peripelvic in location. Diagnosis is made on
+  imaging including ultrasound, computed tomography , or MRI. We present an unusual
+  case of renal lymphangectasia presenting with gross hematuria and flank pain diagnosed
+  on computed tomography.'
+raw_completion_output: |-
+  primary_disease: Renal lymphangectasia
+  medical_actions: Diagnosis on imaging including ultrasound; Diagnosis on imaging including computed tomography; Diagnosis on imaging including MRI
+  symptoms: Gross hematuria; Flank pain
+  chemicals: 
+  action_annotation_relationships: Diagnosis on imaging including ultrasound TREATS Gross hematuria IN Renal lymphangectasia; Diagnosis on imaging including ultrasound TREATS Flank pain IN Renal lymphangectasia; Diagnosis on imaging including computed tomography TREATS Gross hematuria IN Renal lymphangectasia; Diagnosis on imaging including computed tomography TREATS Flank pain IN Renal lymphangectasia; Diagnosis on imaging including MRI TREATS Gross hematuria IN Renal lymphangectasia; Diagnosis on imaging including MRI TREATS Flank pain IN Renal lymphangectasia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Diagnosis on imaging including MRI TREATS Flank pain IN Renal lymphangectasia
+
+  ===
+
+extracted_object:
+  primary_disease: Renal lymphangectasia
+  medical_actions:
+    - Diagnosis on imaging including ultrasound
+    - Diagnosis on imaging including computed tomography
+    - Diagnosis on imaging including MRI
+  symptoms:
+    - HP:0012587
+    - HP:0030157
+  action_annotation_relationships:
+    - subject: Diagnosis on imaging
+      predicate: TREATS
+      object: HP:0012587
+      qualifier: Renal lymphangectasia
+      subject_extension: ultrasound
+    - subject: <Diagnosis on imaging>
+      predicate: <TREATS>
+      object: <Flank pain>
+      qualifier: <Renal lymphangectasia>
+      subject_extension: <ultrasound>
+    - subject: Diagnosis on imaging
+      predicate: TREATS
+      object: HP:0012587
+      qualifier: Renal lymphangectasia
+      subject_extension: computed tomography
+    - subject: Diagnosis on imaging
+      predicate: TREATS
+      object: HP:0030157
+      qualifier: Renal lymphangectasia
+      subject_extension: computed tomography
+    - subject: Diagnosis on imaging
+      predicate: TREATS
+      object: HP:0012587
+      qualifier: Renal lymphangectasia
+      subject_qualifier: including
+      subject_extension: MRI
+    - subject: <Diagnosis on imaging>
+      predicate: <TREATS>
+      object: <Flank pain>
+      qualifier: <Renal lymphangectasia>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <MRI>
+      object_extension: <None>
+named_entities:
+  - id: MAXO:0000004
+    label: Surgery
+  - id: MAXO:0000504
+    label: tracheotomy
+  - id: HP:0006536
+    label: airway obstruction
+  - id: HP:0010628
+    label: facial nerve palsy
+  - id: CHEBI:9168
+    label: Rapamycin
+  - id: MAXO:0000448
+    label: Surgical resection
+  - id: MONDO:0002013
+    label: lymphatic malformation (LM)
+  - id: HP:0012532
+    label: Chronic pain
+  - id: CHEBI:134778
+    label: n-butyl cyanoacrylate
+  - id: CHEBI:22907
+    label: bleomycin
+  - id: MONDO:0019313
+    label: Lymphatic malformations
+  - id: MAXO:0000014
+    label: Radiotherapy
+  - id: HP:0001009
+    label: Telangiectasias
+  - id: HP:0001097
+    label: Xerophthalmia
+  - id: HP:0011787
+    label: Central hypothyroidism
+  - id: CHEBI:16236
+    label: Ethanol
+  - id: MONDO:0017014
+    label: children
+  - id: HP:0012587
+    label: Gross hematuria
+  - id: HP:0030157
+    label: Flank pain

@@ -29,13 +29,13 @@ input_text: 'Neurogenetic diseases: molecular diagnosis and therapeutic approach
 raw_completion_output: |-
   primary_disease: Neurogenetic disorders
 
-  medical_actions: Molecular diagnosis; Prenatal diagnostic tests; Presymptomatic diagnostic tests; Differential diagnostic tests; Single-strand conformation polymorphism analysis; Denaturing gradient gel electrophoresis; Direct DNA sequencing; Analysis of linkage; Analysis of allelic association; Gene therapy
+  medical_actions: Molecular diagnosis; Prenatal testing; Presymptomatic testing; Differential diagnostic tests; Single-strand conformation polymorphism analysis; Denaturing gradient gel electrophoresis; Direct DNA sequencing; Analysis of linkage; Analysis of allelic association; Gene therapy
 
   symptoms: Not explicitly mentioned
 
   chemicals: 
 
-  action_annotation_relationships: Molecular diagnosis TREATS diagnosis uncertainty IN Neurogenetic disorders; Prenatal diagnostic tests PREVENTS genetic disorder transmission IN Neurogenetic disorders; Presymptomatic diagnostic tests PREVENTS symptomatic progression IN Neurogenetic disorders; Differential diagnostic tests TREATS diagnosis uncertainty IN Neurogenetic disorders; Single-strand conformation polymorphism analysis TREATS diagnosis uncertainty IN Neurogenetic disorders; Denaturing gradient gel electrophoresis TREATS diagnosis uncertainty IN Neurogenetic disorders; Direct DNA sequencing TREATS diagnosis uncertainty IN Neurogenetic disorders; Analysis of linkage TREATS diagnosis uncertainty IN Neurogenetic disorders; Analysis of allelic association TREATS diagnosis uncertainty IN Neurogenetic disorders; Gene therapy (with gene) TREATS gene function gain IN Neurogenetic disorders
+  action_annotation_relationships: Molecular diagnosis TREATS diagnostic challenges IN neurogenetic disorders; Prenatal testing PREVENTS uncertainty IN neurogenetic disorders; Presymptomatic testing PREVENTS uncertainty IN neurogenetic disorders; Differential diagnostic tests TREATS diagnostic challenges IN neurogenetic disorders; Single-strand conformation polymorphism analysis TREATS diagnostic challenges IN neurogenetic disorders; Denaturing gradient gel electrophoresis TREATS diagnostic challenges IN neurogenetic disorders; Direct DNA sequencing TREATS diagnostic challenges IN neurogenetic disorders; Analysis of linkage TREATS diagnostic challenges IN neurogenetic disorders; Analysis of allelic association TREATS diagnostic challenges IN neurogenetic disorders; Gene therapy (with no specific chemical mentioned) TREATS gene function issues IN neurogenetic disorders
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -50,7 +50,7 @@ prompt: |+
 
 
   Text:
-  Gene therapy (with gene) TREATS gene function gain IN Neurogenetic disorders
+  Gene therapy (with no specific chemical mentioned) TREATS gene function issues IN neurogenetic disorders
 
   ===
 
@@ -58,8 +58,8 @@ extracted_object:
   primary_disease: Neurogenetic disorders
   medical_actions:
     - Molecular diagnosis
-    - Prenatal diagnostic tests
-    - Presymptomatic diagnostic tests
+    - Prenatal testing
+    - Presymptomatic testing
     - Differential diagnostic tests
     - Single-strand conformation polymorphism analysis
     - Denaturing gradient gel electrophoresis
@@ -70,121 +70,316 @@ extracted_object:
   symptoms:
     - Not explicitly mentioned
   action_annotation_relationships:
-    - subject: Molecular diagnosis
-      predicate: TREATS
-      object: diagnosis uncertainty
-      qualifier: Neurogenetic disorders
-    - subject: Prenatal diagnostic tests
-      predicate: PREVENTS
-      object: genetic disorder transmission
-      qualifier: Neurogenetic disorders
-    - subject: Presymptomatic diagnostic tests
-      predicate: PREVENTS
-      object: symptomatic progression
-      qualifier: Neurogenetic disorders
-    - subject: Differential diagnostic tests
-      predicate: TREATS
-      object: diagnosis uncertainty
-      qualifier: Neurogenetic disorders
-    - subject: Single-strand conformation polymorphism analysis
-      predicate: TREATS
-      object: diagnosis uncertainty
-      qualifier: Neurogenetic disorders
+    - subject: <Molecular diagnosis>
+      predicate: <TREATS>
+      object: <diagnostic challenges>
+      qualifier: <neurogenetic disorders>
+      subject_extension: <Molecular diagnosis>
+    - subject: <Prenatal testing>
+      predicate: <PREVENTS>
+      object: <uncertainty>
+      qualifier: <neurogenetic disorders>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: <Presymptomatic testing>
+      predicate: <PREVENTS>
+      object: <uncertainty>
+      qualifier: <neurogenetic disorders>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: <Differential diagnostic tests>
+      predicate: <TREATS>
+      object: <diagnostic challenges>
+      qualifier: <neurogenetic disorders>
+      subject_qualifier: <None>
+      object_qualifier: <IN>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: <Single-strand conformation polymorphism analysis>
+      predicate: <TREATS>
+      object: <diagnostic challenges>
+      qualifier: <neurogenetic disorders>
+      subject_qualifier: <Not applicable>
+      object_qualifier: <Not applicable>
+      subject_extension: <Not applicable>
+      object_extension: <Not applicable>
     - subject: Denaturing gradient gel electrophoresis
       predicate: TREATS
-      object: diagnosis uncertainty
-      qualifier: Neurogenetic disorders
-    - subject: Direct DNA sequencing
-      predicate: TREATS
-      object: diagnosis uncertainty
-      qualifier: Neurogenetic disorders
+      object: diagnostic challenges
+      qualifier: neurogenetic disorders
+      subject_extension: Denaturing gradient gel electrophoresis
+    - subject: <Direct DNA sequencing>
+      predicate: <TREATS>
+      object: <diagnostic challenges>
+      qualifier: <neurogenetic disorders>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
     - subject: Analysis of linkage
       predicate: TREATS
-      object: diagnosis uncertainty
-      qualifier: Neurogenetic disorders
-    - subject: <Analysis of allelic association>
-      predicate: <TREATS>
-      object: <diagnosis uncertainty>
-      qualifier: <Neurogenetic disorders>
-      subject_extension: <allelic association>
+      object: diagnostic challenges
+      qualifier: neurogenetic disorders
+    - subject: Analysis of allelic association
+      predicate: TREATS
+      object: challenges
+      qualifier: neurogenetic disorders
+      object_qualifier: diagnostic
+      subject_extension: allelic association
+      object_extension: diagnostic
     - subject: MAXO:0001001
       predicate: TREATS
-      object: gene function gain
-      qualifier: Neurogenetic disorders
-      subject_qualifier: with gene
-      subject_extension: gene therapy
+      object: gene function issues
+      qualifier: neurogenetic disorders
+      subject_qualifier: with no specific chemical mentioned
 named_entities:
   - id: MONDO:0007739
     label: Huntington disease
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0002180
+    label: neurodegeneration
+  - id: HP:0001268
+    label: cognitive decline
+  - id: HP:0100022
+    label: movement disorders
+  - id: HP:0002072
+    label: choreic movements
   - id: MAXO:0009003
     label: preimplantation genetic testing
+  - id: MAXO:0001592
+    label: RNA interference therapy
   - id: HP:0000716
     label: depression
   - id: HP:0000739
     label: anxiety
   - id: HP:0000737
     label: irritability
-  - id: HP:0002072
-    label: choreic movements
   - id: CHEBI:7735
     label: olanzapine
+  - id: MAXO:0000882
+    label: behavioral interventions
+  - id: HP:0004395
+    label: malnutrition
+  - id: MAXO:0000011
+    label: physical therapy
+  - id: CHEBI:22720
+    label: benzodiazepines
+  - id: CHEBI:2618
+    label: amantadine
+  - id: CHEBI:15765
+    label: levodopa
+  - id: HP:0002315
+    label: Headache
+  - id: CHEBI:134738
+    label: Laquinimod
+  - id: CHEBI:4903
+    label: Ethinylestradiol
+  - id: CHEBI:6443
+    label: Levonorgestrel
+  - id: HP:0001251
+    label: Ataxia
+  - id: HP:0001260
+    label: Dysarthria
+  - id: HP:0002119
+    label: Ventricular dilatation
+  - id: HP:0100543
+    label: cognitive deficits
+  - id: HP:0000708
+    label: Behavioral changes
+  - id: CHEBI:92976
+    label: Latrepirdine
+  - id: MONDO:0005559
+    label: Neurodegenerative diseases
+  - id: CHEBI:16243
+    label: Quercetin
+  - id: CHEBI:3962
+    label: Curcumin
+  - id: CHEBI:27881
+    label: Resveratrol
+  - id: CHEBI:75095
+    label: Chrysin
+  - id: CHEBI:28821
+    label: Piperine
+  - id: CHEBI:17620
+    label: Ferulic acid
+  - id: CHEBI:78330
+    label: Huperzine A
+  - id: CHEBI:16118
+    label: Berberine
+  - id: CHEBI:2979
+    label: Baicalein
+  - id: CHEBI:28230
+    label: Hesperetin
+  - id: CHEBI:26536
+    label: Retinoic acid
+  - id: MAXO:0000127
+    label: Genetic testing
+  - id: CHEBI:76004
+    label: Dimethyl fumarate
+  - id: MAXO:0010012
+    label: coenzyme Q10 supplementation
+  - id: HP:0003287
+    label: mitochondrial dysfunction
+  - id: HP:0025464
+    label: oxidative stress
+  - id: CHEBI:46245
+    label: coenzyme Q10
+  - id: CHEBI:31687
+    label: idebenone
+  - id: MONDO:0100339
+    label: Friedreich ataxia
+  - id: MONDO:0016621
+    label: Juvenile Huntington Disease
+  - id: MAXO:0000021
+    label: Palliative care
   - id: CHEBI:6030
     label: Isoniazid (INH)
   - id: CHEBI:16865
     label: gamma-aminobutyric acid (GABA)
-  - id: MAXO:0001298
-    label: therapy
-  - id: HP:0001824
-    label: Weight loss
-  - id: HP:0004324
-    label: Weight gain
-  - id: CHEBI:35476
-    label: Neuroleptics
-  - id: HP:0002120
-    label: cortical atrophy
-  - id: CHEBI:52815
-    label: Cresyl violet
-  - id: HP:0100543
-    label: cognitive deficits
+  - id: HP:0000709
+    label: psychosis
+  - id: HP:0011951
+    label: aspiration pneumonia
+  - id: MAXO:0000065
+    label: aerobic exercises
+  - id: MAXO:0000487
+    label: clinical assessments
+  - id: MAXO:0000387
+    label: muscle biopsy
+  - id: CHEBI:9467
+    label: Tetrabenazine
+  - id: MAXO:0000943
+    label: Deep brain stimulation
   - id: HP:0001332
-    label: dystonia
-  - id: HP:0004305
-    label: involuntary movements
-  - id: HP:0002312
-    label: clumsiness
-  - id: HP:0000745
-    label: lack of motivation
-  - id: HP:0011999
-    label: paranoia
-  - id: HP:0000746
-    label: delusions
-  - id: HP:0000738
-    label: hallucinations
-  - id: HP:0002354
-    label: memory loss
-  - id: MAXO:0000930
-    label: speech therapy
-  - id: MAXO:0000011
-    label: Physical therapy
-  - id: CHEBI:23888
-    label: drugs
-  - id: CHEBI:16670
-    label: peptides
-  - id: MONDO:0008608
-    label: Down syndrome
-  - id: MONDO:0004975
-    label: Alzheimer disease
-  - id: MONDO:0004976
-    label: amyotrophic lateral sclerosis
-  - id: MONDO:0018150
-    label: Gaucher disease
-  - id: MONDO:0005044
-    label: hypertension
-  - id: CHEBI:76720
-    label: antisense oligonucleotides
-  - id: MAXO:0000127
-    label: genetic testing
-  - id: MONDO:0017014
-    label: children
+    label: Dystonia
+  - id: HP:0001336
+    label: Myoclonus
+  - id: HP:0100033
+    label: Tics
+  - id: HP:0001300
+    label: Parkinsonism
+  - id: CHEBI:35469
+    label: Antidepressants
+  - id: CHEBI:51373
+    label: GABA agonists
+  - id: CHEBI:38462
+    label: Acetylcholinesterase inhibitors
+  - id: MONDO:0005071
+    label: Neurological disorders
   - id: MAXO:0001001
     label: Gene therapy
+  - id: HP:0033429
+    label: neuroinflammation
+  - id: MAXO:0000079
+    label: genetic counseling
+  - id: MAXO:0000016
+    label: Cell Therapy
+  - id: MONDO:0008199
+    label: Parkinson Disease (PD) and Huntington Disease (HD)
+  - id: MONDO:0005314
+    label: Relapsing-remitting multiple sclerosis (RRMS)
+  - id: MAXO:0001394
+    label: oral administration
+  - id: MAXO:0001610
+    label: repetitive transcranial magnetic stimulation (rTMS)
+  - id: CHEBI:76720
+    label: Antisense oligonucleotides
+  - id: MONDO:0001516
+    label: spinal muscular atrophy
+  - id: CHEBI:16919
+    label: creatine
+  - id: CHEBI:35476
+    label: Neuroleptics
+  - id: HP:0002015
+    label: dysphagia
+  - id: HP:0000873
+    label: diabetes insipidus
+  - id: HP:0001622
+    label: preterm delivery
+  - id: HP:0012330
+    label: pyelonephritis
+  - id: HP:0004305
+    label: Involuntary movements
+  - id: HP:0002312
+    label: Clumsiness
+  - id: HP:0000745
+    label: Lack of motivation
+  - id: HP:0002354
+    label: Memory loss
+  - id: HP:0001824
+    label: Weight loss
+  - id: MAXO:0000022
+    label: hospice care
+  - id: CHEBI:8863
+    label: Riluzole
+  - id: HP:0002527
+    label: falls
+  - id: CHEBI:45979
+    label: TBZ
+  - id: MAXO:0000571
+    label: CT scan
+  - id: MONDO:0009366
+    label: Normal Pressure Hydrocephalus
+  - id: CHEBI:3723
+    label: citalopram
+  - id: HP:0000657
+    label: Ocular Motor Apraxia
+  - id: CHEBI:27314
+    label: Water-soluble vitamins
+  - id: CHEBI:46662
+    label: Minerals
+  - id: HP:0000741
+    label: apathy
+  - id: HP:0001288
+    label: Impaired gait
+  - id: HP:0002067
+    label: bradykinesia
+  - id: HP:0002311
+    label: Incoordination
+  - id: CHEBI:45652
+    label: Succinylcholine
+  - id: CHEBI:16348
+    label: 3-nitropropionic acid
+  - id: MONDO:0005180
+    label: Parkinson's Disease
+  - id: HP:0002511
+    label: Alzheimer's disease
+  - id: HP:0000819
+    label: diabetes mellitus
+  - id: MAXO:0000504
+    label: Tracheostomy
+  - id: HP:0002093
+    label: respiratory insufficiency
+  - id: HP:0000718
+    label: aggression
+  - id: CHEBI:60654
+    label: valproate
+  - id: HP:0002329
+    label: somnolence
+  - id: CHEBI:6437
+    label: Levetiracetam
+  - id: CHEBI:9464
+    label: Testosterone enanthate
+  - id: HP:0001909
+    label: leukaemia
+  - id: HP:0002664
+    label: cancers
+  - id: HP:0001635
+    label: cardiac insufficiency
+  - id: HP:0002617
+    label: vascular diseases
+  - id: HP:0001392
+    label: liver diseases
+  - id: HP:0003198
+    label: myopathies
+  - id: MONDO:0005041
+    label: glaucoma
+  - id: CHEBI:64312
+    label: memantine
+  - id: HP:0000501
+    label: glaucoma

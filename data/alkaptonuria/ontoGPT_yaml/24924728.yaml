@@ -12,10 +12,14 @@ input_text: '[Severe osteoarthritic manifestations of ochronosis]. The congenita
   a current overview of this rare disease is provided. '
 raw_completion_output: |-
   primary_disease: Ochronosis
-  medical_actions: <None specified in the text>
-  symptoms: Dark discoloration of urine; Dark brown discoloration of connective tissues; Degeneration of connective tissues
+
+  medical_actions: 
+
+  symptoms: dark urine discoloration; dark brown discoloration and degeneration of connective tissues
+
   chemicals: homogentisic acid
-  action_annotation_relationships: Accumulation of homogentisic acid TREATS None IN Ochronosis; Disruption of tyrosine metabolism TREATS Dark discoloration of urine IN Ochronosis; Disruption of tyrosine metabolism TREATS Dark brown discoloration of connective tissues IN Ochronosis; Disruption of tyrosine metabolism TREATS Degeneration of connective tissues IN Ochronosis
+
+  action_annotation_relationships: homogentisic acid ACCUMULATES IN Ochronosis; dark urine discoloration IN Ochronosis; dark brown discoloration and degeneration of connective tissues IN Ochronosis
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -30,76 +34,41 @@ prompt: |+
 
 
   Text:
-  Disruption of tyrosine metabolism TREATS Degeneration of connective tissues IN Ochronosis
+  dark brown discoloration and degeneration of connective tissues IN Ochronosis
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0001910
-  medical_actions:
-    - <None specified in the text>
   symptoms:
-    - Dark discoloration of urine
-    - Dark brown discoloration of connective tissues
-    - Degeneration of connective tissues
+    - dark urine discoloration
+    - dark brown discoloration and degeneration of connective tissues
   chemicals:
     - CHEBI:44747
   action_annotation_relationships:
-    - subject: Accumulation
-      predicate: TREATS
+    - subject: ACCUMULATES IN
       object: HP:0030764
-      qualifier: None
-      subject_qualifier: None
-      object_qualifier: None
       subject_extension: CHEBI:44747
-      object_extension: None
-    - subject: Disruption
-      predicate: TREATS
-      object: Dark discoloration of urine
+    - predicate: IN
+      object: dark urine discoloration
       qualifier: MONDO:0001910
-      subject_extension: tyrosine metabolism
-    - subject: Disruption of tyrosine metabolism
-      predicate: TREATS
-      object: Dark brown discoloration of connective tissues
+    - object: dark brown discoloration and degeneration of connective tissues
       qualifier: MONDO:0001910
-      subject_extension: tyrosine metabolism
-    - subject: Disruption
-      predicate: TREATS
-      object: Degeneration of connective tissues
-      qualifier: MONDO:0001910
-      subject_extension: tyrosine metabolism
-      object_extension: Degeneration of connective tissues
 named_entities:
   - id: MAXO:0001175
-    label: Liver transplantation
-  - id: HP:0030764
-    label: Ochronosis
+    label: liver transplantation
   - id: CHEBI:44747
-    label: Homogentisic acid
+    label: homogentisic acid
   - id: MONDO:0008753
     label: alkaptonuria
-  - id: HP:0002758
-    label: osteoarthritis
+  - id: MONDO:0009861
+    label: phenylketonuria
+  - id: MONDO:0010163
+    label: tyrosinosis
+  - id: HP:0030764
+    label: ochronosis
   - id: CHEBI:50378
     label: nitisinone
-  - id: CHEBI:18186
-    label: tyrosine
-  - id: CHEBI:28044
-    label: Phenylalanine
-  - id: CHEBI:18243
-    label: Dopamine
-  - id: CHEBI:1582
-    label: 3-methoxytyramine
-  - id: CHEBI:33569
-    label: Noradrenaline
-  - id: CHEBI:27897
-    label: Tryptophan
-  - id: CHEBI:28790
-    label: Serotonin
-  - id: CHEBI:29987
-    label: Glutamate
-  - id: CHEBI:15760
-    label: Tyramine
   - id: MONDO:0023094
     label: Exogenous ochronosis
   - id: MAXO:0000423
@@ -112,6 +81,10 @@ named_entities:
     label: Hydroquinone
   - id: MAXO:0001046
     label: discectomy
+  - id: MAXO:0000088
+    label: diet
+  - id: HP:0002758
+    label: osteoarthritis
   - id: MAXO:0000502
     label: Endotracheal intubation
   - id: HP:0000822
@@ -124,27 +97,29 @@ named_entities:
     label: Congestive heart failure
   - id: HP:0100598
     label: Pulmonary edema
-  - id: CHEBI:35498
-    label: Diuretics
   - id: CHEBI:28787
     label: Nitroglycerin
   - id: CHEBI:4670
     label: Dobutamine
+  - id: CHEBI:18243
+    label: Dopamine
   - id: CHEBI:32139
     label: Sodium bicarbonate
+  - id: CHEBI:35498
+    label: Diuretics
   - id: MAXO:0000757
     label: infusion
   - id: HP:0001650
     label: aortic stenosis
-  - id: HP:0001649
-    label: tachycardia
   - id: HP:0001942
     label: metabolic acidosis
-  - id: HP:0000708
-    label: Behavioural problems
+  - id: CHEBI:36080
+    label: protein
   - id: MAXO:0009082
     label: Arthroplasty
+  - id: CHEBI:18186
+    label: Tyrosine
   - id: HP:0003040
-    label: Arthropathy
+    label: arthropathy
   - id: MONDO:0001910
     label: Ochronosis

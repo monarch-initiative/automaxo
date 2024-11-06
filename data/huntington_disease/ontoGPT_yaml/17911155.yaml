@@ -15,13 +15,13 @@ input_text: 'Polyglutamine diseases: emerging concepts in pathogenesis and thera
 raw_completion_output: |-
   primary_disease: Polyglutamine diseases
 
-  medical_actions: counteracting cellular perturbations; direct targeting of polyglutamine protein expression, cleavage or conformation
+  medical_actions: counteracting cellular perturbations; direct targeting of polyglutamine protein expression; cleavage; conformation
 
-  symptoms: proteolytic cleavage; conformational change in the pathogenic proteins; protein aggregation; transcriptional and metabolic disturbances
+  symptoms: protein misfolding; proteolytic cleavage; protein aggregation; transcriptional disturbances; metabolic disturbances
 
   chemicals: 
 
-  action_annotation_relationships: counteracting cellular perturbations TREATS proteolytic cleavage IN Polyglutamine diseases; counteracting cellular perturbations TREATS conformational change in the pathogenic proteins IN Polyglutamine diseases; counteracting cellular perturbations TREATS protein aggregation IN Polyglutamine diseases; counteracting cellular perturbations TREATS transcriptional and metabolic disturbances IN Polyglutamine diseases; direct targeting of polyglutamine protein expression, cleavage or conformation TREATS proteolytic cleavage IN Polyglutamine diseases; direct targeting of polyglutamine protein expression, cleavage or conformation TREATS conformational change in the pathogenic proteins IN Polyglutamine diseases; direct targeting of polyglutamine protein expression, cleavage or conformation TREATS protein aggregation IN Polyglutamine diseases; direct targeting of polyglutamine protein expression, cleavage or conformation TREATS transcriptional and metabolic disturbances IN Polyglutamine diseases
+  action_annotation_relationships: counteracting cellular perturbations TREATS transcriptional disturbances IN Polyglutamine diseases; counteracting cellular perturbations TREATS metabolic disturbances IN Polyglutamine diseases; direct targeting of polyglutamine protein expression TREATS protein misfolding IN Polyglutamine diseases; cleavage TREATS proteolytic cleavage IN Polyglutamine diseases; conformation TREATS protein aggregation IN Polyglutamine diseases
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -36,7 +36,7 @@ prompt: |+
 
 
   Text:
-  direct targeting of polyglutamine protein expression, cleavage or conformation TREATS transcriptional and metabolic disturbances IN Polyglutamine diseases
+  conformation TREATS protein aggregation IN Polyglutamine diseases
 
   ===
 
@@ -44,129 +44,156 @@ extracted_object:
   primary_disease: Polyglutamine diseases
   medical_actions:
     - counteracting cellular perturbations
-    - direct targeting of polyglutamine protein expression, cleavage or conformation
+    - direct targeting of polyglutamine protein expression
+    - cleavage
+    - conformation
   symptoms:
+    - protein misfolding
     - proteolytic cleavage
-    - conformational change in the pathogenic proteins
     - protein aggregation
-    - transcriptional and metabolic disturbances
+    - transcriptional disturbances
+    - metabolic disturbances
   action_annotation_relationships:
     - subject: counteracting cellular perturbations
       predicate: TREATS
+      object: transcriptional disturbances
+      qualifier: Polyglutamine diseases
+    - subject: counteracting cellular perturbations
+      predicate: TREATS
+      object: metabolic disturbances
+      qualifier: Polyglutamine diseases
+    - subject: <direct targeting>
+      predicate: <TREATS>
+      object: <protein misfolding>
+      qualifier: <Polyglutamine diseases>
+      subject_extension: <polyglutamine protein expression>
+    - subject: cleavage
+      predicate: TREATS
       object: proteolytic cleavage
       qualifier: Polyglutamine diseases
-    - subject: counteracting cellular perturbations
-      predicate: TREATS
-      object: conformational change in the pathogenic proteins
-      qualifier: Polyglutamine diseases
-    - subject: counteracting cellular perturbations
+    - subject: conformation
       predicate: TREATS
       object: protein aggregation
       qualifier: Polyglutamine diseases
-    - subject: counteracting cellular perturbations
-      predicate: TREATS
-      object: transcriptional and metabolic disturbances
-      qualifier: Polyglutamine diseases
-    - subject: <direct targeting of polyglutamine protein expression, cleavage or
-        conformation>
-      predicate: <TREATS>
-      object: <proteolytic cleavage>
-      qualifier: <Polyglutamine diseases>
-      subject_extension: <polyglutamine protein>
-    - subject: direct targeting of polyglutamine protein expression, cleavage or conformation
-      predicate: TREATS
-      object: conformational change in the pathogenic proteins
-      qualifier: Polyglutamine diseases
-      subject_extension: polyglutamine
-    - subject: direct targeting of polyglutamine protein expression, cleavage or conformation
-      predicate: TREATS
-      object: protein aggregation
-      qualifier: Polyglutamine diseases
-      subject_extension: polyglutamine protein
-    - subject: direct targeting of polyglutamine protein expression, cleavage or conformation
-      predicate: TREATS
-      object: transcriptional and metabolic disturbances
-      qualifier: Polyglutamine diseases
-      subject_extension: polyglutamine protein expression, cleavage or conformation
 named_entities:
   - id: MONDO:0007739
-    label: Huntington Disease
-  - id: MONDO:0013310
-    label: P450 oxidoreductase deficiency
-  - id: CHEBI:78757
-    label: Cystamine
-  - id: HP:0002072
-    label: choreic movements
+    label: Huntington disease
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0002180
+    label: neurodegeneration
+  - id: HP:0001268
+    label: cognitive decline
   - id: HP:0100022
     label: movement disorders
-  - id: CHEBI:16348
-    label: 3-nitropropionic acid (3-NP)
-  - id: MAXO:0000068
-    label: transplantation
-  - id: CHEBI:16675
-    label: quinolinic acid
-  - id: MAXO:0000011
-    label: physiotherapy
-  - id: MAXO:0000883
-    label: cognitive therapy
-  - id: HP:0002140
-    label: ischemic stroke
-  - id: MONDO:0005180
-    label: Parkinson disease
-  - id: MONDO:0005559
-    label: neurodegenerative diseases
+  - id: HP:0002072
+    label: choreic movements
+  - id: MAXO:0009003
+    label: preimplantation genetic testing
+  - id: MAXO:0001592
+    label: RNA interference therapy
+  - id: HP:0000716
+    label: depression
+  - id: HP:0000739
+    label: anxiety
+  - id: HP:0000737
+    label: irritability
+  - id: CHEBI:7735
+    label: olanzapine
+  - id: MAXO:0000882
+    label: behavioral interventions
   - id: HP:0004395
     label: malnutrition
+  - id: MAXO:0000011
+    label: physical therapy
   - id: CHEBI:22720
     label: benzodiazepines
   - id: CHEBI:2618
     label: amantadine
   - id: CHEBI:15765
     label: levodopa
+  - id: HP:0002315
+    label: Headache
+  - id: CHEBI:134738
+    label: Laquinimod
+  - id: CHEBI:4903
+    label: Ethinylestradiol
+  - id: CHEBI:6443
+    label: Levonorgestrel
   - id: HP:0001251
     label: Ataxia
   - id: HP:0001260
     label: Dysarthria
   - id: HP:0002119
     label: Ventricular dilatation
-  - id: MAXO:0009017
-    label: Cognitive assessment (Mini-Mental State Examination)
   - id: HP:0100543
-    label: Cognitive impairment
+    label: cognitive deficits
+  - id: HP:0000708
+    label: Behavioral changes
   - id: CHEBI:92976
     label: Latrepirdine
-  - id: MONDO:0004976
-    label: amyotrophic lateral sclerosis
-  - id: HP:0002180
-    label: neurodegeneration
-  - id: MAXO:0000451
-    label: Implantation
+  - id: MONDO:0005559
+    label: Neurodegenerative diseases
+  - id: CHEBI:16243
+    label: Quercetin
+  - id: CHEBI:3962
+    label: Curcumin
+  - id: CHEBI:27881
+    label: Resveratrol
+  - id: CHEBI:75095
+    label: Chrysin
+  - id: CHEBI:28821
+    label: Piperine
+  - id: CHEBI:17620
+    label: Ferulic acid
+  - id: CHEBI:78330
+    label: Huperzine A
+  - id: CHEBI:16118
+    label: Berberine
+  - id: CHEBI:2979
+    label: Baicalein
+  - id: CHEBI:28230
+    label: Hesperetin
+  - id: CHEBI:26536
+    label: Retinoic acid
+  - id: MAXO:0000127
+    label: Genetic testing
   - id: CHEBI:76004
     label: Dimethyl fumarate
   - id: MAXO:0010012
-    label: Coenzyme Q10 supplementation
+    label: coenzyme Q10 supplementation
   - id: HP:0003287
     label: mitochondrial dysfunction
+  - id: HP:0025464
+    label: oxidative stress
   - id: CHEBI:46245
-    label: Coenzyme Q10
+    label: coenzyme Q10
   - id: CHEBI:31687
     label: idebenone
   - id: MONDO:0100339
     label: Friedreich ataxia
-  - id: CHEBI:30513
-    label: Sleeping Beauty (SB) transposon system
-  - id: MONDO:0858950
-    label: Traumatic Brain Injury (TBI)
-  - id: CHEBI:30145
-    label: lithium
-  - id: CHEBI:60654
-    label: valproate
-  - id: MAXO:0001001
-    label: gene therapy
-  - id: HP:0000708
-    label: Behavioral changes
-  - id: HP:0001268
-    label: Cognitive decline
+  - id: MONDO:0016621
+    label: Juvenile Huntington Disease
+  - id: MAXO:0000021
+    label: Palliative care
+  - id: CHEBI:6030
+    label: Isoniazid (INH)
+  - id: CHEBI:16865
+    label: gamma-aminobutyric acid (GABA)
+  - id: HP:0000709
+    label: psychosis
+  - id: HP:0011951
+    label: aspiration pneumonia
+  - id: MAXO:0000065
+    label: aerobic exercises
+  - id: MAXO:0000487
+    label: clinical assessments
+  - id: MAXO:0000387
+    label: muscle biopsy
+  - id: CHEBI:9467
+    label: Tetrabenazine
+  - id: MAXO:0000943
+    label: Deep brain stimulation
   - id: HP:0001332
     label: Dystonia
   - id: HP:0001336
@@ -181,23 +208,47 @@ named_entities:
     label: GABA agonists
   - id: CHEBI:38462
     label: Acetylcholinesterase inhibitors
-  - id: HP:0011096
-    label: Demyelination
-  - id: CHEBI:86497
-    label: hydroxykynurenine (3-HK)
+  - id: MONDO:0005071
+    label: Neurological disorders
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: HP:0033429
+    label: neuroinflammation
+  - id: MAXO:0000079
+    label: genetic counseling
+  - id: MAXO:0000016
+    label: Cell Therapy
+  - id: MONDO:0008199
+    label: Parkinson Disease (PD) and Huntington Disease (HD)
+  - id: MONDO:0005314
+    label: Relapsing-remitting multiple sclerosis (RRMS)
+  - id: MAXO:0001394
+    label: oral administration
+  - id: MAXO:0001610
+    label: repetitive transcranial magnetic stimulation (rTMS)
+  - id: CHEBI:76720
+    label: Antisense oligonucleotides
+  - id: MONDO:0001516
+    label: spinal muscular atrophy
   - id: CHEBI:16919
-    label: Creatine
+    label: creatine
+  - id: CHEBI:35476
+    label: Neuroleptics
   - id: HP:0002015
     label: dysphagia
   - id: HP:0000873
     label: diabetes insipidus
-  - id: HP:0011951
-    label: aspiration pneumonia
   - id: HP:0001622
     label: preterm delivery
   - id: HP:0012330
     label: pyelonephritis
-  - id: HP:0000712
-    label: Mood swings
-  - id: HP:0000750
-    label: Speech difficulties
+  - id: HP:0004305
+    label: Involuntary movements
+  - id: HP:0002312
+    label: Clumsiness
+  - id: HP:0000745
+    label: Lack of motivation
+  - id: HP:0002354
+    label: Memory loss
+  - id: HP:0001824
+    label: Weight loss

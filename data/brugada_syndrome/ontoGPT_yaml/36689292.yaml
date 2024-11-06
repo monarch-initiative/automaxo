@@ -14,16 +14,12 @@ input_text: A Transient Inferolateral ST-Segment Elevation on the Electrocardiog
   angiogram.
 raw_completion_output: |-
   primary_disease: Pneumothorax
-
-  medical_actions: Emergency coronary angiography; Urgent tracheostomy
-
-  symptoms: Sudden chest pain; Dyspnea; ST-segment elevation on the electrocardiogram
-
+  medical_actions: Emergency coronary angiography;Tracheostomy
+  symptoms: Sudden chest pain;Dyspnea;ST-segment elevation on the electrocardiogram
   chemicals: 
-
-  action_annotation_relationships: Urgent tracheostomy TREATS Metastatic hypopharynx cancer IN Pneumothorax; Emergency coronary angiography TREATS ST-segment elevation on the electrocardiogram IN Pneumothorax
+  action_annotation_relationships: Emergency coronary angiography TREATS ST-segment elevation on the electrocardiogram IN Pneumothorax;Tracheostomy PREVENTS sudden chest pain IN Pneumothorax;Tracheostomy PREVENTS dyspnea IN Pneumothorax
 prompt: |+
-  From the text below, extract the following entities in the following format:
+  Split the following piece of text into fields in the following format:
 
   subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
   object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
@@ -36,7 +32,7 @@ prompt: |+
 
 
   Text:
-  Emergency coronary angiography TREATS ST-segment elevation on the electrocardiogram IN Pneumothorax
+  Tracheostomy PREVENTS dyspnea IN Pneumothorax
 
   ===
 
@@ -44,19 +40,23 @@ extracted_object:
   primary_disease: MONDO:0002076
   medical_actions:
     - Emergency coronary angiography
-    - Urgent tracheostomy
+    - MAXO:0000504
   symptoms:
     - Sudden chest pain
     - HP:0002094
     - ST-segment elevation on the electrocardiogram
   action_annotation_relationships:
-    - subject: Urgent tracheostomy
-      predicate: TREATS
-      object: Metastatic hypopharynx cancer
-      qualifier: MONDO:0002076
     - subject: Emergency coronary angiography
       predicate: TREATS
       object: ST-segment elevation on the electrocardiogram
+      qualifier: MONDO:0002076
+    - subject: MAXO:0000504
+      predicate: PREVENTS
+      object: sudden chest pain
+      qualifier: MONDO:0002076
+    - subject: MAXO:0000504
+      predicate: PREVENTS
+      object: HP:0002094
       qualifier: MONDO:0002076
 named_entities:
   - id: HP:0001663
@@ -67,5 +67,7 @@ named_entities:
     label: cognitive impairment
   - id: MONDO:0002076
     label: Pneumothorax
+  - id: MAXO:0000504
+    label: Tracheostomy
   - id: HP:0002094
     label: Dyspnea

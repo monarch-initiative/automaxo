@@ -21,11 +21,15 @@ input_text: 'Hematopoietic stem cell transplantation in Taiwanese children with 
   Our results support the benefits of allo-HSCT in children with primary immunodeficiencies.
   However, HSCT should be performed as soon as possible before severe infection develops.'
 raw_completion_output: |-
-  primary_disease: primary immunodeficiency
-  medical_actions: hematopoietic stem cell transplantation (HSCT); conditioning with busulfan and cyclophosphamide; conditioning with anti-thymocyte globulin; GVHD prophylaxis with cyclosporine and methotrexate; GVHD prophylaxis with cyclosporine; GVHD prophylaxis with cyclosporine and T-cell depletion
+  primary_disease: primary immunodeficiencies
+
+  medical_actions: hematopoietic stem cell transplantation (HSCT); conditioning with busulfan and cyclophosphamide; administration of anti-thymocyte globulin; graft-versus-host disease (GVHD) prophylaxis with cyclosporine and methotrexate; T-cell depletion
+
   symptoms: severe sepsis; acute GVHD; veno-occlusive disease; chronic GVHD with contracture of joints
-  chemicals: busulfan; cyclophosphamide; anti-thymocyte globulin; cyclosporine; methotrexate
-  action_annotation_relationships: hematopoietic stem cell transplantation (HSCT) TREATS primary immunodeficiency; conditioning with busulfan and cyclophosphamide (with busulfan; cyclophosphamide) PREVENTS severe sepsis IN primary immunodeficiency; conditioning with anti-thymocyte globulin (with anti-thymocyte globulin) PREVENTS acute GVHD IN primary immunodeficiency; GVHD prophylaxis with cyclosporine and methotrexate (with cyclosporine; methotrexate) PREVENTS acute GVHD IN primary immunodeficiency; GVHD prophylaxis with cyclosporine (with cyclosporine) PREVENTS chronic GVHD with contracture of joints IN primary immunodeficiency
+
+  chemicals: busulfan; cyclophosphamide; cyclosporine; methotrexate
+
+  action_annotation_relationships: hematopoietic stem cell transplantation (HSCT) TREATS primary immunodeficiencies; conditioning with busulfan and cyclophosphamide TREATS primary immunodeficiencies; administration of anti-thymocyte globulin TREATS primary immunodeficiencies; GVHD prophylaxis with cyclosporine and methotrexate PREVENTS acute GVHD IN primary immunodeficiencies; T-cell depletion PREVENTS GVHD IN primary immunodeficiencies; cyclosporine PREVENTS acute GVHD IN primary immunodeficiencies; cyclophosphamide TREATS severe sepsis IN primary immunodeficiencies; busulfan TREATS veno-occlusive disease IN primary immunodeficiencies; methotrexate TREATS chronic GVHD with contracture of joints IN primary immunodeficiencies
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -40,7 +44,7 @@ prompt: |+
 
 
   Text:
-  GVHD prophylaxis with cyclosporine (with cyclosporine) PREVENTS chronic GVHD with contracture of joints IN primary immunodeficiency
+  methotrexate TREATS chronic GVHD with contracture of joints IN primary immunodeficiencies
 
   ===
 
@@ -49,10 +53,9 @@ extracted_object:
   medical_actions:
     - MAXO:0000747
     - conditioning with busulfan and cyclophosphamide
-    - conditioning with anti-thymocyte globulin
-    - GVHD prophylaxis with cyclosporine and methotrexate
-    - GVHD prophylaxis with cyclosporine
-    - GVHD prophylaxis with cyclosporine and T-cell depletion
+    - administration of anti-thymocyte globulin
+    - graft-versus-host disease (GVHD) prophylaxis with cyclosporine and methotrexate
+    - T-cell depletion
   symptoms:
     - severe sepsis
     - acute GVHD
@@ -61,67 +64,81 @@ extracted_object:
   chemicals:
     - CHEBI:28901
     - CHEBI:4027
-    - anti-thymocyte globulin
     - CHEBI:4031
     - CHEBI:44185
   action_annotation_relationships:
-    - subject: MAXO:0000747
-      predicate: TREATS
-      object: primary immunodeficiency
+    - subject: <hematopoietic stem cell transplantation>
+      predicate: <TREATS>
+      object: <primary immunodeficiencies>
+      subject_extension: <hematopoietic stem cell transplantation (HSCT)>
     - subject: conditioning
-      subject_qualifier: with
+      predicate: TREATS
+      object: primary immunodeficiencies
       subject_extension: busulfan and cyclophosphamide
+    - subject: administration of anti-thymocyte globulin
+      predicate: TREATS
+      object: primary immunodeficiencies
+      subject_extension: anti-thymocyte globulin
+    - subject: GVHD prophylaxis
+      predicate: PREVENTS
+      object: acute GVHD
+      qualifier: MONDO:0003778
+      subject_extension: cyclosporine and methotrexate
+    - subject: T-cell depletion
+      predicate: PREVENTS
+      object: GVHD
+      qualifier: MONDO:0003778
     - predicate: PREVENTS
-      object: severe sepsis
+      object: acute GVHD
+      qualifier: MONDO:0003778
+      subject_extension: CHEBI:4031
+    - subject: cyclophosphamide
+      predicate: TREATS
+      object: HP:0100806
       qualifier: MONDO:0003778
       object_qualifier: severe
       subject_extension: CHEBI:4027
-    - subject: conditioning
-      predicate: PREVENTS
-      object: acute GVHD
+      object_extension: severe
+    - predicate: TREATS
+      object: HP:0025322
       qualifier: MONDO:0003778
-      subject_qualifier: with anti-thymocyte globulin
-      subject_extension: anti-thymocyte globulin
-    - subject: GVHD prophylaxis
-      predicate: with
-      subject_extension: cyclosporine and methotrexate
-    - predicate: PREVENTS
-      object: acute GVHD
-      qualifier: MONDO:0003778
-      subject_extension: CHEBI:44185
-    - subject: GVHD prophylaxis
-      predicate: PREVENTS
+      subject_extension: CHEBI:28901
+    - subject: methotrexate
+      predicate: TREATS
       object: chronic GVHD with contracture of joints
       qualifier: MONDO:0003778
-      subject_qualifier: with cyclosporine
-      subject_extension: CHEBI:4031
+      subject_extension: CHEBI:44185
 named_entities:
+  - id: HP:0012531
+    label: pain
   - id: MAXO:0010030
-    label: Bone marrow transplantation (BMT)
+    label: bone marrow transplantation (BMT)
   - id: MONDO:0008963
     label: Chediak-Higashi syndrome
   - id: MAXO:0010033
-    label: Unrelated cord blood transplantation (UCBT)
+    label: unrelated cord blood transplantation (UCBT)
   - id: MAXO:0000747
     label: HSCT
   - id: MAXO:0000750
-    label: Conditioning regimens
+    label: conditioning regimens
   - id: CHEBI:41264
     label: BU
   - id: CHEBI:4027
-    label: Cyclophosphamide
+    label: cyclophosphamide
   - id: CHEBI:4911
-    label: Etoposide
+    label: etoposide
+  - id: MONDO:0008090
+    label: Chediak-Higashi syndrome (CHS)
   - id: HP:0001433
-    label: hepatosplenomegaly
+    label: Hepatosplenomegaly
   - id: HP:0003270
-    label: abdominal distention
+    label: Abdominal distention
   - id: MONDO:0024686
     label: Pigmented villonodular synovitis (PVNS)
   - id: HP:0001945
-    label: fever
+    label: Fever
   - id: MONDO:0003778
-    label: primary immunodeficiency
+    label: primary immunodeficiencies
   - id: HP:0025322
     label: veno-occlusive disease
   - id: CHEBI:28901
@@ -130,3 +147,5 @@ named_entities:
     label: cyclosporine
   - id: CHEBI:44185
     label: methotrexate
+  - id: HP:0100806
+    label: sepsis

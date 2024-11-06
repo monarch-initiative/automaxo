@@ -16,13 +16,13 @@ input_text: 'Cerebral arterial angioplasty in a patient with Loeys-Dietz syndrom
 raw_completion_output: |-
   primary_disease: Loeys-Dietz syndrome
 
-  medical_actions: Cerebral angiography; Endovascular coil embolization; CT angiogram; Intra-arterial vasodilator treatment; Cerebral arterial angioplasty
+  medical_actions: Cerebral arterial angioplasty; Endovascular coil embolization; Intra-arterial vasodilator treatment; CT angiogram; Head CT; Cerebral angiography
 
-  symptoms: Acute neurologic decline; Worsening headache; Subarachnoid hemorrhage; Loss of consciousness; Severe proximal vasospasm
+  symptoms: Acute neurologic decline; Worsening headache; Loss of consciousness; Subarachnoid hemorrhage; Basilar tip aneurysm; Severe proximal vasospasm; Unresponsive
 
   chemicals: 
 
-  action_annotation_relationships: Cerebral angiography TREATS Subarachnoid hemorrhage IN Loeys-Dietz syndrome; Endovascular coil embolization TREATS basilar tip aneurysm IN Loeys-Dietz syndrome; CT angiogram TREATS Severe proximal vasospasm IN Loeys-Dietz syndrome; Intra-arterial vasodilator treatment TREATS Severe proximal vasospasm IN Loeys-Dietz syndrome; Cerebral arterial angioplasty TREATS Severe proximal vasospasm IN Loeys-Dietz syndrome
+  action_annotation_relationships: Cerebral angiography PREVENTS misdiagnosis of aneurysmal source IN Loeys-Dietz syndrome; Endovascular coil embolization TREATS basilar tip aneurysm IN Loeys-Dietz syndrome; Intra-arterial vasodilator treatment TREATS severe proximal vasospasm IN Loeys-Dietz syndrome; Cerebral arterial angioplasty TREATS severe proximal vasospasm IN Loeys-Dietz syndrome; Head CT TREATS misdiagnosis of subarachnoid hemorrhage IN Loeys-Dietz syndrome; CT angiogram TREATS misdiagnosis of severe proximal vasospasm IN Loeys-Dietz syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -37,56 +37,63 @@ prompt: |+
 
 
   Text:
-  Cerebral arterial angioplasty TREATS Severe proximal vasospasm IN Loeys-Dietz syndrome
+  CT angiogram TREATS misdiagnosis of severe proximal vasospasm IN Loeys-Dietz syndrome
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0018954
   medical_actions:
-    - Cerebral angiography
-    - Endovascular coil embolization
-    - MAXO:0010319
-    - Intra-arterial vasodilator treatment
     - Cerebral arterial angioplasty
+    - Endovascular coil embolization
+    - Intra-arterial vasodilator treatment
+    - MAXO:0010319
+    - MAXO:0010312
+    - Cerebral angiography
   symptoms:
     - Acute neurologic decline
     - Worsening headache
-    - HP:0002138
     - HP:0007185
+    - HP:0002138
+    - Basilar tip aneurysm
     - Severe proximal vasospasm
+    - HP:0025237
   action_annotation_relationships:
     - subject: Cerebral angiography
-      predicate: TREATS
-      object: HP:0002138
+      predicate: PREVENTS
+      object: misdiagnosis of aneurysmal source
       qualifier: MONDO:0018954
     - subject: Endovascular coil embolization
       predicate: TREATS
       object: basilar tip aneurysm
       qualifier: MONDO:0018954
-    - subject: MAXO:0010319
-      predicate: TREATS
-      object: Severe proximal vasospasm
-      qualifier: MONDO:0018954
-      object_qualifier: Severe
     - subject: Intra-arterial vasodilator treatment
       predicate: TREATS
-      object: HP:0025637
+      object: severe proximal vasospasm
       qualifier: MONDO:0018954
-      object_qualifier: Severe
+      subject_qualifier: intra-arterial
+      object_qualifier: severe
       subject_extension: CHEBI:35620
-      object_extension: proximal
     - subject: Cerebral arterial angioplasty
       predicate: TREATS
-      object: proximal vasospasm
+      object: severe proximal vasospasm
       qualifier: MONDO:0018954
-      object_qualifier: Severe
-      object_extension: Severe
+      object_qualifier: severe
+    - subject: <Head CT>
+      predicate: <TREATS>
+      object: <misdiagnosis of subarachnoid hemorrhage>
+      qualifier: <Loeys-Dietz syndrome>
+      subject_extension: <Head CT>
+    - subject: MAXO:0010319
+      predicate: TREATS
+      object: misdiagnosis of severe proximal vasospasm
+      qualifier: MONDO:0018954
+      object_qualifier: severe
 named_entities:
   - id: MONDO:0018954
     label: Loeys-Dietz syndrome
   - id: MAXO:0000945
-    label: Spinal cord stimulation (SCS)
+    label: spinal cord stimulation (SCS)
   - id: HP:0031625
     label: Pseudoaneurysms
   - id: MAXO:0000451
@@ -99,30 +106,74 @@ named_entities:
     label: Joint laxity
   - id: CHEBI:35530
     label: Beta-blocker
+  - id: MAXO:0010203
+    label: Echocardiography
+  - id: HP:0012764
+    label: orthopnea
+  - id: HP:0001631
+    label: atrial septal defect
+  - id: HP:0001263
+    label: developmental delay
+  - id: HP:0003302
+    label: Spondylolisthesis
+  - id: HP:0003304
+    label: Spondylolysis
+  - id: HP:0012531
+    label: Pain
   - id: HP:0004942
-    label: Aortic aneurysms
+    label: aortic aneurysms
+  - id: HP:0002647
+    label: aortic dissection
+  - id: HP:0001645
+    label: sudden cardiac death
   - id: HP:0004944
     label: Cerebral aneurysms
   - id: HP:0002617
     label: Vasculopathy
+  - id: HP:0030745
+    label: Aneurysm of the ductus arteriosus
+  - id: MAXO:0000948
+    label: Craniotomy
   - id: MAXO:0010319
     label: CT angiogram
-  - id: HP:0002138
-    label: Subarachnoid hemorrhage
+  - id: MAXO:0010312
+    label: Head CT
   - id: HP:0007185
     label: Loss of consciousness
+  - id: HP:0002138
+    label: Subarachnoid hemorrhage
+  - id: HP:0025237
+    label: Unresponsive
   - id: CHEBI:35620
     label: vasodilator
-  - id: HP:0025637
-    label: vasospasm
+  - id: MAXO:0000011
+    label: Physical therapy
+  - id: MAXO:0001351
+    label: Occupational therapy
+  - id: MAXO:0000930
+    label: Speech therapy
+  - id: HP:0001270
+    label: Motor delays
+  - id: HP:0001252
+    label: Hypotonia
+  - id: MONDO:0007947
+    label: Marfan syndrome
+  - id: HP:0100718
+    label: uterine rupture
   - id: HP:0031649
-    label: aortic rupture
+    label: Aortic rupture
   - id: HP:6000144
     label: Left ventricular aneurysms
   - id: HP:0005116
-    label: arterial tortuosity
+    label: Arterial tortuosity
   - id: HP:0000316
-    label: hypertelorism
+    label: Hypertelorism
+  - id: HP:0000193
+    label: Bifid uvula
+  - id: HP:0000175
+    label: Cleft palate
+  - id: HP:0001659
+    label: Aortic insufficiency
   - id: MAXO:0000004
     label: surgical intervention
   - id: HP:0001892

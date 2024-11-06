@@ -1,0 +1,97 @@
+---
+input_text: 'Final adult height in long-term growth hormone-treated achondroplasia
+  patients. The objective of this study was to evaluate the gain in final height of
+  achondroplasia (ACH) patients with long-term growth hormone (GH) treatment. We analyzed
+  medical data of 22 adult patients (8 males and 14 females) treated with GH at a
+  dose of 0.05 mg/kg/day. Optionally, tibial lengthening (TL) was performed with the
+  Ilizalov method in 15 patients and TL as well as femoral lengthening (FL) in 6 patients.
+  Concomitant gonadal suppression therapy with buserelin acetate was applied in 13
+  patients. The mean treatment periods with GH were 10.7 +- 4.0 and 9.3 +- 2.5 years
+  for males and females, respectively. GH treatment augmented the final height +0.60
+  +- 0.52 SD (+3.5 cm) and +0.51 +- 1.29 SD (+2.8 cm) in males and females compared
+  to non-treated ACH patients, respectively. Final height of ACH patients that underwent
+  GH and TL increased +1.72 +- 0.72 SD (+10.0 cm) and +1.95 +- 1.34 SD (+9.8 cm) in
+  males and females, respectively. GH, TL, and FL increased their final height +2.97
+  SD (+17.2 cm) and +3.41 +- 1.63 SD (+17.3 cm) in males and females, respectively.
+  Gonadal suppression therapy had no impact on final height. CONCLUSIONS: Long-term
+  GH treatment contributes to 2.6 and 2.1% of final adult height in male and female
+  ACH patients, respectively.'
+raw_completion_output: |-
+  primary_disease: Achondroplasia
+
+  medical_actions: Growth hormone treatment; Tibial lengthening; Femoral lengthening; Gonadal suppression therapy
+
+  symptoms: Reduced final adult height
+
+  chemicals: Growth hormone; Buserelin acetate
+
+  action_annotation_relationships: Growth hormone treatment TREATS reduced final adult height IN Achondroplasia; Tibial lengthening TREATS reduced final adult height IN Achondroplasia; Femoral lengthening TREATS reduced final adult height IN Achondroplasia; Gonadal suppression therapy (with Buserelin acetate) PREVENTS reduced final adult height IN Achondroplasia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Gonadal suppression therapy (with Buserelin acetate) PREVENTS reduced final adult height IN Achondroplasia
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0007037
+  medical_actions:
+    - Growth hormone treatment
+    - Tibial lengthening
+    - Femoral lengthening
+    - Gonadal suppression therapy
+  symptoms:
+    - Reduced final adult height
+  chemicals:
+    - CHEBI:37845
+    - CHEBI:31324
+  action_annotation_relationships:
+    - subject: <Growth hormone treatment>
+      predicate: <TREATS>
+      object: <reduced final adult height>
+      qualifier: <Achondroplasia>
+      subject_extension: <growth hormone>
+    - subject: Tibial lengthening
+      predicate: TREATS
+      object: reduced final adult height
+      qualifier: MONDO:0007037
+    - subject: Femoral lengthening
+      predicate: TREATS
+      object: reduced final adult height
+      qualifier: MONDO:0007037
+    - subject: Gonadal suppression therapy
+      predicate: PREVENTS
+      object: reduced final adult height
+      qualifier: MONDO:0007037
+      subject_qualifier: with Buserelin acetate
+      subject_extension: CHEBI:31324
+named_entities:
+  - id: MONDO:0007037
+    label: Achondroplasia
+  - id: HP:0001513
+    label: Obesity
+  - id: HP:0005667
+    label: os odontoideum
+  - id: CHEBI:31805
+    label: Meclizine hydrochloride
+  - id: CHEBI:6709
+    label: meclizine
+  - id: MAXO:0001394
+    label: Oral administration
+  - id: HP:0031846
+    label: Femoral fracture
+  - id: CHEBI:37845
+    label: Growth hormone
+  - id: CHEBI:31324
+    label: Buserelin acetate

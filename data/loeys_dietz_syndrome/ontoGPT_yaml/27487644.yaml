@@ -17,13 +17,13 @@ input_text: 'LOEYS-DIETZ SYNDROME: PERIOPERATIVE ANESTHESIA CONSIDERATIONS. Loey
 raw_completion_output: |-
   primary_disease: Loeys-Dietz syndrome (LDS)
 
-  medical_actions: meticulous vigilance from the anesthesiologist; intra-operative management; surgical intervention; repair of an ascending/root aneurysm
+  medical_actions: perioperative anesthesia considerations; surgical intervention; repair of an ascending/root aneurysm
 
   symptoms: hypertelorism; bifid uvula or cleft palate; arterial tortuosity; abnormal skin findings; bleeding tendency; rapid progression of aortic dilation; regurgitation; propensity towards rupture and/or dissection
 
   chemicals: 
 
-  action_annotation_relationships: meticulous vigilance from the anesthesiologist TREATS propensity towards rupture and/or dissection IN Loeys-Dietz syndrome; intra-operative management TREATS cardiovascular manifestations IN Loeys-Dietz syndrome; surgical intervention TREATS rapid progression of aortic dilation IN Loeys-Dietz syndrome; repair of an ascending/root aneurysm TREATS rapid progression of aortic dilation IN Loeys-Dietz syndrome
+  action_annotation_relationships: perioperative anesthesia considerations TREATS cardiovascular manifestations IN Loeys-Dietz syndrome (LDS); surgical intervention (repair of an ascending/root aneurysm) TREATS rapid progression of aortic dilation IN Loeys-Dietz syndrome (LDS); surgical intervention (repair of an ascending/root aneurysm) PREVENTS rupture and/or dissection IN Loeys-Dietz syndrome (LDS)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -38,15 +38,14 @@ prompt: |+
 
 
   Text:
-  repair of an ascending/root aneurysm TREATS rapid progression of aortic dilation IN Loeys-Dietz syndrome
+  surgical intervention (repair of an ascending/root aneurysm) PREVENTS rupture and/or dissection IN Loeys-Dietz syndrome (LDS)
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0018954
   medical_actions:
-    - meticulous vigilance from the anesthesiologist
-    - intra-operative management
+    - perioperative anesthesia considerations
     - MAXO:0000004
     - repair of an ascending/root aneurysm
   symptoms:
@@ -59,11 +58,7 @@ extracted_object:
     - regurgitation
     - propensity towards rupture and/or dissection
   action_annotation_relationships:
-    - subject: meticulous vigilance from the anesthesiologist
-      predicate: TREATS
-      object: propensity towards rupture and/or dissection
-      qualifier: MONDO:0018954
-    - subject: intra-operative management
+    - subject: perioperative anesthesia considerations
       predicate: TREATS
       object: cardiovascular manifestations
       qualifier: MONDO:0018954
@@ -71,15 +66,20 @@ extracted_object:
       predicate: TREATS
       object: rapid progression of aortic dilation
       qualifier: MONDO:0018954
-    - subject: repair of an ascending/root aneurysm
-      predicate: TREATS
-      object: rapid progression of aortic dilation
-      qualifier: MONDO:0018954
+      subject_qualifier: repair of an ascending/root aneurysm
+    - subject: <surgical intervention (repair of an ascending/root aneurysm)>
+      predicate: <PREVENTS>
+      object: <rupture and/or dissection>
+      qualifier: <Loeys-Dietz syndrome (LDS)>
+      subject_qualifier: <N/A>
+      object_qualifier: <N/A>
+      subject_extension: <N/A>
+      object_extension: <N/A>
 named_entities:
   - id: MONDO:0018954
     label: Loeys-Dietz syndrome
   - id: MAXO:0000945
-    label: Spinal cord stimulation (SCS)
+    label: spinal cord stimulation (SCS)
   - id: HP:0031625
     label: Pseudoaneurysms
   - id: MAXO:0000451
@@ -92,30 +92,74 @@ named_entities:
     label: Joint laxity
   - id: CHEBI:35530
     label: Beta-blocker
+  - id: MAXO:0010203
+    label: Echocardiography
+  - id: HP:0012764
+    label: orthopnea
+  - id: HP:0001631
+    label: atrial septal defect
+  - id: HP:0001263
+    label: developmental delay
+  - id: HP:0003302
+    label: Spondylolisthesis
+  - id: HP:0003304
+    label: Spondylolysis
+  - id: HP:0012531
+    label: Pain
   - id: HP:0004942
-    label: Aortic aneurysms
+    label: aortic aneurysms
+  - id: HP:0002647
+    label: aortic dissection
+  - id: HP:0001645
+    label: sudden cardiac death
   - id: HP:0004944
     label: Cerebral aneurysms
   - id: HP:0002617
     label: Vasculopathy
+  - id: HP:0030745
+    label: Aneurysm of the ductus arteriosus
+  - id: MAXO:0000948
+    label: Craniotomy
   - id: MAXO:0010319
     label: CT angiogram
-  - id: HP:0002138
-    label: Subarachnoid hemorrhage
+  - id: MAXO:0010312
+    label: Head CT
   - id: HP:0007185
     label: Loss of consciousness
+  - id: HP:0002138
+    label: Subarachnoid hemorrhage
+  - id: HP:0025237
+    label: Unresponsive
   - id: CHEBI:35620
     label: vasodilator
-  - id: HP:0025637
-    label: vasospasm
+  - id: MAXO:0000011
+    label: Physical therapy
+  - id: MAXO:0001351
+    label: Occupational therapy
+  - id: MAXO:0000930
+    label: Speech therapy
+  - id: HP:0001270
+    label: Motor delays
+  - id: HP:0001252
+    label: Hypotonia
+  - id: MONDO:0007947
+    label: Marfan syndrome
+  - id: HP:0100718
+    label: uterine rupture
   - id: HP:0031649
-    label: aortic rupture
+    label: Aortic rupture
   - id: HP:6000144
     label: Left ventricular aneurysms
   - id: HP:0005116
-    label: arterial tortuosity
+    label: Arterial tortuosity
   - id: HP:0000316
-    label: hypertelorism
+    label: Hypertelorism
+  - id: HP:0000193
+    label: Bifid uvula
+  - id: HP:0000175
+    label: Cleft palate
+  - id: HP:0001659
+    label: Aortic insufficiency
   - id: MAXO:0000004
     label: surgical intervention
   - id: HP:0001892

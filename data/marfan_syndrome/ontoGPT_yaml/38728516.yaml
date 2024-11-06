@@ -25,13 +25,13 @@ input_text: 'Acute ischemic stroke with a diagnosis of Marfan syndrome: A report
 raw_completion_output: |-
   primary_disease: Marfan syndrome (MFS)
 
-  medical_actions: Intravenous thrombolytic therapy with rt-PA; Antiplatelet therapy; Anticoagulant therapy; Perfusion therapy
+  medical_actions: intravenous thrombolytic therapy with rt-PA; antiplatelet therapy; anticoagulant therapy; perfusion therapy
 
-  symptoms: Neurologic deficiency; Ischemic stroke
+  symptoms: neurologic deficiency; acute ischemic stroke
 
   chemicals: rt-PA
 
-  action_annotation_relationships: Intravenous thrombolytic therapy (with rt-PA) TREATS ischemic stroke IN Marfan syndrome (MFS); Antiplatelet therapy TREATS ischemic stroke IN Marfan syndrome (MFS); Anticoagulant therapy TREATS ischemic stroke IN Marfan syndrome (MFS); Perfusion therapy TREATS ischemic stroke IN Marfan syndrome (MFS)
+  action_annotation_relationships: intravenous thrombolytic therapy (with rt-PA) TREATS acute ischemic stroke IN Marfan syndrome (MFS); antiplatelet therapy TREATS acute ischemic stroke IN Marfan syndrome (MFS); anticoagulant therapy TREATS acute ischemic stroke IN Marfan syndrome (MFS); perfusion therapy TREATS acute ischemic stroke IN Marfan syndrome (MFS)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -46,45 +46,144 @@ prompt: |+
 
 
   Text:
-  Perfusion therapy TREATS ischemic stroke IN Marfan syndrome (MFS)
+  perfusion therapy TREATS acute ischemic stroke IN Marfan syndrome (MFS)
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0009691
   medical_actions:
-    - Intravenous thrombolytic therapy with rt-PA
-    - Antiplatelet therapy
-    - Anticoagulant therapy
-    - Perfusion therapy
+    - intravenous thrombolytic therapy with rt-PA
+    - antiplatelet therapy
+    - anticoagulant therapy
+    - perfusion therapy
   symptoms:
-    - Neurologic deficiency
+    - neurologic deficiency
     - HP:0002140
   chemicals:
     - rt-PA
   action_annotation_relationships:
-    - subject: Intravenous thrombolytic therapy
+    - subject: intravenous thrombolytic therapy
       predicate: TREATS
       object: HP:0002140
       qualifier: MONDO:0009691
       subject_qualifier: with rt-PA
       subject_extension: rt-PA
-    - subject: Antiplatelet therapy
+    - subject: antiplatelet therapy
+      predicate: TREATS
+      object: HP:0002140
+      qualifier: MONDO:0009691
+    - subject: anticoagulant therapy
       predicate: TREATS
       object: HP:0002140
       qualifier: MONDO:0007947
-    - subject: Anticoagulant therapy
+      subject_extension: CHEBI:50249
+    - subject: perfusion therapy
       predicate: TREATS
       object: HP:0002140
-      qualifier: MONDO:0007947
-    - subject: Perfusion therapy
-      predicate: TREATS
-      object: HP:0002140
-      qualifier: MONDO:0007947
+      qualifier: MONDO:0009691
 named_entities:
+  - id: MONDO:0007947
+    label: Marfan Syndrome
+  - id: HP:0000768
+    label: Pectus carinatum
+  - id: HP:0002650
+    label: Scoliosis
+  - id: HP:0002108
+    label: Spontaneous pneumothorax
+  - id: HP:0003423
+    label: Thoracolumbar kyphoscoliosis
+  - id: CHEBI:33281
+    label: Antibiotic
+  - id: HP:0002107
+    label: pneumothorax
+  - id: MAXO:0010203
+    label: Echocardiography
+  - id: MAXO:0000494
+    label: Blood pressure monitoring
+  - id: HP:0004942
+    label: Aortic dilatation
+  - id: CHEBI:5959
+    label: Irbesartan
+  - id: HP:0004950
+    label: Peripheral artery disease
+  - id: HP:0002617
+    label: aneurysm
+  - id: HP:0030965
+    label: increased aortic stiffness
+  - id: HP:0001659
+    label: aortic regurgitation
+  - id: HP:0001712
+    label: left ventricular hypertrophy
+  - id: HP:0005162
+    label: left ventricular failure
+  - id: HP:0000822
+    label: high blood pressure
+  - id: CHEBI:6541
+    label: Losartan
+  - id: CHEBI:35530
+    label: beta-blocker
+  - id: MAXO:0001298
+    label: therapy
+  - id: MONDO:0020333
+    label: Anterior sacral meningocele (ASM)
+  - id: HP:0002315
+    label: headache
+  - id: HP:0002018
+    label: nausea
+  - id: HP:0002138
+    label: subarachnoid hemorrhage
+  - id: HP:0031625
+    label: Pseudoaneurysms
+  - id: MAXO:0000451
+    label: Implantation
+  - id: MAXO:0000457
+    label: pain management
+  - id: HP:0012531
+    label: pain
+  - id: HP:0012378
+    label: fatigue
+  - id: HP:0012332
+    label: dysautonomia
+  - id: HP:0002659
+    label: bone fragility
+  - id: HP:0025017
+    label: capillary fragility
+  - id: HP:0001030
+    label: skin fragility
+  - id: MAXO:0000571
+    label: CT
+  - id: HP:0034267
+    label: Pelvic pain
+  - id: HP:0000139
+    label: Genital prolapse
+  - id: HP:0100518
+    label: Dysuria
+  - id: MONDO:0044632
+    label: Extracranial Carotid Artery Aneurysms (ECAAs)
+  - id: MAXO:0000448
+    label: Surgical resection
+  - id: HP:0001297
+    label: Stroke
+  - id: HP:0012163
+    label: Extracranial Carotid Artery Aneurysms
+  - id: HP:0002616
+    label: aortic root aneurysms
+  - id: HP:0031649
+    label: aortic rupture
+  - id: HP:0002090
+    label: pneumonia
+  - id: CHEBI:50249
+    label: Anticoagulants
+  - id: HP:0012514
+    label: Leg pain
+  - id: HP:0007340
+    label: Leg weakness
+  - id: HP:0200146
+    label: annuloaortic ectasia
+  - id: MAXO:0009072
+    label: Surgical repair
   - id: MONDO:0009691
     label: Marfan syndrome (MFS)
   - id: HP:0002140
-    label: Ischemic stroke
-  - id: MONDO:0007947
-    label: Marfan syndrome
+    label: acute ischemic stroke

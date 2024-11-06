@@ -1,0 +1,87 @@
+---
+input_text: 'A comparison of aminoglycoside antibiotic serum concentrations collected
+  by peripheral veins and peripherally inserted central catheters in adults with cystic
+  fibrosis. BACKGROUND: People with cystic fibrosis (PwCF) are frequently hospitalized
+  for treatment of pulmonary exacerbation. The Cystic Fibrosis Foundation Pulmonary
+  Guidelines support the use of intravenous aminoglycosides with therapeutic drug
+  monitoring for the treatment of pulmonary exacerbation due to Pseudomonas aeruginosa.
+  Serum intravenous tobramycin concentrations are commonly collected by peripheral
+  venipuncture (PV). Discomfort associated with collection of samples by PV prompts
+  collection via PICC, but the accuracy of intravenous tobramycin serum levels collected
+  by PICC has not been documented in adult PwCF. The primary study objective was to
+  evaluate the difference between intravenous tobramycin serum levels collected by
+  PV and PICC in adult PwCF. METHODS: The authors conducted a prospective case-control
+  study of adult PwCF admitted to University of Utah Health for a pulmonary exacerbation
+  receiving tobramycin by a single lumen PICC. The authors compared tobramycin peak
+  and random serum levels collected by PV and PICC using a detailed flush and waste
+  protocol. RESULTS: The authors analyzed a total of 19 patients with peripheral and
+  PICC samples. The mean tobramycin peak collected by PV (27.2 mcg/mL) was similar
+  to the mean peak collected by PICC (26.9 mcg/mL) (paired samples Wilcoxon signed-rank
+  test, p = .94). The correlation coefficient was 0.88 (95% CI = 0.85-0.91, p < .001).
+  CONCLUSION: Tobramycin serum samples collected by PICC appear to be similar in value
+  to PV collections. Collecting aminoglycoside levels by PICC rather than PV may reduce
+  patient discomfort and improve quality of life. Additional multicenter studies are
+  needed to confirm these results.'
+raw_completion_output: |-
+  primary_disease: Cystic Fibrosis
+  medical_actions: Intravenous administration of aminoglycosides; Therapeutic drug monitoring; Venipuncture (PV); Peripherally inserted central catheter (PICC) flush and waste protocol
+  symptoms: Pulmonary exacerbation
+  chemicals: Aminoglycoside antibiotics; Tobramycin
+  action_annotation_relationships: Intravenous administration of aminoglycosides (with Tobramycin) TREATS Pulmonary exacerbation IN Cystic Fibrosis; Therapeutic drug monitoring PREVENTS Pulmonary exacerbation IN Cystic Fibrosis; Venipuncture (PV) TREATS Pulmonary exacerbation IN Cystic Fibrosis; Peripherally inserted central catheter (PICC) flush and waste protocol TREATS Pulmonary exacerbation IN Cystic Fibrosis
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Peripherally inserted central catheter (PICC) flush and waste protocol TREATS Pulmonary exacerbation IN Cystic Fibrosis
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009061
+  medical_actions:
+    - Intravenous administration of aminoglycosides
+    - Therapeutic drug monitoring
+    - Venipuncture (PV)
+    - Peripherally inserted central catheter (PICC) flush and waste protocol
+  symptoms:
+    - Pulmonary exacerbation
+  chemicals:
+    - CHEBI:22507
+    - CHEBI:28864
+  action_annotation_relationships:
+    - subject: Intravenous administration of aminoglycosides
+      predicate: TREATS
+      object: Pulmonary exacerbation
+      qualifier: MONDO:0009061
+      subject_qualifier: with Tobramycin
+      subject_extension: CHEBI:28864
+    - subject: Therapeutic drug monitoring
+      predicate: PREVENTS
+      object: Pulmonary exacerbation
+      qualifier: MONDO:0009061
+    - subject: Venipuncture (PV)
+      predicate: TREATS
+      object: Pulmonary exacerbation
+      qualifier: MONDO:0009061
+    - subject: <Peripherally inserted central catheter>
+      predicate: <TREATS>
+      object: <Pulmonary exacerbation>
+      qualifier: <Cystic Fibrosis>
+      subject_extension: <PICC flush and waste protocol>
+named_entities:
+  - id: MONDO:0009061
+    label: Cystic Fibrosis
+  - id: CHEBI:22507
+    label: Aminoglycoside antibiotics
+  - id: CHEBI:28864
+    label: Tobramycin

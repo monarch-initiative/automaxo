@@ -18,14 +18,10 @@ input_text: Hemophagocytic Lymphohistiocytosis in Patients With Primary Immunode
   factor to increase the overall mortality rate of HLH.
 raw_completion_output: |-
   primary_disease: Hemophagocytic Lymphohistiocytosis (HLH)
-
-  medical_actions: Hematopoietic stem cell transplantation
-
-  symptoms: Uncontrolled and excessive immune responses; Central nervous system involvement; Hypoalbuminemia
-
+  medical_actions: hematopoietic stem cell transplantation
+  symptoms: uncontrolled and excessive immune responses; Central nervous system involvement; Hypoalbuminemia
   chemicals: 
-
-  action_annotation_relationships: Hematopoietic stem cell transplantation TREATS Hemophagocytic Lymphohistiocytosis IN patients with primary immunodeficiency; Uncontrolled and excessive immune responses IN Hemophagocytic Lymphohistiocytosis; Central nervous system involvement IN Hemophagocytic Lymphohistiocytosis; Hypoalbuminemia TREATS Hemophagocytic Lymphohistiocytosis IN patients with primary immunodeficiency
+  action_annotation_relationships: hematopoietic stem cell transplantation TREATS Hemophagocytic Lymphohistiocytosis (HLH) IN Hemophagocytic Lymphohistiocytosis (HLH); hematopoietic stem cell transplantation TREATS Central nervous system involvement IN Hemophagocytic Lymphohistiocytosis (HLH)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -40,7 +36,7 @@ prompt: |+
 
 
   Text:
-  Hypoalbuminemia TREATS Hemophagocytic Lymphohistiocytosis IN patients with primary immunodeficiency
+  hematopoietic stem cell transplantation TREATS Central nervous system involvement IN Hemophagocytic Lymphohistiocytosis (HLH)
 
   ===
 
@@ -49,61 +45,49 @@ extracted_object:
   medical_actions:
     - MAXO:0000747
   symptoms:
-    - Uncontrolled and excessive immune responses
+    - uncontrolled and excessive immune responses
     - Central nervous system involvement
     - HP:0003073
   action_annotation_relationships:
     - subject: MAXO:0000747
       predicate: TREATS
-      object: Hemophagocytic Lymphohistiocytosis
-      qualifier: MONDO:0003778
-      object_qualifier: IN patients
-    - subject: <Uncontrolled and excessive immune responses>
-      predicate: <IN>
-      object: <Hemophagocytic Lymphohistiocytosis>
-      qualifier: <Hemophagocytic Lymphohistiocytosis>
-      subject_qualifier: <Not applicable>
-      object_qualifier: <Not applicable>
-      subject_extension: <Not applicable in this context>
-      object_extension: <Not applicable in this context>
-    - subject: Central nervous system involvement
-      predicate: IN
-      object: Hemophagocytic Lymphohistiocytosis
-    - subject: Hypoalbuminemia
+      object: Hemophagocytic Lymphohistiocytosis (HLH)
+      qualifier: MONDO:0015540
+    - subject: MAXO:0000747
       predicate: TREATS
-      object: Hemophagocytic Lymphohistiocytosis
-      qualifier: MONDO:0003778
-      subject_qualifier: 'NULL'
-      object_qualifier: IN patients
-      subject_extension: 'NULL'
-      object_extension: 'NULL'
+      object: Central nervous system involvement
+      qualifier: MONDO:0015540
 named_entities:
+  - id: HP:0012531
+    label: pain
   - id: MAXO:0010030
-    label: Bone marrow transplantation (BMT)
+    label: bone marrow transplantation (BMT)
   - id: MONDO:0008963
     label: Chediak-Higashi syndrome
   - id: MAXO:0010033
-    label: Unrelated cord blood transplantation (UCBT)
+    label: unrelated cord blood transplantation (UCBT)
   - id: MAXO:0000747
     label: HSCT
   - id: MAXO:0000750
-    label: Conditioning regimens
+    label: conditioning regimens
   - id: CHEBI:41264
     label: BU
   - id: CHEBI:4027
-    label: Cyclophosphamide
+    label: cyclophosphamide
   - id: CHEBI:4911
-    label: Etoposide
+    label: etoposide
+  - id: MONDO:0008090
+    label: Chediak-Higashi syndrome (CHS)
   - id: HP:0001433
-    label: hepatosplenomegaly
+    label: Hepatosplenomegaly
   - id: HP:0003270
-    label: abdominal distention
+    label: Abdominal distention
   - id: MONDO:0024686
     label: Pigmented villonodular synovitis (PVNS)
   - id: HP:0001945
-    label: fever
+    label: Fever
   - id: MONDO:0003778
-    label: primary immunodeficiency
+    label: primary immunodeficiencies
   - id: HP:0025322
     label: veno-occlusive disease
   - id: CHEBI:28901
@@ -112,8 +96,10 @@ named_entities:
     label: cyclosporine
   - id: CHEBI:44185
     label: methotrexate
-  - id: MONDO:0008090
-    label: Chediak-Higashi Syndrome (CHS)
+  - id: HP:0100806
+    label: sepsis
+  - id: CHEBI:28790
+    label: Serotonin
   - id: HP:0002718
     label: recurrent bacterial infections
   - id: HP:0000613

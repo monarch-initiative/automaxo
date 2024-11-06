@@ -14,15 +14,15 @@ input_text: 'A family with Camurati-Engelman disease. The role of the missense p
   of the pathogenesis of the disease is important for future treatment options and
   better quality of life of such patients.'
 raw_completion_output: |-
-  primary_disease: Camurati-Engelmann disease
+  primary_disease: Camurati-Engelmann disease (CED)
 
-  medical_actions: Genetic analysis of the TGFB1 gene; prednisone 5 mg/kg per day; calcium and vitamin D supplements
+  medical_actions: Genetic analysis of the TGFB1 gene; prednisone administration; calcium supplements; vitamin D supplements
 
-  symptoms: Osteoporosis; vitamin D deficiency; delayed puberty; hypogonadotrophic hypogonadism; hyperprolactinaemia; menstrual irregularity
+  symptoms: progressive bone dysplasia; osteoporosis; vitamin D deficiency; delayed puberty; hypogonadotrophic hypogonadism; hyperprolactinaemia; menstrual irregularity
 
   chemicals: prednisone; calcium; vitamin D
 
-  action_annotation_relationships: Genetic analysis of the TGFB1 gene TREATS delayed puberty IN Camurati-Engelmann disease; Genetic analysis of the TGFB1 gene TREATS hypogonadotrophic hypogonadism IN Camurati-Engelmann disease; prednisone (with prednisone) TREATS hyperprolactinaemia IN Camurati-Engelmann disease; calcium and vitamin D supplements (with calcium) TREATS osteoporosis IN Camurati-Engelmann disease; calcium and vitamin D supplements (with vitamin D) TREATS vitamin D deficiency IN Camurati-Engelmann disease
+  action_annotation_relationships: Genetic analysis of the TGFB1 gene PREVENTS progressive bone dysplasia IN Camurati-Engelmann disease (CED); prednisone administration (with prednisone) TREATS hyperprolactinaemia IN Camurati-Engelmann disease (CED); calcium supplements (with calcium) PREVENTS osteoporosis IN Camurati-Engelmann disease (CED); vitamin D supplements (with vitamin D) PREVENTS vitamin D deficiency IN Camurati-Engelmann disease (CED)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -37,17 +37,19 @@ prompt: |+
 
 
   Text:
-  calcium and vitamin D supplements (with vitamin D) TREATS vitamin D deficiency IN Camurati-Engelmann disease
+  vitamin D supplements (with vitamin D) PREVENTS vitamin D deficiency IN Camurati-Engelmann disease (CED)
 
   ===
 
 extracted_object:
-  primary_disease: MONDO:0007542
+  primary_disease: MONDO:0009032
   medical_actions:
     - Genetic analysis of the TGFB1 gene
-    - prednisone 5 mg/kg per day
-    - calcium and vitamin D supplements
+    - prednisone administration
+    - calcium supplements
+    - vitamin D supplements
   symptoms:
+    - progressive bone dysplasia
     - HP:0000939
     - HP:0100512
     - HP:0000823
@@ -59,39 +61,36 @@ extracted_object:
     - CHEBI:22984
     - CHEBI:27300
   action_annotation_relationships:
-    - subject: <Genetic analysis>
-      predicate: <TREATS>
-      object: <delayed puberty>
-      qualifier: <Camurati-Engelmann disease>
-      subject_extension: <TGFB1 gene>
     - subject: MAXO:0000127
-      predicate: TREATS
-      object: HP:0000044
-      qualifier: MONDO:0007542
+      predicate: PREVENTS
+      object: progressive bone dysplasia
+      qualifier: MONDO:0009032
       subject_extension: TGFB1 gene
-    - subject: prednisone
+      object_extension: progressive bone dysplasia
+    - subject: prednisone administration
       predicate: TREATS
       object: HP:0000870
-      qualifier: MONDO:0007542
+      qualifier: MONDO:0009032
       subject_qualifier: with prednisone
       subject_extension: CHEBI:8382
-    - subject: supplements
-      predicate: TREATS
+    - subject: calcium supplements
+      predicate: PREVENTS
       object: HP:0000939
-      qualifier: MONDO:0007542
-      subject_extension: calcium and vitamin D supplements
-      object_extension: with calcium
-    - subject: TREATS
-      predicate: TREATS
+      qualifier: MONDO:0009032
+      subject_qualifier: with calcium
+      subject_extension: calcium supplements
+      object_extension: calcium
+    - subject: vitamin D supplements
+      predicate: PREVENTS
       object: HP:0100512
       qualifier: MONDO:0007542
-      subject_extension: calcium and vitamin D supplements
-      object_extension: with vitamin D
+      subject_qualifier: with vitamin D
+      subject_extension: CHEBI:27300
 named_entities:
-  - id: MONDO:0007542
-    label: Camurati-Engelmann disease
+  - id: MONDO:0009032
+    label: Camurati-Engelmann disease (CED)
   - id: HP:0000939
-    label: Osteoporosis
+    label: osteoporosis
   - id: HP:0100512
     label: vitamin D deficiency
   - id: HP:0000823
@@ -110,3 +109,5 @@ named_entities:
     label: vitamin D
   - id: MAXO:0000127
     label: Genetic analysis
+  - id: MONDO:0007542
+    label: Camurati-Engelmann disease

@@ -16,13 +16,13 @@ input_text: Recent gene therapy advancements for neurological diseases. The past
   clinical trials, exceeding the modest clinical successes that have been observed
   so far.
 raw_completion_output: |-
-  primary_disease: Canavan disease; Batten disease; adrenoleukodystrophy; Parkinson's disease
-  medical_actions: vector-mediated gene transfer; gene therapy trials; gene-based treatments; CNS-directed clinical trials
-  symptoms: 
-  chemicals: 
-  action_annotation_relationships: vector-mediated gene transfer TREATS Canavan disease IN Canavan disease; vector-mediated gene transfer TREATS Batten disease IN Batten disease; vector-mediated gene transfer TREATS adrenoleukodystrophy IN adrenoleukodystrophy; vector-mediated gene transfer TREATS Parkinson's disease IN Parkinson's disease
+  primary_disease: Central Nervous System (CNS) disorders
+  medical_actions: gene therapy; vector-mediated gene transfer
+  symptoms: none specified
+  chemicals: none specified
+  action_annotation_relationships: gene therapy TREATS CNS disorders; vector-mediated gene transfer TREATS CNS disorders
 prompt: |+
-  From the text below, extract the following entities in the following format:
+  Split the following piece of text into fields in the following format:
 
   subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
   object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
@@ -35,58 +35,31 @@ prompt: |+
 
 
   Text:
-  vector-mediated gene transfer TREATS Parkinson's disease IN Parkinson's disease
+  vector-mediated gene transfer TREATS CNS disorders
 
   ===
 
 extracted_object:
-  primary_disease: Canavan disease; Batten disease; adrenoleukodystrophy; Parkinson's
-    disease
+  primary_disease: MONDO:0008090
   medical_actions:
+    - MAXO:0001001
     - vector-mediated gene transfer
-    - gene therapy trials
-    - gene-based treatments
-    - CNS-directed clinical trials
+  symptoms:
+    - none specified
+  chemicals:
+    - none specified
   action_annotation_relationships:
-    - subject: vector-mediated gene transfer
+    - subject: MAXO:0001001
       predicate: TREATS
-      object: Canavan disease
-      qualifier: MONDO:0010079
-    - subject: vector-mediated gene transfer
-      predicate: TREATS
-      object: Batten disease
-      qualifier: MONDO:0019262
+      object: HP:0002011
     - subject: <vector-mediated gene transfer>
       predicate: <TREATS>
-      object: <adrenoleukodystrophy>
-      qualifier: <adrenoleukodystrophy>
-      subject_extension: <vector-mediated gene transfer>
-    - subject: vector-mediated gene transfer
-      predicate: TREATS
-      object: Parkinson's disease
-      qualifier: MONDO:0005180
+      object: <CNS disorders>
+      subject_extension: <gene transfer>
 named_entities:
-  - id: MONDO:0010079
-    label: Canavan disease
-  - id: HP:0001251
-    label: ataxia
-  - id: CHEBI:16953
-    label: N-acetyl-L-aspartate
-  - id: CHEBI:76720
-    label: antisense oligonucleotide
-  - id: CHEBI:21547
-    label: N-acetyl-L-aspartate (NAA)
-  - id: HP:0000256
-    label: Macrocephaly
-  - id: HP:0001249
-    label: Mental retardation
-  - id: HP:0001252
-    label: Hypotonia
-  - id: CHEBI:27881
-    label: Resveratrol (RSV)
-  - id: MAXO:0000068
-    label: Transplantation
-  - id: MONDO:0019262
-    label: Batten disease
-  - id: MONDO:0005180
-    label: Parkinson's disease
+  - id: MONDO:0008090
+    label: Central Nervous System (CNS) disorders
+  - id: MAXO:0001001
+    label: gene therapy
+  - id: HP:0002011
+    label: CNS disorders

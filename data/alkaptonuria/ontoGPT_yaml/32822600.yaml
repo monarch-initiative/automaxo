@@ -33,10 +33,14 @@ input_text: 'Efficacy and safety of once-daily nitisinone for patients with alka
   Framework Programme.'
 raw_completion_output: |-
   primary_disease: Alkaptonuria
-  medical_actions: once-daily nitisinone administration;clinical evaluation Alkaptonuria Severity Score Index (cAKUSSI) assessment;random assignment to treatment groups;urinary HGA excretion measurement
-  symptoms: accumulation of homogentisic acid (HGA);ochronosis
-  chemicals: nitisinone;homogentisic acid (HGA)
-  action_annotation_relationships: once-daily nitisinone administration TREATS accumulation of homogentisic acid (HGA) IN Alkaptonuria;once-daily nitisinone administration (with nitisinone) TREATS ochronosis IN Alkaptonuria
+
+  medical_actions: once-daily nitisinone administration; clinical evaluation using Alkaptonuria Severity Score Index (cAKUSSI); safety analysis
+
+  symptoms: accumulation of homogentisic acid (HGA); ochronosis; disease progression
+
+  chemicals: nitisinone; homogentisic acid (HGA)
+
+  action_annotation_relationships: once-daily nitisinone administration (with nitisinone) TREATS accumulation of homogentisic acid (HGA) IN Alkaptonuria; once-daily nitisinone administration (with nitisinone) TREATS ochronosis IN Alkaptonuria; once-daily nitisinone administration (with nitisinone) PREVENTS disease progression IN Alkaptonuria
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -51,7 +55,7 @@ prompt: |+
 
 
   Text:
-  once-daily nitisinone administration (with nitisinone) TREATS ochronosis IN Alkaptonuria
+  once-daily nitisinone administration (with nitisinone) PREVENTS disease progression IN Alkaptonuria
 
   ===
 
@@ -59,38 +63,46 @@ extracted_object:
   primary_disease: MONDO:0008753
   medical_actions:
     - once-daily nitisinone administration
-    - clinical evaluation Alkaptonuria Severity Score Index (cAKUSSI) assessment
-    - random assignment to treatment groups
-    - urinary HGA excretion measurement
+    - clinical evaluation using Alkaptonuria Severity Score Index (cAKUSSI)
+    - safety analysis
   symptoms:
     - accumulation of homogentisic acid (HGA)
     - HP:0030764
+    - disease progression
   chemicals:
     - CHEBI:50378
     - CHEBI:44747
   action_annotation_relationships:
-    - subject: administration
+    - subject: nitisinone administration
       predicate: TREATS
       object: accumulation of homogentisic acid (HGA)
       qualifier: MONDO:0008753
       subject_qualifier: once-daily
       subject_extension: CHEBI:50378
-    - subject: nitisinone administration
+    - subject: once-daily nitisinone administration
       predicate: TREATS
       object: HP:0030764
       qualifier: MONDO:0008753
-      subject_qualifier: once-daily
+      subject_qualifier: with nitisinone
+      subject_extension: CHEBI:50378
+    - subject: once-daily nitisinone administration
+      predicate: PREVENTS
+      object: disease progression
+      qualifier: MONDO:0008753
+      subject_qualifier: with nitisinone
       subject_extension: CHEBI:50378
 named_entities:
   - id: MAXO:0001175
-    label: Liver transplantation
-  - id: HP:0030764
-    label: Ochronosis
+    label: liver transplantation
   - id: CHEBI:44747
-    label: Homogentisic acid
+    label: homogentisic acid
   - id: MONDO:0008753
     label: alkaptonuria
-  - id: HP:0002758
-    label: osteoarthritis
+  - id: MONDO:0009861
+    label: phenylketonuria
+  - id: MONDO:0010163
+    label: tyrosinosis
+  - id: HP:0030764
+    label: ochronosis
   - id: CHEBI:50378
     label: nitisinone

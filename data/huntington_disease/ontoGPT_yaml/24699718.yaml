@@ -26,13 +26,13 @@ input_text: "Quadruple deep brain stimulation in Huntington's disease, targeting
 raw_completion_output: |-
   primary_disease: Huntington's disease
 
-  medical_actions: Quadruple deep brain stimulation (GPi- and STN-DBS); Assessment by Abnormal Involuntary Movement Scale (AIMS); Assessment by Unified Huntington Disease Rating Scale (UHDRS); Evaluation of cognitive, neuropsychiatric state and quality of life (QoL); Evaluation of life satisfaction (QLS)
+  medical_actions: deep brain stimulation (DBS); assessed by Abnormal Involuntary Movement Scale (AIMS); assessed by Unified Huntington Disease Rating Scale (UHDRS); cognitive evaluation; neuropsychiatric state evaluation; quality of life (QoL) evaluation; life satisfaction (QLS) evaluation
 
-  symptoms: Disabling chorea; Bradykinesia; Dysexecutive symptoms; Improved motor function; Ameliorated mood; Improved quality of life
+  symptoms: disabling chorea; motor function issues; bradykinesia; mood issues; quality of life degradation; dysexecutive symptoms
 
-  chemicals:
+  chemicals: 
 
-  action_annotation_relationships: Quadruple deep brain stimulation (GPi- and STN-DBS) TREATS disabling chorea IN Huntington's disease; Quadruple deep brain stimulation (GPi- and STN-DBS) PREVENTS increase in bradykinesia IN Huntington's disease; Quadruple deep brain stimulation (GPi- and STN-DBS) IMPROVES motor function IN Huntington's disease; Quadruple deep brain stimulation (GPi- and STN-DBS) AMELIORATES mood IN Huntington's disease; Quadruple deep brain stimulation (GPi- and STN-DBS) IMPROVES quality of life IN Huntington's disease; Assessment by Abnormal Involuntary Movement Scale (AIMS) ASSESSES disabling chorea IN Huntington's disease; Assessment by Unified Huntington Disease Rating Scale (UHDRS) ASSESSES motor function IN Huntington's disease
+  action_annotation_relationships: deep brain stimulation (DBS) TREATS disabling chorea IN Huntington's disease; GPi-DBS TREATS disabling chorea IN Huntington's disease; GPi-DBS TREATS motor function issues IN Huntington's disease; cognitive evaluation ASSESSES Huntington's disease; neuropsychiatric state evaluation ASSESSES Huntington's disease; quality of life (QoL) evaluation ASSESSES Huntington's disease; life satisfaction (QLS) evaluation ASSESSES Huntington's disease; STN-DBS DOES NOT INCREASE bradykinesia IN Huntington's disease; GPi-STN-DBS DOES NOT INCREASE bradykinesia IN Huntington's disease; GPi-DBS IMPROVES mood IN Huntington's disease; GPi-DBS IMPROVES quality of life IN Huntington's disease; GPi-DBS INCREASES dysexecutive symptoms IN Huntington's disease
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -47,136 +47,199 @@ prompt: |+
 
 
   Text:
-  Assessment by Unified Huntington Disease Rating Scale (UHDRS) ASSESSES motor function IN Huntington's disease
+  GPi-DBS INCREASES dysexecutive symptoms IN Huntington's disease
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0007739
   medical_actions:
-    - Quadruple deep brain stimulation (GPi- and STN-DBS)
-    - Assessment by Abnormal Involuntary Movement Scale (AIMS)
-    - Assessment by Unified Huntington Disease Rating Scale (UHDRS)
-    - Evaluation of cognitive, neuropsychiatric state and quality of life (QoL)
-    - Evaluation of life satisfaction (QLS)
+    - MAXO:0000943
+    - assessed by Abnormal Involuntary Movement Scale (AIMS)
+    - assessed by Unified Huntington Disease Rating Scale (UHDRS)
+    - cognitive evaluation
+    - neuropsychiatric state evaluation
+    - quality of life (QoL) evaluation
+    - life satisfaction (QLS) evaluation
   symptoms:
-    - Disabling chorea
+    - disabling chorea
+    - motor function issues
     - HP:0002067
-    - Dysexecutive symptoms
-    - Improved motor function
-    - Ameliorated mood
-    - Improved quality of life
+    - mood issues
+    - quality of life degradation
+    - dysexecutive symptoms
   action_annotation_relationships:
-    - subject: Quadruple deep brain stimulation (GPi- and STN-DBS)
+    - subject: MAXO:0000943
       predicate: TREATS
       object: disabling chorea
       qualifier: MONDO:0007739
-    - subject: <Quadruple deep brain stimulation>
-      predicate: <PREVENTS>
-      object: <increase in bradykinesia>
-      qualifier: <Huntington's disease>
-      subject_extension: <GPi- and STN-DBS>
-    - subject: Quadruple deep brain stimulation (GPi- and STN-DBS)
-      predicate: IMPROVES
-      object: motor function
+    - subject: GPi-DBS
+      predicate: TREATS
+      object: disabling chorea
       qualifier: MONDO:0007739
-    - subject: Quadruple deep brain stimulation (GPi- and STN-DBS)
-      predicate: AMELIORATES
+      subject_extension: GPi-DBS
+    - subject: GPi-DBS
+      predicate: TREATS
+      object: motor function issues
+      qualifier: MONDO:0007739
+    - subject: cognitive evaluation
+      predicate: ASSESSES
+      object: Huntington's disease
+    - subject: neuropsychiatric state evaluation
+      predicate: ASSESSES
+      object: Huntington's disease
+    - subject: quality of life (QoL) evaluation
+      predicate: ASSESSES
+      object: Huntington's disease
+    - subject: <life satisfaction (QLS) evaluation>
+      predicate: <ASSESSES>
+      object: <Huntington's disease>
+      qualifier: <None>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: <STN-DBS>
+      predicate: <DOES NOT INCREASE>
+      object: <bradykinesia>
+      qualifier: <Huntington's disease>
+      subject_extension: <STN-DBS>
+    - subject: GPi-STN-DBS
+      predicate: DOES NOT INCREASE
+      object: HP:0002067
+      qualifier: MONDO:0007739
+    - subject: GPi-DBS
+      predicate: IMPROVES
       object: mood
       qualifier: MONDO:0007739
-      subject_extension: deep brain stimulation
-    - subject: Quadruple deep brain stimulation
+    - subject: GPi-DBS
       predicate: IMPROVES
       object: quality of life
       qualifier: MONDO:0007739
-      subject_qualifier: GPi- and STN-DBS
-    - subject: Assessment by Abnormal Involuntary Movement Scale (AIMS)
-      predicate: ASSESSES
-      object: disabling chorea
+    - subject: GPi-DBS
+      predicate: INCREASES
+      object: dysexecutive symptoms
       qualifier: MONDO:0007739
-    - subject: Assessment by Unified Huntington Disease Rating Scale (UHDRS)
-      predicate: ASSESSES
-      object: motor function
-      qualifier: MONDO:0007739
+      subject_extension: GPi-DBS
 named_entities:
   - id: MONDO:0007739
-    label: Huntington Disease
-  - id: MONDO:0013310
-    label: P450 oxidoreductase deficiency
-  - id: CHEBI:78757
-    label: Cystamine
-  - id: HP:0002072
-    label: choreic movements
+    label: Huntington disease
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0002180
+    label: neurodegeneration
+  - id: HP:0001268
+    label: cognitive decline
   - id: HP:0100022
     label: movement disorders
-  - id: CHEBI:16348
-    label: 3-nitropropionic acid (3-NP)
-  - id: MAXO:0000068
-    label: transplantation
-  - id: CHEBI:16675
-    label: quinolinic acid
-  - id: MAXO:0000011
-    label: physiotherapy
-  - id: MAXO:0000883
-    label: cognitive therapy
-  - id: HP:0002140
-    label: ischemic stroke
-  - id: MONDO:0005180
-    label: Parkinson disease
-  - id: MONDO:0005559
-    label: neurodegenerative diseases
+  - id: HP:0002072
+    label: choreic movements
+  - id: MAXO:0009003
+    label: preimplantation genetic testing
+  - id: MAXO:0001592
+    label: RNA interference therapy
+  - id: HP:0000716
+    label: depression
+  - id: HP:0000739
+    label: anxiety
+  - id: HP:0000737
+    label: irritability
+  - id: CHEBI:7735
+    label: olanzapine
+  - id: MAXO:0000882
+    label: behavioral interventions
   - id: HP:0004395
     label: malnutrition
+  - id: MAXO:0000011
+    label: physical therapy
   - id: CHEBI:22720
     label: benzodiazepines
   - id: CHEBI:2618
     label: amantadine
   - id: CHEBI:15765
     label: levodopa
+  - id: HP:0002315
+    label: Headache
+  - id: CHEBI:134738
+    label: Laquinimod
+  - id: CHEBI:4903
+    label: Ethinylestradiol
+  - id: CHEBI:6443
+    label: Levonorgestrel
   - id: HP:0001251
     label: Ataxia
   - id: HP:0001260
     label: Dysarthria
   - id: HP:0002119
     label: Ventricular dilatation
-  - id: MAXO:0009017
-    label: Cognitive assessment (Mini-Mental State Examination)
   - id: HP:0100543
-    label: Cognitive impairment
+    label: cognitive deficits
+  - id: HP:0000708
+    label: Behavioral changes
   - id: CHEBI:92976
     label: Latrepirdine
-  - id: MONDO:0004976
-    label: amyotrophic lateral sclerosis
-  - id: HP:0002180
-    label: neurodegeneration
-  - id: MAXO:0000451
-    label: Implantation
+  - id: MONDO:0005559
+    label: Neurodegenerative diseases
+  - id: CHEBI:16243
+    label: Quercetin
+  - id: CHEBI:3962
+    label: Curcumin
+  - id: CHEBI:27881
+    label: Resveratrol
+  - id: CHEBI:75095
+    label: Chrysin
+  - id: CHEBI:28821
+    label: Piperine
+  - id: CHEBI:17620
+    label: Ferulic acid
+  - id: CHEBI:78330
+    label: Huperzine A
+  - id: CHEBI:16118
+    label: Berberine
+  - id: CHEBI:2979
+    label: Baicalein
+  - id: CHEBI:28230
+    label: Hesperetin
+  - id: CHEBI:26536
+    label: Retinoic acid
+  - id: MAXO:0000127
+    label: Genetic testing
   - id: CHEBI:76004
     label: Dimethyl fumarate
   - id: MAXO:0010012
-    label: Coenzyme Q10 supplementation
+    label: coenzyme Q10 supplementation
   - id: HP:0003287
     label: mitochondrial dysfunction
+  - id: HP:0025464
+    label: oxidative stress
   - id: CHEBI:46245
-    label: Coenzyme Q10
+    label: coenzyme Q10
   - id: CHEBI:31687
     label: idebenone
   - id: MONDO:0100339
     label: Friedreich ataxia
-  - id: CHEBI:30513
-    label: Sleeping Beauty (SB) transposon system
-  - id: MONDO:0858950
-    label: Traumatic Brain Injury (TBI)
-  - id: CHEBI:30145
-    label: lithium
-  - id: CHEBI:60654
-    label: valproate
-  - id: MAXO:0001001
-    label: gene therapy
-  - id: HP:0000708
-    label: Behavioral changes
-  - id: HP:0001268
-    label: Cognitive decline
+  - id: MONDO:0016621
+    label: Juvenile Huntington Disease
+  - id: MAXO:0000021
+    label: Palliative care
+  - id: CHEBI:6030
+    label: Isoniazid (INH)
+  - id: CHEBI:16865
+    label: gamma-aminobutyric acid (GABA)
+  - id: HP:0000709
+    label: psychosis
+  - id: HP:0011951
+    label: aspiration pneumonia
+  - id: MAXO:0000065
+    label: aerobic exercises
+  - id: MAXO:0000487
+    label: clinical assessments
+  - id: MAXO:0000387
+    label: muscle biopsy
+  - id: CHEBI:9467
+    label: Tetrabenazine
+  - id: MAXO:0000943
+    label: Deep brain stimulation
   - id: HP:0001332
     label: Dystonia
   - id: HP:0001336
@@ -191,73 +254,73 @@ named_entities:
     label: GABA agonists
   - id: CHEBI:38462
     label: Acetylcholinesterase inhibitors
-  - id: HP:0011096
-    label: Demyelination
-  - id: CHEBI:86497
-    label: hydroxykynurenine (3-HK)
+  - id: MONDO:0005071
+    label: Neurological disorders
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: HP:0033429
+    label: neuroinflammation
+  - id: MAXO:0000079
+    label: genetic counseling
+  - id: MAXO:0000016
+    label: Cell Therapy
+  - id: MONDO:0008199
+    label: Parkinson Disease (PD) and Huntington Disease (HD)
+  - id: MONDO:0005314
+    label: Relapsing-remitting multiple sclerosis (RRMS)
+  - id: MAXO:0001394
+    label: oral administration
+  - id: MAXO:0001610
+    label: repetitive transcranial magnetic stimulation (rTMS)
+  - id: CHEBI:76720
+    label: Antisense oligonucleotides
+  - id: MONDO:0001516
+    label: spinal muscular atrophy
   - id: CHEBI:16919
-    label: Creatine
+    label: creatine
+  - id: CHEBI:35476
+    label: Neuroleptics
   - id: HP:0002015
     label: dysphagia
   - id: HP:0000873
     label: diabetes insipidus
-  - id: HP:0011951
-    label: aspiration pneumonia
   - id: HP:0001622
     label: preterm delivery
   - id: HP:0012330
     label: pyelonephritis
-  - id: HP:0000712
-    label: Mood swings
-  - id: HP:0000750
-    label: Speech difficulties
-  - id: CHEBI:8863
-    label: riluzole
-  - id: MAXO:0009018
-    label: Neuropsychological assessment
+  - id: HP:0004305
+    label: Involuntary movements
+  - id: HP:0002312
+    label: Clumsiness
+  - id: HP:0000745
+    label: Lack of motivation
   - id: HP:0002354
-    label: Memory dysfunction
-  - id: MAXO:0000950
-    label: supportive care
-  - id: HP:0001289
-    label: confusion
-  - id: HP:0000739
-    label: anxiety
-  - id: HP:0002063
-    label: Rigidity
-  - id: HP:0000718
-    label: Aggression
+    label: Memory loss
+  - id: HP:0001824
+    label: Weight loss
+  - id: MAXO:0000022
+    label: hospice care
+  - id: CHEBI:8863
+    label: Riluzole
+  - id: HP:0002527
+    label: falls
   - id: CHEBI:45979
-    label: tetrabenazine (TBZ)
-  - id: CHEBI:9467
-    label: tetrabenazine
-  - id: CHEBI:48607
-    label: Lithium chloride
-  - id: CHEBI:472552
-    label: BrdU
-  - id: MAXO:0000127
-    label: Genetic testing
-  - id: HP:0000716
-    label: Depression
-  - id: HP:0002355
-    label: Difficulty walking
+    label: TBZ
+  - id: MAXO:0000571
+    label: CT scan
   - id: MONDO:0009366
     label: Normal Pressure Hydrocephalus
   - id: CHEBI:3723
     label: citalopram
-  - id: MONDO:0010735
-    label: Spinal and bulular muscular atrophy (SBMA)
-  - id: CHEBI:64103
-    label: Sodium butyrate
-  - id: MONDO:0009061
-    label: cystic fibrosis
-  - id: MAXO:0000079
-    label: genetic counseling
-  - id: MAXO:0000016
-    label: Cell therapy
+  - id: HP:0000657
+    label: Ocular Motor Apraxia
+  - id: CHEBI:27314
+    label: Water-soluble vitamins
+  - id: CHEBI:46662
+    label: Minerals
+  - id: HP:0000741
+    label: apathy
   - id: HP:0001288
-    label: impaired gait
-  - id: MONDO:0013282
-    label: alpha-1 antitrypsin deficiency
+    label: Impaired gait
   - id: HP:0002067
-    label: Bradykinesia
+    label: bradykinesia

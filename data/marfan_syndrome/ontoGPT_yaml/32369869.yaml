@@ -16,10 +16,14 @@ input_text: 'Aortic root valve-sparing repair and dissections in Marfans syndrom
   multidisciplinary team.'
 raw_completion_output: |-
   primary_disease: Marfan syndrome
-  medical_actions: Aortic root valve-sparing repair; Surgery of the aorta and valves; Preconception counseling; Antepartum care; Postpartum follow-up
-  symptoms: Aortic dissection; Rupture
+
+  medical_actions: preconception counseling; antepartum care; close postpartum follow-up; aortic root repair with preservation of the native aortic valve
+
+  symptoms: aortic dissection and rupture
+
   chemicals: 
-  action_annotation_relationships: Aortic root valve-sparing repair TREATS Aortic dissection IN Marfan syndrome; Surgery of the aorta and valves TREATS Aortic dissection IN Marfan syndrome; Surgery of the aorta and valves TREATS Rupture IN Marfan syndrome
+
+  action_annotation_relationships: aortic root repair with preservation of the native aortic valve TREATS aortic dissection and rupture IN Marfan syndrome; preconception counseling PREVENTS aortic dissection and rupture IN Marfan syndrome; antepartum care TREATS aortic dissection and rupture IN Marfan syndrome; close postpartum follow-up TREATS aortic dissection and rupture IN Marfan syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -34,45 +38,110 @@ prompt: |+
 
 
   Text:
-  Surgery of the aorta and valves TREATS Rupture IN Marfan syndrome
+  close postpartum follow-up TREATS aortic dissection and rupture IN Marfan syndrome
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0007947
   medical_actions:
-    - Aortic root valve-sparing repair
-    - Surgery of the aorta and valves
-    - Preconception counseling
-    - Antepartum care
-    - Postpartum follow-up
+    - preconception counseling
+    - antepartum care
+    - close postpartum follow-up
+    - aortic root repair with preservation of the native aortic valve
   symptoms:
-    - HP:0002647
-    - Rupture
+    - aortic dissection and rupture
   action_annotation_relationships:
-    - subject: Aortic root valve-sparing repair
+    - subject: aortic root repair with preservation of the native aortic valve
       predicate: TREATS
-      object: HP:0002647
+      object: aortic dissection and rupture
       qualifier: MONDO:0007947
-    - subject: Surgery of the aorta and valves
+    - subject: preconception counseling
+      predicate: PREVENTS
+      object: aortic dissection and rupture
+      qualifier: MONDO:0007947
+    - subject: antepartum care
       predicate: TREATS
-      object: Aortic discession
-    - subject: Surgery of the aorta and valves
+      object: aortic dissection and rupture
+      qualifier: MONDO:0007947
+    - subject: close postpartum follow-up
       predicate: TREATS
-      object: Rupture
+      object: aortic dissection and rupture
       qualifier: MONDO:0007947
 named_entities:
   - id: MONDO:0007947
-    label: Marfan syndrome
+    label: Marfan Syndrome
+  - id: HP:0000768
+    label: Pectus carinatum
+  - id: HP:0002650
+    label: Scoliosis
+  - id: HP:0002108
+    label: Spontaneous pneumothorax
+  - id: HP:0003423
+    label: Thoracolumbar kyphoscoliosis
+  - id: CHEBI:33281
+    label: Antibiotic
+  - id: HP:0002107
+    label: pneumothorax
   - id: MAXO:0010203
-    label: echocardiography
+    label: Echocardiography
+  - id: MAXO:0000494
+    label: Blood pressure monitoring
   - id: HP:0004942
-    label: aortic dilatation
+    label: Aortic dilatation
   - id: CHEBI:5959
-    label: irbesartan
-  - id: CHEBI:2904
-    label: atenolol
+    label: Irbesartan
+  - id: HP:0004950
+    label: Peripheral artery disease
+  - id: HP:0002617
+    label: aneurysm
+  - id: HP:0030965
+    label: increased aortic stiffness
+  - id: HP:0001659
+    label: aortic regurgitation
+  - id: HP:0001712
+    label: left ventricular hypertrophy
+  - id: HP:0005162
+    label: left ventricular failure
+  - id: HP:0000822
+    label: high blood pressure
   - id: CHEBI:6541
-    label: losartan
-  - id: HP:0002647
-    label: Aortic dissection
+    label: Losartan
+  - id: CHEBI:35530
+    label: beta-blocker
+  - id: MAXO:0001298
+    label: therapy
+  - id: MONDO:0020333
+    label: Anterior sacral meningocele (ASM)
+  - id: HP:0002315
+    label: headache
+  - id: HP:0002018
+    label: nausea
+  - id: HP:0002138
+    label: subarachnoid hemorrhage
+  - id: HP:0031625
+    label: Pseudoaneurysms
+  - id: MAXO:0000451
+    label: Implantation
+  - id: MAXO:0000457
+    label: pain management
+  - id: HP:0012531
+    label: pain
+  - id: HP:0012378
+    label: fatigue
+  - id: HP:0012332
+    label: dysautonomia
+  - id: HP:0002659
+    label: bone fragility
+  - id: HP:0025017
+    label: capillary fragility
+  - id: HP:0001030
+    label: skin fragility
+  - id: MAXO:0000571
+    label: CT
+  - id: HP:0034267
+    label: Pelvic pain
+  - id: HP:0000139
+    label: Genital prolapse
+  - id: HP:0100518
+    label: Dysuria

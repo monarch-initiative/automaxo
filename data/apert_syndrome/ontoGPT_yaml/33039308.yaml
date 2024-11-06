@@ -23,10 +23,14 @@ input_text: 'Assessment of long-term quality of life in patients with syndromic 
   support and to create an accepting society.'
 raw_completion_output: |-
   primary_disease: syndromic craniosynostosis
-  medical_actions: surgical treatment; psychological support; treatment of ophthalmological conditions
-  symptoms: difficulty in understanding; communication difficulties; self-care difficulties; poor participation in society; mental retardation; hand and foot handicaps
+
+  medical_actions: cranioplasty; midface distraction; psychological support; ophthalmological treatment
+
+  symptoms: difficulty in understanding; communication difficulties; self-care difficulties; poor participation in society; everyday inconvenience; mental retardation; hand and foot handicaps
+
   chemicals: 
-  action_annotation_relationships: surgical treatment TREATS syndromic craniosynostosis IN syndromic craniosynostosis; psychological support TREATS poor participation in society IN syndromic craniosynostosis; treatment of ophthalmological conditions TREATS ophthalmological conditions IN syndromic craniosynostosis
+
+  action_annotation_relationships: cranioplasty TREATS deformity IN syndromic craniosynostosis; midface distraction TREATS deformity IN syndromic craniosynostosis; psychological support TREATS poor participation in society IN syndromic craniosynostosis; ophthalmological treatment TREATS ophthalmological conditions IN syndromic craniosynostosis
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -41,65 +45,69 @@ prompt: |+
 
 
   Text:
-  treatment of ophthalmological conditions TREATS ophthalmological conditions IN syndromic craniosynostosis
+  ophthalmological treatment TREATS ophthalmological conditions IN syndromic craniosynostosis
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0015338
   medical_actions:
-    - surgical treatment
+    - MAXO:0001291
+    - midface distraction
     - psychological support
-    - treatment of ophthalmological conditions
+    - ophthalmological treatment
   symptoms:
     - difficulty in understanding
     - communication difficulties
     - self-care difficulties
     - poor participation in society
+    - everyday inconvenience
     - HP:0001249
     - hand and foot handicaps
   action_annotation_relationships:
-    - subject: surgical treatment
+    - subject: MAXO:0001291
       predicate: TREATS
-      object: syndromic craniosynostosis
+      object: deformity
+      qualifier: MONDO:0015338
+    - subject: midface distraction
+      predicate: TREATS
+      object: deformity
       qualifier: MONDO:0015338
     - subject: psychological support
       predicate: TREATS
       object: poor participation in society
       qualifier: MONDO:0015338
-    - subject: treatment of ophthalmological conditions
+    - subject: ophthalmological treatment
       predicate: TREATS
       object: ophthalmological conditions
       qualifier: MONDO:0015338
 named_entities:
-  - id: HP:0011800
-    label: Midface hypoplasia
   - id: MONDO:0007041
     label: Apert syndrome
   - id: MAXO:0000486
-    label: distraction osteogenesis
+    label: Distraction osteogenesis
   - id: HP:0012531
-    label: pain
+    label: Pain
   - id: HP:0001288
-    label: gait disturbances
-  - id: MONDO:0003432
-    label: Strabismus
+    label: Gait disturbances
   - id: HP:0001159
     label: Syndactyly
-  - id: MAXO:0000004
-    label: surgical procedures
   - id: HP:0001363
     label: craniosynostosis
+  - id: HP:0011800
+    label: midface hypoplasia
   - id: MONDO:0015338
     label: syndromic craniosynostosis
   - id: HP:0001061
     label: Acne
   - id: CHEBI:6067
-    label: isotretinoin
+    label: Isotretinoin
   - id: MONDO:0015469
     label: Craniosynostosis
+  - id: HP:0000504
+    label: Vision issues
   - id: HP:0000572
-    label: Vision loss
+    label: Visual loss
   - id: HP:0000646
     label: Amblyopia
   - id: HP:0001138
@@ -110,16 +118,18 @@ named_entities:
     label: Anisometropia
   - id: HP:0000483
     label: Astigmatism
-  - id: MAXO:0000504
-    label: Tracheostomy
   - id: MAXO:0000502
-    label: Tracheal intubation
-  - id: HP:0010807
-    label: Open bite
-  - id: MAXO:0000756
-    label: blood transfusion
+    label: tracheal intubation
+  - id: HP:0009102
+    label: Anterior open bite
   - id: MAXO:0001183
     label: Bronchoscopy
+  - id: MAXO:0000504
+    label: Tracheotomy
+  - id: MAXO:0001029
+    label: Adenoidectomy
+  - id: MAXO:0001081
+    label: Tonsillectomy
   - id: HP:0002104
     label: Apneic episodes
   - id: HP:0002098
@@ -128,15 +138,13 @@ named_entities:
     label: Stridor
   - id: HP:0000961
     label: Cyanosis
-  - id: MONDO:0009735
-    label: Netherton syndrome
-  - id: MONDO:0011438
-    label: Acne vulgaris
+  - id: HP:0000689
+    label: malocclusion
   - id: HP:0002902
-    label: hyponatremia
-  - id: MAXO:0000068
-    label: Transplantation
+    label: Hyponatremia
   - id: MAXO:0010031
     label: bone grafting
+  - id: MAXO:0001291
+    label: cranioplasty
   - id: HP:0001249
     label: mental retardation

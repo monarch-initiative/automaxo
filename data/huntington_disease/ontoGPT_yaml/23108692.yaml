@@ -30,15 +30,15 @@ input_text: 'A randomized, double-blind, placebo-controlled study of latrepirdin
 raw_completion_output: |-
   primary_disease: Huntington disease
 
-  medical_actions: Administration of latrepirdine; Placebo administration; Cognitive assessment (Mini-Mental State Examination); Global function assessment (Clinician Interview-Based Impression of Change, plus carer interview); Behavioral assessment; Daily function assessment; Motor function assessment; Safety monitoring
+  medical_actions: Administration of latrepirdine; Placebo administration; Cognition measurement (Mini-Mental State Examination); Clinician Interview-Based Impression of Change plus carer interview; Measurement of behavior; Measurement of daily function; Measurement of motor function; Safety assessments
 
-  symptoms: Cognitive impairment
+  symptoms: Cognitive impairment; Behavioral changes; Daily function impairment; Motor function impairment
 
   chemicals: Latrepirdine
 
-  action_annotation_relationships: Administration of latrepirdine TREATS cognitive impairment IN Huntington disease; Placebo administration PREVENTS cognitive impairment IN Huntington disease (implied, as control); Cognitive assessment (Mini-Mental State Examination) ASSESSES cognitive impairment IN Huntington disease; Global function assessment (Clinician Interview-Based Impression of Change, plus carer interview) ASSESSES global function IN Huntington disease
+  action_annotation_relationships: Administration of latrepirdine TREATS cognitive impairment IN Huntington disease; Administration of latrepirdine (with Latrepirdine) TREATS cognitive impairment IN Huntington disease; Placebo administration TREATS cognitive impairment IN Huntington disease; Cognition measurement (Mini-Mental State Examination) ASSESSES cognitive impairment IN Huntington disease; Clinician Interview-Based Impression of Change plus carer interview ASSESSES cognitive impairment IN Huntington disease; Measurement of behavior ASSESSES behavioral changes IN Huntington disease; Measurement of daily function ASSESSES daily function impairment IN Huntington disease; Measurement of motor function ASSESSES motor function impairment IN Huntington disease; Safety assessments ASSESSES safety IN Huntington disease
 prompt: |+
-  From the text below, extract the following entities in the following format:
+  Split the following piece of text into fields in the following format:
 
   subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
   object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
@@ -51,7 +51,7 @@ prompt: |+
 
 
   Text:
-  Global function assessment (Clinician Interview-Based Impression of Change, plus carer interview) ASSESSES global function IN Huntington disease
+  Safety assessments ASSESSES safety IN Huntington disease
 
   ===
 
@@ -60,15 +60,17 @@ extracted_object:
   medical_actions:
     - Administration of latrepirdine
     - Placebo administration
-    - MAXO:0009017
-    - Global function assessment (Clinician Interview-Based Impression of Change,
-      plus carer interview)
-    - Behavioral assessment
-    - Daily function assessment
-    - Motor function assessment
-    - Safety monitoring
+    - Cognition measurement (Mini-Mental State Examination)
+    - Clinician Interview-Based Impression of Change plus carer interview
+    - Measurement of behavior
+    - Measurement of daily function
+    - Measurement of motor function
+    - Safety assessments
   symptoms:
     - HP:0100543
+    - HP:0000708
+    - Daily function impairment
+    - Motor function impairment
   chemicals:
     - CHEBI:92976
   action_annotation_relationships:
@@ -77,65 +79,96 @@ extracted_object:
       object: HP:0100543
       qualifier: MONDO:0007739
       subject_extension: CHEBI:92976
-    - subject: Placebo administration
-      predicate: PREVENTS
+    - subject: Administration of latrepirdine
+      predicate: TREATS
       object: HP:0100543
       qualifier: MONDO:0007739
-      subject_extension: placebo
-    - subject: <Cognitive assessment>
+      subject_qualifier: with Latrepirdine
+      subject_extension: CHEBI:92976
+    - subject: <Placebo administration>
+      predicate: <TREATS>
+      object: <cognitive impairment>
+      qualifier: <Huntington disease>
+      subject_extension: <placebo>
+    - subject: <Cognition measurement>
       predicate: <ASSESSES>
       object: <cognitive impairment>
       qualifier: <Huntington disease>
       subject_extension: <Mini-Mental State Examination>
-    - subject: Global function assessment (Clinician Interview-Based Impression of
-        Change, plus carer interview)
+    - subject: Clinician Interview-Based Impression of Change plus carer interview
       predicate: ASSESSES
-      object: global function
+      object: HP:0100543
+      qualifier: MONDO:0007739
+    - subject: Measurement of behavior
+      predicate: ASSESSES
+      object: HP:0000708
+      qualifier: MONDO:0007739
+    - subject: Measurement of daily function
+      predicate: ASSESSES
+      object: daily function impairment
+      qualifier: MONDO:0007739
+    - subject: Measurement of motor function
+      predicate: ASSESSES
+      object: motor function impairment
+      qualifier: MONDO:0007739
+    - subject: Safety assessments
+      predicate: ASSESSES
+      object: safety
       qualifier: MONDO:0007739
 named_entities:
   - id: MONDO:0007739
-    label: Huntington Disease
-  - id: MONDO:0013310
-    label: P450 oxidoreductase deficiency
-  - id: CHEBI:78757
-    label: Cystamine
-  - id: HP:0002072
-    label: choreic movements
+    label: Huntington disease
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0002180
+    label: neurodegeneration
+  - id: HP:0001268
+    label: cognitive decline
   - id: HP:0100022
     label: movement disorders
-  - id: CHEBI:16348
-    label: 3-nitropropionic acid (3-NP)
-  - id: MAXO:0000068
-    label: transplantation
-  - id: CHEBI:16675
-    label: quinolinic acid
-  - id: MAXO:0000011
-    label: physiotherapy
-  - id: MAXO:0000883
-    label: cognitive therapy
-  - id: HP:0002140
-    label: ischemic stroke
-  - id: MONDO:0005180
-    label: Parkinson disease
-  - id: MONDO:0005559
-    label: neurodegenerative diseases
+  - id: HP:0002072
+    label: choreic movements
+  - id: MAXO:0009003
+    label: preimplantation genetic testing
+  - id: MAXO:0001592
+    label: RNA interference therapy
+  - id: HP:0000716
+    label: depression
+  - id: HP:0000739
+    label: anxiety
+  - id: HP:0000737
+    label: irritability
+  - id: CHEBI:7735
+    label: olanzapine
+  - id: MAXO:0000882
+    label: behavioral interventions
   - id: HP:0004395
     label: malnutrition
+  - id: MAXO:0000011
+    label: physical therapy
   - id: CHEBI:22720
     label: benzodiazepines
   - id: CHEBI:2618
     label: amantadine
   - id: CHEBI:15765
     label: levodopa
+  - id: HP:0002315
+    label: Headache
+  - id: CHEBI:134738
+    label: Laquinimod
+  - id: CHEBI:4903
+    label: Ethinylestradiol
+  - id: CHEBI:6443
+    label: Levonorgestrel
   - id: HP:0001251
     label: Ataxia
   - id: HP:0001260
     label: Dysarthria
   - id: HP:0002119
     label: Ventricular dilatation
-  - id: MAXO:0009017
-    label: Cognitive assessment (Mini-Mental State Examination)
   - id: HP:0100543
-    label: Cognitive impairment
+    label: cognitive deficits
+  - id: HP:0000708
+    label: Behavioral changes
   - id: CHEBI:92976
     label: Latrepirdine

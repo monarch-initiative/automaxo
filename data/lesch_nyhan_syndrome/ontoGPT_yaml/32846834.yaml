@@ -20,11 +20,15 @@ input_text: 'Delayed emergence from propofol anesthesia in a patient with Lesch-
   does not provide significant clinical advantages in rapid emergence from anesthesia
   and management of hyperuricemia in LNS patients undergoing urological surgery.'
 raw_completion_output: |-
-  primary_disease: Lesch-Nyhan syndrome (LNS)
-  medical_actions: Total intravenous anesthesia with propofol and remifentanil using target-controlled infusion
-  symptoms: Uric acid overproduction; Neurocognitive disability; Behavioral disturbances; Compulsive self-injurious behavior; High risk of emesis; Poorly controlled muscle movements; Intellectual disability; Neurodevelopmental delay
-  chemicals: Propofol; Remifentanil
-  action_annotation_relationships: Total intravenous anesthesia with propofol TREATS high risk of emesis IN Lesch-Nyhan syndrome; Total intravenous anesthesia with propofol and remifentanil TREATS poorly controlled muscle movements IN Lesch-Nyhan syndrome; Propofol (with antiemetic effect) TREATS high risk of emesis IN Lesch-Nyhan syndrome; Propofol (with uricosuric effect) PREVENTS uric acid overproduction IN Lesch-Nyhan syndrome
+  primary_disease: Lesch-Nyhan syndrome
+
+  medical_actions: Total intravenous anesthesia;Induction and maintenance of anesthesia with propofol and remifentanil;Target-controlled infusion
+
+  symptoms: Uric acid overproduction;Neurocognitive disability;Behavioral disturbances;Compulsive self-injurious behavior;High risk of emesis;Neurodevelopmental delay;Poorly controlled muscle;Self-injurious behaviors;Intellectual disability
+
+  chemicals: Propofol;Remifentanil
+
+  action_annotation_relationships: Total intravenous anesthesia with propofol and remifentanil TREATS poorly controlled muscle IN Lesch-Nyhan syndrome;Total intravenous anesthesia with propofol and remifentanil TREATS self-injurious behaviors IN Lesch-Nyhan syndrome;Induction and maintenance of anesthesia with propofol and remifentanil TREATS high risk of emesis IN Lesch-Nyhan syndrome;Propofol TREATS high risk of emesis IN Lesch-Nyhan syndrome;Propofol (with antiemetic effect) TREATS high risk of emesis IN Lesch-Nyhan syndrome;Propofol (with uricosuric effect) PREVENTS uric acid overproduction IN Lesch-Nyhan syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -44,57 +48,68 @@ prompt: |+
   ===
 
 extracted_object:
-  primary_disease: MONDO:0002486
+  primary_disease: MONDO:0010298
   medical_actions:
-    - Total intravenous anesthesia with propofol and remifentanil using target-controlled
-      infusion
+    - Total intravenous anesthesia
+    - Induction and maintenance of anesthesia with propofol and remifentanil
+    - Target-controlled infusion
   symptoms:
     - Uric acid overproduction
     - Neurocognitive disability
     - HP:0000708
     - Compulsive self-injurious behavior
     - High risk of emesis
-    - Poorly controlled muscle movements
-    - HP:0001249
     - HP:0012758
+    - Poorly controlled muscle
+    - HP:0100716
+    - HP:0001249
   chemicals:
     - CHEBI:44915
     - CHEBI:8802
   action_annotation_relationships:
     - subject: Total intravenous anesthesia
       predicate: TREATS
+      object: poorly controlled muscle
+      qualifier: MONDO:0010298
+      subject_extension: propofol and remifentanil
+    - subject: Total intravenous anesthesia
+      predicate: TREATS
+      object: HP:0100716
+      qualifier: MONDO:0010298
+      subject_extension: propofol and remifentanil
+    - subject: Induction and maintenance of anesthesia
+      predicate: TREATS
+      object: high risk of emesis
+      qualifier: MONDO:0010298
+      subject_extension: propofol and remifentanil
+    - subject: Propofol
+      predicate: TREATS
       object: high risk of emesis
       qualifier: MONDO:0010298
       subject_extension: CHEBI:44915
-    - subject: Total intravenous anesthesia
-      predicate: TREATS
-      object: poorly controlled muscle movements
-      qualifier: MONDO:0010298
-      subject_qualifier: with propofol and remifentanil
-      subject_extension: propofol and remifentanil
-    - subject: Propofol (with antiemetic effect)
+    - subject: antiemetic effect
       predicate: TREATS
       object: high risk of emesis
       qualifier: MONDO:0010298
       subject_extension: CHEBI:44915
       object_extension: antiemetic
-    - subject: Propofol
+    - subject: Propofol (with uricosuric effect)
       predicate: PREVENTS
       object: uric acid overproduction
       qualifier: MONDO:0010298
+      subject_qualifier: with uricosuric effect
       subject_extension: CHEBI:44915
-      object_extension: uricosuric effect
 named_entities:
   - id: MONDO:0010298
     label: Lesch-Nyhan syndrome
-  - id: HP:0002149
-    label: hyperuricemia
-  - id: HP:0100021
-    label: spastic cerebral palsy (CP)
-  - id: HP:0001332
-    label: dystonia
   - id: HP:0000742
-    label: self-mutilation
+    label: Self-mutilation
+  - id: HP:0002149
+    label: Hyperuricemia
+  - id: HP:0001249
+    label: Mental retardation
+  - id: HP:0001332
+    label: Dystonia
   - id: HP:0001257
     label: Spasticity
   - id: HP:0001266
@@ -105,46 +120,42 @@ named_entities:
     label: Aggression
   - id: HP:0002104
     label: Apnea
-  - id: HP:0002013
-    label: Vomiting
   - id: CHEBI:44915
     label: Propofol
+  - id: HP:0002835
+    label: pulmonary aspiration
   - id: MAXO:0000943
     label: deep brain stimulation surgery (DBS)
   - id: CHEBI:9130
     label: sevoflurane
-  - id: MAXO:0009003
-    label: preimplantation genetic diagnosis (PGD)
-  - id: HP:0001249
-    label: mental retardation
   - id: CHEBI:17368
     label: Hypoxanthine
   - id: CHEBI:15372
-    label: tetrahydrobiopterin
+    label: Tetrahydrobiopterin
   - id: CHEBI:35634
-    label: xanthine oxidase inhibitors
+    label: Xanthine oxidase inhibitors
+  - id: MAXO:0000004
+    label: surgical procedures
   - id: CHEBI:3387
-    label: Carbamazepine
-  - id: HP:0007325
-    label: generalized dystonia
+    label: carbamazepine
+  - id: MONDO:0002486
+    label: Lesch-Nyhan syndrome (LNS)
   - id: HP:0100660
-    label: dyskinesia
+    label: Dyskinesia
   - id: HP:0003149
-    label: Hyperuricosuria
+    label: hyperuricosuria
   - id: HP:0001997
-    label: Gouty arthritis
-  - id: CHEBI:28790
-    label: serotonin
+    label: gouty arthritis
   - id: CHEBI:28683
     label: kynurenine
   - id: CHEBI:16675
     label: quinolinic acid
+  - id: CHEBI:28790
+    label: serotonin
   - id: CHEBI:15318
     label: xanthine
   - id: HP:0001263
     label: developmental retardation
-  - id: MONDO:0002486
-    label: Lesch-Nyhan syndrome (LNS)
   - id: HP:0000708
     label: Behavioral disturbances
   - id: HP:0012758

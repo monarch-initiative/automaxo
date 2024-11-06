@@ -13,17 +13,17 @@ input_text: 'Aorta pathology and pregnancy. In addition to the haemodynamic chan
   pregnancy may be warranted. In women with a severely dilated ascending aorta, caesarean
   section is, at present, the advised mode of delivery. '
 raw_completion_output: |-
-  primary_disease: Aortic abnormalities in pregnancy
+  primary_disease: Aorta pathology
 
-  medical_actions: Counselling and risk assessment before pregnancy; Evaluation of past medical and family history; Evaluation of the aortic size before conception; Evaluation of any increase in size before and during pregnancy; Prophylactic repair before pregnancy; Elective surgery during pregnancy; Caesarean section
+  medical_actions: Counselling and risk assessment before pregnancy; Evaluation of past medical and family history; Evaluation of the aortic size before conception; Evaluation of any increase in aortic size before and during pregnancy; Prophylactic repair of the aorta before pregnancy; Elective surgery during pregnancy; Caesarean section
 
-  symptoms: Increased risk of complications during pregnancy; Dilated aorta
+  symptoms: Aortic dilatation
 
   chemicals: 
 
-  action_annotation_relationships: Counselling and risk assessment before pregnancy PREVENTS Increased risk of complications during pregnancy IN Aortic abnormalities in pregnancy; Evaluation of past medical and family history PREVENTS Increased risk of complications during pregnancy IN Aortic abnormalities in pregnancy; Evaluation of the aortic size before conception PREVENTS Increased risk of complications during pregnancy IN Aortic abnormalities in pregnancy; Evaluation of any increase in size before and during pregnancy PREVENTS Increased risk of complications during pregnancy IN Aortic abnormalities in pregnancy; Prophylactic repair before pregnancy TREATS Dilated aorta IN Aortic abnormalities in pregnancy; Elective surgery during pregnancy TREATS Dilated aorta IN Aortic abnormalities in pregnancy; Caesarean section TREATS Increased risk of complications during pregnancy IN Aortic abnormalities in pregnancy
+  action_annotation_relationships: Counselling and risk assessment before pregnancy PREVENTS complications IN Aorta pathology; Evaluation of past medical and family history PREVENTS aortic dissection IN Aorta pathology; Evaluation of the aortic size before conception PREVENTS aortic dissection IN Aorta pathology; Evaluation of any increase in aortic size before and during pregnancy PREVENTS aortic dissection IN Aorta pathology; Prophylactic repair of the aorta before pregnancy PREVENTS aortic dilatation IN Aorta pathology; Elective surgery during pregnancy TREATS aortic dilatation IN Aorta pathology; Caesarean section PREVENTS complications IN Aorta pathology
 prompt: |+
-  From the text below, extract the following entities in the following format:
+  Split the following piece of text into fields in the following format:
 
   subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
   object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
@@ -36,62 +36,69 @@ prompt: |+
 
 
   Text:
-  Caesarean section TREATS Increased risk of complications during pregnancy IN Aortic abnormalities in pregnancy
+  Caesarean section PREVENTS complications IN Aorta pathology
 
   ===
 
 extracted_object:
-  primary_disease: Aortic abnormalities in pregnancy
+  primary_disease: Aorta pathology
   medical_actions:
     - Counselling and risk assessment before pregnancy
     - Evaluation of past medical and family history
     - Evaluation of the aortic size before conception
-    - Evaluation of any increase in size before and during pregnancy
-    - Prophylactic repair before pregnancy
+    - Evaluation of any increase in aortic size before and during pregnancy
+    - Prophylactic repair of the aorta before pregnancy
     - Elective surgery during pregnancy
     - Caesarean section
   symptoms:
-    - Increased risk of complications during pregnancy
-    - Dilated aorta
+    - HP:0004942
   action_annotation_relationships:
-    - subject: Counselling and risk assessment before pregnancy
-      predicate: PREVENTS
-      object: Increased risk of complications during pregnancy
-      qualifier: Aortic abnormalities in pregnancy
+    - subject: <Counselling and risk assessment before pregnancy>
+      predicate: <PREVENTS>
+      object: <Complications>
+      qualifier: <Aorta pathology>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
     - subject: Evaluation of past medical and family history
       predicate: PREVENTS
-      object: Increased risk of complications during pregnancy
-      qualifier: Aortic abnormalities in pregnancy
-    - subject: Evaluation of the aortic size before conception
-      predicate: PREVENTS
-      object: Increased risk of complications during pregnancy
-      qualifier: Aortic abnormalities in pregnancy
-    - subject: <Evaluation of any increase in size before and during pregnancy>
+      object: HP:0002647
+      qualifier: Aorta pathology
+    - subject: <Evaluation of the aortic size>
       predicate: <PREVENTS>
-      object: <Increased risk of complications during pregnancy>
-      qualifier: <Aortic abnormalities in pregnancy>
-      subject_qualifier: <Not applicable>
-      object_qualifier: <Not applicable>
-      subject_extension: <Not applicable>
-      object_extension: <Not applicable>
-    - subject: Prophylactic repair before pregnancy
-      predicate: TREATS
-      object: Dilated aorta
-      qualifier: Aortic abnormalities in pregnancy
+      object: <aortic dissection>
+      qualifier: <Aorta pathology>
+      subject_qualifier: <before conception>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: Evaluation of any increase in aortic size before and during pregnancy
+      predicate: PREVENTS
+      object: HP:0002647
+      qualifier: Aorta pathology
+    - subject: <Prophylactic repair of the aorta>
+      predicate: <PREVENTS>
+      object: <aortic dilatation>
+      qualifier: <Aorta pathology>
+      subject_qualifier: <before pregnancy>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
     - subject: Elective surgery
       predicate: TREATS
-      object: Dilated aorta
-      qualifier: Aortic abnormalities in pregnancy
+      object: HP:0004942
+      qualifier: Aorta pathology
       subject_qualifier: during pregnancy
     - subject: Caesarean section
-      predicate: TREATS
-      object: Increased risk of complications during pregnancy
-      qualifier: Aortic abnormalities in pregnancy
+      predicate: PREVENTS
+      object: complications
+      qualifier: Aorta pathology
 named_entities:
   - id: MONDO:0018954
     label: Loeys-Dietz syndrome
   - id: MAXO:0000945
-    label: Spinal cord stimulation (SCS)
+    label: spinal cord stimulation (SCS)
   - id: HP:0031625
     label: Pseudoaneurysms
   - id: MAXO:0000451
@@ -104,19 +111,43 @@ named_entities:
     label: Joint laxity
   - id: CHEBI:35530
     label: Beta-blocker
+  - id: MAXO:0010203
+    label: Echocardiography
+  - id: HP:0012764
+    label: orthopnea
+  - id: HP:0001631
+    label: atrial septal defect
+  - id: HP:0001263
+    label: developmental delay
+  - id: HP:0003302
+    label: Spondylolisthesis
+  - id: HP:0003304
+    label: Spondylolysis
+  - id: HP:0012531
+    label: Pain
   - id: HP:0004942
-    label: Aortic aneurysms
+    label: aortic aneurysms
+  - id: HP:0002647
+    label: aortic dissection
+  - id: HP:0001645
+    label: sudden cardiac death
   - id: HP:0004944
     label: Cerebral aneurysms
   - id: HP:0002617
     label: Vasculopathy
+  - id: HP:0030745
+    label: Aneurysm of the ductus arteriosus
+  - id: MAXO:0000948
+    label: Craniotomy
   - id: MAXO:0010319
     label: CT angiogram
-  - id: HP:0002138
-    label: Subarachnoid hemorrhage
+  - id: MAXO:0010312
+    label: Head CT
   - id: HP:0007185
     label: Loss of consciousness
+  - id: HP:0002138
+    label: Subarachnoid hemorrhage
+  - id: HP:0025237
+    label: Unresponsive
   - id: CHEBI:35620
     label: vasodilator
-  - id: HP:0025637
-    label: vasospasm

@@ -21,15 +21,15 @@ input_text: 'A Survey of Orthodontic Treatment in Team Care for Patients With Sy
   molars. This survey is considered useful for improving orthodontic treatment in
   team care of patients with SCS.'
 raw_completion_output: |-
-  primary_disease: Syndromic Craniosynostosis
+  primary_disease: Syndromic Craniosynostosis (SCS)
 
-  medical_actions: Midface advancement; First-phase orthodontic treatment; Maxillary expansion and protraction; Tooth extraction
+  medical_actions: Midface advancement; First-phase orthodontic treatment; Maxillary expansion; Protraction; Tooth extraction
 
   symptoms: Tooth abnormalities; Abnormalities of maxillary molars
 
   chemicals: 
 
-  action_annotation_relationships: Midface advancement TREATS abnormalities of maxillary molars IN Syndromic Craniosynostosis; First-phase orthodontic treatment TREATS tooth abnormalities IN Syndromic Craniosynostosis; Maxillary expansion and protraction TREATS abnormalities of maxillary molars IN Syndromic Craniosynostosis; Tooth extraction TREATS tooth abnormalities IN Syndromic Craniosynostosis
+  action_annotation_relationships: Midface advancement TREATS Syndromic Craniosynostosis (SCS) IN patients; First-phase orthodontic treatment TREATS Syndromic Craniosynostosis (SCS) IN patients; Maxillary expansion TREATS Syndromic Craniosynostosis (SCS) IN patients; Protraction TREATS Syndromic Craniosynostosis (SCS) IN patients; Tooth extraction TREATS Syndromic Craniosynostosis (SCS) IN patients; Midface advancement PREVENTS Abnormalities of maxillary molars IN Syndromic Craniosynostosis (SCS)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -44,70 +44,75 @@ prompt: |+
 
 
   Text:
-  Tooth extraction TREATS tooth abnormalities IN Syndromic Craniosynostosis
+  Midface advancement PREVENTS Abnormalities of maxillary molars IN Syndromic Craniosynostosis (SCS)
 
   ===
 
 extracted_object:
-  primary_disease: MONDO:0015338
+  primary_disease: MONDO:0020621
   medical_actions:
     - Midface advancement
     - First-phase orthodontic treatment
-    - Maxillary expansion and protraction
+    - Maxillary expansion
+    - Protraction
     - Tooth extraction
   symptoms:
     - HP:0000164
     - Abnormalities of maxillary molars
   action_annotation_relationships:
-    - subject: <Midface advancement>
-      predicate: <TREATS>
-      object: <abnormalities of maxillary molars>
-      qualifier: <Syndromic Craniosynostosis>
-      subject_qualifier: <None>
-      object_qualifier: <None>
-      subject_extension: <None>
-      object_extension: <None>
+    - subject: Midface advancement
+      predicate: TREATS
+      object: Syndromic Craniosynostosis (SCS)
+      object_qualifier: IN patients
     - subject: First-phase orthodontic treatment
       predicate: TREATS
-      object: HP:0000164
-      qualifier: MONDO:0015338
-    - subject: Maxillary expansion and protraction
+      object: Syndromic Craniosynostosis
+      object_qualifier: IN patients
+    - subject: Maxillary expansion
       predicate: TREATS
-      object: abnormalities of maxillary molars
-      qualifier: MONDO:0015338
+      object: Syndromic Craniosynostosis
+      qualifier: MONDO:0020621
+      object_qualifier: IN patients
+    - subject: Protraction
+      predicate: TREATS
+      object: Syndromic Craniosynostosis
+      object_qualifier: SCS
     - subject: Tooth extraction
       predicate: TREATS
-      object: HP:0000164
-      qualifier: MONDO:0015338
+      object: Syndromic Craniosynostosis
+      qualifier: MONDO:0020621
+      object_qualifier: IN patients
+    - subject: Midface advancement
+      predicate: PREVENTS
+      object: Abnormalities of maxillary molars
+      qualifier: MONDO:0020621
 named_entities:
-  - id: HP:0011800
-    label: Midface hypoplasia
   - id: MONDO:0007041
     label: Apert syndrome
   - id: MAXO:0000486
-    label: distraction osteogenesis
+    label: Distraction osteogenesis
   - id: HP:0012531
-    label: pain
+    label: Pain
   - id: HP:0001288
-    label: gait disturbances
-  - id: MONDO:0003432
-    label: Strabismus
+    label: Gait disturbances
   - id: HP:0001159
     label: Syndactyly
-  - id: MAXO:0000004
-    label: surgical procedures
   - id: HP:0001363
     label: craniosynostosis
+  - id: HP:0011800
+    label: midface hypoplasia
   - id: MONDO:0015338
     label: syndromic craniosynostosis
   - id: HP:0001061
     label: Acne
   - id: CHEBI:6067
-    label: isotretinoin
+    label: Isotretinoin
   - id: MONDO:0015469
     label: Craniosynostosis
+  - id: HP:0000504
+    label: Vision issues
   - id: HP:0000572
-    label: Vision loss
+    label: Visual loss
   - id: HP:0000646
     label: Amblyopia
   - id: HP:0001138
@@ -118,16 +123,18 @@ named_entities:
     label: Anisometropia
   - id: HP:0000483
     label: Astigmatism
-  - id: MAXO:0000504
-    label: Tracheostomy
   - id: MAXO:0000502
-    label: Tracheal intubation
-  - id: HP:0010807
-    label: Open bite
-  - id: MAXO:0000756
-    label: blood transfusion
+    label: tracheal intubation
+  - id: HP:0009102
+    label: Anterior open bite
   - id: MAXO:0001183
     label: Bronchoscopy
+  - id: MAXO:0000504
+    label: Tracheotomy
+  - id: MAXO:0001029
+    label: Adenoidectomy
+  - id: MAXO:0001081
+    label: Tonsillectomy
   - id: HP:0002104
     label: Apneic episodes
   - id: HP:0002098
@@ -136,26 +143,24 @@ named_entities:
     label: Stridor
   - id: HP:0000961
     label: Cyanosis
-  - id: MONDO:0009735
-    label: Netherton syndrome
-  - id: MONDO:0011438
-    label: Acne vulgaris
+  - id: HP:0000689
+    label: malocclusion
   - id: HP:0002902
-    label: hyponatremia
-  - id: MAXO:0000068
-    label: Transplantation
+    label: Hyponatremia
   - id: MAXO:0010031
     label: bone grafting
+  - id: MAXO:0001291
+    label: cranioplasty
   - id: HP:0001249
     label: mental retardation
+  - id: HP:0001263
+    label: developmental delays
   - id: HP:0002516
     label: raised intracranial pressure
   - id: HP:0010535
     label: sleep apnea
   - id: HP:0000174
     label: palatal anomalies
-  - id: HP:0005347
-    label: Tracheal Cartilaginous Sleeve
   - id: HP:0000175
     label: Cleft palate
   - id: HP:0000365
@@ -166,37 +171,35 @@ named_entities:
     label: Cardiac anomalies
   - id: HP:0001818
     label: Paronychia
-  - id: MAXO:0001029
-    label: adenoidectomy
-  - id: MAXO:0001081
-    label: tonsillectomy
   - id: MAXO:0000506
-    label: noninvasive ventilation
+    label: Noninvasive ventilation
   - id: HP:0002870
-    label: obstructive apneas
+    label: Obstructive apneas
   - id: HP:0000453
-    label: choanal atresia
+    label: Choanal atresia
   - id: HP:0004411
-    label: deviated nasal septum
+    label: Deviated nasal septum
   - id: HP:0002871
-    label: central apneas
+    label: Central apneas
   - id: HP:0002308
     label: Chiari malformations
   - id: MONDO:0002457
-    label: Tracheal cartilaginous sleeve (TCS) in syndromic craniosynostosis
+    label: Tracheal Cartilaginous Sleeve (TCS) in Syndromic Craniosynostosis
   - id: MAXO:0001189
-    label: laryngoscopy
-  - id: HP:0001263
-    label: developmental delay
+    label: Laryngoscopy
   - id: HP:0002119
-    label: enlarged cerebral ventricles
+    label: Enlarged cerebral ventricles
+  - id: HP:0005347
+    label: Tracheal Cartilaginous Sleeve
   - id: MAXO:0000647
     label: Chemotherapy
   - id: MAXO:0000014
     label: Radiotherapy
+  - id: CHEBI:22333
+    label: Alkylating agents
   - id: MAXO:0001001
-    label: Gene therapy
-  - id: MAXO:0000015
-    label: Biological therapies
+    label: Gene therapies
+  - id: MONDO:0020621
+    label: Syndromic Craniosynostosis (SCS)
   - id: HP:0000164
     label: Tooth abnormalities

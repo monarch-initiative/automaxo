@@ -20,10 +20,14 @@ input_text: 'Anterior sacral meningocele presenting as intracystic bleeding. PUR
   was effective for both clinical control and lesion regression.'
 raw_completion_output: |-
   primary_disease: Anterior sacral meningocele (ASM)
-  medical_actions: surgical approach; anterior abdominal approach; S1-S2 laminectomy; obliteration of the pedicle
-  symptoms: intracystic bleeding; headache; nausea; lower limb subjective weakness; retroperitoneal mass with hemorrhagic content; subarachnoid hemorrhage
+
+  medical_actions: surgery for an anterior abdominal approach; S1-S2 laminectomy; obliteration of the pedicle
+
+  symptoms: headache; nausea; lower limb subjective weakness; intracystic bleeding; subarachnoid hemorrhage
+
   chemicals: 
-  action_annotation_relationships: surgical approach (with anterior abdominal approach) TREATS intracystic bleeding IN Anterior sacral meningocele; surgical approach (with S1-S2 laminectomy and obliteration of the pedicle) TREATS intracystic bleeding IN Anterior sacral meningocele; surgical approach TREATS headache IN Anterior sacral meningocele; surgical approach TREATS nausea IN Anterior sacral meningocele; surgical approach TREATS lower limb subjective weakness IN Anterior sacral meningocele; surgical approach TREATS retroperitoneal mass with hemorrhagic content IN Anterior sacral meningocele; surgical approach TREATS subarachnoid hemorrhage IN Anterior sacral meningocele
+
+  action_annotation_relationships: surgery for an anterior abdominal approach TREATS intracystic bleeding IN Anterior sacral meningocele; S1-S2 laminectomy TREATS intracystic bleeding IN Anterior sacral meningocele; obliteration of the pedicle TREATS intracystic bleeding IN Anterior sacral meningocele
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -38,59 +42,60 @@ prompt: |+
 
 
   Text:
-  surgical approach TREATS subarachnoid hemorrhage IN Anterior sacral meningocele
+  obliteration of the pedicle TREATS intracystic bleeding IN Anterior sacral meningocele
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0020333
   medical_actions:
-    - surgical approach
-    - anterior abdominal approach
+    - surgery for an anterior abdominal approach
     - S1-S2 laminectomy
     - obliteration of the pedicle
   symptoms:
-    - intracystic bleeding
     - HP:0002315
     - HP:0002018
     - lower limb subjective weakness
-    - retroperitoneal mass with hemorrhagic content
+    - intracystic bleeding
     - HP:0002138
   action_annotation_relationships:
-    - subject: surgical approach
+    - subject: surgery for an anterior abdominal approach
       predicate: TREATS
       object: intracystic bleeding
       qualifier: Anterior sacral meningocele
-      subject_qualifier: with anterior abdominal approach
-    - subject: surgical approach (with S1-S2 laminectomy and obliteration of the pedicle)
+    - subject: S1-S2 laminectomy
       predicate: TREATS
       object: intracystic bleeding
       qualifier: Anterior sacral meningocele
-    - subject: surgical approach
+    - subject: obliteration of the pedicle
       predicate: TREATS
-      object: HP:0002315
-      qualifier: Anterior sacral meningocele
-    - subject: surgical approach
-      predicate: TREATS
-      object: HP:0002018
-      qualifier: Anterior sacral meningocele
-    - subject: surgical approach
-      predicate: TREATS
-      object: lower limb subjective weakness
-      qualifier: Anterior sacral meningocele
-    - subject: surgical approach
-      predicate: TREATS
-      object: retroperitoneal mass with hemorrhagic content
-      qualifier: Anterior sacral meningocele
-    - subject: surgical approach
-      predicate: TREATS
-      object: HP:0002138
+      object: intracystic bleeding
       qualifier: Anterior sacral meningocele
 named_entities:
   - id: MONDO:0007947
-    label: Marfan syndrome
-  - id: HP:0032079
-    label: Medial degeneration
+    label: Marfan Syndrome
+  - id: HP:0000768
+    label: Pectus carinatum
+  - id: HP:0002650
+    label: Scoliosis
+  - id: HP:0002108
+    label: Spontaneous pneumothorax
+  - id: HP:0003423
+    label: Thoracolumbar kyphoscoliosis
+  - id: CHEBI:33281
+    label: Antibiotic
+  - id: HP:0002107
+    label: pneumothorax
+  - id: MAXO:0010203
+    label: Echocardiography
+  - id: MAXO:0000494
+    label: Blood pressure monitoring
+  - id: HP:0004942
+    label: Aortic dilatation
+  - id: CHEBI:5959
+    label: Irbesartan
+  - id: HP:0004950
+    label: Peripheral artery disease
   - id: HP:0002617
     label: aneurysm
   - id: HP:0030965
@@ -101,6 +106,14 @@ named_entities:
     label: left ventricular hypertrophy
   - id: HP:0005162
     label: left ventricular failure
+  - id: HP:0000822
+    label: high blood pressure
+  - id: CHEBI:6541
+    label: Losartan
+  - id: CHEBI:35530
+    label: beta-blocker
+  - id: MAXO:0001298
+    label: therapy
   - id: MONDO:0020333
     label: Anterior sacral meningocele (ASM)
   - id: HP:0002315

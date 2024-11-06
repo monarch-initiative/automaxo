@@ -20,11 +20,15 @@ input_text: 'Chediak-Higashi syndrome: four cases from Northern Finland. UNLABEL
   is a good alternative. The clinical picture of CHS is heterogeneous and therapeutic
   decisions need to be made on an individual basis.'
 raw_completion_output: |-
-  primary_disease: Chediak-Higashi syndrome (CHS)
-  medical_actions: allogeneic bone marrow transplantation; morphological examination of peripheral blood and bone marrow; look for a mutated LYST gene
-  symptoms: oculocutaneous albinism; bleeding tendency; recurrent bacterial infections; neurological symptoms; giant granules in many cells; hepatosplenomegaly; bone marrow infiltration; haemophagocytosis; peripheral blood neutropenia; anaemia; thrombocytopenia
-  chemicals: 
-  action_annotation_relationships: allogeneic bone marrow transplantation TREATS oculocutaneous albinism IN Chediak-Higashi syndrome (CHS); allogeneic bone marrow transplantation TREATS bleeding tendency IN Chediak-Higashi syndrome (CHS); allogeneic bone marrow transplantation TREATS recurrent bacterial infections IN Chediak-Higashi syndrome (CHS); allogeneic bone marrow transplantation TREATS neurological symptoms IN Chediak-Higashi syndrome (CHS); morphological examination of peripheral blood and bone marrow PREVENTS hepatosplenomegaly IN Chediak-Higashi syndrome (CHS); morphological examination of peripheral blood and bone marrow PREVENTS bone marrow infiltration IN Chediak-Higashi syndrome (CHS); morphological examination of peripheral blood and bone marrow PREVENTS haemophagocytosis IN Chediak-Higashi syndrome (CHS); look for a mutated LYST gene TREATS giant granules in many cells IN Chediak-Higashi syndrome (CHS); look for a mutated LYST gene TREATS peripheral blood neutropenia IN Chediak-Higashi syndrome (CHS); look for a mutated LYST gene TREATS anaemia IN Chediak-Higashi syndrome (CHS); look for a mutated LYST gene TREATS thrombocytopenia IN Chediak-Higashi syndrome (CHS)
+  primary_disease: Chediak-Higashi syndrome
+
+  medical_actions: morphological examination of peripheral blood and bone marrow; looking for a mutated LYST gene; allogeneic bone marrow transplantation
+
+  symptoms: oculocutaneous albinism; bleeding tendency; recurrent bacterial infections; various neurological symptoms; giant granules in many cells; giant melanosomes in melanocytes; hepatosplenomegaly; bone marrow infiltration; haemophagocytosis; peripheral blood neutropenia; anaemia; thrombocytopenia
+
+  chemicals:
+
+  action_annotation_relationships: morphological examination of peripheral blood and bone marrow TREATS diagnosis IN Chediak-Higashi syndrome; looking for a mutated LYST gene TREATS diagnosis IN Chediak-Higashi syndrome; allogeneic bone marrow transplantation TREATS hepatosplenomegaly IN Chediak-Higashi syndrome; allogeneic bone marrow transplantation TREATS bone marrow infiltration IN Chediak-Higashi syndrome; allogeneic bone marrow transplantation TREATS haemophagocytosis IN Chediak-Higashi syndrome; allogeneic bone marrow transplantation TREATS peripheral blood neutropenia IN Chediak-Higashi syndrome; allogeneic bone marrow transplantation TREATS anaemia IN Chediak-Higashi syndrome; allogeneic bone marrow transplantation TREATS thrombocytopenia IN Chediak-Higashi syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -39,22 +43,23 @@ prompt: |+
 
 
   Text:
-  look for a mutated LYST gene TREATS thrombocytopenia IN Chediak-Higashi syndrome (CHS)
+  allogeneic bone marrow transplantation TREATS thrombocytopenia IN Chediak-Higashi syndrome
 
   ===
 
 extracted_object:
-  primary_disease: MONDO:0008090
+  primary_disease: MONDO:0008963
   medical_actions:
-    - allogeneic bone marrow transplantation
     - morphological examination of peripheral blood and bone marrow
-    - look for a mutated LYST gene
+    - looking for a mutated LYST gene
+    - allogeneic bone marrow transplantation
   symptoms:
     - oculocutaneous albinism
     - HP:0001892
     - HP:0002718
-    - neurological symptoms
+    - various neurological symptoms
     - giant granules in many cells
+    - HP:0005592
     - HP:0001433
     - bone marrow infiltration
     - haemophagocytosis
@@ -62,82 +67,80 @@ extracted_object:
     - HP:0001903
     - HP:0001873
   action_annotation_relationships:
-    - subject: allogeneic bone marrow transplantation
-      predicate: TREATS
-      object: oculocutaneous albinism
-      qualifier: MONDO:0008090
-    - subject: allogeneic bone marrow transplantation
-      predicate: TREATS
-      object: HP:0001892
-      qualifier: MONDO:0008090
-    - subject: allogeneic bone marrow transplantation
-      predicate: TREATS
-      object: HP:0002718
-      qualifier: MONDO:0008090
-    - subject: allogeneic bone marrow transplantation
-      predicate: TREATS
-      object: neurological symptoms
-      qualifier: MONDO:0008090
     - subject: morphological examination of peripheral blood and bone marrow
-      predicate: PREVENTS
+      predicate: TREATS
+      object: diagnosis
+      qualifier: MONDO:0008963
+    - subject: <looking for a mutated>
+      predicate: <TREATS>
+      object: <diagnosis>
+      qualifier: <Chediak-Higashi syndrome>
+      subject_extension: <LYST gene>
+    - subject: allogeneic bone marrow transplantation
+      predicate: TREATS
       object: HP:0001433
-      qualifier: MONDO:0008090
-    - subject: morphological examination of peripheral blood and bone marrow
-      predicate: PREVENTS
-      object: bone marrow infiltration
-      qualifier: MONDO:0008090
-    - subject: morphological examination of peripheral blood and bone marrow
-      predicate: PREVENTS
+      qualifier: MONDO:0008963
+    - subject: <allogeneic bone marrow transplantation>
+      predicate: <TREATS>
+      object: <bone marrow infiltration>
+      qualifier: <Chediak-Higashi syndrome>
+      subject_qualifier: <Not applicable>
+      object_qualifier: <Not applicable>
+      subject_extension: <Not applicable>
+      object_extension: <Not applicable>
+    - subject: allogeneic bone marrow transplantation
+      predicate: TREATS
       object: haemophagocytosis
-      qualifier: MONDO:0008090
-    - subject: gene mutation search
+      qualifier: MONDO:0008963
+      subject_extension: allogeneic bone marrow transplantation
+    - subject: allogeneic bone marrow transplantation
       predicate: TREATS
-      object: giant granules in many cells
-      qualifier: MONDO:0008090
-      subject_qualifier: mutated
-      subject_extension: LYST gene mutation
-    - subject: <look for a mutated>
-      predicate: <TREATS>
-      object: <peripheral blood neutropenia>
-      qualifier: MONDO:0008090
-      subject_extension: <LYST gene>
-    - subject: <look for a mutated>
-      predicate: <TREATS>
-      object: <anaemia>
-      qualifier: MONDO:0008090
-      subject_extension: <LYST gene>
-    - subject: look for a mutated
+      object: peripheral blood neutropenia
+      qualifier: MONDO:0008963
+      subject_extension: allogeneic bone marrow transplantation
+    - subject: allogeneic bone marrow transplantation
       predicate: TREATS
-      object: HP:0001873
-      qualifier: MONDO:0008090
-      subject_extension: LYST gene
+      object: HP:0001903
+      qualifier: MONDO:0008963
+    - subject: <allogeneic bone marrow transplantation>
+      predicate: <TREATS>
+      object: <thrombocytopenia>
+      qualifier: <Chediak-Higashi syndrome>
+      subject_qualifier: <None provided>
+      object_qualifier: <None provided>
+      subject_extension: <None provided>
+      object_extension: <None provided>
 named_entities:
+  - id: HP:0012531
+    label: pain
   - id: MAXO:0010030
-    label: Bone marrow transplantation (BMT)
+    label: bone marrow transplantation (BMT)
   - id: MONDO:0008963
     label: Chediak-Higashi syndrome
   - id: MAXO:0010033
-    label: Unrelated cord blood transplantation (UCBT)
+    label: unrelated cord blood transplantation (UCBT)
   - id: MAXO:0000747
     label: HSCT
   - id: MAXO:0000750
-    label: Conditioning regimens
+    label: conditioning regimens
   - id: CHEBI:41264
     label: BU
   - id: CHEBI:4027
-    label: Cyclophosphamide
+    label: cyclophosphamide
   - id: CHEBI:4911
-    label: Etoposide
+    label: etoposide
+  - id: MONDO:0008090
+    label: Chediak-Higashi syndrome (CHS)
   - id: HP:0001433
-    label: hepatosplenomegaly
+    label: Hepatosplenomegaly
   - id: HP:0003270
-    label: abdominal distention
+    label: Abdominal distention
   - id: MONDO:0024686
     label: Pigmented villonodular synovitis (PVNS)
   - id: HP:0001945
-    label: fever
+    label: Fever
   - id: MONDO:0003778
-    label: primary immunodeficiency
+    label: primary immunodeficiencies
   - id: HP:0025322
     label: veno-occlusive disease
   - id: CHEBI:28901
@@ -146,8 +149,10 @@ named_entities:
     label: cyclosporine
   - id: CHEBI:44185
     label: methotrexate
-  - id: MONDO:0008090
-    label: Chediak-Higashi Syndrome (CHS)
+  - id: HP:0100806
+    label: sepsis
+  - id: CHEBI:28790
+    label: Serotonin
   - id: HP:0002718
     label: recurrent bacterial infections
   - id: HP:0000613
@@ -171,43 +176,27 @@ named_entities:
   - id: HP:0001022
     label: albinism
   - id: HP:0001892
-    label: Bleeding tendency
+    label: bleeding tendency
   - id: HP:0000992
-    label: Photosensitivity
+    label: photosensitivity
   - id: MONDO:0000922
     label: Primary immunodeficiency diseases (PIDs)
-  - id: HP:0100806
-    label: Septicemia
-  - id: CHEBI:17660
-    label: induced pluripotent stem (iPS) cell line
+  - id: HP:0040289
+    label: Chediak-Higashi syndrome (CHS)
   - id: MAXO:0000016
     label: Cellular therapies
-  - id: HP:0004808
-    label: acute myelogenous leukemia
   - id: HP:0006721
     label: acute lymphoblastic leukemia
-  - id: HP:0005506
-    label: chronic myelogenous leukemia
-  - id: HP:0002863
-    label: myelodysplasia
-  - id: HP:0004818
-    label: paroxysmal nocturnal hemoglobinuria
-  - id: HP:0012539
-    label: non-Hodgkin's lymphoma
-  - id: HP:0011002
-    label: osteopetrosis
-  - id: MAXO:0000068
-    label: transplantation
-  - id: HP:0005523
-    label: lymphoproliferative disorder
   - id: MAXO:0000647
-    label: Chemotherapy
+    label: chemotherapy
   - id: MAXO:0000950
-    label: Supportive care
-  - id: CHEBI:33281
-    label: Antibiotics
+    label: supportive care
+  - id: MAXO:0000149
+    label: allogeneic hematopoietic cell transplantation (HCT)
   - id: HP:0002719
     label: recurrent infections
+  - id: HP:0005592
+    label: giant melanosomes in melanocytes
   - id: HP:0001903
     label: anaemia
   - id: HP:0001873

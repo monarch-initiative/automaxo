@@ -1,0 +1,115 @@
+---
+input_text: 'An audit on a routine antenatal nonstress testing program in pregnant
+  women with preexisting diabetes. INTRODUCTION: The objective was to evaluate the
+  effectiveness of routine (planned) antenatal nonstress tests (NSTs) in pregnant
+  women with preexisting diabetes. MATERIAL AND METHODS: A retrospective single-center
+  study of 642 consecutive pregnancies in women with preexisting diabetes who gave
+  birth to a singleton >=22 weeks. Weekly planned NSTs were commenced at 33-35 weeks.
+  In pregnancies with maternal-fetal complications, the initiation and frequency of
+  the planned NST were individualized. Daily maternal assessment of fetal activity
+  was recommended from 28 weeks, and decreased fetal activity indicated an unplanned
+  NST. Data were collected from medical records, and local and regional databases.
+  RESULTS: In total, 3016 planned NSTs were performed, with a median of five (range
+  0-12) tests per pregnancy. Ninety-five planned NSTs (3.1%) were abnormal, a finding
+  confirmed by retesting the same day in eight cases (8.4%), thus leading to delivery.
+  Complications were present in seven of these eight pregnancies, whereas no fetal
+  movements for the last 3 days were reported when the planned NST was performed in
+  the eighth pregnancy. When specifically asked, five of the eight women stated that
+  they had observed decreased fetal activity preceding the planned NST. In 86 pregnancies
+  (13.4%), maternal perception of decreased fetal activity indicated in total 127
+  unplanned NSTs. The combination of decreased fetal activity and further obstetrical
+  assessment led to delivery in 10 of these pregnancies (11.6%). One stillbirth occurred
+  at 37 weeks in a pregnancy complicated by fetal achondroplasia and polyhydramnios,
+  where the weekly planned NSTs had been normal. The overall stillbirth rate was thus
+  1.6/1000. CONCLUSIONS: Routine use of planned antenatal NSTs does not appear to
+  be indicated in pregnancies in women with preexisting diabetes in the absence of
+  maternal-fetal complications.'
+raw_completion_output: |-
+  primary_disease: Preexisting diabetes in pregnant women
+  medical_actions: Routine antenatal nonstress tests (NSTs); Decreased fetal activity indicated an unplanned NST; Daily maternal assessment of fetal activity; Obstetrical assessment
+  symptoms: Decreased fetal activity; No fetal movements
+  chemicals: 
+  action_annotation_relationships: Routine antenatal nonstress tests (NSTs) TREATS decreased fetal activity IN Preexisting diabetes in pregnant women; Decreased fetal activity indicated an unplanned NST TREATS no fetal movements IN Preexisting diabetes in pregnant women; Daily maternal assessment of fetal activity PREVENTS decreased fetal activity IN Preexisting diabetes in pregnant women; Obstetrical assessment TREATS decreased fetal activity IN Preexisting diabetes in pregnant women
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Obstetrical assessment TREATS decreased fetal activity IN Preexisting diabetes in pregnant women
+
+  ===
+
+extracted_object:
+  primary_disease: Preexisting diabetes in pregnant women
+  medical_actions:
+    - Routine antenatal nonstress tests (NSTs)
+    - Decreased fetal activity indicated an unplanned NST
+    - Daily maternal assessment of fetal activity
+    - Obstetrical assessment
+  symptoms:
+    - HP:0001558
+    - No fetal movements
+  action_annotation_relationships:
+    - subject: <Routine antenatal nonstress tests>
+      predicate: <TREATS>
+      object: <decreased fetal activity>
+      qualifier: <Preexisting diabetes in pregnant women>
+      subject_extension: <nonstress tests>
+    - subject: unplanned NST
+      predicate: TREATS
+      object: no fetal movements
+      qualifier: Preexisting diabetes in pregnant women
+    - subject: Daily maternal assessment of fetal activity
+      predicate: PREVENTS
+      object: HP:0001558
+      qualifier: Preexisting diabetes in pregnant women
+    - subject: Obstetrical assessment
+      predicate: TREATS
+      object: HP:0001558
+      qualifier: Preexisting diabetes in pregnant women
+named_entities:
+  - id: MONDO:0007037
+    label: Achondroplasia
+  - id: HP:0001513
+    label: Obesity
+  - id: HP:0005667
+    label: os odontoideum
+  - id: CHEBI:31805
+    label: Meclizine hydrochloride
+  - id: CHEBI:6709
+    label: meclizine
+  - id: MAXO:0001394
+    label: Oral administration
+  - id: HP:0031846
+    label: Femoral fracture
+  - id: CHEBI:37845
+    label: Growth hormone
+  - id: CHEBI:31324
+    label: Buserelin acetate
+  - id: HP:0004839
+    label: Hypophosphatasia
+  - id: HP:0004322
+    label: short stature
+  - id: HP:0000256
+    label: macrocephaly
+  - id: MAXO:0000127
+    label: Genetic testing
+  - id: MONDO:0007793
+    label: Hypochondroplasia
+  - id: HP:0012531
+    label: pain
+  - id: MONDO:0017014
+    label: children
+  - id: HP:0009102
+    label: Anterior open bite
+  - id: HP:0001558
+    label: Decreased fetal activity

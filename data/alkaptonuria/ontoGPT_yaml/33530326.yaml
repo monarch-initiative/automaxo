@@ -17,17 +17,17 @@ input_text: Towards a Precision Medicine Approach Based on Machine Learning for 
   a proof of principle study that could be applied to other rare diseases, allowing
   data management, analysis, and interpretation.
 raw_completion_output: |-
-  primary_disease: Alkaptonuria (AKU)
+  primary_disease: Alkaptonuria
 
-  medical_actions: Data collection;Integration of data;Analysis of data;Patient stratification;Tailoring of care;Tailoring of treatments
+  medical_actions: data collection;integration and analysis;patient stratification;tailoring of care and treatments
 
-  symptoms: Changes in health status
+  symptoms: 
 
   chemicals: 
 
-  action_annotation_relationships: Data collection TREATS Changes in health status IN Alkaptonuria (AKU);Integration of data TREATS Changes in health status IN Alkaptonuria (AKU);Analysis of data TREATS Changes in health status IN Alkaptonuria (AKU);Patient stratification TREATS Changes in health status IN Alkaptonuria (AKU);Tailoring of care TREATS Changes in health status IN Alkaptonuria (AKU);Tailoring of treatments TREATS Changes in health status IN Alkaptonuria (AKU)
+  action_annotation_relationships: data collection PREVENTS inaccuracies IN Alkaptonuria;integration and analysis PREVENTS misdiagnosis IN Alkaptonuria;patient stratification TREATS Alkaptonuria;tailoring of care and treatments TREATS Alkaptonuria
 prompt: |+
-  From the text below, extract the following entities in the following format:
+  Split the following piece of text into fields in the following format:
 
   subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
   object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
@@ -40,65 +40,44 @@ prompt: |+
 
 
   Text:
-  Tailoring of treatments TREATS Changes in health status IN Alkaptonuria (AKU)
+  tailoring of care and treatments TREATS Alkaptonuria
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0008753
   medical_actions:
-    - Data collection
-    - Integration of data
-    - Analysis of data
-    - Patient stratification
-    - Tailoring of care
-    - Tailoring of treatments
-  symptoms:
-    - Changes in health status
+    - data collection
+    - integration and analysis
+    - patient stratification
+    - tailoring of care and treatments
   action_annotation_relationships:
-    - subject: Data collection
+    - subject: data collection
+      predicate: PREVENTS
+      object: inaccuracies
+      qualifier: MONDO:0008753
+    - subject: integration and analysis
+      predicate: PREVENTS
+      object: misdiagnosis
+      qualifier: MONDO:0008753
+    - subject: patient stratification
       predicate: TREATS
-      object: Changes in health status
-      qualifier: MONDO:0008753
-    - subject: <Integration of data>
-      predicate: <TREATS>
-      object: <Changes in health status>
-      qualifier: MONDO:0008753
-      subject_extension: <Integration of data>
-    - subject: <Analysis of data>
-      predicate: <TREATS>
-      object: <Changes in health status>
-      qualifier: MONDO:0008753
-      subject_qualifier: <>
-      object_qualifier: <>
-      subject_extension: <Data analysis>
-      object_extension: <Changes in health status>
-    - subject: Patient stratification
+      object: Alkaptonuria
+    - subject: tailoring of care and treatments
       predicate: TREATS
-      object: Changes in health status
-      qualifier: MONDO:0008753
-    - subject: Tailoring of care
-      predicate: TREATS
-      object: Changes in health status
-      qualifier: MONDO:0008753
-    - subject: Tailoring of treatments
-      predicate: TREATS
-      object: Changes in health status
-      qualifier: MONDO:0008753
+      object: Alkaptonuria
 named_entities:
   - id: MAXO:0001175
-    label: Liver transplantation
-  - id: HP:0030764
-    label: Ochronosis
+    label: liver transplantation
   - id: CHEBI:44747
-    label: Homogentisic acid
+    label: homogentisic acid
   - id: MONDO:0008753
     label: alkaptonuria
-  - id: HP:0002758
-    label: osteoarthritis
+  - id: MONDO:0009861
+    label: phenylketonuria
+  - id: MONDO:0010163
+    label: tyrosinosis
+  - id: HP:0030764
+    label: ochronosis
   - id: CHEBI:50378
     label: nitisinone
-  - id: CHEBI:18186
-    label: tyrosine
-  - id: CHEBI:28044
-    label: Phenylalanine

@@ -24,12 +24,16 @@ input_text: 'Aortic Dissection in Pregnancy: Management Strategy and Outcomes. B
   preferred.'
 raw_completion_output: |-
   primary_disease: Aortic Dissection in Pregnancy
-  medical_actions: Surgical repair; Medical management; Endovascular management; Delivery first; Single-stage delivery and aortic repair; Aortic repair first
-  symptoms: Aortic dissection
-  chemicals: 
-  action_annotation_relationships: Surgical repair TREATS Aortic dissection IN Aortic Dissection in Pregnancy; Medical management TREATS Aortic dissection IN Aortic Dissection in Pregnancy; Endovascular management TREATS Aortic dissection IN Aortic Dissection in Pregnancy; Delivery first TREATS Aortic dissection IN Aortic Dissection in Pregnancy; Single-stage delivery and aortic repair TREATS Aortic dissection IN Aortic Dissection in Pregnancy; Aortic repair first TREATS Aortic dissection IN Aortic Dissection in Pregnancy
+
+  medical_actions: Surgical repair; Medical management; Delivery first; Single-stage delivery and aortic repair; Aortic repair first; Endovascular treatment
+
+  symptoms: Not explicitly mentioned
+
+  chemicals: Not mentioned
+
+  action_annotation_relationships: Surgical repair TREATS Aortic Dissection in Pregnancy; Medical management TREATS Aortic Dissection in Pregnancy; Delivery first TREATS Aortic Dissection in Pregnancy; Single-stage delivery and aortic repair TREATS Aortic Dissection in Pregnancy; Aortic repair first TREATS Aortic Dissection in Pregnancy; Endovascular treatment TREATS Aortic Dissection in Pregnancy
 prompt: |+
-  From the text below, extract the following entities in the following format:
+  Split the following piece of text into fields in the following format:
 
   subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
   object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
@@ -42,7 +46,7 @@ prompt: |+
 
 
   Text:
-  Aortic repair first TREATS Aortic dissection IN Aortic Dissection in Pregnancy
+  Endovascular treatment TREATS Aortic Dissection in Pregnancy
 
   ===
 
@@ -51,39 +55,41 @@ extracted_object:
   medical_actions:
     - MAXO:0009072
     - Medical management
-    - Endovascular management
     - Delivery first
     - Single-stage delivery and aortic repair
     - Aortic repair first
+    - Endovascular treatment
   symptoms:
-    - HP:0002647
+    - Not explicitly mentioned
+  chemicals:
+    - Not mentioned
   action_annotation_relationships:
     - subject: MAXO:0009072
       predicate: TREATS
       object: HP:0002647
-      qualifier: Aortic Dissection in Pregnancy
+      qualifier: Pregnancy
     - subject: Medical management
       predicate: TREATS
       object: HP:0002647
-      qualifier: Aortic Dissection in Pregnancy
-    - subject: Endovascular management
-      predicate: TREATS
-      object: HP:0002647
-      qualifier: Aortic Dissection in Pregnancy
+      qualifier: Pregnancy
     - subject: Delivery
       predicate: TREATS
       object: HP:0002647
-      qualifier: Aortic Dissection in Pregnancy
+      qualifier: Pregnancy
       subject_qualifier: first
     - subject: Single-stage delivery and aortic repair
       predicate: TREATS
       object: HP:0002647
-      qualifier: Aortic Dissection in Pregnancy
+      qualifier: Pregnancy
     - subject: Aortic repair
       predicate: TREATS
       object: HP:0002647
-      qualifier: Aortic Dissection in Pregnancy
+      qualifier: Pregnancy
       subject_qualifier: first
+    - subject: Endovascular treatment
+      predicate: TREATS
+      object: HP:0002647
+      qualifier: Pregnancy
 named_entities:
   - id: MONDO:0007947
     label: Marfan Syndrome
@@ -95,24 +101,64 @@ named_entities:
     label: Spontaneous pneumothorax
   - id: HP:0003423
     label: Thoracolumbar kyphoscoliosis
+  - id: CHEBI:33281
+    label: Antibiotic
+  - id: HP:0002107
+    label: pneumothorax
+  - id: MAXO:0010203
+    label: Echocardiography
+  - id: MAXO:0000494
+    label: Blood pressure monitoring
+  - id: HP:0004942
+    label: Aortic dilatation
+  - id: CHEBI:5959
+    label: Irbesartan
+  - id: HP:0004950
+    label: Peripheral artery disease
+  - id: HP:0002617
+    label: aneurysm
+  - id: HP:0030965
+    label: increased aortic stiffness
+  - id: HP:0001659
+    label: aortic regurgitation
+  - id: HP:0001712
+    label: left ventricular hypertrophy
+  - id: HP:0005162
+    label: left ventricular failure
   - id: HP:0000822
-    label: Hypertension
-  - id: HP:0001649
-    label: Tachycardia
-  - id: HP:0012531
-    label: pain
-  - id: MONDO:0009691
-    label: Marfan syndrome (MFS)
+    label: high blood pressure
   - id: CHEBI:6541
     label: Losartan
+  - id: CHEBI:35530
+    label: beta-blocker
+  - id: MAXO:0001298
+    label: therapy
+  - id: MONDO:0020333
+    label: Anterior sacral meningocele (ASM)
+  - id: HP:0002315
+    label: headache
+  - id: HP:0002018
+    label: nausea
+  - id: HP:0002138
+    label: subarachnoid hemorrhage
   - id: HP:0031625
     label: Pseudoaneurysms
   - id: MAXO:0000451
     label: Implantation
-  - id: HP:0031649
-    label: Aortic rupture
-  - id: MAXO:0001061
-    label: Laminectomy
+  - id: MAXO:0000457
+    label: pain management
+  - id: HP:0012531
+    label: pain
+  - id: HP:0012378
+    label: fatigue
+  - id: HP:0012332
+    label: dysautonomia
+  - id: HP:0002659
+    label: bone fragility
+  - id: HP:0025017
+    label: capillary fragility
+  - id: HP:0001030
+    label: skin fragility
   - id: MAXO:0000571
     label: CT
   - id: HP:0034267
@@ -121,65 +167,133 @@ named_entities:
     label: Genital prolapse
   - id: HP:0100518
     label: Dysuria
+  - id: MONDO:0044632
+    label: Extracranial Carotid Artery Aneurysms (ECAAs)
+  - id: MAXO:0000448
+    label: Surgical resection
   - id: HP:0001297
-    label: stroke
+    label: Stroke
+  - id: HP:0012163
+    label: Extracranial Carotid Artery Aneurysms
+  - id: HP:0002616
+    label: aortic root aneurysms
+  - id: HP:0031649
+    label: aortic rupture
+  - id: HP:0002090
+    label: pneumonia
+  - id: CHEBI:50249
+    label: Anticoagulants
+  - id: HP:0012514
+    label: Leg pain
+  - id: HP:0007340
+    label: Leg weakness
+  - id: HP:0200146
+    label: annuloaortic ectasia
+  - id: MAXO:0009072
+    label: Surgical repair
+  - id: MONDO:0009691
+    label: Marfan syndrome (MFS)
+  - id: HP:0002140
+    label: acute ischemic stroke
   - id: HP:0002615
     label: Hypotension
   - id: HP:0007185
     label: Loss of consciousness
-  - id: MAXO:0001056
-    label: Hepatectomy
   - id: HP:0002239
     label: Gastrointestinal bleeding
   - id: HP:0000952
     label: Jaundice
+  - id: MAXO:0000004
+    label: surgery
+  - id: MONDO:0004737
+    label: Homocystinuria
+  - id: HP:0004933
+    label: type A aortic dissection
+  - id: MONDO:0008213
+    label: Pectus Excavatum
+  - id: HP:0010550
+    label: Paraplegia
+  - id: HP:0012151
+    label: Hemothorax
+  - id: HP:0000767
+    label: Pectus Excavatum
   - id: MONDO:0009352
     label: Cystathionine beta-Synthase Deficiency
-  - id: MAXO:0010092
-    label: methionine restriction
   - id: HP:0000545
-    label: myopia
+    label: Myopia
   - id: HP:0001083
-    label: ectopia lentis
+    label: Ectopia lentis
   - id: HP:0001249
-    label: mental retardation
+    label: Mental retardation
   - id: HP:0000924
-    label: skeletal anomalies
+    label: Skeletal anomalies
   - id: HP:0001907
-    label: thromboembolic events
+    label: Thromboembolic events
   - id: HP:0003235
-    label: hypermethioninemia
+    label: Hypermethioninemia
   - id: CHEBI:17750
-    label: betaine
+    label: Betaine
   - id: CHEBI:16811
-    label: methionine
-  - id: MAXO:0001298
-    label: therapy
+    label: Methionine
   - id: MAXO:0001085
     label: Vitrectomy
-  - id: HP:0012109
-    label: Angle closure glaucoma
   - id: HP:0000572
     label: Visual loss
+  - id: HP:0012109
+    label: angle closure glaucoma
   - id: HP:0002092
     label: Pulmonary hypertension
-  - id: CHEBI:50249
-    label: Anticoagulants
-  - id: HP:0000973
-    label: elastolysis
-  - id: MAXO:0001001
-    label: gene therapy
+  - id: MAXO:0000079
+    label: Genetic counseling
+  - id: HP:0030961
+    label: Microspherophakia
+  - id: HP:0001704
+    label: tricuspid valve prolapse
+  - id: HP:0004927
+    label: pulmonary artery dilatation
+  - id: HP:0100775
+    label: dural ectasia
+  - id: HP:0100790
+    label: hernia
   - id: HP:0100584
-    label: endocarditis
+    label: Endocarditis
+  - id: HP:0001919
+    label: Acute Kidney Injury (AKI)
+  - id: HP:0012499
+    label: Type B Aortic Dissection (TBAD)
+  - id: HP:0012230
+    label: Rhegmatogenous Retinal Detachment
+  - id: HP:0004970
+    label: Ascending aorta dilation
+  - id: CHEBI:2904
+    label: atenolol
   - id: MONDO:0005010
-    label: Congenital heart disease (CHD)
+    label: Congenital Heart Disease (CHD)
   - id: MAXO:0010032
     label: Heart transplantation
-  - id: MAXO:0010203
-    label: Echocardiography
   - id: HP:0001635
     label: Heart failure
-  - id: MAXO:0009072
-    label: Surgical repair
+  - id: MONDO:0005453
+    label: Congenital Heart Disease
+  - id: HP:0001650
+    label: Aortic stenosis (AS)
+  - id: MAXO:0001259
+    label: Angiography
   - id: HP:0002647
     label: Aortic dissection
+  - id: CHEBI:10033
+    label: Warfarin
+  - id: MAXO:0009003
+    label: Preimplantation genetic testing (PGT)
+  - id: MAXO:0001611
+    label: Karyotyping
+  - id: MONDO:0031421
+    label: Olmsted syndrome
+  - id: MONDO:0008829
+    label: Chylous Ascites
+  - id: HP:0003270
+    label: Abdominal distention
+  - id: HP:0002027
+    label: Abdominal pain
+  - id: HP:0025406
+    label: Weakness

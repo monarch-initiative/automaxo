@@ -28,13 +28,13 @@ input_text: "The neurology and natural history of patients with indeterminate CA
 raw_completion_output: |-
   primary_disease: Huntington disease
 
-  medical_actions: Longitudinal evaluation; Clinical histories collection; Neurological examinations; United Huntington's Disease Rating Scale (UHDRS) administration; MRI imaging; Total Functional Capacity (TFC) scoring; Mini-mental state examination (MMSE)
+  medical_actions: Longitudinal evaluation; Collection of clinical histories; Neurological examinations; MRI imaging; United Huntington's Disease Rating Scale assessment; Mini-mental state examination; Risk assessment and prognosis advice; Long-term follow up
 
-  symptoms: Facial chorea; Ataxia; Impaired tongue protrusion; Abnormal saccades; Intermittent eye pursuits; Dysarthria; Impaired Luria 3 hand test; Perioral chorea; Subtle cognitive deficits; Mild ataxia; Behavioural and functional impairment; Compromised cognitive abilities; Ventricular dilatation
+  symptoms: Facial chorea; Ataxia; Impaired tongue protrusion; Abnormal saccades; Intermittent eye pursuits; Dysarthria; Impaired Luria 3 hand test; Perioral chorea; Subtle cognitive deficits; Mild ataxia; Ventricular dilatation; Behavioural and functional impairment; Compromised cognitive abilities
 
   chemicals: 
 
-  action_annotation_relationships: Longitudinal evaluation TREATS disease progression IN Huntington disease; Clinical histories collection TREATS disease understanding IN Huntington disease; Neurological examinations TREATS symptom identification IN Huntington disease; United Huntington's Disease Rating Scale (UHDRS) administration TREATS symptom monitoring IN Huntington disease; MRI imaging TREATS disease progression IN Huntington disease; Total Functional Capacity (TFC) scoring TREATS functional assessment IN Huntington disease; Mini-mental state examination (MMSE) TREATS cognitive abilities assessment IN Huntington disease
+  action_annotation_relationships: Longitudinal evaluation PREVENTS progression IN Huntington disease; MRI imaging TREATS diagnosis IN Huntington disease; United Huntington's Disease Rating Scale assessment TREATS functional impairment IN Huntington disease; Mini-mental state examination TREATS cognitive deficits IN Huntington disease; Long-term follow up PREVENTS accelerated neurological presentation IN Huntington disease
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -49,7 +49,7 @@ prompt: |+
 
 
   Text:
-  Mini-mental state examination (MMSE) TREATS cognitive abilities assessment IN Huntington disease
+  Long-term follow up PREVENTS accelerated neurological presentation IN Huntington disease
 
   ===
 
@@ -57,12 +57,13 @@ extracted_object:
   primary_disease: MONDO:0007739
   medical_actions:
     - Longitudinal evaluation
-    - Clinical histories collection
+    - Collection of clinical histories
     - Neurological examinations
-    - United Huntington's Disease Rating Scale (UHDRS) administration
     - MRI imaging
-    - Total Functional Capacity (TFC) scoring
-    - Mini-mental state examination (MMSE)
+    - United Huntington's Disease Rating Scale assessment
+    - Mini-mental state examination
+    - Risk assessment and prognosis advice
+    - Long-term follow up
   symptoms:
     - Facial chorea
     - HP:0001251
@@ -74,76 +75,80 @@ extracted_object:
     - Perioral chorea
     - Subtle cognitive deficits
     - Mild ataxia
+    - HP:0002119
     - Behavioural and functional impairment
     - Compromised cognitive abilities
-    - HP:0002119
   action_annotation_relationships:
     - subject: Longitudinal evaluation
-      predicate: TREATS
-      object: disease progression
-      qualifier: MONDO:0007739
-    - subject: Clinical histories collection
-      predicate: TREATS
-      object: disease understanding
-      qualifier: MONDO:0007739
-    - subject: Neurological examinations
-      predicate: TREATS
-      object: symptom identification
-      qualifier: MONDO:0007739
-    - subject: United Huntington's Disease Rating Scale (UHDRS) administration
-      predicate: TREATS
-      object: symptom monitoring
+      predicate: PREVENTS
+      object: progression
       qualifier: MONDO:0007739
     - subject: MRI imaging
       predicate: TREATS
-      object: disease progression
+      object: diagnosis
       qualifier: MONDO:0007739
-    - subject: Total Functional Capacity (TFC) scoring
+    - subject: United Huntington's Disease Rating Scale assessment
       predicate: TREATS
-      object: functional assessment
+      object: functional impairment
       qualifier: MONDO:0007739
-    - subject: Mini-mental state examination (MMSE)
+    - subject: Mini-mental state examination
       predicate: TREATS
-      object: cognitive abilities assessment
+      object: HP:0100543
+      qualifier: MONDO:0007739
+    - subject: Long-term follow up
+      predicate: PREVENTS
+      object: accelerated neurological presentation
       qualifier: MONDO:0007739
 named_entities:
   - id: MONDO:0007739
-    label: Huntington Disease
-  - id: MONDO:0013310
-    label: P450 oxidoreductase deficiency
-  - id: CHEBI:78757
-    label: Cystamine
-  - id: HP:0002072
-    label: choreic movements
+    label: Huntington disease
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0002180
+    label: neurodegeneration
+  - id: HP:0001268
+    label: cognitive decline
   - id: HP:0100022
     label: movement disorders
-  - id: CHEBI:16348
-    label: 3-nitropropionic acid (3-NP)
-  - id: MAXO:0000068
-    label: transplantation
-  - id: CHEBI:16675
-    label: quinolinic acid
-  - id: MAXO:0000011
-    label: physiotherapy
-  - id: MAXO:0000883
-    label: cognitive therapy
-  - id: HP:0002140
-    label: ischemic stroke
-  - id: MONDO:0005180
-    label: Parkinson disease
-  - id: MONDO:0005559
-    label: neurodegenerative diseases
+  - id: HP:0002072
+    label: choreic movements
+  - id: MAXO:0009003
+    label: preimplantation genetic testing
+  - id: MAXO:0001592
+    label: RNA interference therapy
+  - id: HP:0000716
+    label: depression
+  - id: HP:0000739
+    label: anxiety
+  - id: HP:0000737
+    label: irritability
+  - id: CHEBI:7735
+    label: olanzapine
+  - id: MAXO:0000882
+    label: behavioral interventions
   - id: HP:0004395
     label: malnutrition
+  - id: MAXO:0000011
+    label: physical therapy
   - id: CHEBI:22720
     label: benzodiazepines
   - id: CHEBI:2618
     label: amantadine
   - id: CHEBI:15765
     label: levodopa
+  - id: HP:0002315
+    label: Headache
+  - id: CHEBI:134738
+    label: Laquinimod
+  - id: CHEBI:4903
+    label: Ethinylestradiol
+  - id: CHEBI:6443
+    label: Levonorgestrel
   - id: HP:0001251
     label: Ataxia
   - id: HP:0001260
     label: Dysarthria
   - id: HP:0002119
     label: Ventricular dilatation
+  - id: HP:0100543
+    label: cognitive deficits

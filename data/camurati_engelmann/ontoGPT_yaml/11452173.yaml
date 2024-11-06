@@ -11,10 +11,10 @@ input_text: Scintigraphic evaluation of pamidronate and corticosteroid therapy i
   treatments, accurately reflecting clinical symptoms.
 raw_completion_output: |-
   primary_disease: Camurati-Engelmann disease
-  medical_actions: Scintigraphic evaluation; pamidronate therapy; corticosteroid therapy; bone scintigraphy with Tc-99m HMDP
-  symptoms: Bone pain; diaphyseal uptake of Tc-99m HMDP
-  chemicals: pamidronate; corticosteroid; Tc-99m HMDP
-  action_annotation_relationships: pamidronate therapy TREATS bone pain IN Camurati-Engelmann disease; corticosteroid therapy TREATS bone pain IN Camurati-Engelmann disease; pamidronate therapy TREATS diaphyseal uptake of Tc-99m HMDP IN Camurati-Engelmann disease; corticosteroid therapy TREATS diaphyseal uptake of Tc-99m HMDP IN Camurati-Engelmann disease
+  medical_actions: pamidronate therapy; corticosteroid therapy; bone scintigraphy with Tc-99m HMDP
+  symptoms: bone pain; diaphyseal uptake of Tc-99m HMDP
+  chemicals: pamidronate; corticosteroids; Tc-99m HMDP
+  action_annotation_relationships: pamidronate therapy WORSENS bone pain IN Camurati-Engelmann disease; corticosteroid therapy (with corticosteroids) TREATS bone pain IN Camurati-Engelmann disease; corticosteroid therapy (with corticosteroids) REDUCES diaphyseal uptake of Tc-99m HMDP IN Camurati-Engelmann disease
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -29,14 +29,13 @@ prompt: |+
 
 
   Text:
-  corticosteroid therapy TREATS diaphyseal uptake of Tc-99m HMDP IN Camurati-Engelmann disease
+  corticosteroid therapy (with corticosteroids) REDUCES diaphyseal uptake of Tc-99m HMDP IN Camurati-Engelmann disease
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0007542
   medical_actions:
-    - Scintigraphic evaluation
     - pamidronate therapy
     - corticosteroid therapy
     - bone scintigraphy with Tc-99m HMDP
@@ -49,30 +48,26 @@ extracted_object:
     - Tc-99m HMDP
   action_annotation_relationships:
     - subject: MAXO:0001298
-      predicate: TREATS
+      predicate: WORSENS
       object: HP:0002653
       qualifier: MONDO:0007542
       subject_extension: CHEBI:7903
-    - subject: MAXO:0001298
+    - subject: corticosteroid therapy
       predicate: TREATS
       object: HP:0002653
       qualifier: MONDO:0007542
       subject_extension: CHEBI:50858
-    - subject: MAXO:0001298
-      predicate: TREATS
+    - subject: corticosteroid therapy
+      predicate: REDUCES
       object: diaphyseal uptake of Tc-99m HMDP
       qualifier: MONDO:0007542
-      subject_extension: CHEBI:7903
-    - subject: MAXO:0001298
-      predicate: TREATS
-      object: diaphyseal uptake of Tc-99m HMDP
-      qualifier: MONDO:0007542
+      subject_qualifier: with corticosteroids
       subject_extension: CHEBI:50858
 named_entities:
-  - id: MONDO:0007542
-    label: Camurati-Engelmann disease
+  - id: MONDO:0009032
+    label: Camurati-Engelmann disease (CED)
   - id: HP:0000939
-    label: Osteoporosis
+    label: osteoporosis
   - id: HP:0100512
     label: vitamin D deficiency
   - id: HP:0000823
@@ -91,27 +86,27 @@ named_entities:
     label: vitamin D
   - id: MAXO:0000127
     label: Genetic analysis
-  - id: HP:0000365
-    label: hearing loss
+  - id: MONDO:0007542
+    label: Camurati-Engelmann disease
   - id: HP:0010628
     label: facial nerve palsy
+  - id: HP:0000365
+    label: hearing loss
+  - id: HP:0000407
+    label: sensorineural hearing loss
   - id: HP:0030038
     label: enchondroma
-  - id: MONDO:0009032
-    label: Camurati-Engelmann disease (CED)
   - id: HP:0002516
     label: Increased intracranial pressure
-  - id: MAXO:0001291
-    label: cranioplasties
   - id: CHEBI:7903
     label: Pamidronate
   - id: HP:0100252
-    label: Progressive diaphyseal dysplasia
+    label: Camurati-Engelmann disease
   - id: CHEBI:27690
-    label: acetazolamide
+    label: Acetazolamide
   - id: HP:0002653
-    label: Bone pain
+    label: bone pain
   - id: CHEBI:50858
-    label: corticosteroid
+    label: corticosteroids
   - id: MAXO:0001298
     label: therapy

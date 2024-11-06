@@ -14,10 +14,14 @@ input_text: 'A patient with Loeys-Dietz syndrome treated with chemoradiotherapy 
   and tissue fibrosis is presented. '
 raw_completion_output: |-
   primary_disease: Loeys-Dietz syndrome
-  medical_actions: chemoradiotherapy
+
+  medical_actions: radical chemoradiotherapy
+
   symptoms: oropharyngeal carcinoma; severe toxicity; tissue fibrosis
+
   chemicals: 
-  action_annotation_relationships: chemoradiotherapy TREATS oropharyngeal carcinoma IN Loeys-Dietz syndrome; chemoradiotherapy PREVENTS severe toxicity IN Loeys-Dietz syndrome; chemoradiotherapy (with TGF-beta1 expression) PREVENTS tissue fibrosis IN Loeys-Dietz syndrome
+
+  action_annotation_relationships: radical chemoradiotherapy TREATS oropharyngeal carcinoma IN Loeys-Dietz syndrome; chemoradiotherapy PREVENTS severe toxicity IN Loeys-Dietz syndrome; chemoradiotherapy PREVENTS tissue fibrosis IN Loeys-Dietz syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -32,38 +36,34 @@ prompt: |+
 
 
   Text:
-  chemoradiotherapy (with TGF-beta1 expression) PREVENTS tissue fibrosis IN Loeys-Dietz syndrome
+  chemoradiotherapy PREVENTS tissue fibrosis IN Loeys-Dietz syndrome
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0018954
   medical_actions:
-    - chemoradiotherapy
+    - radical chemoradiotherapy
   symptoms:
     - oropharyngeal carcinoma
     - severe toxicity
     - tissue fibrosis
   action_annotation_relationships:
-    - subject: chemoradiotherapy
+    - subject: radical chemoradiotherapy
       predicate: TREATS
       object: oropharyngeal carcinoma
       qualifier: MONDO:0018954
-      subject_extension: chemoradiotherapy
-    - subject: <chemoradiotherapy>
-      predicate: <PREVENTS>
-      object: <severe toxicity>
-      qualifier: <Loeys-Dietz syndrome>
-      object_qualifier: <severe>
-      subject_extension: <chemoradiotherapy>
+    - subject: chemoradiotherapy
+      predicate: PREVENTS
+      object: severe toxicity
+      qualifier: MONDO:0018954
+      object_qualifier: severe
     - subject: chemoradiotherapy
       predicate: PREVENTS
       object: tissue fibrosis
       qualifier: MONDO:0018954
-      subject_qualifier: with
-      subject_extension: TGF-beta1 expression
 named_entities:
   - id: MONDO:0018954
     label: Loeys-Dietz syndrome
   - id: MAXO:0000945
-    label: Spinal cord stimulation (SCS)
+    label: spinal cord stimulation (SCS)

@@ -1,0 +1,96 @@
+---
+input_text: 'Effectiveness of manual therapy interventions in cystic fibrosis care:
+  a pilot study. BACKGROUND: Cystic fibrosis (CF) is a severe genetic condition that
+  affects multiple organ systems and imposes a substantial treatment burden. Regarding
+  the lungs and airways, the progressive pathophysiological changes place a significant
+  strain on the musculoskeletal components of the respiratory system for people with
+  CF. This pilot study investigated the effectiveness of manual therapy interventions
+  (MTIs) on thoracic mobility, respiratory muscle strength, lung function, and musculoskeletal
+  pain. METHOD: A study with a pretest-posttest design was conducted with 15 eligible
+  people with CF at the Sahlgrenska University Hospital CF Centre. After an initial
+  set of diagnostic tests at baseline, the participants underwent eight weekly 30-min
+  MTIs. The MTIs included passive joint mobilisation and soft tissue manipulation
+  of primary and secondary anatomical areas of the musculoskeletal respiratory system.
+  On the day of the final intervention, the baseline measurements were repeated. RESULTS:
+  Trends of increased thoracic mobility were observed following the intervention,
+  with a statistically significant increase in respiratory muscle strength. No change
+  in lung function was observed. Musculoskeletal pain before and after the intervention
+  showed a significant decrease in tender points, and all participants reported positive
+  experiences with MTIs. CONCLUSION: MTIs may improve thoracic mobility, alleviate
+  pain, and enhance respiratory muscle strength in people with CF. Further research
+  is needed to confirm their potential role as a CF physiotherapy supplement. CLINICAL
+  TRIAL ID: NCT04696198.'
+raw_completion_output: |-
+  primary_disease: Cystic fibrosis
+  medical_actions: manual therapy interventions (MTIs); passive joint mobilisation; soft tissue manipulation
+  symptoms: decreased thoracic mobility; reduced respiratory muscle strength; musculoskeletal pain; changes in lung function
+  chemicals: 
+  action_annotation_relationships: manual therapy interventions (MTIs) TREATS decreased thoracic mobility IN Cystic fibrosis; manual therapy interventions (MTIs) TREATS reduced respiratory muscle strength IN Cystic fibrosis; manual therapy interventions (MTIs) TREATS musculoskeletal pain IN Cystic fibrosis
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  manual therapy interventions (MTIs) TREATS musculoskeletal pain IN Cystic fibrosis
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009061
+  medical_actions:
+    - manual therapy interventions (MTIs)
+    - passive joint mobilisation
+    - soft tissue manipulation
+  symptoms:
+    - decreased thoracic mobility
+    - reduced respiratory muscle strength
+    - musculoskeletal pain
+    - changes in lung function
+  action_annotation_relationships:
+    - subject: manual therapy interventions
+      predicate: TREATS
+      object: decreased thoracic mobility
+      qualifier: MONDO:0009061
+    - subject: <manual therapy interventions>
+      predicate: <TREATS>
+      object: <reduced respiratory muscle strength>
+      qualifier: <Cystic fibrosis>
+      subject_extension: <manual therapy interventions>
+    - subject: manual therapy interventions (MTIs)
+      predicate: TREATS
+      object: musculoskeletal pain
+      qualifier: MONDO:0009061
+named_entities:
+  - id: MONDO:0009061
+    label: Cystic Fibrosis
+  - id: CHEBI:22507
+    label: Aminoglycoside antibiotics
+  - id: CHEBI:28864
+    label: Tobramycin
+  - id: MONDO:0005460
+    label: Influenza A (H1N1)
+  - id: HP:0002098
+    label: respiratory distress
+  - id: HP:0001945
+    label: fever
+  - id: HP:0002014
+    label: diarrhea
+  - id: HP:0002013
+    label: vomiting
+  - id: HP:0011950
+    label: viral bronchiolitis
+  - id: HP:0002090
+    label: pneumonia
+  - id: CHEBI:7798
+    label: oseltamivir
+  - id: MAXO:0001017
+    label: vaccination

@@ -25,13 +25,13 @@ input_text: 'Surgical strategy for Apert syndrome: Retrospective study of develo
 raw_completion_output: |-
   primary_disease: Apert syndrome
 
-  medical_actions: Surgical strategy; Operations before 1 year of age; Operations later in life; Fronto-orbital advancement; Evaluation of postoperative developmental quotient; Measurement of cephalic index (CI) by three-dimensional computerized tomography (3D-CT); Posterior vault distraction
+  medical_actions: surgical strategy for Apert syndrome; fronto-orbital advancement; posterior vault distraction; operations before 1 year of age; operations later in life; evaluated postoperative developmental quotient; measured cephalic index (CI) by three-dimensional computerized tomography (3D-CT)
 
-  symptoms: Craniosynostosis; Brachycephalic deformity; Plagiocephalic deformities; Intracranial pressure
+  symptoms: craniosynostosis; low developmental quotient; intracranial pressure; brachycephalic deformity; plagiocephalic deformities
 
   chemicals: 
 
-  action_annotation_relationships: Surgical strategy TREATS craniosynostosis IN Apert syndrome; Operations before 1 year of age PREVENTS brachycephalic deformity IN Apert syndrome; Fronto-orbital advancement TREATS craniosynostosis IN Apert syndrome; Fronto-orbital advancement FAILS TO TREAT brachycephalic deformity IN Apert syndrome; Measurement of cephalic index (CI) by three-dimensional computerized tomography (3D-CT) ASSESSES brachycephalic deformity IN Apert syndrome; Posterior vault distraction MIGHT TREAT brachycephalic appearance IN Apert syndrome; Primary surgery DELAYED PREVENTS high intracranial pressure IN Apert syndrome
+  action_annotation_relationships: surgical strategy for Apert syndrome TREATS craniosynostosis IN Apert syndrome; operations before 1 year of age TREATS low developmental quotient IN Apert syndrome; fronto-orbital advancement TREATS intracranial pressure IN Apert syndrome; fronto-orbital advancement PREVENTS brachycephalic deformity IN Apert syndrome; posterior vault distraction TREATS brachycephalic appearance IN Apert syndrome; measured cephalic index (CI) by three-dimensional computerized tomography (3D-CT) ASSESSES brachycephalic deformity IN Apert syndrome; evaluated postoperative developmental quotient MONITORS low developmental quotient IN Apert syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -46,87 +46,88 @@ prompt: |+
 
 
   Text:
-  Primary surgery DELAYED PREVENTS high intracranial pressure IN Apert syndrome
+  evaluated postoperative developmental quotient MONITORS low developmental quotient IN Apert syndrome
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0007041
   medical_actions:
-    - Surgical strategy
-    - Operations before 1 year of age
-    - Operations later in life
-    - Fronto-orbital advancement
-    - Evaluation of postoperative developmental quotient
-    - Measurement of cephalic index (CI) by three-dimensional computerized tomography
-      (3D-CT)
-    - Posterior vault distraction
+    - surgical strategy for Apert syndrome
+    - fronto-orbital advancement
+    - posterior vault distraction
+    - operations before 1 year of age
+    - operations later in life
+    - evaluated postoperative developmental quotient
+    - measured cephalic index (CI) by three-dimensional computerized tomography (3D-CT)
   symptoms:
     - HP:0001363
-    - Brachycephalic deformity
-    - Plagiocephalic deformities
-    - Intracranial pressure
+    - low developmental quotient
+    - intracranial pressure
+    - brachycephalic deformity
+    - plagiocephalic deformities
   action_annotation_relationships:
-    - subject: Surgical strategy
+    - subject: <surgical strategy>
+      predicate: <TREATS>
+      object: <craniosynostosis>
+      qualifier: <Apert syndrome>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: operations before 1 year of age
       predicate: TREATS
-      object: HP:0001363
+      object: low developmental quotient
       qualifier: MONDO:0007041
-    - subject: Operations before 1 year of age
+    - subject: fronto-orbital advancement
+      predicate: TREATS
+      object: intracranial pressure
+      qualifier: MONDO:0007041
+    - subject: fronto-orbital advancement
       predicate: PREVENTS
       object: brachycephalic deformity
       qualifier: MONDO:0007041
-    - subject: Fronto-orbital advancement
+    - subject: posterior vault distraction
       predicate: TREATS
-      object: HP:0001363
-      qualifier: MONDO:0007041
-    - subject: Fronto-orbital advancement
-      predicate: FAILS TO TREAT
-      object: brachycephalic deformity
-      qualifier: MONDO:0007041
-    - subject: <measurement of cephalic index by three-dimensional computerized tomography>
-      predicate: <ASSESSES>
-      object: <brachycephalic deformity>
-      qualifier: <Apert syndrome>
-      subject_qualifier: <three-dimensional computerized tomography>
-      subject_extension: <measurement of cephalic index>
-    - subject: Posterior vault distraction
-      predicate: MIGHT TREAT
       object: brachycephalic appearance
       qualifier: MONDO:0007041
-    - subject: Primary surgery
-      predicate: PREVENTS
-      object: high intracranial pressure
+    - subject: measured cephalic index (CI) by three-dimensional computerized tomography
+        (3D-CT)
+      predicate: ASSESSES
+      object: brachycephalic deformity
       qualifier: MONDO:0007041
-      subject_qualifier: DELAYED
+    - subject: postoperative developmental quotient
+      predicate: MONITORS
+      object: low developmental quotient
+      qualifier: MONDO:0007041
+      subject_qualifier: evaluated
 named_entities:
-  - id: HP:0011800
-    label: Midface hypoplasia
   - id: MONDO:0007041
     label: Apert syndrome
   - id: MAXO:0000486
-    label: distraction osteogenesis
+    label: Distraction osteogenesis
   - id: HP:0012531
-    label: pain
+    label: Pain
   - id: HP:0001288
-    label: gait disturbances
-  - id: MONDO:0003432
-    label: Strabismus
+    label: Gait disturbances
   - id: HP:0001159
     label: Syndactyly
-  - id: MAXO:0000004
-    label: surgical procedures
   - id: HP:0001363
     label: craniosynostosis
+  - id: HP:0011800
+    label: midface hypoplasia
   - id: MONDO:0015338
     label: syndromic craniosynostosis
   - id: HP:0001061
     label: Acne
   - id: CHEBI:6067
-    label: isotretinoin
+    label: Isotretinoin
   - id: MONDO:0015469
     label: Craniosynostosis
+  - id: HP:0000504
+    label: Vision issues
   - id: HP:0000572
-    label: Vision loss
+    label: Visual loss
   - id: HP:0000646
     label: Amblyopia
   - id: HP:0001138
@@ -137,16 +138,18 @@ named_entities:
     label: Anisometropia
   - id: HP:0000483
     label: Astigmatism
-  - id: MAXO:0000504
-    label: Tracheostomy
   - id: MAXO:0000502
-    label: Tracheal intubation
-  - id: HP:0010807
-    label: Open bite
-  - id: MAXO:0000756
-    label: blood transfusion
+    label: tracheal intubation
+  - id: HP:0009102
+    label: Anterior open bite
   - id: MAXO:0001183
     label: Bronchoscopy
+  - id: MAXO:0000504
+    label: Tracheotomy
+  - id: MAXO:0001029
+    label: Adenoidectomy
+  - id: MAXO:0001081
+    label: Tonsillectomy
   - id: HP:0002104
     label: Apneic episodes
   - id: HP:0002098
@@ -155,11 +158,7 @@ named_entities:
     label: Stridor
   - id: HP:0000961
     label: Cyanosis
-  - id: MONDO:0009735
-    label: Netherton syndrome
-  - id: MONDO:0011438
-    label: Acne vulgaris
+  - id: HP:0000689
+    label: malocclusion
   - id: HP:0002902
-    label: hyponatremia
-  - id: MAXO:0000068
-    label: Transplantation
+    label: Hyponatremia

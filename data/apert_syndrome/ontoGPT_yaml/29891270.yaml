@@ -18,15 +18,15 @@ input_text: 'Central Coalition Osteotomy of Phalangeal Synostoses in the Managem
   and functional gains offset the requirement of a 3-stage approach. TYPE OF STUDY/LEVEL
   OF EVIDENCE: Therapeutic IV.'
 raw_completion_output: |-
-  primary_disease: Type III Apert Hand
+  primary_disease: Apert syndrome
 
-  medical_actions: Syndactyly release; Central Coalition Osteotomy; Limited retrograde, axial osteotomies
+  medical_actions: Syndactyly release; Limited retrograde, axial osteotomies
 
-  symptoms: Syndactyly in Type III Apert syndrome
+  symptoms: Syndactyly in type III Apert hand
 
   chemicals: 
 
-  action_annotation_relationships: Syndactyly release TREATS Syndactyly in Type III Apert syndrome IN Type III Apert Hand; Central Coalition Osteotomy TREATS Syndactyly in Type III Apert syndrome IN Type III Apert Hand; Limited retrograde, axial osteotomies TREATS Syndactyly in Type III Apert syndrome IN Type III Apert Hand
+  action_annotation_relationships: Syndactyly release TREATS Syndactyly in type III Apert hand IN Apert syndrome; Limited retrograde, axial osteotomies TREATS Syndactyly in type III Apert hand IN Apert syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -41,49 +41,39 @@ prompt: |+
 
 
   Text:
-  Limited retrograde, axial osteotomies TREATS Syndactyly in Type III Apert syndrome IN Type III Apert Hand
+  Limited retrograde, axial osteotomies TREATS Syndactyly in type III Apert hand IN Apert syndrome
 
   ===
 
 extracted_object:
-  primary_disease: Type III Apert Hand
+  primary_disease: MONDO:0007041
   medical_actions:
     - Syndactyly release
-    - Central Coalition Osteotomy
     - Limited retrograde, axial osteotomies
   symptoms:
-    - Syndactyly in Type III Apert syndrome
+    - Syndactyly in type III Apert hand
   action_annotation_relationships:
-    - subject: Syndactyly release
+    - subject: <Syndactyly release>
+      predicate: <TREATS>
+      object: <Syndactyly in type III Apert hand>
+      qualifier: <Apert syndrome>
+      subject_qualifier: <Not applicable>
+      object_qualifier: <Not applicable>
+      subject_extension: <Not applicable>
+      object_extension: <Not applicable>
+    - subject: Limited retrograde, axial osteotomies
       predicate: TREATS
       object: HP:0001159
-      qualifier: Type III Apert syndrome
-    - subject: <Central Coalition Osteotomy>
-      predicate: <TREATS>
-      object: <Syndactyly>
-      qualifier: <Type III Apert syndrome>
-      object_qualifier: <in Type III Apert Hand>
-      subject_extension: <Central Coalition Osteotomy>
-    - subject: <Limited retrograde, axial osteotomies>
-      predicate: <TREATS>
-      object: <Syndactyly>
-      qualifier: <Type III Apert syndrome>
-      subject_qualifier: <None>
-      object_qualifier: <None>
-      subject_extension: <None>
-      object_extension: <None>
+      qualifier: MONDO:0007041
+      object_qualifier: type III Apert hand
 named_entities:
-  - id: HP:0011800
-    label: Midface hypoplasia
   - id: MONDO:0007041
     label: Apert syndrome
   - id: MAXO:0000486
-    label: distraction osteogenesis
+    label: Distraction osteogenesis
   - id: HP:0012531
-    label: pain
+    label: Pain
   - id: HP:0001288
-    label: gait disturbances
-  - id: MONDO:0003432
-    label: Strabismus
+    label: Gait disturbances
   - id: HP:0001159
     label: Syndactyly

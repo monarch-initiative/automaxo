@@ -15,14 +15,10 @@ input_text: 'Postpartum Stanford type B aortic dissection in a woman with Loeys-
   with LDS after prophylactic ARRs still possess a risk for Stanford type B ADs.'
 raw_completion_output: |-
   primary_disease: Stanford type B aortic dissection
-
-  medical_actions: prophylactic aortic root replacements; Cardiac echocardiography; cesarean section; total arch replacement
-
-  symptoms: acute Stanford type B AD extending from the aortic arch to the infrarenal aorta
-
+  medical_actions: prophylactic aortic root replacement; Cardiac echocardiography; cesarean section; total arch replacement
+  symptoms: acute Stanford type B aortic dissection extending from the aortic arch to the infrarenal aorta
   chemicals: 
-
-  action_annotation_relationships: prophylactic aortic root replacements PREVENTS Stanford type B aortic dissection IN Loeys-Dietz syndrome; Cardiac echocardiography MONITORS Stanford type B aortic dissection IN Loeys-Dietz syndrome; cesarean section MANAGES pregnancy IN Loeys-Dietz syndrome; total arch replacement TREATS acute Stanford type B AD extending from the aortic arch to the infrarenal aorta IN Stanford type B aortic dissection
+  action_annotation_relationships: prophylactic aortic root replacement PREVENTS Stanford type B aortic dissection IN Stanford type B aortic dissection; Cardiac echocardiography TREATS monitoring IN Stanford type B aortic dissection; cesarean section TREATS delivery IN Stanford type B aortic dissection; total arch replacement TREATS acute Stanford type B aortic dissection extending from the aortic arch to the infrarenal aorta IN Stanford type B aortic dissection
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -37,47 +33,80 @@ prompt: |+
 
 
   Text:
-  total arch replacement TREATS acute Stanford type B AD extending from the aortic arch to the infrarenal aorta IN Stanford type B aortic dissection
+  total arch replacement TREATS acute Stanford type B aortic dissection extending from the aortic arch to the infrarenal aorta IN Stanford type B aortic dissection
 
   ===
 
 extracted_object:
   primary_disease: Stanford type B aortic dissection
   medical_actions:
-    - prophylactic aortic root replacements
+    - prophylactic aortic root replacement
     - Cardiac echocardiography
     - cesarean section
     - total arch replacement
   symptoms:
-    - acute Stanford type B AD extending from the aortic arch to the infrarenal aorta
+    - acute Stanford type B aortic dissection extending from the aortic arch to the
+      infrarenal aorta
   action_annotation_relationships:
-    - subject: prophylactic aortic root replacements
+    - subject: prophylactic aortic root replacement
       predicate: PREVENTS
       object: Stanford type B aortic dissection
-      qualifier: MONDO:0018954
-    - subject: Cardiac echocardiography
-      predicate: MONITORS
-      object: Stanford type B aortic dissection
-      qualifier: MONDO:0018954
-    - subject: cesarean section
-      predicate: MANAGES
-      object: pregnancy
-      qualifier: MONDO:0018954
-    - subject: total arch replacement
-      predicate: TREATS
-      object: acute Stanford type B AD extending from the aortic arch to the infrarenal
-        aorta
       qualifier: Stanford type B aortic dissection
+    - subject: Cardiac echocardiography
+      predicate: TREATS
+      object: monitoring
+      qualifier: Stanford type B aortic dissection
+    - subject: <cesarean section>
+      predicate: <TREATS>
+      object: <delivery>
+      qualifier: <Stanford type B aortic dissection>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: <total arch replacement>
+      predicate: <TREATS>
+      object: <acute Stanford type B aortic dissection extending from the aortic arch
+        to the infrarenal aorta>
+      qualifier: <Stanford type B aortic dissection>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
 named_entities:
   - id: MONDO:0018954
     label: Loeys-Dietz syndrome
+  - id: MAXO:0000945
+    label: spinal cord stimulation (SCS)
+  - id: HP:0031625
+    label: Pseudoaneurysms
+  - id: MAXO:0000451
+    label: Implantation
+  - id: HP:0000978
+    label: Easy bruising
+  - id: HP:0002616
+    label: Aortic root dilatation
+  - id: HP:0001382
+    label: Joint laxity
+  - id: CHEBI:35530
+    label: Beta-blocker
+  - id: MAXO:0010203
+    label: Echocardiography
   - id: HP:0012764
     label: orthopnea
   - id: HP:0001631
     label: atrial septal defect
+  - id: HP:0001263
+    label: developmental delay
+  - id: HP:0003302
+    label: Spondylolisthesis
+  - id: HP:0003304
+    label: Spondylolysis
   - id: HP:0012531
-    label: pain
+    label: Pain
   - id: HP:0004942
     label: aortic aneurysms
+  - id: HP:0002647
+    label: aortic dissection
   - id: HP:0001645
-    label: premature sudden cardiac death
+    label: sudden cardiac death

@@ -27,15 +27,11 @@ input_text: 'Chediak-Higashi syndrome: Lessons from a single-centre case series.
   resulting in survival improvement. BMT is the only treatment that can change CHS
   prognosis, which emphasizes the need for early identification of the disease.'
 raw_completion_output: |-
-  primary_disease: Chediak-Higashi syndrome (CHS)
-
-  medical_actions: Bone marrow transplantation (BMT)
-
-  symptoms: Frequent bacterial infections; Bleeding tendency; Oculocutaneous albinism; Photosensitivity; Progressive neurologic dysfunction; Hemophagocytic lymphohistiocytosis (HLH)
-
+  primary_disease: Chediak-Higashi syndrome
+  medical_actions: bone marrow transplantation (BMT); management protocols
+  symptoms: frequent bacterial infections; bleeding tendency; oculocutaneous albinism; photosensitivity; progressive neurologic dysfunction; hemophagocytic lymphohistiocytosis (HLH)
   chemicals: 
-
-  action_annotation_relationships: Bone marrow transplantation (BMT) TREATS Hemophagocytic lymphohistiocytosis (HLH) IN Chediak-Higashi syndrome (CHS)
+  action_annotation_relationships: bone marrow transplantation (BMT) TREATS Chediak-Higashi syndrome IN Chediak-Higashi syndrome; management protocols PREVENT frequent bacterial infections IN Chediak-Higashi syndrome; management protocols PREVENT bleeding tendency IN Chediak-Higashi syndrome; management protocols PREVENT oculocutaneous albinism IN Chediak-Higashi syndrome; management protocols PREVENT photosensitivity IN Chediak-Higashi syndrome; management protocols PREVENT progressive neurologic dysfunction IN Chediak-Higashi syndrome; management protocols TREATS hemophagocytic lymphohistiocytosis (HLH) IN Chediak-Higashi syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -50,54 +46,82 @@ prompt: |+
 
 
   Text:
-  Bone marrow transplantation (BMT) TREATS Hemophagocytic lymphohistiocytosis (HLH) IN Chediak-Higashi syndrome (CHS)
+  management protocols TREATS hemophagocytic lymphohistiocytosis (HLH) IN Chediak-Higashi syndrome
 
   ===
 
 extracted_object:
-  primary_disease: MONDO:0008090
+  primary_disease: MONDO:0008963
   medical_actions:
     - MAXO:0010030
+    - management protocols
   symptoms:
     - HP:0002718
     - HP:0001892
-    - Oculocutaneous albinism
+    - oculocutaneous albinism
     - HP:0000992
-    - Progressive neurologic dysfunction
-    - Hemophagocytic lymphohistiocytosis (HLH)
+    - progressive neurologic dysfunction
+    - hemophagocytic lymphohistiocytosis (HLH)
   action_annotation_relationships:
-    - subject: <Bone marrow transplantation>
-      predicate: <TREATS>
-      object: <Hemophagocytic lymphohistiocytosis>
-      qualifier: <Chediak-Higashi syndrome>
-      subject_extension: <Bone marrow transplantation>
+    - subject: MAXO:0010030
+      predicate: TREATS
+      object: Chediak-Higashi syndrome
+      qualifier: MONDO:0008963
+    - subject: management protocols
+      predicate: PREVENT
+      object: HP:0002718
+      qualifier: MONDO:0008963
+    - subject: management protocols
+      predicate: PREVENTS
+      object: HP:0001892
+      qualifier: MONDO:0008963
+    - subject: management protocols
+      predicate: PREVENT
+      object: oculocutaneous albinism
+      qualifier: MONDO:0008963
+    - subject: management protocols
+      predicate: PREVENTS
+      object: HP:0000992
+      qualifier: MONDO:0008963
+    - subject: management protocols
+      predicate: PREVENT
+      object: progressive neurologic dysfunction
+      qualifier: MONDO:0008963
+    - subject: management protocols
+      predicate: TREATS
+      object: hemophagocytic lymphohistiocytosis (HLH)
+      qualifier: MONDO:0008963
 named_entities:
+  - id: HP:0012531
+    label: pain
   - id: MAXO:0010030
-    label: Bone marrow transplantation (BMT)
+    label: bone marrow transplantation (BMT)
   - id: MONDO:0008963
     label: Chediak-Higashi syndrome
   - id: MAXO:0010033
-    label: Unrelated cord blood transplantation (UCBT)
+    label: unrelated cord blood transplantation (UCBT)
   - id: MAXO:0000747
     label: HSCT
   - id: MAXO:0000750
-    label: Conditioning regimens
+    label: conditioning regimens
   - id: CHEBI:41264
     label: BU
   - id: CHEBI:4027
-    label: Cyclophosphamide
+    label: cyclophosphamide
   - id: CHEBI:4911
-    label: Etoposide
+    label: etoposide
+  - id: MONDO:0008090
+    label: Chediak-Higashi syndrome (CHS)
   - id: HP:0001433
-    label: hepatosplenomegaly
+    label: Hepatosplenomegaly
   - id: HP:0003270
-    label: abdominal distention
+    label: Abdominal distention
   - id: MONDO:0024686
     label: Pigmented villonodular synovitis (PVNS)
   - id: HP:0001945
-    label: fever
+    label: Fever
   - id: MONDO:0003778
-    label: primary immunodeficiency
+    label: primary immunodeficiencies
   - id: HP:0025322
     label: veno-occlusive disease
   - id: CHEBI:28901
@@ -106,8 +130,10 @@ named_entities:
     label: cyclosporine
   - id: CHEBI:44185
     label: methotrexate
-  - id: MONDO:0008090
-    label: Chediak-Higashi Syndrome (CHS)
+  - id: HP:0100806
+    label: sepsis
+  - id: CHEBI:28790
+    label: Serotonin
   - id: HP:0002718
     label: recurrent bacterial infections
   - id: HP:0000613
@@ -131,6 +157,6 @@ named_entities:
   - id: HP:0001022
     label: albinism
   - id: HP:0001892
-    label: Bleeding tendency
+    label: bleeding tendency
   - id: HP:0000992
-    label: Photosensitivity
+    label: photosensitivity

@@ -21,15 +21,11 @@ input_text: 'Marfan Sartan: a randomized, double-blind, placebo-controlled trial
   3-year period in patients >10 years old. beta-Blocker therapy alone should therefore
   remain the standard first line therapy in these patients.'
 raw_completion_output: |-
-  primary_disease: Marfan syndrome (MFS)
-
+  primary_disease: Marfan syndrome
   medical_actions: adding Losartan to baseline therapy; beta-blocker therapy; aortic surgery
-
-  symptoms: increase in aortic diameter at the level of the sinuses of Valsalva; high blood pressure
-
+  symptoms: increased aortic diameter; high blood pressure
   chemicals: Losartan
-
-  action_annotation_relationships: adding Losartan to baseline therapy TREATS high blood pressure IN Marfan syndrome (MFS); beta-blocker therapy REMAINS standard first line therapy IN Marfan syndrome (MFS); aortic surgery TREATS increase in aortic diameter at the level of the sinuses of Valsalva IN Marfan syndrome (MFS)
+  action_annotation_relationships: adding Losartan to baseline therapy TREATS high blood pressure IN Marfan syndrome; beta-blocker therapy TREATS high blood pressure IN Marfan syndrome; aortic surgery TREATS increased aortic diameter IN Marfan syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -44,35 +40,35 @@ prompt: |+
 
 
   Text:
-  aortic surgery TREATS increase in aortic diameter at the level of the sinuses of Valsalva IN Marfan syndrome (MFS)
+  aortic surgery TREATS increased aortic diameter IN Marfan syndrome
 
   ===
 
 extracted_object:
-  primary_disease: MONDO:0009691
+  primary_disease: MONDO:0007947
   medical_actions:
     - adding Losartan to baseline therapy
     - beta-blocker therapy
     - aortic surgery
   symptoms:
-    - increase in aortic diameter at the level of the sinuses of Valsalva
+    - increased aortic diameter
     - HP:0000822
   chemicals:
     - CHEBI:6541
   action_annotation_relationships:
-    - subject: baseline therapy
+    - subject: adding Losartan to baseline therapy
       predicate: TREATS
       object: HP:0000822
       qualifier: MONDO:0007947
       subject_extension: CHEBI:6541
-    - subject: <beta-blocker therapy>
-      predicate: <REMAINS>
-      object: <standard first line therapy>
-      qualifier: <Marfan syndrome>
-      subject_extension: <beta-blocker>
+    - subject: MAXO:0001298
+      predicate: TREATS
+      object: HP:0000822
+      qualifier: MONDO:0007947
+      subject_extension: CHEBI:35530
     - subject: aortic surgery
       predicate: TREATS
-      object: increase in aortic diameter at the level of the sinuses of Valsalva
+      object: increased aortic diameter
       qualifier: MONDO:0007947
 named_entities:
   - id: MONDO:0007947
@@ -85,13 +81,35 @@ named_entities:
     label: Spontaneous pneumothorax
   - id: HP:0003423
     label: Thoracolumbar kyphoscoliosis
+  - id: CHEBI:33281
+    label: Antibiotic
+  - id: HP:0002107
+    label: pneumothorax
+  - id: MAXO:0010203
+    label: Echocardiography
+  - id: MAXO:0000494
+    label: Blood pressure monitoring
+  - id: HP:0004942
+    label: Aortic dilatation
+  - id: CHEBI:5959
+    label: Irbesartan
+  - id: HP:0004950
+    label: Peripheral artery disease
+  - id: HP:0002617
+    label: aneurysm
+  - id: HP:0030965
+    label: increased aortic stiffness
+  - id: HP:0001659
+    label: aortic regurgitation
+  - id: HP:0001712
+    label: left ventricular hypertrophy
+  - id: HP:0005162
+    label: left ventricular failure
   - id: HP:0000822
-    label: Hypertension
-  - id: HP:0001649
-    label: Tachycardia
-  - id: HP:0012531
-    label: pain
-  - id: MONDO:0009691
-    label: Marfan syndrome (MFS)
+    label: high blood pressure
   - id: CHEBI:6541
     label: Losartan
+  - id: CHEBI:35530
+    label: beta-blocker
+  - id: MAXO:0001298
+    label: therapy

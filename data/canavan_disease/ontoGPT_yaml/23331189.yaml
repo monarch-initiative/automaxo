@@ -26,15 +26,15 @@ input_text: "A next step in adeno-associated virus-mediated gene therapy for neu
 raw_completion_output: |-
   primary_disease: Neurological diseases
 
-  medical_actions: Gene therapy; Stereotaxy-guided intraparenchymal delivery; Intravenous injections; Intra-cerebrospinal injections; AADC gene delivery; GAD gene delivery; Neurturin gene delivery
+  medical_actions: Gene therapy; Stereotaxy-guided intraparenchymal delivery; Intravenous injections; Intra-cerebrospinal injections; Converting L-dopa into dopamine through AADC gene delivery; Synthesizing GABA through GAD gene delivery; Providing neurotrophic support through neurturin gene delivery
 
-  symptoms: Enzymatic deficiency
+  symptoms: Enzymatic deficiency in Canavan disease; Overactive subthalamic nucleus in Parkinson's disease
 
-  chemicals: L-dopa; Dopamine; GABA
+  chemicals: L-dopa; dopamine; GABA; neurturin
 
-  action_annotation_relationships: Gene therapy TREATS enzymatic deficiency IN Canavan disease; AADC gene delivery (with L-dopa) TREATS Parkinson's disease; GAD gene delivery (with GABA) TREATS Parkinson's disease; Neurturin gene delivery TREATS Parkinson's disease
+  action_annotation_relationships: Gene therapy TREATS enzymatic deficiency IN Canavan disease; Converting L-dopa into dopamine (with L-dopa) TREATS symptoms IN Parkinson's disease; Synthesizing GABA TREATS overactive subthalamic nucleus IN Parkinson's disease; Providing neurotrophic support (with neurturin) PREVENTS worsening IN Neurological diseases
 prompt: |+
-  Split the following piece of text into fields in the following format:
+  From the text below, extract the following entities in the following format:
 
   subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
   object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
@@ -47,7 +47,7 @@ prompt: |+
 
 
   Text:
-  Neurturin gene delivery TREATS Parkinson's disease
+  Providing neurotrophic support (with neurturin) PREVENTS worsening IN Neurological diseases
 
   ===
 
@@ -58,115 +58,77 @@ extracted_object:
     - Stereotaxy-guided intraparenchymal delivery
     - Intravenous injections
     - Intra-cerebrospinal injections
-    - AADC gene delivery
-    - GAD gene delivery
-    - Neurturin gene delivery
+    - Converting L-dopa into dopamine through AADC gene delivery
+    - Synthesizing GABA through GAD gene delivery
+    - Providing neurotrophic support through neurturin gene delivery
   symptoms:
-    - Enzymatic deficiency
+    - Enzymatic deficiency in Canavan disease
+    - Overactive subthalamic nucleus in Parkinson's disease
   chemicals:
     - CHEBI:15765
     - CHEBI:18243
     - CHEBI:16865
+    - neurturin
   action_annotation_relationships:
     - subject: MAXO:0001001
       predicate: TREATS
       object: enzymatic deficiency
       qualifier: MONDO:0010079
-    - subject: AADC gene delivery
+    - subject: Converting L-dopa into dopamine
       predicate: TREATS
-      object: Parkinson's disease
+      object: symptoms
+      qualifier: MONDO:0005180
       subject_qualifier: with L-dopa
       subject_extension: CHEBI:15765
-    - subject: GAD gene delivery
+    - subject: Synthesizing GABA
       predicate: TREATS
-      object: Parkinson's disease
-      subject_extension: GAD gene delivery
-      object_extension: with GABA
-    - subject: Neurturin gene delivery
-      predicate: TREATS
-      object: Parkinson's disease
+      object: overactive subthalamic nucleus
+      qualifier: MONDO:0005180
+      subject_extension: CHEBI:16865
+    - subject: Providing neurotrophic support
+      predicate: PREVENTS
+      object: worsening
+      qualifier: MONDO:0005071
+      subject_qualifier: with neurturin
+      subject_extension: neurturin
 named_entities:
-  - id: MONDO:0010079
-    label: Canavan disease
-  - id: HP:0001251
-    label: ataxia
-  - id: CHEBI:16953
-    label: N-acetyl-L-aspartate
-  - id: CHEBI:76720
-    label: antisense oligonucleotide
-  - id: CHEBI:21547
-    label: N-acetyl-L-aspartate (NAA)
-  - id: HP:0000256
-    label: Macrocephaly
-  - id: HP:0001249
-    label: Mental retardation
-  - id: HP:0001252
-    label: Hypotonia
-  - id: CHEBI:27881
-    label: Resveratrol (RSV)
-  - id: MAXO:0000068
-    label: Transplantation
-  - id: MONDO:0019262
-    label: Batten disease
-  - id: MONDO:0005180
-    label: Parkinson's disease
-  - id: HP:0010864
-    label: severe mental retardation
-  - id: CHEBI:73688
-    label: N-acetylaspartylglutamic acid
+  - id: MONDO:0008090
+    label: Central Nervous System (CNS) disorders
+  - id: MAXO:0001001
+    label: gene therapy
+  - id: HP:0002011
+    label: CNS disorders
   - id: MONDO:0019046
     label: Leukodystrophies
   - id: HP:0002415
     label: Leukodystrophies
-  - id: HP:0003269
-    label: Pelizaeus-Merzbacher disease
-  - id: CHEBI:17234
-    label: '[1-(13)C]glucose'
-  - id: MAXO:0000757
-    label: Infusion
-  - id: MAXO:0001001
-    label: Gene therapy
+  - id: MONDO:0010079
+    label: Canavan disease
   - id: MONDO:0005071
     label: neurologic disease
-  - id: MONDO:0018660
-    label: Hemophilia
-  - id: MONDO:0009061
-    label: Cystic Fibrosis
-  - id: MONDO:0013282
-    label: Alpha-1-antitrypsin Deficiency
+  - id: CHEBI:21547
+    label: N-acetyl-aspartate (NAA)
   - id: CHEBI:17053
     label: l-aspartic acid
   - id: CHEBI:30089
     label: acetate
-  - id: MONDO:0003847
-    label: Hereditary diseases
-  - id: HP:0032988
-    label: Head lag
-  - id: HP:0001257
-    label: Spasticity
-  - id: CHEBI:29987
-    label: Glutamate
-  - id: CHEBI:16865
-    label: GABA
   - id: CHEBI:9661
     label: Glyceryl triacetate
+  - id: MAXO:0001394
+    label: Oral administration
   - id: HP:0001355
     label: Megalencephaly
-  - id: CHEBI:16240
-    label: Hydrogen peroxide
   - id: MAXO:0000016
-    label: cell therapy
-  - id: HP:0002383
-    label: Brain inflammation
+    label: Cell therapy
   - id: MONDO:0005066
     label: Metabolic Disorders
-  - id: MONDO:0008090
-    label: Diseases of the central nervous system (CNS)
-  - id: MONDO:0016063
-    label: Canavan disease (CD)
-  - id: MAXO:0000144
-    label: histological examination
+  - id: HP:0040289
+    label: diseases of the central nervous system (CNS)
   - id: CHEBI:15765
     label: L-dopa
   - id: CHEBI:18243
-    label: Dopamine
+    label: dopamine
+  - id: CHEBI:16865
+    label: GABA
+  - id: MONDO:0005180
+    label: Parkinson's disease

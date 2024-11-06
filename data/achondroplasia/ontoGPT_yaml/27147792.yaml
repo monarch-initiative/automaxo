@@ -1,0 +1,173 @@
+---
+input_text: 'Favorable Growth Hormone Treatment Response in a Young Boy with Achondroplasia.
+  BACKGROUND: Achondroplasia is a skeletal dysplasia, the most common cause of rhizomelic
+  dwarfism. CASE PRESENTATION: This is a ten year old boy who was first diagnosed
+  prenatally. He had a mutation c1138G>A in the gene FGFR3 in a heterozygotic constellation.
+  His IGF1 and IGFBP3 levels were normal. Two stimulation tests for growth hormone
+  were performed with values within the reference range. His psychomotor development
+  was adequate for his age except for speech difficulty. He started with recombinant
+  hGH (r-hGH) at the age of 3.4 years in a dose of 0.06 mg/kg. His mean Height SDS
+  (HtSDS) was -2.2. RESULTS: The growth increased to 10 cm/year in the first year
+  of therapy (HtSDS -1.1). It decreased during the second year to 4 cm (HtSDS -1.7)
+  and again increased during the third year to 8 cm/year (HtSDS-1.3). In the next
+  years the growth was constant (6.5, 2.3, 3.5 cm / year). He is still growing in
+  the 3(rd) percentile of the growth curve (HtSDS - 1.2) under GH treatment. The body
+  disproportion remained the same. CONCLUSION: The growth response on GH treatment
+  was satisfactory in the first 4 years of treatment, and the boy still continued
+  to grow. The young age at the start of treatment was also of importance. Our other
+  patients with achondroplasia who started treatment older had a poor response to
+  growth hormone.'
+raw_completion_output: |-
+  primary_disease: Achondroplasia
+
+  medical_actions: Growth Hormone Treatment; performed two stimulation tests for growth hormone
+
+  symptoms: rhizomelic dwarfism; speech difficulty; body disproportion
+
+  chemicals: recombinant hGH (r-hGH)
+
+  action_annotation_relationships: Growth Hormone Treatment (with recombinant hGH) TREATS rhizomelic dwarfism IN Achondroplasia; Growth Hormone Treatment (with recombinant hGH) TREATS speech difficulty IN Achondroplasia; Growth Hormone Treatment (with recombinant hGH) TREATS body disproportion IN Achondroplasia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Growth Hormone Treatment (with recombinant hGH) TREATS body disproportion IN Achondroplasia
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0007037
+  medical_actions:
+    - Growth Hormone Treatment
+    - performed two stimulation tests for growth hormone
+  symptoms:
+    - HP:0008905
+    - speech difficulty
+    - body disproportion
+  chemicals:
+    - recombinant hGH (r-hGH)
+  action_annotation_relationships:
+    - subject: Growth Hormone Treatment
+      predicate: TREATS
+      object: HP:0008905
+      qualifier: MONDO:0007037
+      subject_qualifier: with recombinant hGH
+      subject_extension: recombinant hGH
+    - subject: Growth Hormone Treatment
+      predicate: TREATS
+      object: speech difficulty
+      qualifier: MONDO:0007037
+      subject_qualifier: with recombinant hGH
+      subject_extension: recombinant hGH
+    - subject: Growth Hormone Treatment
+      predicate: TREATS
+      object: body disproportion
+      qualifier: MONDO:0007037
+      subject_qualifier: with recombinant hGH
+      subject_extension: recombinant hGH
+named_entities:
+  - id: MONDO:0007037
+    label: Achondroplasia
+  - id: HP:0001513
+    label: Obesity
+  - id: HP:0005667
+    label: os odontoideum
+  - id: CHEBI:31805
+    label: Meclizine hydrochloride
+  - id: CHEBI:6709
+    label: meclizine
+  - id: MAXO:0001394
+    label: Oral administration
+  - id: HP:0031846
+    label: Femoral fracture
+  - id: CHEBI:37845
+    label: Growth hormone
+  - id: CHEBI:31324
+    label: Buserelin acetate
+  - id: HP:0004839
+    label: Hypophosphatasia
+  - id: HP:0004322
+    label: short stature
+  - id: HP:0000256
+    label: macrocephaly
+  - id: MAXO:0000127
+    label: Genetic testing
+  - id: MONDO:0007793
+    label: Hypochondroplasia
+  - id: HP:0012531
+    label: pain
+  - id: MONDO:0017014
+    label: children
+  - id: HP:0009102
+    label: Anterior open bite
+  - id: HP:0001558
+    label: Decreased fetal activity
+  - id: HP:0009826
+    label: Limb shortening
+  - id: MAXO:0001061
+    label: Laminectomy
+  - id: HP:0002104
+    label: Apnea
+  - id: HP:0002196
+    label: Myelopathy
+  - id: HP:0002194
+    label: Delayed motor skills
+  - id: HP:0031952
+    label: Neurogenic claudication
+  - id: HP:0003418
+    label: Back pain
+  - id: HP:0011868
+    label: Sciatica
+  - id: HP:0007100
+    label: Progressive ventriculomegaly
+  - id: HP:0002315
+    label: Headaches
+  - id: HP:0001263
+    label: Delayed cognitive development
+  - id: MAXO:0000004
+    label: Surgical procedures
+  - id: MONDO:0010679
+    label: Duchenne muscular dystrophy (DMD); Metabolic myopathies; Hypermobility;
+      Ehlers-Danlos syndrome (EDS); Osteogenesis imperfecta; Down syndrome (DS); Achondroplasia
+  - id: MAXO:0000011
+    label: Physical therapy
+  - id: MAXO:0000387
+    label: Muscle biopsy
+  - id: HP:0003546
+    label: Exercise intolerance
+  - id: HP:0001382
+    label: Joint hypermobility
+  - id: CHEBI:24261
+    label: Glucocorticoids
+  - id: MONDO:0020123
+    label: Metabolic myopathies
+  - id: MONDO:0019019
+    label: Osteogenesis imperfecta
+  - id: HP:0002540
+    label: non-ambulatory
+  - id: HP:0000327
+    label: Maxillary hypoplasia
+  - id: HP:0011220
+    label: Prominent forehead
+  - id: HP:0002007
+    label: Frontal bossing
+  - id: HP:0011800
+    label: Midface hypoplasia
+  - id: HP:0003416
+    label: spinal stenosis
+  - id: HP:0002987
+    label: Elbow flexion contractures
+  - id: HP:0020110
+    label: Fracture
+  - id: HP:0008905
+    label: rhizomelic dwarfism

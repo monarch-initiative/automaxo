@@ -20,14 +20,10 @@ input_text: Failure of sustained engraftment after non-myeloablative conditionin
   for sustained long-term engraftment it is of major importance.
 raw_completion_output: |-
   primary_disease: Graft-versus-host disease (GVHD)
-
-  medical_actions: T cell-reduced allogeneic stem cell transplant (SCT) with minimal conditioning; donor lymphocyte infusions (DLI); conditioned with TBI; administration of CsA and mofetyl-mycophenolate (MMF) to prevent GVHD; hematopoietic recovery
-
-  symptoms: treatment-refractory GVHD; partial donor T cell chimerism; loss of BM and PBMC donor chimerism
-
-  chemicals: fludarabine; CsA; mofetyl-mycophenolate (MMF)
-
-  action_annotation_relationships: T cell-reduced allogeneic stem cell transplant (SCT) with minimal conditioning TREATS partial donor T cell chimerism IN Graft-versus-host disease (GVHD); TBI TREATS partial donor T cell chimerism IN Graft-versus-host disease (GVHD); donor lymphocyte infusions (DLI) TREATS loss of BM and PBMC donor chimerism IN Graft-versus-host disease (GVHD); administration of CsA and mofetyl-mycophenolate (MMF) to prevent GVHD PREVENTS treatment-refractory GVHD IN Graft-versus-host disease (GVHD); hematopoietic recovery TREATS loss of BM and PBMC donor chimerism IN Graft-versus-host disease (GVHD)
+  medical_actions: Non-myeloablative conditioning with low-dose TBI; T cell-reduced allogeneic stem cell transplant (SCT); Donor lymphocyte infusions (DLI); Administration of CsA and mofetyl-mycophenolate (MMF) to prevent GVHD; Grafting with highly purified CD34(+) cells; Grafting with CD3(+) cells
+  symptoms: Treatment-related toxicity; Treatment-refractory GVHD; Partial donor T cell chimerism; Loss of BM and PBMC donor chimerism
+  chemicals: Fludarabine; CsA; Mofetyl-mycophenolate (MMF)
+  action_annotation_relationships: Non-myeloablative conditioning with low-dose TBI TREATS GVHD IN Graft-versus-host disease (GVHD); T cell-reduced allogeneic stem cell transplant (SCT) TREATS GVHD IN Graft-versus-host disease (GVHD); Donor lymphocyte infusions (DLI) TREATS GVHD IN Graft-versus-host disease (GVHD); Administration of CsA and mofetyl-mycophenolate (MMF) to prevent GVHD PREVENTS GVHD IN Graft-versus-host disease (GVHD); Grafting with highly purified CD34(+) cells TREATS GVHD IN Graft-versus-host disease (GVHD); Grafting with CD3(+) cells TREATS GVHD IN Graft-versus-host disease (GVHD)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -42,84 +38,92 @@ prompt: |+
 
 
   Text:
-  hematopoietic recovery TREATS loss of BM and PBMC donor chimerism IN Graft-versus-host disease (GVHD)
+  Grafting with CD3(+) cells TREATS GVHD IN Graft-versus-host disease (GVHD)
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0013730
   medical_actions:
-    - T cell-reduced allogeneic stem cell transplant (SCT) with minimal conditioning
-    - donor lymphocyte infusions (DLI)
-    - conditioned with TBI
-    - administration of CsA and mofetyl-mycophenolate (MMF) to prevent GVHD
-    - hematopoietic recovery
+    - Non-myeloablative conditioning with low-dose TBI
+    - T cell-reduced allogeneic stem cell transplant (SCT)
+    - Donor lymphocyte infusions (DLI)
+    - Administration of CsA and mofetyl-mycophenolate (MMF) to prevent GVHD
+    - Grafting with highly purified CD34(+) cells
+    - Grafting with CD3(+) cells
   symptoms:
-    - treatment-refractory GVHD
-    - partial donor T cell chimerism
-    - loss of BM and PBMC donor chimerism
+    - Treatment-related toxicity
+    - Treatment-refractory GVHD
+    - Partial donor T cell chimerism
+    - Loss of BM and PBMC donor chimerism
   chemicals:
-    - fludarabine
+    - Fludarabine
     - CHEBI:55379
     - CHEBI:167450
   action_annotation_relationships:
-    - subject: <T cell-reduced allogeneic stem cell transplant>
-      predicate: <TREATS>
-      object: <partial donor T cell chimerism>
-      qualifier: <Graft-versus-host disease>
-      subject_qualifier: <with minimal conditioning>
-      object_qualifier: <None>
-      subject_extension: <allogeneic stem cell transplant (SCT)>
-      object_extension: <partial donor T cell chimerism>
-    - subject: TREATS
+    - subject: Non-myeloablative conditioning with low-dose TBI
       predicate: TREATS
-      object: partial donor T cell chimerism
+      object: GVHD
       qualifier: MONDO:0013730
+      subject_qualifier: low-dose
       subject_extension: TBI
-    - subject: donor lymphocyte infusions
+    - subject: <allogeneic stem cell transplant (SCT)>
+      predicate: <TREATS>
+      object: <GVHD>
+      qualifier: <Graft-versus-host disease>
+      subject_extension: <T cell-reduced>
+    - subject: Donor lymphocyte infusions
       predicate: TREATS
-      object: loss of BM and PBMC donor chimerism
+      object: GVHD
       qualifier: MONDO:0013730
-    - subject: administration
+      subject_extension: Donor lymphocyte infusions
+    - subject: Administration
       predicate: PREVENTS
-      object: treatment-refractory GVHD
+      object: GVHD
       qualifier: MONDO:0013730
       subject_extension: CHEBI:167450
-    - subject: <hematopoietic recovery>
+    - subject: Grafting
+      predicate: TREATS
+      object: GVHD
+      qualifier: MONDO:0013730
+      subject_qualifier: with highly purified CD34(+) cells
+      subject_extension: highly purified CD34(+) cells
+    - subject: <Grafting>
       predicate: <TREATS>
-      object: <loss of BM and PBMC donor chimerism>
-      qualifier: <Graft-versus-host disease>
-      subject_qualifier: <Not applicable>
-      object_qualifier: <Not applicable>
-      subject_extension: <Not applicable>
-      object_extension: <Not applicable>
+      object: <GVHD>
+      qualifier: MONDO:0013730
+      subject_extension: <CD3(+) cells>
 named_entities:
+  - id: HP:0012531
+    label: pain
   - id: MAXO:0010030
-    label: Bone marrow transplantation (BMT)
+    label: bone marrow transplantation (BMT)
   - id: MONDO:0008963
     label: Chediak-Higashi syndrome
   - id: MAXO:0010033
-    label: Unrelated cord blood transplantation (UCBT)
+    label: unrelated cord blood transplantation (UCBT)
   - id: MAXO:0000747
     label: HSCT
   - id: MAXO:0000750
-    label: Conditioning regimens
+    label: conditioning regimens
   - id: CHEBI:41264
     label: BU
   - id: CHEBI:4027
-    label: Cyclophosphamide
+    label: cyclophosphamide
   - id: CHEBI:4911
-    label: Etoposide
+    label: etoposide
+  - id: MONDO:0008090
+    label: Chediak-Higashi syndrome (CHS)
   - id: HP:0001433
-    label: hepatosplenomegaly
+    label: Hepatosplenomegaly
   - id: HP:0003270
-    label: abdominal distention
+    label: Abdominal distention
   - id: MONDO:0024686
     label: Pigmented villonodular synovitis (PVNS)
   - id: HP:0001945
-    label: fever
+    label: Fever
   - id: MONDO:0003778
-    label: primary immunodeficiency
+    label: primary immunodeficiencies
   - id: HP:0025322
     label: veno-occlusive disease
   - id: CHEBI:28901
@@ -128,8 +132,10 @@ named_entities:
     label: cyclosporine
   - id: CHEBI:44185
     label: methotrexate
-  - id: MONDO:0008090
-    label: Chediak-Higashi Syndrome (CHS)
+  - id: HP:0100806
+    label: sepsis
+  - id: CHEBI:28790
+    label: Serotonin
   - id: HP:0002718
     label: recurrent bacterial infections
   - id: HP:0000613
@@ -153,52 +159,38 @@ named_entities:
   - id: HP:0001022
     label: albinism
   - id: HP:0001892
-    label: Bleeding tendency
+    label: bleeding tendency
   - id: HP:0000992
-    label: Photosensitivity
+    label: photosensitivity
   - id: MONDO:0000922
     label: Primary immunodeficiency diseases (PIDs)
-  - id: HP:0100806
-    label: Septicemia
-  - id: CHEBI:17660
-    label: induced pluripotent stem (iPS) cell line
+  - id: HP:0040289
+    label: Chediak-Higashi syndrome (CHS)
   - id: MAXO:0000016
     label: Cellular therapies
-  - id: HP:0004808
-    label: acute myelogenous leukemia
   - id: HP:0006721
     label: acute lymphoblastic leukemia
-  - id: HP:0005506
-    label: chronic myelogenous leukemia
-  - id: HP:0002863
-    label: myelodysplasia
-  - id: HP:0004818
-    label: paroxysmal nocturnal hemoglobinuria
-  - id: HP:0012539
-    label: non-Hodgkin's lymphoma
-  - id: HP:0011002
-    label: osteopetrosis
-  - id: MAXO:0000068
-    label: transplantation
-  - id: HP:0005523
-    label: lymphoproliferative disorder
   - id: MAXO:0000647
-    label: Chemotherapy
+    label: chemotherapy
   - id: MAXO:0000950
-    label: Supportive care
-  - id: CHEBI:33281
-    label: Antibiotics
+    label: supportive care
+  - id: MAXO:0000149
+    label: allogeneic hematopoietic cell transplantation (HCT)
   - id: HP:0002719
     label: recurrent infections
+  - id: HP:0005592
+    label: giant melanosomes in melanocytes
   - id: HP:0001903
     label: anaemia
   - id: HP:0001873
     label: thrombocytopenia
   - id: MAXO:0000004
     label: surgery
+  - id: MAXO:0001479
+    label: Allogeneic hematopoietic stem cell transplantation
   - id: MONDO:0013730
     label: Graft-versus-host disease (GVHD)
   - id: CHEBI:55379
     label: CsA
   - id: CHEBI:167450
-    label: mofetyl-mycophenolate (MMF)
+    label: Mofetyl-mycophenolate (MMF)

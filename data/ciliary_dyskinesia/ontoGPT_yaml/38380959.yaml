@@ -1,0 +1,203 @@
+---
+input_text: 'The utility of nasal nitric oxide in the diagnostic evaluation of primary
+  ciliary dyskinesia. BACKGROUND: There is no gold-standard test for primary ciliary
+  dyskinesia (PCD), rather American Thoracic Society guidelines recommend starting
+  with nasal nitric oxide (nNO) in children >=5 years old and confirming the diagnosis
+  with genetic testing or ciliary biopsy with transmission electron microscopy (TEM).
+  These guidelines have not been studied in a clinical setting. We present a case
+  series describing the PCD diagnostic process at our pediatric PCD center. METHODS:
+  Diagnostic data from 131 patients undergoing PCD consultation were reviewed. RESULTS:
+  In all participants >= 5 years old and who completed nNO using resistor methodology,
+  the first diagnostic test performed was nNO in 77% (73/95), genetic testing in 14%
+  (13/95), and TEM in <1% (9/95). nNO was the only diagnostic test performed in 75%
+  (55/73) of participants who completed nNO first. Seventy-five percent (55/73) had
+  a single above the cutoff nNO value and PCD was determined to be unlikely in 91%
+  (50/55) without performing additional confirmatory testing. Eleven percent (8/73)
+  had multiple below the cutoff nNO values, with 38% (3/8) being diagnosed with PCD
+  by confirmatory testing and 50% (4/8) with negative confirmatory testing, but being
+  managed as PCD. The genetic testing positivity rate was 50% in participants who
+  completed nNO first and 8% when genetic testing was completed first. CONCLUSION:
+  nNO is useful in three situations: an initial above the cutoff nNO value makes PCD
+  unlikely and prevents additional confirmatory testing, repetitively below the cutoff
+  nNO values without positive confirmatory testing suggests a probable PCD diagnosis
+  and the yield of genetic testing is higher when nNO is performed first.'
+raw_completion_output: |-
+  primary_disease: Primary Ciliary Dyskinesia (PCD)
+
+  medical_actions: Nasal Nitric Oxide measurement (nNO); Genetic testing; Ciliary biopsy with transmission electron microscopy (TEM)
+
+  symptoms: Above the cutoff nNO value; Below the cutoff nNO value
+
+  chemicals: Nitric Oxide
+
+  action_annotation_relationships: Nasal Nitric Oxide measurement PREVENTS additional confirmatory testing IN Primary Ciliary Dyskinesia (with symptom being Above the cutoff nNO value); Nasal Nitric Oxide measurement (with Nitric Oxide) SUGGESTS a probable PCD diagnosis IN Primary Ciliary Dyskinesia (with symptom being repetitively Below the cutoff nNO value); Genetic testing INCREASES DIAGNOSTIC YIELD after Nasal Nitric Oxide measurement IN Primary Ciliary Dyskinesia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Genetic testing INCREASES DIAGNOSTIC YIELD after Nasal Nitric Oxide measurement IN Primary Ciliary Dyskinesia
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0008932
+  medical_actions:
+    - Nasal Nitric Oxide measurement (nNO)
+    - MAXO:0000127
+    - Ciliary biopsy with transmission electron microscopy (TEM)
+  symptoms:
+    - Above the cutoff nNO value
+    - Below the cutoff nNO value
+  chemicals:
+    - CHEBI:16480
+  action_annotation_relationships:
+    - subject: Nasal Nitric Oxide measurement
+      predicate: PREVENTS
+      object: additional confirmatory testing
+      qualifier: MONDO:0016575
+      object_qualifier: with symptom being above the cutoff nNO value
+      subject_extension: Nasal Nitric Oxide
+      object_extension: above the cutoff
+    - subject: Nasal Nitric Oxide measurement
+      predicate: SUGGESTS
+      object: probable PCD diagnosis
+      qualifier: MONDO:0016575
+      subject_qualifier: with Nitric Oxide
+      object_qualifier: with symptom being repetitively
+      subject_extension: CHEBI:16480
+      object_extension: Below the cutoff nNO value
+    - subject: MAXO:0000127
+      predicate: INCREASES DIAGNOSTIC YIELD
+      object: after Nasal Nitric Oxide measurement
+      qualifier: MONDO:0016575
+named_entities:
+  - id: MONDO:0016575
+    label: Primary Ciliary Dyskinesia
+  - id: HP:0034315
+    label: Chronic cough
+  - id: HP:0002643
+    label: Neonatal respiratory distress
+  - id: HP:0003251
+    label: male infertility
+  - id: HP:0001696
+    label: situs inversus
+  - id: CHEBI:27958
+    label: Cocaine
+  - id: MONDO:0004247
+    label: Peptic Ulcer Disease (PUD)
+  - id: MAXO:0001193
+    label: upper gastrointestinal endoscopy
+  - id: HP:0002239
+    label: gastrointestinal hemorrhage
+  - id: CHEBI:18361
+    label: proton pump inhibitor (PPI)
+  - id: CHEBI:49200
+    label: proton pump inhibitor
+  - id: MONDO:0008932
+    label: Primary ciliary dyskinesia (PCD)
+  - id: CHEBI:33281
+    label: Antibiotics
+  - id: CHEBI:35523
+    label: Bronchodilators
+  - id: CHEBI:67079
+    label: Anti-inflammatory agents
+  - id: MAXO:0001298
+    label: Therapy
+  - id: HP:0012262
+    label: Abnormal ciliary motility
+  - id: HP:0100750
+    label: atelectasis
+  - id: HP:0002878
+    label: respiratory failure
+  - id: HP:0012265
+    label: Primary Ciliary Dyskinesia
+  - id: HP:0011962
+    label: Obstructive azoospermia
+  - id: MONDO:0005936
+    label: recurrent pneumonia
+  - id: MONDO:0018597
+    label: Plastic bronchitis
+  - id: HP:0002098
+    label: respiratory distress
+  - id: MONDO:0018677
+    label: heterotaxy
+  - id: MAXO:0025001
+    label: cardiac surgery
+  - id: MAXO:0000503
+    label: mechanical ventilation
+  - id: MAXO:0000504
+    label: tracheostomies
+  - id: HP:0001627
+    label: congenital heart disease
+  - id: HP:0001708
+    label: Right-sided heart failure
+  - id: MAXO:0000011
+    label: Physiotherapy
+  - id: HP:0012207
+    label: Asthenozoospermia
+  - id: HP:0000388
+    label: otitis media
+  - id: HP:0031245
+    label: wet cough
+  - id: MAXO:0000516
+    label: chest physiotherapy
+  - id: HP:0001742
+    label: nasal congestion
+  - id: HP:0000989
+    label: itching
+  - id: HP:0011109
+    label: chronic sinusitis
+  - id: HP:0002110
+    label: bronchiectasis
+  - id: HP:0001651
+    label: dextrocardia
+  - id: CHEBI:77034
+    label: mucolytic
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: HP:0002088
+    label: Lung disease
+  - id: MAXO:0000118
+    label: immunization
+  - id: MAXO:0000079
+    label: genetic counseling
+  - id: HP:0031353
+    label: otitis media with effusion
+  - id: HP:0000789
+    label: infertility
+  - id: MAXO:0000127
+    label: Genetic testing
+  - id: CHEBI:25805
+    label: oxygen
+  - id: CHEBI:7986
+    label: Pentoxifylline
+  - id: MAXO:0009004
+    label: Whole exome sequencing (WES)
+  - id: MONDO:0005087
+    label: Respiratory diseases
+  - id: CHEBI:33282
+    label: antibacterials
+  - id: CHEBI:86327
+    label: antifungal drugs
+  - id: CHEBI:7872
+    label: Oxytocin
+  - id: MAXO:0000514
+    label: High-frequency chest wall oscillation (HFCWO)
+  - id: MAXO:0000513
+    label: Postural drainage
+  - id: HP:0000365
+    label: hearing impairment
+  - id: HP:0000403
+    label: recurrent otitis media
+  - id: CHEBI:16480
+    label: Nitric Oxide

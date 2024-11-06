@@ -27,17 +27,13 @@ input_text: 'Current treatment for citrin deficiency during NICCD and adaptation
   reported having the onset of CTLN2 who are on the diet therapy and under the appropriate
   medical support during the adaptation/compensation stage.'
 raw_completion_output: |-
-  primary_disease: citrin deficiency
-
-  medical_actions: use of medium chain triglycerides (MCT) milk; lactose-free milk; administration of vitamin K2; administration of lipid-soluble vitamins; administration of ursodeoxycholic acid; liver transplantation; diet therapy; use of MCT oil; use of sodium pyruvate; avoidance of continuous intravenous hyperalimentation with high glucose concentration; contraindication of Glyceol
-
+  primary_disease: Citrin deficiency
+  medical_actions: use of medium chain triglycerides (MCT) milk; lactose-free milk; administration of vitamin K2; administration of lipid-soluble vitamins; administration of ursodeoxycholic acid; liver transplantation; diet therapy; use of MCT oil; use of sodium pyruvate; avoidance of alcohol; avoidance of continuous intravenous hyperalimentation with high glucose concentration; contraindication of Glyceol
   symptoms: neonatal intrahepatic cholestasis; hypoglycemia; fatty liver; easy fatigability; weight loss; neuropsychiatric symptoms; failure to thrive; dyslipidemia
-
-  chemicals: medium chain triglycerides (MCT); vitamin K2; lipid-soluble vitamins; ursodeoxycholic acid; sodium pyruvate; glycerol; fructose
-
-  action_annotation_relationships: use of medium chain triglycerides (MCT) milk TREATS neonatal intrahepatic cholestasis IN citrin deficiency; lactose-free milk TREATS neonatal intrahepatic cholestasis IN citrin deficiency; administration of vitamin K2 TREATS neonatal intrahepatic cholestasis IN citrin deficiency; administration of lipid-soluble vitamins TREATS neonatal intrahepatic cholestasis IN citrin deficiency; administration of ursodeoxycholic acid TREATS neonatal intrahepatic cholestasis IN citrin deficiency; liver transplantation TREATS prolonged cholestasis IN citrin deficiency; diet therapy PREVENTS CTLN2 IN citrin deficiency; use of MCT oil PREVENTS CTLN2 IN citrin deficiency; use of sodium pyruvate PREVENTS CTLN2 IN citrin deficiency; avoidance of continuous intravenous hyperalimentation with high glucose concentration PREVENTS CTLN2 IN citrin deficiency; contraindication of Glyceol (with glycerol and fructose) PREVENTS CTLN2 IN citrin deficiency
+  chemicals: medium chain triglycerides; vitamin K2; lipid-soluble vitamins; ursodeoxycholic acid; sodium pyruvate; glycerol; fructose
+  action_annotation_relationships: use of medium chain triglycerides (MCT) milk TREATS neonatal intrahepatic cholestasis IN Citrin deficiency; lactose-free milk TREATS neonatal intrahepatic cholestasis IN Citrin deficiency; administration of vitamin K2 TREATS neonatal intrahepatic cholestasis IN Citrin deficiency; administration of lipid-soluble vitamins TREATS neonatal intrahepatic cholestasis IN Citrin deficiency; administration of ursodeoxycholic acid TREATS neonatal intrahepatic cholestasis IN Citrin deficiency; liver transplantation TREATS prolonged cholestasis IN Citrin deficiency; diet therapy TREATS hypoglycemia IN Citrin deficiency; diet therapy TREATS fatty liver IN Citrin deficiency; diet therapy TREATS easy fatigability IN Citrin deficiency; diet therapy TREATS weight loss IN Citrin deficiency; diet therapy TREATS neuropsychiatric symptoms IN Citrin deficiency; diet therapy TREATS failure to thrive IN Citrin deficiency; diet therapy TREATS dyslipidemia IN Citrin deficiency; use of MCT oil TREATS fatty liver IN Citrin deficiency; use of sodium pyruvate TREATS fatty liver IN Citrin deficiency; avoidance of alcohol PREVENTS CTLN2 IN Citrin deficiency; avoidance of continuous intravenous hyperalimentation with high glucose concentration PREVENTS CTLN2 IN Citrin deficiency; contraindication of Glyceol PREVENTS
 prompt: |+
-  From the text below, extract the following entities in the following format:
+  Split the following piece of text into fields in the following format:
 
   subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
   object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
@@ -50,7 +46,7 @@ prompt: |+
 
 
   Text:
-  contraindication of Glyceol (with glycerol and fructose) PREVENTS CTLN2 IN citrin deficiency
+  contraindication of Glyceol PREVENTS
 
   ===
 
@@ -66,6 +62,7 @@ extracted_object:
     - diet therapy
     - use of MCT oil
     - use of sodium pyruvate
+    - avoidance of alcohol
     - avoidance of continuous intravenous hyperalimentation with high glucose concentration
     - contraindication of Glyceol
   symptoms:
@@ -78,7 +75,7 @@ extracted_object:
     - HP:0001508
     - HP:0003119
   chemicals:
-    - medium chain triglycerides (MCT)
+    - medium chain triglycerides
     - CHEBI:16374
     - lipid-soluble vitamins
     - CHEBI:9907
@@ -86,7 +83,7 @@ extracted_object:
     - CHEBI:17754
     - CHEBI:28757
   action_annotation_relationships:
-    - subject: use
+    - subject: use of medium chain triglycerides (MCT) milk
       predicate: TREATS
       object: neonatal intrahepatic cholestasis
       qualifier: MONDO:0016602
@@ -116,19 +113,49 @@ extracted_object:
       object: prolonged cholestasis
       qualifier: MONDO:0016602
     - subject: diet therapy
-      predicate: PREVENTS
-      object: CTLN2
+      predicate: TREATS
+      object: HP:0001943
+      qualifier: MONDO:0016602
+    - subject: diet therapy
+      predicate: TREATS
+      object: HP:0001397
+      qualifier: MONDO:0016602
+    - subject: diet therapy
+      predicate: TREATS
+      object: HP:0003388
+      qualifier: MONDO:0016602
+    - subject: diet therapy
+      predicate: TREATS
+      object: HP:0001824
+      qualifier: MONDO:0016602
+    - subject: diet therapy
+      predicate: TREATS
+      object: neuropsychiatric symptoms
+      qualifier: MONDO:0016602
+      subject_extension: diet therapy
+    - subject: diet therapy
+      predicate: TREATS
+      object: HP:0001508
+      qualifier: MONDO:0016602
+    - subject: diet therapy
+      predicate: TREATS
+      object: HP:0003119
       qualifier: MONDO:0016602
     - subject: use of MCT oil
-      predicate: PREVENTS
-      object: CTLN2
+      predicate: TREATS
+      object: HP:0001397
       qualifier: MONDO:0016602
       subject_extension: MCT oil
     - subject: use of sodium pyruvate
+      predicate: TREATS
+      object: HP:0001397
+      qualifier: MONDO:0016602
+      subject_extension: CHEBI:50144
+    - subject: avoidance of alcohol
       predicate: PREVENTS
       object: CTLN2
       qualifier: MONDO:0016602
-      subject_extension: CHEBI:50144
+      subject_extension: CHEBI:30879
     - subject: avoidance of continuous intravenous hyperalimentation with high glucose
         concentration
       predicate: PREVENTS
@@ -136,9 +163,6 @@ extracted_object:
       qualifier: MONDO:0016602
     - subject: contraindication
       predicate: PREVENTS
-      object: CTLN2
-      qualifier: MONDO:0016602
-      subject_qualifier: with glycerol and fructose
       subject_extension: Glyceol
 named_entities:
   - id: MONDO:0019052
@@ -148,25 +172,15 @@ named_entities:
   - id: MONDO:0016603
     label: Adult-onset citrullinemia (CTLN2)
   - id: MONDO:0016602
-    label: Citrin deficiency
-  - id: MONDO:0005311
-    label: atherosclerosis
-  - id: CHEBI:18211
-    label: citrulline
-  - id: CHEBI:29016
-    label: arginine
-  - id: CHEBI:16349
-    label: L-citrulline
-  - id: CHEBI:16467
-    label: L-arginine
-  - id: HP:0002621
-    label: atherosclerosis
+    label: citrin deficiency
   - id: MONDO:0008988
     label: Citrullinemia type 1
   - id: MAXO:0000603
     label: Peritoneal dialysis
   - id: MAXO:0000127
     label: Genetic analysis
+  - id: MAXO:0000376
+    label: Liver biopsy
   - id: HP:0001987
     label: Hyperammonemia
   - id: CHEBI:22918
@@ -177,34 +191,16 @@ named_entities:
     label: Hemodialysis
   - id: CHEBI:16150
     label: Benzoate
-  - id: HP:0000739
-    label: Anxiety
-  - id: CHEBI:28938
-    label: Ammonia
-  - id: CHEBI:16199
-    label: Urea
-  - id: MAXO:0001001
-    label: Gene therapy
   - id: HP:0001945
     label: fever
   - id: HP:0003270
     label: abdominal distention
-  - id: HP:0001508
-    label: failure to thrive
-  - id: HP:0003119
-    label: dyslipidemia
-  - id: HP:0005206
-    label: pancreatic pseudocyst
+  - id: HP:0002155
+    label: hypertriglyceridemia
   - id: MAXO:0001298
     label: therapy
-  - id: MONDO:0004992
-    label: Cancer
-  - id: HP:0001510
-    label: Growth failure
-  - id: CHEBI:16646
-    label: carbohydrates
   - id: MONDO:0009563
-    label: Maple Syrup Urine Disease (MSUD)
+    label: maple syrup urine disease (MSUD)
   - id: MONDO:0019542
     label: Acute liver failure (ALF)
   - id: HP:0000952
@@ -223,6 +219,10 @@ named_entities:
     label: easy fatigability
   - id: HP:0001824
     label: weight loss
+  - id: HP:0001508
+    label: failure to thrive
+  - id: HP:0003119
+    label: dyslipidemia
   - id: CHEBI:16374
     label: vitamin K2
   - id: CHEBI:9907
@@ -233,3 +233,5 @@ named_entities:
     label: glycerol
   - id: CHEBI:28757
     label: fructose
+  - id: CHEBI:30879
+    label: alcohol

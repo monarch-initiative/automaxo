@@ -12,10 +12,14 @@ input_text: Split chimerism after allogeneic bone marrow transplantation in Ched
   infections more than 18 months after BMT.
 raw_completion_output: |-
   primary_disease: Chediak-Higashi Syndrome (CHS)
-  medical_actions: hematopoietic stem cell transplantation; evaluated the chimerism status of isolated leukocytes
-  symptoms: lymphoproliferative disorder termed 'accelerated phase'
+
+  medical_actions: hematopoietic stem cell transplantation; evaluation of chimerism status of isolated leukocytes; HLA-matched unrelated BMT
+
+  symptoms: accelerated phase (AP); serious infections
+
   chemicals: 
-  action_annotation_relationships: hematopoietic stem cell transplantation TREATS lymphoproliferative disorder termed 'accelerated phase' IN Chediak-Higashi Syndrome (CHS)
+
+  action_annotation_relationships: hematopoietic stem cell transplantation TREATS accelerated phase (AP) IN Chediak-Higashi Syndrome (CHS); HLA-matched unrelated BMT TREATS accelerated phase (AP) IN Chediak-Higashi Syndrome (CHS); hematopoietic stem cell transplantation PREVENTS serious infections IN Chediak-Higashi Syndrome (CHS)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -30,7 +34,7 @@ prompt: |+
 
 
   Text:
-  hematopoietic stem cell transplantation TREATS lymphoproliferative disorder termed 'accelerated phase' IN Chediak-Higashi Syndrome (CHS)
+  hematopoietic stem cell transplantation PREVENTS serious infections IN Chediak-Higashi Syndrome (CHS)
 
   ===
 
@@ -38,44 +42,57 @@ extracted_object:
   primary_disease: MONDO:0008090
   medical_actions:
     - MAXO:0000747
-    - evaluated the chimerism status of isolated leukocytes
+    - evaluation of chimerism status of isolated leukocytes
+    - HLA-matched unrelated BMT
   symptoms:
-    - lymphoproliferative disorder termed 'accelerated phase'
+    - accelerated phase (AP)
+    - serious infections
   action_annotation_relationships:
-    - subject: MAXO:0000068
+    - subject: MAXO:0000747
       predicate: TREATS
-      object: HP:0005523
+      object: accelerated phase (AP)
       qualifier: MONDO:0008090
-      object_qualifier: termed 'accelerated phase'
-      subject_extension: hematopoietic stem cell
+    - subject: HLA-matched unrelated BMT
+      predicate: TREATS
+      object: accelerated phase
+      qualifier: MONDO:0008963
+      subject_extension: BMT
       object_extension: accelerated phase
+    - subject: MAXO:0000747
+      predicate: PREVENTS
+      object: serious infections
+      qualifier: MONDO:0008090
 named_entities:
+  - id: HP:0012531
+    label: pain
   - id: MAXO:0010030
-    label: Bone marrow transplantation (BMT)
+    label: bone marrow transplantation (BMT)
   - id: MONDO:0008963
     label: Chediak-Higashi syndrome
   - id: MAXO:0010033
-    label: Unrelated cord blood transplantation (UCBT)
+    label: unrelated cord blood transplantation (UCBT)
   - id: MAXO:0000747
     label: HSCT
   - id: MAXO:0000750
-    label: Conditioning regimens
+    label: conditioning regimens
   - id: CHEBI:41264
     label: BU
   - id: CHEBI:4027
-    label: Cyclophosphamide
+    label: cyclophosphamide
   - id: CHEBI:4911
-    label: Etoposide
+    label: etoposide
+  - id: MONDO:0008090
+    label: Chediak-Higashi syndrome (CHS)
   - id: HP:0001433
-    label: hepatosplenomegaly
+    label: Hepatosplenomegaly
   - id: HP:0003270
-    label: abdominal distention
+    label: Abdominal distention
   - id: MONDO:0024686
     label: Pigmented villonodular synovitis (PVNS)
   - id: HP:0001945
-    label: fever
+    label: Fever
   - id: MONDO:0003778
-    label: primary immunodeficiency
+    label: primary immunodeficiencies
   - id: HP:0025322
     label: veno-occlusive disease
   - id: CHEBI:28901
@@ -84,8 +101,10 @@ named_entities:
     label: cyclosporine
   - id: CHEBI:44185
     label: methotrexate
-  - id: MONDO:0008090
-    label: Chediak-Higashi Syndrome (CHS)
+  - id: HP:0100806
+    label: sepsis
+  - id: CHEBI:28790
+    label: Serotonin
   - id: HP:0002718
     label: recurrent bacterial infections
   - id: HP:0000613
@@ -109,32 +128,14 @@ named_entities:
   - id: HP:0001022
     label: albinism
   - id: HP:0001892
-    label: Bleeding tendency
+    label: bleeding tendency
   - id: HP:0000992
-    label: Photosensitivity
+    label: photosensitivity
   - id: MONDO:0000922
     label: Primary immunodeficiency diseases (PIDs)
-  - id: HP:0100806
-    label: Septicemia
-  - id: CHEBI:17660
-    label: induced pluripotent stem (iPS) cell line
+  - id: HP:0040289
+    label: Chediak-Higashi syndrome (CHS)
   - id: MAXO:0000016
     label: Cellular therapies
-  - id: HP:0004808
-    label: acute myelogenous leukemia
   - id: HP:0006721
     label: acute lymphoblastic leukemia
-  - id: HP:0005506
-    label: chronic myelogenous leukemia
-  - id: HP:0002863
-    label: myelodysplasia
-  - id: HP:0004818
-    label: paroxysmal nocturnal hemoglobinuria
-  - id: HP:0012539
-    label: non-Hodgkin's lymphoma
-  - id: HP:0011002
-    label: osteopetrosis
-  - id: MAXO:0000068
-    label: transplantation
-  - id: HP:0005523
-    label: lymphoproliferative disorder

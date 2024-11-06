@@ -25,13 +25,13 @@ input_text: 'Reconstruction of the hand in Apert syndrome: two case reports and 
 raw_completion_output: |-
   primary_disease: Apert syndrome
 
-  medical_actions: bilateral surgery on border digits; unilateral separation of middle syndactyly; thumb and digit osteotomies; bone grafting; reconstructive surgery
+  medical_actions: digital separation; early bilateral surgery on border digits; unilateral separation of middle syndactily; thumb and digit osteotomies; bone grafting; reconstructive surgery
 
-  symptoms: complex syndactyly of the second, third, and fourth digits with distal bone fusion; simple syndactyly of the fifth digit; foreshortened thumb with radial clinodactyly; symphalangism excluding the fifth digit
+  symptoms: complex syndactyly of the second, third, and fourth digits with distal bone fusion; simple syndactyly of the fifth digit; foreshortened thumb with radial clinodactyly; symphalangism excluding the fifth digit; flap necrosis; skin graft lysis; limited postoperative range of motion in the small joints; gross grasp difficulties; pincer grasp difficulties; scar appearance issues; contractures of digits
 
   chemicals: 
 
-  action_annotation_relationships: bilateral surgery on border digits TREATS complex syndactyly IN Apert syndrome; unilateral separation of middle syndactyly TREATS complex syndactyly IN Apert syndrome; thumb and digit osteotomies TREATS foreshortened thumb with radial clinodactyly IN Apert syndrome; thumb and digit osteotomies TREATS symphalangism excluding the fifth digit IN Apert syndrome; bone grafting TREATS complex syndactyly IN Apert syndrome; reconstructive surgery TREATS complex and simple syndactyly IN Apert syndrome
+  action_annotation_relationships: digital separation TREATS complex syndactyly IN Apert syndrome; early bilateral surgery on border digits TREATS simple syndactyly of the fifth digit IN Apert syndrome; unilateral separation of middle syndactily TREATS complex syndactyly of the second, third, and fourth digits IN Apert syndrome; thumb and digit osteotomies TREATS foreshortened thumb with radial clinodactyly IN Apert syndrome; bone grafting TREATS distal bone fusion IN Apert syndrome; reconstructive surgery (with bone grafting) TREATS complex hand syndactyly IN Apert syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -46,15 +46,16 @@ prompt: |+
 
 
   Text:
-  reconstructive surgery TREATS complex and simple syndactyly IN Apert syndrome
+  reconstructive surgery (with bone grafting) TREATS complex hand syndactyly IN Apert syndrome
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0007041
   medical_actions:
-    - bilateral surgery on border digits
-    - unilateral separation of middle syndactyly
+    - digital separation
+    - early bilateral surgery on border digits
+    - unilateral separation of middle syndactily
     - thumb and digit osteotomies
     - MAXO:0010031
     - reconstructive surgery
@@ -64,64 +65,65 @@ extracted_object:
     - simple syndactyly of the fifth digit
     - foreshortened thumb with radial clinodactyly
     - symphalangism excluding the fifth digit
+    - flap necrosis
+    - skin graft lysis
+    - limited postoperative range of motion in the small joints
+    - gross grasp difficulties
+    - pincer grasp difficulties
+    - scar appearance issues
+    - contractures of digits
   action_annotation_relationships:
-    - subject: <bilateral surgery on border digits>
-      predicate: <TREATS>
-      object: <complex syndactyly>
-      qualifier: <Apert syndrome>
-      subject_qualifier: <None>
-      object_qualifier: <None>
-      subject_extension: <None>
-      object_extension: <None>
-    - subject: unilateral separation of middle syndactyly
+    - subject: digital separation
       predicate: TREATS
       object: complex syndactyly
+      qualifier: MONDO:0007041
+    - subject: early bilateral surgery on border digits
+      predicate: TREATS
+      object: simple syndactyly of the fifth digit
+      qualifier: MONDO:0007041
+    - subject: unilateral separation of middle syndactily
+      predicate: TREATS
+      object: complex syndactyly of the second, third, and fourth digits
       qualifier: MONDO:0007041
     - subject: thumb and digit osteotomies
       predicate: TREATS
       object: foreshortened thumb with radial clinodactyly
       qualifier: MONDO:0007041
-    - subject: thumb and digit osteotomies
-      predicate: TREATS
-      object: symphalangism excluding the fifth digit
-      qualifier: MONDO:0007041
     - subject: MAXO:0010031
       predicate: TREATS
-      object: complex syndactyly
+      object: distal bone fusion
       qualifier: MONDO:0007041
-    - subject: reconstructive surgery
+    - subject: reconstructive surgery (with bone grafting)
       predicate: TREATS
-      object: complex and simple syndactyly
+      object: complex hand syndactyly
       qualifier: MONDO:0007041
 named_entities:
-  - id: HP:0011800
-    label: Midface hypoplasia
   - id: MONDO:0007041
     label: Apert syndrome
   - id: MAXO:0000486
-    label: distraction osteogenesis
+    label: Distraction osteogenesis
   - id: HP:0012531
-    label: pain
+    label: Pain
   - id: HP:0001288
-    label: gait disturbances
-  - id: MONDO:0003432
-    label: Strabismus
+    label: Gait disturbances
   - id: HP:0001159
     label: Syndactyly
-  - id: MAXO:0000004
-    label: surgical procedures
   - id: HP:0001363
     label: craniosynostosis
+  - id: HP:0011800
+    label: midface hypoplasia
   - id: MONDO:0015338
     label: syndromic craniosynostosis
   - id: HP:0001061
     label: Acne
   - id: CHEBI:6067
-    label: isotretinoin
+    label: Isotretinoin
   - id: MONDO:0015469
     label: Craniosynostosis
+  - id: HP:0000504
+    label: Vision issues
   - id: HP:0000572
-    label: Vision loss
+    label: Visual loss
   - id: HP:0000646
     label: Amblyopia
   - id: HP:0001138
@@ -132,16 +134,18 @@ named_entities:
     label: Anisometropia
   - id: HP:0000483
     label: Astigmatism
-  - id: MAXO:0000504
-    label: Tracheostomy
   - id: MAXO:0000502
-    label: Tracheal intubation
-  - id: HP:0010807
-    label: Open bite
-  - id: MAXO:0000756
-    label: blood transfusion
+    label: tracheal intubation
+  - id: HP:0009102
+    label: Anterior open bite
   - id: MAXO:0001183
     label: Bronchoscopy
+  - id: MAXO:0000504
+    label: Tracheotomy
+  - id: MAXO:0001029
+    label: Adenoidectomy
+  - id: MAXO:0001081
+    label: Tonsillectomy
   - id: HP:0002104
     label: Apneic episodes
   - id: HP:0002098
@@ -150,13 +154,9 @@ named_entities:
     label: Stridor
   - id: HP:0000961
     label: Cyanosis
-  - id: MONDO:0009735
-    label: Netherton syndrome
-  - id: MONDO:0011438
-    label: Acne vulgaris
+  - id: HP:0000689
+    label: malocclusion
   - id: HP:0002902
-    label: hyponatremia
-  - id: MAXO:0000068
-    label: Transplantation
+    label: Hyponatremia
   - id: MAXO:0010031
     label: bone grafting

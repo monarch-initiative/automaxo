@@ -5,8 +5,8 @@ raw_completion_output: |-
   primary_disease: phenylketonuria; alkaptonuria; tyrosinosis
   medical_actions: gas-liquid chromatography
   symptoms: 
-  chemicals: 
-  action_annotation_relationships: gas-liquid chromatography TREATS IN phenylketonuria; gas-liquid chromatography TREATS IN alkaptonuria; gas-liquid chromatography TREATS IN tyrosinosis
+  chemicals: aromatic acids
+  action_annotation_relationships: gas-liquid chromatography TREATS diagnosis IN phenylketonuria; gas-liquid chromatography TREATS diagnosis IN alkaptonuria; gas-liquid chromatography TREATS diagnosis IN tyrosinosis
 prompt: |+
   Split the following piece of text into fields in the following format:
 
@@ -21,7 +21,7 @@ prompt: |+
 
 
   Text:
-  gas-liquid chromatography TREATS IN tyrosinosis
+  gas-liquid chromatography TREATS diagnosis IN tyrosinosis
 
   ===
 
@@ -29,22 +29,29 @@ extracted_object:
   primary_disease: phenylketonuria; alkaptonuria; tyrosinosis
   medical_actions:
     - gas-liquid chromatography
+  chemicals:
+    - aromatic acids
   action_annotation_relationships:
     - subject: gas-liquid chromatography
       predicate: TREATS
-      object: phenylketonuria
+      object: diagnosis
+      qualifier: MONDO:0009861
     - subject: gas-liquid chromatography
       predicate: TREATS
-      object: alkaptonuria
+      object: diagnosis
+      qualifier: MONDO:0008753
     - subject: gas-liquid chromatography
       predicate: TREATS
-      object: tyrosinosis
+      object: diagnosis
+      qualifier: MONDO:0010163
 named_entities:
   - id: MAXO:0001175
-    label: Liver transplantation
-  - id: HP:0030764
-    label: Ochronosis
+    label: liver transplantation
   - id: CHEBI:44747
-    label: Homogentisic acid
+    label: homogentisic acid
   - id: MONDO:0008753
     label: alkaptonuria
+  - id: MONDO:0009861
+    label: phenylketonuria
+  - id: MONDO:0010163
+    label: tyrosinosis

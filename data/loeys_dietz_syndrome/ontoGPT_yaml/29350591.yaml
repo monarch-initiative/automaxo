@@ -11,14 +11,10 @@ input_text: "Clip ligation for ruptured intracranial aneurysm in a child with Lo
   treated intracranial aneurysms in patients with LDS."
 raw_completion_output: |-
   primary_disease: Loeys-Dietz syndrome (LDS)
-
-  medical_actions: craniotomy; clip ligation
-
-  symptoms: aneurysmal subarachnoid hemorrhage
-
+  medical_actions: Craniotomy; Clip ligation; Surveillance screening
+  symptoms: Aneurysmal subarachnoid hemorrhage
   chemicals: 
-
-  action_annotation_relationships: craniotomy TREATS ruptured intracranial aneurysm IN Loeys-Dietz syndrome (LDS); clip ligation TREATS ruptured intracranial aneurysm IN Loeys-Dietz syndrome (LDS)
+  action_annotation_relationships: Craniotomy TREATS aneurysmal subarachnoid hemorrhage IN Loeys-Dietz syndrome (LDS); Clip ligation TREATS aneurysmal subarachnoid hemorrhage IN Loeys-Dietz syndrome (LDS); Surveillance screening PREVENTS aneurysmal subarachnoid hemorrhage IN Loeys-Dietz syndrome (LDS)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -33,7 +29,7 @@ prompt: |+
 
 
   Text:
-  clip ligation TREATS ruptured intracranial aneurysm IN Loeys-Dietz syndrome (LDS)
+  Surveillance screening PREVENTS aneurysmal subarachnoid hemorrhage IN Loeys-Dietz syndrome (LDS)
 
   ===
 
@@ -41,30 +37,65 @@ extracted_object:
   primary_disease: MONDO:0018954
   medical_actions:
     - MAXO:0000948
-    - clip ligation
+    - Clip ligation
+    - Surveillance screening
   symptoms:
-    - aneurysmal subarachnoid hemorrhage
+    - Aneurysmal subarachnoid hemorrhage
   action_annotation_relationships:
     - subject: MAXO:0000948
       predicate: TREATS
-      object: ruptured intracranial aneurysm
+      object: aneurysmal subarachnoid hemorrhage
       qualifier: MONDO:0018954
-    - subject: clip ligation
+    - subject: Clip ligation
       predicate: TREATS
-      object: ruptured intracranial aneurysm
+      object: aneurysmal subarachnoid hemorrhage
+      qualifier: MONDO:0018954
+    - subject: Surveillance screening
+      predicate: PREVENTS
+      object: aneurysmal subarachnoid hemorrhage
       qualifier: MONDO:0018954
 named_entities:
   - id: MONDO:0018954
     label: Loeys-Dietz syndrome
+  - id: MAXO:0000945
+    label: spinal cord stimulation (SCS)
+  - id: HP:0031625
+    label: Pseudoaneurysms
+  - id: MAXO:0000451
+    label: Implantation
+  - id: HP:0000978
+    label: Easy bruising
+  - id: HP:0002616
+    label: Aortic root dilatation
+  - id: HP:0001382
+    label: Joint laxity
+  - id: CHEBI:35530
+    label: Beta-blocker
+  - id: MAXO:0010203
+    label: Echocardiography
   - id: HP:0012764
     label: orthopnea
   - id: HP:0001631
     label: atrial septal defect
+  - id: HP:0001263
+    label: developmental delay
+  - id: HP:0003302
+    label: Spondylolisthesis
+  - id: HP:0003304
+    label: Spondylolysis
   - id: HP:0012531
-    label: pain
+    label: Pain
   - id: HP:0004942
     label: aortic aneurysms
+  - id: HP:0002647
+    label: aortic dissection
   - id: HP:0001645
-    label: premature sudden cardiac death
+    label: sudden cardiac death
+  - id: HP:0004944
+    label: Cerebral aneurysms
+  - id: HP:0002617
+    label: Vasculopathy
+  - id: HP:0030745
+    label: Aneurysm of the ductus arteriosus
   - id: MAXO:0000948
-    label: craniotomy
+    label: Craniotomy

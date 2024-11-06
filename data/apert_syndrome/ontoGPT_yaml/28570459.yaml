@@ -25,15 +25,11 @@ input_text: 'Alar Pinning in Rigid External Distraction for Midfacial Hypoplasia
   hypoplasia has minimal complications and is an alternative to using a custom-made
   oral splint.'
 raw_completion_output: |-
-  primary_disease: Midfacial Hypoplasia
-
-  medical_actions: Distraction osteogenesis with a rigid external distractor; Utilization of alar pinning with the external halo distractor; Monobloc osteotomies; Le Fort III osteotomies; Le Fort III osteotomy and frontoorbital advancement; Le Fort I osteotomy; Management with oral antibiotics
-
-  symptoms: Skin infection at a pin site; Loosening of an alar pin
-
+  primary_disease: Midfacial hypoplasia
+  medical_actions: Distraction osteogenesis with a rigid external distractor; Utilization of alar pinning with the external halo distractor for maxillary advancement; Monobloc osteotomies; Le Fort III osteotomies; Le Fort III osteotomy and frontoorbital advancement; Le Fort I osteotomy; Use of oral antibiotics for skin infection at pin site
+  symptoms: Midfacial hypoplasia; Mild skin infection at pin site
   chemicals: Oral antibiotics
-
-  action_annotation_relationships: Distraction osteogenesis with a rigid external distractor TREATS Midfacial Hypoplasia; Utilization of alar pinning with the external halo distractor TREATS Midfacial Hypoplasia; Monobloc osteotomies TREATS Midfacial Hypoplasia; Le Fort III osteotomies TREATS Midfacial Hypoplasia; Le Fort III osteotomy and frontoorbital advancement TREATS Midfacial Hypoplasia; Le Fort I osteotomy TREATS Midfacial Hypoplasia; Management with oral antibiotics (with Oral antibiotics) TREATS Skin infection at a pin site IN Midfacial Hypoplasia
+  action_annotation_relationships: Distraction osteogenesis with a rigid external distractor TREATS Midfacial hypoplasia; Utilization of alar pinning with the external halo distractor for maxillary advancement TREATS Midfacial hypoplasia; Monobloc osteotomies TREATS Midfacial hypoplasia; Le Fort III osteotomies TREATS Midfacial hypoplasia; Le Fort III osteotomy and frontoorbital advancement TREATS Midfacial hypoplasia; Le Fort I osteotomy TREATS Midfacial hypoplasia; Use of oral antibiotics (with Oral antibiotics) TREATS Mild skin infection at pin site IN Midfacial hypoplasia
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -48,80 +44,84 @@ prompt: |+
 
 
   Text:
-  Management with oral antibiotics (with Oral antibiotics) TREATS Skin infection at a pin site IN Midfacial Hypoplasia
+  Use of oral antibiotics (with Oral antibiotics) TREATS Mild skin infection at pin site IN Midfacial hypoplasia
 
   ===
 
 extracted_object:
-  primary_disease: Midfacial Hypoplasia
+  primary_disease: Midfacial hypoplasia
   medical_actions:
     - Distraction osteogenesis with a rigid external distractor
-    - Utilization of alar pinning with the external halo distractor
+    - Utilization of alar pinning with the external halo distractor for maxillary
+      advancement
     - Monobloc osteotomies
     - Le Fort III osteotomies
     - Le Fort III osteotomy and frontoorbital advancement
     - Le Fort I osteotomy
-    - Management with oral antibiotics
+    - Use of oral antibiotics for skin infection at pin site
   symptoms:
-    - Skin infection at a pin site
-    - Loosening of an alar pin
+    - Midfacial hypoplasia
+    - Mild skin infection at pin site
   chemicals:
     - Oral antibiotics
   action_annotation_relationships:
-    - subject: Distraction osteogenesis with a rigid external distractor
+    - subject: MAXO:0000486
       predicate: TREATS
-      object: Midfacial Hypoplasia
-    - subject: Utilization of alar pinning with the external halo distractor
+      object: Midfacial hypoplasia
+      subject_qualifier: with a rigid external distractor
+      subject_extension: rigid external distractor
+    - subject: maxillary advancement
       predicate: TREATS
-      object: Midfacial Hypoplasia
-      subject_extension: alar pinning
+      object: Midfacial hypoplasia
+      subject_qualifier: Utilization of
+      subject_extension: alar pinning with the external halo distractor
     - subject: Monobloc osteotomies
       predicate: TREATS
-      object: Midfacial Hypoplasia
+      object: Midfacial hypoplasia
     - subject: Le Fort III osteotomies
       predicate: TREATS
-      object: Midfacial Hypoplasia
+      object: Midfacial hypoplasia
     - subject: Le Fort III osteotomy and frontoorbital advancement
       predicate: TREATS
-      object: Midfacial Hypoplasia
+      object: Midfacial hypoplasia
     - subject: Le Fort I osteotomy
       predicate: TREATS
-      object: Midfacial Hypoplasia
-    - subject: Management with oral antibiotics
+      object: Midfacial hypoplasia
+    - subject: Use of oral antibiotics
       predicate: TREATS
-      object: Skin infection at a pin site
-      qualifier: Midfacial Hypoplasia
+      object: skin infection at pin site
+      qualifier: Midfacial hypoplasia
       subject_qualifier: with Oral antibiotics
-      subject_extension: oral antibiotics
+      object_qualifier: Mild
+      subject_extension: Oral antibiotics
+      object_extension: Mild
 named_entities:
-  - id: HP:0011800
-    label: Midface hypoplasia
   - id: MONDO:0007041
     label: Apert syndrome
   - id: MAXO:0000486
-    label: distraction osteogenesis
+    label: Distraction osteogenesis
   - id: HP:0012531
-    label: pain
+    label: Pain
   - id: HP:0001288
-    label: gait disturbances
-  - id: MONDO:0003432
-    label: Strabismus
+    label: Gait disturbances
   - id: HP:0001159
     label: Syndactyly
-  - id: MAXO:0000004
-    label: surgical procedures
   - id: HP:0001363
     label: craniosynostosis
+  - id: HP:0011800
+    label: midface hypoplasia
   - id: MONDO:0015338
     label: syndromic craniosynostosis
   - id: HP:0001061
     label: Acne
   - id: CHEBI:6067
-    label: isotretinoin
+    label: Isotretinoin
   - id: MONDO:0015469
     label: Craniosynostosis
+  - id: HP:0000504
+    label: Vision issues
   - id: HP:0000572
-    label: Vision loss
+    label: Visual loss
   - id: HP:0000646
     label: Amblyopia
   - id: HP:0001138
@@ -132,16 +132,18 @@ named_entities:
     label: Anisometropia
   - id: HP:0000483
     label: Astigmatism
-  - id: MAXO:0000504
-    label: Tracheostomy
   - id: MAXO:0000502
-    label: Tracheal intubation
-  - id: HP:0010807
-    label: Open bite
-  - id: MAXO:0000756
-    label: blood transfusion
+    label: tracheal intubation
+  - id: HP:0009102
+    label: Anterior open bite
   - id: MAXO:0001183
     label: Bronchoscopy
+  - id: MAXO:0000504
+    label: Tracheotomy
+  - id: MAXO:0001029
+    label: Adenoidectomy
+  - id: MAXO:0001081
+    label: Tonsillectomy
   - id: HP:0002104
     label: Apneic episodes
   - id: HP:0002098
@@ -150,26 +152,24 @@ named_entities:
     label: Stridor
   - id: HP:0000961
     label: Cyanosis
-  - id: MONDO:0009735
-    label: Netherton syndrome
-  - id: MONDO:0011438
-    label: Acne vulgaris
+  - id: HP:0000689
+    label: malocclusion
   - id: HP:0002902
-    label: hyponatremia
-  - id: MAXO:0000068
-    label: Transplantation
+    label: Hyponatremia
   - id: MAXO:0010031
     label: bone grafting
+  - id: MAXO:0001291
+    label: cranioplasty
   - id: HP:0001249
     label: mental retardation
+  - id: HP:0001263
+    label: developmental delays
   - id: HP:0002516
     label: raised intracranial pressure
   - id: HP:0010535
     label: sleep apnea
   - id: HP:0000174
     label: palatal anomalies
-  - id: HP:0005347
-    label: Tracheal Cartilaginous Sleeve
   - id: HP:0000175
     label: Cleft palate
   - id: HP:0000365
@@ -180,35 +180,31 @@ named_entities:
     label: Cardiac anomalies
   - id: HP:0001818
     label: Paronychia
-  - id: MAXO:0001029
-    label: adenoidectomy
-  - id: MAXO:0001081
-    label: tonsillectomy
   - id: MAXO:0000506
-    label: noninvasive ventilation
+    label: Noninvasive ventilation
   - id: HP:0002870
-    label: obstructive apneas
+    label: Obstructive apneas
   - id: HP:0000453
-    label: choanal atresia
+    label: Choanal atresia
   - id: HP:0004411
-    label: deviated nasal septum
+    label: Deviated nasal septum
   - id: HP:0002871
-    label: central apneas
+    label: Central apneas
   - id: HP:0002308
     label: Chiari malformations
   - id: MONDO:0002457
-    label: Tracheal cartilaginous sleeve (TCS) in syndromic craniosynostosis
+    label: Tracheal Cartilaginous Sleeve (TCS) in Syndromic Craniosynostosis
   - id: MAXO:0001189
-    label: laryngoscopy
-  - id: HP:0001263
-    label: developmental delay
+    label: Laryngoscopy
   - id: HP:0002119
-    label: enlarged cerebral ventricles
+    label: Enlarged cerebral ventricles
+  - id: HP:0005347
+    label: Tracheal Cartilaginous Sleeve
   - id: MAXO:0000647
     label: Chemotherapy
   - id: MAXO:0000014
     label: Radiotherapy
+  - id: CHEBI:22333
+    label: Alkylating agents
   - id: MAXO:0001001
-    label: Gene therapy
-  - id: MAXO:0000015
-    label: Biological therapies
+    label: Gene therapies

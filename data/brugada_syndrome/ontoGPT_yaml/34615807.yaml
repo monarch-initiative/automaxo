@@ -2,11 +2,11 @@
 input_text: 'Fever-Related Ventricular Fibrillation - Potential Adverse Effect of
   SARS-CoV-2 Vaccination in Patients With Brugada Syndrome. '
 raw_completion_output: |-
-  primary_disease: Fever-Related Ventricular Fibrillation
-  medical_actions: Vaccination
-  symptoms: Fever
-  chemicals: SARS-CoV-2 vaccine
-  action_annotation_relationships: Vaccination (with SARS-CoV-2 vaccine) PREVENTS Fever-Related Ventricular Fibrillation IN Brugada Syndrome
+  primary_disease: Brugada Syndrome
+  medical_actions: 
+  symptoms: Fever-Related Ventricular Fibrillation
+  chemicals: SARS-CoV-2 Vaccination
+  action_annotation_relationships: SARS-CoV-2 Vaccination PREVENTS SARS-CoV-2 IN Brugada Syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -21,25 +21,25 @@ prompt: |+
 
 
   Text:
-  Vaccination (with SARS-CoV-2 vaccine) PREVENTS Fever-Related Ventricular Fibrillation IN Brugada Syndrome
+  SARS-CoV-2 Vaccination PREVENTS SARS-CoV-2 IN Brugada Syndrome
 
   ===
 
 extracted_object:
-  primary_disease: Fever-Related Ventricular Fibrillation
-  medical_actions:
-    - MAXO:0001017
+  primary_disease: MONDO:0015263
   symptoms:
-    - HP:0001945
+    - Fever-Related Ventricular Fibrillation
   chemicals:
-    - SARS-CoV-2 vaccine
+    - SARS-CoV-2 Vaccination
   action_annotation_relationships:
-    - subject: MAXO:0001017
-      predicate: PREVENTS
-      object: Fever-Related Ventricular Fibrillation
-      qualifier: MONDO:0015263
-      subject_qualifier: with SARS-CoV-2 vaccine
-      subject_extension: SARS-CoV-2 vaccine
+    - subject: <Vaccination>
+      predicate: <PREVENTS>
+      object: <SARS-CoV-2>
+      qualifier: <Brugada Syndrome>
+      subject_qualifier: <null>
+      object_qualifier: <null>
+      subject_extension: <SARS-CoV-2 Vaccination>
+      object_extension: <null>
 named_entities:
   - id: HP:0001663
     label: ventricular fibrillation
@@ -49,25 +49,33 @@ named_entities:
     label: cognitive impairment
   - id: MONDO:0002076
     label: Pneumothorax
+  - id: MAXO:0000504
+    label: Tracheostomy
   - id: HP:0002094
     label: Dyspnea
+  - id: MONDO:0015263
+    label: Brugada Syndrome
   - id: HP:0001695
-    label: Cardiac arrest
+    label: cardiac arrest
   - id: CHEBI:75984
-    label: Flecainide
-  - id: MAXO:0001017
-    label: Vaccination
+    label: flecainide
   - id: MONDO:0007264
     label: Sudden Cardiac Death
-  - id: HP:0031628
-    label: Sudden cardiac arrest
+  - id: HP:0001639
+    label: Hypertrophic cardiomyopathy (HCM)
+  - id: HP:0001644
+    label: Dilated cardiomyopathy (DCM)
+  - id: HP:0007263
+    label: Sudden cardiac arrest (SCA)
   - id: HP:0001657
-    label: Long QT syndrome
+    label: Long QT syndrome (LQTS)
+  - id: MONDO:0019315
+    label: <Dilated cardiomyopathy (DCM)>
+  - id: MONDO:0016587
+    label: <Arrhythmogenic right ventricular cardiomyopathy (ARVC)>
   - id: HP:0001645
-    label: Sudden cardiac death
-  - id: MONDO:0015263
-    label: Brugada syndrome
+    label: Sudden Cardiac Death
+  - id: MAXO:0000127
+    label: Genetic testing
   - id: HP:0004308
     label: Ventricular arrhythmias
-  - id: HP:0001945
-    label: Fever

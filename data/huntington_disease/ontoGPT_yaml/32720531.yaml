@@ -21,13 +21,13 @@ input_text: "Gene therapy and immunotherapy as promising strategies to combat Hu
 raw_completion_output: |-
   primary_disease: Huntington's disease
 
-  medical_actions: Modulation of gene expression using gene therapy; Modulation of immune activation using immunotherapy; RNA and DNA-based gene therapies; Immuno/antibody-based therapies
+  medical_actions: Modulation of gene expression using gene therapy; Modulation of immune activation using immunotherapy; RNA and DNA-based gene therapies for the reduction of mutant huntingtin; Immuno/antibody-based therapies
 
   symptoms: neurodegeneration
 
   chemicals: 
 
-  action_annotation_relationships: Modulation of gene expression using gene therapy TREATS neurodegeneration IN Huntington's disease; Modulation of immune activation using immunotherapy TREATS neurodegeneration IN Huntington's disease; RNA and DNA-based gene therapies TREATS neurodegeneration IN Huntington's disease; Immuno/antibody-based therapies TREATS neurodegeneration IN Huntington's disease
+  action_annotation_relationships: Modulation of gene expression using gene therapy TREATS neurodegeneration IN Huntington's disease; Modulation of immune activation using immunotherapy TREATS neurodegeneration IN Huntington's disease; RNA and DNA-based gene therapies for the reduction of mutant huntingtin TREATS neurodegeneration IN Huntington's disease; Immuno/antibody-based therapies TREATS neurodegeneration IN Huntington's disease
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -51,7 +51,7 @@ extracted_object:
   medical_actions:
     - Modulation of gene expression using gene therapy
     - Modulation of immune activation using immunotherapy
-    - RNA and DNA-based gene therapies
+    - RNA and DNA-based gene therapies for the reduction of mutant huntingtin
     - Immuno/antibody-based therapies
   symptoms:
     - HP:0002180
@@ -60,18 +60,19 @@ extracted_object:
       predicate: TREATS
       object: HP:0002180
       qualifier: MONDO:0007739
+      subject_qualifier: using
       subject_extension: gene therapy
-    - subject: Modulation of immune activation
+    - subject: <Modulation of immune activation>
+      predicate: <TREATS>
+      object: <neurodegeneration>
+      qualifier: <Huntington's disease>
+      subject_extension: <immunotherapy>
+    - subject: reduction
       predicate: TREATS
       object: HP:0002180
       qualifier: MONDO:0007739
-      subject_extension: immunotherapy
-    - subject: MAXO:0001001
-      predicate: TREATS
-      object: HP:0002180
-      qualifier: MONDO:0007739
-      subject_qualifier: RNA and DNA-based
       subject_extension: RNA and DNA-based gene therapies
+      object_extension: mutant huntingtin
     - subject: Immuno/antibody-based therapies
       predicate: TREATS
       object: HP:0002180
@@ -79,12 +80,8 @@ extracted_object:
       subject_extension: Immuno/antibody-based therapies
 named_entities:
   - id: MONDO:0007739
-    label: Huntington disease (HD)
-  - id: HP:0001268
-    label: Cognitive decline
-  - id: CHEBI:76720
-    label: Antisense oligonucleotides
+    label: Huntington disease
+  - id: MAXO:0001298
+    label: therapy
   - id: HP:0002180
     label: neurodegeneration
-  - id: MAXO:0001001
-    label: gene therapies

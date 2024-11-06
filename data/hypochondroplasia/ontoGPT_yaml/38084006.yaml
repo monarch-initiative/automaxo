@@ -24,9 +24,9 @@ input_text: 'Prophylactic Intramedullary Rodding After Femoral Lengthening in Pa
 raw_completion_output: |-
   primary_disease: Achondroplasia and Hypochondroplasia
   medical_actions: Prophylactic intramedullary rodding; Femoral lengthening; Surgical correction
-  symptoms: Femoral fracture
+  symptoms: Femoral fracture; Displacement; Shortening
   chemicals: 
-  action_annotation_relationships: Prophylactic intramedullary rodding PREVENTS Femoral fracture IN Achondroplasia and Hypochondroplasia; Surgical correction TREATS Femoral fracture IN Achondroplasia and Hypochondroplasia
+  action_annotation_relationships: Prophylactic intramedullary rodding PREVENTS Femoral fracture IN Achondroplasia and Hypochondroplasia; Surgical correction TREATS Displacement IN Achondroplasia and Hypochondroplasia; Surgical correction TREATS Shortening IN Achondroplasia and Hypochondroplasia
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -41,7 +41,7 @@ prompt: |+
 
 
   Text:
-  Surgical correction TREATS Femoral fracture IN Achondroplasia and Hypochondroplasia
+  Surgical correction TREATS Shortening IN Achondroplasia and Hypochondroplasia
 
   ===
 
@@ -53,18 +53,24 @@ extracted_object:
     - Surgical correction
   symptoms:
     - HP:0031846
+    - Displacement
+    - Shortening
   action_annotation_relationships:
-    - subject: Prophylactic intramedullary rodding
-      predicate: PREVENTS
-      object: HP:0031846
-      qualifier: Achondroplasia, Hypochondroplasia
-      subject_qualifier: Prophylactic
-      object_qualifier: N/A
-      subject_extension: intramedullary rodding
-      object_extension: N/A
+    - subject: <Prophylactic intramedullary rodding>
+      predicate: <PREVENTS>
+      object: <Femoral fracture>
+      qualifier: <Achondroplasia and Hypochondroplasia>
+      subject_qualifier: <NULL>
+      object_qualifier: <NULL>
+      subject_extension: <intramedullary rodding>
+      object_extension: <NULL>
     - subject: Surgical correction
       predicate: TREATS
-      object: HP:0031846
+      object: Displacement
+      qualifier: Achondroplasia, Hypochondroplasia
+    - subject: Surgical correction
+      predicate: TREATS
+      object: Shortening
       qualifier: Achondroplasia, Hypochondroplasia
 named_entities:
   - id: HP:0031846

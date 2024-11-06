@@ -3,36 +3,27 @@ input_text: 'Appropriate and inappropriate therapies in remotely monitored patie
   with Brugada syndrome. What to expect? '
 raw_completion_output: |-
   primary_disease: Brugada syndrome
-  medical_actions: <None provided in the text>.
-  symptoms: <None provided in the text>.
-  chemicals: <None provided in the text>.
-  action_annotation_relationships: <None provided in the text>.
+  medical_actions: 
+  symptoms: 
+  chemicals: 
+  action_annotation_relationships:
 prompt: |+
-  Split the following piece of text into fields in the following format:
+  From the text below, extract the following entities in the following format:
 
-  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
-  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
-  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
-  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
-  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
-  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
-  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
-  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+  primary_disease: <The main disease the text is about, or its central disease topic. This is often the disease mentioned in an article's title or in its first few sentences.>
+  medical_actions: <Semicolon-separated list of medical actions, where each is a clinically prescribed procedure, therapy, intervention, or recommendation.>
+  symptoms: <Semicolon-separated list of signs or symptoms.>
+  chemicals: <Semicolon-separated list of chemicals or drugs>
+  action_annotation_relationships: <Semicolon-separated list of relationships between a disease, the mentioned signs and symptoms associated with that disease, the medical actions relating to each symptom, and the type of relationship between each action and symptom (usually TREATS or PREVENTS). The disease name must be included in the relationship, for example, "treatment TREATS symptom IN disease". If the medical action includes a specific chemical or drug, include the chemical or drug name in the relationship, for example, "treatment (with chemical) TREATS symptom IN disease".>
 
 
   Text:
-  <None provided in the text>.
+  Appropriate and inappropriate therapies in remotely monitored patients with Brugada syndrome. What to expect? 
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0015263
-  medical_actions:
-    - <None provided in the text>.
-  symptoms:
-    - <None provided in the text>.
-  chemicals:
-    - <None provided in the text>.
 named_entities:
   - id: HP:0001663
     label: ventricular fibrillation
@@ -42,21 +33,31 @@ named_entities:
     label: cognitive impairment
   - id: MONDO:0002076
     label: Pneumothorax
+  - id: MAXO:0000504
+    label: Tracheostomy
   - id: HP:0002094
     label: Dyspnea
+  - id: MONDO:0015263
+    label: Brugada Syndrome
   - id: HP:0001695
-    label: Cardiac arrest
+    label: cardiac arrest
   - id: CHEBI:75984
-    label: Flecainide
-  - id: MAXO:0001017
-    label: Vaccination
+    label: flecainide
   - id: MONDO:0007264
     label: Sudden Cardiac Death
-  - id: HP:0031628
-    label: Sudden cardiac arrest
+  - id: HP:0001639
+    label: Hypertrophic cardiomyopathy (HCM)
+  - id: HP:0001644
+    label: Dilated cardiomyopathy (DCM)
+  - id: HP:0007263
+    label: Sudden cardiac arrest (SCA)
   - id: HP:0001657
-    label: Long QT syndrome
+    label: Long QT syndrome (LQTS)
+  - id: MONDO:0019315
+    label: <Dilated cardiomyopathy (DCM)>
+  - id: MONDO:0016587
+    label: <Arrhythmogenic right ventricular cardiomyopathy (ARVC)>
   - id: HP:0001645
-    label: Sudden cardiac death
-  - id: MONDO:0015263
-    label: Brugada syndrome
+    label: Sudden Cardiac Death
+  - id: MAXO:0000127
+    label: Genetic testing

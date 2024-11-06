@@ -1,0 +1,220 @@
+---
+input_text: 'Kidney After Lung Transplants or Combined Kidney-Lung Transplantation:
+  A Single-Center Retrospective Cohort Study. BACKGROUND End-stage renal disease is
+  a major issue in the management of patients undergoing lung transplantation. Combined
+  kidney-lung transplantation (CKLT) and kidney after lung transplantation (KALT)
+  are the 2 preferred solutions to manage this situation. To evaluate these strategies,
+  we describe kidney and lung graft outcomes and patient survival in patients managed
+  with CKLT and KALT. MATERIAL AND METHODS We conducted a retrospective single-center
+  cohort study. Patients who underwent a CKLT or a KALT were included in this study.
+  Retrospective extraction of data from medical records was performed. RESULTS Seventeen
+  patients underwent CKLT and 9 underwent KALT. Most of the patients had cystic fibrosis
+  and presented renal failure related to anti-calcineurin toxicity. The 30-day and
+  1-year survival of CKLT recipients were both 75.6%. No patients with KALT died during
+  the follow-up. Kidney graft prognosis was almost exclusively influenced by patient
+  survival in relation to postoperative lung transplant complications. The rate of
+  severe surgical complications was close to 60% for CKLT compared with 30% for KALT.
+  The kidney graft function (estimated kidney graft function) did not differ according
+  to the transplantation strategy. CONCLUSIONS KALT is a safe option, with postoperative
+  morbidity and renal graft function identical to those of kidney transplantation
+  in non-lung-transplanted patients. The results of CKLT depend mainly on the morbidity
+  associated with lung transplantation but remain an attractive option for patients
+  with respiratory failure associated with end-stage renal disease. The choice of
+  transplant strategy must also take into account the most ethical and efficient allocation
+  of kidney grafts.'
+raw_completion_output: |-
+  primary_disease: End-stage renal disease
+  medical_actions: Combined kidney-lung transplantation (CKLT); Kidney after lung transplantation (KALT); Postoperative morbidity management; Renal graft function monitoring
+  symptoms: Renal failure; Postoperative lung transplant complications; Severe surgical complications
+  chemicals: Anti-calcineurin
+  action_annotation_relationships: Combined kidney-lung transplantation (CKLT) TREATS End-stage renal disease IN End-stage renal disease; Kidney after lung transplantation (KALT) TREATS End-stage renal disease IN End-stage renal disease; Postoperative morbidity management TREATS Postoperative lung transplant complications IN End-stage renal disease; Renal graft function monitoring TREATS Renal failure IN End-stage renal disease; Anti-calcineurin PREVENTS Renal failure IN End-stage renal disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Anti-calcineurin PREVENTS Renal failure IN End-stage renal disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0004375
+  medical_actions:
+    - Combined kidney-lung transplantation (CKLT)
+    - Kidney after lung transplantation (KALT)
+    - Postoperative morbidity management
+    - Renal graft function monitoring
+  symptoms:
+    - HP:0000083
+    - Postoperative lung transplant complications
+    - Severe surgical complications
+  chemicals:
+    - Anti-calcineurin
+  action_annotation_relationships:
+    - subject: Combined kidney-lung transplantation
+      predicate: TREATS
+      object: HP:0003774
+      qualifier: MONDO:0004375
+    - subject: Kidney after lung transplantation (KALT)
+      predicate: TREATS
+      object: HP:0003774
+      qualifier: MONDO:0004375
+      subject_qualifier: <none>
+      object_qualifier: <none>
+      subject_extension: <none>
+      object_extension: <none>
+    - subject: <Postoperative morbidity management>
+      predicate: <TREATS>
+      object: <Postoperative lung transplant complications>
+      qualifier: <End-stage renal disease>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: Renal graft function monitoring
+      predicate: TREATS
+      object: HP:0000083
+      qualifier: MONDO:0004375
+    - subject: Anti-calcineurin
+      predicate: PREVENTS
+      object: HP:0000083
+      qualifier: MONDO:0004375
+      subject_extension: CHEBI:53439
+named_entities:
+  - id: MONDO:0009061
+    label: Cystic Fibrosis
+  - id: CHEBI:22507
+    label: Aminoglycoside antibiotics
+  - id: CHEBI:28864
+    label: Tobramycin
+  - id: MONDO:0005460
+    label: Influenza A (H1N1)
+  - id: HP:0002098
+    label: respiratory distress
+  - id: HP:0001945
+    label: fever
+  - id: HP:0002014
+    label: diarrhea
+  - id: HP:0002013
+    label: vomiting
+  - id: HP:0011950
+    label: viral bronchiolitis
+  - id: HP:0002090
+    label: pneumonia
+  - id: CHEBI:7798
+    label: oseltamivir
+  - id: MAXO:0001017
+    label: vaccination
+  - id: MONDO:0005275
+    label: Pulmonary Diseases
+  - id: CHEBI:16991
+    label: DNA
+  - id: CHEBI:33699
+    label: mRNA
+  - id: HP:0012735
+    label: Cough
+  - id: CHEBI:50858
+    label: corticosteroids
+  - id: HP:0002910
+    label: Elevated transaminases
+  - id: CHEBI:61049
+    label: Tacrolimus
+  - id: CHEBI:53454
+    label: ETI
+  - id: MAXO:0000259
+    label: Insulin treatment
+  - id: HP:0001394
+    label: Cirrhosis
+  - id: HP:0001738
+    label: Exocrine pancreatic insufficiency
+  - id: HP:0100651
+    label: Insulin-dependent diabetes mellitus
+  - id: HP:0001988
+    label: Recurrent hypoglycemia
+  - id: HP:0001744
+    label: Splenomegaly
+  - id: CHEBI:145810
+    label: Insulin
+  - id: CHEBI:27027
+    label: Trace elements
+  - id: CHEBI:33229
+    label: Vitamins
+  - id: CHEBI:141442
+    label: MN
+  - id: MAXO:0000376
+    label: Liver biopsy
+  - id: MAXO:0035106
+    label: Paracentesis
+  - id: MAXO:0001175
+    label: Liver transplantation
+  - id: MONDO:0001684
+    label: Exocrine pancreatic insufficiency (EPI)
+  - id: MONDO:0002492
+    label: Acute kidney injury
+  - id: HP:0001919
+    label: acute kidney injury
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: CHEBI:77034
+    label: Mucolytics
+  - id: CHEBI:33281
+    label: Antibiotics
+  - id: CHEBI:35472
+    label: Anti-inflammatory drugs
+  - id: HP:0004395
+    label: Malnutrition
+  - id: HP:0001513
+    label: Obesity
+  - id: MONDO:0100096
+    label: COVID-19
+  - id: CHEBI:35221
+    label: antimetabolites
+  - id: CHEBI:35705
+    label: immunosuppressants
+  - id: HP:0002878
+    label: Respiratory failure
+  - id: MONDO:0054868
+    label: Distal Intestinal Obstruction Syndrome
+  - id: MAXO:0000011
+    label: Physiotherapy
+  - id: CHEBI:138151
+    label: cathepsin G
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0006532
+    label: lung infections
+  - id: CHEBI:3023
+    label: benzbromarone
+  - id: CHEBI:17234
+    label: glucose
+  - id: MONDO:0005003
+    label: Chronic Pancreatitis
+  - id: HP:0006280
+    label: Chronic Pancreatitis
+  - id: HP:0002783
+    label: Lower respiratory tract infections
+  - id: HP:0005972
+    label: Respiratory acidosis
+  - id: HP:0003074
+    label: Hyperglycemia
+  - id: MAXO:0000065
+    label: Aerobic exercises
+  - id: HP:0003546
+    label: Exercise intolerance
+  - id: MONDO:0004375
+    label: End-stage renal disease
+  - id: HP:0000083
+    label: Renal failure
+  - id: HP:0003774
+    label: End-stage renal disease
+  - id: CHEBI:53439
+    label: calcineurin

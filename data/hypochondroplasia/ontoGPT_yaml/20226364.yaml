@@ -15,10 +15,10 @@ input_text: 'Improving mobility in a client with hypochondroplasia (dwarfism): a
   short height.'
 raw_completion_output: |-
   primary_disease: Hypochondroplasia dwarfism
-  medical_actions: Myofascial massage techniques
+  medical_actions: Preliminary assessment; Myofascial massage techniques
   symptoms: Muscle fatigue; Severe fascial adhesions
   chemicals: 
-  action_annotation_relationships: Myofascial massage techniques TREATS severe fascial adhesions IN Hypochondroplasia dwarfism; Myofascial massage techniques TREATS muscle fatigue IN Hypochondroplasia dwarfism
+  action_annotation_relationships: Myofascial massage techniques TREATS severe fascial adhesions IN Hypochondroplasia dwarfism; Preliminary assessment IDENTIFIES muscle fatigue IN Hypochondroplasia dwarfism; Preliminary assessment IDENTIFIES severe fascial adhesions IN Hypochondroplasia dwarfism
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -33,38 +33,41 @@ prompt: |+
 
 
   Text:
-  Myofascial massage techniques TREATS muscle fatigue IN Hypochondroplasia dwarfism
+  Preliminary assessment IDENTIFIES severe fascial adhesions IN Hypochondroplasia dwarfism
 
   ===
 
 extracted_object:
   primary_disease: Hypochondroplasia dwarfism
   medical_actions:
+    - Preliminary assessment
     - Myofascial massage techniques
   symptoms:
     - HP:0003750
     - Severe fascial adhesions
   action_annotation_relationships:
-    - subject: <Myofascial massage techniques>
-      predicate: <TREATS>
-      object: <severe fascial adhesions>
-      qualifier: <Hypochondroplasia dwarfism>
-      subject_qualifier: <NA>
-      object_qualifier: <severe>
-      subject_extension: <NA>
-      object_extension: <NA>
     - subject: Myofascial massage techniques
       predicate: TREATS
+      object: severe fascial adhesions
+      qualifier: Hypochondroplasia dwarfism
+      object_qualifier: severe
+    - subject: Preliminary assessment
+      predicate: IDENTIFIES
       object: HP:0003750
       qualifier: Hypochondroplasia dwarfism
+    - subject: Preliminary assessment
+      predicate: IDENTIFIES
+      object: severe fascial adhesions
+      qualifier: Hypochondroplasia dwarfism
+      object_qualifier: severe
 named_entities:
   - id: HP:0031846
     label: Femoral fracture
-  - id: MAXO:0000745
-    label: cytogenetic analysis
   - id: HP:0000256
     label: macrocephaly
   - id: MAXO:0000127
-    label: genetic testing
+    label: Genetic testing
+  - id: MONDO:0007793
+    label: Hypochondroplasia
   - id: HP:0003750
     label: Muscle fatigue

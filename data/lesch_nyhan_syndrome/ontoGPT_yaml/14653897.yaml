@@ -18,15 +18,15 @@ input_text: Preimplantation diagnosis of Lesch-Nyhan using mini-sequencing prime
   of point mutations that will have useful application in PGD for other single gene
   disorders.
 raw_completion_output: |-
-  primary_disease: Lesch-Nyhan syndrome
+  primary_disease: Lesch-Nyhan syndrome (LN)
 
-  medical_actions: Preimplantation genetic diagnosis (PGD); Mini-sequencing primer extension; Tubal ligation; In vitro fertilization (IVF); Embryo biopsy; Mutation detection
+  medical_actions: preimplantation genetic diagnosis (PGD); mini-sequencing primer extension; mutation detection by mini-sequencing; parallel analysis of an informative linked marker
 
-  symptoms: Hyperuricaemia; Choreoathetosis; Spasticity; Mental retardation; Self-mutilation
+  symptoms: hyperuricaemia; choreoathetosis; spasticity; mental retardation; self-mutilation
 
   chemicals: 
 
-  action_annotation_relationships: Preimplantation genetic diagnosis (PGD) PREVENTS passing on affected gene IN Lesch-Nyhan syndrome; Mini-sequencing primer extension TREATS diagnosis accuracy IN Lesch-Nyhan syndrome; Tubal ligation PREVENTS pregnancy IN general context (not directly related to Lesch-Nyhan syndrome); In vitro fertilization (IVF) ENABLES pregnancy IN context of Lesch-Nyhan syndrome prevention; Embryo biopsy TREATS diagnosis accuracy IN Lesch-Nyhan syndrome; Mutation detection TREATS identification of causative mutation IN Lesch-Nyhan syndrome
+  action_annotation_relationships: preimplantation genetic diagnosis (PGD) PREVENTS passing of affected gene IN Lesch-Nyhan syndrome; mini-sequencing primer extension TREATS diagnosis of mutation IN Lesch-Nyhan syndrome; mutation detection by mini-sequencing TREATS diagnosis of mutation IN Lesch-Nyhan syndrome; parallel analysis of an informative linked marker TREATS diagnosis of mutation IN Lesch-Nyhan syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -41,19 +41,17 @@ prompt: |+
 
 
   Text:
-  Mutation detection TREATS identification of causative mutation IN Lesch-Nyhan syndrome
+  parallel analysis of an informative linked marker TREATS diagnosis of mutation IN Lesch-Nyhan syndrome
 
   ===
 
 extracted_object:
-  primary_disease: MONDO:0010298
+  primary_disease: MONDO:0002486
   medical_actions:
     - MAXO:0009003
-    - Mini-sequencing primer extension
-    - Tubal ligation
-    - In vitro fertilization (IVF)
-    - Embryo biopsy
-    - Mutation detection
+    - mini-sequencing primer extension
+    - mutation detection by mini-sequencing
+    - parallel analysis of an informative linked marker
   symptoms:
     - HP:0002149
     - HP:0001266
@@ -61,43 +59,38 @@ extracted_object:
     - HP:0001249
     - HP:0000742
   action_annotation_relationships:
-    - subject: Preimplantation genetic diagnosis
-      predicate: PREVENTS
-      object: passing on affected gene
-      qualifier: MONDO:0010298
-    - subject: Mini-sequencing primer extension
+    - subject: MAXO:0009003
+      predicate: <PREVENTS>
+      object: <passing of affected gene>
+      qualifier: <Lesch-Nyhan syndrome>
+      subject_extension: CHEBI:26337
+    - subject: primer extension
       predicate: TREATS
-      object: diagnosis accuracy
+      object: diagnosis of mutation
       qualifier: MONDO:0010298
-      subject_extension: mini-sequencing primer extension
-    - subject: Tubal ligation
-      predicate: PREVENTS
-      object: pregnancy
-      qualifier: general context
-    - subject: In vitro fertilization (IVF)
-      predicate: ENABLES
-      object: pregnancy
-      qualifier: MONDO:0010298
-      object_qualifier: in context of prevention
-    - subject: Embryo biopsy
+      subject_qualifier: mini-sequencing
+      subject_extension: mini-sequencing primer
+    - subject: mutation detection
       predicate: TREATS
-      object: diagnosis accuracy
+      object: diagnosis of mutation
       qualifier: MONDO:0010298
-    - subject: Mutation detection
+      subject_extension: mini-sequencing
+    - subject: parallel analysis
       predicate: TREATS
-      object: identification of causative mutation
+      object: diagnosis of mutation
       qualifier: MONDO:0010298
+      subject_extension: an informative linked marker
 named_entities:
   - id: MONDO:0010298
     label: Lesch-Nyhan syndrome
-  - id: HP:0002149
-    label: hyperuricemia
-  - id: HP:0100021
-    label: spastic cerebral palsy (CP)
-  - id: HP:0001332
-    label: dystonia
   - id: HP:0000742
-    label: self-mutilation
+    label: Self-mutilation
+  - id: HP:0002149
+    label: Hyperuricemia
+  - id: HP:0001249
+    label: Mental retardation
+  - id: HP:0001332
+    label: Dystonia
   - id: HP:0001257
     label: Spasticity
   - id: HP:0001266
@@ -108,46 +101,42 @@ named_entities:
     label: Aggression
   - id: HP:0002104
     label: Apnea
-  - id: HP:0002013
-    label: Vomiting
   - id: CHEBI:44915
     label: Propofol
+  - id: HP:0002835
+    label: pulmonary aspiration
   - id: MAXO:0000943
     label: deep brain stimulation surgery (DBS)
   - id: CHEBI:9130
     label: sevoflurane
-  - id: MAXO:0009003
-    label: preimplantation genetic diagnosis (PGD)
-  - id: HP:0001249
-    label: mental retardation
   - id: CHEBI:17368
     label: Hypoxanthine
   - id: CHEBI:15372
-    label: tetrahydrobiopterin
+    label: Tetrahydrobiopterin
   - id: CHEBI:35634
-    label: xanthine oxidase inhibitors
+    label: Xanthine oxidase inhibitors
+  - id: MAXO:0000004
+    label: surgical procedures
   - id: CHEBI:3387
-    label: Carbamazepine
-  - id: HP:0007325
-    label: generalized dystonia
+    label: carbamazepine
+  - id: MONDO:0002486
+    label: Lesch-Nyhan syndrome (LNS)
   - id: HP:0100660
-    label: dyskinesia
+    label: Dyskinesia
   - id: HP:0003149
-    label: Hyperuricosuria
+    label: hyperuricosuria
   - id: HP:0001997
-    label: Gouty arthritis
-  - id: CHEBI:28790
-    label: serotonin
+    label: gouty arthritis
   - id: CHEBI:28683
     label: kynurenine
   - id: CHEBI:16675
     label: quinolinic acid
+  - id: CHEBI:28790
+    label: serotonin
   - id: CHEBI:15318
     label: xanthine
   - id: HP:0001263
     label: developmental retardation
-  - id: MONDO:0002486
-    label: Lesch-Nyhan syndrome (LNS)
   - id: HP:0000708
     label: Behavioral disturbances
   - id: HP:0012758
@@ -155,15 +144,15 @@ named_entities:
   - id: CHEBI:8802
     label: Remifentanil
   - id: MAXO:0010033
-    label: Umbilical cord blood transplant (UCBT)
+    label: Umbilical Cord Blood Transplant (UCBT)
   - id: MAXO:0000139
     label: Autopsy
   - id: HP:0033006
     label: Diffuse alveolar damage
   - id: HP:6000716
     label: Hepatic veno-occlusive disease
-  - id: HP:0011793
-    label: malignant neoplasm
+  - id: HP:0002721
+    label: immunodeficiencies
   - id: MAXO:0000882
     label: behavioral interventions
   - id: MAXO:0000894
@@ -172,3 +161,7 @@ named_entities:
     label: allopurinol
   - id: MAXO:0001298
     label: therapy
+  - id: MAXO:0009003
+    label: preimplantation genetic diagnosis (PGD)
+  - id: CHEBI:26337
+    label: <preimplantation genetic diagnosis (PGD)>

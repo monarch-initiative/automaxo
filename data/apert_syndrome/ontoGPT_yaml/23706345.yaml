@@ -2,25 +2,26 @@
 input_text: 'Apert syndrome and sleep apnea. '
 raw_completion_output: |-
   primary_disease: Apert syndrome
+
   medical_actions: 
+
   symptoms: sleep apnea
+
   chemicals: 
-  action_annotation_relationships: sleep apnea IN Apert syndrome
+
+  action_annotation_relationships: 
 prompt: |+
   Split the following piece of text into fields in the following format:
 
-  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
-  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
-  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
-  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
-  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
-  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
-  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
-  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+  primary_disease: <The main disease the text is about, or its central disease topic. This is often the disease mentioned in an article's title or in its first few sentences.>
+  medical_actions: <Semicolon-separated list of medical actions, where each is a clinically prescribed procedure, therapy, intervention, or recommendation.>
+  symptoms: <Semicolon-separated list of signs or symptoms.>
+  chemicals: <Semicolon-separated list of chemicals or drugs>
+  action_annotation_relationships: <Semicolon-separated list of relationships between a disease, the mentioned signs and symptoms associated with that disease, the medical actions relating to each symptom, and the type of relationship between each action and symptom (usually TREATS or PREVENTS). The disease name must be included in the relationship, for example, "treatment TREATS symptom IN disease". If the medical action includes a specific chemical or drug, include the chemical or drug name in the relationship, for example, "treatment (with chemical) TREATS symptom IN disease".>
 
 
   Text:
-  sleep apnea IN Apert syndrome
+  Apert syndrome and sleep apnea. 
 
   ===
 
@@ -28,39 +29,33 @@ extracted_object:
   primary_disease: MONDO:0007041
   symptoms:
     - HP:0010535
-  action_annotation_relationships:
-    - subject: sleep apnea
-      predicate: IN
-      qualifier: MONDO:0007041
 named_entities:
-  - id: HP:0011800
-    label: Midface hypoplasia
   - id: MONDO:0007041
     label: Apert syndrome
   - id: MAXO:0000486
-    label: distraction osteogenesis
+    label: Distraction osteogenesis
   - id: HP:0012531
-    label: pain
+    label: Pain
   - id: HP:0001288
-    label: gait disturbances
-  - id: MONDO:0003432
-    label: Strabismus
+    label: Gait disturbances
   - id: HP:0001159
     label: Syndactyly
-  - id: MAXO:0000004
-    label: surgical procedures
   - id: HP:0001363
     label: craniosynostosis
+  - id: HP:0011800
+    label: midface hypoplasia
   - id: MONDO:0015338
     label: syndromic craniosynostosis
   - id: HP:0001061
     label: Acne
   - id: CHEBI:6067
-    label: isotretinoin
+    label: Isotretinoin
   - id: MONDO:0015469
     label: Craniosynostosis
+  - id: HP:0000504
+    label: Vision issues
   - id: HP:0000572
-    label: Vision loss
+    label: Visual loss
   - id: HP:0000646
     label: Amblyopia
   - id: HP:0001138
@@ -71,16 +66,18 @@ named_entities:
     label: Anisometropia
   - id: HP:0000483
     label: Astigmatism
-  - id: MAXO:0000504
-    label: Tracheostomy
   - id: MAXO:0000502
-    label: Tracheal intubation
-  - id: HP:0010807
-    label: Open bite
-  - id: MAXO:0000756
-    label: blood transfusion
+    label: tracheal intubation
+  - id: HP:0009102
+    label: Anterior open bite
   - id: MAXO:0001183
     label: Bronchoscopy
+  - id: MAXO:0000504
+    label: Tracheotomy
+  - id: MAXO:0001029
+    label: Adenoidectomy
+  - id: MAXO:0001081
+    label: Tonsillectomy
   - id: HP:0002104
     label: Apneic episodes
   - id: HP:0002098
@@ -89,26 +86,24 @@ named_entities:
     label: Stridor
   - id: HP:0000961
     label: Cyanosis
-  - id: MONDO:0009735
-    label: Netherton syndrome
-  - id: MONDO:0011438
-    label: Acne vulgaris
+  - id: HP:0000689
+    label: malocclusion
   - id: HP:0002902
-    label: hyponatremia
-  - id: MAXO:0000068
-    label: Transplantation
+    label: Hyponatremia
   - id: MAXO:0010031
     label: bone grafting
+  - id: MAXO:0001291
+    label: cranioplasty
   - id: HP:0001249
     label: mental retardation
+  - id: HP:0001263
+    label: developmental delays
   - id: HP:0002516
     label: raised intracranial pressure
   - id: HP:0010535
     label: sleep apnea
   - id: HP:0000174
     label: palatal anomalies
-  - id: HP:0005347
-    label: Tracheal Cartilaginous Sleeve
   - id: HP:0000175
     label: Cleft palate
   - id: HP:0000365
@@ -119,31 +114,29 @@ named_entities:
     label: Cardiac anomalies
   - id: HP:0001818
     label: Paronychia
-  - id: MAXO:0001029
-    label: adenoidectomy
-  - id: MAXO:0001081
-    label: tonsillectomy
   - id: MAXO:0000506
-    label: noninvasive ventilation
+    label: Noninvasive ventilation
   - id: HP:0002870
-    label: obstructive apneas
+    label: Obstructive apneas
   - id: HP:0000453
-    label: choanal atresia
+    label: Choanal atresia
   - id: HP:0004411
-    label: deviated nasal septum
+    label: Deviated nasal septum
   - id: HP:0002871
-    label: central apneas
+    label: Central apneas
   - id: HP:0002308
     label: Chiari malformations
   - id: MONDO:0002457
-    label: Tracheal cartilaginous sleeve (TCS) in syndromic craniosynostosis
+    label: Tracheal Cartilaginous Sleeve (TCS) in Syndromic Craniosynostosis
   - id: MAXO:0001189
-    label: laryngoscopy
-  - id: HP:0001263
-    label: developmental delay
+    label: Laryngoscopy
   - id: HP:0002119
-    label: enlarged cerebral ventricles
+    label: Enlarged cerebral ventricles
+  - id: HP:0005347
+    label: Tracheal Cartilaginous Sleeve
   - id: MAXO:0000647
     label: Chemotherapy
   - id: MAXO:0000014
     label: Radiotherapy
+  - id: CHEBI:22333
+    label: Alkylating agents

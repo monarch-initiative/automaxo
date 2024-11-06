@@ -7,10 +7,10 @@ input_text: 'Ochronotic arthropathy: disappearance of alkaptonuria after liver t
   stopped after liver transplantation for hepatitis B-related cirrhosis.'
 raw_completion_output: |-
   primary_disease: Ochronotic arthropathy
-  medical_actions: Liver transplantation
-  symptoms: Alkaptonuria; Ochronosis
-  chemicals: Homogentisic acid
-  action_annotation_relationships: Liver transplantation TREATS alkaptonuria IN Ochronotic arthropathy; Liver transplantation PREVENTS progression OF Ochronotic arthropathy
+  medical_actions: liver transplantation
+  symptoms: clinical and radiologic findings of ochronotic arthropathy
+  chemicals: homogentisic acid
+  action_annotation_relationships: liver transplantation TREATS clinical and radiologic findings of ochronotic arthropathy IN Ochronotic arthropathy
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -25,7 +25,7 @@ prompt: |+
 
 
   Text:
-  Liver transplantation PREVENTS progression OF Ochronotic arthropathy
+  liver transplantation TREATS clinical and radiologic findings of ochronotic arthropathy IN Ochronotic arthropathy
 
   ===
 
@@ -34,23 +34,17 @@ extracted_object:
   medical_actions:
     - MAXO:0001175
   symptoms:
-    - Alkaptonuria
-    - HP:0030764
+    - clinical and radiologic findings of ochronotic arthropathy
   chemicals:
     - CHEBI:44747
   action_annotation_relationships:
     - subject: MAXO:0001175
       predicate: TREATS
-      object: alkaptonuria
+      object: clinical and radiologic findings of ochronotic arthropathy
       qualifier: Ochronotic arthropathy
-    - subject: MAXO:0001175
-      predicate: PREVENTS
-      object: progression
-      qualifier: Ochronotic arthropathy
+      subject_extension: liver transplantation
 named_entities:
   - id: MAXO:0001175
-    label: Liver transplantation
-  - id: HP:0030764
-    label: Ochronosis
+    label: liver transplantation
   - id: CHEBI:44747
-    label: Homogentisic acid
+    label: homogentisic acid

@@ -13,14 +13,10 @@ input_text: 'Haploidentical Stem Cell Transplant With Post-transplant Cyclophosp
   cyclophosphamide.'
 raw_completion_output: |-
   primary_disease: Chediak-Higashi syndrome
-
   medical_actions: Hematopoietic stem cell transplant (HSCT); Haploidentical HSCT; Reduced-toxicity conditioning; Post-transplant cyclophosphamide
-
-  symptoms: Hematologic manifestations; Immunologic manifestations; Neurologic complications
-
+  symptoms: Hematologic and immunologic manifestations; Neurologic complications
   chemicals: Cyclophosphamide; Fludarabine; Treosulfan; Melphalan
-
-  action_annotation_relationships: Hematopoietic stem cell transplant (HSCT) TREATS hematologic manifestations IN Chediak-Higashi syndrome; Hematopoietic stem cell transplant (HSCT) TREATS immunologic manifestations IN Chediak-Higashi syndrome; Haploidentical HSCT TREATS hematologic manifestations IN Chediak-Higashi syndrome; Haploidentical HSCT TREATS immunologic manifestations IN Chediak-Higashi syndrome; Post-transplant cyclophosphamide PREVENTS immunologic complications IN Chediak-Higashi syndrome
+  action_annotation_relationships: Hematopoietic stem cell transplant (HSCT) TREATS hematologic and immunologic manifestations IN Chediak-Higashi syndrome; Haploidentical HSCT TREATS hematologic and immunologic manifestations IN Chediak-Higashi syndrome; Post-transplant cyclophosphamide (with Cyclophosphamide) TREATS hematologic and immunologic manifestations IN Chediak-Higashi syndrome; Reduced-toxicity conditioning (with Fludarabine/Treosulfan/Melphalan) PREVENTS neurologic complications IN Chediak-Higashi syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -35,7 +31,7 @@ prompt: |+
 
 
   Text:
-  Post-transplant cyclophosphamide PREVENTS immunologic complications IN Chediak-Higashi syndrome
+  Reduced-toxicity conditioning (with Fludarabine/Treosulfan/Melphalan) PREVENTS neurologic complications IN Chediak-Higashi syndrome
 
   ===
 
@@ -47,8 +43,7 @@ extracted_object:
     - Reduced-toxicity conditioning
     - Post-transplant cyclophosphamide
   symptoms:
-    - Hematologic manifestations
-    - Immunologic manifestations
+    - Hematologic and immunologic manifestations
     - Neurologic complications
   chemicals:
     - CHEBI:4027
@@ -58,12 +53,7 @@ extracted_object:
   action_annotation_relationships:
     - subject: <Hematopoietic stem cell transplant>
       predicate: <TREATS>
-      object: <hematologic manifestations>
-      qualifier: <Chediak-Higashi syndrome>
-      subject_extension: <Hematopoietic stem cell transplant>
-    - subject: <Hematopoietic stem cell transplant>
-      predicate: <TREATS>
-      object: <immunologic manifestations>
+      object: <hematologic and immunologic manifestations>
       qualifier: <Chediak-Higashi syndrome>
       subject_qualifier: <>
       object_qualifier: <>
@@ -71,49 +61,51 @@ extracted_object:
       object_extension: <>
     - subject: Haploidentical HSCT
       predicate: TREATS
-      object: hematologic manifestations
+      object: hematologic and immunologic manifestations
       qualifier: MONDO:0008963
-    - subject: <Haploidentical HSCT>
-      predicate: <TREATS>
-      object: <immunologic manifestations>
-      qualifier: <Chediak-Higashi syndrome>
-      subject_qualifier: <>
-      object_qualifier: <>
-      subject_extension: <HSCT>
-      object_extension: <immunologic manifestations>
     - subject: Post-transplant cyclophosphamide
-      predicate: PREVENTS
-      object: immunologic complications
+      predicate: TREATS
+      object: hematologic and immunologic manifestations
       qualifier: MONDO:0008963
-      subject_qualifier: Post-transplant
+      subject_qualifier: with Cyclophosphamide
       subject_extension: CHEBI:4027
+    - subject: Reduced-toxicity conditioning
+      predicate: PREVENTS
+      object: neurologic complications
+      qualifier: MONDO:0008963
+      subject_qualifier: with Fludarabine/Treosulfan/Melphalan
+      subject_extension: Fludarabine/Treosulfan/Melphalan
 named_entities:
+  - id: HP:0012531
+    label: pain
   - id: MAXO:0010030
-    label: Bone marrow transplantation (BMT)
+    label: bone marrow transplantation (BMT)
   - id: MONDO:0008963
     label: Chediak-Higashi syndrome
   - id: MAXO:0010033
-    label: Unrelated cord blood transplantation (UCBT)
+    label: unrelated cord blood transplantation (UCBT)
   - id: MAXO:0000747
     label: HSCT
   - id: MAXO:0000750
-    label: Conditioning regimens
+    label: conditioning regimens
   - id: CHEBI:41264
     label: BU
   - id: CHEBI:4027
-    label: Cyclophosphamide
+    label: cyclophosphamide
   - id: CHEBI:4911
-    label: Etoposide
+    label: etoposide
+  - id: MONDO:0008090
+    label: Chediak-Higashi syndrome (CHS)
   - id: HP:0001433
-    label: hepatosplenomegaly
+    label: Hepatosplenomegaly
   - id: HP:0003270
-    label: abdominal distention
+    label: Abdominal distention
   - id: MONDO:0024686
     label: Pigmented villonodular synovitis (PVNS)
   - id: HP:0001945
-    label: fever
+    label: Fever
   - id: MONDO:0003778
-    label: primary immunodeficiency
+    label: primary immunodeficiencies
   - id: HP:0025322
     label: veno-occlusive disease
   - id: CHEBI:28901
@@ -122,8 +114,10 @@ named_entities:
     label: cyclosporine
   - id: CHEBI:44185
     label: methotrexate
-  - id: MONDO:0008090
-    label: Chediak-Higashi Syndrome (CHS)
+  - id: HP:0100806
+    label: sepsis
+  - id: CHEBI:28790
+    label: Serotonin
   - id: HP:0002718
     label: recurrent bacterial infections
   - id: HP:0000613

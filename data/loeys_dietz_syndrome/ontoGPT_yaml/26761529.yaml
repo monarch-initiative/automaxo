@@ -21,16 +21,12 @@ input_text: Pre- and Postoperative Imaging of the Aortic Root. Three-dimensional
   of the aortic root. Online supplemental material is available for this article.
 raw_completion_output: |-
   primary_disease: Aortic Root Disease
-
-  medical_actions: Computed tomography;Magnetic resonance imaging;Placement of a composite valve graft;Placement of an aortic root graft with preservation of the native valve;Implantation of a biologic graft
-
-  symptoms: Pseudoaneurysms;Infection;Dehiscence
-
+  medical_actions: Computed tomography imaging; Magnetic resonance imaging; Placement of a composite valve graft; Placement of an aortic root graft with preservation of the native valve; Implantation of a biologic graft
+  symptoms: Pseudoaneurysms; Infection; Dehiscence
   chemicals: 
-
-  action_annotation_relationships: Computed tomography TREATS Aortic Root Disease;Magnetic resonance imaging TREATS Aortic Root Disease;Placement of a composite valve graft TREATS Aortic Root Disease;Placement of an aortic root graft with preservation of the native valve TREATS Aortic Root Disease;Implantation of a biologic graft TREATS Aortic Root Disease
+  action_annotation_relationships: Computed tomography imaging TREATS Aortic Root Disease; Magnetic resonance imaging TREATS Aortic Root Disease; Placement of a composite valve graft (with Bentall and Cabrol procedures) TREATS Aortic Root Disease; Placement of an aortic root graft with preservation of the native valve (with Yacoub and David techniques) TREATS Aortic Root Disease; Implantation of a biologic graft (with homograft, autograft, xenograft) TREATS Aortic Root Disease
 prompt: |+
-  Split the following piece of text into fields in the following format:
+  From the text below, extract the following entities in the following format:
 
   subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
   object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
@@ -43,14 +39,14 @@ prompt: |+
 
 
   Text:
-  Implantation of a biologic graft TREATS Aortic Root Disease
+  Implantation of a biologic graft (with homograft, autograft, xenograft) TREATS Aortic Root Disease
 
   ===
 
 extracted_object:
   primary_disease: Aortic Root Disease
   medical_actions:
-    - Computed tomography
+    - Computed tomography imaging
     - Magnetic resonance imaging
     - Placement of a composite valve graft
     - Placement of an aortic root graft with preservation of the native valve
@@ -60,28 +56,39 @@ extracted_object:
     - Infection
     - Dehiscence
   action_annotation_relationships:
-    - subject: Computed tomography
+    - subject: Computed tomography imaging
       predicate: TREATS
       object: Aortic Root Disease
     - subject: Magnetic resonance imaging
       predicate: TREATS
       object: Aortic Root Disease
-    - subject: Placement of a composite valve graft
-      predicate: TREATS
-      object: Aortic Root Disease
+    - subject: <Placement of a composite valve graft (with Bentall and Cabrol procedures)>
+      predicate: <TREATS>
+      object: <Aortic Root Disease>
+      qualifier: <>
+      subject_qualifier: <>
+      object_qualifier: <>
       subject_extension: <composite valve graft>
-    - subject: Placement of an aortic root graft with preservation of the native valve
-      predicate: TREATS
-      object: Aortic Root Disease
+      object_extension: <>
+    - subject: <Placement of an aortic root graft with preservation of the native
+        valve>
+      predicate: <TREATS>
+      object: <Aortic Root Disease>
+      qualifier: <None>
+      subject_qualifier: <with Yacoub and David techniques>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
     - subject: MAXO:0000451
       predicate: TREATS
       object: Aortic Root Disease
+      subject_qualifier: with homograft, autograft, xenograft
       subject_extension: biologic graft
 named_entities:
   - id: MONDO:0018954
     label: Loeys-Dietz syndrome
   - id: MAXO:0000945
-    label: Spinal cord stimulation (SCS)
+    label: spinal cord stimulation (SCS)
   - id: HP:0031625
     label: Pseudoaneurysms
   - id: MAXO:0000451

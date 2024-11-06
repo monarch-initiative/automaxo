@@ -22,10 +22,14 @@ input_text: Management of Paronychia in Patients With Apert Syndrome. Apert synd
   avoiding multiple cancellations.
 raw_completion_output: |-
   primary_disease: Paronychia in Patients With Apert Syndrome
-  medical_actions: Surgical management of the hand differences; Posterior cranial vault distraction; Surgical management of the airway; Definitive surgical intervention for complex syndactyly; Strategy for preventing or mitigating paronychia
-  symptoms: Bicoronal craniosynostosis; Craniofacial dysmorphologies; Cleft palate; Hearing loss; Spina bifida occulta; Cardiac anomalies; Complex syndactyly; Broad, conjoined nail plates; Paronychia; Suppurative infections
+
+  medical_actions: Surgical management of the hand differences; Preserve 10 digits; Provide sufficient soft tissue coverage; Optimize hand function; Minimize the number of surgical interventions; Surgical management of airway; Posterior cranial vault distraction; Resolution of paronychia; Definitive polysyndactyly reconstruction
+
+  symptoms: Bicoronal craniosynostosis; Craniofacial dysmorphologies; Cleft palate; Hearing loss; Spina bifida occulta; Cardiac anomalies; Complex syndactyly; Broad, conjoined nail plates; Suppurative infections; Paronychia
+
   chemicals: 
-  action_annotation_relationships: Surgical management of the hand differences TREATS complex syndactyly IN Paronychia in Patients With Apert Syndrome; Posterior cranial vault distraction TREATS bicoronal craniosynostosis IN Paronychia in Patients With Apert Syndrome; Surgical management of the airway PREVENTS complications IN Paronychia in Patients With Apert Syndrome; Definitive surgical intervention for complex syndactyly TREATS broad, conjoined nail plates IN Paronychia in Patients With Apert Syndrome; Strategy for preventing or mitigating paronychia TREATS paronychia IN Paronychia in Patients With Apert Syndrome; Strategy for preventing or mitigating paronychia PREVENTS suppurative infections IN Paronychia in Patients With Apert Syndrome
+
+  action_annotation_relationships: Surgical management of the hand differences TREATS complex syndactyly IN Paronychia in Patients With Apert Syndrome; Preserve 10 digits TREATS complex syndactyly IN Paronychia in Patients With Apert Syndrome; Provide sufficient soft tissue coverage TREATS complex syndactyly IN Paronychia in Patients With Apert Syndrome; Optimize hand function TREATS complex syndactyly IN Paronychia in Patients With Apert Syndrome; Minimize the number of surgical interventions TREATS complex syndactyly IN Paronychia in Patients With Apert Syndrome; Surgical management of airway TREATS craniofacial dysmorphologies IN Paronychia in Patients With Apert Syndrome; Posterior cranial vault distraction TREATS bicoronal craniosynostosis IN Paronychia in Patients With Apert Syndrome; Resolution of paronychia TREATS paronychia IN Paronychia in Patients With Apert Syndrome; Definitive polysyndactyly reconstruction TREATS complex syndactyly IN Paronychia in Patients With Apert Syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -40,7 +44,7 @@ prompt: |+
 
 
   Text:
-  Strategy for preventing or mitigating paronychia PREVENTS suppurative infections IN Paronychia in Patients With Apert Syndrome
+  Definitive polysyndactyly reconstruction TREATS complex syndactyly IN Paronychia in Patients With Apert Syndrome
 
   ===
 
@@ -48,10 +52,14 @@ extracted_object:
   primary_disease: Paronychia in Patients With Apert Syndrome
   medical_actions:
     - Surgical management of the hand differences
+    - Preserve 10 digits
+    - Provide sufficient soft tissue coverage
+    - Optimize hand function
+    - Minimize the number of surgical interventions
+    - Surgical management of airway
     - Posterior cranial vault distraction
-    - Surgical management of the airway
-    - Definitive surgical intervention for complex syndactyly
-    - Strategy for preventing or mitigating paronychia
+    - Resolution of paronychia
+    - Definitive polysyndactyly reconstruction
   symptoms:
     - Bicoronal craniosynostosis
     - Craniofacial dysmorphologies
@@ -61,66 +69,99 @@ extracted_object:
     - HP:0001627
     - Complex syndactyly
     - Broad, conjoined nail plates
-    - HP:0001818
     - Suppurative infections
+    - HP:0001818
   action_annotation_relationships:
     - subject: Surgical management of the hand differences
       predicate: TREATS
       object: complex syndactyly
       qualifier: Paronychia in Patients With Apert Syndrome
-    - subject: Posterior cranial vault distraction
+      subject_qualifier: Not applicable
+      object_qualifier: Not applicable
+      subject_extension: Not applicable
+      object_extension: Not applicable
+    - subject: TREATS
       predicate: TREATS
-      object: bicoronal craniosynostosis
+      object: HP:0001159
       qualifier: Paronychia in Patients With Apert Syndrome
-    - subject: Surgical management of the airway
-      predicate: PREVENTS
-      object: complications
+      object_qualifier: complex
+      subject_extension: Preserve 10 digits
+      object_extension: complex
+    - subject: Provide sufficient soft tissue coverage
+      predicate: TREATS
+      object: complex syndactyly
       qualifier: Paronychia in Patients With Apert Syndrome
-    - subject: <Definitive surgical intervention for complex syndactyly>
+    - subject: Optimize hand function
+      predicate: TREATS
+      object: complex syndactyly
+      qualifier: Paronychia in Patients With Apert Syndrome
+    - subject: <Minimize the number of surgical interventions>
       predicate: <TREATS>
-      object: <broad, conjoined nail plates>
+      object: <complex syndactyly>
+      qualifier: <Apert Syndrome>
+      subject_qualifier: <Not applicable>
+      object_qualifier: <Not applicable>
+      subject_extension: <Not applicable>
+      object_extension: <Not applicable>
+    - subject: <Surgical management of airway>
+      predicate: <TREATS>
+      object: <craniofacial dysmorphologies>
       qualifier: <Paronychia in Patients With Apert Syndrome>
-      subject_qualifier: <None>
-      object_qualifier: <None>
-      subject_extension: <None>
-      object_extension: <None>
-    - subject: Strategy for preventing or mitigating paronychia
-      predicate: TREATS
-      object: HP:0001818
-      qualifier: Paronychia in Patients With Apert Syndrome
-    - subject: Strategy for preventing or mitigating paronychia
-      predicate: PREVENTS
-      object: suppurative infections
-      qualifier: Paronychia in Patients With Apert Syndrome
+      subject_qualifier: <Not Applicable>
+      object_qualifier: <Not Applicable>
+      subject_extension: <Not Applicable>
+      object_extension: <Not Applicable>
+    - subject: <Posterior cranial vault distraction>
+      predicate: <TREATS>
+      object: <bicoronal craniosynostosis>
+      qualifier: <Apert Syndrome>
+      subject_qualifier: <Not Applicable>
+      object_qualifier: <Not Applicable>
+      subject_extension: <Not Applicable>
+      object_extension: <Not Applicable>
+    - subject: <Resolution of paronychia>
+      predicate: <TREATS>
+      object: <paronychia>
+      qualifier: <Apert Syndrome>
+      subject_qualifier: <Not applicable>
+      object_qualifier: <Not applicable>
+      subject_extension: <Not applicable>
+      object_extension: <Not applicable>
+    - subject: <Definitive polysyndactyly reconstruction>
+      predicate: <TREATS>
+      object: <complex syndactyly>
+      qualifier: <Paronychia in Patients With Apert Syndrome>
+      subject_qualifier: <Not applicable>
+      object_qualifier: <Not applicable>
+      subject_extension: <Not applicable>
+      object_extension: <Not applicable>
 named_entities:
-  - id: HP:0011800
-    label: Midface hypoplasia
   - id: MONDO:0007041
     label: Apert syndrome
   - id: MAXO:0000486
-    label: distraction osteogenesis
+    label: Distraction osteogenesis
   - id: HP:0012531
-    label: pain
+    label: Pain
   - id: HP:0001288
-    label: gait disturbances
-  - id: MONDO:0003432
-    label: Strabismus
+    label: Gait disturbances
   - id: HP:0001159
     label: Syndactyly
-  - id: MAXO:0000004
-    label: surgical procedures
   - id: HP:0001363
     label: craniosynostosis
+  - id: HP:0011800
+    label: midface hypoplasia
   - id: MONDO:0015338
     label: syndromic craniosynostosis
   - id: HP:0001061
     label: Acne
   - id: CHEBI:6067
-    label: isotretinoin
+    label: Isotretinoin
   - id: MONDO:0015469
     label: Craniosynostosis
+  - id: HP:0000504
+    label: Vision issues
   - id: HP:0000572
-    label: Vision loss
+    label: Visual loss
   - id: HP:0000646
     label: Amblyopia
   - id: HP:0001138
@@ -131,16 +172,18 @@ named_entities:
     label: Anisometropia
   - id: HP:0000483
     label: Astigmatism
-  - id: MAXO:0000504
-    label: Tracheostomy
   - id: MAXO:0000502
-    label: Tracheal intubation
-  - id: HP:0010807
-    label: Open bite
-  - id: MAXO:0000756
-    label: blood transfusion
+    label: tracheal intubation
+  - id: HP:0009102
+    label: Anterior open bite
   - id: MAXO:0001183
     label: Bronchoscopy
+  - id: MAXO:0000504
+    label: Tracheotomy
+  - id: MAXO:0001029
+    label: Adenoidectomy
+  - id: MAXO:0001081
+    label: Tonsillectomy
   - id: HP:0002104
     label: Apneic episodes
   - id: HP:0002098
@@ -149,26 +192,24 @@ named_entities:
     label: Stridor
   - id: HP:0000961
     label: Cyanosis
-  - id: MONDO:0009735
-    label: Netherton syndrome
-  - id: MONDO:0011438
-    label: Acne vulgaris
+  - id: HP:0000689
+    label: malocclusion
   - id: HP:0002902
-    label: hyponatremia
-  - id: MAXO:0000068
-    label: Transplantation
+    label: Hyponatremia
   - id: MAXO:0010031
     label: bone grafting
+  - id: MAXO:0001291
+    label: cranioplasty
   - id: HP:0001249
     label: mental retardation
+  - id: HP:0001263
+    label: developmental delays
   - id: HP:0002516
     label: raised intracranial pressure
   - id: HP:0010535
     label: sleep apnea
   - id: HP:0000174
     label: palatal anomalies
-  - id: HP:0005347
-    label: Tracheal Cartilaginous Sleeve
   - id: HP:0000175
     label: Cleft palate
   - id: HP:0000365

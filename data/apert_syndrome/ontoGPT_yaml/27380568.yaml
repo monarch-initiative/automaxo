@@ -19,14 +19,10 @@ input_text: "Apert Syndrome: Outcomes From the Australian Craniofacial Unit's Bi
   Apert syndrome. "
 raw_completion_output: |-
   primary_disease: Apert Syndrome
-
-  medical_actions: craniofacial interventions; surgical interventions; nonsurgical interventions; visual acuity tests; hearing tests; speech assessments; educational achievement evaluations; social integration assessments
-
-  symptoms: visual acuity impairment; hearing impairment; speech impairment; occlusal problems
-
+  medical_actions: Multidisciplinary management protocol; Surgical interventions; Nonsurgical craniofacial interventions
+  symptoms: Abnormal visual acuity; Hearing loss; Speech abnormalities; Class I occlusion issues
   chemicals: 
-
-  action_annotation_relationships: craniofacial interventions TREATS occlusal problems IN Apert Syndrome; surgical interventions TREATS visual acuity impairment IN Apert Syndrome; nonsurgical interventions TREATS hearing impairment IN Apert Syndrome; visual acuity tests ASSESS visual acuity impairment IN Apert Syndrome; hearing tests ASSESS hearing impairment IN Apert Syndrome; speech assessments ASSESS speech impairment IN Apert Syndrome; educational achievement evaluations ASSESS educational achievement IN Apert Syndrome; social integration assessments ASSESS social integration IN Apert Syndrome
+  action_annotation_relationships: Multidisciplinary management protocol PREVENTS abnormal visual acuity IN Apert Syndrome; Multidisciplinary management protocol PREVENTS hearing loss IN Apert Syndrome; Multidisciplinary management protocol PREVENTS speech abnormalities IN Apert Syndrome; Multidisciplinary management protocol PREVENTS class I occlusion issues IN Apert Syndrome; Surgical interventions TREAT symptoms IN Apert Syndrome; Nonsurgical craniofacial interventions TREAT symptoms IN Apert Syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -41,88 +37,73 @@ prompt: |+
 
 
   Text:
-  social integration assessments ASSESS social integration IN Apert Syndrome
+  Nonsurgical craniofacial interventions TREAT symptoms IN Apert Syndrome
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0007041
   medical_actions:
-    - craniofacial interventions
+    - Multidisciplinary management protocol
     - MAXO:0000004
-    - nonsurgical interventions
-    - visual acuity tests
-    - MAXO:0000873
-    - speech assessments
-    - educational achievement evaluations
-    - social integration assessments
+    - Nonsurgical craniofacial interventions
   symptoms:
-    - visual acuity impairment
+    - Abnormal visual acuity
     - HP:0000365
-    - speech impairment
-    - occlusal problems
+    - Speech abnormalities
+    - Class I occlusion issues
   action_annotation_relationships:
-    - subject: craniofacial interventions
-      predicate: TREATS
-      object: occlusal problems
+    - subject: Multidisciplinary management protocol
+      predicate: PREVENTS
+      object: abnormal visual acuity
+      qualifier: MONDO:0007041
+    - subject: Multidisciplinary management protocol
+      predicate: PREVENTS
+      object: HP:0000365
+      qualifier: MONDO:0007041
+    - subject: Multidisciplinary management protocol
+      predicate: PREVENTS
+      object: speech abnormalities
+      qualifier: MONDO:0007041
+    - subject: Multidisciplinary management protocol
+      predicate: PREVENTS
+      object: class I occlusion issues
       qualifier: MONDO:0007041
     - subject: MAXO:0000004
       predicate: TREATS
-      object: visual acuity impairment
+      object: symptoms
       qualifier: MONDO:0007041
-    - subject: nonsurgical interventions
+    - subject: Nonsurgical craniofacial interventions
       predicate: TREATS
-      object: HP:0000365
-      qualifier: MONDO:0007041
-    - subject: visual acuity tests
-      predicate: ASSESS
-      object: visual acuity impairment
-      qualifier: MONDO:0007041
-    - subject: MAXO:0000873
-      predicate: ASSESS
-      object: HP:0000365
-      qualifier: MONDO:0007041
-    - subject: speech assessments
-      predicate: ASSESS
-      object: speech impairment
-      qualifier: MONDO:0007041
-    - subject: educational achievement evaluations
-      predicate: ASSESS
-      object: educational achievement
-      qualifier: MONDO:0007041
-    - subject: social integration assessments
-      predicate: ASSESS
-      object: social integration
+      object: symptoms
       qualifier: MONDO:0007041
 named_entities:
-  - id: HP:0011800
-    label: Midface hypoplasia
   - id: MONDO:0007041
     label: Apert syndrome
   - id: MAXO:0000486
-    label: distraction osteogenesis
+    label: Distraction osteogenesis
   - id: HP:0012531
-    label: pain
+    label: Pain
   - id: HP:0001288
-    label: gait disturbances
-  - id: MONDO:0003432
-    label: Strabismus
+    label: Gait disturbances
   - id: HP:0001159
     label: Syndactyly
-  - id: MAXO:0000004
-    label: surgical procedures
   - id: HP:0001363
     label: craniosynostosis
+  - id: HP:0011800
+    label: midface hypoplasia
   - id: MONDO:0015338
     label: syndromic craniosynostosis
   - id: HP:0001061
     label: Acne
   - id: CHEBI:6067
-    label: isotretinoin
+    label: Isotretinoin
   - id: MONDO:0015469
     label: Craniosynostosis
+  - id: HP:0000504
+    label: Vision issues
   - id: HP:0000572
-    label: Vision loss
+    label: Visual loss
   - id: HP:0000646
     label: Amblyopia
   - id: HP:0001138
@@ -133,16 +114,18 @@ named_entities:
     label: Anisometropia
   - id: HP:0000483
     label: Astigmatism
-  - id: MAXO:0000504
-    label: Tracheostomy
   - id: MAXO:0000502
-    label: Tracheal intubation
-  - id: HP:0010807
-    label: Open bite
-  - id: MAXO:0000756
-    label: blood transfusion
+    label: tracheal intubation
+  - id: HP:0009102
+    label: Anterior open bite
   - id: MAXO:0001183
     label: Bronchoscopy
+  - id: MAXO:0000504
+    label: Tracheotomy
+  - id: MAXO:0001029
+    label: Adenoidectomy
+  - id: MAXO:0001081
+    label: Tonsillectomy
   - id: HP:0002104
     label: Apneic episodes
   - id: HP:0002098
@@ -151,26 +134,24 @@ named_entities:
     label: Stridor
   - id: HP:0000961
     label: Cyanosis
-  - id: MONDO:0009735
-    label: Netherton syndrome
-  - id: MONDO:0011438
-    label: Acne vulgaris
+  - id: HP:0000689
+    label: malocclusion
   - id: HP:0002902
-    label: hyponatremia
-  - id: MAXO:0000068
-    label: Transplantation
+    label: Hyponatremia
   - id: MAXO:0010031
     label: bone grafting
+  - id: MAXO:0001291
+    label: cranioplasty
   - id: HP:0001249
     label: mental retardation
+  - id: HP:0001263
+    label: developmental delays
   - id: HP:0002516
     label: raised intracranial pressure
   - id: HP:0010535
     label: sleep apnea
   - id: HP:0000174
     label: palatal anomalies
-  - id: HP:0005347
-    label: Tracheal Cartilaginous Sleeve
   - id: HP:0000175
     label: Cleft palate
   - id: HP:0000365
@@ -181,41 +162,39 @@ named_entities:
     label: Cardiac anomalies
   - id: HP:0001818
     label: Paronychia
-  - id: MAXO:0001029
-    label: adenoidectomy
-  - id: MAXO:0001081
-    label: tonsillectomy
   - id: MAXO:0000506
-    label: noninvasive ventilation
+    label: Noninvasive ventilation
   - id: HP:0002870
-    label: obstructive apneas
+    label: Obstructive apneas
   - id: HP:0000453
-    label: choanal atresia
+    label: Choanal atresia
   - id: HP:0004411
-    label: deviated nasal septum
+    label: Deviated nasal septum
   - id: HP:0002871
-    label: central apneas
+    label: Central apneas
   - id: HP:0002308
     label: Chiari malformations
   - id: MONDO:0002457
-    label: Tracheal cartilaginous sleeve (TCS) in syndromic craniosynostosis
+    label: Tracheal Cartilaginous Sleeve (TCS) in Syndromic Craniosynostosis
   - id: MAXO:0001189
-    label: laryngoscopy
-  - id: HP:0001263
-    label: developmental delay
+    label: Laryngoscopy
   - id: HP:0002119
-    label: enlarged cerebral ventricles
+    label: Enlarged cerebral ventricles
+  - id: HP:0005347
+    label: Tracheal Cartilaginous Sleeve
   - id: MAXO:0000647
     label: Chemotherapy
   - id: MAXO:0000014
     label: Radiotherapy
+  - id: CHEBI:22333
+    label: Alkylating agents
   - id: MAXO:0001001
-    label: Gene therapy
-  - id: MAXO:0000015
-    label: Biological therapies
+    label: Gene therapies
+  - id: MONDO:0020621
+    label: Syndromic Craniosynostosis (SCS)
   - id: HP:0000164
     label: Tooth abnormalities
   - id: MAXO:0000127
     label: Genetic testing
-  - id: MAXO:0000873
-    label: hearing tests
+  - id: MAXO:0000004
+    label: Surgical interventions

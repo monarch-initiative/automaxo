@@ -11,10 +11,10 @@ input_text: Chylous Ascites Developing after Open Thoracoabdominal Aortic Aneury
   He was diagnosed with chylous ascites and was discharged after conservative treatment.
 raw_completion_output: |-
   primary_disease: Chylous Ascites
-  medical_actions: Open thoracoabdominal aortic aneurysm repair; Computed tomography; Surgical drainage; Conservative treatment
+  medical_actions: Surgical drainage of abdominal cavity; Conservative treatment
   symptoms: Abdominal distention; Abdominal pain; Fluid in the incision region; Weakness
   chemicals: 
-  action_annotation_relationships: Open thoracoabdominal aortic aneurysm repair PREVENTS thoracoabdominal aortic aneurysm IN Marfan Syndrome; Computed tomography TREATS massive fluid collection IN Chylous Ascites; Surgical drainage TREATS massive fluid collection IN Chylous Ascites; Conservative treatment TREATS Chylous Ascites IN Patient
+  action_annotation_relationships: Surgical drainage of abdominal cavity TREATS Abdominal distention IN Chylous Ascites; Surgical drainage of abdominal cavity TREATS Abdominal pain IN Chylous Ascites; Surgical drainage of abdominal cavity TREATS Fluid in the incision region IN Chylous Ascites; Conservative treatment TREATS Weakness IN Chylous Ascites
 prompt: |+
   Split the following piece of text into fields in the following format:
 
@@ -29,16 +29,14 @@ prompt: |+
 
 
   Text:
-  Conservative treatment TREATS Chylous Ascites IN Patient
+  Conservative treatment TREATS Weakness IN Chylous Ascites
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0008829
   medical_actions:
-    - Open thoracoabdominal aortic aneurysm repair
-    - Computed tomography
-    - Surgical drainage
+    - Surgical drainage of abdominal cavity
     - Conservative treatment
   symptoms:
     - HP:0003270
@@ -46,31 +44,47 @@ extracted_object:
     - Fluid in the incision region
     - HP:0025406
   action_annotation_relationships:
-    - subject: Open thoracoabdominal aortic aneurysm repair
-      predicate: PREVENTS
-      object: thoracoabdominal aortic aneurysm
-      qualifier: MONDO:0007947
-    - subject: <Computed tomography>
-      predicate: <TREATS>
-      object: <massive fluid collection>
-      qualifier: <Chylous Ascites>
-      subject_qualifier: <Not applicable>
-      object_qualifier: <Not applicable>
-      subject_extension: <Not applicable>
-      object_extension: <Not applicable>
-    - subject: Surgical drainage
+    - subject: Surgical drainage of abdominal cavity
       predicate: TREATS
-      object: massive fluid collection
+      object: HP:0003270
+      qualifier: MONDO:0008829
+    - subject: Surgical drainage of abdominal cavity
+      predicate: TREATS
+      object: HP:0002027
+      qualifier: MONDO:0008829
+    - subject: Surgical drainage of abdominal cavity
+      predicate: TREATS
+      object: Fluid in the incision region
       qualifier: MONDO:0008829
     - subject: Conservative treatment
       predicate: TREATS
-      object: HP:0012281
-      qualifier: Patient
+      object: HP:0025406
+      qualifier: MONDO:0008829
 named_entities:
   - id: MONDO:0007947
-    label: Marfan syndrome
-  - id: HP:0032079
-    label: Medial degeneration
+    label: Marfan Syndrome
+  - id: HP:0000768
+    label: Pectus carinatum
+  - id: HP:0002650
+    label: Scoliosis
+  - id: HP:0002108
+    label: Spontaneous pneumothorax
+  - id: HP:0003423
+    label: Thoracolumbar kyphoscoliosis
+  - id: CHEBI:33281
+    label: Antibiotic
+  - id: HP:0002107
+    label: pneumothorax
+  - id: MAXO:0010203
+    label: Echocardiography
+  - id: MAXO:0000494
+    label: Blood pressure monitoring
+  - id: HP:0004942
+    label: Aortic dilatation
+  - id: CHEBI:5959
+    label: Irbesartan
+  - id: HP:0004950
+    label: Peripheral artery disease
   - id: HP:0002617
     label: aneurysm
   - id: HP:0030965
@@ -81,6 +95,14 @@ named_entities:
     label: left ventricular hypertrophy
   - id: HP:0005162
     label: left ventricular failure
+  - id: HP:0000822
+    label: high blood pressure
+  - id: CHEBI:6541
+    label: Losartan
+  - id: CHEBI:35530
+    label: beta-blocker
+  - id: MAXO:0001298
+    label: therapy
   - id: MONDO:0020333
     label: Anterior sacral meningocele (ASM)
   - id: HP:0002315
@@ -89,74 +111,154 @@ named_entities:
     label: nausea
   - id: HP:0002138
     label: subarachnoid hemorrhage
+  - id: HP:0031625
+    label: Pseudoaneurysms
+  - id: MAXO:0000451
+    label: Implantation
+  - id: MAXO:0000457
+    label: pain management
   - id: HP:0012531
-    label: Pain
+    label: pain
   - id: HP:0012378
-    label: Fatigue
+    label: fatigue
   - id: HP:0012332
-    label: Dysautonomia
+    label: dysautonomia
   - id: HP:0002659
-    label: Bone fragility
+    label: bone fragility
   - id: HP:0025017
-    label: Capillary fragility
+    label: capillary fragility
   - id: HP:0001030
-    label: Skin fragility
+    label: skin fragility
+  - id: MAXO:0000571
+    label: CT
+  - id: HP:0034267
+    label: Pelvic pain
+  - id: HP:0000139
+    label: Genital prolapse
+  - id: HP:0100518
+    label: Dysuria
   - id: MONDO:0044632
     label: Extracranial Carotid Artery Aneurysms (ECAAs)
   - id: MAXO:0000448
     label: Surgical resection
   - id: HP:0001297
     label: Stroke
+  - id: HP:0012163
+    label: Extracranial Carotid Artery Aneurysms
   - id: HP:0002616
     label: aortic root aneurysms
+  - id: HP:0031649
+    label: aortic rupture
   - id: HP:0002090
-    label: Pneumonia
-  - id: HP:0000010
-    label: Urinary tract infections
-  - id: HP:0002140
-    label: ischemic stroke
-  - id: HP:0001342
-    label: hemorrhagic stroke
-  - id: HP:0004944
-    label: cerebral aneurysms
-  - id: HP:0012158
-    label: carotid artery dissection
+    label: pneumonia
+  - id: CHEBI:50249
+    label: Anticoagulants
   - id: HP:0012514
     label: Leg pain
   - id: HP:0007340
     label: Leg weakness
-  - id: HP:0002650
-    label: scoliosis
   - id: HP:0200146
-    label: Annuloaortic ectasia
-  - id: CHEBI:35530
-    label: Beta-blockers
+    label: annuloaortic ectasia
   - id: MAXO:0009072
     label: Surgical repair
-  - id: HP:0004942
-    label: aortic aneurysm
-  - id: MONDO:0004737
-    label: homocystinuria
   - id: MONDO:0009691
-    label: Marfan Syndrome (MF)
-  - id: MAXO:0010203
-    label: echocardiography
-  - id: HP:0031649
-    label: aortic rupture
+    label: Marfan syndrome (MFS)
+  - id: HP:0002140
+    label: acute ischemic stroke
+  - id: HP:0002615
+    label: Hypotension
+  - id: HP:0007185
+    label: Loss of consciousness
+  - id: HP:0002239
+    label: Gastrointestinal bleeding
+  - id: HP:0000952
+    label: Jaundice
+  - id: MAXO:0000004
+    label: surgery
+  - id: MONDO:0004737
+    label: Homocystinuria
+  - id: HP:0004933
+    label: type A aortic dissection
+  - id: MONDO:0008213
+    label: Pectus Excavatum
+  - id: HP:0010550
+    label: Paraplegia
+  - id: HP:0012151
+    label: Hemothorax
+  - id: HP:0000767
+    label: Pectus Excavatum
+  - id: MONDO:0009352
+    label: Cystathionine beta-Synthase Deficiency
+  - id: HP:0000545
+    label: Myopia
   - id: HP:0001083
-    label: Ectopia Lentis
-  - id: HP:0030961
-    label: Microspherophakia
+    label: Ectopia lentis
+  - id: HP:0001249
+    label: Mental retardation
+  - id: HP:0000924
+    label: Skeletal anomalies
+  - id: HP:0001907
+    label: Thromboembolic events
+  - id: HP:0003235
+    label: Hypermethioninemia
+  - id: CHEBI:17750
+    label: Betaine
+  - id: CHEBI:16811
+    label: Methionine
   - id: MAXO:0001085
     label: Vitrectomy
+  - id: HP:0000572
+    label: Visual loss
+  - id: HP:0012109
+    label: angle closure glaucoma
+  - id: HP:0002092
+    label: Pulmonary hypertension
+  - id: MAXO:0000079
+    label: Genetic counseling
+  - id: HP:0030961
+    label: Microspherophakia
+  - id: HP:0001704
+    label: tricuspid valve prolapse
+  - id: HP:0004927
+    label: pulmonary artery dilatation
+  - id: HP:0100775
+    label: dural ectasia
+  - id: HP:0100790
+    label: hernia
+  - id: HP:0100584
+    label: Endocarditis
+  - id: HP:0001919
+    label: Acute Kidney Injury (AKI)
+  - id: HP:0012499
+    label: Type B Aortic Dissection (TBAD)
   - id: HP:0012230
     label: Rhegmatogenous Retinal Detachment
+  - id: HP:0004970
+    label: Ascending aorta dilation
   - id: CHEBI:2904
     label: atenolol
-  - id: CHEBI:6541
-    label: losartan
+  - id: MONDO:0005010
+    label: Congenital Heart Disease (CHD)
+  - id: MAXO:0010032
+    label: Heart transplantation
+  - id: HP:0001635
+    label: Heart failure
+  - id: MONDO:0005453
+    label: Congenital Heart Disease
   - id: HP:0001650
     label: Aortic stenosis (AS)
+  - id: MAXO:0001259
+    label: Angiography
+  - id: HP:0002647
+    label: Aortic dissection
+  - id: CHEBI:10033
+    label: Warfarin
+  - id: MAXO:0009003
+    label: Preimplantation genetic testing (PGT)
+  - id: MAXO:0001611
+    label: Karyotyping
+  - id: MONDO:0031421
+    label: Olmsted syndrome
   - id: MONDO:0008829
     label: Chylous Ascites
   - id: HP:0003270
@@ -165,5 +267,3 @@ named_entities:
     label: Abdominal pain
   - id: HP:0025406
     label: Weakness
-  - id: HP:0012281
-    label: Chylous Ascites

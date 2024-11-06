@@ -11,14 +11,10 @@ input_text: Percutanous closure of left ventricular aneurysms in a patient with 
   in the context of connective tissue abnormalities related to the Loeys-Dietz syndrome.
 raw_completion_output: |-
   primary_disease: Loeys-Dietz syndrome
-
-  medical_actions: Percutaneous closure of left ventricular aneurysms;Staged procedures;Echocardiographic reassessment
-
+  medical_actions: Percutaneous closure of left ventricular aneurysms; Staged procedures; Catheter-based closure
   symptoms: Left ventricular aneurysms
-
   chemicals: 
-
-  action_annotation_relationships: Percutaneous closure of left ventricular aneurysms TREATS Left ventricular aneurysms IN Loeys-Dietz syndrome;Staged procedures TREATS Left ventricular aneurysms IN Loeys-Dietz syndrome;Echocardiographic reassessment TREATS Left ventricular aneurysms IN Loeys-Dietz syndrome
+  action_annotation_relationships: Percutaneous closure of left ventricular aneurysms TREATS Left ventricular aneurysms IN Loeys-Dietz syndrome; Staged procedures TREATS Left ventricular aneurysms IN Loeys-Dietz syndrome; Catheter-based closure TREATS Left ventricular aneurysms IN Loeys-Dietz syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -33,7 +29,7 @@ prompt: |+
 
 
   Text:
-  Echocardiographic reassessment TREATS Left ventricular aneurysms IN Loeys-Dietz syndrome
+  Catheter-based closure TREATS Left ventricular aneurysms IN Loeys-Dietz syndrome
 
   ===
 
@@ -42,19 +38,23 @@ extracted_object:
   medical_actions:
     - Percutaneous closure of left ventricular aneurysms
     - Staged procedures
-    - Echocardiographic reassessment
+    - Catheter-based closure
   symptoms:
     - HP:6000144
   action_annotation_relationships:
-    - subject: Percutaneous closure of left ventricular aneurysms
-      predicate: TREATS
-      object: HP:6000144
-      qualifier: MONDO:0018954
+    - subject: <Percutaneous closure of left ventricular aneurysms>
+      predicate: <TREATS>
+      object: <Left ventricular aneurysms>
+      qualifier: <Loeys-Dietz syndrome>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <Percutaneous closure>
+      object_extension: <Left ventricular aneurysms>
     - subject: Staged procedures
       predicate: TREATS
       object: HP:6000144
       qualifier: MONDO:0018954
-    - subject: Echocardiographic reassessment
+    - subject: Catheter-based closure
       predicate: TREATS
       object: HP:6000144
       qualifier: MONDO:0018954
@@ -62,7 +62,7 @@ named_entities:
   - id: MONDO:0018954
     label: Loeys-Dietz syndrome
   - id: MAXO:0000945
-    label: Spinal cord stimulation (SCS)
+    label: spinal cord stimulation (SCS)
   - id: HP:0031625
     label: Pseudoaneurysms
   - id: MAXO:0000451
@@ -75,23 +75,61 @@ named_entities:
     label: Joint laxity
   - id: CHEBI:35530
     label: Beta-blocker
+  - id: MAXO:0010203
+    label: Echocardiography
+  - id: HP:0012764
+    label: orthopnea
+  - id: HP:0001631
+    label: atrial septal defect
+  - id: HP:0001263
+    label: developmental delay
+  - id: HP:0003302
+    label: Spondylolisthesis
+  - id: HP:0003304
+    label: Spondylolysis
+  - id: HP:0012531
+    label: Pain
   - id: HP:0004942
-    label: Aortic aneurysms
+    label: aortic aneurysms
+  - id: HP:0002647
+    label: aortic dissection
+  - id: HP:0001645
+    label: sudden cardiac death
   - id: HP:0004944
     label: Cerebral aneurysms
   - id: HP:0002617
     label: Vasculopathy
+  - id: HP:0030745
+    label: Aneurysm of the ductus arteriosus
+  - id: MAXO:0000948
+    label: Craniotomy
   - id: MAXO:0010319
     label: CT angiogram
-  - id: HP:0002138
-    label: Subarachnoid hemorrhage
+  - id: MAXO:0010312
+    label: Head CT
   - id: HP:0007185
     label: Loss of consciousness
+  - id: HP:0002138
+    label: Subarachnoid hemorrhage
+  - id: HP:0025237
+    label: Unresponsive
   - id: CHEBI:35620
     label: vasodilator
-  - id: HP:0025637
-    label: vasospasm
+  - id: MAXO:0000011
+    label: Physical therapy
+  - id: MAXO:0001351
+    label: Occupational therapy
+  - id: MAXO:0000930
+    label: Speech therapy
+  - id: HP:0001270
+    label: Motor delays
+  - id: HP:0001252
+    label: Hypotonia
+  - id: MONDO:0007947
+    label: Marfan syndrome
+  - id: HP:0100718
+    label: uterine rupture
   - id: HP:0031649
-    label: aortic rupture
+    label: Aortic rupture
   - id: HP:6000144
     label: Left ventricular aneurysms

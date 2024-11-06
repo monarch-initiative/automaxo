@@ -34,15 +34,15 @@ input_text: 'HTAD patient pathway: Strategy for diagnostic work-up of patients a
 raw_completion_output: |-
   primary_disease: Heritable thoracic aortic diseases (HTAD)
 
-  medical_actions: Diagnostic work-up; Genetic testing; Aortic imaging; Transthoracic echocardiography; Magnetic resonance imaging; Computed tomography; Prophylactic surgery; Genetic cascade screening; Serial aortic imaging; Family screening
+  medical_actions: Timely diagnosis; Aortic surveillance; Prophylactic surgery; Patient care; Molecular genetics; Aortic imaging; Genetic testing; Genetic cascade screening; Serial aortic imaging
 
-  symptoms: Thoracic aortic aneurysms; Thoracic aortic dissection; Ectopia lentis
+  symptoms: Thoracic aortic aneurysms; Thoracic aortic dissection
 
   chemicals: 
 
-  action_annotation_relationships: Prophylactic surgery PREVENTS thoracic aortic dissections IN Heritable thoracic aortic diseases (HTAD); Prophylactic surgery PREVENTS thoracic aortic aneurysms IN Heritable thoracic aortic diseases (HTAD); Diagnostic work-up TREATS thoracic aortic dissections IN Heritable thoracic aortic diseases (HTAD); Diagnostic work-up TREATS thoracic aortic aneurysms IN Heritable thoracic aortic diseases (HTAD); Aortic imaging PREVENTS thoracic aortic dissections IN Heritable thoracic aortic diseases (HTAD); Genetic testing TREATS thoracic aortic dissections IN Heritable thoracic aortic diseases (HTAD); Genetic testing TREATS thoracic aortic aneurysms IN Heritable thoracic aortic diseases (HTAD); Transthoracic echocardiography TREATS thoracic aortic aneurysms IN Heritable thoracic aortic diseases (HTAD); Transthoracic echocardiography TREATS thoracic aortic dissections IN Heritable thoracic aortic diseases (HTAD); Magnetic resonance imaging TREATS thoracic aortic aneurysms IN Heritable thoracic aortic diseases (HTAD); Magnetic resonance imaging TREATS thoracic aortic dissections IN Heritable thoracic aortic diseases (HTAD); Computed tomography TREATS thoracic aortic aneurysms IN Heritable thoracic aortic diseases (HTAD); Computed tomography TREATS thoracic aortic dissections IN Heritable thoracic aortic diseases (HTAD); Genetic cascade screening TREATS thoracic aortic aneurysms IN Heritable thoracic aortic diseases (HTAD); Serial aortic imaging TREATS thoracic aortic dissections IN Heritable thoracic aortic diseases (HTAD); Family screening TREATS thoracic aortic aneurys
+  action_annotation_relationships: Timely diagnosis TREATS thoracic aortic aneurysms IN HTAD; Timely diagnosis TREATS thoracic aortic dissection IN HTAD; Aortic surveillance PREVENTS thoracic aortic aneurysms IN HTAD; Aortic surveillance PREVENTS thoracic aortic dissection IN HTAD; Prophylactic surgery PREVENTS thoracic aortic aneurysms IN HTAD; Prophylactic surgery PREVENTS thoracic aortic dissection IN HTAD; Molecular genetics TREATS thoracic aortic aneurysms IN HTAD; Molecular genetics TREATS thoracic aortic dissection IN HTAD; Aortic imaging PREVENTS thoracic aortic aneurysms IN HTAD; Aortic imaging PREVENTS thoracic aortic dissection IN HTAD; Genetic testing TREATS thoracic aortic aneurysms IN HTAD; Genetic testing TREATS thoracic aortic dissection IN HTAD; Genetic cascade screening PREVENTS thoracic aortic aneurysms IN HTAD; Genetic cascade screening PREVENTS thoracic aortic dissection IN HTAD; Serial aortic imaging PREVENTS thoracic aortic aneurysms IN HTAD; Serial aortic imaging PREVENTS thoracic aortic dissection IN HTAD
 prompt: |+
-  Split the following piece of text into fields in the following format:
+  From the text below, extract the following entities in the following format:
 
   subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
   object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
@@ -55,110 +55,155 @@ prompt: |+
 
 
   Text:
-  Family screening TREATS thoracic aortic aneurys
+  Serial aortic imaging PREVENTS thoracic aortic dissection IN HTAD
 
   ===
 
 extracted_object:
   primary_disease: Heritable thoracic aortic diseases (HTAD)
   medical_actions:
-    - Diagnostic work-up
-    - MAXO:0000127
-    - Aortic imaging
-    - Transthoracic echocardiography
-    - Magnetic resonance imaging
-    - Computed tomography
+    - Timely diagnosis
+    - Aortic surveillance
     - Prophylactic surgery
+    - Patient care
+    - Molecular genetics
+    - Aortic imaging
+    - MAXO:0000127
     - Genetic cascade screening
     - Serial aortic imaging
-    - Family screening
   symptoms:
     - HP:0012727
     - Thoracic aortic dissection
-    - HP:0001083
   action_annotation_relationships:
-    - subject: Prophylactic surgery
-      predicate: PREVENTS
-      object: thoracic aortic dissections
-      qualifier: Heritable thoracic aortic diseases (HTAD)
-    - subject: Prophylactic surgery
-      predicate: PREVENTS
-      object: HP:0012727
-      qualifier: Heritable thoracic aortic diseases (HTAD)
-    - subject: Diagnostic work-up
-      predicate: TREATS
-      object: thoracic aortic dissections
-      qualifier: Heritable thoracic aortic diseases (HTAD)
-    - subject: Diagnostic work-up
+    - subject: Timely diagnosis
       predicate: TREATS
       object: HP:0012727
-      qualifier: Heritable thoracic aortic diseases (HTAD)
-    - subject: Aortic imaging
-      predicate: PREVENTS
-      object: thoracic aortic dissections
-      qualifier: Heritable thoracic aortic diseases (HTAD)
-    - subject: MAXO:0000127
+      qualifier: HTAD
+    - subject: Timely diagnosis
       predicate: TREATS
-      object: thoracic aortic dissections
-      qualifier: Heritable thoracic aortic diseases (HTAD)
-    - subject: <Genetic testing>
-      predicate: <TREATS>
-      object: <thoracic aortic aneurysms>
-      qualifier: <Heritable thoracic aortic diseases (HTAD)>
+      object: thoracic aortic dissection
+      qualifier: HTAD
+    - subject: Aortic surveillance
+      predicate: PREVENTS
+      object: HP:0012727
+      qualifier: HTAD
+    - subject: <Aortic surveillance>
+      predicate: <PREVENTS>
+      object: <thoracic aortic dissection>
+      qualifier: <HTAD>
       subject_qualifier: <None>
       object_qualifier: <None>
       subject_extension: <None>
       object_extension: <None>
-    - subject: Transthoracic echocardiography
+    - subject: Prophylactic surgery
+      predicate: PREVENTS
+      object: HP:0012727
+      qualifier: HTAD
+    - subject: Prophylactic surgery
+      predicate: PREVENTS
+      object: thoracic aortic dissection
+      qualifier: HTAD
+    - subject: Molecular genetics
       predicate: TREATS
       object: HP:0012727
-      qualifier: Heritable thoracic aortic diseases (HTAD)
-    - subject: Transthoracic echocardiography
+      qualifier: HTAD
+    - subject: Molecular genetics
       predicate: TREATS
-      object: thoracic aortic dissections
-      qualifier: Heritable thoracic aortic diseases (HTAD)
-    - subject: Magnetic resonance imaging
+      object: thoracic aortic dissection
+      qualifier: HTAD
+    - subject: Aortic imaging
+      predicate: PREVENTS
+      object: HP:0012727
+      qualifier: HTAD
+    - subject: Aortic imaging
+      predicate: PREVENTS
+      object: thoracic aortic dissection
+      qualifier: HTAD
+    - subject: MAXO:0000127
       predicate: TREATS
       object: HP:0012727
-      qualifier: Heritable thoracic aortic diseases (HTAD)
-    - subject: Magnetic resonance imaging
+      qualifier: HTAD
+    - subject: MAXO:0000127
       predicate: TREATS
-      object: thoracic aortic dissections
-      qualifier: Heritable thoracic aortic diseases (HTAD)
-    - subject: Computed tomography
-      predicate: TREATS
-      object: HP:0012727
-      qualifier: Heritable thoracic aortic diseases (HTAD)
-    - subject: Computed tomography
-      predicate: TREATS
-      object: thoracic aortic dissections
-      qualifier: Heritable thoracic aortic diseases (HTAD)
+      object: thoracic aortic dissection
+      qualifier: HTAD
     - subject: Genetic cascade screening
-      predicate: TREATS
+      predicate: PREVENTS
       object: HP:0012727
-      qualifier: Heritable thoracic aortic diseases (HTAD)
+      qualifier: HTAD
+    - subject: Genetic cascade screening
+      predicate: PREVENTS
+      object: thoracic aortic dissection
+      qualifier: HTAD
     - subject: Serial aortic imaging
-      predicate: TREATS
-      object: thoracic aortic dissections
-      qualifier: Heritable thoracic aortic diseases (HTAD)
-    - subject: Family screening
-      predicate: TREATS
+      predicate: PREVENTS
       object: HP:0012727
+      qualifier: HTAD
+    - subject: <Serial aortic imaging>
+      predicate: <PREVENTS>
+      object: <thoracic aortic dissection>
+      qualifier: <HTAD>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
 named_entities:
   - id: MONDO:0018954
     label: Loeys-Dietz syndrome
+  - id: MAXO:0000945
+    label: spinal cord stimulation (SCS)
+  - id: HP:0031625
+    label: Pseudoaneurysms
+  - id: MAXO:0000451
+    label: Implantation
+  - id: HP:0000978
+    label: Easy bruising
+  - id: HP:0002616
+    label: Aortic root dilatation
+  - id: HP:0001382
+    label: Joint laxity
+  - id: CHEBI:35530
+    label: Beta-blocker
+  - id: MAXO:0010203
+    label: Echocardiography
   - id: HP:0012764
     label: orthopnea
   - id: HP:0001631
     label: atrial septal defect
+  - id: HP:0001263
+    label: developmental delay
+  - id: HP:0003302
+    label: Spondylolisthesis
+  - id: HP:0003304
+    label: Spondylolysis
   - id: HP:0012531
-    label: pain
+    label: Pain
   - id: HP:0004942
     label: aortic aneurysms
+  - id: HP:0002647
+    label: aortic dissection
   - id: HP:0001645
-    label: premature sudden cardiac death
+    label: sudden cardiac death
+  - id: HP:0004944
+    label: Cerebral aneurysms
+  - id: HP:0002617
+    label: Vasculopathy
+  - id: HP:0030745
+    label: Aneurysm of the ductus arteriosus
   - id: MAXO:0000948
-    label: craniotomy
+    label: Craniotomy
+  - id: MAXO:0010319
+    label: CT angiogram
+  - id: MAXO:0010312
+    label: Head CT
+  - id: HP:0007185
+    label: Loss of consciousness
+  - id: HP:0002138
+    label: Subarachnoid hemorrhage
+  - id: HP:0025237
+    label: Unresponsive
+  - id: CHEBI:35620
+    label: vasodilator
   - id: MAXO:0000011
     label: Physical therapy
   - id: MAXO:0001351
@@ -171,27 +216,41 @@ named_entities:
     label: Hypotonia
   - id: MONDO:0007947
     label: Marfan syndrome
-  - id: HP:0002647
-    label: aortic dissection
   - id: HP:0100718
     label: uterine rupture
+  - id: HP:0031649
+    label: Aortic rupture
+  - id: HP:6000144
+    label: Left ventricular aneurysms
+  - id: HP:0005116
+    label: Arterial tortuosity
+  - id: HP:0000316
+    label: Hypertelorism
+  - id: HP:0000193
+    label: Bifid uvula
+  - id: HP:0000175
+    label: Cleft palate
+  - id: HP:0001659
+    label: Aortic insufficiency
+  - id: MAXO:0000004
+    label: surgical intervention
+  - id: HP:0001892
+    label: bleeding tendency
   - id: MAXO:0000106
-    label: Nutritional supplementation
+    label: nutritional supplementation
   - id: HP:4000055
-    label: Intestinal inflammation
+    label: intestinal inflammation
   - id: HP:0500093
-    label: Food allergy
+    label: food allergy
   - id: HP:0001508
-    label: Failure to thrive
+    label: failure to thrive
   - id: HP:0001058
-    label: Poor wound healing
-  - id: HP:0001297
-    label: Stroke
+    label: poor wound healing
   - id: MAXO:0010032
     label: heart transplantation
+  - id: HP:0001297
+    label: stroke
   - id: MAXO:0000127
     label: Genetic testing
   - id: HP:0012727
     label: Thoracic aortic aneurysms
-  - id: HP:0001083
-    label: Ectopia lentis

@@ -26,15 +26,15 @@ input_text: 'Subcutaneous versus transvenous implantable cardioverter-defibrilla
   of lead-related complications which can expose the patients to the necessity of
   lead extractions.'
 raw_completion_output: |-
-  primary_disease: Brugada Syndrome (BrS)
+  primary_disease: Brugada Syndrome
 
-  medical_actions: propensity score matching analysis; implantation of implantable cardioverter-defibrillator (ICD); follow-up; reduction of lead-related complications
+  medical_actions: Implantation of implantable cardioverter-defibrillator; Inappropriate therapies; Device-related complications management; Infection management; Lead extractions
 
-  symptoms: inappropriate ICD therapies; device-related complications; ICD-related infections
+  symptoms: Inappropriate ICD therapies; Device-related complications; ICD-related infections
 
   chemicals: 
 
-  action_annotation_relationships: implantation of implantable cardioverter-defibrillator (ICD) TREATS inappropriate ICD therapies IN Brugada Syndrome (BrS); implantation of implantable cardioverter-defibrillator (ICD) TREATS device-related complications IN Brugada Syndrome (BrS); implantation of implantable cardioverter-defibrillator (ICD) TREATS ICD-related infections IN Brugada Syndrome (BrS); reduction of lead-related complications PREVENTS device-related complications IN Brugada Syndrome (BrS)
+  action_annotation_relationships: Implantation of implantable cardioverter-defibrillator PREVENTS Inappropriate ICD therapies IN Brugada Syndrome; Implantation of implantable cardioverter-defibrillator PREVENTS Device-related complications IN Brugada Syndrome; Implantation of implantable cardioverter-defibrillator PREVENTS ICD-related infections IN Brugada Syndrome; Inappropriate therapies TREATS Inappropriate ICD therapies IN Brugada Syndrome; Device-related complications management TREATS Device-related complications IN Brugada Syndrome; Infection management TREATS ICD-related infections IN Brugada Syndrome; Lead extractions TREATS Device-related complications IN Brugada Syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -49,46 +49,65 @@ prompt: |+
 
 
   Text:
-  reduction of lead-related complications PREVENTS device-related complications IN Brugada Syndrome (BrS)
+  Lead extractions TREATS Device-related complications IN Brugada Syndrome
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0015263
   medical_actions:
-    - propensity score matching analysis
-    - implantation of implantable cardioverter-defibrillator (ICD)
-    - follow-up
-    - reduction of lead-related complications
+    - Implantation of implantable cardioverter-defibrillator
+    - Inappropriate therapies
+    - Device-related complications management
+    - Infection management
+    - Lead extractions
   symptoms:
-    - inappropriate ICD therapies
-    - device-related complications
+    - Inappropriate ICD therapies
+    - Device-related complications
     - ICD-related infections
   action_annotation_relationships:
-    - subject: implantation of implantable cardioverter-defibrillator (ICD)
-      predicate: TREATS
-      object: inappropriate ICD therapies
+    - subject: Implantation of implantable cardioverter-defibrillator
+      predicate: PREVENTS
+      object: Inappropriate ICD therapies
       qualifier: MONDO:0015263
       subject_extension: implantable cardioverter-defibrillator
-      object_extension: inappropriate ICD therapies
-    - subject: implantation of implantable cardioverter-defibrillator
-      predicate: TREATS
-      object: complications
+    - subject: Implantation of implantable cardioverter-defibrillator
+      predicate: PREVENTS
+      object: Device-related complications
       qualifier: MONDO:0015263
-      object_qualifier: device-related
-      subject_extension: implantable cardioverter-defibrillator (ICD)
-      object_extension: device-related
-    - subject: implantation of implantable cardioverter-defibrillator (ICD)
+      subject_extension: implantable cardioverter-defibrillator
+    - subject: <Implantation>
+      predicate: <PREVENTS>
+      object: <infections>
+      qualifier: <Brugada Syndrome>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <implantable cardioverter-defibrillator>
+      object_extension: <ICD-related>
+    - subject: <Inappropriate therapies>
+      predicate: <TREATS>
+      object: <Inappropriate ICD therapies>
+      qualifier: <Brugada Syndrome>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <Inappropriate therapies>
+      object_extension: <Inappropriate ICD therapies>
+    - subject: Device-related complications management
+      predicate: TREATS
+      object: Device-related complications
+      qualifier: MONDO:0015263
+    - subject: Infection management
       predicate: TREATS
       object: ICD-related infections
       qualifier: MONDO:0015263
-      subject_extension: implantable cardioverter-defibrillator
-    - subject: reduction
-      predicate: PREVENTS
-      object: complications
-      qualifier: MONDO:0015263
-      subject_extension: lead-related complications
-      object_extension: device-related complications
+    - subject: <Lead extractions>
+      predicate: <TREATS>
+      object: <complications>
+      qualifier: <Brugada Syndrome>
+      subject_qualifier: <>
+      object_qualifier: <Device-related>
+      subject_extension: <Lead extractions>
+      object_extension: <Device-related>
 named_entities:
   - id: HP:0001663
     label: ventricular fibrillation
@@ -98,40 +117,40 @@ named_entities:
     label: cognitive impairment
   - id: MONDO:0002076
     label: Pneumothorax
+  - id: MAXO:0000504
+    label: Tracheostomy
   - id: HP:0002094
     label: Dyspnea
+  - id: MONDO:0015263
+    label: Brugada Syndrome
   - id: HP:0001695
-    label: Cardiac arrest
+    label: cardiac arrest
   - id: CHEBI:75984
-    label: Flecainide
-  - id: MAXO:0001017
-    label: Vaccination
+    label: flecainide
   - id: MONDO:0007264
     label: Sudden Cardiac Death
-  - id: HP:0031628
-    label: Sudden cardiac arrest
+  - id: HP:0001639
+    label: Hypertrophic cardiomyopathy (HCM)
+  - id: HP:0001644
+    label: Dilated cardiomyopathy (DCM)
+  - id: HP:0007263
+    label: Sudden cardiac arrest (SCA)
   - id: HP:0001657
-    label: Long QT syndrome
+    label: Long QT syndrome (LQTS)
+  - id: MONDO:0019315
+    label: <Dilated cardiomyopathy (DCM)>
+  - id: MONDO:0016587
+    label: <Arrhythmogenic right ventricular cardiomyopathy (ARVC)>
   - id: HP:0001645
-    label: Sudden cardiac death
-  - id: MONDO:0015263
-    label: Brugada syndrome
+    label: Sudden Cardiac Death
+  - id: MAXO:0000127
+    label: Genetic testing
   - id: HP:0004308
     label: Ventricular arrhythmias
-  - id: HP:0001945
-    label: Fever
-  - id: MONDO:0020745
-    label: Cardiac arrhythmias
-  - id: MAXO:0000900
-    label: Analysis of electrocardiograms (ECGs)
-  - id: MAXO:0000127
-    label: Genetic analyses
   - id: HP:0011675
-    label: cardiac arrhythmias
-  - id: HP:0001699
-    label: sudden death
-  - id: HP:0005110
-    label: atrial fibrillation
+    label: arrhythmia
+  - id: MAXO:0000900
+    label: Electrocardiogram (ECG)
   - id: MAXO:0000474
     label: Implantable cardioverter-defibrillator implantation
   - id: HP:0001279

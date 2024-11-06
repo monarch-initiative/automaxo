@@ -23,14 +23,10 @@ input_text: 'Marfan syndrome: A therapeutic challenge for long-term care. Marfan
   findings on MFS, discusses future challenges and possible long-term therapies.'
 raw_completion_output: |-
   primary_disease: Marfan syndrome
-
-  medical_actions: Avoid activities that exert additional stress and pressure on the aorta and the cardiovascular system; Prophylactic treatment
-
-  symptoms: Acute aortic dissection; Severe tissue weaknesses, especially in the aorta, heart, eyes, and skeleton; Medial degeneration; Aneurysm formation; Increased expression of matrix metalloproteinases and cytokines; Accumulation of reactive oxygen species; Medial elastolysis
-
+  medical_actions: Avoid activities that exert additional stress and pressure on the cardiovascular system; Prophylactic treatment
+  symptoms: Severe tissue weaknesses, especially in the aorta, heart, eyes, and skeleton; Medial elastolysis
   chemicals: 
-
-  action_annotation_relationships: Prophylactic treatment PREVENTS Acute aortic dissection IN Marfan syndrome; Avoid activities that exert additional stress and pressure on the aorta and the cardiovascular system PREVENTS severe tissue weaknesses, especially in the aorta, heart, eyes, and skeleton IN Marfan syndrome; Prophylactic treatment PREVENTS medial degeneration IN Marfan syndrome; Prophylactic treatment PREVENTS aneurysm formation IN Marfan syndrome; Prophylactic treatment PREVENTS Increased expression of matrix metalloproteinases and cytokines IN Marfan syndrome; Prophylactic treatment PREVENTS Accumulation of reactive oxygen species IN Marfan syndrome; Prophylactic treatment PREVENTS Medial elastolysis IN Marfan syndrome
+  action_annotation_relationships: Prophylactic treatment TREATS severe tissue weaknesses IN Marfan syndrome; Avoid activities that exert additional stress and pressure on the cardiovascular system PREVENTS medial elastolysis IN Marfan syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -45,58 +41,30 @@ prompt: |+
 
 
   Text:
-  Prophylactic treatment PREVENTS Medial elastolysis IN Marfan syndrome
+  Avoid activities that exert additional stress and pressure on the cardiovascular system PREVENTS medial elastolysis IN Marfan syndrome
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0007947
   medical_actions:
-    - Avoid activities that exert additional stress and pressure on the aorta and
-      the cardiovascular system
+    - Avoid activities that exert additional stress and pressure on the cardiovascular
+      system
     - Prophylactic treatment
   symptoms:
-    - Acute aortic dissection
     - Severe tissue weaknesses, especially in the aorta, heart, eyes, and skeleton
-    - HP:0032079
-    - Aneurysm formation
-    - Increased expression of matrix metalloproteinases and cytokines
-    - Accumulation of reactive oxygen species
     - Medial elastolysis
   action_annotation_relationships:
     - subject: Prophylactic treatment
-      predicate: PREVENTS
-      object: Acute aortic dissection
-      qualifier: MONDO:0007947
-    - subject: Avoid activities that exert additional stress and pressure on the aorta
-        and the cardiovascular system
-      predicate: PREVENTS
+      predicate: TREATS
       object: severe tissue weaknesses
       qualifier: MONDO:0007947
-      object_qualifier: especially in the aorta, heart, eyes, and skeleton
-    - subject: Prophylactic treatment
+      object_qualifier: severe
+    - subject: Avoid activities that exert additional stress and pressure on the cardiovascular
+        system
       predicate: PREVENTS
-      object: HP:0032079
-      qualifier: MONDO:0007947
-    - subject: Prophylactic treatment
-      predicate: PREVENTS
-      object: aneurysm formation
-      qualifier: MONDO:0007947
-    - subject: Prophylactic treatment
-      predicate: PREVENTS
-      object: Increased expression of matrix metalloproteinases and cytokines
-      qualifier: MONDO:0007947
-    - subject: <Prophylactic treatment>
-      predicate: <PREVENTS>
-      object: <Accumulation of reactive oxygen species>
-      qualifier: <Marfan syndrome>
-      subject_extension: <Prophylactic treatment>
-    - subject: Prophylactic treatment
-      predicate: PREVENTS
-      object: Medial elastolysis
+      object: medial elastolysis
       qualifier: MONDO:0007947
 named_entities:
   - id: MONDO:0007947
     label: Marfan syndrome
-  - id: HP:0032079
-    label: Medial degeneration

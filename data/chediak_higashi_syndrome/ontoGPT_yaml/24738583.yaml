@@ -45,13 +45,13 @@ input_text: 'Aggressive and acute periodontal diseases. Inflammatory periodontal
 raw_completion_output: |-
   primary_disease: Aggressive periodontitis
 
-  medical_actions: elimination of the subgingival bacterial load; adjunctive use of appropriate systemic antibiotics; prompt diagnosis and treatment
+  medical_actions: Adjunctive use of appropriate systemic antibiotics; early detection and treatment; elimination of the subgingival bacterial load
 
-  symptoms: rapid-course, high rate of progression; severe destruction of the periodontal tissues; systemic symptoms
+  symptoms: Severe destruction of the periodontal tissues; systemic symptoms; pain; rapid and severe destruction of the periodontal tissues and loss of teeth
 
-  chemicals: systemic antibiotics
+  chemicals: Systemic antibiotics
 
-  action_annotation_relationships: elimination of the subgingival bacterial load TREATS rapid-course, high rate of progression IN Aggressive periodontitis; elimination of the subgingival bacterial load TREATS severe destruction of the periodontal tissues IN Aggressive periodontitis; adjunctive use of appropriate systemic antibiotics (with systemic antibiotics) TREATS systemic symptoms IN Aggressive periodontitis; prompt diagnosis and treatment TREATS severe destruction of the periodontal tissues IN Aggressive periodontitis
+  action_annotation_relationships: Adjunctive use of appropriate systemic antibiotics TREATS severe destruction of the periodontal tissues IN Aggressive periodontitis; Early detection and treatment PREVENTS rapid and severe destruction of the periodontal tissues and loss of teeth IN Aggressive periodontitis; Elimination of the subgingival bacterial load TREATS severe destruction of the periodontal tissues IN Aggressive periodontitis
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -66,40 +66,46 @@ prompt: |+
 
 
   Text:
-  prompt diagnosis and treatment TREATS severe destruction of the periodontal tissues IN Aggressive periodontitis
+  Elimination of the subgingival bacterial load TREATS severe destruction of the periodontal tissues IN Aggressive periodontitis
 
   ===
 
 extracted_object:
   primary_disease: Aggressive periodontitis
   medical_actions:
+    - Adjunctive use of appropriate systemic antibiotics
+    - early detection and treatment
     - elimination of the subgingival bacterial load
-    - adjunctive use of appropriate systemic antibiotics
-    - prompt diagnosis and treatment
   symptoms:
-    - rapid-course, high rate of progression
-    - severe destruction of the periodontal tissues
+    - Severe destruction of the periodontal tissues
     - systemic symptoms
+    - HP:0012531
+    - rapid and severe destruction of the periodontal tissues and loss of teeth
   chemicals:
-    - systemic antibiotics
+    - Systemic antibiotics
   action_annotation_relationships:
-    - subject: elimination of the subgingival bacterial load
-      predicate: TREATS
-      object: rapid-course, high rate of progression
-      qualifier: Aggressive periodontitis
-    - subject: elimination of the subgingival bacterial load
+    - subject: Adjunctive use of appropriate systemic antibiotics
       predicate: TREATS
       object: severe destruction of the periodontal tissues
       qualifier: Aggressive periodontitis
+      subject_qualifier: adjunctive
       object_qualifier: severe
-    - subject: adjunctive use of appropriate systemic antibiotics
-      predicate: TREATS
-      object: systemic symptoms
-      qualifier: Aggressive periodontitis
-      subject_qualifier: with systemic antibiotics
       subject_extension: systemic antibiotics
-    - subject: prompt diagnosis and treatment
-      predicate: TREATS
-      object: severe destruction of the periodontal tissues
-      qualifier: Aggressive periodontitis
-      object_qualifier: severe
+    - subject: <Early detection and treatment>
+      predicate: <PREVENTS>
+      object: <rapid and severe destruction of the periodontal tissues and loss of
+        teeth>
+      qualifier: <Aggressive periodontitis>
+      subject_qualifier: <Not applicable>
+      object_qualifier: <Not applicable>
+      subject_extension: <Not applicable>
+      object_extension: <Not applicable>
+    - subject: <Elimination of the subgingival bacterial load>
+      predicate: <TREATS>
+      object: <destruction of the periodontal tissues>
+      qualifier: <Aggressive periodontitis>
+      object_qualifier: <severe>
+      subject_extension: <subgingival bacterial load>
+named_entities:
+  - id: HP:0012531
+    label: pain

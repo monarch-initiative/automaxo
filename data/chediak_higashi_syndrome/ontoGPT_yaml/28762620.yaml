@@ -19,15 +19,15 @@ input_text: A case of Chediak-Higashi syndrome presented with accelerated phase 
 raw_completion_output: |-
   primary_disease: Chediak-Higashi syndrome
 
-  medical_actions: Unrelated cord blood transplantation; Chemotherapy; Allogeneic HCT; HLH 2004 protocol; Supportive care; Antibiotics; Antituberculous agents
+  medical_actions: unrelated cord blood transplantation; chemotherapy; allogeneic HCT; HLH 2004 protocol; supportive care; antibiotics; antituberculous agents; fully HLA-matched UCBT
 
-  symptoms: Accelerated phase; Defects in the functions of cytotoxic cells and neutrophils; Recurrent high fever; Enlarged superficial lymph nodes; Extraordinary hepatosplenomegaly
+  symptoms: recurrent high fever; enlarged superficial lymph nodes; hepatosplenomegaly
 
-  chemicals: Antituberculous agents
+  chemicals: antituberculous agents
 
-  action_annotation_relationships: Unrelated cord blood transplantation TREATS accelerated phase IN Chediak-Higashi syndrome; Chemotherapy TREATS accelerated phase IN Chediak-Higashi syndrome; Allogeneic HCT PREVENTS relapse IN Chediak-Higashi syndrome; HLH 2004 protocol TREATS accelerated phase IN Chediak-Higashi syndrome; Supportive care TREATS accelerated phase IN Chediak-Higashi syndrome; Antibiotics TREATS accelerated phase IN Chediak-Higashi syndrome; Antituberculous agents (with Antituberculous agents) TREATS accelerated phase IN Chediak-Higashi syndrome
+  action_annotation_relationships: unrelated cord blood transplantation TREATS Chediak-Higashi syndrome; chemotherapy TREATS Chediak-Higashi syndrome; allogeneic HCT TREATS Chediak-Higashi syndrome; HLH 2004 protocol TREATS recurrent high fever IN Chediak-Higashi syndrome; supportive care TREATS recurrent high fever IN Chediak-Higashi syndrome; antibiotics (with antituberculous agents) TREATS recurrent high fever IN Chediak-Higashi syndrome; fully HLA-matched UCBT TREATS Chediak-Higashi syndrome
 prompt: |+
-  From the text below, extract the following entities in the following format:
+  Split the following piece of text into fields in the following format:
 
   subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
   object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
@@ -40,92 +40,93 @@ prompt: |+
 
 
   Text:
-  Antituberculous agents (with Antituberculous agents) TREATS accelerated phase IN Chediak-Higashi syndrome
+  fully HLA-matched UCBT TREATS Chediak-Higashi syndrome
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0008963
   medical_actions:
-    - Unrelated cord blood transplantation
+    - unrelated cord blood transplantation
     - MAXO:0000647
-    - Allogeneic HCT
+    - allogeneic HCT
     - HLH 2004 protocol
     - MAXO:0000950
-    - Antibiotics
-    - Antituberculous agents
+    - antibiotics
+    - antituberculous agents
+    - fully HLA-matched UCBT
   symptoms:
-    - Accelerated phase
-    - Defects in the functions of cytotoxic cells and neutrophils
-    - Recurrent high fever
-    - Enlarged superficial lymph nodes
-    - Extraordinary hepatosplenomegaly
+    - recurrent high fever
+    - enlarged superficial lymph nodes
+    - HP:0001433
   chemicals:
-    - Antituberculous agents
+    - antituberculous agents
   action_annotation_relationships:
-    - subject: Unrelated cord blood transplantation
-      predicate: TREATS
-      object: accelerated phase
-      qualifier: MONDO:0008963
-    - subject: <Chemotherapy>
+    - subject: <cord blood transplantation>
       predicate: <TREATS>
-      object: <accelerated phase>
-      qualifier: <Chediak-Higashi syndrome>
-      subject_qualifier: <>
-      object_qualifier: <>
-      subject_extension: <Chemotherapy>
-      object_extension: <>
-    - subject: Allogeneic HCT
-      predicate: PREVENTS
-      object: relapse
-      qualifier: MONDO:0008963
+      object: <Chediak-Higashi syndrome>
+      qualifier: <NULL>
+      subject_qualifier: <unrelated>
+      object_qualifier: <NULL>
+      subject_extension: <cord blood>
+      object_extension: <NULL>
+    - subject: MAXO:0000647
+      predicate: TREATS
+      object: Chediak-Higashi syndrome
+    - subject: allogeneic HCT
+      predicate: TREATS
+      object: Chediak-Higashi syndrome
     - subject: HLH 2004 protocol
       predicate: TREATS
-      object: accelerated phase
+      object: recurrent high fever
       qualifier: MONDO:0008963
       subject_extension: HLH 2004 protocol
     - subject: MAXO:0000950
       predicate: TREATS
-      object: accelerated phase
+      object: recurrent high fever
       qualifier: MONDO:0008963
-    - subject: Antibiotics
+    - subject: antibiotics
       predicate: TREATS
-      object: accelerated phase
+      object: high fever
       qualifier: MONDO:0008963
-      subject_extension: CHEBI:33281
-    - subject: Antituberculous agents
+      subject_qualifier: with antituberculous agents
+      object_qualifier: recurrent
+      subject_extension: antituberculous agents
+    - subject: MAXO:0010033
       predicate: TREATS
-      object: accelerated phase
-      qualifier: MONDO:0008963
-      subject_qualifier: with Antituberculous agents
-      subject_extension: Antituberculous agents
+      object: Chediak-Higashi syndrome
+      subject_qualifier: fully HLA-matched
 named_entities:
+  - id: HP:0012531
+    label: pain
   - id: MAXO:0010030
-    label: Bone marrow transplantation (BMT)
+    label: bone marrow transplantation (BMT)
   - id: MONDO:0008963
     label: Chediak-Higashi syndrome
   - id: MAXO:0010033
-    label: Unrelated cord blood transplantation (UCBT)
+    label: unrelated cord blood transplantation (UCBT)
   - id: MAXO:0000747
     label: HSCT
   - id: MAXO:0000750
-    label: Conditioning regimens
+    label: conditioning regimens
   - id: CHEBI:41264
     label: BU
   - id: CHEBI:4027
-    label: Cyclophosphamide
+    label: cyclophosphamide
   - id: CHEBI:4911
-    label: Etoposide
+    label: etoposide
+  - id: MONDO:0008090
+    label: Chediak-Higashi syndrome (CHS)
   - id: HP:0001433
-    label: hepatosplenomegaly
+    label: Hepatosplenomegaly
   - id: HP:0003270
-    label: abdominal distention
+    label: Abdominal distention
   - id: MONDO:0024686
     label: Pigmented villonodular synovitis (PVNS)
   - id: HP:0001945
-    label: fever
+    label: Fever
   - id: MONDO:0003778
-    label: primary immunodeficiency
+    label: primary immunodeficiencies
   - id: HP:0025322
     label: veno-occlusive disease
   - id: CHEBI:28901
@@ -134,8 +135,10 @@ named_entities:
     label: cyclosporine
   - id: CHEBI:44185
     label: methotrexate
-  - id: MONDO:0008090
-    label: Chediak-Higashi Syndrome (CHS)
+  - id: HP:0100806
+    label: sepsis
+  - id: CHEBI:28790
+    label: Serotonin
   - id: HP:0002718
     label: recurrent bacterial infections
   - id: HP:0000613
@@ -159,38 +162,18 @@ named_entities:
   - id: HP:0001022
     label: albinism
   - id: HP:0001892
-    label: Bleeding tendency
+    label: bleeding tendency
   - id: HP:0000992
-    label: Photosensitivity
+    label: photosensitivity
   - id: MONDO:0000922
     label: Primary immunodeficiency diseases (PIDs)
-  - id: HP:0100806
-    label: Septicemia
-  - id: CHEBI:17660
-    label: induced pluripotent stem (iPS) cell line
+  - id: HP:0040289
+    label: Chediak-Higashi syndrome (CHS)
   - id: MAXO:0000016
     label: Cellular therapies
-  - id: HP:0004808
-    label: acute myelogenous leukemia
   - id: HP:0006721
     label: acute lymphoblastic leukemia
-  - id: HP:0005506
-    label: chronic myelogenous leukemia
-  - id: HP:0002863
-    label: myelodysplasia
-  - id: HP:0004818
-    label: paroxysmal nocturnal hemoglobinuria
-  - id: HP:0012539
-    label: non-Hodgkin's lymphoma
-  - id: HP:0011002
-    label: osteopetrosis
-  - id: MAXO:0000068
-    label: transplantation
-  - id: HP:0005523
-    label: lymphoproliferative disorder
   - id: MAXO:0000647
-    label: Chemotherapy
+    label: chemotherapy
   - id: MAXO:0000950
-    label: Supportive care
-  - id: CHEBI:33281
-    label: Antibiotics
+    label: supportive care

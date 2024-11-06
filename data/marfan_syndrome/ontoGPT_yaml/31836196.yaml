@@ -29,10 +29,10 @@ input_text: 'Irbesartan in Marfan syndrome (AIMS): a double-blind, placebo-contr
   Trust, the UK Marfan Association.'
 raw_completion_output: |-
   primary_disease: Marfan syndrome
-  medical_actions: prescription of irbesartan; echocardiography; double-blind, placebo-controlled randomised trial
-  symptoms: aortic dilatation
-  chemicals: irbesartan
-  action_annotation_relationships: prescription of irbesartan TREATS aortic dilatation IN Marfan syndrome; echocardiography MEASURES aortic dilatation IN Marfan syndrome
+  medical_actions: Echocardiography; Administration of irbesartan; Blood pressure monitoring
+  symptoms: Aortic dilatation
+  chemicals: Irbesartan
+  action_annotation_relationships: Echocardiography MONITORS aortic dilatation IN Marfan syndrome; Administration of irbesartan (with Irbesartan) TREATS aortic dilatation IN Marfan syndrome; Blood pressure monitoring MONITORS blood pressure IN Marfan syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -47,36 +47,55 @@ prompt: |+
 
 
   Text:
-  echocardiography MEASURES aortic dilatation IN Marfan syndrome
+  Blood pressure monitoring MONITORS blood pressure IN Marfan syndrome
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0007947
   medical_actions:
-    - prescription of irbesartan
     - MAXO:0010203
-    - double-blind, placebo-controlled randomised trial
+    - Administration of irbesartan
+    - MAXO:0000494
   symptoms:
     - HP:0004942
   chemicals:
     - CHEBI:5959
   action_annotation_relationships:
-    - subject: prescription of irbesartan
+    - subject: MAXO:0010203
+      predicate: MONITORS
+      object: HP:0004942
+      qualifier: MONDO:0007947
+    - subject: Administration of irbesartan
       predicate: TREATS
       object: HP:0004942
       qualifier: MONDO:0007947
+      subject_qualifier: with Irbesartan
       subject_extension: CHEBI:5959
-    - subject: MAXO:0010203
-      predicate: MEASURES
-      object: HP:0004942
+    - subject: MAXO:0000494
+      predicate: MONITORS
+      object: blood pressure
       qualifier: MONDO:0007947
 named_entities:
   - id: MONDO:0007947
-    label: Marfan syndrome
+    label: Marfan Syndrome
+  - id: HP:0000768
+    label: Pectus carinatum
+  - id: HP:0002650
+    label: Scoliosis
+  - id: HP:0002108
+    label: Spontaneous pneumothorax
+  - id: HP:0003423
+    label: Thoracolumbar kyphoscoliosis
+  - id: CHEBI:33281
+    label: Antibiotic
+  - id: HP:0002107
+    label: pneumothorax
   - id: MAXO:0010203
-    label: echocardiography
+    label: Echocardiography
+  - id: MAXO:0000494
+    label: Blood pressure monitoring
   - id: HP:0004942
-    label: aortic dilatation
+    label: Aortic dilatation
   - id: CHEBI:5959
-    label: irbesartan
+    label: Irbesartan

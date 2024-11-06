@@ -11,10 +11,10 @@ input_text: "Hemodynamic instability during anesthesia in an adolescent with Loe
   medications and was successful with only minor postoperative hypertension. "
 raw_completion_output: |-
   primary_disease: Loeys-Dietz syndrome
-  medical_actions: Anesthesia; Cessation of antihypertensive medications; Use of beta-blocker; Use of angiotensin II receptor antagonist
-  symptoms: Hemodynamic instability; Easy bruising; Aortic root dilatation; Vessel tortuosity; Joint laxity; Postoperative hypertension
+  medical_actions: Administration of a beta-blocker; Administration of an angiotensin II receptor antagonist; Cessation of the patient's antihypertensive medications; Anesthesia reattempt
+  symptoms: Easy bruising; Aortic root dilatation; Multiple areas of vessel tortuosity; Joint laxity; Intraoperative hemodynamic instability; Pulselessness; Minor postoperative hypertension
   chemicals: Beta-blocker; Angiotensin II receptor antagonist
-  action_annotation_relationships: Anesthesia TREATS Hemodynamic instability IN Loeys-Dietz syndrome; Cessation of antihypertensive medications PREVENTS Hemodynamic instability IN Loeys-Dietz syndrome; Use of beta-blocker (with Beta-blocker) PREVENTS Aortic root dilatation IN Loeys-Dietz syndrome; Use of angiotensin II receptor antagonist (with Angiotensin II receptor antagonist) PREVENTS Aortic root dilatation IN Loeys-Dietz syndrome
+  action_annotation_relationships: Administration of a beta-blocker PREVENTS further aortic root dilatation IN Loeys-Dietz syndrome; Administration of an angiotensin II receptor antagonist PREVENTS further aortic root dilatation IN Loeys-Dietz syndrome; Cessation of the patient's antihypertensive medications TREATS intraoperative hemodynamic instability IN Loeys-Dietz syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -29,55 +29,50 @@ prompt: |+
 
 
   Text:
-  Use of angiotensin II receptor antagonist (with Angiotensin II receptor antagonist) PREVENTS Aortic root dilatation IN Loeys-Dietz syndrome
+  Cessation of the patient's antihypertensive medications TREATS intraoperative hemodynamic instability IN Loeys-Dietz syndrome
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0018954
   medical_actions:
-    - Anesthesia
-    - Cessation of antihypertensive medications
-    - Use of beta-blocker
-    - Use of angiotensin II receptor antagonist
+    - Administration of a beta-blocker
+    - Administration of an angiotensin II receptor antagonist
+    - Cessation of the patient's antihypertensive medications
+    - Anesthesia reattempt
   symptoms:
-    - Hemodynamic instability
     - HP:0000978
     - HP:0002616
-    - Vessel tortuosity
+    - Multiple areas of vessel tortuosity
     - HP:0001382
-    - Postoperative hypertension
+    - Intraoperative hemodynamic instability
+    - Pulselessness
+    - Minor postoperative hypertension
   chemicals:
     - CHEBI:35530
     - Angiotensin II receptor antagonist
   action_annotation_relationships:
-    - subject: <Anesthesia>
-      predicate: <TREATS>
-      object: <Hemodynamic instability>
+    - subject: <Administration of a beta-blocker>
+      predicate: <PREVENTS>
+      object: <further aortic root dilatation>
       qualifier: <Loeys-Dietz syndrome>
-      subject_extension: <Anesthesia>
-    - subject: Cessation of antihypertensive medications
+      subject_extension: <beta-blocker>
+    - subject: Administration
       predicate: PREVENTS
-      object: Hemodynamic instability
+      object: further aortic root dilatation
       qualifier: MONDO:0018954
+      subject_extension: angiotensin II receptor antagonist
+    - subject: Cessation
+      predicate: TREATS
+      object: intraoperative hemodynamic instability
+      qualifier: MONDO:0018954
+      subject_qualifier: the patient's
       subject_extension: antihypertensive medications
-    - subject: Use of beta-blocker
-      predicate: PREVENTS
-      object: HP:0002616
-      qualifier: MONDO:0018954
-      subject_qualifier: with Beta-blocker
-      subject_extension: CHEBI:35530
-    - subject: Use of angiotensin II receptor antagonist
-      predicate: PREVENTS
-      object: HP:0002616
-      qualifier: MONDO:0018954
-      subject_qualifier: with Angiotensin II receptor antagonist
-      subject_extension: Angiotensin II receptor antagonist
 named_entities:
   - id: MONDO:0018954
     label: Loeys-Dietz syndrome
   - id: MAXO:0000945
-    label: Spinal cord stimulation (SCS)
+    label: spinal cord stimulation (SCS)
   - id: HP:0031625
     label: Pseudoaneurysms
   - id: MAXO:0000451

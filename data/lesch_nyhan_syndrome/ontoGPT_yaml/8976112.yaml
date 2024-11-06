@@ -16,13 +16,13 @@ input_text: '[Complete and partial deficiency of HPRT]. The Lesch-Nyhan syndrome
 raw_completion_output: |-
   primary_disease: Lesch-Nyhan syndrome
 
-  medical_actions: DNA-based mutation detection technique for diagnosis and determination of carrier status; DNA-based mutation detection technique for prenatal diagnosis; Administration of 9-ethyladenine
+  medical_actions: DNA-based mutation detection technique
 
   symptoms: hyperuricemia; choreoathetosis; spasticity; compulsive self-mutilation; mental retardation
 
   chemicals: 9-ethyladenine
 
-  action_annotation_relationships: DNA-based mutation detection technique TREATS hyperuricemia IN Lesch-Nyhan syndrome; DNA-based mutation detection technique TREATS choreoathetosis IN Lesch-Nyhan syndrome; DNA-based mutation detection technique TREATS spasticity IN Lesch-Nyhan syndrome; DNA-based mutation detection technique TREATS compulsive self-mutilation IN Lesch-Nyhan syndrome; DNA-based mutation detection technique TREATS mental retardation IN Lesch-Nyhan syndrome; Administration of 9-ethyladenine (with 9-ethyladenine) PREVENTS compulsive self-mutilation IN Lesch-Nyhan syndrome
+  action_annotation_relationships: DNA-based mutation detection technique PREVENTS hyperuricemia IN Lesch-Nyhan syndrome; DNA-based mutation detection technique PREVENTS choreoathetosis IN Lesch-Nyhan syndrome; DNA-based mutation detection technique PREVENTS spasticity IN Lesch-Nyhan syndrome; DNA-based mutation detection technique PREVENTS compulsive self-mutilation IN Lesch-Nyhan syndrome; DNA-based mutation detection technique PREVENTS mental retardation IN Lesch-Nyhan syndrome; administration (with 9-ethyladenine) TREATS compulsive self-mutilation IN Lesch-Nyhan syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -37,17 +37,14 @@ prompt: |+
 
 
   Text:
-  Administration of 9-ethyladenine (with 9-ethyladenine) PREVENTS compulsive self-mutilation IN Lesch-Nyhan syndrome
+  administration (with 9-ethyladenine) TREATS compulsive self-mutilation IN Lesch-Nyhan syndrome
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0010298
   medical_actions:
-    - DNA-based mutation detection technique for diagnosis and determination of carrier
-      status
-    - DNA-based mutation detection technique for prenatal diagnosis
-    - Administration of 9-ethyladenine
+    - DNA-based mutation detection technique
   symptoms:
     - HP:0002149
     - HP:0001266
@@ -58,31 +55,32 @@ extracted_object:
     - 9-ethyladenine
   action_annotation_relationships:
     - subject: DNA-based mutation detection technique
-      predicate: TREATS
+      predicate: PREVENTS
       object: HP:0002149
       qualifier: MONDO:0010298
       subject_extension: DNA-based mutation detection technique
     - subject: DNA-based mutation detection technique
-      predicate: TREATS
+      predicate: PREVENTS
       object: HP:0001266
       qualifier: MONDO:0010298
+      subject_extension: DNA-based mutation detection technique
     - subject: DNA-based mutation detection technique
-      predicate: TREATS
+      predicate: PREVENTS
       object: HP:0001257
       qualifier: MONDO:0010298
       subject_extension: DNA-based mutation detection technique
     - subject: DNA-based mutation detection technique
-      predicate: TREATS
+      predicate: PREVENTS
       object: compulsive self-mutilation
       qualifier: MONDO:0010298
       subject_extension: DNA-based mutation detection technique
-    - subject: DNA-based mutation detection technique
+    - subject: <DNA-based mutation detection technique>
+      predicate: <PREVENTS>
+      object: <mental retardation>
+      qualifier: <Lesch-Nyhan syndrome>
+      subject_extension: <DNA-based mutation detection technique>
+    - subject: administration
       predicate: TREATS
-      object: HP:0001249
-      qualifier: MONDO:0010298
-      subject_extension: DNA-based mutation detection technique
-    - subject: Administration of 9-ethyladenine
-      predicate: PREVENTS
       object: compulsive self-mutilation
       qualifier: MONDO:0010298
       subject_qualifier: with 9-ethyladenine
@@ -90,14 +88,14 @@ extracted_object:
 named_entities:
   - id: MONDO:0010298
     label: Lesch-Nyhan syndrome
-  - id: HP:0002149
-    label: hyperuricemia
-  - id: HP:0100021
-    label: spastic cerebral palsy (CP)
-  - id: HP:0001332
-    label: dystonia
   - id: HP:0000742
-    label: self-mutilation
+    label: Self-mutilation
+  - id: HP:0002149
+    label: Hyperuricemia
+  - id: HP:0001249
+    label: Mental retardation
+  - id: HP:0001332
+    label: Dystonia
   - id: HP:0001257
     label: Spasticity
   - id: HP:0001266
@@ -108,40 +106,38 @@ named_entities:
     label: Aggression
   - id: HP:0002104
     label: Apnea
-  - id: HP:0002013
-    label: Vomiting
   - id: CHEBI:44915
     label: Propofol
+  - id: HP:0002835
+    label: pulmonary aspiration
   - id: MAXO:0000943
     label: deep brain stimulation surgery (DBS)
   - id: CHEBI:9130
     label: sevoflurane
-  - id: MAXO:0009003
-    label: preimplantation genetic diagnosis (PGD)
-  - id: HP:0001249
-    label: mental retardation
   - id: CHEBI:17368
     label: Hypoxanthine
   - id: CHEBI:15372
-    label: tetrahydrobiopterin
+    label: Tetrahydrobiopterin
   - id: CHEBI:35634
-    label: xanthine oxidase inhibitors
+    label: Xanthine oxidase inhibitors
+  - id: MAXO:0000004
+    label: surgical procedures
   - id: CHEBI:3387
-    label: Carbamazepine
-  - id: HP:0007325
-    label: generalized dystonia
+    label: carbamazepine
+  - id: MONDO:0002486
+    label: Lesch-Nyhan syndrome (LNS)
   - id: HP:0100660
-    label: dyskinesia
+    label: Dyskinesia
   - id: HP:0003149
-    label: Hyperuricosuria
+    label: hyperuricosuria
   - id: HP:0001997
-    label: Gouty arthritis
-  - id: CHEBI:28790
-    label: serotonin
+    label: gouty arthritis
   - id: CHEBI:28683
     label: kynurenine
   - id: CHEBI:16675
     label: quinolinic acid
+  - id: CHEBI:28790
+    label: serotonin
   - id: CHEBI:15318
     label: xanthine
   - id: HP:0001263

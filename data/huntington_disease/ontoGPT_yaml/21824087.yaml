@@ -16,15 +16,11 @@ input_text: Targeting mitochondrial dysfunction and neurodegeneration by means o
   chain dysfunction and neurodegeneration, and focuses on current and emerging therapeutic
   uses of coenzyme Q10 and idebenone in neurology.
 raw_completion_output: |-
-  primary_disease: mitochondrial disorders
-
-  medical_actions: Coenzyme Q10 supplementation; Use of idebenone; Use of mitoquinone (or MitoQ)
-
-  symptoms: mitochondrial dysfunction; neurodegeneration; cardiac hypertrophy; impairment of the respiratory chain; increased generation of reactive oxygen species
-
-  chemicals: Coenzyme Q10; idebenone; mitoquinone; MitoQ
-
-  action_annotation_relationships: Coenzyme Q10 supplementation TREATS mitochondrial dysfunction IN mitochondrial disorders; Use of idebenone (with idebenone) TREATS cardiac hypertrophy IN Friedreich ataxia; Use of idebenone (with idebenone) TREATS neurodegeneration IN Friedreich ataxia; Use of mitoquinone (with mitoquinone) TREATS mitochondrial dysfunction IN neurogenetic/neurodegenerative disorders
+  primary_disease: Mitochondrial disorders
+  medical_actions: coenzyme Q10 supplementation; use of idebenone; use of mitoquinone (or MitoQ)
+  symptoms: mitochondrial dysfunction; neurodegeneration; cardiac hypertrophy; oxidative stress; respiratory chain dysfunction
+  chemicals: coenzyme Q10; idebenone; mitoquinone (or MitoQ)
+  action_annotation_relationships: coenzyme Q10 supplementation TREATS mitochondrial dysfunction IN Mitochondrial disorders; use of idebenone (with idebenone) TREATS cardiac hypertrophy IN Friedreich ataxia; use of idebenone (with idebenone) TREATS neurodegeneration IN Friedreich ataxia; use of coenzyme Q10 TREATS oxidative stress IN Mitochondrial disorders; use of coenzyme Q10 TREATS respiratory chain dysfunction IN Mitochondrial disorders; use of mitoquinone (or MitoQ) (with mitoquinone) TREATS mitochondrial dysfunction IN Mitochondrial disorders
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -39,112 +35,153 @@ prompt: |+
 
 
   Text:
-  Use of mitoquinone (with mitoquinone) TREATS mitochondrial dysfunction IN neurogenetic/neurodegenerative disorders
+  use of mitoquinone (or MitoQ) (with mitoquinone) TREATS mitochondrial dysfunction IN Mitochondrial disorders
 
   ===
 
 extracted_object:
-  primary_disease: mitochondrial disorders
+  primary_disease: Mitochondrial disorders
   medical_actions:
     - MAXO:0010012
-    - Use of idebenone
-    - Use of mitoquinone (or MitoQ)
+    - use of idebenone
+    - use of mitoquinone (or MitoQ)
   symptoms:
     - HP:0003287
     - HP:0002180
     - cardiac hypertrophy
-    - impairment of the respiratory chain
-    - increased generation of reactive oxygen species
+    - HP:0025464
+    - respiratory chain dysfunction
   chemicals:
     - CHEBI:46245
     - CHEBI:31687
-    - mitoquinone
-    - MitoQ
+    - mitoquinone (or MitoQ)
   action_annotation_relationships:
     - subject: supplementation
       predicate: TREATS
       object: HP:0003287
-      qualifier: mitochondrial disorders
+      qualifier: Mitochondrial disorders
       subject_extension: CHEBI:46245
-    - subject: Use of idebenone
+    - subject: use of idebenone
       predicate: TREATS
       object: cardiac hypertrophy
       qualifier: MONDO:0100339
       subject_qualifier: with idebenone
       subject_extension: CHEBI:31687
-    - subject: Use of idebenone
+    - subject: use of idebenone
       predicate: TREATS
       object: HP:0002180
       qualifier: MONDO:0100339
       subject_qualifier: with idebenone
       subject_extension: CHEBI:31687
-    - subject: Use of mitoquinone
+    - subject: use of coenzyme Q10
+      predicate: TREATS
+      object: HP:0025464
+      qualifier: Mitochondrial disorders
+      subject_extension: CHEBI:46245
+    - subject: use of coenzyme Q10
+      predicate: TREATS
+      object: respiratory chain dysfunction
+      qualifier: Mitochondrial disorders
+      subject_extension: CHEBI:46245
+    - subject: use of mitoquinone
       predicate: TREATS
       object: HP:0003287
-      qualifier: neurogenetic/neurodegenerative disorders
+      qualifier: Mitochondrial disorders
       subject_qualifier: with mitoquinone
       subject_extension: mitoquinone
 named_entities:
   - id: MONDO:0007739
-    label: Huntington Disease
-  - id: MONDO:0013310
-    label: P450 oxidoreductase deficiency
-  - id: CHEBI:78757
-    label: Cystamine
-  - id: HP:0002072
-    label: choreic movements
+    label: Huntington disease
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0002180
+    label: neurodegeneration
+  - id: HP:0001268
+    label: cognitive decline
   - id: HP:0100022
     label: movement disorders
-  - id: CHEBI:16348
-    label: 3-nitropropionic acid (3-NP)
-  - id: MAXO:0000068
-    label: transplantation
-  - id: CHEBI:16675
-    label: quinolinic acid
-  - id: MAXO:0000011
-    label: physiotherapy
-  - id: MAXO:0000883
-    label: cognitive therapy
-  - id: HP:0002140
-    label: ischemic stroke
-  - id: MONDO:0005180
-    label: Parkinson disease
-  - id: MONDO:0005559
-    label: neurodegenerative diseases
+  - id: HP:0002072
+    label: choreic movements
+  - id: MAXO:0009003
+    label: preimplantation genetic testing
+  - id: MAXO:0001592
+    label: RNA interference therapy
+  - id: HP:0000716
+    label: depression
+  - id: HP:0000739
+    label: anxiety
+  - id: HP:0000737
+    label: irritability
+  - id: CHEBI:7735
+    label: olanzapine
+  - id: MAXO:0000882
+    label: behavioral interventions
   - id: HP:0004395
     label: malnutrition
+  - id: MAXO:0000011
+    label: physical therapy
   - id: CHEBI:22720
     label: benzodiazepines
   - id: CHEBI:2618
     label: amantadine
   - id: CHEBI:15765
     label: levodopa
+  - id: HP:0002315
+    label: Headache
+  - id: CHEBI:134738
+    label: Laquinimod
+  - id: CHEBI:4903
+    label: Ethinylestradiol
+  - id: CHEBI:6443
+    label: Levonorgestrel
   - id: HP:0001251
     label: Ataxia
   - id: HP:0001260
     label: Dysarthria
   - id: HP:0002119
     label: Ventricular dilatation
-  - id: MAXO:0009017
-    label: Cognitive assessment (Mini-Mental State Examination)
   - id: HP:0100543
-    label: Cognitive impairment
+    label: cognitive deficits
+  - id: HP:0000708
+    label: Behavioral changes
   - id: CHEBI:92976
     label: Latrepirdine
-  - id: MONDO:0004976
-    label: amyotrophic lateral sclerosis
-  - id: HP:0002180
-    label: neurodegeneration
-  - id: MAXO:0000451
-    label: Implantation
+  - id: MONDO:0005559
+    label: Neurodegenerative diseases
+  - id: CHEBI:16243
+    label: Quercetin
+  - id: CHEBI:3962
+    label: Curcumin
+  - id: CHEBI:27881
+    label: Resveratrol
+  - id: CHEBI:75095
+    label: Chrysin
+  - id: CHEBI:28821
+    label: Piperine
+  - id: CHEBI:17620
+    label: Ferulic acid
+  - id: CHEBI:78330
+    label: Huperzine A
+  - id: CHEBI:16118
+    label: Berberine
+  - id: CHEBI:2979
+    label: Baicalein
+  - id: CHEBI:28230
+    label: Hesperetin
+  - id: CHEBI:26536
+    label: Retinoic acid
+  - id: MAXO:0000127
+    label: Genetic testing
   - id: CHEBI:76004
     label: Dimethyl fumarate
   - id: MAXO:0010012
-    label: Coenzyme Q10 supplementation
+    label: coenzyme Q10 supplementation
   - id: HP:0003287
     label: mitochondrial dysfunction
+  - id: HP:0025464
+    label: oxidative stress
   - id: CHEBI:46245
-    label: Coenzyme Q10
+    label: coenzyme Q10
   - id: CHEBI:31687
     label: idebenone
   - id: MONDO:0100339

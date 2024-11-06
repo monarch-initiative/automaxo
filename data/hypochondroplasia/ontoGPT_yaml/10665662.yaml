@@ -18,13 +18,17 @@ input_text: Perceptions of the outcome of orthopedic surgery in patients with ch
   patients perceived a high level of post-surgical improvement, although a number
   experienced subsequent deterioration and the need for further intervention.
 raw_completion_output: |-
-  primary_disease: Chondrodysplasias
-  medical_actions: Orthopedic surgery;Hip replacement;Proximal femoral osteotomies;Foramen magnum-cervical surgery;Thoracolumbar procedures
-  symptoms: Deterioration
+  primary_disease: chondrodysplasias
+
+  medical_actions: orthopedic surgery; hip replacement; proximal femoral osteotomies; spine related surgery; foramen magnum-cervical surgery; thoracolumbar procedures
+
+  symptoms: lack of satisfaction; subsequent deterioration
+
   chemicals: 
-  action_annotation_relationships: Orthopedic surgery TREATS Chondrodysplasias;Hip replacement TREATS deterioration IN Chondrodysplasias;Proximal femoral osteotomies TREATS Chondrodysplasias;Foramen magnum-cervical surgery TREATS Chondrodysplasias;Thoracolumbar procedures TREATS Chondrodysplasias
+
+  action_annotation_relationships: orthopedic surgery TREATS lack of satisfaction IN chondrodysplasias; orthopedic surgery PREVENTS subsequent deterioration IN chondrodysplasias; hip replacement TREATS lack of satisfaction IN chondrodysplasias; proximal femoral osteotomies TREATS lack of satisfaction IN chondrodysplasias; spine related surgery TREATS lack of satisfaction IN chondrodysplasias; foramen magnum-cervical surgery TREATS lack of satisfaction IN chondrodysplasias; thoracolumbar procedures TREATS lack of satisfaction IN chondrodysplasias
 prompt: |+
-  Split the following piece of text into fields in the following format:
+  From the text below, extract the following entities in the following format:
 
   subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
   object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
@@ -37,7 +41,7 @@ prompt: |+
 
 
   Text:
-  Thoracolumbar procedures TREATS Chondrodysplasias
+  thoracolumbar procedures TREATS lack of satisfaction IN chondrodysplasias
 
   ===
 
@@ -46,68 +50,102 @@ extracted_object:
   medical_actions:
     - MAXO:0000479
     - MAXO:0009047
-    - Proximal femoral osteotomies
-    - Foramen magnum-cervical surgery
-    - Thoracolumbar procedures
+    - proximal femoral osteotomies
+    - spine related surgery
+    - foramen magnum-cervical surgery
+    - thoracolumbar procedures
   symptoms:
-    - Deterioration
+    - lack of satisfaction
+    - subsequent deterioration
   action_annotation_relationships:
     - subject: MAXO:0000479
       predicate: TREATS
-      object: Chondrodysplasias
+      object: lack of satisfaction
+      qualifier: MONDO:0022723
+    - subject: MAXO:0000479
+      predicate: PREVENTS
+      object: subsequent deterioration
+      qualifier: MONDO:0022723
     - subject: MAXO:0009047
       predicate: TREATS
-      object: deterioration
+      object: lack of satisfaction
       qualifier: MONDO:0022723
-    - subject: Proximal femoral osteotomies
+    - subject: proximal femoral osteotomies
       predicate: TREATS
-      object: Chondrodysplasias
-    - subject: Foramen magnum-cervical surgery
+      object: lack of satisfaction
+      qualifier: MONDO:0022723
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: spine related surgery
       predicate: TREATS
-      object: Chondrodysplasias
-    - subject: Thoracolumbar procedures
+      object: lack of satisfaction
+      qualifier: MONDO:0022723
+    - subject: foramen magnum-cervical surgery
       predicate: TREATS
-      object: Chondrodysplasias
+      object: lack of satisfaction
+      qualifier: MONDO:0022723
+    - subject: thoracolumbar procedures
+      predicate: TREATS
+      object: lack of satisfaction
+      qualifier: MONDO:0022723
 named_entities:
   - id: HP:0031846
     label: Femoral fracture
-  - id: MAXO:0000745
-    label: cytogenetic analysis
   - id: HP:0000256
     label: macrocephaly
   - id: MAXO:0000127
-    label: genetic testing
+    label: Genetic testing
+  - id: MONDO:0007793
+    label: Hypochondroplasia
   - id: HP:0003750
     label: Muscle fatigue
+  - id: MAXO:0000486
+    label: distraction osteogenesis
+  - id: MAXO:0000068
+    label: transplantation
   - id: MONDO:0000050
     label: Growth hormone deficiency
-  - id: MAXO:0000780
-    label: Growth hormone therapy
   - id: CHEBI:37845
     label: Growth hormone
+  - id: MONDO:0001106
+    label: renal insufficiency
+  - id: MONDO:0005030
+    label: intrauterine growth retardation
+  - id: MONDO:0008383
+    label: rheumatoid arthritis
   - id: MAXO:0000526
     label: Clinical examination
   - id: MONDO:0005516
     label: Skeletal dysplasia
   - id: CHEBI:77383
-    label: bisphosphonates
+    label: bisphosphonate
   - id: MAXO:0001298
     label: therapy
   - id: MONDO:0007037
-    label: Achondroplasia
+    label: Skeletal dysplasia (achondroplasia)
+  - id: MONDO:0019019
+    label: Skeletal dysplasia (osteogenesis imperfecta)
+  - id: MONDO:0018570
+    label: Skeletal dysplasia (hypophosphatasia)
+  - id: MAXO:0000780
+    label: growth hormone therapy
   - id: HP:0004322
-    label: Short stature
-  - id: MONDO:0007793
-    label: hypochondroplasia
+    label: short stature
+  - id: HP:0003414
+    label: Atlantoaxial dislocation
   - id: HP:0010535
     label: Sleep apnea
+  - id: MAXO:0000004
+    label: Operation
   - id: MONDO:0017194
     label: Blount's disease
   - id: HP:0003498
     label: Disproportionate short stature
   - id: MONDO:0022723
-    label: Chondrodysplasias
+    label: chondrodysplasias
   - id: MAXO:0000479
-    label: Orthopedic surgery
+    label: orthopedic surgery
   - id: MAXO:0009047
-    label: Hip replacement
+    label: hip replacement

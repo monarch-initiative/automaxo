@@ -20,15 +20,15 @@ input_text: 'The role of bronchoscopy in the management of patients with severe 
   the entire airway must be examined. Treatment should be tailored to each individual
   patient.'
 raw_completion_output: |-
-  primary_disease: Severe craniofacial syndromes
+  primary_disease: Severe Craniofacial Syndromes
 
-  medical_actions: Bronchoscopy; Tracheotomy; Adenoidectomy/tonsillectomy; Glossopexy; Antireflux surgery; Supraglottoplasty
+  medical_actions: Bronchoscopy; Tracheotomy; Adenoidectomy; Tonsillectomy; Glossopexy; Antireflux surgery; Supraglottoplasty
 
   symptoms: Apneic episodes; Respiratory distress; Stridor; Cyanosis
 
   chemicals: 
 
-  action_annotation_relationships: Bronchoscopy TREATS airway anomalies IN severe craniofacial syndromes; Tracheotomy TREATS airway anomalies IN severe craniofacial syndromes; Adenoidectomy/tonsillectomy TREATS airway anomalies IN severe craniofacial syndromes; Glossopexy TREATS airway anomalies IN severe craniofacial syndromes; Antireflux surgery TREATS airway anomalies IN severe craniofacial syndromes; Supraglottoplasty TREATS airway anomalies IN severe craniofacial syndromes
+  action_annotation_relationships: Bronchoscopy TREATS Apneic episodes IN Severe Craniofacial Syndromes; Tracheotomy TREATS Airway anomalies IN Severe Craniofacial Syndromes; Adenoidectomy TREATS Respiratory symptoms IN Severe Craniofacial Syndromes; Tonsillectomy TREATS Respiratory symptoms IN Severe Craniofacial Syndromes; Glossopexy TREATS Airway anomalies IN Severe Craniofacial Syndromes; Antireflux surgery TREATS Airway anomalies IN Severe Craniofacial Syndromes; Supraglottoplasty TREATS Airway anomalies IN Severe Craniofacial Syndromes
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -43,16 +43,17 @@ prompt: |+
 
 
   Text:
-  Supraglottoplasty TREATS airway anomalies IN severe craniofacial syndromes
+  Supraglottoplasty TREATS Airway anomalies IN Severe Craniofacial Syndromes
 
   ===
 
 extracted_object:
-  primary_disease: Severe craniofacial syndromes
+  primary_disease: Severe Craniofacial Syndromes
   medical_actions:
     - MAXO:0001183
     - MAXO:0000504
-    - Adenoidectomy/tonsillectomy
+    - MAXO:0001029
+    - MAXO:0001081
     - Glossopexy
     - Antireflux surgery
     - Supraglottoplasty
@@ -64,59 +65,71 @@ extracted_object:
   action_annotation_relationships:
     - subject: MAXO:0001183
       predicate: TREATS
-      object: airway anomalies
-      qualifier: severe craniofacial syndromes
+      object: HP:0002104
+      qualifier: Severe Craniofacial Syndromes
+      subject_qualifier: <none>
+      object_qualifier: <none>
+      subject_extension: <none>
+      object_extension: <none>
     - subject: MAXO:0000504
       predicate: TREATS
-      object: airway anomalies
-      qualifier: severe craniofacial syndromes
-    - subject: Adenoidectomy/tonsillectomy
+      object: Airway anomalies
+      qualifier: Severe Craniofacial Syndromes
+    - subject: MAXO:0001029
       predicate: TREATS
-      object: airway anomalies
-      qualifier: severe craniofacial syndromes
+      object: Respiratory symptoms
+      qualifier: Severe Craniofacial Syndromes
+    - subject: MAXO:0001081
+      predicate: TREATS
+      object: Respiratory symptoms
+      qualifier: Severe Craniofacial Syndromes
     - subject: Glossopexy
       predicate: TREATS
-      object: airway anomalies
-      qualifier: craniofacial syndromes
-      object_qualifier: severe
-    - subject: Antireflux surgery
-      predicate: TREATS
-      object: airway anomalies
-      qualifier: severe craniofacial syndromes
-      subject_extension: Antireflux surgery
-    - subject: Supraglottoplasty
-      predicate: TREATS
-      object: airway anomalies
-      qualifier: severe craniofacial syndromes
+      object: Airway anomalies
+      qualifier: Severe Craniofacial Syndromes
+    - subject: <Antireflux surgery>
+      predicate: <TREATS>
+      object: <Airway anomalies>
+      qualifier: <Severe Craniofacial Syndromes>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: <Supraglottoplasty>
+      predicate: <TREATS>
+      object: <Airway anomalies>
+      qualifier: <Severe Craniofacial Syndromes>
+      subject_qualifier: <Not Applicable>
+      object_qualifier: <Not Applicable>
+      subject_extension: <Not Applicable>
+      object_extension: <Not Applicable>
 named_entities:
-  - id: HP:0011800
-    label: Midface hypoplasia
   - id: MONDO:0007041
     label: Apert syndrome
   - id: MAXO:0000486
-    label: distraction osteogenesis
+    label: Distraction osteogenesis
   - id: HP:0012531
-    label: pain
+    label: Pain
   - id: HP:0001288
-    label: gait disturbances
-  - id: MONDO:0003432
-    label: Strabismus
+    label: Gait disturbances
   - id: HP:0001159
     label: Syndactyly
-  - id: MAXO:0000004
-    label: surgical procedures
   - id: HP:0001363
     label: craniosynostosis
+  - id: HP:0011800
+    label: midface hypoplasia
   - id: MONDO:0015338
     label: syndromic craniosynostosis
   - id: HP:0001061
     label: Acne
   - id: CHEBI:6067
-    label: isotretinoin
+    label: Isotretinoin
   - id: MONDO:0015469
     label: Craniosynostosis
+  - id: HP:0000504
+    label: Vision issues
   - id: HP:0000572
-    label: Vision loss
+    label: Visual loss
   - id: HP:0000646
     label: Amblyopia
   - id: HP:0001138
@@ -127,16 +140,18 @@ named_entities:
     label: Anisometropia
   - id: HP:0000483
     label: Astigmatism
-  - id: MAXO:0000504
-    label: Tracheostomy
   - id: MAXO:0000502
-    label: Tracheal intubation
-  - id: HP:0010807
-    label: Open bite
-  - id: MAXO:0000756
-    label: blood transfusion
+    label: tracheal intubation
+  - id: HP:0009102
+    label: Anterior open bite
   - id: MAXO:0001183
     label: Bronchoscopy
+  - id: MAXO:0000504
+    label: Tracheotomy
+  - id: MAXO:0001029
+    label: Adenoidectomy
+  - id: MAXO:0001081
+    label: Tonsillectomy
   - id: HP:0002104
     label: Apneic episodes
   - id: HP:0002098

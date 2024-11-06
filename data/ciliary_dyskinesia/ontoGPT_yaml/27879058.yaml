@@ -1,0 +1,271 @@
+---
+input_text: 'Sinus surgery can improve quality of life, lung infections, and lung
+  function in patients with primary ciliary dyskinesia. BACKGROUND: Chronic rhinosinusitis
+  (CRS) and bacterial sinusitis are ubiquitous in patients with primary ciliary dyskinesia
+  (PCD). From the sinuses, Pseudomonas aeruginosa can infect the lungs. METHODS: We
+  studied the effect of endoscopic sinus surgery (ESS) on symptoms of CRS and lower
+  airway infections in PCD patients in a prospective single-arm intervention study
+  of ESS with adjuvant therapy using nasal irrigation with saline, topical nasal steroids,
+  and 2 weeks of systemic antibiotics. Additional treatment with local colistin for
+  6 months was instigated when P. aeruginosa was cultured at ESS. RESULTS: Twenty-four
+  PCD patients underwent ESS to search for an infectious focus (n = 10), due to severe
+  symptoms of CRS (n = 8), or both (n = 6). Bacteria were cultured from sinus samples
+  in 21 patients (88%), and simultaneous sinus and lung colonization with identical
+  pathogens were observed in 13 patients (62%). Four patients with preoperative P.
+  aeruginosa lung colonization (25%) had no regrowth during follow-up; 2 of these
+  had P. aeruginosa sinusitis. Sinonasal symptoms were improved 12 months after ESS
+  and we observed a trend toward better lung function after ESS. CONCLUSION: We demonstrated
+  an improvement in CRS-related symptoms after ESS and adjuvant therapy. In selected
+  PCD patients, the suggested regimen may postpone chronic lung infection with P.
+  aeruginosa and stabilize lung function.'
+raw_completion_output: |-
+  primary_disease: primary ciliary dyskinesia
+  medical_actions: endoscopic sinus surgery (ESS); nasal irrigation with saline; topical nasal steroids; systemic antibiotics; local colistin
+  symptoms: chronic rhinosinusitis (CRS); bacterial sinusitis; lung infections
+  chemicals: saline; nasal steroids; antibiotics; colistin
+  action_annotation_relationships: endoscopic sinus surgery (ESS) TREATS chronic rhinosinusitis (CRS) IN primary ciliary dyskinesia; nasal irrigation with saline TREATS chronic rhinosinusitis (CRS) IN primary ciliary dyskinesia; topical nasal steroids TREATS chronic rhinosinusitis (CRS) IN primary ciliary dyskinesia; systemic antibiotics TREATS bacterial sinusitis IN primary ciliary dyskinesia; local colistin TREATS lung infections IN primary ciliary dyskinesia; endoscopic sinus surgery (ESS) PREVENTS lung infections IN primary ciliary dyskinesia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  endoscopic sinus surgery (ESS) PREVENTS lung infections IN primary ciliary dyskinesia
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0016575
+  medical_actions:
+    - endoscopic sinus surgery (ESS)
+    - nasal irrigation with saline
+    - topical nasal steroids
+    - systemic antibiotics
+    - local colistin
+  symptoms:
+    - HP:0011109
+    - bacterial sinusitis
+    - HP:0006532
+  chemicals:
+    - saline
+    - nasal steroids
+    - CHEBI:33281
+    - CHEBI:37943
+  action_annotation_relationships:
+    - subject: endoscopic sinus surgery
+      predicate: TREATS
+      object: HP:0011109
+      qualifier: MONDO:0016575
+    - subject: MAXO:0000469
+      predicate: TREATS
+      object: HP:0011109
+      qualifier: MONDO:0016575
+      subject_qualifier: with saline
+      object_qualifier: (CRS)
+      subject_extension: saline
+    - subject: topical nasal steroids
+      predicate: TREATS
+      object: HP:0011109
+      qualifier: MONDO:0016575
+    - subject: systemic antibiotics
+      predicate: TREATS
+      object: bacterial sinusitis
+      qualifier: MONDO:0016575
+      subject_extension: systemic antibiotics
+    - subject: local colistin
+      predicate: TREATS
+      object: HP:0006532
+      qualifier: MONDO:0016575
+      subject_qualifier: local
+      subject_extension: CHEBI:37943
+    - subject: endoscopic sinus surgery (ESS)
+      predicate: PREVENTS
+      object: HP:0006532
+      qualifier: MONDO:0016575
+named_entities:
+  - id: MONDO:0016575
+    label: Primary Ciliary Dyskinesia
+  - id: HP:0034315
+    label: Chronic cough
+  - id: HP:0002643
+    label: Neonatal respiratory distress
+  - id: HP:0003251
+    label: male infertility
+  - id: HP:0001696
+    label: situs inversus
+  - id: CHEBI:27958
+    label: Cocaine
+  - id: MONDO:0004247
+    label: Peptic Ulcer Disease (PUD)
+  - id: MAXO:0001193
+    label: upper gastrointestinal endoscopy
+  - id: HP:0002239
+    label: gastrointestinal hemorrhage
+  - id: CHEBI:18361
+    label: proton pump inhibitor (PPI)
+  - id: CHEBI:49200
+    label: proton pump inhibitor
+  - id: MONDO:0008932
+    label: Primary ciliary dyskinesia (PCD)
+  - id: CHEBI:33281
+    label: Antibiotics
+  - id: CHEBI:35523
+    label: Bronchodilators
+  - id: CHEBI:67079
+    label: Anti-inflammatory agents
+  - id: MAXO:0001298
+    label: Therapy
+  - id: HP:0012262
+    label: Abnormal ciliary motility
+  - id: HP:0100750
+    label: atelectasis
+  - id: HP:0002878
+    label: respiratory failure
+  - id: HP:0012265
+    label: Primary Ciliary Dyskinesia
+  - id: HP:0011962
+    label: Obstructive azoospermia
+  - id: MONDO:0005936
+    label: recurrent pneumonia
+  - id: MONDO:0018597
+    label: Plastic bronchitis
+  - id: HP:0002098
+    label: respiratory distress
+  - id: MONDO:0018677
+    label: heterotaxy
+  - id: MAXO:0025001
+    label: cardiac surgery
+  - id: MAXO:0000503
+    label: mechanical ventilation
+  - id: MAXO:0000504
+    label: tracheostomies
+  - id: HP:0001627
+    label: congenital heart disease
+  - id: HP:0001708
+    label: Right-sided heart failure
+  - id: MAXO:0000011
+    label: Physiotherapy
+  - id: HP:0012207
+    label: Asthenozoospermia
+  - id: HP:0000388
+    label: otitis media
+  - id: HP:0031245
+    label: wet cough
+  - id: MAXO:0000516
+    label: chest physiotherapy
+  - id: HP:0001742
+    label: nasal congestion
+  - id: HP:0000989
+    label: itching
+  - id: HP:0011109
+    label: chronic sinusitis
+  - id: HP:0002110
+    label: bronchiectasis
+  - id: HP:0001651
+    label: dextrocardia
+  - id: CHEBI:77034
+    label: mucolytic
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: HP:0002088
+    label: Lung disease
+  - id: MAXO:0000118
+    label: immunization
+  - id: MAXO:0000079
+    label: genetic counseling
+  - id: HP:0031353
+    label: otitis media with effusion
+  - id: HP:0000789
+    label: infertility
+  - id: MAXO:0000127
+    label: Genetic testing
+  - id: CHEBI:25805
+    label: oxygen
+  - id: CHEBI:7986
+    label: Pentoxifylline
+  - id: MAXO:0009004
+    label: Whole exome sequencing (WES)
+  - id: MONDO:0005087
+    label: Respiratory diseases
+  - id: CHEBI:33282
+    label: antibacterials
+  - id: CHEBI:86327
+    label: antifungal drugs
+  - id: CHEBI:7872
+    label: Oxytocin
+  - id: MAXO:0000514
+    label: High-frequency chest wall oscillation (HFCWO)
+  - id: MAXO:0000513
+    label: Postural drainage
+  - id: HP:0000365
+    label: hearing impairment
+  - id: HP:0000403
+    label: recurrent otitis media
+  - id: CHEBI:16480
+    label: Nitric Oxide
+  - id: MONDO:0011751
+    label: Chronic obstructive pulmonary disease (COPD) associated with AAT deficiency
+  - id: MONDO:0005002
+    label: Chronic obstructive pulmonary disease
+  - id: MONDO:0004822
+    label: Bronchiectasis
+  - id: MAXO:0000004
+    label: surgery
+  - id: HP:0002719
+    label: recurrent infections
+  - id: HP:0006536
+    label: airway obstruction
+  - id: CHEBI:50858
+    label: corticosteroids
+  - id: MONDO:0009061
+    label: CF
+  - id: MAXO:0001183
+    label: bronchoscopy
+  - id: HP:0000097
+    label: focal segmental glomerulosclerosis
+  - id: HP:0030853
+    label: heterotaxy
+  - id: CHEBI:9139
+    label: sildenafil
+  - id: HP:0002092
+    label: PAH
+  - id: HP:0000961
+    label: cyanosis
+  - id: HP:0002094
+    label: dyspnoea
+  - id: CHEBI:2955
+    label: azithromycin
+  - id: HP:0200117
+    label: recurrent upper and lower respiratory tract infections
+  - id: MONDO:0011490
+    label: diffuse panbronchiolitis
+  - id: CHEBI:48923
+    label: erythromycin
+  - id: CHEBI:25106
+    label: macrolides
+  - id: HP:0002105
+    label: Hemoptysis
+  - id: HP:0002321
+    label: Vertigo
+  - id: CHEBI:2637
+    label: Amikacin
+  - id: HP:0002783
+    label: Recurrent chest infections
+  - id: CHEBI:47779
+    label: Aminoglycosides
+  - id: CHEBI:100241
+    label: Ciprofloxacin
+  - id: HP:0006532
+    label: lung infections
+  - id: CHEBI:37943
+    label: colistin
+  - id: MAXO:0000469
+    label: nasal irrigation

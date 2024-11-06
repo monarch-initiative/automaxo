@@ -19,15 +19,15 @@ input_text: 'NK cell effector functions in a Chediak-Higashi patient undergoing 
   to reverse the altered cytotoxic activity, lytic granule pattern, and cytokine production
   observed in the CHS patient.'
 raw_completion_output: |-
-  primary_disease: Chediak-Higashi syndrome
+  primary_disease: Chediak-Higashi syndrome (CHS)
 
-  medical_actions: cord blood transplantation;in vitro treatment with IL-2
+  medical_actions: cord blood transplantation; in vitro IL-2 treatment
 
-  symptoms: impaired NK cell cytotoxicity;defects in NK cell-mediated natural and antibody-dependent cytotoxicity;defects in IFN-gamma production
+  symptoms: impaired NK cell cytotoxicity; defects in NK cell-mediated natural and antibody-dependent cytotoxicity; impaired IFN-gamma production; altered lytic granule pattern
 
   chemicals: IL-2
 
-  action_annotation_relationships: in vitro treatment with IL-2 TREATS impaired NK cell cytotoxicity IN Chediak-Higashi syndrome;in vitro treatment with IL-2 TREATS defects in NK cell-mediated natural and antibody-dependent cytotoxicity IN Chediak-Higashi syndrome;in vitro treatment with IL-2 TREATS defects in IFN-gamma production IN Chediak-Higashi syndrome;cord blood transplantation TREATS impaired NK cell cytotoxicity IN Chediak-Higashi syndrome
+  action_annotation_relationships: in vitro IL-2 treatment TREATS impaired NK cell cytotoxicity IN Chediak-Higashi syndrome (CHS); in vitro IL-2 treatment TREATS defects in NK cell-mediated natural and antibody-dependent cytotoxicity IN Chediak-Higashi syndrome (CHS); in vitro IL-2 treatment TREATS impaired IFN-gamma production IN Chediak-Higashi syndrome (CHS); cord blood transplantation TREATS impaired NK cell cytotoxicity IN Chediak-Higashi syndrome (CHS); in vitro IL-2 treatment TREATS altered lytic granule pattern IN Chediak-Higashi syndrome (CHS)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -42,60 +42,72 @@ prompt: |+
 
 
   Text:
-  cord blood transplantation TREATS impaired NK cell cytotoxicity IN Chediak-Higashi syndrome
+  in vitro IL-2 treatment TREATS altered lytic granule pattern IN Chediak-Higashi syndrome (CHS)
 
   ===
 
 extracted_object:
-  primary_disease: MONDO:0008963
+  primary_disease: MONDO:0008090
   medical_actions:
     - MAXO:0010033
-    - in vitro treatment with IL-2
+    - in vitro IL-2 treatment
   symptoms:
     - impaired NK cell cytotoxicity
     - defects in NK cell-mediated natural and antibody-dependent cytotoxicity
-    - defects in IFN-gamma production
+    - impaired IFN-gamma production
+    - altered lytic granule pattern
   chemicals:
     - IL-2
   action_annotation_relationships:
-    - subject: in vitro treatment
+    - subject: in vitro IL-2 treatment
       predicate: TREATS
       object: impaired NK cell cytotoxicity
       qualifier: MONDO:0008963
+      subject_qualifier: in vitro
       subject_extension: IL-2
-    - subject: in vitro treatment
+    - subject: in vitro IL-2 treatment
       predicate: TREATS
       object: defects in NK cell-mediated natural and antibody-dependent cytotoxicity
-      qualifier: MONDO:0008963
-      subject_qualifier: with IL-2
+      qualifier: MONDO:0008090
+      subject_qualifier: in vitro
       subject_extension: IL-2
-    - subject: in vitro treatment
+      object_extension: NK cell-mediated natural and antibody-dependent cytotoxicity
+    - subject: in vitro IL-2 treatment
       predicate: TREATS
-      object: defects in IFN-gamma production
+      object: impaired IFN-gamma production
       qualifier: MONDO:0008963
+      subject_qualifier: in vitro
+      object_qualifier: 'NULL'
       subject_extension: IL-2
-    - subject: <cord blood transplantation>
-      predicate: <TREATS>
-      object: <impaired cytotoxicity>
-      qualifier: <Chediak-Higashi syndrome>
-      subject_qualifier: <>
-      object_qualifier: <impaired>
-      subject_extension: <cord blood>
-      object_extension: <NK cell>
+      object_extension: IFN-gamma
+    - subject: MAXO:0010033
+      predicate: TREATS
+      object: impaired NK cell cytotoxicity
+      qualifier: MONDO:0008090
+    - subject: in vitro IL-2 treatment
+      predicate: TREATS
+      object: altered lytic granule pattern
+      qualifier: MONDO:0008963
+      subject_qualifier: in vitro
+      subject_extension: IL-2
 named_entities:
+  - id: HP:0012531
+    label: pain
   - id: MAXO:0010030
-    label: Bone marrow transplantation (BMT)
+    label: bone marrow transplantation (BMT)
   - id: MONDO:0008963
     label: Chediak-Higashi syndrome
   - id: MAXO:0010033
-    label: Unrelated cord blood transplantation (UCBT)
+    label: unrelated cord blood transplantation (UCBT)
   - id: MAXO:0000747
     label: HSCT
   - id: MAXO:0000750
-    label: Conditioning regimens
+    label: conditioning regimens
   - id: CHEBI:41264
     label: BU
   - id: CHEBI:4027
-    label: Cyclophosphamide
+    label: cyclophosphamide
   - id: CHEBI:4911
-    label: Etoposide
+    label: etoposide
+  - id: MONDO:0008090
+    label: Chediak-Higashi syndrome (CHS)

@@ -11,14 +11,10 @@ input_text: 'Chediak-Higashi syndrome: neurocognitive and behavioral data from i
   neuropsychiatric symptoms but high levels of socioemotional adaptability.'
 raw_completion_output: |-
   primary_disease: Chediak-Higashi syndrome
-
   medical_actions: bone marrow transplantation; neuropsychological and neuropsychiatric profiling
-
-  symptoms: immunodeficiency; albinism; progressive neurologic abnormalities; learning disabilities; neuropsychiatric disorders; middle-age dementia; lack of socioemotional adaptability
-
+  symptoms: immunodeficiency; albinism; progressive neurologic abnormalities; learning disabilities; neuropsychiatric disorders; middle-age dementia
   chemicals: 
-
-  action_annotation_relationships: bone marrow transplantation TREATS immunodeficiency IN Chediak-Higashi syndrome; bone marrow transplantation PREVENTS progressive neurologic abnormalities IN Chediak-Higashi syndrome; neuropsychological and neuropsychiatric profiling PREVENTS learning disabilities IN Chediak-Higashi syndrome; neuropsychological and neuropsychiatric profiling PREVENTS neuropsychiatric disorders IN Chediak-Higashi syndrome
+  action_annotation_relationships: bone marrow transplantation TREATS immunodeficiency IN Chediak-Higashi syndrome; bone marrow transplantation TREATS albinism IN Chediak-Higashi syndrome; neuropsychological and neuropsychiatric profiling PREVENTS learning disabilities IN Chediak-Higashi syndrome; neuropsychological and neuropsychiatric profiling PREVENTS neuropsychiatric disorders IN Chediak-Higashi syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -49,7 +45,6 @@ extracted_object:
     - learning disabilities
     - neuropsychiatric disorders
     - middle-age dementia
-    - lack of socioemotional adaptability
   action_annotation_relationships:
     - subject: <bone marrow transplantation>
       predicate: <TREATS>
@@ -59,10 +54,11 @@ extracted_object:
       object_qualifier: <None>
       subject_extension: <None>
       object_extension: <None>
-    - subject: MAXO:0010030
-      predicate: PREVENTS
-      object: progressive neurologic abnormalities
-      qualifier: MONDO:0008963
+    - subject: <bone marrow transplantation>
+      predicate: <TREATS>
+      object: <albinism>
+      qualifier: <Chediak-Higashi syndrome>
+      subject_extension: <bone marrow transplantation>
     - subject: neuropsychological and neuropsychiatric profiling
       predicate: PREVENTS
       object: learning disabilities
@@ -72,32 +68,36 @@ extracted_object:
       object: neuropsychiatric disorders
       qualifier: MONDO:0008963
 named_entities:
+  - id: HP:0012531
+    label: pain
   - id: MAXO:0010030
-    label: Bone marrow transplantation (BMT)
+    label: bone marrow transplantation (BMT)
   - id: MONDO:0008963
     label: Chediak-Higashi syndrome
   - id: MAXO:0010033
-    label: Unrelated cord blood transplantation (UCBT)
+    label: unrelated cord blood transplantation (UCBT)
   - id: MAXO:0000747
     label: HSCT
   - id: MAXO:0000750
-    label: Conditioning regimens
+    label: conditioning regimens
   - id: CHEBI:41264
     label: BU
   - id: CHEBI:4027
-    label: Cyclophosphamide
+    label: cyclophosphamide
   - id: CHEBI:4911
-    label: Etoposide
+    label: etoposide
+  - id: MONDO:0008090
+    label: Chediak-Higashi syndrome (CHS)
   - id: HP:0001433
-    label: hepatosplenomegaly
+    label: Hepatosplenomegaly
   - id: HP:0003270
-    label: abdominal distention
+    label: Abdominal distention
   - id: MONDO:0024686
     label: Pigmented villonodular synovitis (PVNS)
   - id: HP:0001945
-    label: fever
+    label: Fever
   - id: MONDO:0003778
-    label: primary immunodeficiency
+    label: primary immunodeficiencies
   - id: HP:0025322
     label: veno-occlusive disease
   - id: CHEBI:28901
@@ -106,8 +106,10 @@ named_entities:
     label: cyclosporine
   - id: CHEBI:44185
     label: methotrexate
-  - id: MONDO:0008090
-    label: Chediak-Higashi Syndrome (CHS)
+  - id: HP:0100806
+    label: sepsis
+  - id: CHEBI:28790
+    label: Serotonin
   - id: HP:0002718
     label: recurrent bacterial infections
   - id: HP:0000613

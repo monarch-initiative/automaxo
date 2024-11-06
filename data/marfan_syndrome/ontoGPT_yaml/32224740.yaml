@@ -24,13 +24,13 @@ input_text: "Recent Modifications of the Nuss Procedure: The Pursuit of Safety D
 raw_completion_output: |-
   primary_disease: Pectus Excavatum
 
-  medical_actions: Nuss procedure; Vacuum bell treatment; Surgical drainage; Reoperation for bar displacement; Reoperation for carinate overcorrection
+  medical_actions: Nuss procedure; Vacuum bell treatment; Surgical drainage; Reoperation for bar displacement; Treatment for hemothorax; Treatment for wound infection; Treatment for allergy to stainless steel; Treatment for cardiac perforation; Treatment for paraplegia after epidural catheter; Reoperation for carinate overcorrection
 
-  symptoms: Mitral valve prolapse; Marfan syndrome; Scoliosis; Cardiac perforation; Paraplegia; Hemothorax; Wound infection; Allergy to stainless steel
+  symptoms: Cardiac perforation; Paraplegia; Hemothorax; Wound infection; Allergy to stainless steel; Carinate overcorrection
 
   chemicals: 
 
-  action_annotation_relationships: Nuss procedure TREATS Pectus Excavatum; Vacuum bell treatment TREATS Pectus Excavatum; Surgical drainage TREATS wound infection IN Pectus Excavatum; Reoperation for bar displacement TREATS dislocation complications IN Pectus Excavatum; Reoperation for carinate overcorrection TREATS overcorrection complications IN Pectus Excavatum
+  action_annotation_relationships: Nuss procedure TREATS Pectus Excavatum; Vacuum bell treatment TREATS Pectus Excavatum; Surgical drainage TREATS wound infection IN Pectus Excavatum; Reoperation for bar displacement TREATS Pectus Excavatum; Treatment for hemothorax TREATS hemothorax IN Pectus Excavatum; Treatment for wound infection TREATS wound infection IN Pectus Excavatum; Treatment for allergy to stainless steel TREATS allergy to stainless steel IN Pectus Excavatum; Treatment for cardiac perforation TREATS cardiac perforation IN Pectus Excavatum; Treatment for paraplegia after epidural catheter TREATS paraplegia IN Pectus Excavatum; Reoperation for carinate overcorrection TREATS carinate overcorrection IN Pectus Excavatum
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -45,7 +45,7 @@ prompt: |+
 
 
   Text:
-  Reoperation for carinate overcorrection TREATS overcorrection complications IN Pectus Excavatum
+  Reoperation for carinate overcorrection TREATS carinate overcorrection IN Pectus Excavatum
 
   ===
 
@@ -56,16 +56,19 @@ extracted_object:
     - Vacuum bell treatment
     - Surgical drainage
     - Reoperation for bar displacement
+    - Treatment for hemothorax
+    - Treatment for wound infection
+    - Treatment for allergy to stainless steel
+    - Treatment for cardiac perforation
+    - Treatment for paraplegia after epidural catheter
     - Reoperation for carinate overcorrection
   symptoms:
-    - HP:0001634
-    - Marfan syndrome
-    - HP:0002650
     - Cardiac perforation
     - HP:0010550
     - HP:0012151
     - Wound infection
     - Allergy to stainless steel
+    - Carinate overcorrection
   action_annotation_relationships:
     - subject: Nuss procedure
       predicate: TREATS
@@ -79,43 +82,153 @@ extracted_object:
       qualifier: MONDO:0008213
     - subject: Reoperation for bar displacement
       predicate: TREATS
-      object: dislocation complications
+      object: HP:0000767
+    - subject: Treatment for hemothorax
+      predicate: TREATS
+      object: HP:0012151
       qualifier: MONDO:0008213
+    - subject: Treatment for wound infection
+      predicate: TREATS
+      object: wound infection
+      qualifier: MONDO:0008213
+    - subject: Treatment for allergy to stainless steel
+      predicate: TREATS
+      object: allergy to stainless steel
+      qualifier: MONDO:0008213
+    - subject: Treatment for cardiac perforation
+      predicate: TREATS
+      object: cardiac perforation
+      qualifier: MONDO:0008213
+    - subject: <Treatment for paraplegia>
+      predicate: <TREATS>
+      object: <paraplegia>
+      qualifier: <Pectus Excavatum>
+      subject_extension: <epidural catheter>
     - subject: Reoperation for carinate overcorrection
       predicate: TREATS
-      object: overcorrection complications
+      object: carinate overcorrection
       qualifier: MONDO:0008213
 named_entities:
   - id: MONDO:0007947
-    label: Marfan syndrome
-  - id: MAXO:0010203
-    label: echocardiography
-  - id: HP:0004942
-    label: aortic dilatation
-  - id: CHEBI:5959
-    label: irbesartan
-  - id: CHEBI:2904
-    label: atenolol
-  - id: CHEBI:6541
-    label: losartan
-  - id: HP:0002647
-    label: Aortic dissection
-  - id: HP:0004933
-    label: Type A aortic dissection
-  - id: MONDO:0018353
-    label: Rare cardiovascular diseases (RCDs)
-  - id: HP:0001657
-    label: Long QT syndrome (LQT)
-  - id: HP:0001071
-    label: Fabry disease (FD)
-  - id: MONDO:0020015
-    label: Rare cardiovascular diseases
-  - id: MONDO:0008213
-    label: Pectus Excavatum
-  - id: HP:0001634
-    label: Mitral valve prolapse
+    label: Marfan Syndrome
+  - id: HP:0000768
+    label: Pectus carinatum
   - id: HP:0002650
     label: Scoliosis
+  - id: HP:0002108
+    label: Spontaneous pneumothorax
+  - id: HP:0003423
+    label: Thoracolumbar kyphoscoliosis
+  - id: CHEBI:33281
+    label: Antibiotic
+  - id: HP:0002107
+    label: pneumothorax
+  - id: MAXO:0010203
+    label: Echocardiography
+  - id: MAXO:0000494
+    label: Blood pressure monitoring
+  - id: HP:0004942
+    label: Aortic dilatation
+  - id: CHEBI:5959
+    label: Irbesartan
+  - id: HP:0004950
+    label: Peripheral artery disease
+  - id: HP:0002617
+    label: aneurysm
+  - id: HP:0030965
+    label: increased aortic stiffness
+  - id: HP:0001659
+    label: aortic regurgitation
+  - id: HP:0001712
+    label: left ventricular hypertrophy
+  - id: HP:0005162
+    label: left ventricular failure
+  - id: HP:0000822
+    label: high blood pressure
+  - id: CHEBI:6541
+    label: Losartan
+  - id: CHEBI:35530
+    label: beta-blocker
+  - id: MAXO:0001298
+    label: therapy
+  - id: MONDO:0020333
+    label: Anterior sacral meningocele (ASM)
+  - id: HP:0002315
+    label: headache
+  - id: HP:0002018
+    label: nausea
+  - id: HP:0002138
+    label: subarachnoid hemorrhage
+  - id: HP:0031625
+    label: Pseudoaneurysms
+  - id: MAXO:0000451
+    label: Implantation
+  - id: MAXO:0000457
+    label: pain management
+  - id: HP:0012531
+    label: pain
+  - id: HP:0012378
+    label: fatigue
+  - id: HP:0012332
+    label: dysautonomia
+  - id: HP:0002659
+    label: bone fragility
+  - id: HP:0025017
+    label: capillary fragility
+  - id: HP:0001030
+    label: skin fragility
+  - id: MAXO:0000571
+    label: CT
+  - id: HP:0034267
+    label: Pelvic pain
+  - id: HP:0000139
+    label: Genital prolapse
+  - id: HP:0100518
+    label: Dysuria
+  - id: MONDO:0044632
+    label: Extracranial Carotid Artery Aneurysms (ECAAs)
+  - id: MAXO:0000448
+    label: Surgical resection
+  - id: HP:0001297
+    label: Stroke
+  - id: HP:0012163
+    label: Extracranial Carotid Artery Aneurysms
+  - id: HP:0002616
+    label: aortic root aneurysms
+  - id: HP:0031649
+    label: aortic rupture
+  - id: HP:0002090
+    label: pneumonia
+  - id: CHEBI:50249
+    label: Anticoagulants
+  - id: HP:0012514
+    label: Leg pain
+  - id: HP:0007340
+    label: Leg weakness
+  - id: HP:0200146
+    label: annuloaortic ectasia
+  - id: MAXO:0009072
+    label: Surgical repair
+  - id: MONDO:0009691
+    label: Marfan syndrome (MFS)
+  - id: HP:0002140
+    label: acute ischemic stroke
+  - id: HP:0002615
+    label: Hypotension
+  - id: HP:0007185
+    label: Loss of consciousness
+  - id: HP:0002239
+    label: Gastrointestinal bleeding
+  - id: HP:0000952
+    label: Jaundice
+  - id: MAXO:0000004
+    label: surgery
+  - id: MONDO:0004737
+    label: Homocystinuria
+  - id: HP:0004933
+    label: type A aortic dissection
+  - id: MONDO:0008213
+    label: Pectus Excavatum
   - id: HP:0010550
     label: Paraplegia
   - id: HP:0012151

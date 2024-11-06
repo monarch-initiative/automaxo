@@ -10,9 +10,13 @@ input_text: Endovascular repair of an internal mammary artery aneurysm in a pati
   patients with Loeys-Dietz syndrome.
 raw_completion_output: |-
   primary_disease: Loeys-Dietz syndrome
+
   medical_actions: endovascular coil embolization; open repair
+
   symptoms: central and peripheral arterial aneurysms; dissections
+
   chemicals: 
+
   action_annotation_relationships: endovascular coil embolization TREATS central and peripheral arterial aneurysms IN Loeys-Dietz syndrome; endovascular coil embolization TREATS dissections IN Loeys-Dietz syndrome; open repair TREATS central and peripheral arterial aneurysms IN Loeys-Dietz syndrome; open repair TREATS dissections IN Loeys-Dietz syndrome
 prompt: |+
   Split the following piece of text into fields in the following format:
@@ -45,12 +49,14 @@ extracted_object:
       predicate: TREATS
       object: central and peripheral arterial aneurysms
       qualifier: MONDO:0018954
-    - subject: coil embolization
-      predicate: TREATS
-      object: dissections
-      qualifier: MONDO:0018954
-      subject_qualifier: endovascular
-      subject_extension: endovascular coil
+    - subject: <endovascular coil embolization>
+      predicate: <TREATS>
+      object: <dissections>
+      qualifier: <Loeys-Dietz syndrome>
+      subject_qualifier: <Not Applicable>
+      object_qualifier: <Not Applicable>
+      subject_extension: <Not Applicable>
+      object_extension: <Not Applicable>
     - subject: open repair
       predicate: TREATS
       object: central and peripheral arterial aneurysms
@@ -63,7 +69,7 @@ named_entities:
   - id: MONDO:0018954
     label: Loeys-Dietz syndrome
   - id: MAXO:0000945
-    label: Spinal cord stimulation (SCS)
+    label: spinal cord stimulation (SCS)
   - id: HP:0031625
     label: Pseudoaneurysms
   - id: MAXO:0000451
@@ -76,3 +82,17 @@ named_entities:
     label: Joint laxity
   - id: CHEBI:35530
     label: Beta-blocker
+  - id: MAXO:0010203
+    label: Echocardiography
+  - id: HP:0012764
+    label: orthopnea
+  - id: HP:0001631
+    label: atrial septal defect
+  - id: HP:0001263
+    label: developmental delay
+  - id: HP:0003302
+    label: Spondylolisthesis
+  - id: HP:0003304
+    label: Spondylolysis
+  - id: HP:0012531
+    label: Pain

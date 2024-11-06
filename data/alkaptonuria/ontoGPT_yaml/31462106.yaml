@@ -23,13 +23,13 @@ input_text: "Interactive alkaptonuria database: investigating clinical data to i
 raw_completion_output: |-
   primary_disease: Alkaptonuria (AKU)
 
-  medical_actions: Use of bioinformatics tools for predictive analysis; Development of predictive algorithm based on 55 predictors
+  medical_actions: Collecting genotypic, phenotypic, and clinical data; Developing an algorithm for predictions about the oxidative status
 
-  symptoms: Protein oxidation; Secondary form of amyloidosis; High circulating serum amyloid A (SAA) levels; Inflammation; Oxidative stress
+  symptoms: Protein oxidation; High circulating serum amyloid A (SAA) levels; Inflammation; Oxidative stress
 
-  chemicals: homogentisic acid (HGA); total cholesterol; Serum amyloid A (SAA); chitotriosidase
+  chemicals: Homogentisic acid (HGA); Total cholesterol; SAA; Chitotriosidase
 
-  action_annotation_relationships: Use of bioinformatics tools for predictive analysis PREVENTS progression IN Alkaptonuria (AKU); Development of predictive algorithm (based on circulating HGA, total cholesterol, Serum amyloid A (SAA), and chitotriosidase) PREVENTS poor quality of life IN Alkaptonuria (AKU)
+  action_annotation_relationships: Collecting genotypic, phenotypic, and clinical data PREVENTS Protein oxidation IN Alkaptonuria (AKU); Developing an algorithm (with Homogentisic acid (HGA), Total cholesterol, SAA, Chitotriosidase) TREATS Inflammation IN Alkaptonuria (AKU); Developing an algorithm (with Homogentisic acid (HGA), Total cholesterol, SAA, Chitotriosidase) PREVENTS Oxidative stress IN Alkaptonuria (AKU)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -44,72 +44,61 @@ prompt: |+
 
 
   Text:
-  Development of predictive algorithm (based on circulating HGA, total cholesterol, Serum amyloid A (SAA), and chitotriosidase) PREVENTS poor quality of life IN Alkaptonuria (AKU)
+  Developing an algorithm (with Homogentisic acid (HGA), Total cholesterol, SAA, Chitotriosidase) PREVENTS Oxidative stress IN Alkaptonuria (AKU)
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0008753
   medical_actions:
-    - Use of bioinformatics tools for predictive analysis
-    - Development of predictive algorithm based on 55 predictors
+    - Collecting genotypic, phenotypic, and clinical data
+    - Developing an algorithm for predictions about the oxidative status
   symptoms:
     - Protein oxidation
-    - Secondary form of amyloidosis
     - High circulating serum amyloid A (SAA) levels
     - Inflammation
     - HP:0025464
   chemicals:
     - CHEBI:44747
-    - total cholesterol
-    - CHEBI:138152
-    - chitotriosidase
+    - Total cholesterol
+    - SAA
+    - Chitotriosidase
   action_annotation_relationships:
-    - subject: predictive analysis
-      predicate: PREVENTS
-      object: progression
+    - subject: <Collecting genotypic, phenotypic, and clinical data>
+      predicate: <PREVENTS>
+      object: <Protein oxidation>
       qualifier: MONDO:0008753
-      subject_qualifier: Use of
-      subject_extension: bioinformatics tools
-    - subject: Development of predictive algorithm
-      predicate: PREVENTS
-      object: poor quality of life
+      subject_qualifier: <Not applicable>
+      object_qualifier: <Not applicable>
+      subject_extension: <Not applicable>
+      object_extension: <Not applicable>
+    - subject: Developing an algorithm
+      predicate: TREATS
+      object: Inflammation
       qualifier: MONDO:0008753
-      subject_qualifier: based on circulating HGA, total cholesterol, Serum amyloid
-        A (SAA), and chitotriosidase
-      subject_extension: circulating HGA, total cholesterol, Serum amyloid A (SAA),
-        chitotriosidase
+      subject_qualifier: with Homogentisic acid (HGA), Total cholesterol, SAA, Chitotriosidase
+      subject_extension: Homogentisic acid (HGA), Total cholesterol, SAA, Chitotriosidase
+    - subject: Developing an algorithm
+      predicate: PREVENTS
+      object: HP:0025464
+      qualifier: MONDO:0008753
+      subject_qualifier: with Homogentisic acid (HGA), Total cholesterol, SAA, Chitotriosidase
+      subject_extension: Homogentisic acid (HGA), Total cholesterol, SAA, Chitotriosidase
 named_entities:
   - id: MAXO:0001175
-    label: Liver transplantation
-  - id: HP:0030764
-    label: Ochronosis
+    label: liver transplantation
   - id: CHEBI:44747
-    label: Homogentisic acid
+    label: homogentisic acid
   - id: MONDO:0008753
     label: alkaptonuria
-  - id: HP:0002758
-    label: osteoarthritis
+  - id: MONDO:0009861
+    label: phenylketonuria
+  - id: MONDO:0010163
+    label: tyrosinosis
+  - id: HP:0030764
+    label: ochronosis
   - id: CHEBI:50378
     label: nitisinone
-  - id: CHEBI:18186
-    label: tyrosine
-  - id: CHEBI:28044
-    label: Phenylalanine
-  - id: CHEBI:18243
-    label: Dopamine
-  - id: CHEBI:1582
-    label: 3-methoxytyramine
-  - id: CHEBI:33569
-    label: Noradrenaline
-  - id: CHEBI:27897
-    label: Tryptophan
-  - id: CHEBI:28790
-    label: Serotonin
-  - id: CHEBI:29987
-    label: Glutamate
-  - id: CHEBI:15760
-    label: Tyramine
   - id: MONDO:0023094
     label: Exogenous ochronosis
   - id: MAXO:0000423
@@ -122,6 +111,10 @@ named_entities:
     label: Hydroquinone
   - id: MAXO:0001046
     label: discectomy
+  - id: MAXO:0000088
+    label: diet
+  - id: HP:0002758
+    label: osteoarthritis
   - id: MAXO:0000502
     label: Endotracheal intubation
   - id: HP:0000822
@@ -134,28 +127,30 @@ named_entities:
     label: Congestive heart failure
   - id: HP:0100598
     label: Pulmonary edema
-  - id: CHEBI:35498
-    label: Diuretics
   - id: CHEBI:28787
     label: Nitroglycerin
   - id: CHEBI:4670
     label: Dobutamine
+  - id: CHEBI:18243
+    label: Dopamine
   - id: CHEBI:32139
     label: Sodium bicarbonate
+  - id: CHEBI:35498
+    label: Diuretics
   - id: MAXO:0000757
     label: infusion
   - id: HP:0001650
     label: aortic stenosis
-  - id: HP:0001649
-    label: tachycardia
   - id: HP:0001942
     label: metabolic acidosis
-  - id: HP:0000708
-    label: Behavioural problems
+  - id: CHEBI:36080
+    label: protein
   - id: MAXO:0009082
     label: Arthroplasty
+  - id: CHEBI:18186
+    label: Tyrosine
   - id: HP:0003040
-    label: Arthropathy
+    label: arthropathy
   - id: MONDO:0001910
     label: Ochronosis
   - id: MAXO:0000127
@@ -166,13 +161,11 @@ named_entities:
     label: Osteoarthritis (OA)
   - id: CHEBI:77383
     label: Bisphosphonates
-  - id: MAXO:0001298
-    label: therapy
   - id: HP:0002829
     label: joint pains
   - id: CHEBI:22652
-    label: ascorbic acid
+    label: Ascorbic acid
+  - id: MAXO:0000004
+    label: Surgical intervention
   - id: HP:0025464
     label: Oxidative stress
-  - id: CHEBI:138152
-    label: Serum amyloid A (SAA)

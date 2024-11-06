@@ -20,17 +20,13 @@ input_text: 'Pelvic pain from a giant presacral Tarlov cyst successfully obliter
   recognize such unusual late-life complications. Also, these large Tarlov cysts can
   be simply and effectively obliterated with aneurysm clips. '
 raw_completion_output: |-
-  primary_disease: Marfan syndrome
-
-  medical_actions: Laminectomy;Obliteration of the Tarlov cyst using aneurysm clips;Ultrasound;CT;MRI evaluations
-
-  symptoms: Pelvic pain;Genital prolapse;Intermittent explosive diarrhea;Dysuria
-
+  primary_disease: Pelvic pain from Tarlov cyst in Marfan syndrome
+  medical_actions: Surgical obliteration using aneurysm clips; Ultrasound; CT; MRI; S1-S2 and S2-S3 laminectomy
+  symptoms: Pelvic pain; Genital prolapse; Intermittent explosive diarrhea; Dysuria; Genital prolapse; Cyst-like mass
   chemicals: 
-
-  action_annotation_relationships: Laminectomy TREATS pelvic pain IN Marfan syndrome;Obliteration of the Tarlov cyst using aneurysm clips TREATS pelvic pain IN Marfan syndrome;Ultrasound TREATS pelvic pain IN Marfan syndrome;CT TREATS pelvic pain IN Marfan syndrome;MRI evaluations TREATS pelvic pain IN Marfan syndrome
+  action_annotation_relationships: Surgical obliteration using aneurysm clips TREATS pelvic pain IN Pelvic pain from Tarlov cyst in Marfan syndrome; Surgical obliteration using aneurysm clips TREATS genital prolapse IN Pelvic pain from Tarlov cyst in Marfan syndrome; Ultrasound TREATS (diagnosis purpose) pelvic pain IN Pelvic pain from Tarlov cyst in Marfan syndrome; CT TREATS (diagnosis purpose) pelvic pain IN Pelvic pain from Tarlov cyst in Marfan syndrome; MRI TREATS (diagnosis purpose) pelvic pain IN Pelvic pain from Tarlov cyst in Marfan syndrome; S1-S2 and S2-S3 laminectomy TREATS pelvic pain IN Pelvic pain from Tarlov cyst in Marfan syndrome
 prompt: |+
-  Split the following piece of text into fields in the following format:
+  From the text below, extract the following entities in the following format:
 
   subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
   object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
@@ -43,45 +39,59 @@ prompt: |+
 
 
   Text:
-  MRI evaluations TREATS pelvic pain IN Marfan syndrome
+  S1-S2 and S2-S3 laminectomy TREATS pelvic pain IN Pelvic pain from Tarlov cyst in Marfan syndrome
 
   ===
 
 extracted_object:
-  primary_disease: MONDO:0007947
+  primary_disease: Pelvic pain from Tarlov cyst in Marfan syndrome
   medical_actions:
-    - MAXO:0001061
-    - Obliteration of the Tarlov cyst using aneurysm clips
+    - Surgical obliteration using aneurysm clips
     - Ultrasound
     - MAXO:0000571
-    - MRI evaluations
+    - MRI
+    - S1-S2 and S2-S3 laminectomy
   symptoms:
     - HP:0034267
     - HP:0000139
     - Intermittent explosive diarrhea
     - HP:0100518
+    - HP:0000139
+    - Cyst-like mass
   action_annotation_relationships:
-    - subject: MAXO:0001061
+    - subject: Surgical obliteration
       predicate: TREATS
       object: HP:0034267
-      qualifier: MONDO:0007947
-    - subject: <Obliteration of the Tarlov cyst>
-      predicate: <TREATS>
-      object: <pelvic pain>
-      qualifier: <Marfan syndrome>
-      subject_extension: <aneurysm clips>
+      qualifier: Pelvic pain from Tarlov cyst in Marfan syndrome
+      subject_extension: aneurysm clips
+    - subject: Surgical obliteration
+      predicate: TREATS
+      object: prolapse
+      qualifier: Pelvic pain from Tarlov cyst in Marfan syndrome
+      subject_extension: aneurysm clips
+      object_extension: genital
     - subject: Ultrasound
       predicate: TREATS
       object: HP:0034267
       qualifier: MONDO:0007947
+      subject_qualifier: diagnosis purpose
+      object_qualifier: from Tarlov cyst
     - subject: MAXO:0000571
       predicate: TREATS
       object: HP:0034267
       qualifier: MONDO:0007947
-    - subject: MRI evaluations
+      subject_qualifier: diagnosis purpose
+      object_qualifier: from Tarlov cyst
+    - subject: MRI
       predicate: TREATS
       object: HP:0034267
       qualifier: MONDO:0007947
+      subject_qualifier: diagnosis purpose
+      object_qualifier: from Tarlov cyst
+    - subject: S1-S2 and S2-S3 laminectomy
+      predicate: TREATS
+      object: HP:0034267
+      qualifier: Pelvic pain from Tarlov cyst in Marfan syndrome
 named_entities:
   - id: MONDO:0007947
     label: Marfan Syndrome
@@ -93,24 +103,64 @@ named_entities:
     label: Spontaneous pneumothorax
   - id: HP:0003423
     label: Thoracolumbar kyphoscoliosis
+  - id: CHEBI:33281
+    label: Antibiotic
+  - id: HP:0002107
+    label: pneumothorax
+  - id: MAXO:0010203
+    label: Echocardiography
+  - id: MAXO:0000494
+    label: Blood pressure monitoring
+  - id: HP:0004942
+    label: Aortic dilatation
+  - id: CHEBI:5959
+    label: Irbesartan
+  - id: HP:0004950
+    label: Peripheral artery disease
+  - id: HP:0002617
+    label: aneurysm
+  - id: HP:0030965
+    label: increased aortic stiffness
+  - id: HP:0001659
+    label: aortic regurgitation
+  - id: HP:0001712
+    label: left ventricular hypertrophy
+  - id: HP:0005162
+    label: left ventricular failure
   - id: HP:0000822
-    label: Hypertension
-  - id: HP:0001649
-    label: Tachycardia
-  - id: HP:0012531
-    label: pain
-  - id: MONDO:0009691
-    label: Marfan syndrome (MFS)
+    label: high blood pressure
   - id: CHEBI:6541
     label: Losartan
+  - id: CHEBI:35530
+    label: beta-blocker
+  - id: MAXO:0001298
+    label: therapy
+  - id: MONDO:0020333
+    label: Anterior sacral meningocele (ASM)
+  - id: HP:0002315
+    label: headache
+  - id: HP:0002018
+    label: nausea
+  - id: HP:0002138
+    label: subarachnoid hemorrhage
   - id: HP:0031625
     label: Pseudoaneurysms
   - id: MAXO:0000451
     label: Implantation
-  - id: HP:0031649
-    label: Aortic rupture
-  - id: MAXO:0001061
-    label: Laminectomy
+  - id: MAXO:0000457
+    label: pain management
+  - id: HP:0012531
+    label: pain
+  - id: HP:0012378
+    label: fatigue
+  - id: HP:0012332
+    label: dysautonomia
+  - id: HP:0002659
+    label: bone fragility
+  - id: HP:0025017
+    label: capillary fragility
+  - id: HP:0001030
+    label: skin fragility
   - id: MAXO:0000571
     label: CT
   - id: HP:0034267

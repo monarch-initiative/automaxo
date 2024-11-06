@@ -1,0 +1,108 @@
+---
+input_text: "Exploring the family experience of children aged 2-4 years receiving
+  daily vosoritide injections: A qualitative study. PURPOSE: Vosoritide is administered
+  as a daily subcutaneous injection in children with achondroplasia. In clinical trials,
+  families of children aged 2-4 years reported difficulty with drug administration
+  due to child fear, pain, and distress. Study aims were to gain a better understanding
+  of the current vosoritide administration experience in this cohort and to investigate
+  whether topical anaesthesia and ice application prior to injections improved the
+  child and family experience. DESIGN AND METHODS: A qualitative descriptive study
+  design ensured in-depth understanding of family experience. Parents were interviewed
+  to explore experience of vosoritide administration for their child at two time points,
+  before (Phase 1) and after (Phase 2) the introduction of topical anaesthesia and
+  ice application prior to injections. Interviews were analysed using thematic analysis.
+  RESULTS: Seven families participated. Children's ages ranged from 2 years 2 months
+  to 3 years 11 months. Five themes emerged from data analysis: (1) The reality of
+  the burden of care; (2) Child experience as the greatest obstacle; (3) Parents juggle
+  multiple emotional considerations; (4) Many factors may impact experience; and (5)
+  Short-term and long-term impacts. CONCLUSIONS: Administration of vosoritide in this
+  cohort presents multiple challenges for families. Factors which influenced experience
+  differed between families. Responses to topical anaesthesia and ice application
+  also varied between children, improving administration experience for some children
+  and worsening experience for others. PRACTICE IMPLICATIONS: This study highlights
+  the need for individualised care for young children receiving daily injections.
+  Support should be provided to families to identify factors that improve experience."
+raw_completion_output: |-
+  primary_disease: achondroplasia
+  medical_actions: vosoritide administration; topical anaesthesia; ice application
+  symptoms: child fear; pain; distress
+  chemicals: vosoritide
+  action_annotation_relationships: vosoritide administration TREATS achondroplasia IN children; topical anaesthesia PREVENTS pain IN achondroplasia; ice application PREVENTS pain IN achondroplasia
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  ice application PREVENTS pain IN achondroplasia
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0007037
+  medical_actions:
+    - vosoritide administration
+    - topical anaesthesia
+    - ice application
+  symptoms:
+    - child fear
+    - HP:0012531
+    - distress
+  chemicals:
+    - vosoritide
+  action_annotation_relationships:
+    - subject: administration
+      predicate: TREATS
+      object: achondroplasia
+      qualifier: MONDO:0017014
+      subject_extension: vosoritide
+    - subject: topical anaesthesia
+      predicate: PREVENTS
+      object: HP:0012531
+      qualifier: MONDO:0007037
+      subject_extension: anaesthesia
+    - subject: ice application
+      predicate: PREVENTS
+      object: HP:0012531
+      qualifier: MONDO:0007037
+named_entities:
+  - id: MONDO:0007037
+    label: Achondroplasia
+  - id: HP:0001513
+    label: Obesity
+  - id: HP:0005667
+    label: os odontoideum
+  - id: CHEBI:31805
+    label: Meclizine hydrochloride
+  - id: CHEBI:6709
+    label: meclizine
+  - id: MAXO:0001394
+    label: Oral administration
+  - id: HP:0031846
+    label: Femoral fracture
+  - id: CHEBI:37845
+    label: Growth hormone
+  - id: CHEBI:31324
+    label: Buserelin acetate
+  - id: HP:0004839
+    label: Hypophosphatasia
+  - id: HP:0004322
+    label: short stature
+  - id: HP:0000256
+    label: macrocephaly
+  - id: MAXO:0000127
+    label: Genetic testing
+  - id: MONDO:0007793
+    label: Hypochondroplasia
+  - id: HP:0012531
+    label: pain
+  - id: MONDO:0017014
+    label: children

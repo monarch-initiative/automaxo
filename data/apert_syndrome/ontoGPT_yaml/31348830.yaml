@@ -61,12 +61,12 @@ input_text: "The impact of chemo- and radiotherapy treatments on selfish de novo
   REGISTRATION NUMBER: NA."
 raw_completion_output: |-
   primary_disease: Apert syndrome
-  medical_actions: Chemotherapy; Radiotherapy
-  symptoms: Levels of spontaneous c.755C > G mutation in sperm
-  chemicals: 
-  action_annotation_relationships: Chemotherapy TREATS levels of spontaneous c.755C > G mutation IN Apert syndrome; Radiotherapy TREATS levels of spontaneous c.755C > G mutation IN Apert syndrome
+  medical_actions: Chemotherapy;Radiotherapy
+  symptoms: Gross DNA damage (chromosomal abnormalities and DNA fragmentation);FGFR2 point mutations
+  chemicals: Alkylating agents
+  action_annotation_relationships: Chemotherapy TREATS Gross DNA damage (chromosomal abnormalities and DNA fragmentation) IN Apert syndrome;Radiotherapy TREATS Gross DNA damage (chromosomal abnormalities and DNA fragmentation) IN Apert syndrome;Chemotherapy (with Alkylating agents) TREATS FGFR2 point mutations IN Apert syndrome;Radiotherapy TREATS FGFR2 point mutations IN Apert syndrome
 prompt: |+
-  From the text below, extract the following entities in the following format:
+  Split the following piece of text into fields in the following format:
 
   subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
   object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
@@ -79,7 +79,7 @@ prompt: |+
 
 
   Text:
-  Radiotherapy TREATS levels of spontaneous c.755C > G mutation IN Apert syndrome
+  Radiotherapy TREATS FGFR2 point mutations IN Apert syndrome
 
   ===
 
@@ -89,49 +89,58 @@ extracted_object:
     - MAXO:0000647
     - MAXO:0000014
   symptoms:
-    - Levels of spontaneous c.755C > G mutation in sperm
+    - Gross DNA damage (chromosomal abnormalities and DNA fragmentation)
+    - FGFR2 point mutations
+  chemicals:
+    - CHEBI:22333
   action_annotation_relationships:
-    - subject: <Chemotherapy>
-      predicate: <TREATS>
-      object: <levels of spontaneous c.755C > G mutation>
-      qualifier: <Apert syndrome>
-      subject_qualifier: <>
-      object_qualifier: <>
-      subject_extension: <Chemotherapy>
-      object_extension: <c.755C > G mutation>
+    - subject: MAXO:0000647
+      predicate: TREATS
+      object: Gross DNA damage (chromosomal abnormalities and DNA fragmentation)
+      qualifier: MONDO:0007041
+      subject_extension: Chemotherapy
     - subject: MAXO:0000014
       predicate: TREATS
-      object: levels of spontaneous c.755C > G mutation
+      object: Gross DNA damage (chromosomal abnormalities and DNA fragmentation)
+      qualifier: MONDO:0007041
+    - subject: MAXO:0000647
+      predicate: TREATS
+      object: FGFR2 point mutations
+      qualifier: MONDO:0007041
+      subject_qualifier: with
+      subject_extension: CHEBI:22333
+      object_extension: FGFR2 point mutations
+    - subject: MAXO:0000014
+      predicate: TREATS
+      object: FGFR2 point mutations
       qualifier: MONDO:0007041
 named_entities:
-  - id: HP:0011800
-    label: Midface hypoplasia
   - id: MONDO:0007041
     label: Apert syndrome
   - id: MAXO:0000486
-    label: distraction osteogenesis
+    label: Distraction osteogenesis
   - id: HP:0012531
-    label: pain
+    label: Pain
   - id: HP:0001288
-    label: gait disturbances
-  - id: MONDO:0003432
-    label: Strabismus
+    label: Gait disturbances
   - id: HP:0001159
     label: Syndactyly
-  - id: MAXO:0000004
-    label: surgical procedures
   - id: HP:0001363
     label: craniosynostosis
+  - id: HP:0011800
+    label: midface hypoplasia
   - id: MONDO:0015338
     label: syndromic craniosynostosis
   - id: HP:0001061
     label: Acne
   - id: CHEBI:6067
-    label: isotretinoin
+    label: Isotretinoin
   - id: MONDO:0015469
     label: Craniosynostosis
+  - id: HP:0000504
+    label: Vision issues
   - id: HP:0000572
-    label: Vision loss
+    label: Visual loss
   - id: HP:0000646
     label: Amblyopia
   - id: HP:0001138
@@ -142,16 +151,18 @@ named_entities:
     label: Anisometropia
   - id: HP:0000483
     label: Astigmatism
-  - id: MAXO:0000504
-    label: Tracheostomy
   - id: MAXO:0000502
-    label: Tracheal intubation
-  - id: HP:0010807
-    label: Open bite
-  - id: MAXO:0000756
-    label: blood transfusion
+    label: tracheal intubation
+  - id: HP:0009102
+    label: Anterior open bite
   - id: MAXO:0001183
     label: Bronchoscopy
+  - id: MAXO:0000504
+    label: Tracheotomy
+  - id: MAXO:0001029
+    label: Adenoidectomy
+  - id: MAXO:0001081
+    label: Tonsillectomy
   - id: HP:0002104
     label: Apneic episodes
   - id: HP:0002098
@@ -160,26 +171,24 @@ named_entities:
     label: Stridor
   - id: HP:0000961
     label: Cyanosis
-  - id: MONDO:0009735
-    label: Netherton syndrome
-  - id: MONDO:0011438
-    label: Acne vulgaris
+  - id: HP:0000689
+    label: malocclusion
   - id: HP:0002902
-    label: hyponatremia
-  - id: MAXO:0000068
-    label: Transplantation
+    label: Hyponatremia
   - id: MAXO:0010031
     label: bone grafting
+  - id: MAXO:0001291
+    label: cranioplasty
   - id: HP:0001249
     label: mental retardation
+  - id: HP:0001263
+    label: developmental delays
   - id: HP:0002516
     label: raised intracranial pressure
   - id: HP:0010535
     label: sleep apnea
   - id: HP:0000174
     label: palatal anomalies
-  - id: HP:0005347
-    label: Tracheal Cartilaginous Sleeve
   - id: HP:0000175
     label: Cleft palate
   - id: HP:0000365
@@ -190,31 +199,29 @@ named_entities:
     label: Cardiac anomalies
   - id: HP:0001818
     label: Paronychia
-  - id: MAXO:0001029
-    label: adenoidectomy
-  - id: MAXO:0001081
-    label: tonsillectomy
   - id: MAXO:0000506
-    label: noninvasive ventilation
+    label: Noninvasive ventilation
   - id: HP:0002870
-    label: obstructive apneas
+    label: Obstructive apneas
   - id: HP:0000453
-    label: choanal atresia
+    label: Choanal atresia
   - id: HP:0004411
-    label: deviated nasal septum
+    label: Deviated nasal septum
   - id: HP:0002871
-    label: central apneas
+    label: Central apneas
   - id: HP:0002308
     label: Chiari malformations
   - id: MONDO:0002457
-    label: Tracheal cartilaginous sleeve (TCS) in syndromic craniosynostosis
+    label: Tracheal Cartilaginous Sleeve (TCS) in Syndromic Craniosynostosis
   - id: MAXO:0001189
-    label: laryngoscopy
-  - id: HP:0001263
-    label: developmental delay
+    label: Laryngoscopy
   - id: HP:0002119
-    label: enlarged cerebral ventricles
+    label: Enlarged cerebral ventricles
+  - id: HP:0005347
+    label: Tracheal Cartilaginous Sleeve
   - id: MAXO:0000647
     label: Chemotherapy
   - id: MAXO:0000014
     label: Radiotherapy
+  - id: CHEBI:22333
+    label: Alkylating agents

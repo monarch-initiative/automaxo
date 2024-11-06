@@ -9,10 +9,14 @@ input_text: A pitfall in the prenatal diagnosis of Lesch-Nyhan syndrome by chori
   diagnosis, the reaction products of HPRT must be protected from catabolism.
 raw_completion_output: |-
   primary_disease: Lesch-Nyhan syndrome
-  medical_actions: Control of catabolic enzyme activities; Protection of HPRT reaction products from catabolism
-  symptoms: Greatly decreased HPRT activity
-  chemicals: 5'-nucleotidase; Purine nucleoside phosphorylase; Hypoxanthine-guanine phosphoribosyltransferase (HPRT)
-  action_annotation_relationships: Control of catabolic enzyme activities PREVENTS greatly decreased HPRT activity IN Lesch-Nyhan syndrome; Protection of HPRT reaction products from catabolism PREVENTS greatly decreased HPRT activity IN Lesch-Nyhan syndrome
+
+  medical_actions: control of catabolic enzyme activities; protection of HPRT reaction products from catabolism
+
+  symptoms: decreased HPRT activity; false diagnosis of Lesch-Nyhan syndrome 
+
+  chemicals: 5'-nucleotidase; purine nucleoside phosphorylase; hypoxanthine-guanine phosphoribosyltransferase (HPRT)
+
+  action_annotation_relationships: control of catabolic enzyme activities PREVENTS false diagnosis of Lesch-Nyhan syndrome IN Lesch-Nyhan syndrome; protection of HPRT reaction products from catabolism PREVENTS decreased HPRT activity IN Lesch-Nyhan syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -27,44 +31,43 @@ prompt: |+
 
 
   Text:
-  Protection of HPRT reaction products from catabolism PREVENTS greatly decreased HPRT activity IN Lesch-Nyhan syndrome
+  protection of HPRT reaction products from catabolism PREVENTS decreased HPRT activity IN Lesch-Nyhan syndrome
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0010298
   medical_actions:
-    - Control of catabolic enzyme activities
-    - Protection of HPRT reaction products from catabolism
+    - control of catabolic enzyme activities
+    - protection of HPRT reaction products from catabolism
   symptoms:
-    - Greatly decreased HPRT activity
+    - decreased HPRT activity
+    - false diagnosis of Lesch-Nyhan syndrome
   chemicals:
     - 5'-nucleotidase
-    - Purine nucleoside phosphorylase
-    - Hypoxanthine-guanine phosphoribosyltransferase (HPRT)
+    - purine nucleoside phosphorylase
+    - hypoxanthine-guanine phosphoribosyltransferase (HPRT)
   action_annotation_relationships:
-    - subject: Control
+    - subject: control of catabolic enzyme activities
       predicate: PREVENTS
-      object: greatly decreased HPRT activity
+      object: false diagnosis of Lesch-Nyhan syndrome
       qualifier: MONDO:0010298
-      subject_extension: catabolic enzyme activities
-      object_extension: HPRT activity
-    - subject: Protection
+    - subject: protection of HPRT reaction products from catabolism
       predicate: PREVENTS
-      object: greatly decreased HPRT activity
+      object: decreased HPRT activity
       qualifier: MONDO:0010298
-      subject_extension: HPRT reaction products
+      subject_extension: protection of HPRT reaction products from catabolism
 named_entities:
   - id: MONDO:0010298
     label: Lesch-Nyhan syndrome
-  - id: HP:0002149
-    label: hyperuricemia
-  - id: HP:0100021
-    label: spastic cerebral palsy (CP)
-  - id: HP:0001332
-    label: dystonia
   - id: HP:0000742
-    label: self-mutilation
+    label: Self-mutilation
+  - id: HP:0002149
+    label: Hyperuricemia
+  - id: HP:0001249
+    label: Mental retardation
+  - id: HP:0001332
+    label: Dystonia
   - id: HP:0001257
     label: Spasticity
   - id: HP:0001266
@@ -75,46 +78,42 @@ named_entities:
     label: Aggression
   - id: HP:0002104
     label: Apnea
-  - id: HP:0002013
-    label: Vomiting
   - id: CHEBI:44915
     label: Propofol
+  - id: HP:0002835
+    label: pulmonary aspiration
   - id: MAXO:0000943
     label: deep brain stimulation surgery (DBS)
   - id: CHEBI:9130
     label: sevoflurane
-  - id: MAXO:0009003
-    label: preimplantation genetic diagnosis (PGD)
-  - id: HP:0001249
-    label: mental retardation
   - id: CHEBI:17368
     label: Hypoxanthine
   - id: CHEBI:15372
-    label: tetrahydrobiopterin
+    label: Tetrahydrobiopterin
   - id: CHEBI:35634
-    label: xanthine oxidase inhibitors
+    label: Xanthine oxidase inhibitors
+  - id: MAXO:0000004
+    label: surgical procedures
   - id: CHEBI:3387
-    label: Carbamazepine
-  - id: HP:0007325
-    label: generalized dystonia
+    label: carbamazepine
+  - id: MONDO:0002486
+    label: Lesch-Nyhan syndrome (LNS)
   - id: HP:0100660
-    label: dyskinesia
+    label: Dyskinesia
   - id: HP:0003149
-    label: Hyperuricosuria
+    label: hyperuricosuria
   - id: HP:0001997
-    label: Gouty arthritis
-  - id: CHEBI:28790
-    label: serotonin
+    label: gouty arthritis
   - id: CHEBI:28683
     label: kynurenine
   - id: CHEBI:16675
     label: quinolinic acid
+  - id: CHEBI:28790
+    label: serotonin
   - id: CHEBI:15318
     label: xanthine
   - id: HP:0001263
     label: developmental retardation
-  - id: MONDO:0002486
-    label: Lesch-Nyhan syndrome (LNS)
   - id: HP:0000708
     label: Behavioral disturbances
   - id: HP:0012758
@@ -122,15 +121,15 @@ named_entities:
   - id: CHEBI:8802
     label: Remifentanil
   - id: MAXO:0010033
-    label: Umbilical cord blood transplant (UCBT)
+    label: Umbilical Cord Blood Transplant (UCBT)
   - id: MAXO:0000139
     label: Autopsy
   - id: HP:0033006
     label: Diffuse alveolar damage
   - id: HP:6000716
     label: Hepatic veno-occlusive disease
-  - id: HP:0011793
-    label: malignant neoplasm
+  - id: HP:0002721
+    label: immunodeficiencies
   - id: MAXO:0000882
     label: behavioral interventions
   - id: MAXO:0000894
@@ -139,37 +138,19 @@ named_entities:
     label: allopurinol
   - id: MAXO:0001298
     label: therapy
-  - id: HP:0030050
-    label: Catalepsy
-  - id: CHEBI:73297
-    label: SCH 23390
-  - id: CHEBI:5123
-    label: fluphenazine
-  - id: CHEBI:32168
-    label: (+/-) sulpiride
-  - id: MONDO:0010100
-    label: Tay-Sachs disease
+  - id: MAXO:0009003
+    label: preimplantation genetic diagnosis (PGD)
+  - id: CHEBI:26337
+    label: <preimplantation genetic diagnosis (PGD)>
   - id: MAXO:0000058
     label: Pharmacological treatment
+  - id: HP:0000739
+    label: Anxiety
   - id: CHEBI:15414
     label: S-adenosylmethionine (SAMe)
   - id: CHEBI:18406
     label: AICAR
   - id: HP:0004305
     label: involuntary movements
-  - id: MAXO:0010030
-    label: Bone marrow transplantation
-  - id: HP:0012169
-    label: self-biting
-  - id: CHEBI:78741
-    label: 6-hydroxydopamine (6-OHDA)
-  - id: CHEBI:53704
-    label: apomorphine (APO)
-  - id: CHEBI:17256
-    label: dopamine (DA)
-  - id: CHEBI:1582
-    label: 3-methoxytyramine (3-MT)
-  - id: CHEBI:33310
-    label: norepinephrine (NE)
-  - id: CHEBI:48538
-    label: apomorphine
+  - id: MONDO:0003847
+    label: Inherited diseases

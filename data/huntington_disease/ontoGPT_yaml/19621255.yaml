@@ -16,11 +16,11 @@ input_text: 'Preimplantation genetic diagnosis of P450 oxidoreductase deficiency
   combining direct and indirect methods for the detection of three different mutations
   in a single cell has been achieved for the first time.'
 raw_completion_output: |-
-  primary_disease: Huntington Disease;P450 oxidoreductase deficiency
-  medical_actions: Fragment size analysis;Minisequencing;Short tandem repeat (STR) markers analysis
-  symptoms: Not specified
-  chemicals: Not specified
-  action_annotation_relationships: Short tandem repeat (STR) markers analysis TREATS Not specified IN Huntington Disease;Fragment size analysis TREATS Not specified IN P450 oxidoreductase deficiency;Minisequencing TREATS Not specified IN P450 oxidoreductase deficiency
+  primary_disease: P450 oxidoreductase deficiency; Huntington Disease
+  medical_actions: Preimplantation genetic diagnosis using short tandem repeat (STR) markers; Analysis by fragment size; Minisequencing; Supporting diagnosis using STR markers linked to the POR gene
+  symptoms: none mentioned
+  chemicals: none mentioned
+  action_annotation_relationships: Preimplantation genetic diagnosis using short tandem repeat (STR) markers PREVENTS Huntington Disease; Analysis by fragment size PREVENTS P450 oxidoreductase deficiency; Minisequencing PREVENTS P450 oxidoreductase deficiency; Supporting diagnosis using STR markers linked to the POR gene PREVENTS P450 oxidoreductase deficiency
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -35,41 +35,34 @@ prompt: |+
 
 
   Text:
-  Minisequencing TREATS Not specified IN P450 oxidoreductase deficiency
+  Supporting diagnosis using STR markers linked to the POR gene PREVENTS P450 oxidoreductase deficiency
 
   ===
 
 extracted_object:
-  primary_disease: Huntington Disease;P450 oxidoreductase deficiency
+  primary_disease: P450 oxidoreductase deficiency; Huntington Disease
   medical_actions:
-    - Fragment size analysis
+    - Preimplantation genetic diagnosis using short tandem repeat (STR) markers
+    - Analysis by fragment size
     - Minisequencing
-    - Short tandem repeat (STR) markers analysis
+    - Supporting diagnosis using STR markers linked to the POR gene
   symptoms:
-    - Not specified
+    - none mentioned
   chemicals:
-    - Not specified
+    - none mentioned
   action_annotation_relationships:
-    - subject: Short tandem repeat (STR) markers analysis
-      predicate: TREATS
-      object: Not specified
-      qualifier: MONDO:0007739
-    - subject: Fragment size analysis
-      predicate: TREATS
-      object: Not specified
-      qualifier: MONDO:0013310
-      subject_qualifier: Not applicable
-      object_qualifier: Not applicable
-      subject_extension: P450 oxidoreductase deficiency
-      object_extension: Not applicable
+    - subject: Preimplantation genetic diagnosis
+      predicate: PREVENTS
+      object: Huntington Disease
+      subject_qualifier: using
+      subject_extension: short tandem repeat (STR) markers
+    - subject: Analysis by fragment size
+      predicate: PREVENTS
+      object: P450 oxidoreductase deficiency
     - subject: Minisequencing
-      predicate: TREATS
-      object: Not specified
-      qualifier: MONDO:0013310
-      subject_extension: P450 oxidoreductase deficiency
-      object_extension: Not specified
-named_entities:
-  - id: MONDO:0007739
-    label: Huntington Disease
-  - id: MONDO:0013310
-    label: P450 oxidoreductase deficiency
+      predicate: PREVENTS
+      object: P450 oxidoreductase deficiency
+    - subject: Supporting diagnosis
+      predicate: PREVENTS
+      object: P450 oxidoreductase deficiency
+      subject_extension: STR markers linked to the POR gene

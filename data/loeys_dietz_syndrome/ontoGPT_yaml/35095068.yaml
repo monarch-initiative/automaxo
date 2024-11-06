@@ -15,15 +15,15 @@ input_text: Proposed Management Policy for Pregnant Women with Loeys-Dietz Syndr
   including this case, and a literature review, we propose a peripartum management
   strategy for patients with LDS following prophylactic ARR.
 raw_completion_output: |-
-  primary_disease: Loeys-Dietz syndrome (LDS)
+  primary_disease: Loeys-Dietz syndrome
 
-  medical_actions: prophylactic aortic root replacement (ARR); beta-blocker treatment; precise blood pressure management; continuation of beta-blocker treatment; cardiovascular assessment with echocardiogram; regional anesthesia during labor; prevention of lactation; resumption of angiotensin II receptor blocker therapy
+  medical_actions: Preconception counseling; Prophylactic aortic root replacement (ARR); Beta-blocker treatment; Blood pressure management; Cardiovascular assessment with echocardiogram; Regional anesthesia during labor; Prevention of lactation; Resumption of angiotensin II receptor blocker therapy
 
-  symptoms: aortic dissection (AD)
+  symptoms: Aortic dissection
 
-  chemicals: beta-blocker; angiotensin II receptor blocker
+  chemicals: Beta-blockers; Angiotensin II receptor blockers
 
-  action_annotation_relationships: prophylactic aortic root replacement (ARR) PREVENTS aortic dissection (AD) IN Loeys-Dietz syndrome (LDS); beta-blocker treatment PREVENTS aortic dissection (AD) IN Loeys-Dietz syndrome (LDS); precise blood pressure management TREATS aortic dissection (AD) IN Loeys-Dietz syndrome (LDS); continuation of beta-blocker treatment TREATS aortic dissection (AD) IN Loeys-Dietz syndrome (LDS); cardiovascular assessment with echocardiogram TREATS aortic dissection (AD) IN Loeys-Dietz syndrome (LDS); angiotensin II receptor blocker therapy PREVENTS aortic dissection (AD) IN Loeys-Dietz syndrome (LDS)
+  action_annotation_relationships: Prophylactic aortic root replacement (ARR) PREVENTS Aortic dissection IN Loeys-Dietz syndrome; Beta-blocker treatment PREVENTS Aortic dissection IN Loeys-Dietz syndrome; Blood pressure management PREVENTS Aortic dissection IN Loeys-Dietz syndrome; Cardiovascular assessment with echocardiogram PREVENTS Aortic dissection IN Loeys-Dietz syndrome; Regional anesthesia during labor PREVENTS Aortic dissection IN Loeys-Dietz syndrome; Prevention of lactation PREVENTS Complications IN Loeys-Dietz syndrome; Resumption of angiotensin II receptor blocker therapy PREVENTS Aortic dissection IN Loeys-Dietz syndrome
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -38,52 +38,55 @@ prompt: |+
 
 
   Text:
-  angiotensin II receptor blocker therapy PREVENTS aortic dissection (AD) IN Loeys-Dietz syndrome (LDS)
+  Resumption of angiotensin II receptor blocker therapy PREVENTS Aortic dissection IN Loeys-Dietz syndrome
 
   ===
 
 extracted_object:
   primary_disease: MONDO:0018954
   medical_actions:
-    - prophylactic aortic root replacement (ARR)
-    - beta-blocker treatment
-    - precise blood pressure management
-    - continuation of beta-blocker treatment
-    - cardiovascular assessment with echocardiogram
-    - regional anesthesia during labor
-    - prevention of lactation
-    - resumption of angiotensin II receptor blocker therapy
+    - Preconception counseling
+    - Prophylactic aortic root replacement (ARR)
+    - Beta-blocker treatment
+    - Blood pressure management
+    - Cardiovascular assessment with echocardiogram
+    - Regional anesthesia during labor
+    - Prevention of lactation
+    - Resumption of angiotensin II receptor blocker therapy
   symptoms:
-    - HP:0002511
+    - HP:0002647
   chemicals:
     - CHEBI:35530
-    - angiotensin II receptor blocker
+    - Angiotensin II receptor blockers
   action_annotation_relationships:
-    - subject: prophylactic aortic root replacement (ARR)
+    - subject: Prophylactic aortic root replacement (ARR)
       predicate: PREVENTS
-      object: HP:0002511
+      object: HP:0002647
       qualifier: MONDO:0018954
     - subject: treatment
       predicate: PREVENTS
       object: HP:0002647
       qualifier: MONDO:0018954
       subject_extension: CHEBI:35530
-    - subject: precise blood pressure management
-      predicate: TREATS
+    - subject: Blood pressure management
+      predicate: PREVENTS
       object: HP:0002647
       qualifier: MONDO:0018954
-      object_extension: AD
-    - subject: treatment
-      predicate: TREATS
+    - subject: Cardiovascular assessment with echocardiogram
+      predicate: PREVENTS
       object: HP:0002647
       qualifier: MONDO:0018954
-      subject_qualifier: continuation of
-      subject_extension: CHEBI:35530
-    - subject: cardiovascular assessment with echocardiogram
-      predicate: TREATS
-      object: HP:0002647
+    - subject: <Regional anesthesia>
+      predicate: <PREVENTS>
+      object: <Aortic dissection>
+      qualifier: <Loeys-Dietz syndrome>
+      subject_qualifier: <during labor>
+      subject_extension: <Regional anesthesia>
+    - subject: Prevention of lactation
+      predicate: PREVENTS
+      object: Complications
       qualifier: MONDO:0018954
-    - subject: MAXO:0001298
+    - subject: Resumption of therapy
       predicate: PREVENTS
       object: HP:0002647
       qualifier: MONDO:0018954
@@ -91,18 +94,60 @@ extracted_object:
 named_entities:
   - id: MONDO:0018954
     label: Loeys-Dietz syndrome
+  - id: MAXO:0000945
+    label: spinal cord stimulation (SCS)
+  - id: HP:0031625
+    label: Pseudoaneurysms
+  - id: MAXO:0000451
+    label: Implantation
+  - id: HP:0000978
+    label: Easy bruising
+  - id: HP:0002616
+    label: Aortic root dilatation
+  - id: HP:0001382
+    label: Joint laxity
+  - id: CHEBI:35530
+    label: Beta-blocker
+  - id: MAXO:0010203
+    label: Echocardiography
   - id: HP:0012764
     label: orthopnea
   - id: HP:0001631
     label: atrial septal defect
+  - id: HP:0001263
+    label: developmental delay
+  - id: HP:0003302
+    label: Spondylolisthesis
+  - id: HP:0003304
+    label: Spondylolysis
   - id: HP:0012531
-    label: pain
+    label: Pain
   - id: HP:0004942
     label: aortic aneurysms
+  - id: HP:0002647
+    label: aortic dissection
   - id: HP:0001645
-    label: premature sudden cardiac death
+    label: sudden cardiac death
+  - id: HP:0004944
+    label: Cerebral aneurysms
+  - id: HP:0002617
+    label: Vasculopathy
+  - id: HP:0030745
+    label: Aneurysm of the ductus arteriosus
   - id: MAXO:0000948
-    label: craniotomy
+    label: Craniotomy
+  - id: MAXO:0010319
+    label: CT angiogram
+  - id: MAXO:0010312
+    label: Head CT
+  - id: HP:0007185
+    label: Loss of consciousness
+  - id: HP:0002138
+    label: Subarachnoid hemorrhage
+  - id: HP:0025237
+    label: Unresponsive
+  - id: CHEBI:35620
+    label: vasodilator
   - id: MAXO:0000011
     label: Physical therapy
   - id: MAXO:0001351
@@ -115,33 +160,41 @@ named_entities:
     label: Hypotonia
   - id: MONDO:0007947
     label: Marfan syndrome
-  - id: HP:0002647
-    label: aortic dissection
   - id: HP:0100718
     label: uterine rupture
+  - id: HP:0031649
+    label: Aortic rupture
+  - id: HP:6000144
+    label: Left ventricular aneurysms
+  - id: HP:0005116
+    label: Arterial tortuosity
+  - id: HP:0000316
+    label: Hypertelorism
+  - id: HP:0000193
+    label: Bifid uvula
+  - id: HP:0000175
+    label: Cleft palate
+  - id: HP:0001659
+    label: Aortic insufficiency
+  - id: MAXO:0000004
+    label: surgical intervention
+  - id: HP:0001892
+    label: bleeding tendency
   - id: MAXO:0000106
-    label: Nutritional supplementation
+    label: nutritional supplementation
   - id: HP:4000055
-    label: Intestinal inflammation
+    label: intestinal inflammation
   - id: HP:0500093
-    label: Food allergy
+    label: food allergy
   - id: HP:0001508
-    label: Failure to thrive
+    label: failure to thrive
   - id: HP:0001058
-    label: Poor wound healing
-  - id: HP:0001297
-    label: Stroke
+    label: poor wound healing
   - id: MAXO:0010032
     label: heart transplantation
+  - id: HP:0001297
+    label: stroke
   - id: MAXO:0000127
     label: Genetic testing
   - id: HP:0012727
     label: Thoracic aortic aneurysms
-  - id: HP:0001083
-    label: Ectopia lentis
-  - id: HP:0002511
-    label: aortic dissection (AD)
-  - id: CHEBI:35530
-    label: beta-blocker
-  - id: MAXO:0001298
-    label: therapy

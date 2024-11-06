@@ -27,15 +27,11 @@ input_text: 'Cell and tissue engineering and clinical applications: an overview.
   diseases (Parkinson, Huntington disease, ..), .. Various aspects of this new regenerative
   therapeutic medicine are developed in this work.'
 raw_completion_output: |-
-  primary_disease: Not applicable (The text provides an overview of cell and tissue engineering and clinical applications, rather than focusing on a specific disease.)
-
-  medical_actions: Cell therapies; Tissue engineering; Biotherapies with stem cells; Use of embryonic stem cells; Isolation of adult stem cells; Use of foetal stem cells; Utilization of dendritic cells in cell therapy; Gene therapy
-
-  symptoms: Not specifically mentioned
-
-  chemicals: Not specifically mentioned
-
-  action_annotation_relationships: Cell therapies TREATS damaged tissue IN various diseases; Tissue engineering TREATS damaged tissue IN various diseases; Biotherapies with stem cells PREVENTS diseases IN clinical applications; Use of embryonic stem cells TREATS regenerating functions IN diseases; Isolation of adult stem cells TREATS regenerating functions IN bone marrow related diseases; Use of foetal stem cells TREATS haematopoietic system diseases IN umbilical cord blood diseases; Utilization of dendritic cells in cell therapy TREATS immune response IN melanomas, breast cancer, prostate cancer; Gene therapy TREATS genetic disorders IN diseases like haemophilia, myopathies
+  primary_disease: Regenerative diseases and deficiencies
+  medical_actions: Cell therapies;Tissue engineering;Development of biotherapies with stem cells;Isolating adult stem cells;Use of foetal stem cells;Therapeutic research with dendritic cells;Gene therapy
+  symptoms: tissue damage;leukaemia;cancers;cardiac insufficiency;vascular diseases;bone repair issues;ligament and tendon repair issues;liver diseases;diabetic symptoms;neurological deficiencies
+  chemicals: 
+  action_annotation_relationships: Cell therapies TREATS tissue damage IN Regenerative diseases and deficiencies;Tissue engineering TREATS tissue damage IN Regenerative diseases and deficiencies;Development of biotherapies with stem cells TREATS tissue damage IN Regenerative diseases and deficiencies;Isolating adult stem cells TREATS tissue damage IN Regenerative diseases and deficiencies;Use of foetal stem cells TREATS tissue damage IN Regenerative diseases and deficiencies;Therapeutic research with dendritic cells TREATS cancers IN Regenerative diseases and deficiencies;Gene therapy TREATS leukaemia IN Regenerative diseases and deficiencies;Gene therapy TREATS haemophilia IN Regenerative diseases and deficiencies;Gene therapy TREATS myopathies IN Regenerative diseases and deficiencies
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -50,148 +46,203 @@ prompt: |+
 
 
   Text:
-  Gene therapy TREATS genetic disorders IN diseases like haemophilia, myopathies
+  Gene therapy TREATS myopathies IN Regenerative diseases and deficiencies
 
   ===
 
 extracted_object:
-  primary_disease: Not applicable (The text provides an overview of cell and tissue
-    engineering and clinical applications, rather than focusing on a specific disease.)
+  primary_disease: Regenerative diseases and deficiencies
   medical_actions:
     - MAXO:0000016
     - Tissue engineering
-    - Biotherapies with stem cells
-    - Use of embryonic stem cells
-    - Isolation of adult stem cells
+    - Development of biotherapies with stem cells
+    - Isolating adult stem cells
     - Use of foetal stem cells
-    - Utilization of dendritic cells in cell therapy
+    - Therapeutic research with dendritic cells
     - MAXO:0001001
   symptoms:
-    - Not specifically mentioned
-  chemicals:
-    - Not specifically mentioned
+    - tissue damage
+    - HP:0001909
+    - HP:0002664
+    - HP:0001635
+    - HP:0002617
+    - bone repair issues
+    - ligament and tendon repair issues
+    - HP:0001392
+    - diabetic symptoms
+    - neurological deficiencies
   action_annotation_relationships:
     - subject: MAXO:0000016
       predicate: TREATS
-      object: damaged tissue
-      qualifier: various diseases
+      object: tissue damage
+      qualifier: Regenerative diseases and deficiencies
     - subject: Tissue engineering
       predicate: TREATS
-      object: damaged tissue
-      qualifier: various diseases
-    - subject: Biotherapies with stem cells
-      predicate: PREVENTS
-      object: diseases
-      qualifier: clinical applications
-    - subject: Use of embryonic stem cells
+      object: tissue damage
+      qualifier: Regenerative diseases and deficiencies
+      subject_qualifier: <Not applicable>
+      object_qualifier: <Not applicable>
+      subject_extension: <Not applicable>
+      object_extension: <Not applicable>
+    - subject: Development of biotherapies
       predicate: TREATS
-      object: regenerating functions
-      qualifier: MONDO:0000001
-      subject_extension: embryonic stem cells
-    - subject: <Isolation of adult stem cells>
+      object: tissue damage
+      qualifier: Regenerative diseases and deficiencies
+      subject_qualifier: with stem cells
+      subject_extension: stem cells
+    - subject: <Isolating adult stem cells>
       predicate: <TREATS>
-      object: <regenerating functions>
-      qualifier: <bone marrow related diseases>
+      object: <tissue damage>
+      qualifier: <Regenerative diseases and deficiencies>
       subject_extension: <adult stem cells>
     - subject: Use of foetal stem cells
       predicate: TREATS
-      object: haematopoietic system diseases
-      qualifier: umbilical cord blood diseases
+      object: tissue damage
+      qualifier: Regenerative diseases and deficiencies
       subject_extension: foetal stem cells
-      object_extension: umbilical cord blood
-    - subject: MAXO:0000016
+    - subject: Therapeutic research
       predicate: TREATS
-      object: immune response
-      qualifier: melanomas, breast cancer, prostate cancer
-      subject_qualifier: Utilization of
+      object: HP:0002664
+      qualifier: Regenerative diseases and deficiencies
       subject_extension: dendritic cells
+      object_extension: cancers
+    - subject: MAXO:0001001
+      predicate: TREATS
+      object: HP:0001909
+      qualifier: Regenerative diseases and deficiencies
+      subject_extension: Gene therapy
     - subject: <Gene therapy>
       predicate: <TREATS>
-      object: <genetic disorders>
-      qualifier: <haemophilia, myopathies>
+      object: <haemophilia>
+      qualifier: <Regenerative diseases and deficiencies>
       subject_qualifier: <>
       object_qualifier: <>
       subject_extension: <Gene therapy>
-      object_extension: <genetic disorders>
+      object_extension: <>
+    - subject: MAXO:0001001
+      predicate: TREATS
+      object: HP:0003198
+      qualifier: Regenerative diseases and deficiencies
+      subject_extension: Gene therapy
 named_entities:
   - id: MONDO:0007739
-    label: Huntington Disease
-  - id: MONDO:0013310
-    label: P450 oxidoreductase deficiency
-  - id: CHEBI:78757
-    label: Cystamine
-  - id: HP:0002072
-    label: choreic movements
+    label: Huntington disease
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0002180
+    label: neurodegeneration
+  - id: HP:0001268
+    label: cognitive decline
   - id: HP:0100022
     label: movement disorders
-  - id: CHEBI:16348
-    label: 3-nitropropionic acid (3-NP)
-  - id: MAXO:0000068
-    label: transplantation
-  - id: CHEBI:16675
-    label: quinolinic acid
-  - id: MAXO:0000011
-    label: physiotherapy
-  - id: MAXO:0000883
-    label: cognitive therapy
-  - id: HP:0002140
-    label: ischemic stroke
-  - id: MONDO:0005180
-    label: Parkinson disease
-  - id: MONDO:0005559
-    label: neurodegenerative diseases
+  - id: HP:0002072
+    label: choreic movements
+  - id: MAXO:0009003
+    label: preimplantation genetic testing
+  - id: MAXO:0001592
+    label: RNA interference therapy
+  - id: HP:0000716
+    label: depression
+  - id: HP:0000739
+    label: anxiety
+  - id: HP:0000737
+    label: irritability
+  - id: CHEBI:7735
+    label: olanzapine
+  - id: MAXO:0000882
+    label: behavioral interventions
   - id: HP:0004395
     label: malnutrition
+  - id: MAXO:0000011
+    label: physical therapy
   - id: CHEBI:22720
     label: benzodiazepines
   - id: CHEBI:2618
     label: amantadine
   - id: CHEBI:15765
     label: levodopa
+  - id: HP:0002315
+    label: Headache
+  - id: CHEBI:134738
+    label: Laquinimod
+  - id: CHEBI:4903
+    label: Ethinylestradiol
+  - id: CHEBI:6443
+    label: Levonorgestrel
   - id: HP:0001251
     label: Ataxia
   - id: HP:0001260
     label: Dysarthria
   - id: HP:0002119
     label: Ventricular dilatation
-  - id: MAXO:0009017
-    label: Cognitive assessment (Mini-Mental State Examination)
   - id: HP:0100543
-    label: Cognitive impairment
+    label: cognitive deficits
+  - id: HP:0000708
+    label: Behavioral changes
   - id: CHEBI:92976
     label: Latrepirdine
-  - id: MONDO:0004976
-    label: amyotrophic lateral sclerosis
-  - id: HP:0002180
-    label: neurodegeneration
-  - id: MAXO:0000451
-    label: Implantation
+  - id: MONDO:0005559
+    label: Neurodegenerative diseases
+  - id: CHEBI:16243
+    label: Quercetin
+  - id: CHEBI:3962
+    label: Curcumin
+  - id: CHEBI:27881
+    label: Resveratrol
+  - id: CHEBI:75095
+    label: Chrysin
+  - id: CHEBI:28821
+    label: Piperine
+  - id: CHEBI:17620
+    label: Ferulic acid
+  - id: CHEBI:78330
+    label: Huperzine A
+  - id: CHEBI:16118
+    label: Berberine
+  - id: CHEBI:2979
+    label: Baicalein
+  - id: CHEBI:28230
+    label: Hesperetin
+  - id: CHEBI:26536
+    label: Retinoic acid
+  - id: MAXO:0000127
+    label: Genetic testing
   - id: CHEBI:76004
     label: Dimethyl fumarate
   - id: MAXO:0010012
-    label: Coenzyme Q10 supplementation
+    label: coenzyme Q10 supplementation
   - id: HP:0003287
     label: mitochondrial dysfunction
+  - id: HP:0025464
+    label: oxidative stress
   - id: CHEBI:46245
-    label: Coenzyme Q10
+    label: coenzyme Q10
   - id: CHEBI:31687
     label: idebenone
   - id: MONDO:0100339
     label: Friedreich ataxia
-  - id: CHEBI:30513
-    label: Sleeping Beauty (SB) transposon system
-  - id: MONDO:0858950
-    label: Traumatic Brain Injury (TBI)
-  - id: CHEBI:30145
-    label: lithium
-  - id: CHEBI:60654
-    label: valproate
-  - id: MAXO:0001001
-    label: gene therapy
-  - id: HP:0000708
-    label: Behavioral changes
-  - id: HP:0001268
-    label: Cognitive decline
+  - id: MONDO:0016621
+    label: Juvenile Huntington Disease
+  - id: MAXO:0000021
+    label: Palliative care
+  - id: CHEBI:6030
+    label: Isoniazid (INH)
+  - id: CHEBI:16865
+    label: gamma-aminobutyric acid (GABA)
+  - id: HP:0000709
+    label: psychosis
+  - id: HP:0011951
+    label: aspiration pneumonia
+  - id: MAXO:0000065
+    label: aerobic exercises
+  - id: MAXO:0000487
+    label: clinical assessments
+  - id: MAXO:0000387
+    label: muscle biopsy
+  - id: CHEBI:9467
+    label: Tetrabenazine
+  - id: MAXO:0000943
+    label: Deep brain stimulation
   - id: HP:0001332
     label: Dystonia
   - id: HP:0001336
@@ -206,131 +257,111 @@ named_entities:
     label: GABA agonists
   - id: CHEBI:38462
     label: Acetylcholinesterase inhibitors
-  - id: HP:0011096
-    label: Demyelination
-  - id: CHEBI:86497
-    label: hydroxykynurenine (3-HK)
+  - id: MONDO:0005071
+    label: Neurological disorders
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: HP:0033429
+    label: neuroinflammation
+  - id: MAXO:0000079
+    label: genetic counseling
+  - id: MAXO:0000016
+    label: Cell Therapy
+  - id: MONDO:0008199
+    label: Parkinson Disease (PD) and Huntington Disease (HD)
+  - id: MONDO:0005314
+    label: Relapsing-remitting multiple sclerosis (RRMS)
+  - id: MAXO:0001394
+    label: oral administration
+  - id: MAXO:0001610
+    label: repetitive transcranial magnetic stimulation (rTMS)
+  - id: CHEBI:76720
+    label: Antisense oligonucleotides
+  - id: MONDO:0001516
+    label: spinal muscular atrophy
   - id: CHEBI:16919
-    label: Creatine
+    label: creatine
+  - id: CHEBI:35476
+    label: Neuroleptics
   - id: HP:0002015
     label: dysphagia
   - id: HP:0000873
     label: diabetes insipidus
-  - id: HP:0011951
-    label: aspiration pneumonia
   - id: HP:0001622
     label: preterm delivery
   - id: HP:0012330
     label: pyelonephritis
-  - id: HP:0000712
-    label: Mood swings
-  - id: HP:0000750
-    label: Speech difficulties
-  - id: CHEBI:8863
-    label: riluzole
-  - id: MAXO:0009018
-    label: Neuropsychological assessment
+  - id: HP:0004305
+    label: Involuntary movements
+  - id: HP:0002312
+    label: Clumsiness
+  - id: HP:0000745
+    label: Lack of motivation
   - id: HP:0002354
-    label: Memory dysfunction
-  - id: MAXO:0000950
-    label: supportive care
-  - id: HP:0001289
-    label: confusion
-  - id: HP:0000739
-    label: anxiety
-  - id: HP:0002063
-    label: Rigidity
-  - id: HP:0000718
-    label: Aggression
+    label: Memory loss
+  - id: HP:0001824
+    label: Weight loss
+  - id: MAXO:0000022
+    label: hospice care
+  - id: CHEBI:8863
+    label: Riluzole
+  - id: HP:0002527
+    label: falls
   - id: CHEBI:45979
-    label: tetrabenazine (TBZ)
-  - id: CHEBI:9467
-    label: tetrabenazine
-  - id: CHEBI:48607
-    label: Lithium chloride
-  - id: CHEBI:472552
-    label: BrdU
-  - id: MAXO:0000127
-    label: Genetic testing
-  - id: HP:0000716
-    label: Depression
-  - id: HP:0002355
-    label: Difficulty walking
+    label: TBZ
+  - id: MAXO:0000571
+    label: CT scan
   - id: MONDO:0009366
     label: Normal Pressure Hydrocephalus
   - id: CHEBI:3723
     label: citalopram
-  - id: MONDO:0010735
-    label: Spinal and bulular muscular atrophy (SBMA)
-  - id: CHEBI:64103
-    label: Sodium butyrate
-  - id: MONDO:0009061
-    label: cystic fibrosis
-  - id: MAXO:0000079
-    label: genetic counseling
-  - id: MAXO:0000016
-    label: Cell therapy
+  - id: HP:0000657
+    label: Ocular Motor Apraxia
+  - id: CHEBI:27314
+    label: Water-soluble vitamins
+  - id: CHEBI:46662
+    label: Minerals
+  - id: HP:0000741
+    label: apathy
   - id: HP:0001288
-    label: impaired gait
-  - id: MONDO:0013282
-    label: alpha-1 antitrypsin deficiency
+    label: Impaired gait
   - id: HP:0002067
-    label: Bradykinesia
-  - id: MONDO:0004975
-    label: Alzheimer disease
-  - id: HP:0007269
-    label: spinal muscular atrophy
-  - id: MONDO:0005071
-    label: Neurological disorders
-  - id: CHEBI:17226
-    label: rosmarinic acid
-  - id: CHEBI:75456
-    label: glycerol monostearate
-  - id: CHEBI:53426
-    label: tween 80
+    label: bradykinesia
   - id: HP:0002311
-    label: incoordination
-  - id: CHEBI:35476
-    label: antipsychotics
+    label: Incoordination
   - id: CHEBI:45652
-    label: succinylcholine
-  - id: HP:0002835
-    label: pulmonary aspiration
-  - id: CHEBI:38161
-    label: Metal chelators
-  - id: CHEBI:22586
-    label: antioxidant
-  - id: MAXO:0001298
-    label: Therapy
-  - id: HP:0004305
-    label: Involuntary movements
+    label: Succinylcholine
+  - id: CHEBI:16348
+    label: 3-nitropropionic acid
+  - id: MONDO:0005180
+    label: Parkinson's Disease
+  - id: HP:0002511
+    label: Alzheimer's disease
+  - id: HP:0000819
+    label: diabetes mellitus
+  - id: MAXO:0000504
+    label: Tracheostomy
+  - id: HP:0002093
+    label: respiratory insufficiency
+  - id: HP:0000718
+    label: aggression
+  - id: CHEBI:60654
+    label: valproate
+  - id: HP:0002329
+    label: somnolence
   - id: CHEBI:6437
     label: Levetiracetam
-  - id: HP:0025020
-    label: Elevated prostate-specific antigen levels
-  - id: HP:0012378
-    label: Fatigue
   - id: CHEBI:9464
     label: Testosterone enanthate
-  - id: CHEBI:17347
-    label: testosterone
-  - id: HP:0025464
-    label: Oxidative stress
-  - id: CHEBI:48981
-    label: 8-hydroxyquinoline
-  - id: CHEBI:44975
-    label: O-phenanthroline
-  - id: CHEBI:30351
-    label: 2,2'-dipyridyl
-  - id: CHEBI:50453
-    label: Desferrioxamine
-  - id: CHEBI:63620
-    label: rasagiline
-  - id: MONDO:0016107
-    label: myotonic dystrophy
-  - id: MONDO:0010383
-    label: fragile X syndrome
-  - id: MONDO:0020380
-    label: spinocerebellar ataxias
-  - id: MONDO:0000001
-    label: diseases
+  - id: HP:0001909
+    label: leukaemia
+  - id: HP:0002664
+    label: cancers
+  - id: HP:0001635
+    label: cardiac insufficiency
+  - id: HP:0002617
+    label: vascular diseases
+  - id: HP:0001392
+    label: liver diseases
+  - id: HP:0003198
+    label: myopathies

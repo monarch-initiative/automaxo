@@ -18,13 +18,13 @@ input_text: Distribution, infections, treatments and molecular analysis in a lar
 raw_completion_output: |-
   primary_disease: Primary Immunodeficiency Diseases (PIDs)
 
-  medical_actions: Stem cell transplantation; FISH (Fluorescence In Situ Hybridization); Direct sequencing
+  medical_actions: Stem cell transplantation; FISH (Fluorescence in situ hybridization); Direct sequencing
 
   symptoms: Septicemia
 
   chemicals: 
 
-  action_annotation_relationships: Stem cell transplantation TREATS Septicemia IN Primary Immunodeficiency Diseases (PIDs); FISH (Fluorescence In Situ Hybridization) IDENTIFIES Primary Immunodeficiency Diseases (PIDs); Direct sequencing IDENTIFIES Primary Immunodeficiency Diseases (PIDs)
+  action_annotation_relationships: Stem cell transplantation TREATS Primary Immunodeficiency Diseases (PIDs); FISH (Fluorescence in situ hybridization) IDENTIFIES DiGerge syndrome IN Primary Immunodeficiency Diseases (PIDs); Direct sequencing IDENTIFIES mutations IN Primary Immunodeficiency Diseases (PIDs)
 prompt: |+
   From the text below, extract the following entities in the following format:
 
@@ -39,7 +39,7 @@ prompt: |+
 
 
   Text:
-  Direct sequencing IDENTIFIES Primary Immunodeficiency Diseases (PIDs)
+  Direct sequencing IDENTIFIES mutations IN Primary Immunodeficiency Diseases (PIDs)
 
   ===
 
@@ -47,50 +47,59 @@ extracted_object:
   primary_disease: MONDO:0000922
   medical_actions:
     - Stem cell transplantation
-    - FISH (Fluorescence In Situ Hybridization)
+    - FISH (Fluorescence in situ hybridization)
     - Direct sequencing
   symptoms:
     - HP:0100806
   action_annotation_relationships:
-    - subject: Stem cell transplantation
-      predicate: TREATS
-      object: HP:0100806
+    - subject: <Stem cell transplantation>
+      predicate: <TREATS>
+      object: <Primary Immunodeficiency Diseases>
+      qualifier: <PIDs>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: <FISH (Fluorescence in situ hybridization)>
+      predicate: <IDENTIFIES>
+      object: <DiGeorge syndrome>
       qualifier: MONDO:0000922
-    - subject: FISH
-      predicate: IDENTIFIES
-      object: Primary Immunodeficiency Diseases
-      qualifier: MONDO:0000922
-      subject_extension: Fluorescence In Situ Hybridization
+      subject_extension: <FISH (Fluorescence in situ hybridization)>
     - subject: Direct sequencing
       predicate: IDENTIFIES
-      object: Primary Immunodeficiency Diseases (PIDs)
+      object: mutations
+      qualifier: MONDO:0000922
 named_entities:
+  - id: HP:0012531
+    label: pain
   - id: MAXO:0010030
-    label: Bone marrow transplantation (BMT)
+    label: bone marrow transplantation (BMT)
   - id: MONDO:0008963
     label: Chediak-Higashi syndrome
   - id: MAXO:0010033
-    label: Unrelated cord blood transplantation (UCBT)
+    label: unrelated cord blood transplantation (UCBT)
   - id: MAXO:0000747
     label: HSCT
   - id: MAXO:0000750
-    label: Conditioning regimens
+    label: conditioning regimens
   - id: CHEBI:41264
     label: BU
   - id: CHEBI:4027
-    label: Cyclophosphamide
+    label: cyclophosphamide
   - id: CHEBI:4911
-    label: Etoposide
+    label: etoposide
+  - id: MONDO:0008090
+    label: Chediak-Higashi syndrome (CHS)
   - id: HP:0001433
-    label: hepatosplenomegaly
+    label: Hepatosplenomegaly
   - id: HP:0003270
-    label: abdominal distention
+    label: Abdominal distention
   - id: MONDO:0024686
     label: Pigmented villonodular synovitis (PVNS)
   - id: HP:0001945
-    label: fever
+    label: Fever
   - id: MONDO:0003778
-    label: primary immunodeficiency
+    label: primary immunodeficiencies
   - id: HP:0025322
     label: veno-occlusive disease
   - id: CHEBI:28901
@@ -99,8 +108,10 @@ named_entities:
     label: cyclosporine
   - id: CHEBI:44185
     label: methotrexate
-  - id: MONDO:0008090
-    label: Chediak-Higashi Syndrome (CHS)
+  - id: HP:0100806
+    label: sepsis
+  - id: CHEBI:28790
+    label: Serotonin
   - id: HP:0002718
     label: recurrent bacterial infections
   - id: HP:0000613
@@ -124,10 +135,8 @@ named_entities:
   - id: HP:0001022
     label: albinism
   - id: HP:0001892
-    label: Bleeding tendency
+    label: bleeding tendency
   - id: HP:0000992
-    label: Photosensitivity
+    label: photosensitivity
   - id: MONDO:0000922
     label: Primary immunodeficiency diseases (PIDs)
-  - id: HP:0100806
-    label: Septicemia

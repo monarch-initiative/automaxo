@@ -1,0 +1,180 @@
+---
+input_text: 'Early Identification of Primary Hypothyroidism in Neonates Exposed to
+  Intralymphatic Iodinated Contrast: A Case Series. Context: In neonates, iatrogenic
+  hypothyroidism can result from topical or IV iodine exposure. Data on intralymphatic
+  iodine exposure, risk factors for disease severity, and timing of hypothyroidism
+  are limited. Case Descriptions: We report 4 cases of premature neonates with previously
+  normal thyroid function tests (TFTs) who developed hypothyroidism after intralymphatic
+  iodinated contrast. Patients 1 and 2, premature infants with complex medical histories,
+  had chylous effusions and high-volume chest tube output requiring imaging with lymphangiograms
+  on day of life (DOL) 97 and DOL 43, respectively. They developed severe, primary
+  hypothyroidism with TSH of 335.7 mIU/mL (reference range, 1.7 to 9.1) on DOL 111
+  and TSH of 470.2 mIU/mL (reference range, 1.7 to 9.1) on DOL 68. Patient 3 had prenatally
+  diagnosed fetal hydrops manifesting with chylous effusions and high-volume chest
+  tube output. The infant underwent lymphangiography on DOL 90 and was noted to have
+  an elevated TSH of 13.35 mIU/mL (reference range, 1.7 to 9.1) 4 days later with
+  spot urine iodine of 1742 microg/L (normal, <200). Patient 4 had a lymphatic malformation
+  and underwent sclerotherapy with doxycycline with intralymphatic iodine exposure
+  on DOL 4 and was found to have a TSH of 16.7 microU/mL (reference range, 1.7 to
+  9.1) 3 days later with spot urine iodine of 228,712 microg/L (normal, <200). The
+  TFT results for all patients improved after levothyroxine administration. Conclusion:
+  Intralymphatic iodine should be considered a major risk factor in the development
+  of iatrogenic primary hypothyroidism, especially in premature neonates soon after
+  exposure. Close monitoring of TFTs is imperative to avoid potential long-term adverse
+  outcomes in this population.'
+raw_completion_output: |-
+  primary_disease: Primary Hypothyroidism
+
+  medical_actions: Imaging with lymphangiograms; Administration of levothyroxine; Sclerotherapy with doxycycline; Close monitoring of TFTs
+
+  symptoms: Elevated TSH; Chylous effusions; High-volume chest tube output
+
+  chemicals: Iodinated contrast; Levothyroxine; Doxycycline
+
+  action_annotation_relationships: Imaging with lymphangiograms TREATS chylous effusions IN Primary Hypothyroidism; Administration of levothyroxine (with Levothyroxine) TREATS elevated TSH IN Primary Hypothyroidism; Sclerotherapy with doxycycline (with Doxycycline) TREATS lymphatic malformation IN Primary Hypothyroidism; Close monitoring of TFTs PREVENTS potential long-term adverse outcomes IN Primary Hypothyroidism
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Close monitoring of TFTs PREVENTS potential long-term adverse outcomes IN Primary Hypothyroidism
+
+  ===
+
+extracted_object:
+  primary_disease: Primary Hypothyroidism
+  medical_actions:
+    - Imaging with lymphangiograms
+    - Administration of levothyroxine
+    - Sclerotherapy with doxycycline
+    - Close monitoring of TFTs
+  symptoms:
+    - Elevated TSH
+    - Chylous effusions
+    - High-volume chest tube output
+  chemicals:
+    - Iodinated contrast
+    - CHEBI:18332
+    - CHEBI:50845
+  action_annotation_relationships:
+    - subject: <Imaging with lymphangiograms>
+      predicate: <TREATS>
+      object: <chylous effusions>
+      qualifier: <Primary Hypothyroidism>
+      subject_extension: <lymphangiograms>
+    - subject: Administration of levothyroxine
+      predicate: TREATS
+      object: elevated TSH
+      qualifier: Primary Hypothyroidism
+      subject_qualifier: with Levothyroxine
+      subject_extension: CHEBI:18332
+    - subject: Sclerotherapy
+      predicate: TREATS
+      object: lymphatic malformation
+      qualifier: Primary Hypothyroidism
+      subject_qualifier: with Doxycycline
+      subject_extension: CHEBI:50845
+    - subject: Close monitoring of TFTs
+      predicate: PREVENTS
+      object: potential long-term adverse outcomes
+      qualifier: Primary Hypothyroidism
+named_entities:
+  - id: MAXO:0000004
+    label: Surgery
+  - id: MAXO:0000504
+    label: tracheotomy
+  - id: HP:0006536
+    label: airway obstruction
+  - id: HP:0010628
+    label: facial nerve palsy
+  - id: CHEBI:9168
+    label: Rapamycin
+  - id: MAXO:0000448
+    label: Surgical resection
+  - id: MONDO:0002013
+    label: lymphatic malformation (LM)
+  - id: HP:0012532
+    label: Chronic pain
+  - id: CHEBI:134778
+    label: n-butyl cyanoacrylate
+  - id: CHEBI:22907
+    label: bleomycin
+  - id: MONDO:0019313
+    label: Lymphatic malformations
+  - id: MAXO:0000014
+    label: Radiotherapy
+  - id: HP:0001009
+    label: Telangiectasias
+  - id: HP:0001097
+    label: Xerophthalmia
+  - id: HP:0011787
+    label: Central hypothyroidism
+  - id: CHEBI:16236
+    label: Ethanol
+  - id: MONDO:0017014
+    label: children
+  - id: HP:0012587
+    label: Gross hematuria
+  - id: HP:0030157
+    label: Flank pain
+  - id: MONDO:0018736
+    label: Kaposiform lymphangiomatosis
+  - id: HP:0000978
+    label: easy bruising
+  - id: HP:0005521
+    label: consumptive coagulopathy
+  - id: CHEBI:8382
+    label: prednisone
+  - id: CHEBI:28445
+    label: vincristine
+  - id: MONDO:0018500
+    label: Cervical lymphatic malformation (CLM)
+  - id: HP:0001561
+    label: Polyhydramnios
+  - id: HP:0001790
+    label: Nonimmune hydrops
+  - id: HP:0100806
+    label: Sepsis
+  - id: HP:0002089
+    label: Pulmonary hypoplasia
+  - id: CHEBI:78160
+    label: pingyangmycin
+  - id: MONDO:0002267
+    label: Airway obstruction
+  - id: MAXO:0001189
+    label: Laryngoscopy
+  - id: MAXO:0001183
+    label: Bronchoscopy
+  - id: HP:0012531
+    label: Pain
+  - id: MAXO:0000058
+    label: Pharmacotherapy
+  - id: MAXO:0001551
+    label: orotracheal intubation
+  - id: HP:0012768
+    label: perinatal asphyxia
+  - id: CHEBI:18332
+    label: levothyroxine
+  - id: HP:0000851
+    label: congenital hypothyroidism
+  - id: HP:0011134
+    label: Mild fever
+  - id: CHEBI:46859
+    label: Polidocanol
+  - id: MONDO:0019329
+    label: Microcystic lymphatic malformation (MLM)
+  - id: HP:0002015
+    label: dysphagia
+  - id: HP:0002835
+    label: pulmonary aspiration
+  - id: CHEBI:50845
+    label: doxycycline
