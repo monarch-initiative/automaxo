@@ -1,0 +1,90 @@
+---
+input_text: 'Radiotherapy for subependymal giant cell astrocytoma: time to challenge
+  a historical ban? A case report and review of the literature. BACKGROUND: Subependymal
+  giant cell astrocytoma is a benign brain tumor that occurs in patients with tuberous
+  sclerosis complex. Surgical removal is the traditional treatment, and expert opinion
+  is strongly against the use of radiotherapy. Recently, success has been reported
+  with the mTor inhibitor everolimus in reducing tumor volume, but regrowth has been
+  observed after dose reduction or cessation. CASE REPORT: We present the case of
+  a 40-year-old Asian female patient treated successfully for growing bilateral subependymal
+  giant cell astrocytoma with fractionated stereotactic radiotherapy before everolimus
+  became available. After a follow-up of 8 years, everolimus was administered for
+  renal angiomyolipoma and the patient was followed up until 13 years after radiotherapy.
+  Successive magnetic resonance imaging demonstrated an 80% volume reduction after
+  radiotherapy that increased to 90% with everolimus. A review of the literature was
+  done leveraging Medline via PubMed, and we assembled a database of 1298 article
+  references and 780 full-text articles in search of evidence for contraindicating
+  radiotherapy in subependymal giant cell astrocytoma. Varying results of single-fraction
+  radiosurgery were described in a total of 13 cases. Only in two published cases
+  was the radiation dose of fractionated radiotherapy mentioned. One single publication
+  mentions an induced secondary brain tumor 8 years after whole-brain radiotherapy.
+  CONCLUSION: There is no evidence of contraindication and exclusion of fractionated
+  radiotherapy in treating subependymal giant cell astrocytoma. Our experience demonstrates
+  that subependymal giant cell astrocytoma, as other benign intracranial tumors, responds
+  slowly but progressively to radiotherapy and suggests that fractionated stereotactic
+  radiotherapy holds promise to consolidate responses obtained with mTor inhibitors
+  avoiding regrowth after cessation.'
+raw_completion_output: |-
+  primary_disease: Subependymal giant cell astrocytoma
+
+  medical_actions: Surgical removal;fractionated stereotactic radiotherapy;administration of everolimus
+
+  symptoms: tumor volume growth
+
+  chemicals: everolimus
+
+  action_annotation_relationships: Surgical removal TREATS tumor volume growth IN Subependymal giant cell astrocytoma;fractionated stereotactic radiotherapy TREATS tumor volume growth IN Subependymal giant cell astrocytoma;administration of everolimus (with everolimus) TREATS tumor volume growth IN Subependymal giant cell astrocytoma
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  administration of everolimus (with everolimus) TREATS tumor volume growth IN Subependymal giant cell astrocytoma
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0016693
+  medical_actions:
+    - MAXO:0000447
+    - fractionated stereotactic radiotherapy
+    - administration of everolimus
+  symptoms:
+    - tumor volume growth
+  chemicals:
+    - CHEBI:68478
+  action_annotation_relationships:
+    - subject: MAXO:0000447
+      predicate: TREATS
+      object: tumor volume growth
+      qualifier: MONDO:0016693
+    - subject: <fractionated stereotactic radiotherapy>
+      predicate: <TREATS>
+      object: <tumor volume growth>
+      qualifier: <Subependymal giant cell astrocytoma>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <fractionated stereotactic radiotherapy>
+      object_extension: <None>
+    - subject: administration of everolimus
+      predicate: TREATS
+      object: tumor volume growth
+      qualifier: MONDO:0016693
+      subject_qualifier: with everolimus
+      subject_extension: CHEBI:68478
+named_entities:
+  - id: MONDO:0016693
+    label: Subependymal giant cell astrocytoma
+  - id: MAXO:0000447
+    label: Surgical removal
+  - id: CHEBI:68478
+    label: everolimus

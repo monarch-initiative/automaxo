@@ -1,0 +1,140 @@
+---
+input_text: "Drug reactions in children with rheumatic diseases receiving parenteral
+  therapies: 9 years' experience of a tertiary pediatric rheumatology center. Parenteral
+  treatments (either subcutaneous or intravenous) are frequently used in rheumatology
+  practice. In this study, drug side effects in patients who were followed up with
+  a rheumatic disease and treated with parenteral administration methods were evaluated.
+  The drug side effects in children who were followed up with a rheumatic disease
+  and treated with parenteral treatments between 2010 and 2019 were recorded, retrospectively.
+  All parenteral treatments are applied by a clinical nurse specialist (CNS) who is
+  experienced in pediatric rheumatology for 10 years. Four hundred and thirteen patients
+  were evaluated in this study. The mean age was 12.09 +- 5.05 years. Most of them
+  were diagnosed with juvenile idiopathic arthritis (n = 317) and colchicine-resistant
+  familial Mediterranean fever (n = 57). Among the patients, 287 was treated with
+  methotrexate, 130 with etanercept, 90 with adalimumab, 71 with anakinra, 64 with
+  canakinumab, 55 with tocilizumab, seven with rituximab, six with infliximab, and
+  four with abatacept. Two of the patients had a history of drug allergy (ceftriaxone
+  = 1, ranitidine = 1). The most common adverse reactions were as follows: nausea-vomiting
+  in 52, rash in 11, itching in three, chest tightening in two, bruising in two, headache
+  in two, and abdominal pain in one of the patients. Drug side effects were observed
+  after an average of three (1-4) administrations. Antihistaminic and steroids (tocilizumab
+  = 3, infliximab = 1, methotrexate = 1) were administered to five patients due to
+  hypersensitivity reactions. Considering the possible side effects and preparation
+  protocols of parenteral treatments, experienced physicians and nurses are required
+  in the field."
+raw_completion_output: |-
+  primary_disease: Rheumatic diseases
+
+  medical_actions: Parenteral treatments (either subcutaneous or intravenous); Administration of antihistaminic and steroids
+
+  symptoms: Nausea-vomiting; Rash; Itching; Chest tightening; Bruising; Headache; Abdominal pain
+
+  chemicals: Methotrexate; Etanercept; Adalimumab; Anakinra; Canakinumab; Tocilizumab; Rituximab; Infliximab; Abatacept; Ceftriaxone; Ranitidine
+
+  action_annotation_relationships: Administration of antihistaminic and steroids TREATS nausea-vomiting IN Rheumatic diseases; Administration of antihistaminic and steroids TREATS rash IN Rheumatic diseases; Administration of antihistaminic and steroids TREATS itching IN Rheumatic diseases; Administration of antihistaminic and steroids TREATS chest tightening IN Rheumatic diseases; Administration of antihistaminic and steroids TREATS bruising IN Rheumatic diseases; Administration of antihistaminic and steroids TREATS headache IN Rheumatic diseases; Administration of antihistaminic and steroids TREATS abdominal pain IN Rheumatic diseases
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Administration of antihistaminic and steroids TREATS abdominal pain IN Rheumatic diseases
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005554
+  medical_actions:
+    - Parenteral treatments (either subcutaneous or intravenous)
+    - Administration of antihistaminic and steroids
+  symptoms:
+    - Nausea-vomiting
+    - HP:0000988
+    - HP:0000989
+    - Chest tightening
+    - Bruising
+    - HP:0002315
+    - HP:0002027
+  chemicals:
+    - CHEBI:44185
+    - CHEBI:4875
+    - Adalimumab
+    - CHEBI:231683
+    - Canakinumab
+    - CHEBI:64360
+    - CHEBI:64357
+    - Infliximab
+    - Abatacept
+    - CHEBI:29007
+    - CHEBI:8776
+  action_annotation_relationships:
+    - subject: Administration
+      predicate: TREATS
+      object: nausea-vomiting
+      qualifier: MONDO:0005554
+      subject_extension: antihistaminic and steroids
+    - subject: Administration
+      predicate: TREATS
+      object: HP:0000988
+      qualifier: MONDO:0005554
+      subject_extension: antihistaminic and steroids
+    - subject: Administration
+      predicate: TREATS
+      object: HP:0000989
+      qualifier: MONDO:0005554
+      subject_extension: antihistaminic and steroids
+    - subject: Administration
+      predicate: TREATS
+      object: chest tightening
+      qualifier: MONDO:0005554
+      subject_extension: antihistaminic and steroids
+    - subject: Administration
+      predicate: TREATS
+      object: bruising
+      qualifier: MONDO:0005554
+      subject_extension: antihistaminic and steroids
+    - subject: Administration
+      predicate: TREATS
+      object: HP:0002315
+      qualifier: MONDO:0005554
+      subject_extension: antihistaminic and steroids
+    - subject: Administration
+      predicate: TREATS
+      object: HP:0002027
+      qualifier: MONDO:0005554
+      subject_extension: antihistaminic and steroids
+named_entities:
+  - id: MONDO:0018456
+    label: Polyarticular Juvenile Idiopathic Arthritis
+  - id: CHEBI:44185
+    label: Methotrexate
+  - id: MONDO:0005554
+    label: Rheumatic diseases
+  - id: HP:0000988
+    label: Rash
+  - id: HP:0000989
+    label: Itching
+  - id: HP:0002315
+    label: Headache
+  - id: HP:0002027
+    label: Abdominal pain
+  - id: CHEBI:4875
+    label: Etanercept
+  - id: CHEBI:231683
+    label: Anakinra
+  - id: CHEBI:64360
+    label: Tocilizumab
+  - id: CHEBI:64357
+    label: Rituximab
+  - id: CHEBI:29007
+    label: Ceftriaxone
+  - id: CHEBI:8776
+    label: Ranitidine

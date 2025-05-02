@@ -1,0 +1,90 @@
+---
+input_text: 'SETD2 loss and ATR inhibition synergize to promote cGAS signaling and
+  immunotherapy response in renal cell carcinoma. PURPOSE: Immune checkpoint blockade
+  (ICB) demonstrates durable clinical benefits in a minority of patients with renal
+  cell carcinoma (RCC). We aimed to identify the molecular features that determine
+  the response and develop approaches to enhance the response. EXPERIMENTAL DESIGN:
+  We investigated the effects of SET domain-containing protein 2 (SEDT2) loss on the
+  DNA damage response pathway, the cytosolic DNA sensing pathway, the tumor immune
+  microenvironment, and the response to Ataxia telangiectasia and rad3 related (ATR)
+  and checkpoint inhibition in RCC. RESULTS: ATR inhibition activated the cyclic GMP-AMP
+  synthase (cGAS)-Interferon regulatory factor 3 (IRF3)-dependent cytosolic DNA-sensing
+  pathway, resulting in the concurrent expression of inflammatory cytokines and immune
+  checkpoints. Among the common RCC genotypes, SETD2 loss is associated with preferential
+  ATR activation and sensitizes cells to ATR inhibition. SETD2 knockdown promoted
+  the cytosolic DNA sensing pathway in response to ATR inhibition. Treatment with
+  the ATR inhibitor VE822 concurrently upregulated immune cell infiltration and immune
+  checkpoint expression in Setd2 knockdown Renca tumors, providing a rationale for
+  ATR inhibition plus ICB combination therapy. Setd2 deficient Renca tumors demonstrated
+  greater vulnerability to ICB monotherapy or combination therapy with VE822 than
+  Setd2 proficient tumors. Moreover, SETD2 mutations were associated with a higher
+  response rate and prolonged overall survival in ICB-treated RCC patients but not
+  in non-ICB-treated RCC patients. CONCLUSIONS: SETD2 loss and ATR inhibition synergize
+  to promote cGAS signaling and enhance immune cell infiltration, providing a mechanistic
+  rationale for the combination of ATR and checkpoint inhibition in RCC patients with
+  SETD2 mutations.'
+raw_completion_output: |-
+  primary_disease: Renal cell carcinoma
+  medical_actions: Immune checkpoint blockade (ICB); ATR inhibition; combination therapy with VE822 and ICB; SETD2 knockdown; investigation of DNA damage response pathway; investigation of the cytosolic DNA sensing pathway; investigation of the tumor immune microenvironment
+  symptoms: Not explicitly mentioned
+  chemicals: VE822
+  action_annotation_relationships: ATR inhibition TREATS SETD2 loss IN Renal cell carcinoma; Combination therapy with VE822 TREATS SETD2 deficiency IN Renal cell carcinoma; SETD2 knockdown (with VE822) TREATS immune cell infiltration IN Renal cell carcinoma; Immune checkpoint blockade (ICB) TREATS SETD2 mutations IN Renal cell carcinoma
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Immune checkpoint blockade (ICB) TREATS SETD2 mutations IN Renal cell carcinoma
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005086
+  medical_actions:
+    - Immune checkpoint blockade (ICB)
+    - ATR inhibition
+    - combination therapy with VE822 and ICB
+    - SETD2 knockdown
+    - investigation of DNA damage response pathway
+    - investigation of the cytosolic DNA sensing pathway
+    - investigation of the tumor immune microenvironment
+  symptoms:
+    - Not explicitly mentioned
+  chemicals:
+    - VE822
+  action_annotation_relationships:
+    - subject: ATR inhibition
+      predicate: TREATS
+      object: SETD2 loss
+      qualifier: MONDO:0005086
+      subject_extension: ATR inhibition
+    - subject: Combination therapy
+      predicate: TREATS
+      object: SETD2 deficiency
+      qualifier: MONDO:0005086
+      subject_qualifier: with VE822
+      subject_extension: VE822
+    - subject: SETD2 knockdown
+      predicate: TREATS
+      object: immune cell infiltration
+      qualifier: MONDO:0005086
+      subject_qualifier: with VE822
+      subject_extension: VE822
+    - subject: Immune checkpoint blockade
+      predicate: TREATS
+      object: SETD2 mutations
+      qualifier: MONDO:0005086
+      subject_extension: Immune checkpoint blockade
+      object_extension: SETD2 mutations
+named_entities:
+  - id: MONDO:0005086
+    label: Renal cell carcinoma

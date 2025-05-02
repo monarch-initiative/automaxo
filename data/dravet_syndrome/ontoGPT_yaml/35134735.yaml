@@ -1,0 +1,138 @@
+---
+input_text: 'Status epilepticus following vaccination in children aged <=24 months:
+  A five-year retrospective observational study. BACKGROUND: Status epilepticus is
+  associated with significant morbidity and mortality. While vaccine-proximate status
+  epilepticus (VP-SE) has rarely been associated with cases of Dravet syndrome, it
+  is not known whether VP-SE differs clinically from non-vaccine proximate status
+  epilepticus (NVP-SE). METHODS: Medical records of children aged <=24 months, presenting
+  to one of five Australian tertiary pediatric hospitals with their first episode
+  of status epilepticus from 2013 to 2017 were identified using ICD-coded discharge
+  diagnoses. Vaccination history was obtained from the Australian Immunisation Register.
+  Hospitalization details, subsequent epilepsy diagnosis, and vaccination uptake were
+  compared between VP-SE and NVP-SE cases. RESULTS: Of 245 first status epilepticus
+  hospitalization with immunization records, 35 (14%) were VP-SE and 21 (60%) followed
+  measles-containing vaccines. Vaccine-proximate status epilepticus cases had a median
+  age of 12.5 months [IQR 7.1-14.73], 23 (66%) were in males, 15 (43%) were febrile
+  status epilepticus and 17 (49%) had an infection confirmed. There were no significant
+  differences in hospitalization duration (P = 0.50) or intensive care unit admission
+  (P = 0.42) between children with VP-SE compared to children with NVP-SE. Children
+  with no history of seizures at their first VP-SE had longer hospitalizations, were
+  more likely to require intensive care unit admission, but were less likely to have
+  a subsequent diagnosis of epilepsy than children with previous seizures at their
+  first VP-SE. CONCLUSION: First VP-SE was predominantly associated with a measles-containing
+  vaccine at 12-months of age. Seizure severity was no different between first VP-SE
+  and first NVP-SE. In children with VP-SE, subsequent seizure admissions and epilepsy
+  diagnosis were associated with having seizure prior to their first SE.'
+raw_completion_output: |-
+  primary_disease: Status epilepticus
+
+  medical_actions: Hospitalization; Intensive care unit admission
+
+  symptoms: Seizures; Febrile status epilepticus
+
+  chemicals: Measles-containing vaccines
+
+  action_annotation_relationships: Measles-containing vaccines PREVENTS Seizures IN Status epilepticus; Hospitalization TREATS Seizures IN Status epilepticus; Intensive care unit admission TREATS Seizures IN Status epilepticus
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Intensive care unit admission TREATS Seizures IN Status epilepticus
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0002125
+  medical_actions:
+    - Hospitalization
+    - Intensive care unit admission
+  symptoms:
+    - HP:0001250
+    - HP:0032656
+  chemicals:
+    - Measles-containing vaccines
+  action_annotation_relationships:
+    - subject: MAXO:0001017
+      predicate: PREVENTS
+      object: HP:0001250
+      qualifier: MONDO:0002125
+      subject_extension: measles-containing vaccines
+    - subject: Hospitalization
+      predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0002125
+    - subject: Intensive care unit admission
+      predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0002125
+named_entities:
+  - id: MONDO:0100135
+    label: Dravet syndrome
+  - id: MAXO:0001187
+    label: hysteroscopy
+  - id: CHEBI:44915
+    label: propofol
+  - id: CHEBI:119915
+    label: fentanyl
+  - id: CHEBI:9130
+    label: sevoflurane
+  - id: HP:0001250
+    label: seizures
+  - id: CHEBI:6443
+    label: Mirena
+  - id: MONDO:0002602
+    label: Central nervous system diseases
+  - id: HP:0002011
+    label: central nervous system diseases
+  - id: MONDO:0005027
+    label: Epilepsy
+  - id: HP:0002014
+    label: Diarrhea
+  - id: HP:0000988
+    label: Rash
+  - id: CHEBI:228488
+    label: Stiripentol
+  - id: CHEBI:60654
+    label: Valproate
+  - id: CHEBI:69478
+    label: Cannabidiol
+  - id: CHEBI:80634
+    label: 2-propyl-4-pentenoic acid (4-ene-VPA)
+  - id: HP:0002373
+    label: Febrile seizures
+  - id: MAXO:0001298
+    label: therapy
+  - id: CHEBI:31413
+    label: clobazam (CLB)
+  - id: HP:0010819
+    label: drop seizures
+  - id: HP:0002329
+    label: somnolence
+  - id: HP:0004396
+    label: decreased appetite
+  - id: CHEBI:9925
+    label: sodium valproate
+  - id: MONDO:0016532
+    label: Lennox-Gastaut syndrome
+  - id: HP:0000729
+    label: Autistic behaviors
+  - id: HP:0033258
+    label: Sudden unexpected death in epilepsy
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: MONDO:0002125
+    label: Status epilepticus
+  - id: HP:0032656
+    label: Febrile status epilepticus
+  - id: MAXO:0001017
+    label: vaccination

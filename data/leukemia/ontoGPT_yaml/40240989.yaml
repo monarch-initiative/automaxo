@@ -1,0 +1,214 @@
+---
+input_text: 'Impact of lenalidomide consolidation on health-related quality of life
+  in chronic lymphocytic leukemia: ancillary study of the phase III CLL6-RESIDUUM
+  trial. BACKGROUND: Within the French-Australian CLL6 RESIDUUM trial, an ancillary
+  study aimed at assessing the health-related quality of life (HRQoL) of patients
+  with chronic lymphocytic leukemia (CLL) receiving a two-year consolidation of lenalidomide
+  (LEN) or observation (OBS) after classical immunochemotherapy leaving them with
+  detectable residual disease. METHODS: Data from French patients involved in this
+  the trial were used here. The EORTC QLQ-C30 version 3 questionnaire was completed
+  by patients at baseline, and then at months 3, 6, 12, 18 and 24 after consolidation.
+  Repeated measures mixed-effects models were used to assess HRQoL changes between
+  baseline and each checkpoint for each HRQoL scale. RESULTS: Baseline data showed
+  overall a good global health status with mean scores of 76.3 and 72.1 in the LEN
+  and OBS arms respectively, on the 0-100 scale. At 12 months, LEN patients had significantly
+  more diarrhea than OBS patients (p = 0.003) and social functioning was significantly
+  impaired at month 18 (p = 0.05). A 10-point difference appeared in the LEN arm for
+  dyspnea and digestive disorders from month 12 on. Multivariate analysis showed a
+  deleterious effect of LEN on global health (p = 0.02) and functional scales (p =
+  0.003). CONCLUSION: This study provides HRQoL values in a French cohort of CLL patients
+  in consolidation treatment. Supplementation with lenalidomide as consolidation therapy
+  in CLL leads to late health deterioration, especially diarrhea, after 12 months
+  of treatment. Quantitative assessment of HRQoL should be balanced against benefits
+  in disease control to determine overall health benefits.'
+raw_completion_output: |-
+  primary_disease: chronic lymphocytic leukemia
+  medical_actions: lenalidomide consolidation; observation; immunochemotherapy; health-related quality of life assessment; quantitative assessment of HRQoL
+  symptoms: detectable residual disease; diarrhea; social functioning impairment; dyspnea; digestive disorders
+  chemicals: lenalidomide
+  action_annotation_relationships: lenalidomide consolidation TREATS detectable residual disease IN chronic lymphocytic leukemia; lenalidomide (with lenalidomide) TREATS chronic lymphocytic leukemia; health-related quality of life assessment ASSOCIATES WITH global health status IN chronic lymphocytic leukemia; lenalidomide consolidation (with lenalidomide) CAUSES diarrhea IN chronic lymphocytic leukemia; lenalidomide consolidation (with lenalidomide) IMPAIRS social functioning IN chronic lymphocytic leukemia; lenalidomide consolidation (with lenalidomide) CAUSES dyspnea IN chronic lymphocytic leukemia; lenalidomide consolidation (with lenalidomide) CAUSES digestive disorders IN chronic lymphocytic leukemia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  lenalidomide consolidation (with lenalidomide) CAUSES digestive disorders IN chronic lymphocytic leukemia
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0004948
+  medical_actions:
+    - lenalidomide consolidation
+    - observation
+    - immunochemotherapy
+    - health-related quality of life assessment
+    - quantitative assessment of HRQoL
+  symptoms:
+    - detectable residual disease
+    - HP:0002014
+    - social functioning impairment
+    - HP:0002094
+    - digestive disorders
+  chemicals:
+    - CHEBI:63791
+  action_annotation_relationships:
+    - subject: consolidation
+      predicate: TREATS
+      object: residual disease
+      qualifier: MONDO:0004948
+      object_qualifier: detectable
+      subject_extension: CHEBI:63791
+      object_extension: detectable residual
+    - subject: with lenalidomide
+      predicate: TREATS
+      object: HP:0005550
+      subject_extension: CHEBI:63791
+    - subject: health-related quality of life assessment
+      predicate: ASSOCIATES WITH
+      object: global health status
+      qualifier: MONDO:0004948
+    - subject: lenalidomide consolidation
+      predicate: CAUSES
+      object: HP:0002014
+      qualifier: MONDO:0004948
+      subject_qualifier: with lenalidomide
+      subject_extension: CHEBI:63791
+    - subject: lenalidomide consolidation
+      predicate: IMPAIRS
+      object: social functioning
+      qualifier: MONDO:0004948
+      subject_qualifier: with lenalidomide
+      subject_extension: CHEBI:63791
+    - subject: lenalidomide consolidation
+      predicate: CAUSES
+      object: HP:0002094
+      qualifier: MONDO:0004948
+      subject_qualifier: with lenalidomide
+      subject_extension: CHEBI:63791
+    - subject: lenalidomide consolidation
+      predicate: CAUSES
+      object: digestive disorders
+      qualifier: MONDO:0004948
+      subject_qualifier: with lenalidomide
+      subject_extension: CHEBI:63791
+named_entities:
+  - id: MONDO:0018874
+    label: Acute myeloid leukemia (AML)
+  - id: HP:0001945
+    label: Fever
+  - id: HP:0012378
+    label: Fatigue
+  - id: MONDO:0020512
+    label: T cell acute lymphoblastic leukemia (T-ALL)
+  - id: HP:0006727
+    label: T-ALL
+  - id: CHEBI:50131
+    label: Decitabine
+  - id: CHEBI:133021
+    label: Venetoclax
+  - id: HP:0004808
+    label: Acute myeloid leukemia
+  - id: HP:0002090
+    label: pneumonia
+  - id: HP:0100806
+    label: sepsis
+  - id: CHEBI:71019
+    label: Homoharringtonine
+  - id: CHEBI:28680
+    label: Cytarabine
+  - id: HP:0000739
+    label: anxiety
+  - id: HP:0000716
+    label: depression
+  - id: CHEBI:190514
+    label: dasatinib
+  - id: CHEBI:23456
+    label: cyclodextrins
+  - id: MAXO:0000747
+    label: Hematopoietic Stem Cell Transplantation (HSCT)
+  - id: MAXO:0000647
+    label: Chemotherapy
+  - id: HP:0002018
+    label: Nausea
+  - id: HP:0002094
+    label: Dyspnea
+  - id: HP:0100785
+    label: Insomnia
+  - id: HP:0012531
+    label: Pain
+  - id: HP:0002019
+    label: Constipation
+  - id: CHEBI:2038
+    label: Azacitidine
+  - id: CHEBI:197440
+    label: Tumor necrosis factor-alpha (TNF-alpha)
+  - id: MONDO:0004967
+    label: Acute Lymphoblastic Leukemia (ALL)
+  - id: CHEBI:8378
+    label: Prednisolone
+  - id: HP:0000001
+    label: Acute Lymphoblastic Leukemia (ALL)
+  - id: HP:0001297
+    label: Stroke
+  - id: HP:0001635
+    label: Heart failure
+  - id: HP:0001677
+    label: Coronary atherosclerosis
+  - id: MONDO:0004992
+    label: Cancer
+  - id: MAXO:0001479
+    label: allogeneic hematopoietic stem cell transplantation (allo-HSCT)
+  - id: MONDO:0004947
+    label: B-cell acute lymphoblastic leukemia
+  - id: MAXO:0000757
+    label: infusion
+  - id: MAXO:0000602
+    label: Hemodialysis
+  - id: HP:0003326
+    label: Myalgia
+  - id: HP:0002039
+    label: Anorexia
+  - id: HP:0100519
+    label: Anuria
+  - id: HP:0011037
+    label: Decreased urine output
+  - id: HP:0001919
+    label: Acute kidney injury
+  - id: CHEBI:18332
+    label: Levothyroxine
+  - id: MONDO:0020511
+    label: Acute B-lymphoblastic leukemia (B-ALL)
+  - id: HP:0003419
+    label: lower back pain
+  - id: MONDO:0010651
+    label: high-risk myelodysplastic neoplasm (MDS)
+  - id: CHEBI:30621
+    label: arsenic trioxide
+  - id: HP:0002360
+    label: sleep disturbances
+  - id: MONDO:0017361
+    label: Cytokine release syndrome (CRS)
+  - id: CHEBI:64360
+    label: Tocilizumab
+  - id: MONDO:0012883
+    label: Acute promyelocytic leukemia (APL)
+  - id: MAXO:0000149
+    label: Allogeneic hematopoietic cell transplantation (HCT)
+  - id: MONDO:0004948
+    label: chronic lymphocytic leukemia
+  - id: HP:0002014
+    label: diarrhea
+  - id: CHEBI:63791
+    label: lenalidomide
+  - id: HP:0005550
+    label: chronic lymphocytic leukemia

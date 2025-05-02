@@ -1,0 +1,174 @@
+---
+input_text: 'A new step in understanding stem cell mobilization in patients with Fanconi
+  anemia: A bridge to gene therapy. BACKGROUND: Fanconi anemia (FA) is an inherited
+  disorder characterized clinically by congenital abnormalities, progressive bone
+  marrow failure (BMF), and a predisposition to malignancy. Gene therapy (GT) of FA,
+  via the infusion of gene-corrected peripheral blood (PB) autologous hematopoietic
+  stem cells (HSCs), may constitute a cure for BMF. GT bypasses the donor restrictions
+  and adverse events associated with allogenic HSC transplantation. However, adequate
+  harvesting of PB-HSCs is a crucial determinant of successful engraftment in gene
+  therapy. Harvesting the low numbers of HSCs in patients with FA is particularly
+  challenging. STUDY DESIGN AND METHODS: This open-label phase I/II trial evaluates
+  the feasibility and safety of co-administration of G-CSF and plerixafor in patients
+  with FA for the mobilization and harvesting of peripheral HSCs, intending to use
+  them in a gene therapy trial. Patients with mutations in the FANCA gene received
+  two subcutaneous injections of G-CSF (6 mug/kg x 2/d from D1 to D8. Plerixafor (0.24
+  mg/kg/d) was administered 2 h before apheresis (from D5 onward). RESULTS: CD34+
+  cells were mobilized for four patients quickly but transiently after the plerixafor
+  injection. One patient had a CD34+ cell count of over 100/mul; the mobilization
+  peaked 2 h after the injection and lasted for more than 9 h. There were no short-term
+  adverse events associated with the mobilization or harvesting procedures. CONCLUSION:
+  Our data in patients with FA show that the mobilization of HSCs with G-CSF and plerixafor
+  is safe and more efficient in younger individuals without BMF.'
+raw_completion_output: |-
+  primary_disease: Fanconi anemia
+
+  medical_actions: co-administration of G-CSF and plerixafor; subcutaneous injections; apheresis; infusion of gene-corrected peripheral blood autologous hematopoietic stem cells; gene therapy
+
+  symptoms: congenital abnormalities; progressive bone marrow failure; predisposition to malignancy
+
+  chemicals: G-CSF; plerixafor
+
+  action_annotation_relationships: co-administration of G-CSF and plerixafor TREATS progressive bone marrow failure IN Fanconi anemia; infusion of gene-corrected peripheral blood autologous hematopoietic stem cells (with G-CSF and plerixafor) PREVENTS progressive bone marrow failure IN Fanconi anemia; gene therapy PREVENTS progressive bone marrow failure IN Fanconi anemia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  gene therapy PREVENTS progressive bone marrow failure IN Fanconi anemia
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0019391
+  medical_actions:
+    - co-administration of G-CSF and plerixafor
+    - subcutaneous injections
+    - apheresis
+    - infusion of gene-corrected peripheral blood autologous hematopoietic stem cells
+    - MAXO:0001001
+  symptoms:
+    - HP:0034057
+    - progressive bone marrow failure
+    - predisposition to malignancy
+  chemicals:
+    - G-CSF
+    - CHEBI:125354
+  action_annotation_relationships:
+    - subject: co-administration
+      predicate: TREATS
+      object: progressive bone marrow failure
+      qualifier: MONDO:0019391
+      subject_extension: G-CSF and plerixafor
+    - subject: infusion of gene-corrected peripheral blood autologous hematopoietic
+        stem cells
+      predicate: PREVENTS
+      object: progressive bone marrow failure
+      qualifier: MONDO:0019391
+      subject_qualifier: with G-CSF and plerixafor
+      subject_extension: G-CSF and plerixafor
+    - subject: MAXO:0001001
+      predicate: PREVENTS
+      object: progressive bone marrow failure
+      qualifier: MONDO:0019391
+      subject_extension: gene therapy
+named_entities:
+  - id: MONDO:0019391
+    label: Fanconi anemia
+  - id: MAXO:0000747
+    label: Hematopoietic stem cell transplantation (HSCT)
+  - id: CHEBI:18198
+    label: ADCs
+  - id: CHEBI:4027
+    label: cyclophosphamide
+  - id: MAXO:0000750
+    label: conditioning regimens
+  - id: CHEBI:37153
+    label: Calcineurin inhibitor
+  - id: CHEBI:38215
+    label: Calcium channel blocker
+  - id: CHEBI:4031
+    label: Cyclosporine
+  - id: CHEBI:8069
+    label: Phenobarbital
+  - id: CHEBI:2668
+    label: Amlodipine
+  - id: MAXO:0000149
+    label: Hematopoietic cell transplantation (HCT)
+  - id: MAXO:0000016
+    label: Cellular therapy
+  - id: HP:0001871
+    label: Blood dyscrasias
+  - id: MAXO:0000595
+    label: Radiography
+  - id: HP:0005528
+    label: Bone marrow failure
+  - id: HP:0034057
+    label: Congenital defects
+  - id: CHEBI:28901
+    label: Busulfan
+  - id: CHEBI:44185
+    label: Methotrexate
+  - id: MONDO:0005233
+    label: Non-small cell lung cancer (NSCLC)
+  - id: CHEBI:33364
+    label: Platinum
+  - id: MAXO:0000647
+    label: chemotherapy
+  - id: HP:0030358
+    label: Non-small cell lung cancer
+  - id: MAXO:0001479
+    label: Allogeneic hematopoietic stem cell transplantation (allo-HSCT)
+  - id: HP:0002863
+    label: Myelodysplasia
+  - id: HP:0001909
+    label: Leukemia
+  - id: MONDO:0016624
+    label: Hereditary anemia
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: MONDO:0005570
+    label: Hematological disorders
+  - id: HP:0002664
+    label: cancer
+  - id: MONDO:0015253
+    label: Diamond Blackfan anemia
+  - id: MAXO:0000600
+    label: Kidney replacement therapy (KRT)
+  - id: HP:0000093
+    label: Proteinuria
+  - id: HP:0003259
+    label: Elevated serum creatinine (SCr > 100micromol/l)
+  - id: MONDO:0001529
+    label: Bone marrow failure (BMF)
+  - id: HP:0002860
+    label: oral squamous cell carcinoma (SCC)
+  - id: MONDO:0100339
+    label: Fanconi anemia (FA)
+  - id: CHEBI:28680
+    label: Ara-C
+  - id: CHEBI:27899
+    label: Cisplatin
+  - id: HP:0011793
+    label: Malignant tumors
+  - id: HP:0000818
+    label: Endocrinopathies
+  - id: HP:0002745
+    label: Oral leukoplakia
+  - id: CHEBI:64357
+    label: rituximab
+  - id: CHEBI:61049
+    label: Tacrolimus
+  - id: HP:0002910
+    label: elevated liver function tests
+  - id: CHEBI:125354
+    label: plerixafor

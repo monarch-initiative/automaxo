@@ -1,0 +1,216 @@
+---
+input_text: 'Clinicogenetic Profile, Treatment Modalities, and Mortality Predictors
+  of Gaucher Disease: A 15-Year Retrospective Study. INTRODUCTION: Gaucher disease
+  (GD) is a rare autosomal recessive lysosomal storage disorder, in which biallelic
+  pathogenic variants in the Glucosidase beta acid (GBA) gene result in defective
+  functioning of glucosylceramidase that causes deposition of glucocerebroside in
+  cells. GD has 3 major types namely, non-neuronopathic (type I), acute neuronopathic
+  (type II), and chronic neuronopathic (type III). Definite treatment options are
+  limited and expensive. They succumb early to the disease, if untreated. There is
+  paucity of studies from the Indian subcontinent, which elicit the factors resulting
+  in their premature mortality. MATERIALS AND METHODS: A retrospective study was carried
+  out in a tertiary care setting of South India to assess the clinical profile, mutation
+  spectrum, and various management strategies (only supportive therapy, enzyme replacement
+  therapy [ERT], substrate reduction therapy [SRT] haematopoietic stem cell transplant
+  [HSCT]), and mortality predictors of patients with GD from 2004 to 2019. A Kaplan-Meier
+  survival curve was plotted. In silico predictions were performed for novel variants.
+  RESULTS: There were 60 patients with all types of GD seen over the study period
+  of 15 years. Their median age at diagnosis was 2 years. The median follow-up was
+  for 5 years (interquartile range [IQR] = 2-8). The overall mortality rate was 35%;
+  however, it was only 10% in those receiving definite treatment. Mortality was higher
+  (47.5%) by more than 4 folds in those only on supportive therapy. The median survival
+  from the time of diagnosis was 6.3 years (IQR = 3.5-10.8) in the definite treatment
+  group and 3.5 years (IQR = 1-5) in those on supportive therapy. The Kaplan-Meier
+  survival analysis showed significant (p value 0.001) mortality difference between
+  these groups. The multiple logistic regression analysis found the neuronopathic
+  type (OR = 5) and only supportive therapy (OR = 6.3) to be the independent risk
+  factors for premature mortality. CONCLUSION: GD is a rare disease with a high mortality
+  rate, if left untreated. ERT and SRT are the definitive treatments which increase
+  the survival. In resource-limited settings like India, with higher prevalence of
+  the neuronopathic type, HSCT may be a more suitable definitive treatment option,
+  due to its one-time intervention and cost, assuming similar efficacy to ERT. However,
+  the efficacy and safety of HSCT in GD needs to be established further by substantial
+  patient numbers undergoing it.'
+raw_completion_output: |-
+  primary_disease: Gaucher Disease
+
+  medical_actions: supportive therapy; enzyme replacement therapy (ERT); substrate reduction therapy (SRT); haematopoietic stem cell transplant (HSCT)
+
+  symptoms: None mentioned explicitly
+
+  chemicals: glucosylceramidase; glucocerebroside
+
+  action_annotation_relationships: enzyme replacement therapy (ERT) TREATS Gaucher Disease; substrate reduction therapy (SRT) TREATS Gaucher Disease; haematopoietic stem cell transplant (HSCT) TREATS Gaucher Disease; supportive therapy PREVENTS premature mortality IN Gaucher Disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  supportive therapy PREVENTS premature mortality IN Gaucher Disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0018150
+  medical_actions:
+    - supportive therapy
+    - enzyme replacement therapy (ERT)
+    - MAXO:0009091
+    - MAXO:0000747
+  symptoms:
+    - None mentioned explicitly
+  chemicals:
+    - glucosylceramidase
+    - CHEBI:18368
+  action_annotation_relationships:
+    - subject: enzyme replacement therapy (ERT)
+      predicate: TREATS
+      object: Gaucher Disease
+    - subject: MAXO:0009091
+      predicate: TREATS
+      object: Gaucher Disease
+    - subject: MAXO:0000747
+      predicate: <TREATS>
+      object: <Gaucher Disease>
+      qualifier: <Not applicable>
+      subject_qualifier: <Not applicable>
+      object_qualifier: <Not applicable>
+      subject_extension: <Not applicable>
+      object_extension: <Not applicable>
+    - subject: <supportive therapy>
+      predicate: <PREVENTS>
+      object: <premature mortality>
+      qualifier: <Gaucher Disease>
+      subject_extension: <supportive therapy>
+named_entities:
+  - id: MONDO:0002561
+    label: Lysosomal Storage Disorders
+  - id: CHEBI:135923
+    label: Migalastat
+  - id: HP:0001071
+    label: Fabry disease
+  - id: MONDO:0018150
+    label: Gaucher Disease (GD)
+  - id: HP:0001395
+    label: liver fibrosis
+  - id: HP:0001394
+    label: cirrhosis
+  - id: HP:0100626
+    label: end-stage liver disease
+  - id: HP:0001402
+    label: hepatocellular carcinoma
+  - id: MAXO:0001001
+    label: gene therapy
+  - id: MAXO:0001257
+    label: vitamin E supplementation
+  - id: MAXO:0010200
+    label: abdominal ultrasonography
+  - id: HP:0025464
+    label: oxidative stress
+  - id: CHEBI:33234
+    label: vitamin E
+  - id: CHEBI:566274
+    label: malondialdehyde (MDA)
+  - id: CHEBI:16856
+    label: reduced glutathione (GSH)
+  - id: MAXO:0009091
+    label: Substrate reduction therapy (SRT)
+  - id: HP:0002716
+    label: Lymphadenopathy
+  - id: HP:0001903
+    label: Anemia
+  - id: HP:0001873
+    label: Thrombocytopenia
+  - id: HP:0001433
+    label: Hepatosplenomegaly
+  - id: CHEBI:30884
+    label: Glucosylceramide synthase (GCS) inhibitors
+  - id: CHEBI:135590
+    label: ambroxol
+  - id: HP:0410281
+    label: dyspepsia
+  - id: HP:0002027
+    label: abdominal pain
+  - id: CHEBI:82752
+    label: eliglustat
+  - id: CHEBI:4177
+    label: glucosylsphingosine
+  - id: HP:0003281
+    label: hyperferritinemia
+  - id: HP:0011024
+    label: gastrointestinal disorders
+  - id: MONDO:0010526
+    label: Fabry disease
+  - id: HP:0002180
+    label: neurodegeneration
+  - id: MONDO:0009267
+    label: Gaucher Disease Type 3
+  - id: HP:0001251
+    label: ataxia
+  - id: HP:0001332
+    label: dystonia
+  - id: HP:0001337
+    label: tremor
+  - id: HP:0001250
+    label: seizures
+  - id: HP:0000939
+    label: Osteoporosis
+  - id: MONDO:0009265
+    label: Gaucher disease type 1
+  - id: MONDO:0005201
+    label: Restrictive cardiomyopathy
+  - id: HP:0001635
+    label: cardiac failure
+  - id: MAXO:0000950
+    label: supportive care
+  - id: HP:0001744
+    label: splenomegaly
+  - id: HP:0010885
+    label: osteonecrosis
+  - id: HP:0002653
+    label: bone pain
+  - id: MAXO:0000747
+    label: Haematopoietic Stem Cell Transplantation (HSCT)
+  - id: MAXO:0010030
+    label: bone marrow transplantation (BMT)
+  - id: HP:0011891
+    label: postpartum hemorrhage (PPH)
+  - id: HP:0005268
+    label: miscarriage
+  - id: MONDO:0100096
+    label: COVID-19
+  - id: HP:0003493
+    label: positive ANA
+  - id: HP:0000872
+    label: Hashimoto thyroiditis
+  - id: CHEBI:74066
+    label: Immunoglobulin (Ig) M
+  - id: HP:0031915
+    label: stable
+  - id: MAXO:0000127
+    label: genetic testing
+  - id: MAXO:0000752
+    label: bone marrow aspiration
+  - id: HP:0001876
+    label: pancytopenia
+  - id: HP:0100543
+    label: cognitive impairment
+  - id: HP:0002942
+    label: thoracic kyphosis
+  - id: HP:0000823
+    label: delayed puberty
+  - id: MAXO:0009003
+    label: Preimplantation genetic testing (PGT)
+  - id: MAXO:0000079
+    label: Genetic counseling
+  - id: CHEBI:18368
+    label: glucocerebroside

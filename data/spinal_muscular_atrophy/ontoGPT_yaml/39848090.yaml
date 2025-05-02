@@ -1,0 +1,114 @@
+---
+input_text: "A 7-year delayed diagnosis in a case of spinal muscular atrophy. BACKGROUND:
+  Most cases of spinal muscular atrophy (SMA) can be diagnosed by copy number analysis
+  of survival motor neuron (SMN) 1. However, a small number of cases of SMA can only
+  be diagnosed by sequencing analysis. We present a case of SMA diagnosed 7 years
+  after the onset of symptoms. CASE REPORT: She was a 12-year-old girl of Sri Lankan
+  origin. At age 5, she began to fall easily. She had normal intellectual development,
+  and electromyography suggested a neurogenic disorder. Copy number analysis of SMN1
+  exons 7 and 8 via polymerase chain reaction revealed at least one copy of SMN1.
+  Exome sequence analysis for neuromuscular disorders panel could not detect the pathogenic
+  mutation. She moved to Japan at the age of 12 years. Sequencing analysis later identified
+  a novel mutation in SMN1 at the same locus as previously reported (c.284G>A: p.Gly95Glu).
+  Multiple ligation-dependent probe amplification indicated she had two copies of
+  SMN2. She was diagnosed with SMA type 3b and treated with nusinersen. DISCUSSION:
+  In patients with SMA, 2-5 % have a point mutation or a small insertion/deletion
+  in SMN1. Since copy number analysis cannot detect such mutations, sequencing analysis
+  is required. Two copies of SMN2 often result in SMA type 1 or 2, but her mild symptoms
+  of SMA type 3b may be due to a combination of a point mutation and a deletion in
+  SMN1. CONCLUSION: Even if genetic testing has been performed at previous institutions,
+  sequencing analysis should be considered if the patient's symptoms are consistent
+  with SMA."
+raw_completion_output: |-
+  primary_disease: spinal muscular atrophy (SMA)
+
+  medical_actions: diagnosis by copy number analysis;diagnosis by sequencing analysis;treated with nusinersen;electromyography
+
+  symptoms: fall easily
+
+  chemicals: nusinersen
+
+  action_annotation_relationships: diagnosis by copy number analysis TREATS spinal muscular atrophy (SMA) IN spinal muscular atrophy (SMA);diagnosis by sequencing analysis TREATS spinal muscular atrophy (SMA) IN spinal muscular atrophy (SMA);treated with nusinersen (with nusinersen) TREATS spinal muscular atrophy (SMA) IN spinal muscular atrophy (SMA);electromyography TREATS fall easily IN spinal muscular atrophy (SMA)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  electromyography TREATS fall easily IN spinal muscular atrophy (SMA)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0019079
+  medical_actions:
+    - diagnosis by copy number analysis
+    - diagnosis by sequencing analysis
+    - treated with nusinersen
+    - electromyography
+  symptoms:
+    - fall easily
+  chemicals:
+    - nusinersen
+  action_annotation_relationships:
+    - subject: <diagnosis by copy number analysis>
+      predicate: <TREATS>
+      object: HP:0006959
+      qualifier: MONDO:0019079
+      subject_qualifier: <N/A>
+      object_qualifier: <N/A>
+      subject_extension: <N/A>
+      object_extension: <N/A>
+    - subject: diagnosis
+      predicate: TREATS
+      object: HP:0006959
+      qualifier: MONDO:0019079
+      subject_extension: sequencing analysis
+    - subject: treated with nusinersen
+      predicate: TREATS
+      object: HP:0006959
+      qualifier: MONDO:0019079
+      subject_extension: nusinersen
+    - subject: electromyography
+      predicate: TREATS
+      object: fall easily
+      qualifier: MONDO:0001516
+named_entities:
+  - id: MONDO:0001516
+    label: Spinal Muscular Atrophy
+  - id: HP:0002650
+    label: Scoliosis
+  - id: HP:0007269
+    label: Spinal Muscular Atrophy
+  - id: MONDO:0005392
+    label: scoliosis
+  - id: HP:0003323
+    label: Progressive muscle weakness
+  - id: CHEBI:76720
+    label: Antisense oligonucleotides
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: MONDO:0005015
+    label: Diabetes
+  - id: HP:0001635
+    label: heart failure
+  - id: HP:0001324
+    label: muscle weakness
+  - id: HP:0003202
+    label: muscle atrophy
+  - id: CHEBI:16991
+    label: DNA
+  - id: CHEBI:33697
+    label: RNA
+  - id: MONDO:0019079
+    label: spinal muscular atrophy (SMA)
+  - id: HP:0006959
+    label: <spinal muscular atrophy (SMA)>

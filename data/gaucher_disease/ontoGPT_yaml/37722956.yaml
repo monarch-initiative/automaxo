@@ -1,0 +1,140 @@
+---
+input_text: 'Effectiveness and Safety of Eliglustat Treatment in Gaucher Disease:
+  Real-Life Unicentric Experience. PURPOSE: The therapy and management of Gaucher
+  disease (GD) have radically changed with the use of substrate reduction therapy,
+  of which eliglustat is the most widely known drug, allowing it to overcome the limits
+  of enzyme replacement therapy (ERT). The rarity of GD and the limited use of eliglustat
+  outside clinical trials require further study of its strengths and weaknesses. METHODS:
+  In this study, we evaluated the effectiveness and safety of eliglustat in a cohort
+  of 12 patients with GD followed up in our center, reporting a reduction in both
+  chitotriosidase (394.3 vs 181.1 nmol/h/mL, P = 0.027) and glucosylsphingosine values
+  (45.1 vs 18.9 ng/mL, P <0.001) after at least 12 months of therapy compared with
+  baseline, regardless of patient demographic characteristics and GD characteristics.
+  FINDINGS: There were no drug-related serious adverse effects and no drug-related
+  cardiac events. Most adverse events were mild and transient, mainly dyspepsia and
+  abdominal pain. Of interest, we reported an absence of statistical difference in
+  terms of response regarding glucosylsphingosine reduction in relation to naive or
+  prior exposure to ERT (P = 0.296), which was confirmed also when patients were placed
+  in naive and treated groups for <5 vs >5 years (P = 0.667). IMPLICATIONS: The use
+  of eliglustat immediately after diagnosis may guarantee the best treatment for patients
+  with milder phenotypes or with aggressive disease after an initial stabilization
+  with ERT compared with ERT, which cannot adequately remove the disease burden despite
+  the apparent response, thus potentially reducing future complications caused by
+  substrate deposits.'
+raw_completion_output: |-
+  primary_disease: Gaucher Disease (GD)
+
+  medical_actions: use of substrate reduction therapy; eliglustat treatment; enzyme replacement therapy (ERT)
+
+  symptoms: dyspepsia; abdominal pain
+
+  chemicals: eliglustat; chitotriosidase; glucosylsphingosine
+
+  action_annotation_relationships: eliglustat treatment TREATS dyspepsia IN Gaucher Disease (GD); eliglustat treatment TREATS abdominal pain IN Gaucher Disease (GD); eliglustat treatment (with eliglustat) TREATS high chitotriosidase levels IN Gaucher Disease (GD); eliglustat treatment (with eliglustat) TREATS high glucosylsphingosine levels IN Gaucher Disease (GD)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  eliglustat treatment (with eliglustat) TREATS high glucosylsphingosine levels IN Gaucher Disease (GD)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0018150
+  medical_actions:
+    - use of substrate reduction therapy
+    - eliglustat treatment
+    - enzyme replacement therapy (ERT)
+  symptoms:
+    - HP:0410281
+    - HP:0002027
+  chemicals:
+    - CHEBI:82752
+    - chitotriosidase
+    - CHEBI:4177
+  action_annotation_relationships:
+    - subject: treatment
+      predicate: TREATS
+      object: HP:0410281
+      qualifier: MONDO:0018150
+      subject_extension: CHEBI:82752
+    - subject: treatment
+      predicate: TREATS
+      object: HP:0002027
+      qualifier: MONDO:0018150
+      subject_extension: CHEBI:82752
+    - subject: eliglustat treatment
+      predicate: TREATS
+      object: high chitotriosidase levels
+      qualifier: MONDO:0018150
+      subject_qualifier: with eliglustat
+      subject_extension: CHEBI:82752
+    - subject: eliglustat treatment
+      predicate: TREATS
+      object: high glucosylsphingosine levels
+      qualifier: MONDO:0018150
+      subject_qualifier: with eliglustat
+      subject_extension: CHEBI:82752
+named_entities:
+  - id: MONDO:0002561
+    label: Lysosomal Storage Disorders
+  - id: CHEBI:135923
+    label: Migalastat
+  - id: HP:0001071
+    label: Fabry disease
+  - id: MONDO:0018150
+    label: Gaucher Disease (GD)
+  - id: HP:0001395
+    label: liver fibrosis
+  - id: HP:0001394
+    label: cirrhosis
+  - id: HP:0100626
+    label: end-stage liver disease
+  - id: HP:0001402
+    label: hepatocellular carcinoma
+  - id: MAXO:0001001
+    label: gene therapy
+  - id: MAXO:0001257
+    label: vitamin E supplementation
+  - id: MAXO:0010200
+    label: abdominal ultrasonography
+  - id: HP:0025464
+    label: oxidative stress
+  - id: CHEBI:33234
+    label: vitamin E
+  - id: CHEBI:566274
+    label: malondialdehyde (MDA)
+  - id: CHEBI:16856
+    label: reduced glutathione (GSH)
+  - id: MAXO:0009091
+    label: Substrate reduction therapy (SRT)
+  - id: HP:0002716
+    label: Lymphadenopathy
+  - id: HP:0001903
+    label: Anemia
+  - id: HP:0001873
+    label: Thrombocytopenia
+  - id: HP:0001433
+    label: Hepatosplenomegaly
+  - id: CHEBI:30884
+    label: Glucosylceramide synthase (GCS) inhibitors
+  - id: CHEBI:135590
+    label: ambroxol
+  - id: HP:0410281
+    label: dyspepsia
+  - id: HP:0002027
+    label: abdominal pain
+  - id: CHEBI:82752
+    label: eliglustat
+  - id: CHEBI:4177
+    label: glucosylsphingosine

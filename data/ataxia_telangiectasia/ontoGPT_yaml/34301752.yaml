@@ -1,0 +1,144 @@
+---
+input_text: 'Ceralasertib (AZD6738), an Oral ATR Kinase Inhibitor, in Combination
+  with Carboplatin in Patients with Advanced Solid Tumors: A Phase I Study. PURPOSE:
+  This study reports the safety, tolerability, MTD, recommended phase II dose (RP2D),
+  pharmacokinetic/pharmacodynamic profile, and preliminary antitumor activity of ceralasertib
+  combined with carboplatin in patients with advanced solid tumors. It also examined
+  exploratory predictive and pharmacodynamic biomarkers. PATIENTS AND METHODS: Eligible
+  patients (n = 36) received a fixed dose of carboplatin (AUC5) with escalating doses
+  of ceralasertib (20 mg twice daily to 60 mg once daily) in 21-day cycles. Sequential
+  and concurrent combination dosing schedules were assessed. RESULTS: Two ceralasertib
+  MTD dose schedules, 20 mg twice daily on days 4-13 and 40 mg once daily on days
+  1-2, were tolerated with carboplatin AUC5; the latter was declared the RP2D. The
+  most common treatment-emergent adverse events (Common Terminology Criteria for Adverse
+  Events grade >=3) were anemia (39%), thrombocytopenia (36%), and neutropenia (25%).
+  Dose-limiting toxicities of grade 4 thrombocytopenia (n = 2; including one grade
+  4 platelet count decreased) and a combination of grade 4 thrombocytopenia and grade
+  3 neutropenia occurred in 3 patients. Ceralasertib was quickly absorbed (tmax ~1
+  hour), with a terminal plasma half-life of 8-11 hours. Upregulation of pRAD50, indicative
+  of ataxia telangiectasia mutated (ATM) activation, was observed in tumor biopsies
+  during ceralasertib treatment. Two patients with absent or low ATM or SLFN11 protein
+  expression achieved confirmed RECIST v1.1 partial responses. Eighteen of 34 (53%)
+  response-evaluable patients had RECIST v1.1 stable disease. CONCLUSIONS: The RP2D
+  for ceralasertib plus carboplatin was established as ceralasertib 40 mg once daily
+  on days 1-2 administered with carboplatin AUC5 every 3 weeks, with pharmacokinetic
+  and pharmacodynamic studies confirming pharmacodynamic modulation and preliminary
+  evidence of antitumor activity observed.'
+raw_completion_output: |-
+  primary_disease: Advanced Solid Tumors
+  medical_actions: Administration of ceralasertib; Administration of carboplatin; Determination of maximum tolerated dose (MTD); Determination of recommended phase II dose (RP2D); Pharmacokinetic/pharmacodynamic profiling; Administration of escalating doses of ceralasertib; Assessment of sequential and concurrent combination dosing schedules; Upregulation of pRAD50 measurement
+  symptoms: Anemia; Thrombocytopenia; Neutropenia; Grade 4 thrombocytopenia; Grade 4 platelet count decreased; Grade 3 neutropenia
+  chemicals: Ceralasertib; Carboplatin
+  action_annotation_relationships: Administration of ceralasertib TREATS Advanced Solid Tumors; Administration of carboplatin TREATS Advanced Solid Tumors; Determination of MTD PREVENTS dose-limiting toxicities IN Advanced Solid Tumors; Administration of escalating doses of ceralasertib TREATS Advanced Solid Tumors; Assessment of sequential and concurrent combination dosing schedules TREATS Advanced Solid Tumors; Upregulation of pRAD50 measurement (with ceralasertib) PREVENTS Advanced Solid Tumors
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Upregulation of pRAD50 measurement (with ceralasertib) PREVENTS Advanced Solid Tumors
+
+  ===
+
+extracted_object:
+  primary_disease: Advanced Solid Tumors
+  medical_actions:
+    - Administration of ceralasertib
+    - Administration of carboplatin
+    - Determination of maximum tolerated dose (MTD)
+    - Determination of recommended phase II dose (RP2D)
+    - Pharmacokinetic/pharmacodynamic profiling
+    - Administration of escalating doses of ceralasertib
+    - Assessment of sequential and concurrent combination dosing schedules
+    - Upregulation of pRAD50 measurement
+  symptoms:
+    - HP:0001903
+    - HP:0001873
+    - HP:0001875
+    - Grade 4 thrombocytopenia
+    - Grade 4 platelet count decreased
+    - Grade 3 neutropenia
+  chemicals:
+    - CHEBI:231342
+    - CHEBI:31355
+  action_annotation_relationships:
+    - subject: Administration
+      predicate: TREATS
+      object: Advanced Solid Tumors
+      subject_extension: CHEBI:231342
+    - subject: Administration of carboplatin
+      predicate: TREATS
+      object: Advanced Solid Tumors
+      subject_extension: CHEBI:31355
+    - subject: Determination of MTD
+      predicate: PREVENTS
+      object: dose-limiting toxicities
+      qualifier: Advanced Solid Tumors
+      subject_extension: MTD
+    - subject: Administration
+      predicate: TREATS
+      object: Advanced Solid Tumors
+      subject_qualifier: escalating doses
+      subject_extension: CHEBI:231342
+    - subject: Assessment of sequential and concurrent combination dosing schedules
+      predicate: TREATS
+      object: Advanced Solid Tumors
+      subject_qualifier: sequential and concurrent combination
+    - subject: Upregulation of pRAD50 measurement
+      predicate: PREVENTS
+      object: Advanced Solid Tumors
+      subject_qualifier: with ceralasertib
+      subject_extension: CHEBI:231342
+named_entities:
+  - id: MONDO:0005086
+    label: Renal cell carcinoma
+  - id: MONDO:0003060
+    label: Biliary tract cancer (BTC)
+  - id: CHEBI:175901
+    label: Gemcitabine
+  - id: CHEBI:33364
+    label: Platinum
+  - id: MAXO:0000647
+    label: chemotherapy
+  - id: MONDO:0008840
+    label: Ataxia Telangiectasia
+  - id: MAXO:0010030
+    label: Bone Marrow Transplantation
+  - id: MAXO:0001001
+    label: Gene Therapy
+  - id: CHEBI:166830
+    label: Acetyl-DL-leucine
+  - id: CHEBI:41879
+    label: Dexamethasone
+  - id: CHEBI:4462
+    label: Dexamethasone sodium phosphate
+  - id: CHEBI:133021
+    label: venetoclax
+  - id: HP:0002721
+    label: Immunodeficiency
+  - id: HP:0002073
+    label: progressive cerebellar ataxia
+  - id: HP:0002013
+    label: vomiting
+  - id: HP:0002315
+    label: headache
+  - id: CHEBI:27899
+    label: cisplatin
+  - id: HP:0001903
+    label: Anemia
+  - id: HP:0001873
+    label: Thrombocytopenia
+  - id: HP:0001875
+    label: Neutropenia
+  - id: CHEBI:231342
+    label: Ceralasertib
+  - id: CHEBI:31355
+    label: Carboplatin

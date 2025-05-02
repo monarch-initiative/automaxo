@@ -1,0 +1,100 @@
+---
+input_text: 'Predicting liver fibrosis in Gaucher disease: Investigation of contributors
+  and development of a clinically applicable Gaucher liver fibrosis score. Gaucher
+  disease (GD) is a rare genetic disorder with multi-system involvement. Liver fibrosis
+  is a long-term complication of GD, potentially leading to cirrhosis, end-stage liver
+  disease, and hepatocellular carcinoma. There are currently no validated clinical
+  tools for the monitoring of liver fibrosis in patients with GD. In this study, we
+  aim at assessing the validity of common fibrosis-predicting scores, developed for
+  other diseases, for the use in GD, using transient elastography as a gold-standard,
+  as well as developing the first GD-specific liver fibrosis predicting score. We
+  enrolled 19 adult patients with GD who had been on treatment for a minimum of 1
+  year on enzyme replacement therapy or substrate reduction therapy and who had no
+  evidence of any other liver disease except GD or metabolic-associated steatotic
+  liver disease (MASLD), which is a common comorbidity of GD. We analyzed the correlation
+  between liver stiffness and genotype, treatment modality (imiglucerase or other
+  therapies), clinical severity, and clinical laboratory tests. We found that the
+  common liver fibrosis scores APRI, FIB-4, and NFS did not accurately predict liver
+  fibrosis in people with GD. We also found that male sex, the DS3 score, AST, and
+  GGT levels significantly correlated with liver stiffness, and used these to create
+  a simple but accurate fibrosis-predicting score specifically for GD (the "Gaucher
+  liver fibrosis score", or GLFS), with high accuracy (AUC = 0.8571, p = 0.0206).
+  We believe that our new GLFS may be used in clinical practice to help prioritize
+  GD patients for closer monitoring of liver fibrosis.'
+raw_completion_output: |-
+  primary_disease: Gaucher disease
+
+  medical_actions: assessing the validity of common fibrosis-predicting scores; using transient elastography; enzyme replacement therapy; substrate reduction therapy; creating the Gaucher liver fibrosis score
+
+  symptoms: liver fibrosis; cirrhosis; end-stage liver disease; hepatocellular carcinoma
+
+  chemicals: imiglucerase
+
+  action_annotation_relationships: enzyme replacement therapy (with imiglucerase) TREATS liver fibrosis IN Gaucher disease; substrate reduction therapy TREATS liver fibrosis IN Gaucher disease; creating the Gaucher liver fibrosis score PREVENTS liver fibrosis IN Gaucher disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  creating the Gaucher liver fibrosis score PREVENTS liver fibrosis IN Gaucher disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0018150
+  medical_actions:
+    - assessing the validity of common fibrosis-predicting scores
+    - using transient elastography
+    - enzyme replacement therapy
+    - substrate reduction therapy
+    - creating the Gaucher liver fibrosis score
+  symptoms:
+    - HP:0001395
+    - HP:0001394
+    - HP:0100626
+    - HP:0001402
+  chemicals:
+    - imiglucerase
+  action_annotation_relationships:
+    - subject: enzyme replacement therapy
+      predicate: TREATS
+      object: HP:0001395
+      qualifier: MONDO:0018150
+      subject_qualifier: with imiglucerase
+      subject_extension: imiglucerase
+    - subject: substrate reduction therapy
+      predicate: TREATS
+      object: HP:0001395
+      qualifier: MONDO:0018150
+      subject_extension: substrate reduction therapy
+    - subject: creating
+      predicate: PREVENTS
+      object: HP:0001395
+      qualifier: MONDO:0018150
+      subject_extension: Gaucher liver fibrosis score
+named_entities:
+  - id: MONDO:0002561
+    label: Lysosomal Storage Disorders
+  - id: CHEBI:135923
+    label: Migalastat
+  - id: HP:0001071
+    label: Fabry disease
+  - id: MONDO:0018150
+    label: Gaucher Disease (GD)
+  - id: HP:0001395
+    label: liver fibrosis
+  - id: HP:0001394
+    label: cirrhosis
+  - id: HP:0100626
+    label: end-stage liver disease
+  - id: HP:0001402
+    label: hepatocellular carcinoma

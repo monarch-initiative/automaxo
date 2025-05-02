@@ -1,0 +1,134 @@
+---
+input_text: "Management of primary ciliary dyskinesia: the lower airways. Primary
+  ciliary dyskinesia (PCD) is a genetic disease associated with defective ciliary
+  structure and function. Chronic oto-sino-pulmonary infection is the most common
+  clinical presentation. Patients should be monitored in centres with expertise in
+  PCD. Regular respiratory monitoring consists of lung function tests, adapted to
+  the patient's age, and cough swab or sputum cultures. Chest X-rays are insensitive
+  but the use of high-resolution computed tomography should be considered carefully
+  to avoid excessive radiation. Treatment of the chronic suppuration of the lower
+  airways relies on antibiotics to which the isolated bacteria are sensitive, together
+  with respiratory physiotherapy and exercise to clear excessive bronchial secretions.
+  Bronchodilators and anti-inflammatory agents have no proven benefit and should be
+  prescribed, if at all, on an individual basis. Treatment of the lower airways should
+  always be in conjunction with that of the upper airways. Importantly in PCD, respiratory
+  disease may be controlled with the use of early, adequate and aggressive management."
+raw_completion_output: |-
+  primary_disease: Primary ciliary dyskinesia
+
+  medical_actions: monitoring in centres with expertise in PCD; regular respiratory monitoring; lung function tests; cough swab or sputum cultures; use of high-resolution computed tomography; antibiotics; respiratory physiotherapy; exercise; bronchodilators; anti-inflammatory agents
+
+  symptoms: chronic oto-sino-pulmonary infection; chronic suppuration of the lower airways; excessive bronchial secretions
+
+  chemicals: antibiotics
+
+  action_annotation_relationships: monitoring in centres with expertise in PCD PREVENTS chronic oto-sino-pulmonary infection IN Primary ciliary dyskinesia; lung function tests TREATS chronic oto-sino-pulmonary infection IN Primary ciliary dyskinesia; cough swab or sputum cultures TREATS chronic oto-sino-pulmonary infection IN Primary ciliary dyskinesia; use of high-resolution computed tomography PREVENTS chronic suppuration of the lower airways IN Primary ciliary dyskinesia; antibiotics TREATS chronic suppuration of the lower airways IN Primary ciliary dyskinesia; respiratory physiotherapy TREATS excessive bronchial secretions IN Primary ciliary dyskinesia; exercise TREATS excessive bronchial secretions IN Primary ciliary dyskinesia; bronchodilators (with anti-inflammatory agents) MAY TREAT chronic suppuration of the lower airways IN Primary ciliary dyskinesia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  bronchodilators (with anti-inflammatory agents) MAY TREAT chronic suppuration of the lower airways IN Primary ciliary dyskinesia
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0016575
+  medical_actions:
+    - monitoring in centres with expertise in PCD
+    - regular respiratory monitoring
+    - lung function tests
+    - cough swab or sputum cultures
+    - use of high-resolution computed tomography
+    - antibiotics
+    - respiratory physiotherapy
+    - exercise
+    - bronchodilators
+    - anti-inflammatory agents
+  symptoms:
+    - chronic oto-sino-pulmonary infection
+    - chronic suppuration of the lower airways
+    - excessive bronchial secretions
+  chemicals:
+    - CHEBI:33281
+  action_annotation_relationships:
+    - subject: monitoring
+      predicate: PREVENTS
+      object: chronic oto-sino-pulmonary infection
+      qualifier: MONDO:0016575
+      subject_qualifier: in centres with expertise in PCD
+    - subject: lung function tests
+      predicate: TREATS
+      object: chronic oto-sino-pulmonary infection
+      qualifier: MONDO:0016575
+    - subject: cough swab or sputum cultures
+      predicate: TREATS
+      object: chronic oto-sino-pulmonary infection
+      qualifier: MONDO:0016575
+    - subject: use of high-resolution computed tomography
+      predicate: PREVENTS
+      object: chronic suppuration of the lower airways
+      qualifier: MONDO:0016575
+    - subject: antibiotics
+      predicate: TREATS
+      object: chronic suppuration of the lower airways
+      qualifier: MONDO:0016575
+      subject_extension: CHEBI:33281
+    - subject: <respiratory physiotherapy>
+      predicate: <TREATS>
+      object: <excessive bronchial secretions>
+      qualifier: <Primary ciliary dyskinesia>
+      subject_qualifier: <Not applicable>
+      object_qualifier: <Not applicable>
+      subject_extension: <Not applicable>
+      object_extension: <Not applicable>
+    - subject: exercise
+      predicate: TREATS
+      object: excessive bronchial secretions
+      qualifier: MONDO:0016575
+    - subject: bronchodilators
+      predicate: MAY TREAT
+      object: chronic suppuration of the lower airways
+      qualifier: MONDO:0016575
+      subject_qualifier: with anti-inflammatory agents
+      subject_extension: bronchodilators with anti-inflammatory agents
+named_entities:
+  - id: MONDO:0008932
+    label: Primary ciliary dyskinesia (PCD)
+  - id: HP:0034315
+    label: Chronic cough
+  - id: HP:0002643
+    label: Neonatal respiratory distress
+  - id: MAXO:0000506
+    label: non-invasive ventilation (NIV)
+  - id: HP:0003251
+    label: Male infertility
+  - id: HP:0001696
+    label: Situs inversus
+  - id: MONDO:0004247
+    label: Peptic Ulcer Disease (PUD)
+  - id: MAXO:0001193
+    label: Upper gastrointestinal endoscopy
+  - id: HP:0002239
+    label: Gastrointestinal hemorrhage
+  - id: CHEBI:18361
+    label: Proton pump inhibitor (PPI)
+  - id: CHEBI:49200
+    label: Proton pump inhibitor
+  - id: HP:0002044
+    label: Zollinger-Ellison syndrome
+  - id: MONDO:0016575
+    label: Primary Ciliary Dyskinesia
+  - id: MONDO:0009061
+    label: Cystic Fibrosis
+  - id: CHEBI:33281
+    label: antibiotics

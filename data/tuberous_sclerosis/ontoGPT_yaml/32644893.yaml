@@ -1,0 +1,243 @@
+---
+input_text: "Oral Findings in Children, Adolescents and Adults with Tuberous Sclerosis
+  Complex. Objectives: Tuberous sclerosis complex (TSC) is a multisystem genetic disorder
+  characterized by the development of benign tumors. The aim of the study was to assess
+  the prevalence of oral lesions in patients with TSC and healthy individuals. Study
+  design: The study included 120 patients aged 1.1 to 42.7 years: 60 patients with
+  TSC and 60 controls. Clinical assessment of oral hygiene (Plaque Index-PLI), gingiva
+  (Gingival Index-GI, Gingival Overgrowth Index-GOI), oral mucosa and dentition (caries,
+  tooth wear, enamel defects) was performed. Statistical analysis was performed. Results:
+  40 patients with TSC received anticonvulsants. Neglected hygiene (PLI: 1.50+-0.96
+  vs 0.92+-0.72), gingival hyperplasia (50.0% vs.1.7%), gingivitis (80.7% vs. 53.4%),
+  oral mucosal fibromas (10.0% vs. 0.0%), mucous membrane traumatic lesions (11.7%
+  vs. 1.7%), enamel pits and hypoplasia of incisal borders (41.7% vs. 6.7%), tooth
+  wear (35.0% vs. 11.7%) were more common in patients with TSC compared to controls;
+  increased gingival hyperplasia was correlated with vigabatrin and levetiracetam
+  treatment (r = 0.266 and 0.279, respectively), gingivitis was correlated with PLI
+  (r= 0.635). Conclusions: Although gingival fibromas in TSC are independent of patient's
+  age, young age, anticonvulsant therapy and local factors increase their severity.
+  Enamel defects in TSC include pits, but also enamel loss on the incisal edges and
+  tooth wear."
+raw_completion_output: |-
+  primary_disease: Tuberous Sclerosis Complex (TSC)
+
+  medical_actions: Clinical assessment of oral hygiene; Assessment of gingiva; Assessment of oral mucosa and dentition; Anticonvulsant therapy
+
+  symptoms: Neglected hygiene; Gingival hyperplasia; Gingivitis; Oral mucosal fibromas; Mucous membrane traumatic lesions; Enamel pits; Hypoplasia of incisal borders; Tooth wear
+
+  chemicals: Vigabatrin; Levetiracetam
+
+  action_annotation_relationships: Anticonvulsant therapy (with Vigabatrin) TREATS seizures IN Tuberous Sclerosis Complex; Anticonvulsant therapy (with Levetiracetam) TREATS seizures IN Tuberous Sclerosis Complex; Clinical assessment of oral hygiene PREVENTS neglected hygiene IN Tuberous Sclerosis Complex; Clinical assessment of oral hygiene PREVENTS gingivitis IN Tuberous Sclerosis Complex; Clinical assessment of gingiva PREVENTS gingival hyperplasia IN Tuberous Sclerosis Complex; Assessment of oral mucosa and dentition PREVENTS enamel defects IN Tuberous Sclerosis Complex; Assessment of oral mucosa and dentition PREVENTS tooth wear IN Tuberous Sclerosis Complex
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Assessment of oral mucosa and dentition PREVENTS tooth wear IN Tuberous Sclerosis Complex
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0001734
+  medical_actions:
+    - Clinical assessment of oral hygiene
+    - Assessment of gingiva
+    - Assessment of oral mucosa and dentition
+    - Anticonvulsant therapy
+  symptoms:
+    - Neglected hygiene
+    - HP:0000212
+    - HP:0000230
+    - Oral mucosal fibromas
+    - Mucous membrane traumatic lesions
+    - Enamel pits
+    - Hypoplasia of incisal borders
+    - Tooth wear
+  chemicals:
+    - CHEBI:63638
+    - CHEBI:6437
+  action_annotation_relationships:
+    - subject: Anticonvulsant therapy
+      predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0001734
+      subject_qualifier: with Vigabatrin
+      subject_extension: CHEBI:63638
+    - subject: Anticonvulsant therapy
+      predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0001734
+      subject_qualifier: with Levetiracetam
+      subject_extension: CHEBI:6437
+    - subject: Clinical assessment of oral hygiene
+      predicate: PREVENTS
+      object: neglected hygiene
+      qualifier: MONDO:0001734
+    - subject: Clinical assessment of oral hygiene
+      predicate: PREVENTS
+      object: HP:0000230
+      qualifier: MONDO:0001734
+    - subject: Clinical assessment of gingiva
+      predicate: PREVENTS
+      object: HP:0000212
+      qualifier: MONDO:0001734
+    - subject: Assessment of oral mucosa and dentition
+      predicate: PREVENTS
+      object: enamel defects
+      qualifier: MONDO:0001734
+    - subject: Assessment of oral mucosa and dentition
+      predicate: PREVENTS
+      object: tooth wear
+      qualifier: MONDO:0001734
+named_entities:
+  - id: MONDO:0016693
+    label: Subependymal giant cell astrocytoma
+  - id: MAXO:0000447
+    label: Surgical removal
+  - id: CHEBI:68478
+    label: everolimus
+  - id: MONDO:0005550
+    label: Intellectual disability (ID)
+  - id: HP:0001249
+    label: Intellectual disability (ID)
+  - id: HP:0001250
+    label: seizures
+  - id: HP:0011097
+    label: epileptic spasms
+  - id: HP:0002121
+    label: absence seizures
+  - id: CHEBI:69478
+    label: cannabidiol (CBD)
+  - id: MONDO:0001734
+    label: Tuberous Sclerosis Complex
+  - id: MAXO:0001065
+    label: Nephrectomy
+  - id: MAXO:0000602
+    label: Hemodialysis
+  - id: MAXO:0000603
+    label: Peritoneal dialysis
+  - id: MAXO:0000600
+    label: Renal replacement therapy
+  - id: HP:0006772
+    label: Angiomyolipomas
+  - id: HP:0005584
+    label: Renal cell carcinoma
+  - id: HP:0001892
+    label: Bleeding tendency
+  - id: HP:0000083
+    label: Renal insufficiency
+  - id: HP:0003774
+    label: end-stage renal failure
+  - id: CHEBI:68481
+    label: Mammalian target of rapamycin inhibitor
+  - id: CHEBI:63638
+    label: Vigabatrin
+  - id: MONDO:0100062
+    label: Infantile-Onset Developmental and Epileptic Encephalopathies (DEE)
+  - id: CHEBI:26708
+    label: Sodium
+  - id: CHEBI:26216
+    label: Potassium
+  - id: MONDO:0005027
+    label: epilepsy
+  - id: MAXO:0000942
+    label: vagus nerve stimulation (VNS)
+  - id: HP:0004808
+    label: multiple bilateral angiomyolipoma (AMLs)
+  - id: CHEBI:9168
+    label: sirolimus
+  - id: HP:0001263
+    label: Developmental delay
+  - id: CHEBI:17234
+    label: Glucose
+  - id: CHEBI:15756
+    label: Fatty acid (palmitate)
+  - id: MONDO:0010979
+    label: Tuberous sclerosis (TS); Diffuse large B-cell lymphoma (DLBCL)
+  - id: CHEBI:8382
+    label: Prednisone
+  - id: CHEBI:480999
+    label: Vinorelbine
+  - id: CHEBI:4911
+    label: Etoposide
+  - id: CHEBI:4027
+    label: Cyclophosphamide
+  - id: CHEBI:64357
+    label: Rituximab
+  - id: CHEBI:76612
+    label: Ibrutinib
+  - id: MAXO:0000647
+    label: chemotherapy
+  - id: MONDO:0007254
+    label: Breast Cancer
+  - id: CHEBI:85993
+    label: Palbociclib
+  - id: CHEBI:31638
+    label: Fulvestrant
+  - id: CHEBI:41774
+    label: Tamoxifen
+  - id: MAXO:0001298
+    label: therapy
+  - id: CHEBI:8228
+    label: Pioglitazone
+  - id: HP:0006536
+    label: Airway obstruction
+  - id: HP:0000822
+    label: High blood pressure
+  - id: CHEBI:6367
+    label: lamotrigine
+  - id: CHEBI:60654
+    label: valproate
+  - id: CHEBI:6437
+    label: levetiracetam
+  - id: HP:0003394
+    label: Spasms
+  - id: CHEBI:24621
+    label: Hormone
+  - id: CHEBI:3892
+    label: Adrenocorticotropic hormone (ACTH)
+  - id: CHEBI:8378
+    label: Prednisolone
+  - id: MAXO:0000004
+    label: Surgery
+  - id: MAXO:0000014
+    label: Radiotherapy
+  - id: MAXO:0001064
+    label: Mastectomy
+  - id: MAXO:0000601
+    label: Dialysis
+  - id: HP:0031111
+    label: Skin hamartoma
+  - id: MONDO:0004691
+    label: Autosomal dominant polycystic kidney disease
+  - id: HP:0009718
+    label: Subependymal giant cell astrocytomas
+  - id: HP:0004755
+    label: Supraventricular tachycardia
+  - id: CHEBI:16796
+    label: Melatonin (N-acetyl-5-methoxytryptamine)
+  - id: CHEBI:23965
+    label: Estradiol
+  - id: CHEBI:81568
+    label: Luteinizing hormone
+  - id: CHEBI:16526
+    label: carbon dioxide
+  - id: CHEBI:49475
+    label: argon
+  - id: MONDO:0012084
+    label: Aromatic L-amino acid decarboxylase (AADC) deficiency
+  - id: MONDO:0044970
+    label: Mitochondrial disease
+  - id: HP:0000212
+    label: Gingival hyperplasia
+  - id: HP:0000230
+    label: Gingivitis

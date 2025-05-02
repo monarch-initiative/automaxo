@@ -1,0 +1,137 @@
+---
+input_text: 'A Phase II Randomized Trial to Explore the Potential for Pharmacokinetic
+  Drug-Drug Interactions with Stiripentol or Valproate when Combined with Cannabidiol
+  in Patients with Epilepsy. BACKGROUND: In recent randomized, placebo-controlled,
+  phase III trials, highly purified cannabidiol demonstrated efficacy with an acceptable
+  safety profile in patients with Lennox-Gastaut syndrome or Dravet syndrome. It is
+  anticipated that antiepileptic drugs such as stiripentol and valproate will be administered
+  concomitantly with cannabidiol. OBJECTIVES: This trial evaluated the effect of cannabidiol
+  on steady-state pharmacokinetics of stiripentol or valproate in patients with epilepsy,
+  and the safety and tolerability of cannabidiol. METHODS: This phase II, two-arm,
+  parallel-group, double-blind, randomized, placebo-controlled trial recruited male
+  and female patients with epilepsy aged 16-55 years. Patients receiving a stable
+  dose of stiripentol or valproate were randomized 4:1 to receive concomitant double-blind
+  cannabidiol or placebo. Patients received plant-derived, highly purified cannabidiol
+  medicine (Epidiolex  in the USA; Epidyolex  in the EU; 100 mg/mL oral solution)
+  at a dose of 20 mg/kg/day from day 12 to 26, following a 10-day dose-escalation
+  period. Blood samples for pharmacokinetic evaluations were collected on days 1 and
+  26 before stiripentol/valproate dosing and up to 12 h postdose. Treatment-emergent
+  adverse events (AEs) were recorded. RESULTS: In total, 35 patients were recruited
+  to the stiripentol arm (n = 14) or the valproate arm (n = 21). Both the safety and
+  the pharmacokinetic populations of the stiripentol arm comprised 14 patients (2
+  placebo; 12 cannabidiol). The safety population of the valproate arm comprised 20
+  patients (4 placebo; 16 cannabidiol; one withdrew before receiving treatment); the
+  pharmacokinetic population comprised 15 patients (3 placebo; 12 cannabidiol). Concomitant
+  cannabidiol led to a small increase in stiripentol exposure (17% increase in maximum
+  observed plasma concentration [Cmax]; 30% increase in area under the concentration-time
+  curve over the dosing interval [AUCtau]). Concomitant cannabidiol also had little
+  effect on valproate exposure (13% decrease in Cmax; 17% decrease in AUCtau) or its
+  metabolite, 2-propyl-4-pentenoic acid (4-ene-VPA) (23% decrease in Cmax; 30% decrease
+  in AUCtau). All changes in exposure are expressed as the dose-normalized geometric
+  mean (CV%) day 26 to day 1 ratio. The most common AE was diarrhea; most AEs were
+  mild. Two patients discontinued cannabidiol because of serious AEs (rash [n = 1]
+  in the stiripentol arm; hypertransaminasemia [n = 1] in the valproate arm). A separate
+  in vitro study investigated the bidirectional effect of cannabidiol, or its metabolite
+  7-carboxy-cannabidiol, on valproate plasma protein binding; no change in plasma
+  protein binding was observed for either compound. CONCLUSIONS: The clinical relevance
+  of the increase in stiripentol exposure is unknown; patients receiving cannabidiol
+  and stiripentol concomitantly should be monitored for adverse reactions as individual
+  patient responses may vary. Coadministration of cannabidiol did not affect the pharmacokinetics
+  of valproate or its metabolite, 4-ene-VPA, in adult patients with epilepsy. Safety
+  results were consistent with the known safety profile of cannabidiol at a dose of
+  20 mg/kg/day. Clinicaltrials.gov: NCT02607891.'
+raw_completion_output: |-
+  primary_disease: Epilepsy
+  medical_actions: Monitoring for adverse reactions; Administering concomitant cannabidiol; Dose-escalation; Pharmacokinetic evaluations; Recording treatment-emergent adverse events
+  symptoms: Diarrhea; Rash; Hypertransaminasemia
+  chemicals: Stiripentol; Valproate; Cannabidiol; 2-propyl-4-pentenoic acid (4-ene-VPA)
+  action_annotation_relationships: Administering concomitant cannabidiol TREATS Epilepsy; Monitoring for adverse reactions PREVENTS adverse reactions IN Epilepsy; Administering concomitant cannabidiol (with Stiripentol) TREATS Epilepsy; Administering concomitant cannabidiol (with Valproate) TREATS Epilepsy
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Administering concomitant cannabidiol (with Valproate) TREATS Epilepsy
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005027
+  medical_actions:
+    - Monitoring for adverse reactions
+    - Administering concomitant cannabidiol
+    - Dose-escalation
+    - Pharmacokinetic evaluations
+    - Recording treatment-emergent adverse events
+  symptoms:
+    - HP:0002014
+    - HP:0000988
+    - Hypertransaminasemia
+  chemicals:
+    - CHEBI:228488
+    - CHEBI:60654
+    - CHEBI:69478
+    - CHEBI:80634
+  action_annotation_relationships:
+    - subject: Administering concomitant cannabidiol
+      predicate: TREATS
+      object: HP:0001250
+      subject_qualifier: concomitant
+      subject_extension: CHEBI:69478
+    - subject: Monitoring for adverse reactions
+      predicate: PREVENTS
+      object: adverse reactions
+      qualifier: MONDO:0005027
+    - subject: Administering concomitant
+      predicate: TREATS
+      object: HP:0001250
+      subject_extension: CHEBI:69478
+      object_extension: with Stiripentol
+    - subject: Administering concomitant cannabidiol (with Valproate)
+      predicate: TREATS
+      object: HP:0001250
+      subject_qualifier: concomitant
+      subject_extension: CHEBI:69478
+      object_extension: Valproate
+named_entities:
+  - id: MONDO:0100135
+    label: Dravet syndrome
+  - id: MAXO:0001187
+    label: hysteroscopy
+  - id: CHEBI:44915
+    label: propofol
+  - id: CHEBI:119915
+    label: fentanyl
+  - id: CHEBI:9130
+    label: sevoflurane
+  - id: HP:0001250
+    label: seizures
+  - id: CHEBI:6443
+    label: Mirena
+  - id: MONDO:0002602
+    label: Central nervous system diseases
+  - id: HP:0002011
+    label: central nervous system diseases
+  - id: MONDO:0005027
+    label: Epilepsy
+  - id: HP:0002014
+    label: Diarrhea
+  - id: HP:0000988
+    label: Rash
+  - id: CHEBI:228488
+    label: Stiripentol
+  - id: CHEBI:60654
+    label: Valproate
+  - id: CHEBI:69478
+    label: Cannabidiol
+  - id: CHEBI:80634
+    label: 2-propyl-4-pentenoic acid (4-ene-VPA)

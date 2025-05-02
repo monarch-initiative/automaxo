@@ -1,0 +1,338 @@
+---
+input_text: 'Medulloblastoma in children with Fanconi anemia: Association with FA-D1/FA-N,
+  SHH type and poor survival independent of treatment strategies. BACKGROUND: Outcome
+  of children with medulloblastoma (MB) and Fanconi Anemia (FA), an inherited DNA
+  repair deficiency, has not been described systematically. Treatment is complicated
+  by high vulnerability to treatment-associated side effects, yet structured data
+  are lacking. This study aims at giving a comprehensive overview about clinical and
+  molecular characteristics of pediatric FA MB patients. METHODS: Clinical data including
+  detailed information on treatment and toxicities of six previously unreported FA
+  MB patients were supplemented with data of 16 published cases. RESULTS: We identified
+  22 cases of children with FA and MB with clinical data available. All MBs with subgroup
+  reporting were SHH-activated (n=9), confirmed by methylation profiling in five patients.
+  FA MB patients exclusively belonged to complementation groups FA-D1 (n=16) or FA-N
+  (n=3). Patients were treated with postoperative chemotherapy only (50%) or radiotherapy
+  (RT)+-chemotherapy (27%). 23% did not receive adjuvant therapy. Excessive treatment-related
+  toxicities were frequent. Severe hematological toxicity occurred in 91% of patients
+  treated with alkylating chemotherapy, while non-alkylating agents and RT were less
+  toxic. Median overall survival (OS) was 1 year (95%CI 0.3-1.8). 1-year-progression-free-survival
+  (PFS) was 26.3+-10.1% and 1-year-OS was 42.1+-11.3%. Adjuvant therapy prolonged
+  survival (1y-OS/1y-PFS 0%/0% without adjuvant therapy vs. 53.3+-12.9%/33.3+-12.2%
+  with adjuvant therapy, p=0.006/p=0.086). CONCLUSIONS: MB in FA patients is strongly
+  associated with SHH activation and FA-D1/FA-N. Despite the dismal prognosis, adjuvant
+  therapy may prolong survival. Non-alkylating chemotherapy and RT are feasible in
+  selected patients with careful monitoring of toxicities and dose adjustments. Curative
+  therapy for FA MB-SHH remains an unmet medical need.'
+raw_completion_output: |-
+  primary_disease: Medulloblastoma (MB)
+
+  medical_actions: postoperative chemotherapy; radiotherapy; adjuvant therapy; monitoring of toxicities; dose adjustments
+
+  symptoms: excessive treatment-related toxicities; severe hematological toxicity
+
+  chemicals: alkylating chemotherapy; non-alkylating agents
+
+  action_annotation_relationships: postoperative chemotherapy TREATS Medulloblastoma IN children with Fanconi anemia; radiotherapy TREATS Medulloblastoma IN children with Fanconi anemia; adjuvant therapy PREVENTS progression IN Medulloblastoma; monitoring of toxicities PREVENTS excessive treatment-related toxicities IN Medulloblastoma; dose adjustments PREVENTS severe hematological toxicity IN Medulloblastoma; alkylating chemotherapy CAUSES severe hematological toxicity IN Medulloblastoma; non-alkylating agents PREVENT severe hematological toxicity IN Medulloblastoma
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  non-alkylating agents PREVENT severe hematological toxicity IN Medulloblastoma
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0007959
+  medical_actions:
+    - postoperative chemotherapy
+    - MAXO:0000014
+    - adjuvant therapy
+    - monitoring of toxicities
+    - dose adjustments
+  symptoms:
+    - excessive treatment-related toxicities
+    - severe hematological toxicity
+  chemicals:
+    - alkylating chemotherapy
+    - non-alkylating agents
+  action_annotation_relationships:
+    - subject: postoperative chemotherapy
+      predicate: TREATS
+      object: HP:0002885
+      qualifier: MONDO:0019391
+      object_qualifier: children
+      subject_extension: chemotherapy
+    - subject: MAXO:0000014
+      predicate: TREATS
+      object: HP:0002885
+      qualifier: MONDO:0019391
+      object_qualifier: in children
+    - subject: adjuvant therapy
+      predicate: PREVENTS
+      object: progression
+      qualifier: MONDO:0007959
+    - subject: monitoring of toxicities
+      predicate: PREVENTS
+      object: excessive treatment-related toxicities
+      qualifier: MONDO:0007959
+    - subject: dose adjustments
+      predicate: PREVENTS
+      object: severe hematological toxicity
+      qualifier: MONDO:0007959
+      object_qualifier: severe
+    - subject: <chemotherapy>
+      predicate: <CAUSES>
+      object: <severe hematological toxicity>
+      qualifier: <Medulloblastoma>
+      subject_qualifier: <>
+      object_qualifier: <severe>
+      subject_extension: <alkylating>
+      object_extension: <>
+    - predicate: PREVENTS
+      object: severe hematological toxicity
+      qualifier: MONDO:0007959
+      object_qualifier: severe
+      subject_extension: non-alkylating agents
+named_entities:
+  - id: MONDO:0019391
+    label: Fanconi anemia
+  - id: MAXO:0000747
+    label: Hematopoietic stem cell transplantation (HSCT)
+  - id: CHEBI:18198
+    label: ADCs
+  - id: CHEBI:4027
+    label: cyclophosphamide
+  - id: MAXO:0000750
+    label: conditioning regimens
+  - id: CHEBI:37153
+    label: Calcineurin inhibitor
+  - id: CHEBI:38215
+    label: Calcium channel blocker
+  - id: CHEBI:4031
+    label: Cyclosporine
+  - id: CHEBI:8069
+    label: Phenobarbital
+  - id: CHEBI:2668
+    label: Amlodipine
+  - id: MAXO:0000149
+    label: Hematopoietic cell transplantation (HCT)
+  - id: MAXO:0000016
+    label: Cellular therapy
+  - id: HP:0001871
+    label: Blood dyscrasias
+  - id: MAXO:0000595
+    label: Radiography
+  - id: HP:0005528
+    label: Bone marrow failure
+  - id: HP:0034057
+    label: Congenital defects
+  - id: CHEBI:28901
+    label: Busulfan
+  - id: CHEBI:44185
+    label: Methotrexate
+  - id: MONDO:0005233
+    label: Non-small cell lung cancer (NSCLC)
+  - id: CHEBI:33364
+    label: Platinum
+  - id: MAXO:0000647
+    label: chemotherapy
+  - id: HP:0030358
+    label: Non-small cell lung cancer
+  - id: MAXO:0001479
+    label: Allogeneic hematopoietic stem cell transplantation (allo-HSCT)
+  - id: HP:0002863
+    label: Myelodysplasia
+  - id: HP:0001909
+    label: Leukemia
+  - id: MONDO:0016624
+    label: Hereditary anemia
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: MONDO:0005570
+    label: Hematological disorders
+  - id: HP:0002664
+    label: cancer
+  - id: MONDO:0015253
+    label: Diamond Blackfan anemia
+  - id: MAXO:0000600
+    label: Kidney replacement therapy (KRT)
+  - id: HP:0000093
+    label: Proteinuria
+  - id: HP:0003259
+    label: Elevated serum creatinine (SCr > 100micromol/l)
+  - id: MONDO:0001529
+    label: Bone marrow failure (BMF)
+  - id: HP:0002860
+    label: oral squamous cell carcinoma (SCC)
+  - id: MONDO:0100339
+    label: Fanconi anemia (FA)
+  - id: CHEBI:28680
+    label: Ara-C
+  - id: CHEBI:27899
+    label: Cisplatin
+  - id: HP:0011793
+    label: Malignant tumors
+  - id: HP:0000818
+    label: Endocrinopathies
+  - id: HP:0002745
+    label: Oral leukoplakia
+  - id: CHEBI:64357
+    label: rituximab
+  - id: CHEBI:61049
+    label: Tacrolimus
+  - id: HP:0002910
+    label: elevated liver function tests
+  - id: CHEBI:125354
+    label: plerixafor
+  - id: CHEBI:231614
+    label: Nivolumab
+  - id: CHEBI:25016
+    label: PBS
+  - id: MONDO:0009693
+    label: Multiple Myeloma
+  - id: CHEBI:28876
+    label: Melphalan
+  - id: CHEBI:229764
+    label: Selinexor
+  - id: CHEBI:229762
+    label: Eltanexor
+  - id: HP:0006775
+    label: Multiple Myeloma
+  - id: CHEBI:229763
+    label: exportin 1 inhibitors
+  - id: MONDO:0015909
+    label: aplastic anemia
+  - id: HP:0004808
+    label: Acute myeloid leukaemia
+  - id: MAXO:0000004
+    label: Surgery
+  - id: MAXO:0000014
+    label: Radiotherapy
+  - id: MONDO:0001881
+    label: Septic shock
+  - id: MAXO:0001021
+    label: Antimicrobial treatment
+  - id: MAXO:0000174
+    label: Antifungal treatment
+  - id: HP:0001876
+    label: Pancytopenia
+  - id: HP:0001945
+    label: Fever
+  - id: CHEBI:133748
+    label: Citrate
+  - id: CHEBI:41879
+    label: Dexamethasone
+  - id: CHEBI:33281
+    label: Antimicrobial
+  - id: CHEBI:35718
+    label: Antifungal
+  - id: MONDO:0044033
+    label: Posterior reversible encephalopathy syndrome (PRES)
+  - id: MAXO:0010030
+    label: Bone marrow transplantation
+  - id: MAXO:0001188
+    label: Laparoscopy
+  - id: HP:0000988
+    label: Skin rash
+  - id: MONDO:0010161
+    label: Tyrosinemia Type 1
+  - id: HP:0001919
+    label: acute kidney injury (AKI)
+  - id: HP:0000822
+    label: hypertension
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0040012
+    label: Increased chromosomal breakage
+  - id: MONDO:0004631
+    label: Tongue cancer (TC)
+  - id: CHEBI:4735
+    label: EDTA
+  - id: HP:0002014
+    label: Diarrhea
+  - id: HP:0025085
+    label: Blood in stool
+  - id: HP:0000568
+    label: Microphthalmia
+  - id: HP:0000482
+    label: microcornea
+  - id: HP:0000508
+    label: ptosis
+  - id: HP:0011496
+    label: limbal neovascularization
+  - id: HP:0001097
+    label: keratoconjunctivitis sicca
+  - id: CHEBI:62932
+    label: Mycophenolate
+  - id: MONDO:0008903
+    label: Lung Cancer
+  - id: MONDO:0100096
+    label: COVID-19
+  - id: HP:0032169
+    label: severe infections
+  - id: MONDO:0044348
+    label: Hemoglobinopathies
+  - id: MONDO:0005109
+    label: HIV
+  - id: HP:0001622
+    label: Preterm delivery
+  - id: HP:0100601
+    label: Eclampsia
+  - id: MONDO:0043455
+    label: Hereditary hematological malignancy (HHM)
+  - id: MONDO:0043797
+    label: Spinal Cord Injury (SCI)
+  - id: CHEBI:27306
+    label: Vitamin B6
+  - id: HP:0001915
+    label: aplastic anemia
+  - id: MONDO:0001056
+    label: Gastric cancer
+  - id: MAXO:0001193
+    label: Esophagogastroduodenoscopy
+  - id: CHEBI:31941
+    label: Oxaliplatin
+  - id: HP:0012126
+    label: Gastric cancer
+  - id: MONDO:0005575
+    label: Colorectal Cancer
+  - id: CHEBI:46345
+    label: 5-fluorouracil (5-FU)
+  - id: CHEBI:15640
+    label: Folinic acid
+  - id: HP:0008209
+    label: Premature ovarian insufficiency (POI)
+  - id: HP:0000026
+    label: Testicular failure
+  - id: CHEBI:81569
+    label: Follicle-stimulating hormone (FSH)
+  - id: CHEBI:74539
+    label: Luteinizing hormone (LH)
+  - id: MONDO:0010651
+    label: myelodysplastic syndromes (MDS)
+  - id: MAXO:0000079
+    label: genetic counseling
+  - id: MONDO:0018881
+    label: myelodysplastic syndromes
+  - id: MAXO:0010033
+    label: cord blood transplantation
+  - id: CHEBI:50443
+    label: hematopoietic stem cells (HSC)
+  - id: MONDO:0000159
+    label: Bone marrow failure syndromes
+  - id: HP:0001903
+    label: Anemia
+  - id: MONDO:0007959
+    label: Medulloblastoma (MB)
+  - id: HP:0002885
+    label: Medulloblastoma

@@ -1,0 +1,239 @@
+---
+input_text: "Cannabidiol for the treatment of Lennox-Gastaut syndrome and Dravet syndrome:
+  experts' recommendations for its use in clinical practice in Spain. INTRODUCTION:
+  Cannabidiol (CBD) is one of the main components of the cannabis plant that has demonstrated
+  anti-epileptic seizure effect. Following its clinical development, in September
+  2019 the European Medicines Agency approved its indication for the adjunctive therapy
+  of epileptic seizures associated with Lennox-Gastaut syndrome (LGS) and Dravet syndrome
+  (DS), combined with clobazam (CLB), in patients of 2 years of age and older. AIM:
+  To establish recommendations on the use of plant-derived highly purified CBD on
+  which Spanish experts have reached consensus for the treatment of epilepsy in patients
+  with DS and LGS based on their clinical experience and the scientific evidence.
+  DEVELOPMENT: Consensus meeting with the participation of four Spanish neurologists
+  and neuropediatric who are experts in epilepsy secondary to DS and LGS and with
+  clinical experience in the use and management of CBD. They discussed on several
+  topics, including posology (starting dose, dose escalation schema), efficacy (assessment
+  of outcomes and indications for treatment withdrawal), and safety (evaluation, drug-drug
+  interactions, adverse events management). CONCLUSIONS: In order to optimise CBD
+  treatment, a slow dose escalation (= 4 weeks) is recommended until the maximum recommended
+  dose or the desire effect is reached. It is also recommended that the concomitant
+  antiseizure medications (ASMs) be reduced in case of adverse events due to interactions,
+  and that the treatment continues for at least 6 months if it is well tolerated.
+  The efficacy and safety of CBD must be assessed individually, considering the benefits
+  and risks for individual patients."
+raw_completion_output: |-
+  primary_disease: Lennox-Gastaut syndrome and Dravet syndrome
+
+  medical_actions: slow dose escalation; reduction of concomitant antiseizure medications (ASMs); continuation of treatment for at least 6 months; individual assessment of efficacy and safety; management of adverse events
+
+  symptoms: epileptic seizures
+
+  chemicals: Cannabidiol (CBD); clobazam (CLB)
+
+  action_annotation_relationships: slow dose escalation TREATS epileptic seizures IN Lennox-Gastaut syndrome and Dravet syndrome; reduction of concomitant antiseizure medications (ASMs) PREVENTS adverse events IN Lennox-Gastaut syndrome and Dravet syndrome; continuation of treatment for at least 6 months TREATS epileptic seizures IN Lennox-Gastaut syndrome and Dravet syndrome; individual assessment of efficacy and safety TREATS epileptic seizures IN Lennox-Gastaut syndrome and Dravet syndrome; management of adverse events PREVENTS adverse events IN Lennox-Gastaut syndrome and Dravet syndrome; Cannabidiol (CBD) TREATS epileptic seizures IN Lennox-Gastaut syndrome and Dravet syndrome; clobazam (CLB) TREATS epileptic seizures IN Lennox-Gastaut syndrome and Dravet syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  clobazam (CLB) TREATS epileptic seizures IN Lennox-Gastaut syndrome and Dravet syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: Lennox-Gastaut syndrome and Dravet syndrome
+  medical_actions:
+    - slow dose escalation
+    - reduction of concomitant antiseizure medications (ASMs)
+    - continuation of treatment for at least 6 months
+    - individual assessment of efficacy and safety
+    - management of adverse events
+  symptoms:
+    - HP:0001250
+  chemicals:
+    - CHEBI:69478
+    - CHEBI:31413
+  action_annotation_relationships:
+    - subject: slow dose escalation
+      predicate: TREATS
+      object: HP:0001250
+      qualifier: Lennox-Gastaut syndrome, Dravet syndrome
+    - subject: reduction of concomitant antiseizure medications (ASMs)
+      predicate: PREVENTS
+      object: adverse events
+      qualifier: Lennox-Gastaut syndrome, Dravet syndrome
+      subject_extension: antiseizure medications (ASMs)
+    - subject: <continuation of treatment for at least 6 months>
+      predicate: <TREATS>
+      object: <epileptic seizures>
+      qualifier: <Lennox-Gastaut syndrome and Dravet syndrome>
+      subject_qualifier: <Not applicable>
+      object_qualifier: <Not applicable>
+      subject_extension: <Not applicable>
+      object_extension: <Not applicable>
+    - subject: individual assessment of efficacy and safety
+      predicate: TREATS
+      object: HP:0001250
+      qualifier: Lennox-Gastaut syndrome, Dravet syndrome
+    - subject: management of adverse events
+      predicate: PREVENTS
+      object: adverse events
+      qualifier: Lennox-Gastaut syndrome, Dravet syndrome
+    - subject: CBD therapy
+      predicate: TREATS
+      object: HP:0001250
+      qualifier: Lennox-Gastaut syndrome, Dravet syndrome
+      subject_extension: CHEBI:69478
+    - subject: <clobazam (CLB)>
+      predicate: <TREATS>
+      object: <epileptic seizures>
+      qualifier: <Lennox-Gastaut syndrome and Dravet syndrome>
+      subject_extension: <clobazam>
+named_entities:
+  - id: MONDO:0100135
+    label: Dravet syndrome
+  - id: MAXO:0001187
+    label: hysteroscopy
+  - id: CHEBI:44915
+    label: propofol
+  - id: CHEBI:119915
+    label: fentanyl
+  - id: CHEBI:9130
+    label: sevoflurane
+  - id: HP:0001250
+    label: seizures
+  - id: CHEBI:6443
+    label: Mirena
+  - id: MONDO:0002602
+    label: Central nervous system diseases
+  - id: HP:0002011
+    label: central nervous system diseases
+  - id: MONDO:0005027
+    label: Epilepsy
+  - id: HP:0002014
+    label: Diarrhea
+  - id: HP:0000988
+    label: Rash
+  - id: CHEBI:228488
+    label: Stiripentol
+  - id: CHEBI:60654
+    label: Valproate
+  - id: CHEBI:69478
+    label: Cannabidiol
+  - id: CHEBI:80634
+    label: 2-propyl-4-pentenoic acid (4-ene-VPA)
+  - id: HP:0002373
+    label: Febrile seizures
+  - id: MAXO:0001298
+    label: therapy
+  - id: CHEBI:31413
+    label: clobazam (CLB)
+  - id: HP:0010819
+    label: drop seizures
+  - id: HP:0002329
+    label: somnolence
+  - id: HP:0004396
+    label: decreased appetite
+  - id: CHEBI:9925
+    label: sodium valproate
+  - id: MONDO:0016532
+    label: Lennox-Gastaut syndrome
+  - id: HP:0000729
+    label: Autistic behaviors
+  - id: HP:0033258
+    label: Sudden unexpected death in epilepsy
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: MONDO:0002125
+    label: Status epilepticus
+  - id: HP:0032656
+    label: Febrile status epilepticus
+  - id: MAXO:0001017
+    label: vaccination
+  - id: HP:0002069
+    label: Generalized tonic-clonic seizure
+  - id: CHEBI:3359
+    label: CBDA
+  - id: CHEBI:167557
+    label: CBCA
+  - id: CHEBI:66964
+    label: Delta9-tetrahydrocannabinol (THC)
+  - id: CHEBI:39867
+    label: Valproic acid
+  - id: CHEBI:5000
+    label: Fenfluramine
+  - id: HP:0033349
+    label: recurrent seizures
+  - id: MAXO:0000058
+    label: Drug treatment
+  - id: HP:0020219
+    label: motor seizures
+  - id: CHEBI:76720
+    label: Antisense oligonucleotides
+  - id: MAXO:0001593
+    label: ASO therapy
+  - id: HP:0012378
+    label: Fatigue
+  - id: HP:0001945
+    label: Pyrexia
+  - id: HP:0001654
+    label: valvular heart disease
+  - id: HP:0002092
+    label: pulmonary arterial hypertension
+  - id: HP:0002133
+    label: Status epilepticus
+  - id: CHEBI:17115
+    label: vaccine(s)
+  - id: MONDO:0100062
+    label: Developmental and/or epileptic encephalopathies (DEE)
+  - id: HP:0001260
+    label: dysarthria
+  - id: HP:0001254
+    label: lethargy
+  - id: HP:0002315
+    label: headache
+  - id: CHEBI:233158
+    label: soticlestat
+  - id: CHEBI:34310
+    label: 24S-hydroxycholesterol (24HC)
+  - id: CHEBI:9586
+    label: Tiagabine
+  - id: CHEBI:6437
+    label: Levetiracetam
+  - id: HP:0000708
+    label: behavioral problems
+  - id: CHEBI:16113
+    label: Cholesterol
+  - id: MAXO:0001394
+    label: Oral administration
+  - id: CHEBI:173124
+    label: 2-linoleoyl glycerol (2-LG)
+  - id: CHEBI:52392
+    label: 2-AG
+  - id: CHEBI:2700
+    label: anandamide
+  - id: CHEBI:52640
+    label: N-acylethanolamines
+  - id: CHEBI:35623
+    label: Anticonvulsants
+  - id: MAXO:0000942
+    label: Vagus nerve stimulation (VNS)
+  - id: HP:0002360
+    label: Sleep disturbance
+  - id: HP:0001249
+    label: Intellectual disability
+  - id: HP:0001251
+    label: ataxia
+  - id: CHEBI:42638
+    label: fenfluramine (FFA)
+  - id: HP:0032794
+    label: Myoclonic seizures

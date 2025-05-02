@@ -1,0 +1,216 @@
+---
+input_text: 'Phase I Study of Ceralasertib (AZD6738), a Novel DNA Damage Repair Agent,
+  in Combination with Weekly Paclitaxel in Refractory Cancer. PURPOSE: Ceralasertib
+  is a potent and selective oral inhibitor of the serine/threonine protein kinase
+  ataxia telangiectasia and Rad3-related (ATR) protein. PATIENTS AND METHODS: Eligible
+  patients with solid tumors, enriched for melanoma, received ceralasertib in combination
+  with a fixed dose of paclitaxel (80 mg/m2 on D1, D8, D15) in 28-day cycles. The
+  dose of ceralasertib was escalated to reach an MTD in a rolling 6 design. The starting
+  dose of ceralasertib was 40 mg QD. Fifty-seven patients (33 patients with melanoma
+  who failed prior PD1/L1 treatment) were enrolled in 7 dose cohorts ranging from
+  40 mg QD to 240 mg BD plus weekly paclitaxel. RESULTS: The RP2D was established
+  as ceralasertib 240 mg BD days 1-14 plus paclitaxel 80 mg/m2 on D1, D8, D15 every
+  28 days. The most common toxicities were neutropenia (n = 39, 68%), anemia (n =
+  25, 44%), and thrombocytopenia (n = 21, 37%). In the full analysis set of 57 patients,
+  the overall response rate (ORR) was 22.6% (95% CI, 12.5-35.3). In 33 patients with
+  melanoma, resistant to prior anti-PD1 therapy, the ORR was 33.3% (95% CI, 18.0-51.8).
+  In the melanoma subset, the mPFS was 3.6 months (95% CI, 2.0-5.8), the median duration
+  of response was 9.9 months (95% CI, 3.7-23.2), and the mOS was 7.4 months (95% CI,
+  5.7-11.9). CONCLUSIONS: Ceralasertib in combination with paclitaxel was well tolerated
+  in patients with advanced malignancies and showed evidence of antitumor activity.
+  Durable responses were observed in patients with advanced cutaneous, acral, and
+  mucosal melanoma resistant to anti-PD1/L1 treatment.See related commentary by Ashworth,
+  p. 4667.'
+raw_completion_output: |-
+  primary_disease: Refractory Cancer
+  medical_actions: Ceralasertib administration; Paclitaxel administration; Dose escalation of ceralasertib; RP2D (Recommended Phase II Dose) establishment; Evaluation of toxicities; Evaluation of overall response rate (ORR); Measurement of median progression-free survival (mPFS); Measurement of median overall survival (mOS)
+  symptoms: Neutropenia; Anemia; Thrombocytopenia
+  chemicals: Ceralasertib; Paclitaxel
+  action_annotation_relationships: Ceralasertib administration (with Paclitaxel) TREATS refractory cancer IN Refractory Cancer; Dose escalation of ceralasertib PREVENTS treatment failure IN Refractory Cancer; Evaluation of toxicities (Neutropenia) RELATED TO treatment IN Refractory Cancer; Evaluation of toxicities (Anemia) RELATED TO treatment IN Refractory Cancer; Evaluation of toxicities (Thrombocytopenia) RELATED TO treatment IN Refractory Cancer
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Evaluation of toxicities (Thrombocytopenia) RELATED TO treatment IN Refractory Cancer
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0036501
+  medical_actions:
+    - Ceralasertib administration
+    - Paclitaxel administration
+    - Dose escalation of ceralasertib
+    - RP2D (Recommended Phase II Dose) establishment
+    - Evaluation of toxicities
+    - Evaluation of overall response rate (ORR)
+    - Measurement of median progression-free survival (mPFS)
+    - Measurement of median overall survival (mOS)
+  symptoms:
+    - HP:0001875
+    - HP:0001903
+    - HP:0001873
+  chemicals:
+    - CHEBI:231342
+    - CHEBI:45863
+  action_annotation_relationships:
+    - subject: administration
+      predicate: TREATS
+      object: refractory cancer
+      qualifier: MONDO:0036501
+      subject_qualifier: with Paclitaxel
+      subject_extension: CHEBI:231342
+    - subject: Dose escalation
+      predicate: PREVENTS
+      object: treatment failure
+      qualifier: MONDO:0036501
+      subject_extension: CHEBI:231342
+    - subject: treatment
+      predicate: RELATED TO
+      object: HP:0001875
+      qualifier: MONDO:0036501
+    - subject: treatment
+      predicate: RELATED TO
+      object: HP:0001903
+      qualifier: MONDO:0036501
+    - subject: treatment
+      predicate: RELATED TO
+      object: HP:0001873
+      qualifier: MONDO:0036501
+named_entities:
+  - id: MONDO:0005086
+    label: Renal cell carcinoma
+  - id: MONDO:0003060
+    label: Biliary tract cancer (BTC)
+  - id: CHEBI:175901
+    label: Gemcitabine
+  - id: CHEBI:33364
+    label: Platinum
+  - id: MAXO:0000647
+    label: chemotherapy
+  - id: MONDO:0008840
+    label: Ataxia Telangiectasia
+  - id: MAXO:0010030
+    label: Bone Marrow Transplantation
+  - id: MAXO:0001001
+    label: Gene Therapy
+  - id: CHEBI:166830
+    label: Acetyl-DL-leucine
+  - id: CHEBI:41879
+    label: Dexamethasone
+  - id: CHEBI:4462
+    label: Dexamethasone sodium phosphate
+  - id: CHEBI:133021
+    label: venetoclax
+  - id: HP:0002721
+    label: Immunodeficiency
+  - id: HP:0002073
+    label: progressive cerebellar ataxia
+  - id: HP:0002013
+    label: vomiting
+  - id: HP:0002315
+    label: headache
+  - id: CHEBI:27899
+    label: cisplatin
+  - id: HP:0001903
+    label: Anemia
+  - id: HP:0001873
+    label: Thrombocytopenia
+  - id: HP:0001875
+    label: Neutropenia
+  - id: CHEBI:231342
+    label: Ceralasertib
+  - id: CHEBI:31355
+    label: Carboplatin
+  - id: MAXO:0000747
+    label: Hematopoietic stem cell transplantation
+  - id: MONDO:0005184
+    label: Pancreatic ductal adenocarcinoma (PDAC)
+  - id: HP:0020174
+    label: Drug resistance
+  - id: MAXO:0000011
+    label: Physical therapy
+  - id: HP:0001251
+    label: Ataxia
+  - id: MONDO:0010150
+    label: Head and neck squamous cell carcinomas (HNSCC)
+  - id: MAXO:0000014
+    label: Radiotherapy (RT)
+  - id: HP:0010280
+    label: Oral mucositis
+  - id: HP:0002015
+    label: Dysphagia
+  - id: MONDO:0008876
+    label: Bloom Syndrome (BS)
+  - id: HP:0001510
+    label: growth retardation
+  - id: HP:0011793
+    label: malignancies
+  - id: MONDO:0004992
+    label: Cancer
+  - id: HP:0002664
+    label: Cancer
+  - id: CHEBI:27656
+    label: Camptothecin (CPT)
+  - id: CHEBI:63632
+    label: Topotecan
+  - id: CHEBI:4911
+    label: Etoposide
+  - id: CHEBI:231344
+    label: Talazoparib
+  - id: CHEBI:231616
+    label: M4344
+  - id: MONDO:0008433
+    label: Small-cell lung cancer (SCLC)
+  - id: HP:0030357
+    label: Small-cell lung cancer (SCLC)
+  - id: MONDO:0003778
+    label: Inborn Errors of Immunity (IEI)
+  - id: HP:0033141
+    label: Severe SARS-CoV-2 infection
+  - id: MAXO:0001017
+    label: Vaccination
+  - id: CHEBI:22907
+    label: Bleomycin (BLM)
+  - id: MONDO:0005494
+    label: Triple-negative breast cancer (TNBC)
+  - id: CHEBI:9555
+    label: 6-thioguanine
+  - id: CHEBI:4659
+    label: Disulfiram
+  - id: CHEBI:28694
+    label: Cu
+  - id: CHEBI:83766
+    label: Olaparib
+  - id: HP:0002894
+    label: pancreatic cancer
+  - id: MONDO:0005192
+    label: Pancreatic Cancer
+  - id: MONDO:0007254
+    label: Breast Cancer
+  - id: MAXO:0000127
+    label: Genetic testing
+  - id: HP:0003002
+    label: Breast Cancer
+  - id: MONDO:0008903
+    label: lung cancer
+  - id: MAXO:0001298
+    label: therapy
+  - id: MONDO:0005070
+    label: Tumors
+  - id: MAXO:0001394
+    label: Oral administration
+  - id: MONDO:0036501
+    label: Refractory Cancer
+  - id: CHEBI:45863
+    label: Paclitaxel

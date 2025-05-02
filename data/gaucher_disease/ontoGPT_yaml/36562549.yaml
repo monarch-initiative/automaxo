@@ -1,0 +1,209 @@
+---
+input_text: 'Comprehensive and long-term outcomes of enzyme replacement therapy followed
+  by stem cell transplantation in children with Gaucher disease type 1 and 3. BACKGROUND:
+  Gaucher disease (GD) is a lysosomal storage disorder, characterized by hepatosplenomegaly,
+  pancytopenia, bone diseases, with or without neurological symptoms. Plasma glucosylsphingosine
+  (lyso-Gb1), a highly sensitive and specific biomarker for GD, has been used for
+  diagnosis and monitoring the response to treatment. Enzyme replacement therapy (ERT)
+  is an effective treatment for the non-neurologic symptoms of GD. Neuronopathic GD
+  (type 2 and 3) accounts for 60%-70% of the Asian affected population. METHODS: We
+  explored combination therapy of ERT followed by hematopoietic stem cell transplantation
+  (HSCT) and its long-term outcomes in patients with GD type 3 (GD3). RESULTS: Four
+  patients with GD3 and one with GD type 1 (GD1) underwent HSCT. The types of donor
+  were one matched-related, one matched-unrelated, and three haploidentical. The age
+  at disease onset was 6-18 months and the age at HSCT was 3.8-15 years in the patients
+  with GD3. The latest age at follow-up was 8-22 years, with a post-HSCT duration
+  of 3-14 years. All patients had successful HSCT. Chronic graft-versus-host disease
+  occurred in one patient. The enzyme activities were normalized at 2 weeks post HSCT.
+  Lyso-Gb1 concentrations became lower than the pathological value. All of the patients
+  are still alive and physically independent. Most of them (4/5) returned to school.
+  None of the patients with GD3 had seizures or additional neurological symptoms after
+  HSCT, but showed varying degrees of cognitive impairment. CONCLUSIONS: ERT followed
+  by HSCT could be considered as an alternative treatment for patients with GD3 who
+  have a high risk of fatal neurological progression.'
+raw_completion_output: |-
+  primary_disease: Gaucher disease type 1 and 3
+
+  medical_actions: enzyme replacement therapy (ERT);stem cell transplantation (HSCT)
+
+  symptoms: hepatosplenomegaly;pancytopenia;bone diseases;neurological symptoms;seizures;cognitive impairment
+
+  chemicals: Plasma glucosylsphingosine (lyso-Gb1)
+
+  action_annotation_relationships: enzyme replacement therapy (ERT) TREATS hepatosplenomegaly IN Gaucher disease type 1 and 3;enzyme replacement therapy (ERT) TREATS pancytopenia IN Gaucher disease type 1 and 3;enzyme replacement therapy (ERT) TREATS bone diseases IN Gaucher disease type 1 and 3;stem cell transplantation (HSCT) PREVENTS neurological symptoms IN Gaucher disease type 1 and 3;stem cell transplantation (HSCT) PREVENTS seizures IN Gaucher disease type 1 and 3;stem cell transplantation (HSCT) TREATS cognitive impairment IN Gaucher disease type 1 and 3
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  stem cell transplantation (HSCT) TREATS cognitive impairment IN Gaucher disease type 1 and 3
+
+  ===
+
+extracted_object:
+  primary_disease: Gaucher disease type 1 and 3
+  medical_actions:
+    - enzyme replacement therapy (ERT)
+    - MAXO:0000747
+  symptoms:
+    - HP:0001433
+    - HP:0001876
+    - bone diseases
+    - neurological symptoms
+    - HP:0001250
+    - HP:0100543
+  chemicals:
+    - Plasma glucosylsphingosine (lyso-Gb1)
+  action_annotation_relationships:
+    - subject: enzyme replacement therapy
+      predicate: TREATS
+      object: HP:0001433
+      qualifier: Gaucher disease type 1 and 3
+      subject_extension: enzyme replacement therapy
+    - subject: enzyme replacement therapy
+      predicate: TREATS
+      object: HP:0001876
+      qualifier: Gaucher disease type 1 and 3
+      subject_extension: enzyme replacement therapy
+    - subject: enzyme replacement therapy
+      predicate: TREATS
+      object: bone diseases
+      qualifier: Gaucher disease type 1 and 3
+      subject_extension: enzyme replacement therapy (ERT)
+    - subject: MAXO:0000747
+      predicate: PREVENTS
+      object: neurological symptoms
+      qualifier: Gaucher disease type 1 and 3
+      subject_extension: stem cell transplantation
+    - subject: stem cell transplantation
+      predicate: PREVENTS
+      object: HP:0001250
+      qualifier: Gaucher disease type 1 and 3
+      subject_qualifier: HSCT
+    - subject: stem cell transplantation
+      predicate: TREATS
+      object: HP:0100543
+      qualifier: Gaucher disease type 1 and 3
+      subject_qualifier: HSCT
+named_entities:
+  - id: MONDO:0002561
+    label: Lysosomal Storage Disorders
+  - id: CHEBI:135923
+    label: Migalastat
+  - id: HP:0001071
+    label: Fabry disease
+  - id: MONDO:0018150
+    label: Gaucher Disease (GD)
+  - id: HP:0001395
+    label: liver fibrosis
+  - id: HP:0001394
+    label: cirrhosis
+  - id: HP:0100626
+    label: end-stage liver disease
+  - id: HP:0001402
+    label: hepatocellular carcinoma
+  - id: MAXO:0001001
+    label: gene therapy
+  - id: MAXO:0001257
+    label: vitamin E supplementation
+  - id: MAXO:0010200
+    label: abdominal ultrasonography
+  - id: HP:0025464
+    label: oxidative stress
+  - id: CHEBI:33234
+    label: vitamin E
+  - id: CHEBI:566274
+    label: malondialdehyde (MDA)
+  - id: CHEBI:16856
+    label: reduced glutathione (GSH)
+  - id: MAXO:0009091
+    label: Substrate reduction therapy (SRT)
+  - id: HP:0002716
+    label: Lymphadenopathy
+  - id: HP:0001903
+    label: Anemia
+  - id: HP:0001873
+    label: Thrombocytopenia
+  - id: HP:0001433
+    label: Hepatosplenomegaly
+  - id: CHEBI:30884
+    label: Glucosylceramide synthase (GCS) inhibitors
+  - id: CHEBI:135590
+    label: ambroxol
+  - id: HP:0410281
+    label: dyspepsia
+  - id: HP:0002027
+    label: abdominal pain
+  - id: CHEBI:82752
+    label: eliglustat
+  - id: CHEBI:4177
+    label: glucosylsphingosine
+  - id: HP:0003281
+    label: hyperferritinemia
+  - id: HP:0011024
+    label: gastrointestinal disorders
+  - id: MONDO:0010526
+    label: Fabry disease
+  - id: HP:0002180
+    label: neurodegeneration
+  - id: MONDO:0009267
+    label: Gaucher Disease Type 3
+  - id: HP:0001251
+    label: ataxia
+  - id: HP:0001332
+    label: dystonia
+  - id: HP:0001337
+    label: tremor
+  - id: HP:0001250
+    label: seizures
+  - id: HP:0000939
+    label: Osteoporosis
+  - id: MONDO:0009265
+    label: Gaucher disease type 1
+  - id: MONDO:0005201
+    label: Restrictive cardiomyopathy
+  - id: HP:0001635
+    label: cardiac failure
+  - id: MAXO:0000950
+    label: supportive care
+  - id: HP:0001744
+    label: splenomegaly
+  - id: HP:0010885
+    label: osteonecrosis
+  - id: HP:0002653
+    label: bone pain
+  - id: MAXO:0000747
+    label: Haematopoietic Stem Cell Transplantation (HSCT)
+  - id: MAXO:0010030
+    label: bone marrow transplantation (BMT)
+  - id: HP:0011891
+    label: postpartum hemorrhage (PPH)
+  - id: HP:0005268
+    label: miscarriage
+  - id: MONDO:0100096
+    label: COVID-19
+  - id: HP:0003493
+    label: positive ANA
+  - id: HP:0000872
+    label: Hashimoto thyroiditis
+  - id: CHEBI:74066
+    label: Immunoglobulin (Ig) M
+  - id: HP:0031915
+    label: stable
+  - id: MAXO:0000127
+    label: genetic testing
+  - id: MAXO:0000752
+    label: bone marrow aspiration
+  - id: HP:0001876
+    label: pancytopenia
+  - id: HP:0100543
+    label: cognitive impairment

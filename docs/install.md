@@ -39,6 +39,13 @@ poetry install
 poetry shell
 ```
 
+or use this in case the above activation does not work  try use this:
+
+```bash
+poetry install
+source $(poetry env info --path)/bin/activate
+```
+
 Add your OpenAI key:
 
 ```bash

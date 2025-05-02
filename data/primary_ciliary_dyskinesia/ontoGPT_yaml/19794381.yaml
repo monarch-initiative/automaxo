@@ -1,0 +1,98 @@
+---
+input_text: Recurrent peptic ulcer disease in a pediatric patient with type 1 neurofibromatosis
+  and primary ciliary dyskinesia. Neurofibromatosis type 1 is an autosomal dominant
+  neurocutaneous disorder with characteristic features of skin and central nervous
+  system involvement. Gastrointestinal complications are rare, especially during childhood.
+  In adults, only two cases of peptic ulcer have been reported in neurofibromatosis,
+  both due to Zollinger-Ellison syndrome. Peptic ulcer disease (PUD) may be primary
+  or secondary in nature and it may be life threatening in the acute phase due to
+  the risk of perforation. A case of recurrent gastrointestinal hemorrhage in a child
+  with systemic neurofibromatosis and primary ciliary dyskinesia (PCD) is presented.
+  The upper gastrointestinal endoscopy revealed the presence of multiple gastric ulcers.
+  The ulcers scarred after the long-term administration of a proton pump inhibitor
+  (PPI), but recurred after the suspension. Laboratory and imaging studies excluded
+  Zollinger-Ellison syndrome and other known causes of PUD, suggesting a potential
+  role of neurofibromatosis itself and primary ciliary dyskinesia in developing of
+  recurrent PUD. As early diagnosis of PUD is vital for patient survival, this case
+  report highlights the possible association of neurofibromatosis and PCD with this
+  condition, responsive to PPI therapy and the potential need of gastric protection
+  before complications arise.
+raw_completion_output: |-
+  primary_disease: Peptic Ulcer Disease (PUD)
+
+  medical_actions: Administration of a proton pump inhibitor; Upper gastrointestinal endoscopy; Laboratory and imaging studies
+
+  symptoms: Gastrointestinal hemorrhage; Multiple gastric ulcers
+
+  chemicals: Proton pump inhibitor (PPI)
+
+  action_annotation_relationships: Administration of a proton pump inhibitor (with Proton pump inhibitor (PPI)) TREATS Multiple gastric ulcers IN Peptic Ulcer Disease (PUD); Upper gastrointestinal endoscopy IDENTIFIES Multiple gastric ulcers IN Peptic Ulcer Disease (PUD); Laboratory and imaging studies EXCLUDES Zollinger-Ellison syndrome IN Peptic Ulcer Disease (PUD)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Laboratory and imaging studies EXCLUDES Zollinger-Ellison syndrome IN Peptic Ulcer Disease (PUD)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0004247
+  medical_actions:
+    - Administration of a proton pump inhibitor
+    - MAXO:0001193
+    - Laboratory and imaging studies
+  symptoms:
+    - HP:0002239
+    - Multiple gastric ulcers
+  chemicals:
+    - CHEBI:18361
+  action_annotation_relationships:
+    - subject: Administration of a proton pump inhibitor
+      predicate: TREATS
+      object: Multiple gastric ulcers
+      qualifier: MONDO:0004247
+      subject_qualifier: with Proton pump inhibitor (PPI)
+      subject_extension: CHEBI:49200
+    - subject: MAXO:0001193
+      predicate: IDENTIFIES
+      object: Multiple gastric ulcers
+      qualifier: MONDO:0004247
+    - subject: Laboratory and imaging studies
+      predicate: EXCLUDES
+      object: HP:0002044
+      qualifier: MONDO:0004247
+named_entities:
+  - id: MONDO:0008932
+    label: Primary ciliary dyskinesia (PCD)
+  - id: HP:0034315
+    label: Chronic cough
+  - id: HP:0002643
+    label: Neonatal respiratory distress
+  - id: MAXO:0000506
+    label: non-invasive ventilation (NIV)
+  - id: HP:0003251
+    label: Male infertility
+  - id: HP:0001696
+    label: Situs inversus
+  - id: MONDO:0004247
+    label: Peptic Ulcer Disease (PUD)
+  - id: MAXO:0001193
+    label: Upper gastrointestinal endoscopy
+  - id: HP:0002239
+    label: Gastrointestinal hemorrhage
+  - id: CHEBI:18361
+    label: Proton pump inhibitor (PPI)
+  - id: CHEBI:49200
+    label: Proton pump inhibitor
+  - id: HP:0002044
+    label: Zollinger-Ellison syndrome

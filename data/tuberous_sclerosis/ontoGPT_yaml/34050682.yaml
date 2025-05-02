@@ -1,0 +1,114 @@
+---
+input_text: "The long-term efficacy of cannabidiol in the treatment of refractory
+  epilepsy. OBJECTIVE: Cannabidiol (CBD) has been shown to reduce seizures among patients
+  with refractory epilepsies of various etiologies in recent clinical trials and an
+  expanded access program (EAP). Most studies report efficacy over short time periods
+  (<1 year), with little published on longer term efficacy. Here, we investigate the
+  efficacy of CBD for a treatment period of up to 60 months (median = 45.5 months).
+  METHODS: We conducted a retrospective review of patient-reported seizure logs and
+  medical records for 54 subjects with refractory epilepsy who enrolled in the Massachusetts
+  General Hospital's open-label EAP for CBD as a new treatment for epilepsy. We analyzed
+  the effect of CBD on seizure frequencies and concomitant antiepileptic drug (AED)
+  use at 1 year after starting treatment and the most recent study visit. RESULTS:
+  Our results indicate that CBD maintains its efficacy for controlling seizures from
+  Year 1 to the most recent study visit. The percentage of seizure responders remained
+  similar at these time points (41.7%-42.6%), and the seizure response rate was also
+  maintained (p = .12). Efficacy was also seen over a broad dose range, and up to
+  50 mg/kg/day. CBD was particularly effective for controlling seizures in the setting
+  of tuberous sclerosis complex and for reducing epileptic spasms and absence seizures.
+  Although CBD use did not lead to an overall decrease in concomitant AEDs, most subjects
+  reduced the dose of at least one concomitant AED compared to baseline. CBD was generally
+  well tolerated, with drowsiness and diarrhea as the primary adverse reactions. SIGNIFICANCE:
+  This study demonstrates CBD does not lose its efficacy in controlling seizures over
+  a treatment period of up to 60 months. Taken alongside other results on the efficacy
+  and tolerability of CBD in the treatment of refractory epilepsies, our results provide
+  evidence that CBD is an effective, safe, and well-tolerated AED for long-term use."
+raw_completion_output: |-
+  primary_disease: refractory epilepsy
+
+  medical_actions: retrospective review of patient-reported seizure logs and medical records; analysis of the effect of CBD on seizure frequencies; analysis of concomitant antiepileptic drug use; treatment with CBD
+
+  symptoms: seizures; epileptic spasms; absence seizures
+
+  chemicals: cannabidiol (CBD); antiepileptic drugs
+
+  action_annotation_relationships: retrospective review of patient-reported seizure logs and medical records PREVENTS seizures IN refractory epilepsy; analysis of the effect of CBD on seizure frequencies TREATS seizures IN refractory epilepsy; treatment with CBD (with cannabidiol) TREATS seizures IN refractory epilepsy; treatment with CBD (with cannabidiol) TREATS epileptic spasms IN refractory epilepsy; treatment with CBD (with cannabidiol) TREATS absence seizures IN refractory epilepsy
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  treatment with CBD (with cannabidiol) TREATS absence seizures IN refractory epilepsy
+
+  ===
+
+extracted_object:
+  primary_disease: refractory epilepsy
+  medical_actions:
+    - retrospective review of patient-reported seizure logs and medical records
+    - analysis of the effect of CBD on seizure frequencies
+    - analysis of concomitant antiepileptic drug use
+    - treatment with CBD
+  symptoms:
+    - HP:0001250
+    - HP:0011097
+    - HP:0002121
+  chemicals:
+    - CHEBI:69478
+    - antiepileptic drugs
+  action_annotation_relationships:
+    - subject: retrospective review of patient-reported seizure logs and medical records
+      predicate: PREVENTS
+      object: HP:0001250
+      qualifier: refractory epilepsy
+    - subject: analysis of the effect of CBD on seizure frequencies
+      predicate: TREATS
+      object: HP:0001250
+      qualifier: refractory epilepsy
+      subject_extension: CBD
+    - subject: treatment with CBD
+      predicate: TREATS
+      object: HP:0001250
+      qualifier: refractory epilepsy
+      subject_qualifier: with cannabidiol
+      subject_extension: CHEBI:69478
+    - subject: treatment with CBD
+      predicate: TREATS
+      object: HP:0011097
+      qualifier: refractory epilepsy
+      subject_qualifier: with cannabidiol
+      subject_extension: CHEBI:69478
+    - subject: treatment with CBD
+      predicate: TREATS
+      object: HP:0002121
+      qualifier: refractory epilepsy
+      subject_qualifier: with cannabidiol
+      subject_extension: CHEBI:69478
+named_entities:
+  - id: MONDO:0016693
+    label: Subependymal giant cell astrocytoma
+  - id: MAXO:0000447
+    label: Surgical removal
+  - id: CHEBI:68478
+    label: everolimus
+  - id: MONDO:0005550
+    label: Intellectual disability (ID)
+  - id: HP:0001249
+    label: Intellectual disability (ID)
+  - id: HP:0001250
+    label: seizures
+  - id: HP:0011097
+    label: epileptic spasms
+  - id: HP:0002121
+    label: absence seizures
+  - id: CHEBI:69478
+    label: cannabidiol (CBD)

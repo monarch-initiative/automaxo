@@ -1,0 +1,133 @@
+---
+input_text: "Kidney Transplantation in a Patient With Tuberous Sclerosis Complex:
+  A Case Report. BACKGROUND: Tuberous sclerosis complex (TSC) is a rare autosomal
+  dominant genetic disease caused by mutations of either of 2 genes, TSC1 and TSC2.
+  Renal manifestations include angiomyolipomas (AMLs), multiple cysts, and renal cell
+  carcinoma. AMLs increase bleeding tendency and the risk of renal insufficiency which
+  end-stage develops in 1% of affected patients. CASE REPORT: A 38-year-old woman
+  suffering from TSC since early childhood has developed multiple complications associated
+  with this disease. The patient was diagnosed with brain tumor-giant cell astrocytoma-which
+  was removed in 1992. In 2006, right nephrectomy was performed due to the unsuccessful
+  right renal artery embolization after the massive hemorrhage into the AML. Moreover,
+  the right idiopathic pneumothorax occurred twice. Therefore, the video-assisted
+  thoracoscopic surgery and pleurodesis were conducted (2006, 2013). The patient is
+  intellectually disabled and unable to make decisions on her own. Her legal guardians
+  (parents) make all decisions associated with her treatment. Diagnostic and therapeutic
+  procedures demanding cooperation were conducted under anesthesia. Because of end-stage
+  renal failure, the patient required the renal replacement therapy (RRT). Preemptive
+  kidney transplantation (KTx) was the best solution for this patient. Procedures
+  such as hemodialysis and peritoneal dialysis were infeasible to perform due to the
+  intellectual disability that inhibits essential cooperation. During KTx qualification
+  tests, the expanding AML with risk of hemorrhage was noticed. The patient was qualified
+  for simultaneous left nephrectomy and KTx from the living donor (her father). The
+  surgery was performed on the 2nd of June 2020. The patient is looked after by her
+  parents, stays in good general condition. The patient's creatinine level is maintained
+  at 0.6 to 0.8 mg/dL. CONCLUSION: Patients with significant intellectual disability
+  that prevents maintaining conscious cooperation who require RRT must have individually
+  adjusted therapy. In the case of the presented patient, it was decided to perform
+  the preemptive kidney transplantation from her determined father."
+raw_completion_output: |-
+  primary_disease: Tuberous Sclerosis Complex
+  medical_actions: Kidney transplantation; Nephrectomy; Video-assisted thoracoscopic surgery; Pleurodesis; Hemodialysis; Peritoneal dialysis; Renal replacement therapy
+  symptoms: Angiomyolipomas; Multiple cysts; Renal cell carcinoma; Bleeding tendency; Renal insufficiency; Brain tumor-giant cell astrocytoma; end-stage renal failure; Intellectual disability
+  chemicals: 
+  action_annotation_relationships: Kidney transplantation TREATS end-stage renal failure IN Tuberous Sclerosis Complex; Nephrectomy (due to unsuccessful right renal artery embolization after massive hemorrhage into the AML) TREATS Angiomyolipomas IN Tuberous Sclerosis Complex; Video-assisted thoracoscopic surgery and pleurodesis TREATS idiopathic pneumothorax IN Tuberous Sclerosis Complex; Renal replacement therapy TREATS end-stage renal failure IN Tuberous Sclerosis Complex
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Renal replacement therapy TREATS end-stage renal failure IN Tuberous Sclerosis Complex
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0001734
+  medical_actions:
+    - Kidney transplantation
+    - MAXO:0001065
+    - Video-assisted thoracoscopic surgery
+    - Pleurodesis
+    - MAXO:0000602
+    - MAXO:0000603
+    - MAXO:0000600
+  symptoms:
+    - HP:0006772
+    - Multiple cysts
+    - HP:0005584
+    - HP:0001892
+    - HP:0000083
+    - Brain tumor-giant cell astrocytoma
+    - HP:0003774
+    - HP:0001249
+  action_annotation_relationships:
+    - subject: Kidney transplantation
+      predicate: TREATS
+      object: HP:0003774
+      qualifier: MONDO:0001734
+    - subject: MAXO:0001065
+      predicate: TREATS
+      object: HP:0006772
+      qualifier: MONDO:0001734
+      subject_qualifier: due to unsuccessful right renal artery embolization after
+        massive hemorrhage into the AML
+    - subject: Video-assisted thoracoscopic surgery and pleurodesis
+      predicate: TREATS
+      object: idiopathic pneumothorax
+      qualifier: MONDO:0001734
+    - subject: <Renal replacement therapy>
+      predicate: <TREATS>
+      object: <end-stage renal failure>
+      qualifier: <Tuberous Sclerosis Complex>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+named_entities:
+  - id: MONDO:0016693
+    label: Subependymal giant cell astrocytoma
+  - id: MAXO:0000447
+    label: Surgical removal
+  - id: CHEBI:68478
+    label: everolimus
+  - id: MONDO:0005550
+    label: Intellectual disability (ID)
+  - id: HP:0001249
+    label: Intellectual disability (ID)
+  - id: HP:0001250
+    label: seizures
+  - id: HP:0011097
+    label: epileptic spasms
+  - id: HP:0002121
+    label: absence seizures
+  - id: CHEBI:69478
+    label: cannabidiol (CBD)
+  - id: MONDO:0001734
+    label: Tuberous Sclerosis Complex
+  - id: MAXO:0001065
+    label: Nephrectomy
+  - id: MAXO:0000602
+    label: Hemodialysis
+  - id: MAXO:0000603
+    label: Peritoneal dialysis
+  - id: MAXO:0000600
+    label: Renal replacement therapy
+  - id: HP:0006772
+    label: Angiomyolipomas
+  - id: HP:0005584
+    label: Renal cell carcinoma
+  - id: HP:0001892
+    label: Bleeding tendency
+  - id: HP:0000083
+    label: Renal insufficiency
+  - id: HP:0003774
+    label: end-stage renal failure

@@ -1,0 +1,181 @@
+---
+input_text: "Safety analysis of self-administered enzyme replacement therapy using
+  data from the Fabry Outcome and Gaucher Outcome Surveys. BACKGROUND: Fabry disease
+  and Gaucher disease are rare genetic disorders characterized by defective degradation
+  of glycosphingolipids caused by enzymatic deficiencies in alpha-galactosidase A
+  and beta-glucocerebrosidase, respectively, and often require life-long treatment.
+  Treatment options for these disorders include replacing the deficient enzymes via
+  enzyme replacement therapy (ERT). Agalsidase alfa for Fabry disease and velaglucerase
+  alfa for Gaucher disease are two ERT options with demonstrated efficacy, safety,
+  and tolerability. ERT infusions administered by a health care provider (HCP) in
+  the clinic/hospital, or at the patient's home are considered HCP-supported infusions.
+  Self-administration of ERT (by patient, partner, relative, or caregiver) is optional
+  in patients who tolerate the HCP-supported infusions at home and have a suitable
+  home environment. This analysis explored the safety profiles of self-administered
+  agalsidase alfa (202 patients) and velaglucerase alfa (30 patients) versus HCP-supported
+  infusions using data from the Fabry Outcome Survey (FOS) and Gaucher Outcome Survey
+  (GOS) registries. RESULTS: The frequency of infusion-related reactions (IRRs) adverse
+  events (AEs) recorded in the two registries was lower in patients self-administering
+  (FOS: 4.5%, GOS: 0%) versus patients receiving HCP-supported infusions (FOS: 13.6%,
+  GOS: 1.6%). In the FOS registry, AE rates per 100 patient-years (100PY) of follow-up
+  were similar between the self-administration (7.99) and HCP-supported infusion (6.78)
+  groups. In patients self-administering agalsidase alfa, cardiac disorders were the
+  most frequently reported AEs (19 [9.4%] patients) and serious AEs (12 [5.9%]) and
+  gastrointestinal disorders were the most frequently reported IRRs (3 [1.5%]). In
+  the GOS registry, AE rates per 100PY were similar between self-administration (4.97)
+  and HCP-supported infusion (4.67) groups. In patients self-administering velaglucerase
+  alfa, skin and subcutaneous disorders (4 [13.3%]) and infections and infestations
+  (2 [6.7%]) were the most reported AEs and serious AEs, respectively, and no IRRs
+  were reported. CONCLUSIONS: These findings suggest that self-administration of agalsidase
+  alfa or velaglucerase alfa infusions are not associated with additional safety risks
+  compared with HCP-supported infusions and are a suitable option for qualifying patients.
+  Further research is warranted to support these findings and to explore further the
+  long-term safety and efficacy of ERT self-administration. FOS trial registration:
+  ClinicalTrials.gov, NCT03289065. Registered 01 April 2001, https://clinicaltrials.gov/study/NCT03289065
+  . GOS trial registration: ClinicalTrials.gov, NCT03291223. Registered 27 July 2010,
+  https://classic. CLINICALTRIALS: gov/ct2/show/NCT03291223 ."
+raw_completion_output: |-
+  primary_disease: Fabry disease; Gaucher disease
+  medical_actions: enzyme replacement therapy (ERT); self-administration of ERT; HCP-supported infusions
+  symptoms: infusion-related reactions (IRRs); cardiac disorders; gastrointestinal disorders; skin and subcutaneous disorders; infections and infestations
+  chemicals: agalsidase alfa; velaglucerase alfa
+  action_annotation_relationships: enzyme replacement therapy (ERT) (with agalsidase alfa) TREATS deficiency IN Fabry disease; enzyme replacement therapy (ERT) (with velaglucerase alfa) TREATS deficiency IN Gaucher disease; self-administration of ERT PREVENTS infusion-related reactions (IRRs) IN Fabry disease; self-administration of ERT PREVENTS infusion-related reactions (IRRs) IN Gaucher disease; enzyme replacement therapy (ERT) (with agalsidase alfa) TREATS cardiac disorders IN Fabry disease; enzyme replacement therapy (ERT) (with agalsidase alfa) TREATS gastrointestinal disorders IN Fabry disease; enzyme replacement therapy (ERT) (with velaglucerase alfa) TREATS skin and subcutaneous disorders IN Gaucher disease; enzyme replacement therapy (ERT) (with velaglucerase alfa) TREATS infections and infestations IN Gaucher disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  enzyme replacement therapy (ERT) (with velaglucerase alfa) TREATS infections and infestations IN Gaucher disease
+
+  ===
+
+extracted_object:
+  primary_disease: Fabry disease; Gaucher disease
+  medical_actions:
+    - enzyme replacement therapy (ERT)
+    - self-administration of ERT
+    - HCP-supported infusions
+  symptoms:
+    - infusion-related reactions (IRRs)
+    - cardiac disorders
+    - HP:0011024
+    - skin and subcutaneous disorders
+    - infections and infestations
+  chemicals:
+    - agalsidase alfa
+    - velaglucerase alfa
+  action_annotation_relationships:
+    - subject: enzyme replacement therapy (ERT)
+      predicate: TREATS
+      object: deficiency
+      qualifier: MONDO:0010526
+      subject_qualifier: with agalsidase alfa
+      subject_extension: agalsidase alfa
+    - subject: enzyme replacement therapy (ERT)
+      predicate: TREATS
+      object: deficiency
+      qualifier: MONDO:0018150
+      subject_qualifier: with velaglucerase alfa
+      subject_extension: velaglucerase alfa
+    - subject: self-administration
+      predicate: PREVENTS
+      object: infusion-related reactions (IRRs)
+      qualifier: MONDO:0010526
+      subject_extension: ERT
+    - subject: self-administration
+      predicate: PREVENTS
+      object: infusion-related reactions (IRRs)
+      qualifier: MONDO:0018150
+      subject_extension: ERT
+    - subject: enzyme replacement therapy (ERT)
+      predicate: TREATS
+      object: cardiac disorders
+      qualifier: MONDO:0010526
+      subject_qualifier: with agalsidase alfa
+      subject_extension: agalsidase alfa
+    - subject: enzyme replacement therapy (ERT)
+      predicate: TREATS
+      object: HP:0011024
+      qualifier: MONDO:0010526
+      subject_qualifier: with agalsidase alfa
+      subject_extension: agalsidase alfa
+    - subject: enzyme replacement therapy (ERT)
+      predicate: TREATS
+      object: skin and subcutaneous disorders
+      qualifier: MONDO:0018150
+      subject_qualifier: with velaglucerase alfa
+      subject_extension: velaglucerase alfa
+    - subject: enzyme replacement therapy (ERT)
+      predicate: TREATS
+      object: infections and infestations
+      qualifier: MONDO:0018150
+      subject_qualifier: with velaglucerase alfa
+      subject_extension: velaglucerase alfa
+named_entities:
+  - id: MONDO:0002561
+    label: Lysosomal Storage Disorders
+  - id: CHEBI:135923
+    label: Migalastat
+  - id: HP:0001071
+    label: Fabry disease
+  - id: MONDO:0018150
+    label: Gaucher Disease (GD)
+  - id: HP:0001395
+    label: liver fibrosis
+  - id: HP:0001394
+    label: cirrhosis
+  - id: HP:0100626
+    label: end-stage liver disease
+  - id: HP:0001402
+    label: hepatocellular carcinoma
+  - id: MAXO:0001001
+    label: gene therapy
+  - id: MAXO:0001257
+    label: vitamin E supplementation
+  - id: MAXO:0010200
+    label: abdominal ultrasonography
+  - id: HP:0025464
+    label: oxidative stress
+  - id: CHEBI:33234
+    label: vitamin E
+  - id: CHEBI:566274
+    label: malondialdehyde (MDA)
+  - id: CHEBI:16856
+    label: reduced glutathione (GSH)
+  - id: MAXO:0009091
+    label: Substrate reduction therapy (SRT)
+  - id: HP:0002716
+    label: Lymphadenopathy
+  - id: HP:0001903
+    label: Anemia
+  - id: HP:0001873
+    label: Thrombocytopenia
+  - id: HP:0001433
+    label: Hepatosplenomegaly
+  - id: CHEBI:30884
+    label: Glucosylceramide synthase (GCS) inhibitors
+  - id: CHEBI:135590
+    label: ambroxol
+  - id: HP:0410281
+    label: dyspepsia
+  - id: HP:0002027
+    label: abdominal pain
+  - id: CHEBI:82752
+    label: eliglustat
+  - id: CHEBI:4177
+    label: glucosylsphingosine
+  - id: HP:0003281
+    label: hyperferritinemia
+  - id: HP:0011024
+    label: gastrointestinal disorders
+  - id: MONDO:0010526
+    label: Fabry disease

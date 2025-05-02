@@ -1,0 +1,192 @@
+---
+input_text: 'Real-world patient data on immunity and COVID-19 status of patients with
+  MPS, Gaucher, and Pompe diseases from Turkey. BACKGROUND: COVID-19 and lysosomal
+  storage disorders (LSDs) share a common immunological pathway as they cause the
+  release of cytokines in a similar pattern. We aimed to evaluate the immunity status
+  and reveal the course of COVID-19 in patients with LSDs. RESULTS: The median age
+  of 110 patients with LSDs was 129 months (range: 21-655), and all but one patient
+  with mucopolysaccharidosis (MPS) type III were regularly receiving enzyme replacement
+  therapy (ERT). In 53.6% (n = 56) of the patients (23 patients with Gaucher disease
+  [10 type III, 13 type I], 26 patients with MPS [8 type VI, 11 type IVA, 1 type III,
+  3 type II, and 3 type I], and 7 patients with Pompe disease), an abnormality in
+  at least one of the autoimmunity or immunodeficiency parameters was reported. Furthermore,
+  12 (57%) of 21 Gaucher cases (7 type III, 5 type I), 18 (40.9%) of 44 MPS cases
+  (9 type IVA, 5 type VI, 1 type I, 2 type II, and 1 type III), and six (66%) of nine
+  Pompe cases were reported to involve abnormalities in at least one of the parameters
+  related to immunodeficiency. Immunoglobulin (Ig) M and IgA levels were reported
+  to be lower, and there were abnormalities in the lymphocyte counts and subgroups
+  in the MPS group. ANA was reported to be positive in one patient with Gaucher type
+  III, anti-DNA in two patients with Gaucher type I and one patient with MPS type
+  VI, antithyroglobulin in two patients with Gaucher type I, anti-TPO in one patient
+  with Gaucher type I, TRAB in one patient with Gaucher type I, antiphospholipid IgM
+  in three patients with Gaucher type III and one patient with Gaucher type I, anticardiolipin
+  IgM in one patient with Gaucher type I, one patient with Gaucher type III, and one
+  patient with MPS type II. However, no clinical presentation was consistent with
+  the laboratory results except for one patient with Gaucher type I disease with Hashimoto
+  thyroiditis. Two of the four patients who survived the COVID-19 infection with mild
+  symptoms had a diagnosis of Gaucher type I, and no abnormality was detected in their
+  laboratory tests. The other two patients had a diagnosis of MPS types VI and II.
+  Immune dysfunction was detected in the patient with a diagnosis of MPS type II.
+  Four of our patients were discharged without any sequelae. CONCLUSION: Problems
+  with immunity did not cause any noticeable clinical results. Being well protected
+  by reducing social contact might have played a role. However, we believe that it
+  should be borne in mind that cardiac and pulmonary involvement, as well as immune
+  dysfunction in LSDs, may cause an increased need for intensive care because of secondary
+  bacterial infections.'
+raw_completion_output: |-
+  primary_disease: COVID-19
+  medical_actions: enzyme replacement therapy (ERT); reducing social contact
+  symptoms: abnormalities in autoimmunity and immunodeficiency parameters; lower levels of Immunoglobulin (Ig) M and IgA; abnormalities in the lymphocyte counts and subgroups; positive ANA; anti-DNA; antithyroglobulin; anti-TPO; TRAB; antiphospholipid IgM; anticardiolipin IgM; Hashimoto thyroiditis
+  chemicals: Immunoglobulin (Ig) M; IgA
+  action_annotation_relationships: enzyme replacement therapy (ERT) PREVENTS abnormalities in autoimmunity and immunodeficiency parameters IN COVID-19; reducing social contact PREVENTS complications IN COVID-19
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  reducing social contact PREVENTS complications IN COVID-19
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0100096
+  medical_actions:
+    - enzyme replacement therapy (ERT)
+    - reducing social contact
+  symptoms:
+    - abnormalities in autoimmunity and immunodeficiency parameters
+    - lower levels of Immunoglobulin (Ig) M and IgA
+    - abnormalities in the lymphocyte counts and subgroups
+    - HP:0003493
+    - anti-DNA
+    - antithyroglobulin
+    - anti-TPO
+    - TRAB
+    - antiphospholipid IgM
+    - anticardiolipin IgM
+    - HP:0000872
+  chemicals:
+    - CHEBI:74066
+    - IgA
+  action_annotation_relationships:
+    - subject: enzyme replacement therapy
+      predicate: PREVENTS
+      object: abnormalities in autoimmunity and immunodeficiency parameters
+      qualifier: MONDO:0100096
+      subject_extension: enzyme replacement therapy (ERT)
+    - subject: reducing social contact
+      predicate: PREVENTS
+      object: complications
+      qualifier: MONDO:0100096
+named_entities:
+  - id: MONDO:0002561
+    label: Lysosomal Storage Disorders
+  - id: CHEBI:135923
+    label: Migalastat
+  - id: HP:0001071
+    label: Fabry disease
+  - id: MONDO:0018150
+    label: Gaucher Disease (GD)
+  - id: HP:0001395
+    label: liver fibrosis
+  - id: HP:0001394
+    label: cirrhosis
+  - id: HP:0100626
+    label: end-stage liver disease
+  - id: HP:0001402
+    label: hepatocellular carcinoma
+  - id: MAXO:0001001
+    label: gene therapy
+  - id: MAXO:0001257
+    label: vitamin E supplementation
+  - id: MAXO:0010200
+    label: abdominal ultrasonography
+  - id: HP:0025464
+    label: oxidative stress
+  - id: CHEBI:33234
+    label: vitamin E
+  - id: CHEBI:566274
+    label: malondialdehyde (MDA)
+  - id: CHEBI:16856
+    label: reduced glutathione (GSH)
+  - id: MAXO:0009091
+    label: Substrate reduction therapy (SRT)
+  - id: HP:0002716
+    label: Lymphadenopathy
+  - id: HP:0001903
+    label: Anemia
+  - id: HP:0001873
+    label: Thrombocytopenia
+  - id: HP:0001433
+    label: Hepatosplenomegaly
+  - id: CHEBI:30884
+    label: Glucosylceramide synthase (GCS) inhibitors
+  - id: CHEBI:135590
+    label: ambroxol
+  - id: HP:0410281
+    label: dyspepsia
+  - id: HP:0002027
+    label: abdominal pain
+  - id: CHEBI:82752
+    label: eliglustat
+  - id: CHEBI:4177
+    label: glucosylsphingosine
+  - id: HP:0003281
+    label: hyperferritinemia
+  - id: HP:0011024
+    label: gastrointestinal disorders
+  - id: MONDO:0010526
+    label: Fabry disease
+  - id: HP:0002180
+    label: neurodegeneration
+  - id: MONDO:0009267
+    label: Gaucher Disease Type 3
+  - id: HP:0001251
+    label: ataxia
+  - id: HP:0001332
+    label: dystonia
+  - id: HP:0001337
+    label: tremor
+  - id: HP:0001250
+    label: seizures
+  - id: HP:0000939
+    label: Osteoporosis
+  - id: MONDO:0009265
+    label: Gaucher disease type 1
+  - id: MONDO:0005201
+    label: Restrictive cardiomyopathy
+  - id: HP:0001635
+    label: cardiac failure
+  - id: MAXO:0000950
+    label: supportive care
+  - id: HP:0001744
+    label: splenomegaly
+  - id: HP:0010885
+    label: osteonecrosis
+  - id: HP:0002653
+    label: bone pain
+  - id: MAXO:0000747
+    label: Haematopoietic Stem Cell Transplantation (HSCT)
+  - id: MAXO:0010030
+    label: bone marrow transplantation (BMT)
+  - id: HP:0011891
+    label: postpartum hemorrhage (PPH)
+  - id: HP:0005268
+    label: miscarriage
+  - id: MONDO:0100096
+    label: COVID-19
+  - id: HP:0003493
+    label: positive ANA
+  - id: HP:0000872
+    label: Hashimoto thyroiditis
+  - id: CHEBI:74066
+    label: Immunoglobulin (Ig) M

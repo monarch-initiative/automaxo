@@ -1,0 +1,122 @@
+---
+input_text: 'Effect of anti-laronidase antibodies on efficacy and safety of laronidase
+  enzyme replacement therapy for MPS I: A comprehensive meta-analysis of pooled data
+  from multiple studies. Enzyme replacement therapy (ERT) with laronidase has an important
+  role in the treatment of patients with mucopolysaccharidosis type I (MPS I). Laronidase
+  is safe and has demonstrated effectiveness in terms of stabilizing or improving
+  conventional clinical and laboratory markers of the disease. However, like most
+  ERTs, laronidase produces an anti-drug IgG antibody response in more than 90% of
+  patients during the first few months of treatment. Preclinical data from the MPS
+  I canine model suggest that anti-drug antibodies (ADA) impair enzyme uptake in target
+  tissues. In patients, the effects on tissue glycosaminoglycan (GAG) clearance are
+  difficult to assess directly but data from clinical studies have suggested an association
+  between ADA and both a reduced pharmacodynamic response and hypersensitivity reactions.
+  This comprehensive meta-analysis of pooled data from patients in three clinical
+  studies of laronidase (including one study with an extension) was undertaken to
+  provide a more robust assessment of the relationship between the ADA response to
+  laronidase, clinical and laboratory markers of MPS I, and hypersensitivity reactions.
+  The meta-analysis demonstrated an inverse relationship between the ADA response
+  and the percent reduction in urinary GAG (uGAG) levels. However, no relationships
+  between the ADA response and changes in percent predicted forced vital capacity
+  and six-minute walk test were seen. The study also re-assayed stored serum samples
+  from the original trials with a novel method to determine the inhibitory effect
+  of ADA. Patients with higher ADA exposure over time were found to have higher inhibition
+  of enzyme uptake into cells. High ADA exposure can result in a commensurate level
+  of enzyme uptake inhibition that decreases the pharmacodynamic effect of the exogenously
+  administered therapeutic enzyme, but with no clear effect on clinical efficacy. '
+raw_completion_output: |-
+  primary_disease: mucopolysaccharidosis type I (MPS I)
+  medical_actions: Enzyme replacement therapy (with laronidase); meta-analysis; re-assaying stored serum samples
+  symptoms: hypersensitivity reactions
+  chemicals: anti-laronidase antibodies; laronidase; anti-drug IgG antibody; glycosaminoglycan (GAG)
+  action_annotation_relationships: Enzyme replacement therapy (with laronidase) TREATS mucopolysaccharidosis type I (MPS I) IN mucopolysaccharidosis type I; anti-laronidase antibodies PREVENTS enzyme uptake IN mucopolysaccharidosis type I (MPS I); anti-laronidase antibodies ASSOCIATED WITH reduced pharmacodynamic response IN mucopolysaccharidosis type I (MPS I); anti-laronidase antibodies ASSOCIATED WITH hypersensitivity reactions IN mucopolysaccharidosis type I (MPS I)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  anti-laronidase antibodies ASSOCIATED WITH hypersensitivity reactions IN mucopolysaccharidosis type I (MPS I)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:1012617
+  medical_actions:
+    - Enzyme replacement therapy (with laronidase)
+    - meta-analysis
+    - re-assaying stored serum samples
+  symptoms:
+    - hypersensitivity reactions
+  chemicals:
+    - anti-laronidase antibodies
+    - laronidase
+    - anti-drug IgG antibody
+    - CHEBI:143889
+  action_annotation_relationships:
+    - subject: Enzyme replacement therapy
+      predicate: TREATS
+      object: mucopolysaccharidosis type I (MPS I)
+      qualifier: MONDO:0001586
+      subject_qualifier: with laronidase
+      subject_extension: laronidase
+    - subject: anti-laronidase antibodies
+      predicate: PREVENTS
+      object: enzyme uptake
+      qualifier: MONDO:1012617
+      subject_extension: laronidase
+    - subject: anti-laronidase antibodies
+      predicate: ASSOCIATED WITH
+      object: reduced pharmacodynamic response
+      qualifier: MONDO:1012617
+      subject_extension: laronidase
+    - subject: anti-laronidase antibodies
+      predicate: ASSOCIATED WITH
+      object: hypersensitivity reactions
+      qualifier: MONDO:1012617
+      subject_extension: laronidase
+named_entities:
+  - id: MONDO:0001586
+    label: mucopolysaccharidosis type I
+  - id: MONDO:1012617
+    label: Mucopolysaccharidosis Type I (MPS I)
+  - id: CHEBI:60285
+    label: DOPE
+  - id: MAXO:0001521
+    label: nasal administration
+  - id: MONDO:0011758
+    label: Mucopolysaccharidosis type I Hurler (MPSIH)
+  - id: MAXO:0000747
+    label: hematopoietic stem cell transplantation (HSCT)
+  - id: MAXO:0000487
+    label: clinical assessment (growth measurement, kyphosis and genu velgum evaluation)
+  - id: HP:0002808
+    label: kyphosis
+  - id: HP:0001376
+    label: limited joint mobility
+  - id: HP:0008807
+    label: acetabular dysplasia
+  - id: MAXO:0010034
+    label: Corneal transplantation
+  - id: HP:0007957
+    label: Corneal clouding
+  - id: MAXO:0000149
+    label: Hematopoietic cell transplantation (HCT)
+  - id: HP:0000238
+    label: Hydrocephalus
+  - id: MAXO:0000068
+    label: transplantation
+  - id: MAXO:0000004
+    label: surgery
+  - id: MAXO:0000526
+    label: clinical examination
+  - id: CHEBI:143889
+    label: glycosaminoglycan (GAG)

@@ -1,0 +1,145 @@
+---
+input_text: 'Phase 1 study of the ATR inhibitor berzosertib in combination with cisplatin
+  in patients with advanced solid tumours. BACKGROUND: Berzosertib (formerly M6620,
+  VX-970) is a highly potent and selective, first-in-class ataxia telangiectasia-mutated
+  and Rad3-related protein kinase (ATR) inhibitor. We assessed the safety, tolerability,
+  pharmacokinetics, and preliminary efficacy of berzosertib plus cisplatin. METHODS:
+  Adult patients with advanced solid tumours refractory or resistant to standard of
+  care therapies received ascending doses of cisplatin (day 1) and berzosertib (days
+  2 and 9) every 3 weeks (Q3W). RESULTS: Thirty-one patients received berzosertib
+  (90-210 mg/m2) and cisplatin (40-75 mg/m2) across seven dose levels. The most common
+  grade >=3 treatment-emergent adverse events were neutropenia (20.0%) and anaemia
+  (16.7%). There were two dose-limiting toxicities: a grade 3 hypersensitivity reaction
+  and a grade 3 increase in alanine aminotransferase. Berzosertib 140 mg/m2 (days
+  2 and 9) and cisplatin 75 mg/m2 (day 1) Q3W was determined as the recommended Phase
+  2 dose. Cisplatin had no apparent effect on berzosertib pharmacokinetics. Of the
+  31 patients, four achieved a partial response (two confirmed and two unconfirmed)
+  despite having previously experienced disease progression following platinum-based
+  chemotherapy. CONCLUSIONS: Berzosertib plus cisplatin is well tolerated and shows
+  preliminary clinical activity in patients with advanced solid tumours, warranting
+  further evaluation in a Phase 2 setting. CLINICAL TRIALS IDENTIFIER: NCT02157792.'
+raw_completion_output: |-
+  primary_disease: Advanced solid tumours
+
+  medical_actions: Ascending doses administration;Safety assessment;Tolerability assessment;Pharmacokinetics assessment;Efficacy assessment;Dose-limiting toxicities observation
+
+  symptoms: Neutropenia;Anaemia;Hypersensitivity reaction;Increase in alanine aminotransferase
+
+  chemicals: Berzosertib;Cisplatin
+
+  action_annotation_relationships: Ascending doses administration TREATS Advanced solid tumours;Safety assessment PREVENTS Neutropenia IN Advanced solid tumours;Tolerability assessment PREVENTS Anaemia IN Advanced solid tumours;Pharmacokinetics assessment PREVENTS Hypersensitivity reaction IN Advanced solid tumours;Efficacy assessment PREVENTS Increase in alanine aminotransferase IN Advanced solid tumours;Dose-limiting toxicities observation TREATS Neutropenia IN Advanced solid tumours
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Dose-limiting toxicities observation TREATS Neutropenia IN Advanced solid tumours
+
+  ===
+
+extracted_object:
+  primary_disease: Advanced solid tumours
+  medical_actions:
+    - Ascending doses administration
+    - Safety assessment
+    - Tolerability assessment
+    - Pharmacokinetics assessment
+    - Efficacy assessment
+    - Dose-limiting toxicities observation
+  symptoms:
+    - HP:0001875
+    - HP:0001903
+    - Hypersensitivity reaction
+    - Increase in alanine aminotransferase
+  chemicals:
+    - Berzosertib
+    - CHEBI:27899
+  action_annotation_relationships:
+    - subject: Ascending doses administration
+      predicate: TREATS
+      object: Advanced solid tumours
+    - subject: <Safety assessment>
+      predicate: <PREVENTS>
+      object: <Neutropenia>
+      qualifier: <Advanced solid tumours>
+      subject_qualifier: <Not Applicable>
+      object_qualifier: <Not Applicable>
+      subject_extension: <Not Applicable>
+      object_extension: <Not Applicable>
+    - subject: Tolerability assessment
+      predicate: PREVENTS
+      object: HP:0001903
+      qualifier: Advanced solid tumours
+    - subject: Pharmacokinetics assessment
+      predicate: PREVENTS
+      object: Hypersensitivity reaction
+      qualifier: Advanced solid tumours
+    - subject: <Efficacy assessment>
+      predicate: <PREVENTS>
+      object: <Increase in alanine aminotransferase>
+      qualifier: <Advanced solid tumours>
+      subject_extension: <Efficacy assessment>
+    - subject: Dose-limiting toxicities observation
+      predicate: TREATS
+      object: HP:0001875
+      qualifier: Advanced solid tumours
+named_entities:
+  - id: MONDO:0005086
+    label: Renal cell carcinoma
+  - id: MONDO:0003060
+    label: Biliary tract cancer (BTC)
+  - id: CHEBI:175901
+    label: Gemcitabine
+  - id: CHEBI:33364
+    label: Platinum
+  - id: MAXO:0000647
+    label: chemotherapy
+  - id: MONDO:0008840
+    label: Ataxia Telangiectasia
+  - id: MAXO:0010030
+    label: Bone Marrow Transplantation
+  - id: MAXO:0001001
+    label: Gene Therapy
+  - id: CHEBI:166830
+    label: Acetyl-DL-leucine
+  - id: CHEBI:41879
+    label: Dexamethasone
+  - id: CHEBI:4462
+    label: Dexamethasone sodium phosphate
+  - id: CHEBI:133021
+    label: venetoclax
+  - id: HP:0002721
+    label: Immunodeficiency
+  - id: HP:0002073
+    label: progressive cerebellar ataxia
+  - id: HP:0002013
+    label: vomiting
+  - id: HP:0002315
+    label: headache
+  - id: CHEBI:27899
+    label: cisplatin
+  - id: HP:0001903
+    label: Anemia
+  - id: HP:0001873
+    label: Thrombocytopenia
+  - id: HP:0001875
+    label: Neutropenia
+  - id: CHEBI:231342
+    label: Ceralasertib
+  - id: CHEBI:31355
+    label: Carboplatin
+  - id: MAXO:0000747
+    label: Hematopoietic stem cell transplantation
+  - id: MONDO:0005184
+    label: Pancreatic ductal adenocarcinoma (PDAC)
+  - id: HP:0020174
+    label: Drug resistance

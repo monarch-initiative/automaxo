@@ -1,0 +1,134 @@
+---
+input_text: "Experiences of families of children with spinal muscular atrophy and
+  the healthcare professionals supporting them during the COVID-19 pandemic: A nationwide
+  study. PURPOSE: This study aimed to explore how parents and grandparents of children
+  with spinal muscular atrophy (SMA) perceived how the COVID-19 pandemic affected
+  their access to medication and physiotherapy. Further, healthcare professionals'
+  experiences of the care of children with SMA during the pandemic were explored.
+  METHODS: Thirty-nine parents and three grandmothers of 28 children with SMA answered
+  a web-based survey at two time-points. Telephone follow-ups were conducted with
+  seven of the parents. Parallel focus group interviews were conducted with three
+  interdisciplinary teams of healthcare professionals. RESULTS: Results showed that
+  21 family members, 12 children, and nine parents in the study tested positive for
+  COVID-19 during the pandemic. None of the children became seriously ill. All respondents,
+  however, indicated that the pandemic had a significant impact on their everyday
+  life. It made socializing difficult for the children and reduced their access to
+  physiotherapy, hydrotherapy, and personal care attendants. The pandemic also influenced
+  the location of some nusinersen treatments. The professionals reported that, although
+  much of their work continued as usual, they experienced increased stress from their
+  role in nusinersen assessments. CONCLUSION: These results suggest that it may be
+  valuable to find ways for healthcare professionals to support each other and to
+  support their efforts to help severely ill children and their families now that
+  healthcare systems have opened up again."
+raw_completion_output: |-
+  primary_disease: Spinal muscular atrophy (SMA)
+
+  medical_actions: Access to medication; Physiotherapy; Hydrotherapy; Personal care attendants; Nusinersen treatments
+
+  symptoms: Difficulty socializing; Reduced access to physiotherapy; Reduced access to hydrotherapy
+
+  chemicals: Nusinersen
+
+  action_annotation_relationships: Access to medication TREATS symptom IN Spinal muscular atrophy (SMA); Physiotherapy TREATS difficulty socializing IN Spinal muscular atrophy (SMA); Hydrotherapy TREATS difficulty socializing IN Spinal muscular atrophy (SMA); Personal care attendants PREVENT difficulty socializing IN Spinal muscular atrophy (SMA); Nusinersen treatments (with Nusinersen) TREATS difficulty socializing IN Spinal muscular atrophy (SMA)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Nusinersen treatments (with Nusinersen) TREATS difficulty socializing IN Spinal muscular atrophy (SMA)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0019079
+  medical_actions:
+    - Access to medication
+    - MAXO:0000011
+    - MAXO:0000458
+    - Personal care attendants
+    - Nusinersen treatments
+  symptoms:
+    - Difficulty socializing
+    - Reduced access to physiotherapy
+    - Reduced access to hydrotherapy
+  chemicals:
+    - Nusinersen
+  action_annotation_relationships:
+    - subject: Access to medication
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0019079
+      subject_extension: medication
+    - subject: MAXO:0000011
+      predicate: TREATS
+      object: difficulty socializing
+      qualifier: MONDO:0019079
+    - subject: MAXO:0000458
+      predicate: TREATS
+      object: difficulty socializing
+      qualifier: MONDO:0019079
+      subject_extension: Hydrotherapy
+    - subject: Personal care attendants
+      predicate: PREVENT
+      object: difficulty socializing
+      qualifier: MONDO:0019079
+    - subject: Nusinersen treatments
+      predicate: TREATS
+      object: difficulty socializing
+      qualifier: MONDO:0019079
+      subject_qualifier: with Nusinersen
+      subject_extension: Nusinersen
+named_entities:
+  - id: MONDO:0001516
+    label: Spinal Muscular Atrophy
+  - id: HP:0002650
+    label: Scoliosis
+  - id: HP:0007269
+    label: Spinal Muscular Atrophy
+  - id: MONDO:0005392
+    label: scoliosis
+  - id: HP:0003323
+    label: Progressive muscle weakness
+  - id: CHEBI:76720
+    label: Antisense oligonucleotides
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: MONDO:0005015
+    label: Diabetes
+  - id: HP:0001635
+    label: heart failure
+  - id: HP:0001324
+    label: muscle weakness
+  - id: HP:0003202
+    label: muscle atrophy
+  - id: CHEBI:16991
+    label: DNA
+  - id: CHEBI:33697
+    label: RNA
+  - id: MONDO:0019079
+    label: spinal muscular atrophy (SMA)
+  - id: HP:0006959
+    label: <spinal muscular atrophy (SMA)>
+  - id: MONDO:0002602
+    label: CNS disorders
+  - id: HP:0002011
+    label: central nervous system diseases
+  - id: MAXO:0000506
+    label: Noninvasive ventilation (NIV)
+  - id: MONDO:0019056
+    label: Neuromuscular diseases
+  - id: CHEBI:35341
+    label: steroid
+  - id: MAXO:0000011
+    label: Physiotherapy
+  - id: MAXO:0000458
+    label: Hydrotherapy

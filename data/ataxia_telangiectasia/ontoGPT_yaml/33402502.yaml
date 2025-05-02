@@ -1,0 +1,80 @@
+---
+input_text: 'ATM Expression as a Prognostic Marker in Patients With Advanced Biliary
+  Tract Cancer Treated With First-line Gemcitabine and Platinum Chemotherapy. BACKGROUND/AIM:
+  Biliary tract cancer (BTC) has a poor prognosis due to its highly invasive and metastatic
+  potential. Ataxia-telangiectasia mutated (ATM) is a key regulator of DNA damage
+  response and an emerging therapeutic target; however, the association between the
+  expression of ATM and the prognosis in advanced BTC is unknown. We aimed to identify
+  the relationship between ATM expression, clinicopathological characteristics, and
+  survival outcomes in patients with advanced BTC. PATIENTS AND METHODS: We analyzed
+  113 patients with advanced BTC who received first-line gemcitabine and platinum.
+  RESULTS: The tumor location was intrahepatic cholangiocarcinoma (IH-CCC) in 43 patients,
+  extrahepatic cholangiocarcinoma (EH-CCC) in 49, and gallbladder (GB) cancer in 21
+  patients. Fifty-four patients (47.8%) exhibited loss of ATM protein expression.
+  The overall response rate (ORR) of ATM loss and intact ATM was 13.3% and 19.6%,
+  respectively. In a subgroup analysis, EH-CCC patients with ATM loss tended to have
+  improved PFS after platinum-based chemotherapy compared to those with intact ATM
+  (7.9 vs. 6.2 months, respectively; p=0.050). CONCLUSION: We demonstrated that ATM
+  loss could be a prognostic marker after platinum-based chemotherapy in patients
+  with advanced EH-CCC.'
+raw_completion_output: |-
+  primary_disease: Biliary tract cancer (BTC)
+  medical_actions: First-line gemcitabine and platinum chemotherapy
+  symptoms: Highly invasive nature; Metastatic potential
+  chemicals: Gemcitabine; Platinum
+  action_annotation_relationships: First-line gemcitabine and platinum chemotherapy TREATS highly invasive nature IN Biliary tract cancer (BTC); First-line gemcitabine and platinum chemotherapy TREATS metastatic potential IN Biliary tract cancer (BTC)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  First-line gemcitabine and platinum chemotherapy TREATS metastatic potential IN Biliary tract cancer (BTC)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0003060
+  medical_actions:
+    - First-line gemcitabine and platinum chemotherapy
+  symptoms:
+    - Highly invasive nature
+    - Metastatic potential
+  chemicals:
+    - CHEBI:175901
+    - CHEBI:33364
+  action_annotation_relationships:
+    - subject: First-line chemotherapy
+      predicate: TREATS
+      object: highly invasive nature
+      qualifier: MONDO:0003060
+      subject_qualifier: First-line
+      subject_extension: gemcitabine and platinum chemotherapy
+      object_extension: highly invasive nature
+    - subject: MAXO:0000647
+      predicate: TREATS
+      object: metastatic potential
+      qualifier: MONDO:0003060
+      subject_qualifier: First-line
+      object_qualifier: <None>
+      subject_extension: gemcitabine and platinum chemotherapy
+      object_extension: metastatic potential
+named_entities:
+  - id: MONDO:0005086
+    label: Renal cell carcinoma
+  - id: MONDO:0003060
+    label: Biliary tract cancer (BTC)
+  - id: CHEBI:175901
+    label: Gemcitabine
+  - id: CHEBI:33364
+    label: Platinum
+  - id: MAXO:0000647
+    label: chemotherapy

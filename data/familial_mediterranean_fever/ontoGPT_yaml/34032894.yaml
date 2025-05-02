@@ -1,0 +1,173 @@
+---
+input_text: 'The impact of COVID-19 on familial Mediterranean fever: a nationwide
+  study. The study aimed to evaluate the impact of the coronavirus disease 2019 (COVID-19)
+  in patients with familial Mediterranean fever (FMF) and to assess the relationships
+  between FMF characteristics and severe COVID-19 outcomes such as hospitalization.
+  The study was planned within a national network of 21 different centers. Demographics,
+  FMF-related clinical and genetic characteristics, and COVID-19 outcomes were obtained.
+  A total of 822 patients with FMF (mean age of 36 years) were included in the study.
+  Fifty-nine of them (7%) had a COVID-19 diagnosis confirmed by real-time PCR test
+  or chest CT findings. Most FMF patients with COVID-19 (58) had mild and moderate
+  disease activity. All patients were on colchicine treatment. However, 8 of them
+  (13.6%) were not compliant with colchicine use and 9 of them (15.3%) were colchicine
+  resistant. Twelve FMF patients with COVID-19 were hospitalized. There were 4 patients
+  requiring oxygen support. COVID-19 related complications were observed in 2 patients
+  (1 thromboembolism, 1 acute respiratory distress syndrome). Hospitalized COVID-19
+  patients with FMF were older than non-hospitalized patients (median ages: 51 and
+  31 years, respectively; p: 0.002). Other FMF-related characteristics were similar
+  between the groups. FMF-related characteristics were not found to be associated
+  with poor outcomes in COVID-19. Thus, FMF may not be a risk factor for poor COVID-19
+  outcomes.'
+raw_completion_output: |-
+  primary_disease: COVID-19
+
+  medical_actions: real-time PCR test; chest CT; colchicine treatment; oxygen support
+
+  symptoms: hospitalization; thromboembolism; acute respiratory distress syndrome
+
+  chemicals: colchicine
+
+  action_annotation_relationships: colchicine treatment TREATS hospitalization IN COVID-19; real-time PCR test PREVENTS hospitalization IN COVID-19; chest CT PREVENTS hospitalization IN COVID-19; oxygen support TREATS acute respiratory distress syndrome IN COVID-19
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  oxygen support TREATS acute respiratory distress syndrome IN COVID-19
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0100096
+  medical_actions:
+    - real-time PCR test
+    - MAXO:0010317
+    - colchicine treatment
+    - oxygen support
+  symptoms:
+    - hospitalization
+    - HP:0001907
+    - HP:0033677
+  chemicals:
+    - CHEBI:23359
+  action_annotation_relationships:
+    - subject: treatment
+      predicate: TREATS
+      object: hospitalization
+      qualifier: MONDO:0100096
+      subject_extension: CHEBI:23359
+    - subject: real-time PCR test
+      predicate: PREVENTS
+      object: hospitalization
+      qualifier: MONDO:0100096
+    - subject: MAXO:0010317
+      predicate: PREVENTS
+      object: hospitalization
+      qualifier: MONDO:0100096
+    - subject: oxygen support
+      predicate: TREATS
+      object: HP:0033677
+      qualifier: MONDO:0100096
+      subject_extension: CHEBI:25805
+named_entities:
+  - id: MONDO:0018456
+    label: Polyarticular Juvenile Idiopathic Arthritis
+  - id: CHEBI:44185
+    label: Methotrexate
+  - id: MONDO:0005554
+    label: Rheumatic diseases
+  - id: HP:0000988
+    label: Rash
+  - id: HP:0000989
+    label: Itching
+  - id: HP:0002315
+    label: Headache
+  - id: HP:0002027
+    label: Abdominal pain
+  - id: CHEBI:4875
+    label: Etanercept
+  - id: CHEBI:231683
+    label: Anakinra
+  - id: CHEBI:64360
+    label: Tocilizumab
+  - id: CHEBI:64357
+    label: Rituximab
+  - id: CHEBI:29007
+    label: Ceftriaxone
+  - id: CHEBI:8776
+    label: Ranitidine
+  - id: MONDO:0019167
+    label: IgA vasculitis (IgAV)
+  - id: HP:0002829
+    label: arthralgia
+  - id: HP:0001369
+    label: arthritis
+  - id: HP:0000790
+    label: hematuria
+  - id: HP:0033404
+    label: intestinal ischemia
+  - id: CHEBI:28304
+    label: enoxaparin
+  - id: CHEBI:6888
+    label: methylprednisolone
+  - id: CHEBI:63916
+    label: iloprost
+  - id: CHEBI:4027
+    label: cyclophosphamide
+  - id: MONDO:0018088
+    label: AA amyloidosis secondary to familial Mediterranean fever (FMF)
+  - id: HP:4000041
+    label: AA amyloidosis
+  - id: MONDO:0019439
+    label: AA amyloidosis
+  - id: MONDO:0025484
+    label: Systemic Autoinflammatory Diseases (SAIDs)
+  - id: HP:0001954
+    label: Recurrent fever
+  - id: HP:0000093
+    label: Proteinuria
+  - id: CHEBI:23359
+    label: Colchicine
+  - id: HP:0045073
+    label: Serositis
+  - id: HP:0000711
+    label: Restlessness
+  - id: MONDO:0005052
+    label: Inflammatory Bowel Disease (IBD)
+  - id: MAXO:0000748
+    label: Fecal microbiota transplantation
+  - id: MONDO:0005191
+    label: Metastatic Melanoma
+  - id: HP:0011034
+    label: Amyloidosis
+  - id: HP:0004325
+    label: Decreased body weight
+  - id: CHEBI:46345
+    label: 5-Fluorouracil
+  - id: MONDO:0019324
+    label: Periodic Fever Syndromes (PFS)
+  - id: CHEBI:35475
+    label: NSAIDs
+  - id: HP:0012824
+    label: Severity
+  - id: HP:0040279
+    label: frequency
+  - id: MONDO:0100096
+    label: COVID-19
+  - id: MAXO:0010317
+    label: chest CT
+  - id: HP:0001907
+    label: thromboembolism
+  - id: HP:0033677
+    label: acute respiratory distress syndrome
+  - id: CHEBI:25805
+    label: oxygen

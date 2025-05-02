@@ -1,0 +1,159 @@
+---
+input_text: 'Living Donor Preemptive Kidney Transplantation in Tuberous Sclerosis
+  Complex Patient and the Role of Mammalian Target of Rapamycin Inhibitor: A Case
+  Report. BACKGROUND: Kidney transplantation (KT) is the preferred treatment for end-stage
+  kidney disease (ESKD), while preemptive (PE) living donor (LD) KT is associated
+  with better survival, quality of life, and lower costs. Tuberous sclerosis complex
+  (TSC) is a genetic multisystem disorder. Renal involvement (multiple bilateral angiomyolipoma
+  [AMLs], cysts, renal cell carcinoma [RCC]) is related to significant morbidity,
+  including ESKD and KT. Nephrectomy in TSC patients before KT is controversial. Affected
+  kidneys carry a risk of hemorrhage or malignancy, while AMLs may be fat-poor and
+  are often hardly distinguishable from RCC in magnetic resonance (MR)/computed tomography.
+  On the other hand nephrectomy impedes PE KT. Mammalian target of rapamycin inhibitors
+  (mTORi) have proved efficacy in many TSC complications, including AMLs, fat-poor
+  AMLs, TSC-related RCC, and immunosuppressive (IS) treatment. CASE REPORT: A 29-year-old
+  female TSC patient was referred for evaluation to the TSC reference center. Her
+  family history was negative for TSC. A clinical evaluation revealed multisystem
+  TSC manifestation (skin, brain, lungs, kidneys). MR disclosed indeterminate fat-poor
+  renal lesions, possibly AMLs, but RCC could not be excluded. A comparison with previous
+  MR did not show any significant progression. Due to ESKD, the patient was qualified
+  for PE LD (mother) KT. mTORi, sirolimus, was used in IS. Creatinine at discharge
+  was 2.1 mg/dL. Sixteen months later, MR showed significant reduction in tumor size.
+  Two years after KT, graft function remained stable (creatinine 1.98 mg/dL). No complications
+  related to renal lesions occurred. CONCLUSIONS: mTORi are the therapy of choice
+  in TSC patients after KT, achieving IS effect and improvement in TSC manifestations
+  while avoiding nephrectomy and management of patients with indeterminate renal lesions,
+  especially in the case of PE KT.'
+raw_completion_output: |-
+  primary_disease: Tuberous sclerosis complex (TSC)
+
+  medical_actions: Kidney transplantation (KT); preemptive (PE) living donor (LD) KT; nephrectomy; use of mammalian target of rapamycin inhibitors (mTORi); immunosuppressive (IS) treatment
+
+  symptoms: end-stage kidney disease (ESKD); multiple bilateral angiomyolipoma (AMLs); cysts; renal cell carcinoma (RCC); significant morbidity
+
+  chemicals: sirolimus
+
+  action_annotation_relationships: Kidney transplantation (KT) TREATS end-stage kidney disease (ESKD) IN Tuberous sclerosis complex (TSC); nephrectomy TREATS multiple bilateral angiomyolipoma (AMLs) IN Tuberous sclerosis complex (TSC); mammalian target of rapamycin inhibitors (with sirolimus) TREATS multiple bilateral angiomyolipoma (AMLs) IN Tuberous sclerosis complex (TSC); mammalian target of rapamycin inhibitors (with sirolimus) TREATS renal cell carcinoma (RCC) IN Tuberous sclerosis complex (TSC); immunosuppressive (IS) treatment (with sirolimus) PREVENTS rejection IN Tuberous sclerosis complex (TSC) after kidney transplantation
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  immunosuppressive (IS) treatment (with sirolimus) PREVENTS rejection IN Tuberous sclerosis complex (TSC) after kidney transplantation
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0001734
+  medical_actions:
+    - Kidney transplantation (KT)
+    - preemptive (PE) living donor (LD) KT
+    - MAXO:0001065
+    - use of mammalian target of rapamycin inhibitors (mTORi)
+    - immunosuppressive (IS) treatment
+  symptoms:
+    - end-stage kidney disease (ESKD)
+    - HP:0004808
+    - cysts
+    - HP:0005584
+    - significant morbidity
+  chemicals:
+    - CHEBI:9168
+  action_annotation_relationships:
+    - subject: <Kidney transplantation>
+      predicate: <TREATS>
+      object: <end-stage kidney disease>
+      qualifier: <Tuberous sclerosis complex>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: MAXO:0001065
+      predicate: TREATS
+      object: HP:0004808
+      qualifier: MONDO:0001734
+    - subject: mammalian target of rapamycin inhibitors
+      predicate: TREATS
+      object: HP:0004808
+      qualifier: MONDO:0001734
+      subject_qualifier: with sirolimus
+      subject_extension: CHEBI:9168
+    - subject: mammalian target of rapamycin inhibitors
+      predicate: TREATS
+      object: HP:0005584
+      qualifier: MONDO:0001734
+      subject_qualifier: with sirolimus
+      subject_extension: CHEBI:9168
+    - subject: immunosuppressive treatment
+      predicate: PREVENTS
+      object: rejection
+      qualifier: MONDO:0001734
+      subject_qualifier: with sirolimus
+      object_qualifier: after kidney transplantation
+      subject_extension: CHEBI:9168
+named_entities:
+  - id: MONDO:0016693
+    label: Subependymal giant cell astrocytoma
+  - id: MAXO:0000447
+    label: Surgical removal
+  - id: CHEBI:68478
+    label: everolimus
+  - id: MONDO:0005550
+    label: Intellectual disability (ID)
+  - id: HP:0001249
+    label: Intellectual disability (ID)
+  - id: HP:0001250
+    label: seizures
+  - id: HP:0011097
+    label: epileptic spasms
+  - id: HP:0002121
+    label: absence seizures
+  - id: CHEBI:69478
+    label: cannabidiol (CBD)
+  - id: MONDO:0001734
+    label: Tuberous Sclerosis Complex
+  - id: MAXO:0001065
+    label: Nephrectomy
+  - id: MAXO:0000602
+    label: Hemodialysis
+  - id: MAXO:0000603
+    label: Peritoneal dialysis
+  - id: MAXO:0000600
+    label: Renal replacement therapy
+  - id: HP:0006772
+    label: Angiomyolipomas
+  - id: HP:0005584
+    label: Renal cell carcinoma
+  - id: HP:0001892
+    label: Bleeding tendency
+  - id: HP:0000083
+    label: Renal insufficiency
+  - id: HP:0003774
+    label: end-stage renal failure
+  - id: CHEBI:68481
+    label: Mammalian target of rapamycin inhibitor
+  - id: CHEBI:63638
+    label: Vigabatrin
+  - id: MONDO:0100062
+    label: Infantile-Onset Developmental and Epileptic Encephalopathies (DEE)
+  - id: CHEBI:26708
+    label: Sodium
+  - id: CHEBI:26216
+    label: Potassium
+  - id: MONDO:0005027
+    label: epilepsy
+  - id: MAXO:0000942
+    label: vagus nerve stimulation (VNS)
+  - id: HP:0004808
+    label: multiple bilateral angiomyolipoma (AMLs)
+  - id: CHEBI:9168
+    label: sirolimus

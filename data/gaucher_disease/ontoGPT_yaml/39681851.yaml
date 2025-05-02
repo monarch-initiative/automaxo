@@ -1,0 +1,88 @@
+---
+input_text: 'Health care costs of home care enzyme replacement therapy for patients
+  with lysosomal storage diseases in Germany. BACKGROUND: Lysosomal storage diseases
+  (LSDs) can be treated with intravenous enzyme replacement therapy (ERT). ERT is
+  being administered either in specialized clinics or in the home care setting. Studies
+  indicate that home-based ERT can be considered safe and positively effects patient
+  reported outcomes. Due to the higher level of individual care required by nurses
+  when administering ERT at home, questions arise whether this will result in additional
+  costs for health care systems. Since cost data to the German health care system
+  are currently unavailable, this study aims to assess home care ERT costs of LSD
+  patients. METHODS: The longitudinal study assessed the direct costs of home-based
+  ERT for patients with LSD diseases Fabry, Pompe, Gaucher, and MPS I from 2019 to
+  2021 on a patient-by-patient basis by evaluating the healthcare documentation. Costs
+  assessed included ERT drug and further administration equipment, time needed to
+  prepare, administer, and post-process the infusion, and travel expenses of nursing
+  staff. RESULTS: Data from 62 patients was analyzed: of these, 29 (46.8%) with Fabry
+  disease, 19 (30.6%) with Pompe disease, 10 (16.1%) with Gaucher disease, and 4 (6.5%)
+  with MPS I. Patients ranged in age from 3 to 79 (mean 40 years); 42% of patients
+  reported comorbidities (19.4% with hypertension, and 10% with heart disease). Mean
+  total ERT-related costs were $369,047 per year across all patients. Approximately
+  98.5% of these costs were attributable to the infusion therapy and administration
+  itself ($363,880), and approximately 1.5% were attributable to personnel and travel
+  costs. Patients with Pompe disease incurred the highest average annual costs ($483,907)
+  and patients with Fabry disease the lowest ($264,896). Cost differences among underlying
+  LSDs were due primarily to ERT drug costs; the drug infused for Fabry disease costs
+  about half as much as that for Gaucher or for Pompe disease. Despite MPS I patients
+  requiring about twice as many infusions, significantly lower drug costs for this
+  disease resulted in the second lowest total mean costs of all LSD subtypes analyzed.
+  CONCLUSION: As total costs are almost entirely driven by infusion-related material,
+  especially the ERT drug, moving ERT into the home environment is not expected to
+  increase costs.'
+raw_completion_output: |-
+  primary_disease: Lysosomal storage diseases (LSDs)
+  medical_actions: enzyme replacement therapy (ERT); administering ERT at home
+  symptoms: Not explicitly mentioned
+  chemicals: Not explicitly mentioned
+  action_annotation_relationships: enzyme replacement therapy (ERT) TREATS lysosomal storage diseases (LSDs) IN Lysosomal storage diseases (LSDs)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  enzyme replacement therapy (ERT) TREATS lysosomal storage diseases (LSDs) IN Lysosomal storage diseases (LSDs)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0002561
+  medical_actions:
+    - enzyme replacement therapy (ERT)
+    - administering ERT at home
+  symptoms:
+    - Not explicitly mentioned
+  chemicals:
+    - Not explicitly mentioned
+  action_annotation_relationships:
+    - subject: enzyme replacement therapy (ERT)
+      predicate: TREATS
+      object: lysosomal storage diseases (LSDs)
+      qualifier: MONDO:0002561
+named_entities:
+  - id: MONDO:0002561
+    label: Lysosomal Storage Disorders
+  - id: CHEBI:135923
+    label: Migalastat
+  - id: HP:0001071
+    label: Fabry disease
+  - id: MONDO:0018150
+    label: Gaucher Disease (GD)
+  - id: HP:0001395
+    label: liver fibrosis
+  - id: HP:0001394
+    label: cirrhosis
+  - id: HP:0100626
+    label: end-stage liver disease
+  - id: HP:0001402
+    label: hepatocellular carcinoma
+  - id: MAXO:0001001
+    label: gene therapy

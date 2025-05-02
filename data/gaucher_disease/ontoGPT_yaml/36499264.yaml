@@ -1,0 +1,261 @@
+---
+input_text: 'Glucosylsphingosine (Lyso-Gb1): An Informative Biomarker in the Clinical
+  Monitoring of Patients with Gaucher Disease. Historically, disease burden and treatment
+  responses in patients with Gaucher disease (GD) was assessed by monitoring clinical
+  data, laboratory, imaging, chitotriosidase (CHITO), and other biomarkers; however,
+  these biomarkers lack specificity and CHITO is uninformative in patients heterozygous
+  or homozygous for the CHIT1 c.1049_1072dup24 variant. Recently, glucosylsphingosine
+  (lyso-Gb1), a sensitive and specific GD biomarker, has been recommended for patient
+  monitoring. Furthermore, studies measuring lyso-Gb1 and CHITO in patients on long-term
+  treatment with enzyme replacement therapy (ERT) and/or substrate reduction therapy
+  (SRT) reported as group data show a reduction in both analytes, yet individualized
+  patient data are generally unavailable. We describe seven patients on long-term
+  treatment with longitudinal clinical data with monitoring based on current treatment
+  guidelines. We present four patients who exhibit stable disease with normalized
+  CHITO despite elevated lyso-Gb1. We present one patient who transitioned from ERT
+  to SRT due to lack of a clinical response with life-threatening thrombocytopenia
+  who responded with marked improvement in platelets, and normalized levels of both
+  CHITO and lyso-Gb1. Finally, we present two ERT to SRT switch patients with stable
+  disease on ERT who exhibited non-compliance on SRT, one with mirrored marked elevations
+  of CHITO and lyso-Gb1; and another with normal CHITO and platelets, but increasing
+  lyso-Gb1 levels and enlarged spleen. These clinical vignettes highlight the role
+  of lyso-Gb1 as a sensitive biomarker in management of patients with GD, and its
+  further value when CHITO is normal and thus uninformative. We highlight the personalized
+  medicine approach needed to optimize treatment outcomes and recommendations for
+  these patients.'
+raw_completion_output: |-
+  primary_disease: Gaucher Disease
+
+  medical_actions: Clinical monitoring;Enzyme replacement therapy (ERT);Substrate reduction therapy (SRT);Patient monitoring;Long-term treatment;Treatment guidelines adherence
+
+  symptoms: Disease burden;Lack of clinical response;Life-threatening thrombocytopenia;Elevated lyso-Gb1;Marked elevations of CHITO;Normal CHITO;Increasing lyso-Gb1 levels;Enlarged spleen
+
+  chemicals: Glucosylsphingosine (Lyso-Gb1);Chitotriosidase (CHITO)
+
+  action_annotation_relationships: Clinical monitoring TREATS disease burden IN Gaucher Disease;Enzyme replacement therapy (ERT) PREVENTS lack of clinical response IN Gaucher Disease;Enzyme replacement therapy (ERT) TREATS life-threatening thrombocytopenia IN Gaucher Disease;Substrate reduction therapy (SRT) PREVENTS life-threatening thrombocytopenia IN Gaucher Disease;Patient monitoring (with Glucosylsphingosine (Lyso-Gb1)) PREVENTS elevated lyso-Gb1 IN Gaucher Disease;Long-term treatment PREVENTS disease burden IN Gaucher Disease;Treatment guidelines adherence PREVENTS lack of clinical response IN Gaucher Disease;Enzyme replacement therapy (ERT) TREATS marked elevations of CHITO IN Gaucher Disease;Substrate reduction therapy (SRT) PREVENTS elevated lyso-Gb1 IN Gaucher Disease;Enzyme replacement therapy (ERT) TREATS normal CHITO IN Gaucher Disease;Substrate reduction therapy (SRT) PREVENTS increasing lyso-Gb1 levels IN Gaucher Disease;Substrate reduction therapy (SRT) PREVENTS enlarged spleen IN Gaucher Disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Substrate reduction therapy (SRT) PREVENTS enlarged spleen IN Gaucher Disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0018150
+  medical_actions:
+    - Clinical monitoring
+    - Enzyme replacement therapy (ERT)
+    - MAXO:0009091
+    - Patient monitoring
+    - Long-term treatment
+    - Treatment guidelines adherence
+  symptoms:
+    - Disease burden
+    - Lack of clinical response
+    - Life-threatening thrombocytopenia
+    - Elevated lyso-Gb1
+    - Marked elevations of CHITO
+    - Normal CHITO
+    - Increasing lyso-Gb1 levels
+    - Enlarged spleen
+  chemicals:
+    - CHEBI:4177
+    - Chitotriosidase (CHITO)
+  action_annotation_relationships:
+    - subject: Clinical monitoring
+      predicate: TREATS
+      object: disease burden
+      qualifier: MONDO:0018150
+    - subject: Enzyme replacement therapy
+      predicate: PREVENTS
+      object: lack of clinical response
+      qualifier: MONDO:0018150
+      subject_extension: Enzyme replacement therapy
+    - subject: Enzyme replacement therapy
+      predicate: TREATS
+      object: HP:0001873
+      qualifier: MONDO:0018150
+      object_qualifier: life-threatening
+      subject_extension: Enzyme replacement therapy
+      object_extension: life-threatening
+    - subject: Substrate reduction therapy
+      predicate: PREVENTS
+      object: life-threatening thrombocytopenia
+      qualifier: MONDO:0018150
+    - subject: Patient monitoring
+      predicate: PREVENTS
+      object: elevated lyso-Gb1
+      qualifier: MONDO:0018150
+      subject_qualifier: with Glucosylsphingosine (Lyso-Gb1)
+      subject_extension: CHEBI:4177
+    - subject: Long-term treatment
+      predicate: PREVENTS
+      object: disease burden
+      qualifier: MONDO:0018150
+    - subject: Treatment guidelines adherence
+      predicate: PREVENTS
+      object: lack of clinical response
+      qualifier: MONDO:0018150
+    - subject: Enzyme replacement therapy
+      predicate: TREATS
+      object: marked elevations
+      qualifier: MONDO:0018150
+      subject_extension: Enzyme replacement therapy
+      object_extension: CHITO
+    - subject: <Substrate reduction therapy>
+      predicate: <PREVENTS>
+      object: <elevated lyso-Gb1>
+      qualifier: <Gaucher Disease>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <Substrate reduction therapy>
+      object_extension: <lyso-Gb1>
+    - subject: Enzyme replacement therapy
+      predicate: TREATS
+      object: normal CHITO
+      qualifier: MONDO:0018150
+      subject_extension: ERT
+      object_extension: CHITO
+    - subject: MAXO:0009091
+      predicate: PREVENTS
+      object: increasing lyso-Gb1 levels
+      qualifier: MONDO:0018150
+      subject_extension: substrate reduction therapy
+      object_extension: lyso-Gb1 levels
+    - subject: Substrate reduction therapy
+      predicate: PREVENTS
+      object: enlarged spleen
+      qualifier: MONDO:0018150
+      subject_extension: Substrate reduction therapy
+named_entities:
+  - id: MONDO:0002561
+    label: Lysosomal Storage Disorders
+  - id: CHEBI:135923
+    label: Migalastat
+  - id: HP:0001071
+    label: Fabry disease
+  - id: MONDO:0018150
+    label: Gaucher Disease (GD)
+  - id: HP:0001395
+    label: liver fibrosis
+  - id: HP:0001394
+    label: cirrhosis
+  - id: HP:0100626
+    label: end-stage liver disease
+  - id: HP:0001402
+    label: hepatocellular carcinoma
+  - id: MAXO:0001001
+    label: gene therapy
+  - id: MAXO:0001257
+    label: vitamin E supplementation
+  - id: MAXO:0010200
+    label: abdominal ultrasonography
+  - id: HP:0025464
+    label: oxidative stress
+  - id: CHEBI:33234
+    label: vitamin E
+  - id: CHEBI:566274
+    label: malondialdehyde (MDA)
+  - id: CHEBI:16856
+    label: reduced glutathione (GSH)
+  - id: MAXO:0009091
+    label: Substrate reduction therapy (SRT)
+  - id: HP:0002716
+    label: Lymphadenopathy
+  - id: HP:0001903
+    label: Anemia
+  - id: HP:0001873
+    label: Thrombocytopenia
+  - id: HP:0001433
+    label: Hepatosplenomegaly
+  - id: CHEBI:30884
+    label: Glucosylceramide synthase (GCS) inhibitors
+  - id: CHEBI:135590
+    label: ambroxol
+  - id: HP:0410281
+    label: dyspepsia
+  - id: HP:0002027
+    label: abdominal pain
+  - id: CHEBI:82752
+    label: eliglustat
+  - id: CHEBI:4177
+    label: glucosylsphingosine
+  - id: HP:0003281
+    label: hyperferritinemia
+  - id: HP:0011024
+    label: gastrointestinal disorders
+  - id: MONDO:0010526
+    label: Fabry disease
+  - id: HP:0002180
+    label: neurodegeneration
+  - id: MONDO:0009267
+    label: Gaucher Disease Type 3
+  - id: HP:0001251
+    label: ataxia
+  - id: HP:0001332
+    label: dystonia
+  - id: HP:0001337
+    label: tremor
+  - id: HP:0001250
+    label: seizures
+  - id: HP:0000939
+    label: Osteoporosis
+  - id: MONDO:0009265
+    label: Gaucher disease type 1
+  - id: MONDO:0005201
+    label: Restrictive cardiomyopathy
+  - id: HP:0001635
+    label: cardiac failure
+  - id: MAXO:0000950
+    label: supportive care
+  - id: HP:0001744
+    label: splenomegaly
+  - id: HP:0010885
+    label: osteonecrosis
+  - id: HP:0002653
+    label: bone pain
+  - id: MAXO:0000747
+    label: Haematopoietic Stem Cell Transplantation (HSCT)
+  - id: MAXO:0010030
+    label: bone marrow transplantation (BMT)
+  - id: HP:0011891
+    label: postpartum hemorrhage (PPH)
+  - id: HP:0005268
+    label: miscarriage
+  - id: MONDO:0100096
+    label: COVID-19
+  - id: HP:0003493
+    label: positive ANA
+  - id: HP:0000872
+    label: Hashimoto thyroiditis
+  - id: CHEBI:74066
+    label: Immunoglobulin (Ig) M
+  - id: HP:0031915
+    label: stable
+  - id: MAXO:0000127
+    label: genetic testing
+  - id: MAXO:0000752
+    label: bone marrow aspiration
+  - id: HP:0001876
+    label: pancytopenia
+  - id: HP:0100543
+    label: cognitive impairment
+  - id: HP:0002942
+    label: thoracic kyphosis
+  - id: HP:0000823
+    label: delayed puberty
+  - id: MAXO:0009003
+    label: Preimplantation genetic testing (PGT)
+  - id: MAXO:0000079
+    label: Genetic counseling

@@ -1,0 +1,132 @@
+---
+input_text: "Physical activity, respiratory physiotherapy practices, and nutrition
+  among people with primary ciliary dyskinesia in Switzerland - a cross-sectional
+  survey. AIMS OF THE STUDY: We know little about the level of physical activity,
+  respiratory physiotherapy practices and nutritional status of people with primary
+  ciliary dyskinesia (PCD), although these are important aspects of patients with
+  chronic respiratory disease. We assessed physical activity, respiratory physiotherapy
+  practices and nutritional status among people with primary ciliary dyskinesia in
+  Switzerland, investigated how these vary by age and identified factors associated
+  with regular physical activity. METHODS: We sent a postal questionnaire survey to
+  people with primary ciliary dyskinesia enrolled in the Swiss PCD registry (CH-PCD),
+  based on the standardised FOLLOW-PCD patient questionnaire. We collected information
+  about physical activity, physiotherapy, respiratory symptoms and nutritional status.
+  We calculated the metabolic equivalent (MET) to better reflect the intensity of
+  the reported physical activities. To assess nutritional status, we extracted information
+  from CH-PCD and calculated participants' body mass index (BMI). RESULTS: Of the
+  86 questionnaires we sent, 74 (86% response rate) were returned from 24 children
+  and 50 adults. The median age at survey completion was 23 years (IQR [interquartile
+  range] 15-51), and 51% were female. Among all 74 participants, 48 (65%) performed
+  sports regularly. Children were vigorously active (median MET 9.1; IQR 7.9-9.6)
+  and adults were moderately active (median MET 5.5; IQR 4.3-6.9). Fifty-nine participants
+  (80%) reported performing some type of respiratory physiotherapy. However, only
+  30% of adults saw a professional physiotherapist, compared with 75% of children.
+  Half of the participants had normal BMI; one child (4%) and two adults (4%) were
+  underweight. People who were regularly physically active reported seeing a physiotherapist
+  more often. CONCLUSIONS: Our study is the first to provide patient-reported data
+  about physical activity, respiratory physiotherapy and nutrition among people with
+  primary ciliary dyskinesia. Our results highlight that professional respiratory
+  physiotherapy, exercise recommendations and nutritional advice are often not implemented
+  in the care of people with primary ciliary dyskinesia in Switzerland. Multidisciplinary
+  care in specialised centres by teams including physiotherapists and nutrition consultants
+  could improve the quality of life of people with primary ciliary dyskinesia."
+raw_completion_output: |-
+  primary_disease: Primary ciliary dyskinesia
+
+  medical_actions: Physical activity; Respiratory physiotherapy; Nutritional advice
+
+  symptoms: None specified
+
+  chemicals: None
+
+  action_annotation_relationships: Physical activity PREVENTS complications IN Primary ciliary dyskinesia; Respiratory physiotherapy TREATS respiratory symptoms IN Primary ciliary dyskinesia; Nutritional advice PREVENTS malnutrition IN Primary ciliary dyskinesia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Nutritional advice PREVENTS malnutrition IN Primary ciliary dyskinesia
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0016575
+  medical_actions:
+    - Physical activity
+    - Respiratory physiotherapy
+    - Nutritional advice
+  symptoms:
+    - None specified
+  chemicals:
+    - None
+  action_annotation_relationships:
+    - subject: Physical activity
+      predicate: PREVENTS
+      object: complications
+      qualifier: MONDO:0016575
+    - subject: <Respiratory physiotherapy>
+      predicate: <TREATS>
+      object: <Respiratory symptoms>
+      qualifier: <Primary ciliary dyskinesia>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: Nutritional advice
+      predicate: PREVENTS
+      object: HP:0004395
+      qualifier: MONDO:0016575
+named_entities:
+  - id: MONDO:0008932
+    label: Primary ciliary dyskinesia (PCD)
+  - id: HP:0034315
+    label: Chronic cough
+  - id: HP:0002643
+    label: Neonatal respiratory distress
+  - id: MAXO:0000506
+    label: non-invasive ventilation (NIV)
+  - id: HP:0003251
+    label: Male infertility
+  - id: HP:0001696
+    label: Situs inversus
+  - id: MONDO:0004247
+    label: Peptic Ulcer Disease (PUD)
+  - id: MAXO:0001193
+    label: Upper gastrointestinal endoscopy
+  - id: HP:0002239
+    label: Gastrointestinal hemorrhage
+  - id: CHEBI:18361
+    label: Proton pump inhibitor (PPI)
+  - id: CHEBI:49200
+    label: Proton pump inhibitor
+  - id: HP:0002044
+    label: Zollinger-Ellison syndrome
+  - id: MONDO:0016575
+    label: Primary Ciliary Dyskinesia
+  - id: MONDO:0009061
+    label: Cystic Fibrosis
+  - id: CHEBI:33281
+    label: antibiotics
+  - id: HP:0012262
+    label: Abnormal ciliary motility
+  - id: CHEBI:41774
+    label: Tamoxifen
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0100750
+    label: atelectasis
+  - id: HP:0002878
+    label: respiratory failure
+  - id: HP:0011962
+    label: Obstructive azoospermia
+  - id: HP:0004395
+    label: malnutrition

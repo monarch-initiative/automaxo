@@ -88,6 +88,9 @@ def main(input_file, output_dir, template):
         template_details=get_template_details(template=template),
         model="gpt-4-0125-preview",
         model_source="openai",
+        # api_base ="https:/api.cborg.lbl.gov",
+        # api_key=
+        # https://cborg.lbl.gov/api_examples/ 
     )
 
     # Create the output directory if it does not exist

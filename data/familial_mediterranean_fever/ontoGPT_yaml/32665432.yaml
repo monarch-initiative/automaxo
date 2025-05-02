@@ -1,0 +1,82 @@
+---
+input_text: 'Long-term outcomes in patients with polyarticular juvenile idiopathic
+  arthritis receiving adalimumab with or without methotrexate. OBJECTIVES: Long-term
+  safety and efficacy of adalimumab among patients with juvenile idiopathic arthritis
+  (JIA) was evaluated through 6 years of treatment. METHODS: Children aged 4-17 years
+  with polyarticular JIA were enrolled in a phase III, randomised-withdrawal, double-blind,
+  placebo-controlled trial consisting of a 16-week open-label lead-in period, 32-week
+  randomised double-blind period and 360-week long-term extension. Patients were stratified
+  by baseline methotrexate use. Adverse events (AEs) were monitored, and efficacy
+  assessments included JIA American College of Rheumatology (JIA ACR) 30%, 50%, 70%
+  or 90% responses and the proportions of patients achieving 27-joint Juvenile Arthritis
+  Disease Activity Score (JADAS27) low disease activity (LDA, <=3.8) and inactive
+  disease (ID, <=1). RESULTS: Of 171 patients enrolled, 62 (36%) completed the long-term
+  extension. Twelve serious infections in 11 patients were reported through 592.8
+  patient-years of exposure. No cases of congestive heart failure-related AEs, demyelinating
+  disease, lupus-like syndrome, malignancies, tuberculosis or deaths were reported.
+  JIA ACR 30/50/70/90 responses and JADAS27 LDA were achieved in 66% to 96% of patients
+  at week 104, and 63 (37%) patients achieved clinical remission (JADAS27 ID sustained
+  for >=6 continuous months) during the study. Attainment of JIA ACR 50 or higher
+  and JADAS27 LDA or ID in the initial weeks were the best predictors of clinical
+  remission. Mean JADAS27 decreased from baseline, 22.5 (n=170), to 2.5 (n=30) at
+  week 312 (observed analysis). CONCLUSIONS: Through 6 years of exposure, adalimumab
+  was well tolerated with significant clinical response (up to clinical remission)
+  and a relatively low retention rate.'
+raw_completion_output: |-
+  primary_disease: Polyarticular Juvenile Idiopathic Arthritis
+  medical_actions: Monitoring of adverse events; Efficacy assessments; Adalimumab treatment; Methotrexate treatment
+  symptoms: Serious infections
+  chemicals: Adalimumab; Methotrexate
+  action_annotation_relationships: Adalimumab treatment TREATS Polyarticular Juvenile Idiopathic Arthritis; Methotrexate treatment TREATS Polyarticular Juvenile Idiopathic Arthritis; Monitoring of adverse events PREVENTS Serious infections IN Polyarticular Juvenile Idiopathic Arthritis; Efficacy assessments TREATS Polyarticular Juvenile Idiopathic Arthritis
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Efficacy assessments TREATS Polyarticular Juvenile Idiopathic Arthritis
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0018456
+  medical_actions:
+    - Monitoring of adverse events
+    - Efficacy assessments
+    - Adalimumab treatment
+    - Methotrexate treatment
+  symptoms:
+    - Serious infections
+  chemicals:
+    - Adalimumab
+    - CHEBI:44185
+  action_annotation_relationships:
+    - subject: treatment
+      predicate: TREATS
+      object: Polyarticular Juvenile Idiopathic Arthritis
+      subject_extension: Adalimumab
+    - subject: treatment
+      predicate: TREATS
+      object: Polyarticular Juvenile Idiopathic Arthritis
+      subject_extension: CHEBI:44185
+    - subject: Monitoring of adverse events
+      predicate: PREVENTS
+      object: Serious infections
+      qualifier: MONDO:0018456
+    - subject: <Efficacy assessments>
+      predicate: <TREATS>
+      object: <Polyarticular Juvenile Idiopathic Arthritis>
+      subject_extension: <Efficacy assessments>
+named_entities:
+  - id: MONDO:0018456
+    label: Polyarticular Juvenile Idiopathic Arthritis
+  - id: CHEBI:44185
+    label: Methotrexate

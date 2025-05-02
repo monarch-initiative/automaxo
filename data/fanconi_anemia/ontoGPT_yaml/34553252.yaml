@@ -1,0 +1,245 @@
+---
+input_text: 'Kidney complications in 107 Fanconi anemia patients submitted to hematopoietic
+  cell transplantation. Fanconi anemia (FA) is a rare disease characterized by progressive
+  bone marrow failure, cancer predisposition, and multiple systemic malformations,
+  including congenital abnormalities of the kidney and urinary tract (CAKUT). Hematopoietic
+  cell transplantation (HCT), the only potentially curative treatment for the hematological
+  complications of FA, may precipitate acute kidney injury (AKI) and hypertension.
+  We retrospectively investigated 107 FA patients who underwent HCT between 2009 and
+  2017. We investigated the incidence and risk factors of AKI within 100 days after
+  HCT in a cohort of FA patients, and kidney function and hypertension over 2-year
+  follow-up.The incidence of AKI (mainly stage I) was 18.7%. Patients aged >= 11 years
+  at transplantation showed a higher risk of AKI (OR 3.53). The eGFR was 60-90 mL/min/1.73
+  m2 in 53 (49.5%), 55 (51.4%), 50 (50.5%), 50 (51%), and 46 (59.7%) patients before
+  HCT, at 100 days, 6 months, 1 year, and 2 years. Within the first 100 days after
+  HCT, hypertension was observed in 72% of the patients and was associated with cyclosporine
+  therapy. Most (62.3%) patients had stage 2 hypertension. CAKUT was observed in 33.7%
+  of the patients and was associated with both hypertension (86%) and diminished kidney
+  function but not with AKI.Conlusion: Although AKI, a commonly known HCT complication,
+  was mild in this study, the prevalence of chronic kidney disease (CKD), as well
+  as the high incidence of hypertension, specially associated with CAKUT point out
+  the importance of kidney care in short and long-term follow up of FA patients. What
+  is Known:   Fanconi anemia (FA) is the most frequent inherited bone marrow failure
+  in children, and 30% of cases have congenital anomalies of kidney (CAKUT).   Acute
+  kidney injury and hypertension after hematopoietic cell transplantation (HCT) may
+  impact the outcomes.. What is New:   Despite the presence of CAKUT and stage 2 CKD
+  in 33.7% and 50% of the patients, respectively, AKI was mild and transitory after
+  HCT in FA patients.   CAKUT in FA patients was associated with lower kidney function
+  and hypertension after HCT.'
+raw_completion_output: |-
+  primary_disease: Fanconi anemia (FA)
+
+  medical_actions: Hematopoietic cell transplantation (HCT); cyclosporine therapy
+
+  symptoms: acute kidney injury (AKI); hypertension; diminished kidney function; congenital abnormalities of the kidney and urinary tract (CAKUT); progressive bone marrow failure; cancer predisposition; multiple systemic malformations
+
+  chemicals: cyclosporine
+
+  action_annotation_relationships: Hematopoietic cell transplantation (HCT) TREATS progressive bone marrow failure IN Fanconi anemia (FA); cyclosporine therapy TREATS hypertension IN Fanconi anemia (FA); Hematopoietic cell transplantation (HCT) PREVENTS cancer predisposition IN Fanconi anemia (FA); Hematopoietic cell transplantation (HCT) TREATS hematological complications IN Fanconi anemia (FA); cyclosporine therapy (with cyclosporine) TREATS hypertension IN Fanconi anemia (FA)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  cyclosporine therapy (with cyclosporine) TREATS hypertension IN Fanconi anemia (FA)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0100339
+  medical_actions:
+    - MAXO:0000149
+    - cyclosporine therapy
+  symptoms:
+    - HP:0001919
+    - HP:0000822
+    - diminished kidney function
+    - congenital abnormalities of the kidney and urinary tract (CAKUT)
+    - progressive bone marrow failure
+    - cancer predisposition
+    - multiple systemic malformations
+  chemicals:
+    - CHEBI:4031
+  action_annotation_relationships:
+    - subject: MAXO:0000149
+      predicate: TREATS
+      object: progressive bone marrow failure
+      qualifier: MONDO:0100339
+    - subject: MAXO:0001298
+      predicate: TREATS
+      object: HP:0000822
+      qualifier: MONDO:0100339
+      subject_extension: CHEBI:4031
+    - subject: MAXO:0000149
+      predicate: PREVENTS
+      object: cancer predisposition
+      qualifier: MONDO:0100339
+    - subject: <Hematopoietic cell transplantation>
+      predicate: <TREATS>
+      object: <hematological complications>
+      qualifier: <Fanconi anemia>
+      subject_extension: <Hematopoietic cell transplantation>
+    - subject: cyclosporine therapy
+      predicate: TREATS
+      object: HP:0000822
+      qualifier: MONDO:0019391
+      subject_qualifier: with cyclosporine
+      subject_extension: CHEBI:4031
+named_entities:
+  - id: MONDO:0019391
+    label: Fanconi anemia
+  - id: MAXO:0000747
+    label: Hematopoietic stem cell transplantation (HSCT)
+  - id: CHEBI:18198
+    label: ADCs
+  - id: CHEBI:4027
+    label: cyclophosphamide
+  - id: MAXO:0000750
+    label: conditioning regimens
+  - id: CHEBI:37153
+    label: Calcineurin inhibitor
+  - id: CHEBI:38215
+    label: Calcium channel blocker
+  - id: CHEBI:4031
+    label: Cyclosporine
+  - id: CHEBI:8069
+    label: Phenobarbital
+  - id: CHEBI:2668
+    label: Amlodipine
+  - id: MAXO:0000149
+    label: Hematopoietic cell transplantation (HCT)
+  - id: MAXO:0000016
+    label: Cellular therapy
+  - id: HP:0001871
+    label: Blood dyscrasias
+  - id: MAXO:0000595
+    label: Radiography
+  - id: HP:0005528
+    label: Bone marrow failure
+  - id: HP:0034057
+    label: Congenital defects
+  - id: CHEBI:28901
+    label: Busulfan
+  - id: CHEBI:44185
+    label: Methotrexate
+  - id: MONDO:0005233
+    label: Non-small cell lung cancer (NSCLC)
+  - id: CHEBI:33364
+    label: Platinum
+  - id: MAXO:0000647
+    label: chemotherapy
+  - id: HP:0030358
+    label: Non-small cell lung cancer
+  - id: MAXO:0001479
+    label: Allogeneic hematopoietic stem cell transplantation (allo-HSCT)
+  - id: HP:0002863
+    label: Myelodysplasia
+  - id: HP:0001909
+    label: Leukemia
+  - id: MONDO:0016624
+    label: Hereditary anemia
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: MONDO:0005570
+    label: Hematological disorders
+  - id: HP:0002664
+    label: cancer
+  - id: MONDO:0015253
+    label: Diamond Blackfan anemia
+  - id: MAXO:0000600
+    label: Kidney replacement therapy (KRT)
+  - id: HP:0000093
+    label: Proteinuria
+  - id: HP:0003259
+    label: Elevated serum creatinine (SCr > 100micromol/l)
+  - id: MONDO:0001529
+    label: Bone marrow failure (BMF)
+  - id: HP:0002860
+    label: oral squamous cell carcinoma (SCC)
+  - id: MONDO:0100339
+    label: Fanconi anemia (FA)
+  - id: CHEBI:28680
+    label: Ara-C
+  - id: CHEBI:27899
+    label: Cisplatin
+  - id: HP:0011793
+    label: Malignant tumors
+  - id: HP:0000818
+    label: Endocrinopathies
+  - id: HP:0002745
+    label: Oral leukoplakia
+  - id: CHEBI:64357
+    label: rituximab
+  - id: CHEBI:61049
+    label: Tacrolimus
+  - id: HP:0002910
+    label: elevated liver function tests
+  - id: CHEBI:125354
+    label: plerixafor
+  - id: CHEBI:231614
+    label: Nivolumab
+  - id: CHEBI:25016
+    label: PBS
+  - id: MONDO:0009693
+    label: Multiple Myeloma
+  - id: CHEBI:28876
+    label: Melphalan
+  - id: CHEBI:229764
+    label: Selinexor
+  - id: CHEBI:229762
+    label: Eltanexor
+  - id: HP:0006775
+    label: Multiple Myeloma
+  - id: CHEBI:229763
+    label: exportin 1 inhibitors
+  - id: MONDO:0015909
+    label: aplastic anemia
+  - id: HP:0004808
+    label: Acute myeloid leukaemia
+  - id: MAXO:0000004
+    label: Surgery
+  - id: MAXO:0000014
+    label: Radiotherapy
+  - id: MONDO:0001881
+    label: Septic shock
+  - id: MAXO:0001021
+    label: Antimicrobial treatment
+  - id: MAXO:0000174
+    label: Antifungal treatment
+  - id: HP:0001876
+    label: Pancytopenia
+  - id: HP:0001945
+    label: Fever
+  - id: CHEBI:133748
+    label: Citrate
+  - id: CHEBI:41879
+    label: Dexamethasone
+  - id: CHEBI:33281
+    label: Antimicrobial
+  - id: CHEBI:35718
+    label: Antifungal
+  - id: MONDO:0044033
+    label: Posterior reversible encephalopathy syndrome (PRES)
+  - id: MAXO:0010030
+    label: Bone marrow transplantation
+  - id: MAXO:0001188
+    label: Laparoscopy
+  - id: HP:0000988
+    label: Skin rash
+  - id: MONDO:0010161
+    label: Tyrosinemia Type 1
+  - id: HP:0001919
+    label: acute kidney injury (AKI)
+  - id: HP:0000822
+    label: hypertension
+  - id: MAXO:0001298
+    label: therapy

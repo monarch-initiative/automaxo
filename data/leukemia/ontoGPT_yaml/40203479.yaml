@@ -1,0 +1,318 @@
+---
+input_text: 'Clinical applicability of the ELN2020 criteria for tyrosine kinase inhibitor
+  discontinuation in chronic myeloid leukemia: insights from a multicenter retrospective
+  study in real-world practice. The prognosis of chronic myeloid leukemia has significantly
+  improved with the introduction of tyrosine kinase inhibitors (TKIs). However, indefinite
+  TKI treatment can lead to adverse effects and high costs. Recent studies have suggested
+  that treatment-free remission (TFR) is achievable in patients with a deep molecular
+  response (DMR). The present multicenter, retrospective observational study conducted
+  in Japan evaluated the applicability of the European LeukemiaNet (ELN) 2020 TKI
+  discontinuation criteria, which recommend TKI therapy of >= 5 years with sustained
+  MR4 for >= 3 years or MR4.5 for >= 2 years. A total of 100 patients who discontinued
+  TKI therapy were analyzed, with 70 meeting the ELN2020 criteria. The overall 12-month
+  TFR rate was 71.9 %. Univariate analysis showed that both the duration of DMR and
+  TKI therapy were significantly associated with TFR, with hazard ratios (HR) of 0.305
+  and 0.450, respectively. Only DMR duration remained significant (HR 0.362) in multivariate
+  analysis. Patients who lost MMR after TKI discontinuation rapidly re-achieved molecular
+  response upon TKI resumption. The most common reason for TKI discontinuation was
+  elective cessation, followed by adverse events, among which pleural effusion due
+  to dasatinib was the most frequent. The results of this study, the first to assess
+  the ELN2020 criteria in a Japanese cohort, suggest that the criteria are applicable
+  in real-world clinical practice.'
+raw_completion_output: |-
+  primary_disease: Chronic myeloid leukemia
+  medical_actions: Tyrosine kinase inhibitor discontinuation; TKI therapy; Treatment-free remission (TFR); Univariate analysis; Multivariate analysis; TKI resumption
+  symptoms: Adverse effects; Pleural effusion
+  chemicals: Tyrosine kinase inhibitors (TKIs); Dasatinib
+  action_annotation_relationships: Tyrosine kinase inhibitor discontinuation PREVENTS adverse effects IN Chronic myeloid leukemia; TKI therapy (with Tyrosine kinase inhibitors) TREATS Chronic myeloid leukemia; TKI resumption TREATS loss of molecular response IN Chronic myeloid leukemia; Tyrosine kinase inhibitor discontinuation TREATS high costs IN Chronic myeloid leukemia; TKI therapy (with Dasatinib) TREATS Chronic myeloid leukemia; TKI therapy (with Dasatinib) CAUSES Pleural effusion IN Chronic myeloid leukemia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  TKI therapy (with Dasatinib) CAUSES Pleural effusion IN Chronic myeloid leukemia
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0011996
+  medical_actions:
+    - Tyrosine kinase inhibitor discontinuation
+    - TKI therapy
+    - Treatment-free remission (TFR)
+    - Univariate analysis
+    - Multivariate analysis
+    - TKI resumption
+  symptoms:
+    - Adverse effects
+    - HP:0002202
+  chemicals:
+    - CHEBI:38637
+    - CHEBI:190514
+  action_annotation_relationships:
+    - subject: Tyrosine kinase inhibitor discontinuation
+      predicate: PREVENTS
+      object: adverse effects
+      qualifier: MONDO:0011996
+      subject_extension: CHEBI:38637
+      object_extension: adverse effects
+    - subject: TKI therapy
+      predicate: TREATS
+      object: HP:0005506
+      subject_qualifier: with Tyrosine kinase inhibitors
+      subject_extension: CHEBI:38637
+    - subject: resumption
+      predicate: TREATS
+      object: loss of molecular response
+      qualifier: MONDO:0011996
+      subject_extension: TKI
+    - subject: discontinuation
+      predicate: TREATS
+      object: high costs
+      qualifier: MONDO:0011996
+      subject_extension: CHEBI:38637
+    - subject: TKI therapy
+      predicate: TREATS
+      object: HP:0005506
+      subject_qualifier: with Dasatinib
+      subject_extension: CHEBI:190514
+    - subject: TKI therapy
+      predicate: CAUSES
+      object: HP:0002202
+      qualifier: MONDO:0011996
+      subject_qualifier: with Dasatinib
+      subject_extension: CHEBI:190514
+named_entities:
+  - id: MONDO:0018874
+    label: Acute myeloid leukemia (AML)
+  - id: HP:0001945
+    label: Fever
+  - id: HP:0012378
+    label: Fatigue
+  - id: MONDO:0020512
+    label: T cell acute lymphoblastic leukemia (T-ALL)
+  - id: HP:0006727
+    label: T-ALL
+  - id: CHEBI:50131
+    label: Decitabine
+  - id: CHEBI:133021
+    label: Venetoclax
+  - id: HP:0004808
+    label: Acute myeloid leukemia
+  - id: HP:0002090
+    label: pneumonia
+  - id: HP:0100806
+    label: sepsis
+  - id: CHEBI:71019
+    label: Homoharringtonine
+  - id: CHEBI:28680
+    label: Cytarabine
+  - id: HP:0000739
+    label: anxiety
+  - id: HP:0000716
+    label: depression
+  - id: CHEBI:190514
+    label: dasatinib
+  - id: CHEBI:23456
+    label: cyclodextrins
+  - id: MAXO:0000747
+    label: Hematopoietic Stem Cell Transplantation (HSCT)
+  - id: MAXO:0000647
+    label: Chemotherapy
+  - id: HP:0002018
+    label: Nausea
+  - id: HP:0002094
+    label: Dyspnea
+  - id: HP:0100785
+    label: Insomnia
+  - id: HP:0012531
+    label: Pain
+  - id: HP:0002019
+    label: Constipation
+  - id: CHEBI:2038
+    label: Azacitidine
+  - id: CHEBI:197440
+    label: Tumor necrosis factor-alpha (TNF-alpha)
+  - id: MONDO:0004967
+    label: Acute Lymphoblastic Leukemia (ALL)
+  - id: CHEBI:8378
+    label: Prednisolone
+  - id: HP:0000001
+    label: Acute Lymphoblastic Leukemia (ALL)
+  - id: HP:0001297
+    label: Stroke
+  - id: HP:0001635
+    label: Heart failure
+  - id: HP:0001677
+    label: Coronary atherosclerosis
+  - id: MONDO:0004992
+    label: Cancer
+  - id: MAXO:0001479
+    label: allogeneic hematopoietic stem cell transplantation (allo-HSCT)
+  - id: MONDO:0004947
+    label: B-cell acute lymphoblastic leukemia
+  - id: MAXO:0000757
+    label: infusion
+  - id: MAXO:0000602
+    label: Hemodialysis
+  - id: HP:0003326
+    label: Myalgia
+  - id: HP:0002039
+    label: Anorexia
+  - id: HP:0100519
+    label: Anuria
+  - id: HP:0011037
+    label: Decreased urine output
+  - id: HP:0001919
+    label: Acute kidney injury
+  - id: CHEBI:18332
+    label: Levothyroxine
+  - id: MONDO:0020511
+    label: Acute B-lymphoblastic leukemia (B-ALL)
+  - id: HP:0003419
+    label: lower back pain
+  - id: MONDO:0010651
+    label: high-risk myelodysplastic neoplasm (MDS)
+  - id: CHEBI:30621
+    label: arsenic trioxide
+  - id: HP:0002360
+    label: sleep disturbances
+  - id: MONDO:0017361
+    label: Cytokine release syndrome (CRS)
+  - id: CHEBI:64360
+    label: Tocilizumab
+  - id: MONDO:0012883
+    label: Acute promyelocytic leukemia (APL)
+  - id: MAXO:0000149
+    label: Allogeneic hematopoietic cell transplantation (HCT)
+  - id: MONDO:0004948
+    label: chronic lymphocytic leukemia
+  - id: HP:0002014
+    label: diarrhea
+  - id: CHEBI:63791
+    label: lenalidomide
+  - id: HP:0005550
+    label: chronic lymphocytic leukemia
+  - id: MONDO:0003864
+    label: Chronic lymphocytic leukemia and small lymphocytic lymphoma (CLL/SLL)
+  - id: MAXO:0001298
+    label: therapies
+  - id: CHEBI:42068
+    label: Idarubicin
+  - id: HP:0032169
+    label: severe infections
+  - id: CHEBI:55379
+    label: cyclosporine (CsA)
+  - id: CHEBI:85010
+    label: eltrombopag
+  - id: CHEBI:85012
+    label: thrombopoietin receptor agonist (TPO-RA)
+  - id: MAXO:0001394
+    label: oral administration
+  - id: MAXO:0001525
+    label: intravenous administration
+  - id: HP:0002315
+    label: Headache
+  - id: CHEBI:50858
+    label: Corticosteroids
+  - id: HP:0100614
+    label: myositis
+  - id: CHEBI:26708
+    label: NA
+  - id: CHEBI:76612
+    label: Ibrutinib
+  - id: CHEBI:167707
+    label: Acalabrutinib
+  - id: CHEBI:145428
+    label: glasdegib
+  - id: MONDO:0100096
+    label: COVID-19
+  - id: MAXO:0010030
+    label: bone marrow transplantation
+  - id: HP:0001903
+    label: anemia
+  - id: HP:0001875
+    label: neutropenia
+  - id: HP:0001698
+    label: pericardial effusion
+  - id: CHEBI:35705
+    label: immunosuppressants
+  - id: MONDO:0019460
+    label: Acute leukemia of ambiguous lineage (ALAL)
+  - id: HP:0001873
+    label: Thrombocytopenia
+  - id: CHEBI:62434
+    label: FLT3 inhibitor
+  - id: CHEBI:38637
+    label: Tyrosine kinase inhibitor
+  - id: CHEBI:28748
+    label: Doxorubicin (Dox)
+  - id: HP:0020174
+    label: drug resistance
+  - id: CHEBI:23888
+    label: drugs
+  - id: MONDO:0018689
+    label: Plasma cell leukemia
+  - id: HP:0031047
+    label: monoclonal gammopathy
+  - id: CHEBI:52726
+    label: proteasome inhibitor
+  - id: CHEBI:35341
+    label: steroids
+  - id: CHEBI:48120
+    label: anthracyclines
+  - id: MONDO:0001881
+    label: Septic shock
+  - id: MAXO:0001021
+    label: Antimicrobial treatment
+  - id: MAXO:0000174
+    label: Antifungal treatment
+  - id: HP:0001876
+    label: Pancytopenia
+  - id: CHEBI:133748
+    label: Citrate
+  - id: CHEBI:41879
+    label: Dexamethasone
+  - id: HP:0001909
+    label: leukemia
+  - id: CHEBI:33281
+    label: Antimicrobial
+  - id: CHEBI:35718
+    label: Antifungal
+  - id: MONDO:0011996
+    label: Chronic Myeloid Leukemia
+  - id: CHEBI:46345
+    label: 5-fluorouracil
+  - id: HP:0005506
+    label: chronic myeloid leukemia
+  - id: MONDO:0005059
+    label: Leukemia
+  - id: CHEBI:41977
+    label: Daunorubicin
+  - id: CHEBI:50729
+    label: Mitoxantrone
+  - id: CHEBI:50924
+    label: Sorafenib
+  - id: CHEBI:145372
+    label: Gilteritinib
+  - id: CHEBI:90217
+    label: Quizartinib
+  - id: CHEBI:145410
+    label: IDH inhibitors
+  - id: CHEBI:233585
+    label: BAM15
+  - id: CHEBI:197439
+    label: TNFalpha
+  - id: CHEBI:45716
+    label: SAHA (Vorinostat)
+  - id: HP:0002202
+    label: Pleural effusion

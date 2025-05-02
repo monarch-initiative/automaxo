@@ -1,0 +1,123 @@
+---
+input_text: 'Management of plastic bronchitis with nebulized tissue plasminogen activator:
+  another brick in the wall. Plastic bronchitis is a rare complication of a variety
+  of respiratory diseases and congenital heart disease surgery, particularly Fontan
+  procedure. Bronchial casts with rubber-like consistency develop acutely and may
+  cause severe life-threatening respiratory distress. The management of plastic bronchitis
+  is yet not well defined. Early intermittent, self-administered nebulization of tissue
+  plasminogen activator was found to be effective in preventing deterioration of acute
+  respiratory symptoms in a patient with primary ciliary dyskinesia and recurrent
+  cast formation. Further investigation into new therapeutic strategies for this devastating
+  disease is advocated. '
+raw_completion_output: |-
+  primary_disease: Plastic bronchitis
+  medical_actions: Nebulization of tissue plasminogen activator
+  symptoms: Severe life-threatening respiratory distress; Acute respiratory symptoms; Recurrent cast formation 
+  chemicals: Tissue plasminogen activator
+  action_annotation_relationships: Nebulization of tissue plasminogen activator PREVENTS deterioration of acute respiratory symptoms IN Plastic bronchitis; Nebulization of tissue plasminogen activator (with Tissue plasminogen activator) PREVENTS severe life-threatening respiratory distress IN Plastic bronchitis; Nebulization of tissue plasminogen activator (with Tissue plasminogen activator) PREVENTS recurrent cast formation IN Plastic bronchitis
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Nebulization of tissue plasminogen activator (with Tissue plasminogen activator) PREVENTS recurrent cast formation IN Plastic bronchitis
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0018597
+  medical_actions:
+    - Nebulization of tissue plasminogen activator
+  symptoms:
+    - Severe life-threatening respiratory distress
+    - Acute respiratory symptoms
+    - Recurrent cast formation
+  chemicals:
+    - Tissue plasminogen activator
+  action_annotation_relationships:
+    - subject: Nebulization
+      predicate: PREVENTS
+      object: deterioration of respiratory symptoms
+      qualifier: MONDO:0018597
+      subject_extension: tissue plasminogen activator
+      object_extension: acute
+    - subject: Nebulization
+      predicate: PREVENTS
+      object: life-threatening respiratory distress
+      qualifier: MONDO:0018597
+      subject_qualifier: with Tissue plasminogen activator
+      object_qualifier: severe
+      subject_extension: Tissue plasminogen activator
+      object_extension: severe
+    - subject: Nebulization of tissue plasminogen activator
+      predicate: PREVENTS
+      object: recurrent cast formation
+      qualifier: MONDO:0018597
+      subject_qualifier: with Tissue plasminogen activator
+      subject_extension: Tissue plasminogen activator
+named_entities:
+  - id: MONDO:0008932
+    label: Primary ciliary dyskinesia (PCD)
+  - id: HP:0034315
+    label: Chronic cough
+  - id: HP:0002643
+    label: Neonatal respiratory distress
+  - id: MAXO:0000506
+    label: non-invasive ventilation (NIV)
+  - id: HP:0003251
+    label: Male infertility
+  - id: HP:0001696
+    label: Situs inversus
+  - id: MONDO:0004247
+    label: Peptic Ulcer Disease (PUD)
+  - id: MAXO:0001193
+    label: Upper gastrointestinal endoscopy
+  - id: HP:0002239
+    label: Gastrointestinal hemorrhage
+  - id: CHEBI:18361
+    label: Proton pump inhibitor (PPI)
+  - id: CHEBI:49200
+    label: Proton pump inhibitor
+  - id: HP:0002044
+    label: Zollinger-Ellison syndrome
+  - id: MONDO:0016575
+    label: Primary Ciliary Dyskinesia
+  - id: MONDO:0009061
+    label: Cystic Fibrosis
+  - id: CHEBI:33281
+    label: antibiotics
+  - id: HP:0012262
+    label: Abnormal ciliary motility
+  - id: CHEBI:41774
+    label: Tamoxifen
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0100750
+    label: atelectasis
+  - id: HP:0002878
+    label: respiratory failure
+  - id: HP:0011962
+    label: Obstructive azoospermia
+  - id: HP:0004395
+    label: malnutrition
+  - id: MONDO:0100096
+    label: COVID-19 infection
+  - id: MONDO:0008377
+    label: recurrent pneumonia (RP)
+  - id: MONDO:0005936
+    label: recurrent pneumonia
+  - id: HP:0000246
+    label: Sinusitis
+  - id: HP:0002110
+    label: Bronchiectasis
+  - id: MONDO:0018597
+    label: Plastic bronchitis

@@ -1,0 +1,80 @@
+---
+input_text: 'Clinical features of primary ciliary dyskinesia in Cyprus with emphasis
+  on lobectomized patients. BACKGROUND: Despite the manifestations of primary ciliary
+  dyskinesia (PCD) in early life, the diagnosis is often much delayed. Since 1998
+  in Cyprus, we have established the only national diagnostic and clinical referral
+  center for PCD. OBJECTIVE: To review the phenotypic features at presentation of
+  PCD patients in Cyprus in relation to age at diagnosis, with emphasis on previously
+  lobectomised patients. METHODS: The medical records of the diagnosed PCD patients
+  were retrospectively reviewed to obtain clinical data on presentation. RESULTS:
+  Thirty patients, aged 13.9 years (range 0.1, 58.4 years), were diagnosed with PCD.
+  Twelve of them presented after the age of 18. The most common manifestations were
+  chronic cough (100%), chronic rhinorrhea (96.7%), sputum production (92.9%), laterality
+  defects (63.3%), a history of pneumonia (53.3%) and neonatal respiratory distress
+  (50%). A history of lobectomy in the past was recorded in 16.7% (5 patients). Patients
+  who presented in adulthood had significantly higher frequency of lobectomy (41.7%
+  vs 0%, p-value = 0.006) and had more frequently low FEV1 (58.3% vs 0%, p-value =
+  0.015) than those who presented before. Serial measurements of FEV1 and FVC indicated
+  significantly lower intercepts in lobectomised compared to the adult non-lobectomised
+  patients both in terms of FEV1 (-4.90 vs -1.80, p-value = 0.022) and FVC (-5.43
+  vs -1.91, p-value = 0.029) z-score levels. Change in FEV1 and FVC across time was
+  not statistically significant in either group. CONCLUSIONS: PCD often remains undiagnosed
+  up to adulthood accompanied by appearance of advanced lung disease. Performance
+  of lobectomies seems to be a poor prognostic factor for PCD in adulthood.'
+raw_completion_output: |-
+  primary_disease: Primary ciliary dyskinesia (PCD)
+
+  medical_actions: Lobectomy; Serial measurements of FEV1 and FVC
+
+  symptoms: Chronic cough; Chronic rhinorrhea; Sputum production; Laterality defects; History of pneumonia; Neonatal respiratory distress; Low FEV1
+
+  chemicals: 
+
+  action_annotation_relationships: Lobectomy TREATS advanced lung disease IN Primary ciliary dyskinesia (PCD); Serial measurements of FEV1 and FVC TREATS Low FEV1 IN Primary ciliary dyskinesia (PCD)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Serial measurements of FEV1 and FVC TREATS Low FEV1 IN Primary ciliary dyskinesia (PCD)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0008932
+  medical_actions:
+    - Lobectomy
+    - Serial measurements of FEV1 and FVC
+  symptoms:
+    - HP:0034315
+    - Chronic rhinorrhea
+    - Sputum production
+    - Laterality defects
+    - History of pneumonia
+    - HP:0002643
+    - Low FEV1
+  action_annotation_relationships:
+    - subject: Lobectomy
+      predicate: TREATS
+      object: advanced lung disease
+      qualifier: MONDO:0008932
+    - subject: Serial measurements of FEV1 and FVC
+      predicate: TREATS
+      object: Low FEV1
+      qualifier: MONDO:0008932
+named_entities:
+  - id: MONDO:0008932
+    label: Primary ciliary dyskinesia (PCD)
+  - id: HP:0034315
+    label: Chronic cough
+  - id: HP:0002643
+    label: Neonatal respiratory distress

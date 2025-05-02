@@ -1,0 +1,133 @@
+---
+input_text: 'Drug-induced liver injury related to gene therapy: A new challenge to
+  be managed. Gene therapy is being successfully developed for the treatment of several
+  genetic disorders. Various methods of gene transfer have been developed to enable
+  the production of the deficient enzyme or protein. One of the most important is
+  adeno-associated virus vectors, which have been shown to be viable for use in in
+  vivo gene therapy. Several gene therapies have already been approved. They are also
+  promising for acquired diseases. Important examples include gene therapy for haemophilia
+  A and B, X-linked myotubular myopathy, spinal muscular atrophy and several liver
+  diseases such as Criggler-Najjar disease, alpha-1 antitrypsin deficiency and Fabry
+  disease. However, the introduction of a foreign compound into hepatocytes leads
+  to hepatic reactions with heterogeneous phenotypic expression and a wide spectrum
+  of severity, ranging from mild transaminase elevation to acute liver failure. Several
+  mechanisms appear to be involved in liver injury, including an immune response,
+  but also direct toxicity depending on the method of gene transfer. As a result,
+  the incidence, expression and severity of liver injury vary from indication to indication
+  and from patient to patient. Patients treated for haemophilia A are more prone to
+  transaminase elevation than those treated for haemophilia B. Corticosteroids are
+  successfully used to correct liver reactions but also to prevent degradation of
+  the transferred gene and loss of therapeutic activity. The aim of this review is
+  to describe the risk of liver injury according to the indication for gene therapy
+  and the short- and long-term management currently proposed to prevent or correct
+  liver reactions in clinical practice.'
+raw_completion_output: |-
+  primary_disease: Drug-induced liver injury
+
+  medical_actions: Gene therapy; Corticosteroids
+
+  symptoms: Mild transaminase elevation; Acute liver failure
+
+  chemicals: Corticosteroids
+
+  action_annotation_relationships: Gene therapy PREVENTS loss of therapeutic activity IN Drug-induced liver injury; Corticosteroids TREAT mild transaminase elevation IN Drug-induced liver injury; Corticosteroids TREAT acute liver failure IN Drug-induced liver injury; Corticosteroids PREVENT degradation of the transferred gene IN Drug-induced liver injury
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Corticosteroids PREVENT degradation of the transferred gene IN Drug-induced liver injury
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005359
+  medical_actions:
+    - MAXO:0001001
+    - Corticosteroids
+  symptoms:
+    - Mild transaminase elevation
+    - HP:0006554
+  chemicals:
+    - CHEBI:50858
+  action_annotation_relationships:
+    - subject: MAXO:0001001
+      predicate: PREVENTS
+      object: loss of therapeutic activity
+      qualifier: MONDO:0005359
+    - subject: Corticosteroids
+      predicate: TREATS
+      object: mild transaminase elevation
+      qualifier: MONDO:0005359
+      subject_extension: CHEBI:50858
+    - subject: TREAT
+      predicate: TREATS
+      object: HP:0006554
+      qualifier: MONDO:0005359
+      subject_extension: CHEBI:50858
+    - subject: Degradation of the transferred gene
+      predicate: PREVENTS
+      object: Drug-induced liver injury
+      subject_extension: CHEBI:50858
+named_entities:
+  - id: MONDO:0001516
+    label: Spinal Muscular Atrophy
+  - id: HP:0002650
+    label: Scoliosis
+  - id: HP:0007269
+    label: Spinal Muscular Atrophy
+  - id: MONDO:0005392
+    label: scoliosis
+  - id: HP:0003323
+    label: Progressive muscle weakness
+  - id: CHEBI:76720
+    label: Antisense oligonucleotides
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: MONDO:0005015
+    label: Diabetes
+  - id: HP:0001635
+    label: heart failure
+  - id: HP:0001324
+    label: muscle weakness
+  - id: HP:0003202
+    label: muscle atrophy
+  - id: CHEBI:16991
+    label: DNA
+  - id: CHEBI:33697
+    label: RNA
+  - id: MONDO:0019079
+    label: spinal muscular atrophy (SMA)
+  - id: HP:0006959
+    label: <spinal muscular atrophy (SMA)>
+  - id: MONDO:0002602
+    label: CNS disorders
+  - id: HP:0002011
+    label: central nervous system diseases
+  - id: MAXO:0000506
+    label: Noninvasive ventilation (NIV)
+  - id: MONDO:0019056
+    label: Neuromuscular diseases
+  - id: CHEBI:35341
+    label: steroid
+  - id: MAXO:0000011
+    label: Physiotherapy
+  - id: MAXO:0000458
+    label: Hydrotherapy
+  - id: HP:0012393
+    label: Allergic reaction
+  - id: MONDO:0005359
+    label: Drug-induced liver injury
+  - id: HP:0006554
+    label: Acute liver failure
+  - id: CHEBI:50858
+    label: Corticosteroids

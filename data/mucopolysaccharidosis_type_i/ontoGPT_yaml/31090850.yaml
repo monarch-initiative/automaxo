@@ -1,0 +1,96 @@
+---
+input_text: 'CASE SERIES OF PATIENTS UNDER BIWEEKLY TREATMENT WITH LARONIDASE: A REPORT
+  OF A SINGLE CENTER EXPERIENCE. OBJECTIVE: To report the stabilization of urinary
+  glycosaminoglicans (GAG) excretion and clinical improvements in patients with mucopolysaccharidosis
+  type I (MPS I) under an alternative dose regimen of laronidase of 1.2 mg/kg every
+  other week. METHODS: We participated in a dose-optimization trial for laronidase
+  in MPS-I patients using four alternative regimens: 0.58 mg/kg every week, 1.2 mg/kg
+  every two weeks, 1.2 mg/kg every week and 1.8 mg/kg every other week (EOW). After
+  the trial ended, the patients resumed the recommended dose and regimen of 0.58 mg/kg
+  every week. Under this regimen, some patients presented difficulties in venous access
+  and were unable to commute weekly to the treatment center. Therefore, we used an
+  alternative regimen that consisted of 1.2 mg/kg EOW in eight patients. A retrospective
+  study of medical records of MPS-I patients who underwent both enzyme replacement
+  therapy (ERT) regimens, of 0.58 mg/kg every week and 1.2 mg/kg EOW, was done. RESULTS:
+  Patients remained clinically stable under the alternative regimen, did not present
+  elevation of urinary GAG nor any adverse event.Conclusions: The switch of dose regimen
+  to 1.2 mg/kg EOW of laronidase was safe, and did not cause any clinical worsening
+  in patients who had been previously under standard dose ERT.'
+raw_completion_output: |-
+  primary_disease: mucopolysaccharidosis type I (MPS I)
+  medical_actions: enzyme replacement therapy (ERT); dose optimization trial; biweekly treatment with laronidase; retrospective study of medical records
+  symptoms: elevation of urinary glycosaminoglycans (GAG)
+  chemicals: laronidase
+  action_annotation_relationships: dose optimization trial TREATS MPS I; biweekly treatment with laronidase (with laronidase) TREATS elevation of urinary GAG IN mucopolysaccharidosis type I; enzyme replacement therapy (ERT) TREATS mucopolysaccharidosis type I
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  enzyme replacement therapy (ERT) TREATS mucopolysaccharidosis type I
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:1012617
+  medical_actions:
+    - enzyme replacement therapy (ERT)
+    - dose optimization trial
+    - biweekly treatment with laronidase
+    - retrospective study of medical records
+  symptoms:
+    - elevation of urinary glycosaminoglycans (GAG)
+  chemicals:
+    - laronidase
+  action_annotation_relationships:
+    - subject: dose optimization trial
+      predicate: TREATS
+      object: MPS I
+    - subject: biweekly treatment with laronidase
+      predicate: TREATS
+      object: elevation of urinary GAG
+      qualifier: MONDO:0001586
+      subject_qualifier: biweekly
+      subject_extension: laronidase
+    - subject: enzyme replacement therapy
+      predicate: TREATS
+      object: mucopolysaccharidosis type I
+      subject_extension: enzyme replacement therapy
+named_entities:
+  - id: MONDO:0001586
+    label: mucopolysaccharidosis type I
+  - id: MONDO:1012617
+    label: Mucopolysaccharidosis Type I (MPS I)
+  - id: CHEBI:60285
+    label: DOPE
+  - id: MAXO:0001521
+    label: nasal administration
+  - id: MONDO:0011758
+    label: Mucopolysaccharidosis type I Hurler (MPSIH)
+  - id: MAXO:0000747
+    label: hematopoietic stem cell transplantation (HSCT)
+  - id: MAXO:0000487
+    label: clinical assessment (growth measurement, kyphosis and genu velgum evaluation)
+  - id: HP:0002808
+    label: kyphosis
+  - id: HP:0001376
+    label: limited joint mobility
+  - id: HP:0008807
+    label: acetabular dysplasia
+  - id: MAXO:0010034
+    label: Corneal transplantation
+  - id: HP:0007957
+    label: Corneal clouding
+  - id: MAXO:0000149
+    label: Hematopoietic cell transplantation (HCT)
+  - id: HP:0000238
+    label: Hydrocephalus

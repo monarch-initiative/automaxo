@@ -1,0 +1,102 @@
+---
+input_text: 'Long-term outcomes of systemic therapies for Hurler syndrome: an international
+  multicenter comparison. PURPOSE: Early treatment is critical for mucopolysaccharidosis
+  type I (MPS I), justifying its incorporation into newborn screening. Enzyme replacement
+  therapy (ERT) treats MPS I, yet presumptions that ERT cannot penetrate the blood-brain
+  barrier (BBB) support recommendations that hematopoietic cell transplantation (HCT)
+  treat the severe, neurodegenerative form (Hurler syndrome). Ethics precludes randomized
+  comparison of ERT with HCT, but insight into this comparison is presented with an
+  international cohort of patients with Hurler syndrome who received long-term ERT
+  from a young age. METHODS: Long-term survival and neurologic outcomes were compared
+  among three groups of patients with Hurler syndrome: 18 treated with ERT monotherapy
+  (ERT group), 54 who underwent HCT (HCT group), and 23 who received no therapy (Untreated).
+  All were followed starting before age 5 years. A sensitivity analysis restricted
+  age of treatment below 3 years. RESULTS: Survival was worse when comparing ERT versus
+  HCT, and Untreated versus ERT. The cumulative incidences of hydrocephalus and cervical
+  spinal cord compression were greater in ERT versus HCT. Findings persisted in the
+  sensitivity analysis. CONCLUSION: As newborn screening widens treatment opportunity
+  for Hurler syndrome, this examination of early treatment quantifies some ERT benefit,
+  supports presumptions about BBB impenetrability, and aligns with current guidelines
+  to treat with HCT.'
+raw_completion_output: |-
+  primary_disease: Hurler syndrome
+  medical_actions: Enzyme replacement therapy (ERT); Hematopoietic cell transplantation (HCT)
+  symptoms: Hydrocephalus; Cervical spinal cord compression
+  chemicals: 
+  action_annotation_relationships: Enzyme replacement therapy (ERT) TREATS mucopolysaccharidosis type I (MPS I) IN Hurler syndrome; Hematopoietic cell transplantation (HCT) TREATS severe, neurodegenerative form IN Hurler syndrome; Enzyme replacement therapy (ERT) INCREASES hydrocephalus IN Hurler syndrome; Enzyme replacement therapy (ERT) INCREASES cervical spinal cord compression IN Hurler syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Enzyme replacement therapy (ERT) INCREASES cervical spinal cord compression IN Hurler syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0011758
+  medical_actions:
+    - Enzyme replacement therapy (ERT)
+    - MAXO:0000149
+  symptoms:
+    - HP:0000238
+    - Cervical spinal cord compression
+  action_annotation_relationships:
+    - subject: Enzyme replacement therapy
+      predicate: TREATS
+      object: mucopolysaccharidosis type I
+      qualifier: MONDO:0011758
+    - subject: MAXO:0000149
+      predicate: TREATS
+      object: severe, neurodegenerative form
+      qualifier: MONDO:0011758
+      object_qualifier: severe
+      subject_extension: Hematopoietic cell transplantation (HCT)
+    - subject: enzyme replacement therapy
+      predicate: INCREASES
+      object: HP:0000238
+      qualifier: MONDO:0011758
+      subject_extension: enzyme replacement therapy
+    - subject: <Enzyme replacement therapy>
+      predicate: <INCREASES>
+      object: <cervical spinal cord compression>
+      qualifier: <Hurler syndrome>
+      subject_extension: <Enzyme replacement therapy>
+named_entities:
+  - id: MONDO:0001586
+    label: mucopolysaccharidosis type I
+  - id: MONDO:1012617
+    label: Mucopolysaccharidosis Type I (MPS I)
+  - id: CHEBI:60285
+    label: DOPE
+  - id: MAXO:0001521
+    label: nasal administration
+  - id: MONDO:0011758
+    label: Mucopolysaccharidosis type I Hurler (MPSIH)
+  - id: MAXO:0000747
+    label: hematopoietic stem cell transplantation (HSCT)
+  - id: MAXO:0000487
+    label: clinical assessment (growth measurement, kyphosis and genu velgum evaluation)
+  - id: HP:0002808
+    label: kyphosis
+  - id: HP:0001376
+    label: limited joint mobility
+  - id: HP:0008807
+    label: acetabular dysplasia
+  - id: MAXO:0010034
+    label: Corneal transplantation
+  - id: HP:0007957
+    label: Corneal clouding
+  - id: MAXO:0000149
+    label: Hematopoietic cell transplantation (HCT)
+  - id: HP:0000238
+    label: Hydrocephalus

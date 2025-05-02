@@ -1,0 +1,148 @@
+---
+input_text: 'A rare complication of IgA vasculitis: renal and intestinal ischemia
+  successfully treated with plasmapheresis. BACKGROUND: IgA vasculitis (IgAV) is a
+  multisystemic small vessel vasculitis and is the most common vasculitis in childhood.
+  The characteristic findings of IgAV are palpable purpuric rash, abdominal pain,
+  arthralgia or arthritis, and hematuria. Ischemic complications are very rare in
+  IgAV. Thrombotic complications can be observed after a COVID-19 infection. Also
+  in the presence of familial Mediterranean fever, IgAV may have an atypical or more
+  severe course. CASE: We present a case of IgAV complicated with renal infarction
+  and intestinal ischemia. There was no recent or distant history of COVID-19 in the
+  patient or family members, but the patient`s COVID-19 antibody was positive. In
+  addition, MEFV gene analysis of the patient showed homozygous M694V mutation. The
+  patient did not respond to enoxaparin, pulse methylprednisolone, intravenous immunoglobulin
+  (IVIG), iloprost, and cyclophosphamide treatments. She was successfully treated
+  with six sessions of plasmapheresis. CONCLUSIONS: Plasmapheresis seems to be an
+  effective treatment option in IgAV-related ischemic findings that do not respond
+  to intensive immunosuppressive therapy.'
+raw_completion_output: |-
+  primary_disease: IgA vasculitis (IgAV)
+  medical_actions: plasmapheresis; enoxaparin; pulse methylprednisolone; intravenous immunoglobulin (IVIG); iloprost; cyclophosphamide
+  symptoms: palpable purpuric rash; abdominal pain; arthralgia; arthritis; hematuria; renal infarction; intestinal ischemia
+  chemicals: enoxaparin; methylprednisolone; immunoglobulin; iloprost; cyclophosphamide
+  action_annotation_relationships: plasmapheresis TREATS renal infarction IN IgA vasculitis; plasmapheresis TREATS intestinal ischemia IN IgA vasculitis; enoxaparin TREATS renal infarction IN IgA vasculitis (not successful); pulse methylprednisolone TREATS renal infarction IN IgA vasculitis (not successful); intravenous immunoglobulin (IVIG) TREATS renal infarction IN IgA vasculitis (not successful); iloprost TREATS renal infarction IN IgA vasculitis (not successful); cyclophosphamide TREATS renal infarction IN IgA vasculitis (not successful)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  cyclophosphamide TREATS renal infarction IN IgA vasculitis (not successful)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0019167
+  medical_actions:
+    - plasmapheresis
+    - enoxaparin
+    - pulse methylprednisolone
+    - intravenous immunoglobulin (IVIG)
+    - iloprost
+    - cyclophosphamide
+  symptoms:
+    - palpable purpuric rash
+    - HP:0002027
+    - HP:0002829
+    - HP:0001369
+    - HP:0000790
+    - renal infarction
+    - HP:0033404
+  chemicals:
+    - CHEBI:28304
+    - CHEBI:6888
+    - immunoglobulin
+    - CHEBI:63916
+    - CHEBI:4027
+  action_annotation_relationships:
+    - subject: plasmapheresis
+      predicate: TREATS
+      object: renal infarction
+      qualifier: MONDO:0019167
+    - subject: plasmapheresis
+      predicate: TREATS
+      object: HP:0033404
+      qualifier: MONDO:0019167
+    - predicate: TREATS
+      object: renal infarction
+      qualifier: MONDO:0019167
+      object_qualifier: not successful
+      subject_extension: CHEBI:28304
+    - subject: pulse therapy
+      predicate: TREATS
+      object: renal infarction
+      qualifier: MONDO:0019167
+      object_qualifier: not successful
+      subject_extension: CHEBI:6888
+    - subject: <intravenous immunoglobulin (IVIG) therapy>
+      predicate: <TREATS>
+      object: <renal infarction>
+      qualifier: <IgA vasculitis>
+      subject_qualifier: <>
+      object_qualifier: <not successful>
+      subject_extension: <intravenous immunoglobulin (IVIG)>
+      object_extension: <>
+    - predicate: TREATS
+      object: renal infarction
+      qualifier: MONDO:0019167
+      subject_qualifier: not successful
+      subject_extension: CHEBI:63916
+    - subject: cyclophosphamide
+      predicate: TREATS
+      object: renal infarction
+      qualifier: MONDO:0019167
+      object_qualifier: not successful
+      subject_extension: CHEBI:4027
+named_entities:
+  - id: MONDO:0018456
+    label: Polyarticular Juvenile Idiopathic Arthritis
+  - id: CHEBI:44185
+    label: Methotrexate
+  - id: MONDO:0005554
+    label: Rheumatic diseases
+  - id: HP:0000988
+    label: Rash
+  - id: HP:0000989
+    label: Itching
+  - id: HP:0002315
+    label: Headache
+  - id: HP:0002027
+    label: Abdominal pain
+  - id: CHEBI:4875
+    label: Etanercept
+  - id: CHEBI:231683
+    label: Anakinra
+  - id: CHEBI:64360
+    label: Tocilizumab
+  - id: CHEBI:64357
+    label: Rituximab
+  - id: CHEBI:29007
+    label: Ceftriaxone
+  - id: CHEBI:8776
+    label: Ranitidine
+  - id: MONDO:0019167
+    label: IgA vasculitis (IgAV)
+  - id: HP:0002829
+    label: arthralgia
+  - id: HP:0001369
+    label: arthritis
+  - id: HP:0000790
+    label: hematuria
+  - id: HP:0033404
+    label: intestinal ischemia
+  - id: CHEBI:28304
+    label: enoxaparin
+  - id: CHEBI:6888
+    label: methylprednisolone
+  - id: CHEBI:63916
+    label: iloprost
+  - id: CHEBI:4027
+    label: cyclophosphamide

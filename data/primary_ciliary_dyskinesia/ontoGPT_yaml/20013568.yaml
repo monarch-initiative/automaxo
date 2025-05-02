@@ -1,0 +1,250 @@
+---
+input_text: '[Primary ciliary dyskinesia causing neonatal respiratory distress]. BACKGROUND:
+  Primary ciliary dyskinesia (PCD) is a hereditary disorder of structure and function
+  of the cilia of respiratory epithelium of the upper and lower airways. Prevalence
+  is estimated with 1:15 000 to 1:30 000 births. We present a newborn infant with
+  respiratory distress caused by PCD. PATIENT: On the first day of life, the male
+  newborn developed dyspnoe and cyanosis, so that CPAP and short term ventilation
+  was necessary. Varying atelectasis impressed on the chest radiographs and the diagnosis
+  of PCD was made by nasal brush biopsies. Causative is a lack of the inner dynein
+  arms of the cilia. The clinical features of newborns with the diagnoses of PCD are
+  listed and compared with the own case. CONCLUSION: PCD is a rare cause of neonatal
+  respiratory distress and should be considered in term infants with unknown and prolonged
+  course even if Situs inversus is lacking.'
+raw_completion_output: |-
+  primary_disease: Primary ciliary dyskinesia (PCD)
+
+  medical_actions: CPAP; short term ventilation; nasal brush biopsies
+
+  symptoms: respiratory distress; dyspnoe; cyanosis; varying atelectasis
+
+  chemicals: 
+
+  action_annotation_relationships: CPAP TREATS respiratory distress IN Primary ciliary dyskinesia (PCD); short term ventilation TREATS respiratory distress IN Primary ciliary dyskinesia (PCD); nasal brush biopsies TREATS unknown diagnosis IN Primary ciliary dyskinesia (PCD)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  nasal brush biopsies TREATS unknown diagnosis IN Primary ciliary dyskinesia (PCD)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0008932
+  medical_actions:
+    - CPAP
+    - short term ventilation
+    - nasal brush biopsies
+  symptoms:
+    - HP:0002098
+    - dyspnoe
+    - HP:0000961
+    - varying atelectasis
+  action_annotation_relationships:
+    - subject: <CPAP>
+      predicate: <TREATS>
+      object: <respiratory distress>
+      qualifier: MONDO:0008932
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: short term ventilation
+      predicate: TREATS
+      object: HP:0002098
+      qualifier: MONDO:0008932
+    - subject: nasal brush biopsies
+      predicate: TREATS
+      object: unknown diagnosis
+      qualifier: MONDO:0008932
+named_entities:
+  - id: MONDO:0008932
+    label: Primary ciliary dyskinesia (PCD)
+  - id: HP:0034315
+    label: Chronic cough
+  - id: HP:0002643
+    label: Neonatal respiratory distress
+  - id: MAXO:0000506
+    label: non-invasive ventilation (NIV)
+  - id: HP:0003251
+    label: Male infertility
+  - id: HP:0001696
+    label: Situs inversus
+  - id: MONDO:0004247
+    label: Peptic Ulcer Disease (PUD)
+  - id: MAXO:0001193
+    label: Upper gastrointestinal endoscopy
+  - id: HP:0002239
+    label: Gastrointestinal hemorrhage
+  - id: CHEBI:18361
+    label: Proton pump inhibitor (PPI)
+  - id: CHEBI:49200
+    label: Proton pump inhibitor
+  - id: HP:0002044
+    label: Zollinger-Ellison syndrome
+  - id: MONDO:0016575
+    label: Primary Ciliary Dyskinesia
+  - id: MONDO:0009061
+    label: Cystic Fibrosis
+  - id: CHEBI:33281
+    label: antibiotics
+  - id: HP:0012262
+    label: Abnormal ciliary motility
+  - id: CHEBI:41774
+    label: Tamoxifen
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0100750
+    label: atelectasis
+  - id: HP:0002878
+    label: respiratory failure
+  - id: HP:0011962
+    label: Obstructive azoospermia
+  - id: HP:0004395
+    label: malnutrition
+  - id: MONDO:0100096
+    label: COVID-19 infection
+  - id: MONDO:0008377
+    label: recurrent pneumonia (RP)
+  - id: MONDO:0005936
+    label: recurrent pneumonia
+  - id: HP:0000246
+    label: Sinusitis
+  - id: HP:0002110
+    label: Bronchiectasis
+  - id: MONDO:0018597
+    label: Plastic bronchitis
+  - id: CHEBI:29864
+    label: Mannitol
+  - id: CHEBI:28864
+    label: Tobramycin
+  - id: CHEBI:161680
+    label: Aztreonam
+  - id: CHEBI:37943
+    label: Colistin
+  - id: CHEBI:2637
+    label: Amikacin
+  - id: CHEBI:77034
+    label: mucolytics
+  - id: MONDO:0018677
+    label: heterotaxy
+  - id: MAXO:0025001
+    label: cardiac surgery
+  - id: MAXO:0000503
+    label: mechanical ventilation
+  - id: MAXO:0000504
+    label: tracheostomies
+  - id: HP:0001627
+    label: congenital heart disease
+  - id: HP:0001708
+    label: right-sided heart failure
+  - id: MAXO:0000003
+    label: Diagnostic testing
+  - id: MAXO:0000011
+    label: physiotherapy
+  - id: HP:0000388
+    label: otitis media
+  - id: HP:0031245
+    label: wet cough
+  - id: MAXO:0000516
+    label: chest physiotherapy
+  - id: HP:0011109
+    label: chronic sinusitis
+  - id: HP:0001651
+    label: dextrocardia
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: HP:0002088
+    label: Lung disease
+  - id: MONDO:0018982
+    label: Nasopharyngeal carcinoma (NPC)
+  - id: MONDO:0015459
+    label: Nasopharyngeal carcinoma
+  - id: MAXO:0000118
+    label: immunization
+  - id: MAXO:0000079
+    label: genetic counseling
+  - id: HP:0031353
+    label: otitis media with effusion
+  - id: HP:0000789
+    label: infertility
+  - id: HP:0012265
+    label: <Primary ciliary dyskinesia (PCD)>
+  - id: MAXO:0000127
+    label: Genetic testing
+  - id: CHEBI:25805
+    label: Oxygen
+  - id: CHEBI:46859
+    label: Polidocanol
+  - id: MAXO:0009004
+    label: Whole exome sequencing (WES)
+  - id: HP:0012207
+    label: asthenozoospermia
+  - id: MONDO:0005087
+    label: Respiratory diseases
+  - id: CHEBI:33282
+    label: antibacterials
+  - id: CHEBI:86327
+    label: antifungal drugs
+  - id: HP:0002099
+    label: asthma
+  - id: HP:0002721
+    label: immune deficiency
+  - id: CHEBI:7872
+    label: Oxytocin
+  - id: HP:0012418
+    label: hypoxemia
+  - id: HP:0002205
+    label: recurrent respiratory infections
+  - id: MAXO:0000513
+    label: Postural drainage
+  - id: HP:0002795
+    label: Impaired pulmonary function
+  - id: HP:0000365
+    label: Hearing impairment
+  - id: HP:0000403
+    label: Recurrent otitis media
+  - id: CHEBI:16480
+    label: nitric oxide
+  - id: CHEBI:17045
+    label: <nasal nitric oxide (nNO)>
+  - id: MONDO:0005002
+    label: chronic obstructive pulmonary disease
+  - id: MONDO:0004822
+    label: Bronchiectasis
+  - id: MAXO:0000004
+    label: surgery
+  - id: HP:0002719
+    label: recurrent infections
+  - id: HP:0006536
+    label: airway obstruction
+  - id: CHEBI:50858
+    label: corticosteroids
+  - id: HP:0000097
+    label: focal segmental glomerulosclerosis
+  - id: HP:0000090
+    label: nephronophthisis
+  - id: HP:0002335
+    label: Joubert Syndrome
+  - id: HP:0030853
+    label: heterotaxy
+  - id: CHEBI:2549
+    label: Salbutamol
+  - id: HP:0002098
+    label: respiratory distress
+  - id: CHEBI:9139
+    label: Sildenafil
+  - id: HP:0002092
+    label: pulmonary arterial hypertension
+  - id: HP:0000961
+    label: cyanosis

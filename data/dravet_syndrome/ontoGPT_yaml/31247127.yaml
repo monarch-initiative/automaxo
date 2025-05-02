@@ -1,0 +1,267 @@
+---
+input_text: 'A multicenter, matched case-control analysis comparing burden-of-illness
+  in Dravet syndrome to refractory epilepsy and seizure remission in patients and
+  caregivers in Germany. OBJECTIVE: To compare direct and indirect costs and quality
+  of life (QoL) of pediatric and adult patients with Dravet syndrome (DS), with drug-resistant
+  epilepsy (DRE) and in seizure remission (SR), and their caregivers, in Germany.
+  METHODS: Questionnaire responses from 93 DS patients and their caregivers were matched
+  by age and gender with responses from 93 DRE and 93 SR patients collected in independent
+  studies, and were compared across main components of QoL, direct costs (patient
+  visits, medication use, care level, medical equipment, and ancillary treatments),
+  and indirect costs (quitting job, reduced working hours, missed days). RESULTS:
+  Mean total direct costs were highest for DS patients ($4864 [median $3564] vs $3049
+  [median $1506] for DRE [excluding outliers], P = 0.01; and $1007 [median $311],
+  P < 0.001 for SR). Total lost productivity over 3 months was highest among caregivers
+  of pediatric DS ($4757, median $2841), compared with those of DRE ($1541, P < 0.001;
+  median $0) and SR patients ($891, P < 0.001; median $0). The proportions of caregivers
+  in employment were similar across groups (62% DS, 63% DRE, and 63% SR) but DS caregivers
+  were more likely to experience changes to their working situation, such as quitting
+  their job (40% DS vs 16% DRE and 9% SR, P < 0.001 in both comparisons). KINDL scores
+  were significantly lower for DS patients (62 vs 74 and 72, P < 0.001 in both comparisons),
+  and lower than for the average German population (77). Pediatric caregiver EQ-5D
+  scores across all cohorts were comparable with population norms, but more DS caregivers
+  experienced moderate to severe depressive symptoms (24% vs 11% and 5%). Mean Beck
+  Depression Inventory (BDI-II) score was significantly higher in DS caregivers than
+  either of the other groups (P < 0.001). SIGNIFICANCE: This first comparative study
+  of Dravet syndrome to difficult-to-treat epilepsy and to epilepsy patients in seizure
+  remission emphasizes the excess burden of DS in components of QoL and direct costs.
+  The caregivers of DS patients have a greater impairment of their working lives (indirect
+  costs) and increased depression symptoms.'
+raw_completion_output: |-
+  primary_disease: Dravet syndrome
+
+  medical_actions: questionnaire responses;medication use;care level adjustments;medical equipment utilization;ancillary treatments
+
+  symptoms: seizure;moderate to severe depressive symptoms
+
+  chemicals: 
+
+  action_annotation_relationships: questionnaire responses TREATS seizure IN Dravet syndrome;medication use TREATS seizure IN Dravet syndrome;care level adjustments TREATS seizure IN Dravet syndrome;medical equipment utilization TREATS seizure IN Dravet syndrome;ancillary treatments TREATS seizure IN Dravet syndrome;questionnaire responses PREVENTS moderate to severe depressive symptoms IN Dravet syndrome;medication use PREVENTS moderate to severe depressive symptoms IN Dravet syndrome;care level adjustments PREVENTS moderate to severe depressive symptoms IN Dravet syndrome;medical equipment utilization PREVENTS moderate to severe depressive symptoms IN Dravet syndrome;ancillary treatments PREVENTS moderate to severe depressive symptoms IN Dravet syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  ancillary treatments PREVENTS moderate to severe depressive symptoms IN Dravet syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0100135
+  medical_actions:
+    - questionnaire responses
+    - medication use
+    - care level adjustments
+    - medical equipment utilization
+    - ancillary treatments
+  symptoms:
+    - HP:0001250
+    - moderate to severe depressive symptoms
+  action_annotation_relationships:
+    - subject: questionnaire responses
+      predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0100135
+    - subject: medication use
+      predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0100135
+    - subject: care level adjustments
+      predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0100135
+    - subject: medical equipment utilization
+      predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0100135
+    - subject: ancillary treatments
+      predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0100135
+    - subject: questionnaire responses
+      predicate: PREVENTS
+      object: moderate to severe depressive symptoms
+      qualifier: MONDO:0100135
+    - subject: medication use
+      predicate: PREVENTS
+      object: depressive symptoms
+      qualifier: MONDO:0100135
+      object_qualifier: moderate to severe
+      subject_extension: medication
+      object_extension: moderate to severe
+    - subject: care level adjustments
+      predicate: PREVENTS
+      object: moderate to severe depressive symptoms
+      qualifier: MONDO:0100135
+    - subject: medical equipment utilization
+      predicate: PREVENTS
+      object: moderate to severe depressive symptoms
+      qualifier: MONDO:0100135
+    - subject: ancillary treatments
+      predicate: PREVENTS
+      object: moderate to severe depressive symptoms
+      qualifier: MONDO:0100135
+named_entities:
+  - id: MONDO:0100135
+    label: Dravet syndrome
+  - id: MAXO:0001187
+    label: hysteroscopy
+  - id: CHEBI:44915
+    label: propofol
+  - id: CHEBI:119915
+    label: fentanyl
+  - id: CHEBI:9130
+    label: sevoflurane
+  - id: HP:0001250
+    label: seizures
+  - id: CHEBI:6443
+    label: Mirena
+  - id: MONDO:0002602
+    label: Central nervous system diseases
+  - id: HP:0002011
+    label: central nervous system diseases
+  - id: MONDO:0005027
+    label: Epilepsy
+  - id: HP:0002014
+    label: Diarrhea
+  - id: HP:0000988
+    label: Rash
+  - id: CHEBI:228488
+    label: Stiripentol
+  - id: CHEBI:60654
+    label: Valproate
+  - id: CHEBI:69478
+    label: Cannabidiol
+  - id: CHEBI:80634
+    label: 2-propyl-4-pentenoic acid (4-ene-VPA)
+  - id: HP:0002373
+    label: Febrile seizures
+  - id: MAXO:0001298
+    label: therapy
+  - id: CHEBI:31413
+    label: clobazam (CLB)
+  - id: HP:0010819
+    label: drop seizures
+  - id: HP:0002329
+    label: somnolence
+  - id: HP:0004396
+    label: decreased appetite
+  - id: CHEBI:9925
+    label: sodium valproate
+  - id: MONDO:0016532
+    label: Lennox-Gastaut syndrome
+  - id: HP:0000729
+    label: Autistic behaviors
+  - id: HP:0033258
+    label: Sudden unexpected death in epilepsy
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: MONDO:0002125
+    label: Status epilepticus
+  - id: HP:0032656
+    label: Febrile status epilepticus
+  - id: MAXO:0001017
+    label: vaccination
+  - id: HP:0002069
+    label: Generalized tonic-clonic seizure
+  - id: CHEBI:3359
+    label: CBDA
+  - id: CHEBI:167557
+    label: CBCA
+  - id: CHEBI:66964
+    label: Delta9-tetrahydrocannabinol (THC)
+  - id: CHEBI:39867
+    label: Valproic acid
+  - id: CHEBI:5000
+    label: Fenfluramine
+  - id: HP:0033349
+    label: recurrent seizures
+  - id: MAXO:0000058
+    label: Drug treatment
+  - id: HP:0020219
+    label: motor seizures
+  - id: CHEBI:76720
+    label: Antisense oligonucleotides
+  - id: MAXO:0001593
+    label: ASO therapy
+  - id: HP:0012378
+    label: Fatigue
+  - id: HP:0001945
+    label: Pyrexia
+  - id: HP:0001654
+    label: valvular heart disease
+  - id: HP:0002092
+    label: pulmonary arterial hypertension
+  - id: HP:0002133
+    label: Status epilepticus
+  - id: CHEBI:17115
+    label: vaccine(s)
+  - id: MONDO:0100062
+    label: Developmental and/or epileptic encephalopathies (DEE)
+  - id: HP:0001260
+    label: dysarthria
+  - id: HP:0001254
+    label: lethargy
+  - id: HP:0002315
+    label: headache
+  - id: CHEBI:233158
+    label: soticlestat
+  - id: CHEBI:34310
+    label: 24S-hydroxycholesterol (24HC)
+  - id: CHEBI:9586
+    label: Tiagabine
+  - id: CHEBI:6437
+    label: Levetiracetam
+  - id: HP:0000708
+    label: behavioral problems
+  - id: CHEBI:16113
+    label: Cholesterol
+  - id: MAXO:0001394
+    label: Oral administration
+  - id: CHEBI:173124
+    label: 2-linoleoyl glycerol (2-LG)
+  - id: CHEBI:52392
+    label: 2-AG
+  - id: CHEBI:2700
+    label: anandamide
+  - id: CHEBI:52640
+    label: N-acylethanolamines
+  - id: CHEBI:35623
+    label: Anticonvulsants
+  - id: MAXO:0000942
+    label: Vagus nerve stimulation (VNS)
+  - id: HP:0002360
+    label: Sleep disturbance
+  - id: HP:0001249
+    label: Intellectual disability
+  - id: HP:0001251
+    label: ataxia
+  - id: CHEBI:42638
+    label: fenfluramine (FFA)
+  - id: HP:0032794
+    label: Myoclonic seizures
+  - id: CHEBI:190616
+    label: N-desmethylclobazam
+  - id: MONDO:0013801
+    label: SCN8A encephalopathy
+  - id: HP:0001263
+    label: Developmental delay
+  - id: HP:0100543
+    label: Cognitive impairment
+  - id: CHEBI:35493
+    label: antipyretics
+  - id: MAXO:0000932
+    label: Electroencephalography (EEG)
+  - id: HP:0002353
+    label: EEG abnormalities
+  - id: CHEBI:73601
+    label: <Ketogenic diet (KD)>

@@ -1,0 +1,160 @@
+---
+input_text: 'Predicting acute severe toxicity for head and neck squamous cell carcinomas
+  by combining dosimetry with a radiosensitivity biomarker: a pilot study. OBJECTIVE:
+  Radiotherapy (RT) against head and neck squamous cell carcinomas (HNSCC) may lead
+  to severe toxicity in 30-40% of patients. The normal tissue complication probability
+  (NTCP) models, based on dosimetric data refined the normal tissue dose/volume tolerance
+  guidelines. In parallel, the radiation-induced nucleoshuttling (RIANS) of the Ataxia-Telangiectasia
+  Mutated protein (pATM) is a predictive approach of individual intrinsic radiosensitivity.
+  Here, we combined NTCP with RADIODTECT , a blood assay derived from the RIANS model,
+  to predict RT toxicity in HNSCC patients. METHODS: RADIODTECT  cutoff values (i.e.
+  57.8 ng/mL for grade>=2 toxicity and 46 ng/mL for grade>=3 toxicity) have been previously
+  assessed. Validation was performed on a prospective cohort of 36 HNSCC patients
+  treated with postoperative RT. Toxicity was graded with the Common Terminology Criteria
+  for Adverse Events (CTCAE) scale and two criteria were considered: grade>=2 oral
+  mucositis (OM2), grade>=3 mucositis (OM3) and grade>=2 dysphagia (DY2), grade>=3
+  dysphagia (DY3). pATM quantification was assessed in lymphocytes of HNSCC patients.
+  The discrimination power of the pATM assay was evaluated through the Area Under
+  the Receiver Operator Characteristics Curve (AUC-ROC). Two previously described
+  NTCP models were considered, including the dose to the oral cavity and the mean
+  dose to the parotid glands (OM2 and OM3) and the dose to the oral cavity, to the
+  larynx and the volume of pharyngeal constrictor muscles (DY2 and DY3). RESULTS:
+  Combining NTCP models with RADIODTECT  blood test improved the AUC-ROC. Considering
+  the prediction of mucositis, AUC-ROCNTCP+RADIODTECT =0.80 was for OM2, and AUC-ROCNTCP+RADIODTECT
+  =0.78 for OM3. Considering the prediction of acute dysphagia, AUC-ROCNTCP+RADIODTECT
+  =0.71 for DY2 and for DY3. CONCLUSIONS: Combining NTCP models with a radiosensitivity
+  biomarker might significantly improve the prediction of toxicities for HNSCC patients.'
+raw_completion_output: |-
+  primary_disease: Head and neck squamous cell carcinomas (HNSCC)
+  medical_actions: Radiotherapy (RT); RADIODTECT blood test; NTCP models; pATM quantification in lymphocytes
+  symptoms: Severe toxicity; Oral mucositis; Dysphagia
+  chemicals: 
+  action_annotation_relationships: Radiotherapy (RT) TREATS severe toxicity IN Head and neck squamous cell carcinomas (HNSCC); RADIODTECT blood test TREATS severe toxicity IN Head and neck squamous cell carcinomas (HNSCC); NTCP models PREVENT severe toxicity IN Head and neck squamous cell carcinomas (HNSCC); pATM quantification in lymphocytes TREATS severe toxicity IN Head and neck squamous cell carcinomas (HNSCC); Radiotherapy (RT) TREATS oral mucositis IN Head and neck squamous cell carcinomas (HNSCC); Radiotherapy (RT) TREATS dysphagia IN Head and neck squamous cell carcinomas (HNSCC)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Radiotherapy (RT) TREATS dysphagia IN Head and neck squamous cell carcinomas (HNSCC)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010150
+  medical_actions:
+    - MAXO:0000014
+    - RADIODTECT blood test
+    - NTCP models
+    - pATM quantification in lymphocytes
+  symptoms:
+    - Severe toxicity
+    - HP:0010280
+    - HP:0002015
+  action_annotation_relationships:
+    - subject: MAXO:0000014
+      predicate: TREATS
+      object: severe toxicity
+      qualifier: MONDO:0010150
+      object_qualifier: severe
+    - subject: <blood test>
+      predicate: <TREATS>
+      object: <severe toxicity>
+      qualifier: MONDO:0010150
+      subject_qualifier: <>
+      object_qualifier: <severe>
+      subject_extension: <RADIODTECT>
+      object_extension: <toxicity>
+    - subject: <NTCP models>
+      predicate: <PREVENTS>
+      object: <severe toxicity>
+      qualifier: MONDO:0010150
+      subject_qualifier: <>
+      object_qualifier: <severe>
+      subject_extension: <NTCP models>
+      object_extension: <>
+    - subject: lymphocytes
+      predicate: TREATS
+      object: severe toxicity
+      qualifier: MONDO:0010150
+      object_qualifier: severe
+      subject_extension: pATM quantification
+    - subject: MAXO:0000014
+      predicate: TREATS
+      object: HP:0010280
+      qualifier: MONDO:0010150
+    - subject: MAXO:0000014
+      predicate: TREATS
+      object: HP:0002015
+      qualifier: MONDO:0010150
+named_entities:
+  - id: MONDO:0005086
+    label: Renal cell carcinoma
+  - id: MONDO:0003060
+    label: Biliary tract cancer (BTC)
+  - id: CHEBI:175901
+    label: Gemcitabine
+  - id: CHEBI:33364
+    label: Platinum
+  - id: MAXO:0000647
+    label: chemotherapy
+  - id: MONDO:0008840
+    label: Ataxia Telangiectasia
+  - id: MAXO:0010030
+    label: Bone Marrow Transplantation
+  - id: MAXO:0001001
+    label: Gene Therapy
+  - id: CHEBI:166830
+    label: Acetyl-DL-leucine
+  - id: CHEBI:41879
+    label: Dexamethasone
+  - id: CHEBI:4462
+    label: Dexamethasone sodium phosphate
+  - id: CHEBI:133021
+    label: venetoclax
+  - id: HP:0002721
+    label: Immunodeficiency
+  - id: HP:0002073
+    label: progressive cerebellar ataxia
+  - id: HP:0002013
+    label: vomiting
+  - id: HP:0002315
+    label: headache
+  - id: CHEBI:27899
+    label: cisplatin
+  - id: HP:0001903
+    label: Anemia
+  - id: HP:0001873
+    label: Thrombocytopenia
+  - id: HP:0001875
+    label: Neutropenia
+  - id: CHEBI:231342
+    label: Ceralasertib
+  - id: CHEBI:31355
+    label: Carboplatin
+  - id: MAXO:0000747
+    label: Hematopoietic stem cell transplantation
+  - id: MONDO:0005184
+    label: Pancreatic ductal adenocarcinoma (PDAC)
+  - id: HP:0020174
+    label: Drug resistance
+  - id: MAXO:0000011
+    label: Physical therapy
+  - id: HP:0001251
+    label: Ataxia
+  - id: MONDO:0010150
+    label: Head and neck squamous cell carcinomas (HNSCC)
+  - id: MAXO:0000014
+    label: Radiotherapy (RT)
+  - id: HP:0010280
+    label: Oral mucositis
+  - id: HP:0002015
+    label: Dysphagia

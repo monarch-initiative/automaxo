@@ -1,0 +1,168 @@
+---
+input_text: "Uncovering non-autoimmune hypothyroidism: A case report of rhabdomyolysis
+  and myocarditis mimicking acute coronary syndrome. RATIONALE: Non-autoimmune hypothyroidism
+  is a rare but significant cause of rhabdomyolysis and myocarditis, which can mimic
+  acute coronary syndrome. Early recognition and treatment of hypothyroidism are crucial,
+  especially in patients with chronic kidney disease (CKD), where delayed diagnosis
+  may lead to life-threatening complications such as acute kidney injury. PATIENT
+  CONCERNS: A 71-year-old male with diabetes, CKD stage G3aA3, and a history of chronic
+  myelogenous leukemia presented with myalgia, anorexia, and anuria. He also reported
+  intermittent chest pain for 1 month, progressing to severe symptoms including decreased
+  urine output and anuria. DIAGNOSES: Laboratory findings revealed acute kidney injury
+  (serum creatinine: 12.14 mg/dL), extreme elevations in muscle enzymes (creatine
+  kinase: 250,000 IU/L), and cardiac biomarkers (troponin-T: 543 ng/L). Initial management
+  did not improve his condition. On day 15, thyroid function tests confirmed non-autoimmune
+  hypothyroidism (TSH: 55.58 muIU/mL, free T4: 0.06 ng/dL). INTERVENTIONS: The patient
+  underwent hemodialysis and conservative treatment initially, followed by levothyroxine
+  replacement therapy on day 16. OUTCOMES: Renal function, urine output, and muscle
+  enzyme levels gradually improved after thyroid hormone supplementation. By discharge
+  on day 40, the patient's serum creatinine decreased to 3.08 mg/dL, and hemodialysis
+  was discontinued. At 7 months posttreatment, his renal function stabilized at CKD
+  stage G3bA2 with normal thyroid function. LESSONS: This case highlights the importance
+  of considering hypothyroidism in patients with unexplained rhabdomyolysis and persistent
+  cardiac symptoms, particularly in those with CKD. Early thyroid function testing
+  can lead to timely treatment and improved outcomes in such complex cases."
+raw_completion_output: |-
+  primary_disease: Non-autoimmune hypothyroidism
+
+  medical_actions: Hemodialysis; Conservative treatment; Levothyroxine replacement therapy
+
+  symptoms: Myalgia; Anorexia; Anuria; Intermittent chest pain; Decreased urine output; Acute kidney injury; Elevated muscle enzymes; Elevated cardiac biomarkers
+
+  chemicals: Levothyroxine
+
+  action_annotation_relationships: Hemodialysis TREATS acute kidney injury IN Non-autoimmune hypothyroidism; Conservative treatment TREATS symptoms IN Non-autoimmune hypothyroidism; Levothyroxine replacement therapy (with Levothyroxine) TREATS Non-autoimmune hypothyroidism
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Levothyroxine replacement therapy (with Levothyroxine) TREATS Non-autoimmune hypothyroidism
+
+  ===
+
+extracted_object:
+  primary_disease: Non-autoimmune hypothyroidism
+  medical_actions:
+    - MAXO:0000602
+    - Conservative treatment
+    - Levothyroxine replacement therapy
+  symptoms:
+    - HP:0003326
+    - HP:0002039
+    - HP:0100519
+    - Intermittent chest pain
+    - HP:0011037
+    - HP:0001919
+    - Elevated muscle enzymes
+    - Elevated cardiac biomarkers
+  chemicals:
+    - CHEBI:18332
+  action_annotation_relationships:
+    - subject: MAXO:0000602
+      predicate: TREATS
+      object: HP:0001919
+      qualifier: Non-autoimmune hypothyroidism
+    - subject: Conservative treatment
+      predicate: TREATS
+      object: symptoms
+      qualifier: Non-autoimmune hypothyroidism
+    - subject: replacement therapy
+      predicate: TREATS
+      object: Non-autoimmune hypothyroidism
+      subject_qualifier: with Levothyroxine
+      subject_extension: CHEBI:18332
+named_entities:
+  - id: MONDO:0018874
+    label: Acute myeloid leukemia (AML)
+  - id: HP:0001945
+    label: Fever
+  - id: HP:0012378
+    label: Fatigue
+  - id: MONDO:0020512
+    label: T cell acute lymphoblastic leukemia (T-ALL)
+  - id: HP:0006727
+    label: T-ALL
+  - id: CHEBI:50131
+    label: Decitabine
+  - id: CHEBI:133021
+    label: Venetoclax
+  - id: HP:0004808
+    label: Acute myeloid leukemia
+  - id: HP:0002090
+    label: pneumonia
+  - id: HP:0100806
+    label: sepsis
+  - id: CHEBI:71019
+    label: Homoharringtonine
+  - id: CHEBI:28680
+    label: Cytarabine
+  - id: HP:0000739
+    label: anxiety
+  - id: HP:0000716
+    label: depression
+  - id: CHEBI:190514
+    label: dasatinib
+  - id: CHEBI:23456
+    label: cyclodextrins
+  - id: MAXO:0000747
+    label: Hematopoietic Stem Cell Transplantation (HSCT)
+  - id: MAXO:0000647
+    label: Chemotherapy
+  - id: HP:0002018
+    label: Nausea
+  - id: HP:0002094
+    label: Dyspnea
+  - id: HP:0100785
+    label: Insomnia
+  - id: HP:0012531
+    label: Pain
+  - id: HP:0002019
+    label: Constipation
+  - id: CHEBI:2038
+    label: Azacitidine
+  - id: CHEBI:197440
+    label: Tumor necrosis factor-alpha (TNF-alpha)
+  - id: MONDO:0004967
+    label: Acute Lymphoblastic Leukemia (ALL)
+  - id: CHEBI:8378
+    label: Prednisolone
+  - id: HP:0000001
+    label: Acute Lymphoblastic Leukemia (ALL)
+  - id: HP:0001297
+    label: Stroke
+  - id: HP:0001635
+    label: Heart failure
+  - id: HP:0001677
+    label: Coronary atherosclerosis
+  - id: MONDO:0004992
+    label: Cancer
+  - id: MAXO:0001479
+    label: allogeneic hematopoietic stem cell transplantation (allo-HSCT)
+  - id: MONDO:0004947
+    label: B-cell acute lymphoblastic leukemia
+  - id: MAXO:0000757
+    label: infusion
+  - id: MAXO:0000602
+    label: Hemodialysis
+  - id: HP:0003326
+    label: Myalgia
+  - id: HP:0002039
+    label: Anorexia
+  - id: HP:0100519
+    label: Anuria
+  - id: HP:0011037
+    label: Decreased urine output
+  - id: HP:0001919
+    label: Acute kidney injury
+  - id: CHEBI:18332
+    label: Levothyroxine

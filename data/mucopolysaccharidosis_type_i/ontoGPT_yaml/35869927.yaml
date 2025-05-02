@@ -1,0 +1,113 @@
+---
+input_text: 'Growth in individuals with attenuated mucopolysaccharidosis type I during
+  untreated and treated periods: Data from the MPS I registry. Mucopolysaccharidosis
+  Type I (MPS I) is caused by deficiency of alpha-L-iduronidase. Short stature and
+  growth deceleration are common in individuals with the attenuated MPS I phenotype.
+  Study objectives were to assess growth in individuals with attenuated MPS I enrolled
+  in The MPS I Registry while untreated and after initiation of enzyme replacement
+  therapy (ERT) with laronidase (recombinant human iduronidase). Individuals in the
+  MPS I Registry with at least one observation for height and assigned attenuated
+  MPS I phenotype as of September 2020 were included. The cohort included 142 males
+  and 153 females 2-18 years of age. Age and sex adjusted standardized height-for-age
+  z-scores during the natural history and ERT-treatment periods were assessed using
+  linear mixed model repeated measures analyses. Growth curves were estimated during
+  both periods and compared to standard growth charts from the Center for Disease
+  Control (CDC). There was a significantly slower decline in height z-scores with
+  age during the ERT-treated period compared to the natural history period. Estimated
+  average height z-scores in the ERT-treatment versus the natural history period at
+  age 10 were -2.4 versus -3.3 in females and -1.4 versus -2.9 in males (females first
+  treated 3 year; males <4.1 year). While median height remained below CDC standards
+  during both the natural history and ERT-treated periods for individuals with attenuated
+  MPS I, laronidase ERT was associated with slower declines in height z-scores.'
+raw_completion_output: |-
+  primary_disease: Mucopolysaccharidosis Type I (MPS I)
+
+  medical_actions: enzyme replacement therapy (ERT) with laronidase; assessment of growth using linear mixed model repeated measures analyses; comparison of growth curves to CDC standards
+
+  symptoms: short stature; growth deceleration
+
+  chemicals: alpha-L-iduronidase; laronidase
+
+  action_annotation_relationships: enzyme replacement therapy (with laronidase) TREATS short stature IN Mucopolysaccharidosis Type I (MPS I); enzyme replacement therapy (with laronidase) TREATS growth deceleration IN Mucopolysaccharidosis Type I (MPS I)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  enzyme replacement therapy (with laronidase) TREATS growth deceleration IN Mucopolysaccharidosis Type I (MPS I)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:1012617
+  medical_actions:
+    - enzyme replacement therapy (ERT) with laronidase
+    - assessment of growth using linear mixed model repeated measures analyses
+    - comparison of growth curves to CDC standards
+  symptoms:
+    - HP:0004322
+    - growth deceleration
+  chemicals:
+    - alpha-L-iduronidase
+    - laronidase
+  action_annotation_relationships:
+    - subject: enzyme replacement therapy
+      predicate: TREATS
+      object: HP:0004322
+      qualifier: MONDO:1012617
+      subject_qualifier: with laronidase
+      subject_extension: laronidase
+    - subject: enzyme replacement therapy
+      predicate: TREATS
+      object: growth deceleration
+      qualifier: MONDO:1012617
+      subject_qualifier: with laronidase
+      subject_extension: laronidase
+named_entities:
+  - id: MONDO:0001586
+    label: mucopolysaccharidosis type I
+  - id: MONDO:1012617
+    label: Mucopolysaccharidosis Type I (MPS I)
+  - id: CHEBI:60285
+    label: DOPE
+  - id: MAXO:0001521
+    label: nasal administration
+  - id: MONDO:0011758
+    label: Mucopolysaccharidosis type I Hurler (MPSIH)
+  - id: MAXO:0000747
+    label: hematopoietic stem cell transplantation (HSCT)
+  - id: MAXO:0000487
+    label: clinical assessment (growth measurement, kyphosis and genu velgum evaluation)
+  - id: HP:0002808
+    label: kyphosis
+  - id: HP:0001376
+    label: limited joint mobility
+  - id: HP:0008807
+    label: acetabular dysplasia
+  - id: MAXO:0010034
+    label: Corneal transplantation
+  - id: HP:0007957
+    label: Corneal clouding
+  - id: MAXO:0000149
+    label: Hematopoietic cell transplantation (HCT)
+  - id: HP:0000238
+    label: Hydrocephalus
+  - id: MAXO:0000068
+    label: transplantation
+  - id: MAXO:0000004
+    label: surgery
+  - id: MAXO:0000526
+    label: clinical examination
+  - id: CHEBI:143889
+    label: glycosaminoglycan (GAG)
+  - id: HP:0004322
+    label: short stature

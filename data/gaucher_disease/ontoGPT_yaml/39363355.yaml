@@ -1,0 +1,110 @@
+---
+input_text: "Different diseases, different needs: Patient preferences for gene therapy
+  in lysosomal storage disorders, a probabilistic threshold technique survey. BACKGROUND:
+  Gene therapy is currently in development for several monogenetic diseases including
+  lysosomal storage disorders. Limited evidence is available on patient preferences
+  for gene therapy in this population. In this study, we compare gene therapy-related
+  risk tolerance between people affected by three lysosomal storage diseases currently
+  faced with different therapeutic options and prognoses. METHODS: A survey including
+  the probabilistic threshold technique was developed in which respondents were asked
+  to choose between gene therapy and the current standard of care. The attributes
+  included to establish participants' risk tolerance were previously identified in
+  focus groups of affected people or their representatives, namely: risk of mild side
+  effects, severe side effects, the need for additional medication, and the likelihood
+  of long-term effectiveness. The survey was distributed among people receiving outpatient
+  care for type 1 Gaucher disease (good prognosis with current treatment options),
+  Fabry disease (varying prognosis with current treatment options, XY-genotype on
+  average more severely affected than XX), and parents representing people with severe
+  forms of mucopolysaccharidosis type III A/B (poor prognosis, no disease-specific
+  therapy available). RESULTS: A total of 85 surveys were completed (15 Gaucher disease
+  respondents, 62 Fabry disease respondents (17 self-identifying male), eight parents
+  of ten people with mucopolysaccharidosis type III). Disease groups with higher disease
+  severity trended towards higher risk tolerance: Gaucher disease respondents were
+  most cautious and predominantly preferred the current standard of care as opposed
+  to MPS III representatives who were more risk tolerant. Respondents with Fabry disease
+  were most heterogeneous in their risk tolerance, with male participants being more
+  risk tolerant than female participants. Long-term effectiveness was the attribute
+  in which respondents tolerated the least risk. CONCLUSIONS: People affected by a
+  lysosomal storage disease associated with a poorer prognosis and less effective
+  current treatment options trended towards more risk tolerance when choosing between
+  gene therapy and the current standard of care. This study shows the importance of
+  involvement of patient preferences before and during the development process of
+  new treatment modalities such as gene therapy for rare diseases, to ensure that
+  innovative therapies align with the wishes and needs of people affected by these
+  diseases."
+raw_completion_output: |-
+  primary_disease: lysosomal storage disorders
+  medical_actions: gene therapy;current standard of care
+  symptoms: mild side effects;severe side effects
+  chemicals: 
+  action_annotation_relationships: gene therapy TREATS mild side effects IN lysosomal storage disorders;gene therapy TREATS severe side effects IN lysosomal storage disorders;current standard of care TREATS mild side effects IN lysosomal storage disorders;current standard of care TREATS severe side effects IN lysosomal storage disorders
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  current standard of care TREATS severe side effects IN lysosomal storage disorders
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0002561
+  medical_actions:
+    - MAXO:0001001
+    - current standard of care
+  symptoms:
+    - mild side effects
+    - severe side effects
+  action_annotation_relationships:
+    - subject: MAXO:0001001
+      predicate: TREATS
+      object: side effects
+      qualifier: MONDO:0002561
+      object_qualifier: mild
+      subject_extension: gene therapy
+      object_extension: mild
+    - subject: <gene therapy>
+      predicate: <TREATS>
+      object: <severe side effects>
+      qualifier: <lysosomal storage disorders>
+      subject_qualifier: <NA>
+      object_qualifier: <severe>
+      subject_extension: <gene therapy>
+      object_extension: <NA>
+    - subject: current standard of care
+      predicate: TREATS
+      object: mild side effects
+      qualifier: MONDO:0002561
+    - subject: current standard of care
+      predicate: TREATS
+      object: severe side effects
+      qualifier: MONDO:0002561
+      object_qualifier: severe
+named_entities:
+  - id: MONDO:0002561
+    label: Lysosomal Storage Disorders
+  - id: CHEBI:135923
+    label: Migalastat
+  - id: HP:0001071
+    label: Fabry disease
+  - id: MONDO:0018150
+    label: Gaucher Disease (GD)
+  - id: HP:0001395
+    label: liver fibrosis
+  - id: HP:0001394
+    label: cirrhosis
+  - id: HP:0100626
+    label: end-stage liver disease
+  - id: HP:0001402
+    label: hepatocellular carcinoma
+  - id: MAXO:0001001
+    label: gene therapy

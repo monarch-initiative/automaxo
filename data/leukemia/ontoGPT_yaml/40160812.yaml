@@ -1,0 +1,175 @@
+---
+input_text: 'Efficacy and safety of tocilizumab in managing cytokine release syndrome
+  after CD19 CAR-T therapy for relapsed or refractory B-cell acute lymphoblastic leukemia.
+  Purpose: CD19 chimeric antigen receptor T (CAR-T) cell therapy has shown promise
+  in treating relapsed or refractory (R/R) B-cell acute lymphoblastic leukemia (B-ALL),
+  but cytokine release syndrome (CRS) remains a significant side effect. Methods:
+  This retrospective cohort study investigated the use of tocilizumab for managing
+  CAR-T-related CRS in 45 R/R B-ALL patients. Results: Of these, 17 patients received
+  tocilizumab, resulting in a significant reduction in the duration of grade 3 CRS
+  compared to those who did not receive the drug. Additionally, 10 patients showed
+  decreased cytokine levels.Importantly, tocilizumab did not impair CAR-T cell expansion
+  or efficacy, nor did it increase the incidence of adverse events. Conclusion: These
+  findings suggest that tocilizumab may be an effective and safe strategy for mitigating
+  CAR-T-related CRS in R/R B-ALL patients, potentially improving patient outcomes
+  and survival.'
+raw_completion_output: |-
+  primary_disease: Cytokine release syndrome (CRS)
+  medical_actions: Use of tocilizumab; Management of CAR-T-related CRS
+  symptoms: Grade 3 CRS; Increased cytokine levels
+  chemicals: Tocilizumab
+  action_annotation_relationships: Use of tocilizumab TREATS Grade 3 CRS IN Cytokine release syndrome (CRS); Use of tocilizumab (with tocilizumab) TREATS Increased cytokine levels IN Cytokine release syndrome (CRS); Management of CAR-T-related CRS TREATS Grade 3 CRS IN Cytokine release syndrome (CRS); Management of CAR-T-related CRS (with tocilizumab) TREATS Increased cytokine levels IN Cytokine release syndrome (CRS)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Management of CAR-T-related CRS (with tocilizumab) TREATS Increased cytokine levels IN Cytokine release syndrome (CRS)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0017361
+  medical_actions:
+    - Use of tocilizumab
+    - Management of CAR-T-related CRS
+  symptoms:
+    - Grade 3 CRS
+    - Increased cytokine levels
+  chemicals:
+    - CHEBI:64360
+  action_annotation_relationships:
+    - subject: Use of tocilizumab
+      predicate: TREATS
+      object: Grade 3 CRS
+      qualifier: MONDO:0017361
+      subject_extension: CHEBI:64360
+    - subject: Use of tocilizumab
+      predicate: TREATS
+      object: Increased cytokine levels
+      qualifier: MONDO:0017361
+      subject_qualifier: with tocilizumab
+      subject_extension: CHEBI:64360
+    - subject: Management of CAR-T-related CRS
+      predicate: TREATS
+      object: CRS
+      qualifier: MONDO:0017361
+      object_qualifier: Grade 3
+      subject_extension: CAR-T-related CRS management
+      object_extension: Grade 3
+    - subject: Management of CAR-T-related CRS
+      predicate: TREATS
+      object: cytokine levels
+      qualifier: MONDO:0017361
+      subject_qualifier: with tocilizumab
+      object_qualifier: Increased
+      subject_extension: CHEBI:64360
+      object_extension: Increased
+named_entities:
+  - id: MONDO:0018874
+    label: Acute myeloid leukemia (AML)
+  - id: HP:0001945
+    label: Fever
+  - id: HP:0012378
+    label: Fatigue
+  - id: MONDO:0020512
+    label: T cell acute lymphoblastic leukemia (T-ALL)
+  - id: HP:0006727
+    label: T-ALL
+  - id: CHEBI:50131
+    label: Decitabine
+  - id: CHEBI:133021
+    label: Venetoclax
+  - id: HP:0004808
+    label: Acute myeloid leukemia
+  - id: HP:0002090
+    label: pneumonia
+  - id: HP:0100806
+    label: sepsis
+  - id: CHEBI:71019
+    label: Homoharringtonine
+  - id: CHEBI:28680
+    label: Cytarabine
+  - id: HP:0000739
+    label: anxiety
+  - id: HP:0000716
+    label: depression
+  - id: CHEBI:190514
+    label: dasatinib
+  - id: CHEBI:23456
+    label: cyclodextrins
+  - id: MAXO:0000747
+    label: Hematopoietic Stem Cell Transplantation (HSCT)
+  - id: MAXO:0000647
+    label: Chemotherapy
+  - id: HP:0002018
+    label: Nausea
+  - id: HP:0002094
+    label: Dyspnea
+  - id: HP:0100785
+    label: Insomnia
+  - id: HP:0012531
+    label: Pain
+  - id: HP:0002019
+    label: Constipation
+  - id: CHEBI:2038
+    label: Azacitidine
+  - id: CHEBI:197440
+    label: Tumor necrosis factor-alpha (TNF-alpha)
+  - id: MONDO:0004967
+    label: Acute Lymphoblastic Leukemia (ALL)
+  - id: CHEBI:8378
+    label: Prednisolone
+  - id: HP:0000001
+    label: Acute Lymphoblastic Leukemia (ALL)
+  - id: HP:0001297
+    label: Stroke
+  - id: HP:0001635
+    label: Heart failure
+  - id: HP:0001677
+    label: Coronary atherosclerosis
+  - id: MONDO:0004992
+    label: Cancer
+  - id: MAXO:0001479
+    label: allogeneic hematopoietic stem cell transplantation (allo-HSCT)
+  - id: MONDO:0004947
+    label: B-cell acute lymphoblastic leukemia
+  - id: MAXO:0000757
+    label: infusion
+  - id: MAXO:0000602
+    label: Hemodialysis
+  - id: HP:0003326
+    label: Myalgia
+  - id: HP:0002039
+    label: Anorexia
+  - id: HP:0100519
+    label: Anuria
+  - id: HP:0011037
+    label: Decreased urine output
+  - id: HP:0001919
+    label: Acute kidney injury
+  - id: CHEBI:18332
+    label: Levothyroxine
+  - id: MONDO:0020511
+    label: Acute B-lymphoblastic leukemia (B-ALL)
+  - id: HP:0003419
+    label: lower back pain
+  - id: MONDO:0010651
+    label: high-risk myelodysplastic neoplasm (MDS)
+  - id: CHEBI:30621
+    label: arsenic trioxide
+  - id: HP:0002360
+    label: sleep disturbances
+  - id: MONDO:0017361
+    label: Cytokine release syndrome (CRS)
+  - id: CHEBI:64360
+    label: Tocilizumab

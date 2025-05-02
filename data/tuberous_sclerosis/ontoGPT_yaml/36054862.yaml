@@ -1,0 +1,216 @@
+---
+input_text: '[Tuberous sclerosis complex: diagnosis and current treatment]. Tuberous
+  sclerosis complex is an autosomal dominant genetic multisystemic disorder caused
+  primarily by mutations in one of the two tumor suppressor genes TSC1 or TSC2, resulting
+  in increased activation of the mTOR pathway. Regarding clinical manifestations,
+  a wide range of phenotypic variability exists, with symptoms constellations that
+  may differ in affected organs (brain, skin, heart, eyes, kidneys, lungs), age of
+  presentation and severity, but usually with great impact in biopsychosocial aspects
+  of health and in quality of life. Main clinical neurological features are epilepsy
+  (frequently, antiepileptic drug-resistant epilepsy), neuropsychiatric disorders,
+  and subependymal giant cell astrocytomas. Recently, many therapeutic strategies
+  have developed, including preventive treatment of epilepsy, new options for treatment
+  of epilepsy as cannabidiol, mTOR inhibitors, ketogenic diet, and a more precise
+  epilepsy surgery. Subependymal giant cell astrocytomas may require surgical procedures
+  or mTOR inhibitors treatment. mTOR inhibitors may also be useful for other comorbidities.
+  To improve quality of life of patients with tuberous sclerosis complex, it is essential
+  to be able to deliver an integrated approach by specialized multidisciplinary teams,
+  coordinated with primary care physicians and health professionals, that include
+  access to treatments, attention of psychosocial aspects, and an adequate health
+  care transition from pediatric to adult care.'
+raw_completion_output: |-
+  primary_disease: Tuberous sclerosis complex
+  medical_actions: Preventive treatment of epilepsy; Treatment of epilepsy with cannabidiol; mTOR inhibitors; Ketogenic diet; Epilepsy surgery; Surgical procedures for subependymal giant cell astrocytomas
+  symptoms: Epilepsy; Antiepileptic drug-resistant epilepsy; Neuropsychiatric disorders; Subependymal giant cell astrocytomas
+  chemicals: Cannabidiol; mTOR inhibitors
+  action_annotation_relationships: Preventive treatment of epilepsy PREVENTS Epilepsy IN Tuberous sclerosis complex; Treatment of epilepsy with cannabidiol (Cannabidiol) TREATS Antiepileptic drug-resistant epilepsy IN Tuberous sclerosis complex; mTOR inhibitors TREATS Subependymal giant cell astrocytomas IN Tuberous sclerosis complex; Ketogenic diet TREATS Epilepsy IN Tuberous sclerosis complex; Epilepsy surgery TREATS Epilepsy IN Tuberous sclerosis complex; Surgical procedures for subependymal giant cell astrocytomas TREATS Subependymal giant cell astrocytomas IN Tuberous sclerosis complex
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Surgical procedures for subependymal giant cell astrocytomas TREATS Subependymal giant cell astrocytomas IN Tuberous sclerosis complex
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0001734
+  medical_actions:
+    - Preventive treatment of epilepsy
+    - Treatment of epilepsy with cannabidiol
+    - mTOR inhibitors
+    - Ketogenic diet
+    - Epilepsy surgery
+    - Surgical procedures for subependymal giant cell astrocytomas
+  symptoms:
+    - HP:0001250
+    - Antiepileptic drug-resistant epilepsy
+    - Neuropsychiatric disorders
+    - HP:0009718
+  chemicals:
+    - CHEBI:69478
+    - CHEBI:68481
+  action_annotation_relationships:
+    - subject: Preventive treatment of epilepsy
+      predicate: PREVENTS
+      object: HP:0001250
+      qualifier: MONDO:0001734
+    - subject: Treatment of epilepsy
+      predicate: TREATS
+      object: Antiepileptic drug-resistant epilepsy
+      qualifier: MONDO:0001734
+      subject_extension: CHEBI:69478
+    - subject: mTOR inhibitors
+      predicate: TREATS
+      object: HP:0009718
+      qualifier: MONDO:0001734
+      subject_extension: CHEBI:68481
+    - subject: Ketogenic diet
+      predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0001734
+      subject_extension: Ketogenic diet
+    - subject: Epilepsy surgery
+      predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0001734
+    - subject: <Surgical procedures>
+      predicate: <TREATS>
+      object: <Subependymal giant cell astrocytomas>
+      qualifier: <Tuberous sclerosis complex>
+      subject_qualifier: <Not applicable>
+      object_qualifier: <Not applicable>
+      subject_extension: <Not applicable>
+      object_extension: <Not applicable>
+named_entities:
+  - id: MONDO:0016693
+    label: Subependymal giant cell astrocytoma
+  - id: MAXO:0000447
+    label: Surgical removal
+  - id: CHEBI:68478
+    label: everolimus
+  - id: MONDO:0005550
+    label: Intellectual disability (ID)
+  - id: HP:0001249
+    label: Intellectual disability (ID)
+  - id: HP:0001250
+    label: seizures
+  - id: HP:0011097
+    label: epileptic spasms
+  - id: HP:0002121
+    label: absence seizures
+  - id: CHEBI:69478
+    label: cannabidiol (CBD)
+  - id: MONDO:0001734
+    label: Tuberous Sclerosis Complex
+  - id: MAXO:0001065
+    label: Nephrectomy
+  - id: MAXO:0000602
+    label: Hemodialysis
+  - id: MAXO:0000603
+    label: Peritoneal dialysis
+  - id: MAXO:0000600
+    label: Renal replacement therapy
+  - id: HP:0006772
+    label: Angiomyolipomas
+  - id: HP:0005584
+    label: Renal cell carcinoma
+  - id: HP:0001892
+    label: Bleeding tendency
+  - id: HP:0000083
+    label: Renal insufficiency
+  - id: HP:0003774
+    label: end-stage renal failure
+  - id: CHEBI:68481
+    label: Mammalian target of rapamycin inhibitor
+  - id: CHEBI:63638
+    label: Vigabatrin
+  - id: MONDO:0100062
+    label: Infantile-Onset Developmental and Epileptic Encephalopathies (DEE)
+  - id: CHEBI:26708
+    label: Sodium
+  - id: CHEBI:26216
+    label: Potassium
+  - id: MONDO:0005027
+    label: epilepsy
+  - id: MAXO:0000942
+    label: vagus nerve stimulation (VNS)
+  - id: HP:0004808
+    label: multiple bilateral angiomyolipoma (AMLs)
+  - id: CHEBI:9168
+    label: sirolimus
+  - id: HP:0001263
+    label: Developmental delay
+  - id: CHEBI:17234
+    label: Glucose
+  - id: CHEBI:15756
+    label: Fatty acid (palmitate)
+  - id: MONDO:0010979
+    label: Tuberous sclerosis (TS); Diffuse large B-cell lymphoma (DLBCL)
+  - id: CHEBI:8382
+    label: Prednisone
+  - id: CHEBI:480999
+    label: Vinorelbine
+  - id: CHEBI:4911
+    label: Etoposide
+  - id: CHEBI:4027
+    label: Cyclophosphamide
+  - id: CHEBI:64357
+    label: Rituximab
+  - id: CHEBI:76612
+    label: Ibrutinib
+  - id: MAXO:0000647
+    label: chemotherapy
+  - id: MONDO:0007254
+    label: Breast Cancer
+  - id: CHEBI:85993
+    label: Palbociclib
+  - id: CHEBI:31638
+    label: Fulvestrant
+  - id: CHEBI:41774
+    label: Tamoxifen
+  - id: MAXO:0001298
+    label: therapy
+  - id: CHEBI:8228
+    label: Pioglitazone
+  - id: HP:0006536
+    label: Airway obstruction
+  - id: HP:0000822
+    label: High blood pressure
+  - id: CHEBI:6367
+    label: lamotrigine
+  - id: CHEBI:60654
+    label: valproate
+  - id: CHEBI:6437
+    label: levetiracetam
+  - id: HP:0003394
+    label: Spasms
+  - id: CHEBI:24621
+    label: Hormone
+  - id: CHEBI:3892
+    label: Adrenocorticotropic hormone (ACTH)
+  - id: CHEBI:8378
+    label: Prednisolone
+  - id: MAXO:0000004
+    label: Surgery
+  - id: MAXO:0000014
+    label: Radiotherapy
+  - id: MAXO:0001064
+    label: Mastectomy
+  - id: MAXO:0000601
+    label: Dialysis
+  - id: HP:0031111
+    label: Skin hamartoma
+  - id: MONDO:0004691
+    label: Autosomal dominant polycystic kidney disease
+  - id: HP:0009718
+    label: Subependymal giant cell astrocytomas

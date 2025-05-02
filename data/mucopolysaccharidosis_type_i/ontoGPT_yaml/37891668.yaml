@@ -1,0 +1,356 @@
+---
+input_text: "Safety outcomes and patients' preferences for home-based intravenous
+  enzyme replacement therapy (ERT) in pompe disease and mucopolysaccharidosis type
+  I (MPS I) disorder: COVID-19 and beyond. BACKGROUND: The Italian Medicines Agency
+  (AIFA) demands precise information on benefit/risk profile of home-based enzyme
+  replacement therapy (ERT) for the treatment of patients with Pompe disease and Mucopolysaccharidosis
+  type I (MPS I). This passage is necessary to obtain the authorization for ERT home
+  therapy, even after the coronavirus disease-19 (COVID-19) pandemic period. This
+  research intends to evaluate the safety, treatment satisfaction, and compliance
+  of MPS I patients treated with laronidase (Aldurazyme ) and Pompe Disease patients
+  treated with alglucosidase alfa (Myozyme ) in a homecare setting. RESULTS: We report
+  herein an early interim analysis of the HomERT (Home infusions of ERT) study, a
+  multicenter, non-interventional, double-cohort study that retrospectively analyzed
+  38 patients from 14 sites in Italy: cohort A (Pompe disease - 32 patients) and cohort
+  B (MPS I - 6 patients). Among the selected patients who started home therapy before
+  enrollment, the average number of missed home-based infusions was 0.7 (1.3) in cohort
+  A and 3.8 (6.4) in cohort B with no return to the hospital setting. Irrespective
+  of the treatment location, 3 prior ADRs per cohort were reported. The majority of
+  patients preferred home-based infusions (cohort A: 96.9%; cohort B: 100%): the main
+  reason was attributed to treatment convenience (cohort A: 81.3%; cohort B: 83.3%).
+  Despite the underlying conditions, most patients self-evaluated their health as
+  \"good\" (cohort A: 50%; cohort B: 83.3%). CONCLUSIONS: Evidence of favorable safety
+  profile, improved treatment compliance and personal satisfaction validates the use
+  of ERT with laronidase and alglucosidase alfa as a strong candidate for home therapy."
+raw_completion_output: |-
+  primary_disease: Pompe disease; Mucopolysaccharidosis type I (MPS I)
+  medical_actions: home-based intravenous enzyme replacement therapy (ERT); self-evaluated health assessment
+  symptoms: missed home-based infusions; adverse drug reactions (ADRs)
+  chemicals: laronidase; alglucosidase alfa
+  action_annotation_relationships: home-based intravenous enzyme replacement therapy (ERT) PREVENTS missed home-based infusions IN Pompe disease; home-based intravenous enzyme replacement therapy (ERT) PREVENTS missed home-based infusions IN Mucopolysaccharidosis type I (MPS I); self-evaluated health assessment TREATS subjective health perception IN Pompe disease; self-evaluated health assessment TREATS subjective health perception IN Mucopolysaccharidosis type I (MPS I); enzyme replacement therapy (with laronidase) PREVENTS adverse drug reactions (ADRs) IN Mucopolysaccharidosis type I (MPS I); enzyme replacement therapy (with alglucosidase alfa) PREVENTS adverse drug reactions (ADRs) IN Pompe disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  enzyme replacement therapy (with alglucosidase alfa) PREVENTS adverse drug reactions (ADRs) IN Pompe disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:1012617
+  medical_actions:
+    - home-based intravenous enzyme replacement therapy (ERT)
+    - self-evaluated health assessment
+  symptoms:
+    - missed home-based infusions
+    - HP:0020172
+  chemicals:
+    - laronidase
+    - alglucosidase alfa
+  action_annotation_relationships:
+    - subject: home-based intravenous enzyme replacement therapy
+      predicate: PREVENTS
+      object: missed home-based infusions
+      qualifier: MONDO:0009290
+      subject_qualifier: home-based intravenous
+      subject_extension: enzyme replacement therapy (ERT)
+    - subject: home-based intravenous enzyme replacement therapy
+      predicate: PREVENTS
+      object: missed home-based infusions
+      qualifier: MONDO:0001586
+      subject_qualifier: home-based intravenous
+      subject_extension: enzyme replacement therapy
+      object_extension: missed home-based infusions
+    - subject: self-evaluated health assessment
+      predicate: TREATS
+      object: subjective health perception
+      qualifier: MONDO:0009290
+    - subject: self-evaluated health assessment
+      predicate: TREATS
+      object: subjective health perception
+      qualifier: MONDO:1012617
+    - subject: enzyme replacement therapy
+      predicate: PREVENTS
+      object: HP:0020172
+      qualifier: MONDO:1012617
+      subject_qualifier: with laronidase
+      subject_extension: laronidase
+    - subject: enzyme replacement therapy
+      predicate: PREVENTS
+      object: HP:0020172
+      qualifier: MONDO:0009290
+      subject_qualifier: with alglucosidase alfa
+      subject_extension: alglucosidase alfa
+named_entities:
+  - id: MONDO:0001586
+    label: mucopolysaccharidosis type I
+  - id: MONDO:1012617
+    label: Mucopolysaccharidosis Type I (MPS I)
+  - id: CHEBI:60285
+    label: DOPE
+  - id: MAXO:0001521
+    label: nasal administration
+  - id: MONDO:0011758
+    label: Mucopolysaccharidosis type I Hurler (MPSIH)
+  - id: MAXO:0000747
+    label: hematopoietic stem cell transplantation (HSCT)
+  - id: MAXO:0000487
+    label: clinical assessment (growth measurement, kyphosis and genu velgum evaluation)
+  - id: HP:0002808
+    label: kyphosis
+  - id: HP:0001376
+    label: limited joint mobility
+  - id: HP:0008807
+    label: acetabular dysplasia
+  - id: MAXO:0010034
+    label: Corneal transplantation
+  - id: HP:0007957
+    label: Corneal clouding
+  - id: MAXO:0000149
+    label: Hematopoietic cell transplantation (HCT)
+  - id: HP:0000238
+    label: Hydrocephalus
+  - id: MAXO:0000068
+    label: transplantation
+  - id: MAXO:0000004
+    label: surgery
+  - id: MAXO:0000526
+    label: clinical examination
+  - id: CHEBI:143889
+    label: glycosaminoglycan (GAG)
+  - id: HP:0004322
+    label: short stature
+  - id: HP:0005619
+    label: thoracolumbar kyphosis
+  - id: HP:0000943
+    label: dysostosis multiplex
+  - id: MONDO:0011759
+    label: Hurler-Scheie syndrome
+  - id: HP:0001387
+    label: joint stiffness
+  - id: HP:0000403
+    label: recurrent otitis media
+  - id: HP:0001999
+    label: facial dysmorphism
+  - id: HP:0002781
+    label: Upper airway obstruction
+  - id: HP:0001638
+    label: Cardiomyopathy
+  - id: MAXO:0001479
+    label: Allogeneic hematopoietic stem cell transplantation
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: CHEBI:58187
+    label: Alginate
+  - id: CHEBI:53412
+    label: PLL (Poly-L-lysine)
+  - id: CHEBI:50594
+    label: Carbon nanotubes
+  - id: HP:0007663
+    label: Reduced visual acuity
+  - id: MAXO:0000016
+    label: cellular therapy
+  - id: CHEBI:19226
+    label: Tm
+  - id: MONDO:0017385
+    label: mucopolysaccharidosis type I (MPSI) Hurler
+  - id: MAXO:0000018
+    label: Biomarker assessment
+  - id: HP:0001138
+    label: Optic neuropathy
+  - id: HP:0000488
+    label: Retinopathy
+  - id: MONDO:0019052
+    label: Inborn errors of metabolism
+  - id: CHEBI:28901
+    label: Busulfan
+  - id: CHEBI:33310
+    label: MCT (NE)
+  - id: HP:0001367
+    label: joint disease
+  - id: HP:0002652
+    label: skeletal dysplasia
+  - id: HP:0000618
+    label: vision impairments
+  - id: HP:0000365
+    label: hearing impairments
+  - id: MONDO:0007147
+    label: Obstructive sleep apnea syndrome (OSAS)
+  - id: MAXO:0000915
+    label: Overnight polysomnography (PSG)
+  - id: HP:0002104
+    label: Apnea
+  - id: HP:0040213
+    label: Hypopnea
+  - id: MAXO:0010033
+    label: Umbilical cord blood transplantation
+  - id: MONDO:0009290
+    label: Pompe Disease
+  - id: HP:0005162
+    label: Left ventricular failure
+  - id: HP:0011675
+    label: Conduction abnormalities
+  - id: HP:0001677
+    label: Coronary artery disease
+  - id: HP:0001433
+    label: Hepatosplenomegaly
+  - id: HP:0033126
+    label: Necrosis
+  - id: CHEBI:46793
+    label: 1,2-distearoyl-sn-glycero-3-phosphoethanolamine-N-(amino[polyethylene glycol]-
+      2000) (DSPE-PEG)
+  - id: CHEBI:17754
+    label: Glycerol
+  - id: CHEBI:15377
+    label: Water
+  - id: CHEBI:27881
+    label: Resveratrol
+  - id: HP:0010864
+    label: severe mental retardation
+  - id: CHEBI:82467
+    label: Evans blue
+  - id: MONDO:0006249
+    label: mucopolysaccharidoses (MPS)
+  - id: CHEBI:232920
+    label: Alginate-poly-L-lysine-alginate (APA)
+  - id: HP:0000708
+    label: Behavioral abnormalities
+  - id: HP:0033429
+    label: Neuroinflammation
+  - id: MAXO:0001525
+    label: Intravenous administration
+  - id: HP:6000847
+    label: cardiac mass
+  - id: HP:0012393
+    label: Allergic reactions
+  - id: HP:0001268
+    label: Cognitive decline
+  - id: HP:0000388
+    label: Otitis media
+  - id: HP:0000750
+    label: Language delays
+  - id: MAXO:0000479
+    label: Orthopedic surgeries
+  - id: HP:0011947
+    label: Respiratory infections
+  - id: CHEBI:28088
+    label: Genistein
+  - id: MAXO:0000506
+    label: Non-invasive ventilation
+  - id: HP:0002091
+    label: Restrictive lung disease
+  - id: HP:0001513
+    label: Obesity
+  - id: HP:0000822
+    label: High blood pressure
+  - id: HP:0001626
+    label: Cardiovascular abnormalities
+  - id: CHEBI:18376
+    label: dermatan sulfate
+  - id: CHEBI:28815
+    label: heparan sulfate
+  - id: CHEBI:37397
+    label: chondroitin sulfate
+  - id: CHEBI:15971
+    label: heparan sulfate (HS)
+  - id: CHEBI:17053
+    label: dermatan sulfate (DS)
+  - id: CHEBI:16991
+    label: DNA
+  - id: HP:0001385
+    label: Hip dysplasia
+  - id: HP:0001263
+    label: Cognitive delay
+  - id: CHEBI:50693
+    label: Milrinone
+  - id: MAXO:0000011
+    label: Physical therapy
+  - id: HP:0003423
+    label: Thoracolumbar kyphoscoliosis
+  - id: HP:0002970
+    label: Genua vara
+  - id: HP:0002650
+    label: Scoliosis
+  - id: HP:0002857
+    label: Genua valga
+  - id: HP:0003311
+    label: Odontoid hypoplasia
+  - id: HP:0100543
+    label: cognitive impairment
+  - id: HP:0002180
+    label: neurodegeneration
+  - id: CHEBI:50803
+    label: nanoparticles
+  - id: HP:0002176
+    label: spinal cord compression
+  - id: HP:0012531
+    label: pain (injection site, back, groin)
+  - id: HP:0002315
+    label: headache
+  - id: HP:0033482
+    label: limited shoulder flexion
+  - id: HP:0004349
+    label: decreased bone mineral density
+  - id: HP:0000924
+    label: skeletal anomalies
+  - id: HP:0002240
+    label: hepatomegaly
+  - id: HP:0010619
+    label: correlation of reaction time with fractional anisotropy (FA) in frontal
+      and parietal white matter
+  - id: HP:0003541
+    label: Urinary glycosaminoglycan (GAG) excretion
+  - id: HP:0002870
+    label: Obstructive sleep apnea syndrome (OSAS)
+  - id: HP:0001653
+    label: mitral regurgitation
+  - id: HP:0001712
+    label: LVH (left ventricular hypertrophy)
+  - id: HP:0001655
+    label: PFO (patent foramen ovale)
+  - id: HP:0001250
+    label: seizure
+  - id: HP:0000505
+    label: Visual impairment
+  - id: HP:0000481
+    label: corneal abnormalities
+  - id: HP:0000716
+    label: depression
+  - id: HP:0000752
+    label: hyperactivity
+  - id: HP:0007018
+    label: attention deficit disorder
+  - id: HP:0010535
+    label: Sleep apnoea
+  - id: CHEBI:4439
+    label: Dermatan
+  - id: MONDO:0002561
+    label: Lysosomal Storage Disorders (LSDs)
+  - id: CHEBI:36080
+    label: protein
+  - id: MONDO:0016063
+    label: Crohn disease (CD)
+  - id: MAXO:0001184
+    label: colonoscopies
+  - id: CHEBI:9513
+    label: thalidomide
+  - id: CHEBI:64357
+    label: rituximab
+  - id: CHEBI:9168
+    label: sirolimus
+  - id: MONDO:0005011
+    label: Crohn disease
+  - id: MAXO:0001394
+    label: Oral administration
+  - id: HP:0020172
+    label: adverse drug reactions (ADRs)

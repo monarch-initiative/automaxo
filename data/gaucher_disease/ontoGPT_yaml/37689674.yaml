@@ -1,0 +1,197 @@
+---
+input_text: "Development of a rare disease algorithm to identify persons at risk of
+  Gaucher disease using electronic health records in the United States. BACKGROUND:
+  Early diagnosis of Gaucher disease (GD) allows for disease-specific treatment before
+  significant symptoms arise, preventing/delaying onset of complications. Yet, many
+  endure years-long diagnostic odysseys. We report the development of a machine learning
+  algorithm to identify patients with GD from electronic health records. METHODS:
+  We utilized Optum's de-identified Integrated Claims-Clinical dataset (2007-2019)
+  for feature engineering and algorithm training/testing, based on clinical characteristics
+  of GD. Two algorithms were selected: one based on age of feature occurrence (age-based),
+  and one based on occurrence of features (prevalence-based). Performance was compared
+  with an adaptation of the available clinical diagnostic algorithm for identifying
+  patients with diagnosed GD. Undiagnosed patients highly-ranked by the algorithms
+  were compared with diagnosed GD patients. RESULTS: Splenomegaly was the most important
+  predictor for diagnosed GD with both algorithms, followed by geographical location
+  (northeast USA), thrombocytopenia, osteonecrosis, bone density disorders, and bone
+  pain. Overall, 1204 and 2862 patients, respectively, would need to be assessed with
+  the age- and prevalence-based algorithms, compared with 20,743 with the clinical
+  diagnostic algorithm, to identify 28 patients with diagnosed GD in the integrated
+  dataset. Undiagnosed patients highly-ranked by the algorithms had similar clinical
+  manifestations as diagnosed GD patients. CONCLUSIONS: The age-based algorithm identified
+  younger patients, while the prevalence-based identified patients with advanced clinical
+  manifestations. Their combined use better captures GD heterogeneity. The two algorithms
+  were about 10-20-fold more efficient at identifying GD patients than the clinical
+  diagnostic algorithm. Application of these algorithms could shorten diagnostic delay
+  by identifying undiagnosed GD patients."
+raw_completion_output: |-
+  primary_disease: Gaucher disease
+
+  medical_actions: Development of a machine learning algorithm; use of electronic health records; utilization of Optum's de-identified Integrated Claims-Clinical dataset; application of the age-based algorithm; application of the prevalence-based algorithm; comparison with clinical diagnostic algorithm
+
+  symptoms: splenomegaly; thrombocytopenia; osteonecrosis; bone density disorders; bone pain
+
+  chemicals: 
+
+  action_annotation_relationships: Development of a machine learning algorithm PREVENTS undiagnosed Gaucher disease IN Gaucher disease; use of electronic health records PREVENTS undiagnosed Gaucher disease IN Gaucher disease; utilization of Optum's de-identified Integrated Claims-Clinical dataset PREVENTS undiagnosed Gaucher disease IN Gaucher disease; application of the age-based algorithm PREVENTS undiagnosed Gaucher disease IN Gaucher disease; application of the prevalence-based algorithm PREVENTS undiagnosed Gaucher disease IN Gaucher disease; comparison with clinical diagnostic algorithm PREVENTS undiagnosed Gaucher disease IN Gaucher disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  comparison with clinical diagnostic algorithm PREVENTS undiagnosed Gaucher disease IN Gaucher disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0018150
+  medical_actions:
+    - Development of a machine learning algorithm
+    - use of electronic health records
+    - utilization of Optum's de-identified Integrated Claims-Clinical dataset
+    - application of the age-based algorithm
+    - application of the prevalence-based algorithm
+    - comparison with clinical diagnostic algorithm
+  symptoms:
+    - HP:0001744
+    - HP:0001873
+    - HP:0010885
+    - bone density disorders
+    - HP:0002653
+  action_annotation_relationships:
+    - subject: Development
+      predicate: PREVENTS
+      object: undiagnosed Gaucher disease
+      qualifier: MONDO:0018150
+      subject_extension: machine learning algorithm
+    - subject: <use of electronic health records>
+      predicate: <PREVENTS>
+      object: <undiagnosed Gaucher disease>
+      qualifier: <Gaucher disease>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: utilization of Optum's de-identified Integrated Claims-Clinical dataset
+      predicate: PREVENTS
+      object: undiagnosed Gaucher disease
+      qualifier: MONDO:0018150
+    - subject: <application of the age-based algorithm>
+      predicate: <PREVENTS>
+      object: <undiagnosed Gaucher disease>
+      qualifier: <Gaucher disease>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: application
+      predicate: PREVENTS
+      object: Gaucher disease
+      qualifier: MONDO:0018150
+      object_qualifier: undiagnosed
+      subject_extension: prevalence-based algorithm
+      object_extension: undiagnosed
+    - subject: <comparison>
+      predicate: <PREVENTS>
+      object: <Gaucher disease>
+      qualifier: <Gaucher disease>
+      subject_qualifier: <>
+      object_qualifier: <undiagnosed>
+      subject_extension: <clinical diagnostic algorithm>
+      object_extension: <undiagnosed>
+named_entities:
+  - id: MONDO:0002561
+    label: Lysosomal Storage Disorders
+  - id: CHEBI:135923
+    label: Migalastat
+  - id: HP:0001071
+    label: Fabry disease
+  - id: MONDO:0018150
+    label: Gaucher Disease (GD)
+  - id: HP:0001395
+    label: liver fibrosis
+  - id: HP:0001394
+    label: cirrhosis
+  - id: HP:0100626
+    label: end-stage liver disease
+  - id: HP:0001402
+    label: hepatocellular carcinoma
+  - id: MAXO:0001001
+    label: gene therapy
+  - id: MAXO:0001257
+    label: vitamin E supplementation
+  - id: MAXO:0010200
+    label: abdominal ultrasonography
+  - id: HP:0025464
+    label: oxidative stress
+  - id: CHEBI:33234
+    label: vitamin E
+  - id: CHEBI:566274
+    label: malondialdehyde (MDA)
+  - id: CHEBI:16856
+    label: reduced glutathione (GSH)
+  - id: MAXO:0009091
+    label: Substrate reduction therapy (SRT)
+  - id: HP:0002716
+    label: Lymphadenopathy
+  - id: HP:0001903
+    label: Anemia
+  - id: HP:0001873
+    label: Thrombocytopenia
+  - id: HP:0001433
+    label: Hepatosplenomegaly
+  - id: CHEBI:30884
+    label: Glucosylceramide synthase (GCS) inhibitors
+  - id: CHEBI:135590
+    label: ambroxol
+  - id: HP:0410281
+    label: dyspepsia
+  - id: HP:0002027
+    label: abdominal pain
+  - id: CHEBI:82752
+    label: eliglustat
+  - id: CHEBI:4177
+    label: glucosylsphingosine
+  - id: HP:0003281
+    label: hyperferritinemia
+  - id: HP:0011024
+    label: gastrointestinal disorders
+  - id: MONDO:0010526
+    label: Fabry disease
+  - id: HP:0002180
+    label: neurodegeneration
+  - id: MONDO:0009267
+    label: Gaucher Disease Type 3
+  - id: HP:0001251
+    label: ataxia
+  - id: HP:0001332
+    label: dystonia
+  - id: HP:0001337
+    label: tremor
+  - id: HP:0001250
+    label: seizures
+  - id: HP:0000939
+    label: Osteoporosis
+  - id: MONDO:0009265
+    label: Gaucher disease type 1
+  - id: MONDO:0005201
+    label: Restrictive cardiomyopathy
+  - id: HP:0001635
+    label: cardiac failure
+  - id: MAXO:0000950
+    label: supportive care
+  - id: HP:0001744
+    label: splenomegaly
+  - id: HP:0010885
+    label: osteonecrosis
+  - id: HP:0002653
+    label: bone pain

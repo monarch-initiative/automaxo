@@ -1,0 +1,376 @@
+---
+input_text: 'Effect of Cisplatin and Gemcitabine With or Without Berzosertib in Patients
+  With Advanced Urothelial Carcinoma: A Phase 2 Randomized Clinical Trial. IMPORTANCE:
+  Preclinical studies suggest that inhibition of single-stranded DNA repair by ataxia
+  telangiectasia and Rad3 (ATR) may enhance the cytotoxicity of cisplatin, gemcitabine,
+  and other chemotherapeutic agents. Cisplatin with gemcitabine remains the standard
+  up-front therapy for treatment in patients with metastatic urothelial cancer. OBJECTIVE:
+  To determine whether the use of the selective ATR inhibitor, berzosertib, could
+  augment the activity of cisplatin with gemcitabine. DESIGN, SETTING, AND PARTICIPANTS:
+  In a phase 2 randomized clinical trial, 87 patients across 23 centers in the National
+  Cancer Institute Experimental Therapeutics Clinical Trials Network were randomized
+  to receive either cisplatin with gemcitabine alone (control arm) or cisplatin with
+  gemcitabine plus berzosertib (experimental arm). Key eligibility criteria included
+  confirmed metastatic urothelial cancer, no prior cytotoxic therapy for metastatic
+  disease, 12 months or more since perioperative therapy, and eligibility for cisplatin
+  receipt based on standard criteria. The study was conducted from January 27, 2017,
+  to December 15, 2020. INTERVENTIONS: In the control arm, cisplatin, 70 mg/m2, was
+  given on day 1 and gemcitabine, 1000 mg/m2, was given on days 1 and 8 of a 21-day
+  cycle. In the experimental arm, cisplatin, 60 mg/m2, was given on day 1; gemcitabine,
+  875 mg/m2, on days 1 and 8; and berzosertib, 90 mg/m2, on days 2 and 9 of a 21-day
+  cycle. MAIN OUTCOMES AND MEASURES: The primary end point of the study was progression-free
+  survival. The analysis was on all patients who started therapy. RESULTS: Of the
+  total of 87 patients randomized, 41 patients received cisplatin with gemcitabine
+  alone and 46 received cisplatin with gemcitabine plus berzosertib. Median age was
+  67 (range, 32-84) years, and 68 patients (78%) were men. Median progression-free
+  survival was 8.0 months for both arms (Bajorin risk-adjusted hazard ratio, 1.22;
+  95% CI, 0.72-2.08). Median overall survival was shorter with cisplatin with gemcitabine
+  plus berzosertib compared with cisplatin with gemcitabine alone (14.4 vs 19.8 months;
+  Bajorin risk-adjusted hazard ratio, 1.42; 95% CI, 0.76-2.68). Higher rates of grade
+  3 vs grade 4 thrombocytopenia (59% vs 39%) and neutropenia (37% vs 27%) were observed
+  with cisplatin with gemcitabine and berzosertib compared with cisplatin with gemcitabine
+  alone; consequently, more dose reductions were needed in the experimental arm. Patients
+  in the experimental arm received a median cisplatin dose of 250 mg/m2, which was
+  significantly lower than the median dose of 370 mg/m2 in the control arm (P < .001).
+  CONCLUSIONS AND RELEVANCE: The addition of berzosertib to cisplatin with gemcitabine
+  did not prolong progression-free survival relative to cisplatin with gemcitabine
+  alone in patients with metastatic urothelial cancer, and a trend toward inferior
+  survival was observed with this combination. Berzosertib plus cisplatin with gemcitabine
+  was associated with significantly higher hematologic toxicities despite attenuated
+  dosing of cisplatin with gemcitabine. TRIAL REGISTRATION: ClinicalTrials.gov Identifier:
+  NCT02567409.'
+raw_completion_output: |-
+  primary_disease: metastatic urothelial cancer
+  medical_actions: administration of cisplatin;administration of gemcitabine;administration of berzosertib;dose reduction
+  symptoms: progression of cancer;thrombocytopenia;neutropenia
+  chemicals: Cisplatin;Gemcitabine;Berzosertib
+  action_annotation_relationships: administration of cisplatin TREATS progression of cancer IN metastatic urothelial cancer;administration of gemcitabine TREATS progression of cancer IN metastatic urothelial cancer;administration of berzosertib (with Cisplatin and Gemcitabine) TREATS progression of cancer IN metastatic urothelial cancer;administration of cisplatin and gemcitabine PLUS berzosertib PREVENTS progression of cancer IN metastatic urothelial cancer;dose reduction PREVENTS thrombocytopenia IN metastatic urothelial cancer;dose reduction PREVENTS neutropenia IN metastatic urothelial cancer
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  dose reduction PREVENTS neutropenia IN metastatic urothelial cancer
+
+  ===
+
+extracted_object:
+  primary_disease: metastatic urothelial cancer
+  medical_actions:
+    - administration of cisplatin
+    - administration of gemcitabine
+    - administration of berzosertib
+    - dose reduction
+  symptoms:
+    - progression of cancer
+    - HP:0001873
+    - HP:0001875
+  chemicals:
+    - CHEBI:27899
+    - CHEBI:175901
+    - Berzosertib
+  action_annotation_relationships:
+    - subject: administration of cisplatin
+      predicate: TREATS
+      object: progression of cancer
+      qualifier: metastatic urothelial cancer
+      subject_extension: CHEBI:27899
+    - subject: administration of gemcitabine
+      predicate: TREATS
+      object: progression of cancer
+      qualifier: metastatic urothelial cancer
+      object_qualifier: IN
+      subject_extension: CHEBI:175901
+    - subject: administration
+      predicate: TREATS
+      object: progression of cancer
+      qualifier: metastatic urothelial cancer
+      subject_qualifier: with Cisplatin and Gemcitabine
+      subject_extension: berzosertib
+    - subject: administration
+      predicate: PREVENTS
+      object: progression of cancer
+      qualifier: metastatic urothelial cancer
+      subject_extension: cisplatin and gemcitabine PLUS berzosertib
+    - subject: dose reduction
+      predicate: PREVENTS
+      object: HP:0001873
+      qualifier: metastatic urothelial cancer
+    - subject: dose reduction
+      predicate: PREVENTS
+      object: HP:0001875
+      qualifier: metastatic urothelial cancer
+named_entities:
+  - id: MONDO:0005086
+    label: Renal cell carcinoma
+  - id: MONDO:0003060
+    label: Biliary tract cancer (BTC)
+  - id: CHEBI:175901
+    label: Gemcitabine
+  - id: CHEBI:33364
+    label: Platinum
+  - id: MAXO:0000647
+    label: chemotherapy
+  - id: MONDO:0008840
+    label: Ataxia Telangiectasia
+  - id: MAXO:0010030
+    label: Bone Marrow Transplantation
+  - id: MAXO:0001001
+    label: Gene Therapy
+  - id: CHEBI:166830
+    label: Acetyl-DL-leucine
+  - id: CHEBI:41879
+    label: Dexamethasone
+  - id: CHEBI:4462
+    label: Dexamethasone sodium phosphate
+  - id: CHEBI:133021
+    label: venetoclax
+  - id: HP:0002721
+    label: Immunodeficiency
+  - id: HP:0002073
+    label: progressive cerebellar ataxia
+  - id: HP:0002013
+    label: vomiting
+  - id: HP:0002315
+    label: headache
+  - id: CHEBI:27899
+    label: cisplatin
+  - id: HP:0001903
+    label: Anemia
+  - id: HP:0001873
+    label: Thrombocytopenia
+  - id: HP:0001875
+    label: Neutropenia
+  - id: CHEBI:231342
+    label: Ceralasertib
+  - id: CHEBI:31355
+    label: Carboplatin
+  - id: MAXO:0000747
+    label: Hematopoietic stem cell transplantation
+  - id: MONDO:0005184
+    label: Pancreatic ductal adenocarcinoma (PDAC)
+  - id: HP:0020174
+    label: Drug resistance
+  - id: MAXO:0000011
+    label: Physical therapy
+  - id: HP:0001251
+    label: Ataxia
+  - id: MONDO:0010150
+    label: Head and neck squamous cell carcinomas (HNSCC)
+  - id: MAXO:0000014
+    label: Radiotherapy (RT)
+  - id: HP:0010280
+    label: Oral mucositis
+  - id: HP:0002015
+    label: Dysphagia
+  - id: MONDO:0008876
+    label: Bloom Syndrome (BS)
+  - id: HP:0001510
+    label: growth retardation
+  - id: HP:0011793
+    label: malignancies
+  - id: MONDO:0004992
+    label: Cancer
+  - id: HP:0002664
+    label: Cancer
+  - id: CHEBI:27656
+    label: Camptothecin (CPT)
+  - id: CHEBI:63632
+    label: Topotecan
+  - id: CHEBI:4911
+    label: Etoposide
+  - id: CHEBI:231344
+    label: Talazoparib
+  - id: CHEBI:231616
+    label: M4344
+  - id: MONDO:0008433
+    label: Small-cell lung cancer (SCLC)
+  - id: HP:0030357
+    label: Small-cell lung cancer (SCLC)
+  - id: MONDO:0003778
+    label: Inborn Errors of Immunity (IEI)
+  - id: HP:0033141
+    label: Severe SARS-CoV-2 infection
+  - id: MAXO:0001017
+    label: Vaccination
+  - id: CHEBI:22907
+    label: Bleomycin (BLM)
+  - id: MONDO:0005494
+    label: Triple-negative breast cancer (TNBC)
+  - id: CHEBI:9555
+    label: 6-thioguanine
+  - id: CHEBI:4659
+    label: Disulfiram
+  - id: CHEBI:28694
+    label: Cu
+  - id: CHEBI:83766
+    label: Olaparib
+  - id: HP:0002894
+    label: pancreatic cancer
+  - id: MONDO:0005192
+    label: Pancreatic Cancer
+  - id: MONDO:0007254
+    label: Breast Cancer
+  - id: MAXO:0000127
+    label: Genetic testing
+  - id: HP:0003002
+    label: Breast Cancer
+  - id: MONDO:0008903
+    label: lung cancer
+  - id: MAXO:0001298
+    label: therapy
+  - id: MONDO:0005070
+    label: Tumors
+  - id: MAXO:0001394
+    label: Oral administration
+  - id: MONDO:0036501
+    label: Refractory Cancer
+  - id: CHEBI:45863
+    label: Paclitaxel
+  - id: MONDO:0018177
+    label: Glioblastoma
+  - id: MAXO:0000004
+    label: Surgery
+  - id: HP:0012174
+    label: Glioblastoma
+  - id: MONDO:0009807
+    label: Osteosarcoma
+  - id: MAXO:0001525
+    label: Intravenous administration
+  - id: CHEBI:132992
+    label: radiosensitizers
+  - id: MONDO:0005575
+    label: colorectal cancer
+  - id: CHEBI:62913
+    label: poly (ADP-ribose) polymerase (PARP) inhibitors
+  - id: HP:0010310
+    label: Chylothorax
+  - id: CHEBI:3638
+    label: Chloroquine
+  - id: CHEBI:27563
+    label: Arsenic
+  - id: CHEBI:229924
+    label: pifithrin-alpha (PFTalpha)
+  - id: CHEBI:29678
+    label: Sodium arsenite (NaAsO2)
+  - id: CHEBI:41774
+    label: Tamoxifen
+  - id: MONDO:0004986
+    label: Bladder cancer
+  - id: HP:0009725
+    label: Bladder cancer
+  - id: MONDO:0968974
+    label: Large B-Cell Lymphoma (LBCL)
+  - id: MAXO:0000381
+    label: Lymph node biopsy
+  - id: CHEBI:64357
+    label: Rituximab
+  - id: CHEBI:4027
+    label: Cyclophosphamide
+  - id: CHEBI:44185
+    label: Methotrexate
+  - id: CHEBI:8382
+    label: Prednisone
+  - id: MONDO:0005623
+    label: AT (Autoimmune Thyroiditis)
+  - id: MONDO:0008315
+    label: Prostate Cancer
+  - id: CHEBI:4672
+    label: Docetaxel
+  - id: HP:0012125
+    label: Prostate Cancer
+  - id: CHEBI:50914
+    label: PI3K inhibitors
+  - id: CHEBI:34936
+    label: di-phenoxy acetamide (DPA) analogs
+  - id: CHEBI:25555
+    label: Compound DPA (7n)
+  - id: HP:0000988
+    label: rash
+  - id: CHEBI:31348
+    label: capecitabine
+  - id: CHEBI:16044
+    label: MET
+  - id: HP:0100526
+    label: Lung cancer
+  - id: MONDO:0019600
+    label: Xeroderma pigmentosum (XP)
+  - id: CHEBI:131808
+    label: Thymidine dimers
+  - id: CHEBI:28300
+    label: Glutamine
+  - id: CHEBI:16856
+    label: Glutathione
+  - id: CHEBI:16810
+    label: Alpha-ketoglutarate
+  - id: HP:0000657
+    label: Oculomotor apraxia
+  - id: HP:0001266
+    label: Choreoathetosis
+  - id: CHEBI:4806
+    label: Epigallocatechin-3-gallate (EGCG)
+  - id: CHEBI:16240
+    label: H2O2
+  - id: CHEBI:229722
+    label: RP-3500
+  - id: CHEBI:135702
+    label: Belotecan
+  - id: CHEBI:229661
+    label: Omaveloxolone
+  - id: CHEBI:8863
+    label: riluzole
+  - id: MAXO:0000058
+    label: pharmacotherapy
+  - id: MONDO:0100339
+    label: Friedreich ataxia
+  - id: MONDO:0005140
+    label: Epithelial ovarian cancer
+  - id: HP:0002018
+    label: Nausea
+  - id: HP:0012378
+    label: Fatigue
+  - id: HP:0002039
+    label: Anorexia
+  - id: MONDO:0005233
+    label: Non-small cell lung cancer
+  - id: HP:0030358
+    label: Non-small cell lung cancer
+  - id: CHEBI:3077
+    label: Betamethasone
+  - id: CHEBI:30884
+    label: Glucocorticoids (GCs)
+  - id: MONDO:0024331
+    label: Colorectal Cancer (CRC)
+  - id: MONDO:0005061
+    label: Lung adenocarcinoma (LUAD)
+  - id: HP:0030078
+    label: Lung adenocarcinoma
+  - id: HP:0025318
+    label: epithelial ovarian cancer
+  - id: CHEBI:46345
+    label: 5-fluorouracil
+  - id: CHEBI:31941
+    label: Oxaliplatin
+  - id: CHEBI:80630
+    label: Irinotecan
+  - id: CHEBI:131509
+    label: lysine-specific histone demethylase 1a inhibitors
+  - id: MONDO:0017361
+    label: Chronic restraint stress (CRS)
+  - id: CHEBI:16865
+    label: GABA
+  - id: MONDO:0006047
+    label: Pancreatic Adenocarcinoma
+  - id: CHEBI:76649
+    label: Astaxanthin (AST)
+  - id: CHEBI:40968
+    label: Astaxanthin

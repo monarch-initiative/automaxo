@@ -1,0 +1,192 @@
+---
+input_text: "Extramedullary Relapse of Acute B-Lymphoblastic Leukemia Leading to Paraplegia
+  in a Child with Down Syndrome. BACKGROUND: Acute B-lymphoblastic leukemia (B-ALL)
+  is a common malignancy in children. Patients with Trisomy 21 (Down syndrome) are
+  at a higher risk of developing hematologic disorders. Despite advances in treatment,
+  extramedullary relapse remains a challenge, particularly when it manifests as spinal
+  cord compression leading to paraplegia, a rare but severe complication. METHODS:
+  We describe the clinical course of an 11-year-old male with Trisomy 21, diagnosed
+  with B-ALL. The patient was treated with standard chemotherapy (VDLP regimen) followed
+  by central nervous system prophylaxis through lumbar puncture and intrathecal chemotherapy.
+  Despite achieving minimal residual disease (MRD)-negative status, the patient developed
+  progressive lower back pain and acute paraplegia. Imaging studies and subsequent
+  spinal surgery were performed to diagnose and manage the spinal cord lesion. RESULTS:
+  The patient's spinal pathology confirmed a relapse of B-ALL with extramedullary
+  involvement. Immunohistochemistry of the tumor showed markers consistent with B-lymphoblastic
+  leukemia/lymphoma. Chemotherapy-induced remission was initially achieved, but the
+  patient experienced bone marrow suppression after each cycle, leading to further
+  hospitalization and supportive treatments. Postsurgical findings showed no CNS involve-ment,
+  and bone marrow MRD remained negative. CONCLUSIONS: This case highlights the complexity
+  of managing B-ALL in children with Trisomy 21, who may be prone to extramedullary
+  relapse despite systemic remission. Early recognition of spinal symptoms and prompt
+  surgical intervention are critical in preventing irreversible neurological damage
+  such as paraplegia. This case underscores the need for vigilant monitoring and tailored
+  therapeutic strategies in high-risk populations."
+raw_completion_output: |-
+  primary_disease: Acute B-lymphoblastic leukemia (B-ALL)
+
+  medical_actions: chemotherapy; central nervous system prophylaxis; lumbar puncture; intrathecal chemotherapy; imaging studies; spinal surgery; immunohistochemistry
+
+  symptoms: lower back pain; acute paraplegia
+
+  chemicals: VDLP regimen
+
+  action_annotation_relationships: chemotherapy (with VDLP regimen) TREATS Acute B-lymphoblastic leukemia IN Acute B-lymphoblastic leukemia (B-ALL); central nervous system prophylaxis PREVENTS central nervous system involvement IN Acute B-lymphoblastic leukemia (B-ALL); lumbar puncture ASSOCIATED WITH central nervous system prophylaxis IN Acute B-lymphoblastic leukemia (B-ALL); intrathecal chemotherapy TREATS central nervous system involvement IN Acute B-lymphoblastic leukemia (B-ALL); spinal surgery TREATS spinal cord compression IN Acute B-lymphoblastic leukemia (B-ALL); imaging studies ASSOCIATED WITH diagnosis of spinal cord lesion IN Acute B-lymphoblastic leukemia (B-ALL); immunohistochemistry USED FOR confirmation of B-lymphoblastic leukemia/lymphoma IN Acute B-lymphoblastic leukemia (B-ALL)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  immunohistochemistry USED FOR confirmation of B-lymphoblastic leukemia/lymphoma IN Acute B-lymphoblastic leukemia (B-ALL)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0020511
+  medical_actions:
+    - MAXO:0000647
+    - central nervous system prophylaxis
+    - lumbar puncture
+    - intrathecal chemotherapy
+    - imaging studies
+    - spinal surgery
+    - immunohistochemistry
+  symptoms:
+    - HP:0003419
+    - acute paraplegia
+  chemicals:
+    - VDLP regimen
+  action_annotation_relationships:
+    - subject: MAXO:0000647
+      predicate: TREATS
+      object: Acute B-lymphoblastic leukemia
+      qualifier: MONDO:0020511
+      subject_qualifier: with VDLP regimen
+      subject_extension: VDLP regimen
+    - subject: central nervous system prophylaxis
+      predicate: PREVENTS
+      object: central nervous system involvement
+      qualifier: MONDO:0020511
+    - subject: lumbar puncture
+      predicate: ASSOCIATED WITH
+      object: central nervous system prophylaxis
+      qualifier: MONDO:0020511
+    - subject: intrathecal chemotherapy
+      predicate: TREATS
+      object: central nervous system involvement
+      qualifier: MONDO:0020511
+      subject_extension: chemotherapy
+    - subject: <spinal surgery>
+      predicate: <TREATS>
+      object: <spinal cord compression>
+      qualifier: MONDO:0020511
+      subject_qualifier: <Not applicable>
+      object_qualifier: <Not applicable>
+      subject_extension: <Not applicable>
+      object_extension: <Not applicable>
+    - subject: imaging studies
+      predicate: ASSOCIATED WITH
+      object: diagnosis of spinal cord lesion
+      qualifier: MONDO:0020511
+    - subject: immunohistochemistry
+      predicate: USED FOR
+      object: confirmation of B-lymphoblastic leukemia/lymphoma
+      qualifier: MONDO:0020511
+named_entities:
+  - id: MONDO:0018874
+    label: Acute myeloid leukemia (AML)
+  - id: HP:0001945
+    label: Fever
+  - id: HP:0012378
+    label: Fatigue
+  - id: MONDO:0020512
+    label: T cell acute lymphoblastic leukemia (T-ALL)
+  - id: HP:0006727
+    label: T-ALL
+  - id: CHEBI:50131
+    label: Decitabine
+  - id: CHEBI:133021
+    label: Venetoclax
+  - id: HP:0004808
+    label: Acute myeloid leukemia
+  - id: HP:0002090
+    label: pneumonia
+  - id: HP:0100806
+    label: sepsis
+  - id: CHEBI:71019
+    label: Homoharringtonine
+  - id: CHEBI:28680
+    label: Cytarabine
+  - id: HP:0000739
+    label: anxiety
+  - id: HP:0000716
+    label: depression
+  - id: CHEBI:190514
+    label: dasatinib
+  - id: CHEBI:23456
+    label: cyclodextrins
+  - id: MAXO:0000747
+    label: Hematopoietic Stem Cell Transplantation (HSCT)
+  - id: MAXO:0000647
+    label: Chemotherapy
+  - id: HP:0002018
+    label: Nausea
+  - id: HP:0002094
+    label: Dyspnea
+  - id: HP:0100785
+    label: Insomnia
+  - id: HP:0012531
+    label: Pain
+  - id: HP:0002019
+    label: Constipation
+  - id: CHEBI:2038
+    label: Azacitidine
+  - id: CHEBI:197440
+    label: Tumor necrosis factor-alpha (TNF-alpha)
+  - id: MONDO:0004967
+    label: Acute Lymphoblastic Leukemia (ALL)
+  - id: CHEBI:8378
+    label: Prednisolone
+  - id: HP:0000001
+    label: Acute Lymphoblastic Leukemia (ALL)
+  - id: HP:0001297
+    label: Stroke
+  - id: HP:0001635
+    label: Heart failure
+  - id: HP:0001677
+    label: Coronary atherosclerosis
+  - id: MONDO:0004992
+    label: Cancer
+  - id: MAXO:0001479
+    label: allogeneic hematopoietic stem cell transplantation (allo-HSCT)
+  - id: MONDO:0004947
+    label: B-cell acute lymphoblastic leukemia
+  - id: MAXO:0000757
+    label: infusion
+  - id: MAXO:0000602
+    label: Hemodialysis
+  - id: HP:0003326
+    label: Myalgia
+  - id: HP:0002039
+    label: Anorexia
+  - id: HP:0100519
+    label: Anuria
+  - id: HP:0011037
+    label: Decreased urine output
+  - id: HP:0001919
+    label: Acute kidney injury
+  - id: CHEBI:18332
+    label: Levothyroxine
+  - id: MONDO:0020511
+    label: Acute B-lymphoblastic leukemia (B-ALL)
+  - id: HP:0003419
+    label: lower back pain

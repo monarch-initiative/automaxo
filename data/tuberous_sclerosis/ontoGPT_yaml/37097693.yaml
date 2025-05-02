@@ -1,0 +1,263 @@
+---
+input_text: 'A Phase I/II Investigation of Safety and Efficacy of Nivolumab and nab-Sirolimus
+  in Patients With a Variety of Tumors With Genetic Mutations in the mTOR Pathway.
+  BACKGROUND/AIM: Advanced sarcoma has a poor prognosis. Dysregulation of the mammalian
+  target of rapamycin (mTOR) occurs in various types of cancer. We aimed to determine
+  the safety and efficacy of mTOR inhibitor nab-sirolimus when combined with the immune
+  checkpoint inhibitor nivolumab. PATIENTS AND METHODS: Previously treated patients
+  >=18 years with confirmed diagnosis of advanced sarcoma or tumor with mutations
+  in the mTOR pathway were treated with 3 mg/kg nivolumab intravenously every 3 weeks;
+  escalating doses of nab-sirolimus at 56, 75 or 100 mg/m2 were administered intravenously
+  on days 8 and 15 beginning in cycle 2. The primary aim was to determine the maximum-tolerated
+  dose; we also determined disease control, objective response, progression-free survival,
+  overall survival, and correlation between response using Immune-related Response
+  Evaluation Criteria for Solid Tumors (irRECIST) versus RECIST v1.1. RESULTS: The
+  maximum-tolerated dose was 100 mg/m2 There were two patients with partial response,
+  12 with stable disease and 11 with progressive disease. Median progression-free
+  and overall survival were 12 and 47 weeks, respectively. The best responders (partial
+  responses) were patients with undifferentiated pleomorphic sarcoma with loss of
+  phosphatase and tensin homolog deleted on chromosome 10 (PTEN), tuberous sclerosis
+  complex 2 (TSC2) mutation and estrogen receptor-positive leiomyosarcoma. Treatment-related
+  adverse events of grade 3 or more included thrombocytopenia, oral mucositis, rash,
+  hyperlipidemia and increased serum alanine aminotransferase. CONCLUSION: The data
+  indicate that (i) treatment with nivolumab plus nab-sirolimus is safe with no unexpected
+  adverse events; (ii) treatment outcome parameters were not improved by combining
+  nivolumab with nab-sirolimus; and (iii) best responders were patients with undifferentiated
+  pleomorphic sarcoma with PTEN loss and TSC2 mutation and estrogen receptor-positive
+  leiomyosarcoma. Future direction in sarcoma research with nab-sirolimus will be
+  biomarker-based (TSC1/2/mTOR, tumor mutational burden/mismatch repair deficiency
+  etc.).'
+raw_completion_output: |-
+  primary_disease: Advanced sarcoma
+  medical_actions: Administration of nivolumab; Administration of nab-sirolimus; Determination of maximum-tolerated dose; Immune-related Response Evaluation Criteria for Solid Tumors (irRECIST) versus RECIST v1.1 comparison
+  symptoms: Thrombocytopenia; Oral mucositis; Rash; Hyperlipidemia; Increased serum alanine aminotransferase
+  chemicals: Nivolumab; Nab-sirolimus
+  action_annotation_relationships: Administration of nivolumab (with Nivolumab) TREATS Advanced sarcoma; Administration of nab-sirolimus (with Nab-sirolimus) TREATS Advanced sarcoma; Determination of maximum-tolerated dose PREVENTS Thrombocytopenia IN Advanced sarcoma; Determination of maximum-tolerated dose PREVENTS Oral mucositis IN Advanced sarcoma; Determination of maximum-tolerated dose PREVENTS Rash IN Advanced sarcoma; Determination of maximum-tolerated dose PREVENTS Hyperlipidemia IN Advanced sarcoma; Determination of maximum-tolerated dose PREVENTS Increased serum alanine aminotransferase IN Advanced sarcoma
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Determination of maximum-tolerated dose PREVENTS Increased serum alanine aminotransferase IN Advanced sarcoma
+
+  ===
+
+extracted_object:
+  primary_disease: Advanced sarcoma
+  medical_actions:
+    - Administration of nivolumab
+    - Administration of nab-sirolimus
+    - Determination of maximum-tolerated dose
+    - Immune-related Response Evaluation Criteria for Solid Tumors (irRECIST) versus
+      RECIST v1.1 comparison
+  symptoms:
+    - HP:0001873
+    - HP:0010280
+    - HP:0000988
+    - HP:0003077
+    - Increased serum alanine aminotransferase
+  chemicals:
+    - CHEBI:231614
+    - Nab-sirolimus
+  action_annotation_relationships:
+    - subject: Administration of nivolumab
+      predicate: TREATS
+      object: Advanced sarcoma
+      subject_qualifier: with Nivolumab
+      subject_extension: CHEBI:231614
+    - subject: Administration of nab-sirolimus
+      predicate: TREATS
+      object: Advanced sarcoma
+      subject_qualifier: with Nab-sirolimus
+      subject_extension: nab-sirolimus
+    - subject: Determination of maximum-tolerated dose
+      predicate: PREVENTS
+      object: HP:0001873
+      qualifier: Advanced sarcoma
+    - subject: <Determination of maximum-tolerated dose>
+      predicate: <PREVENTS>
+      object: <Oral mucositis>
+      qualifier: <Advanced sarcoma>
+      subject_extension: <maximum-tolerated dose>
+    - subject: Determination of maximum-tolerated dose
+      predicate: PREVENTS
+      object: HP:0000988
+      qualifier: Advanced sarcoma
+    - subject: Determination of maximum-tolerated dose
+      predicate: PREVENTS
+      object: HP:0003077
+      qualifier: Advanced sarcoma
+    - subject: Determination of maximum-tolerated dose
+      predicate: PREVENTS
+      object: Increased serum alanine aminotransferase
+      qualifier: Advanced sarcoma
+named_entities:
+  - id: MONDO:0016693
+    label: Subependymal giant cell astrocytoma
+  - id: MAXO:0000447
+    label: Surgical removal
+  - id: CHEBI:68478
+    label: everolimus
+  - id: MONDO:0005550
+    label: Intellectual disability (ID)
+  - id: HP:0001249
+    label: Intellectual disability (ID)
+  - id: HP:0001250
+    label: seizures
+  - id: HP:0011097
+    label: epileptic spasms
+  - id: HP:0002121
+    label: absence seizures
+  - id: CHEBI:69478
+    label: cannabidiol (CBD)
+  - id: MONDO:0001734
+    label: Tuberous Sclerosis Complex
+  - id: MAXO:0001065
+    label: Nephrectomy
+  - id: MAXO:0000602
+    label: Hemodialysis
+  - id: MAXO:0000603
+    label: Peritoneal dialysis
+  - id: MAXO:0000600
+    label: Renal replacement therapy
+  - id: HP:0006772
+    label: Angiomyolipomas
+  - id: HP:0005584
+    label: Renal cell carcinoma
+  - id: HP:0001892
+    label: Bleeding tendency
+  - id: HP:0000083
+    label: Renal insufficiency
+  - id: HP:0003774
+    label: end-stage renal failure
+  - id: CHEBI:68481
+    label: Mammalian target of rapamycin inhibitor
+  - id: CHEBI:63638
+    label: Vigabatrin
+  - id: MONDO:0100062
+    label: Infantile-Onset Developmental and Epileptic Encephalopathies (DEE)
+  - id: CHEBI:26708
+    label: Sodium
+  - id: CHEBI:26216
+    label: Potassium
+  - id: MONDO:0005027
+    label: epilepsy
+  - id: MAXO:0000942
+    label: vagus nerve stimulation (VNS)
+  - id: HP:0004808
+    label: multiple bilateral angiomyolipoma (AMLs)
+  - id: CHEBI:9168
+    label: sirolimus
+  - id: HP:0001263
+    label: Developmental delay
+  - id: CHEBI:17234
+    label: Glucose
+  - id: CHEBI:15756
+    label: Fatty acid (palmitate)
+  - id: MONDO:0010979
+    label: Tuberous sclerosis (TS); Diffuse large B-cell lymphoma (DLBCL)
+  - id: CHEBI:8382
+    label: Prednisone
+  - id: CHEBI:480999
+    label: Vinorelbine
+  - id: CHEBI:4911
+    label: Etoposide
+  - id: CHEBI:4027
+    label: Cyclophosphamide
+  - id: CHEBI:64357
+    label: Rituximab
+  - id: CHEBI:76612
+    label: Ibrutinib
+  - id: MAXO:0000647
+    label: chemotherapy
+  - id: MONDO:0007254
+    label: Breast Cancer
+  - id: CHEBI:85993
+    label: Palbociclib
+  - id: CHEBI:31638
+    label: Fulvestrant
+  - id: CHEBI:41774
+    label: Tamoxifen
+  - id: MAXO:0001298
+    label: therapy
+  - id: CHEBI:8228
+    label: Pioglitazone
+  - id: HP:0006536
+    label: Airway obstruction
+  - id: HP:0000822
+    label: High blood pressure
+  - id: CHEBI:6367
+    label: lamotrigine
+  - id: CHEBI:60654
+    label: valproate
+  - id: CHEBI:6437
+    label: levetiracetam
+  - id: HP:0003394
+    label: Spasms
+  - id: CHEBI:24621
+    label: Hormone
+  - id: CHEBI:3892
+    label: Adrenocorticotropic hormone (ACTH)
+  - id: CHEBI:8378
+    label: Prednisolone
+  - id: MAXO:0000004
+    label: Surgery
+  - id: MAXO:0000014
+    label: Radiotherapy
+  - id: MAXO:0001064
+    label: Mastectomy
+  - id: MAXO:0000601
+    label: Dialysis
+  - id: HP:0031111
+    label: Skin hamartoma
+  - id: MONDO:0004691
+    label: Autosomal dominant polycystic kidney disease
+  - id: HP:0009718
+    label: Subependymal giant cell astrocytomas
+  - id: HP:0004755
+    label: Supraventricular tachycardia
+  - id: CHEBI:16796
+    label: Melatonin (N-acetyl-5-methoxytryptamine)
+  - id: CHEBI:23965
+    label: Estradiol
+  - id: CHEBI:81568
+    label: Luteinizing hormone
+  - id: CHEBI:16526
+    label: carbon dioxide
+  - id: CHEBI:49475
+    label: argon
+  - id: MONDO:0012084
+    label: Aromatic L-amino acid decarboxylase (AADC) deficiency
+  - id: MONDO:0044970
+    label: Mitochondrial disease
+  - id: HP:0000212
+    label: Gingival hyperplasia
+  - id: HP:0000230
+    label: Gingivitis
+  - id: MONDO:0100039
+    label: CDKL5 deficiency disorder
+  - id: HP:0002521
+    label: hypsarrhythmia
+  - id: CHEBI:50858
+    label: corticosteroid
+  - id: HP:0001268
+    label: cognitive decline
+  - id: HP:0001873
+    label: Thrombocytopenia
+  - id: HP:0010280
+    label: Oral mucositis
+  - id: HP:0000988
+    label: Rash
+  - id: HP:0003077
+    label: Hyperlipidemia
+  - id: CHEBI:231614
+    label: Nivolumab

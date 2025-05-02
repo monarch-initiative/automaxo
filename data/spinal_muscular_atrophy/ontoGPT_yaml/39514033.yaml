@@ -1,0 +1,68 @@
+---
+input_text: "Real-time measurement of radiation exposure in interventional radiologists
+  during CT-guided intrathecal injections of nusinersen. PURPOSE: Some patients with
+  spinal muscular atrophy and scoliosis require CT guidance during injections of nusinersen.
+  The radiation applied to the operator in such procedures becomes an important issue
+  in terms of staff health and safety. The aim of the study was to assess the operator's
+  radiation exposure during CT-guided nusinersen injections in patients with spinal
+  muscular atrophy and scoliosis. METHODS: Consecutive 40 CT-guided nusinersen injections
+  were analyzed in terms of operator's radiation exposure measured in real time. RESULTS:
+  The median radiation dose measured under the physician's lead apron and patient
+  dose in terms of DLP was 0.20 microSv and 31.90 mGy*cm respectively. The radiation
+  doses were significantly higher (p = 0.047) in patients with spinal instrumentation.
+  CONCLUSION: The results show that CT-guided nusinersen injection is a relatively
+  safe procedure in terms of operator's radiation exposure. This can allow for interventional
+  radiologists to perform more procedures without exceeding their annual dose limit."
+raw_completion_output: |-
+  primary_disease: Spinal Muscular Atrophy
+  medical_actions: CT-guided intrathecal injections of nusinersen; Measuring radiation exposure in real time
+  symptoms: Scoliosis
+  chemicals: Nusinersen
+  action_annotation_relationships: CT-guided intrathecal injections of nusinersen TREATS Spinal Muscular Atrophy IN patients with scoliosis; Measuring radiation exposure in real time PREVENTS excessive radiation exposure IN Spinal Muscular Atrophy
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Measuring radiation exposure in real time PREVENTS excessive radiation exposure IN Spinal Muscular Atrophy
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0001516
+  medical_actions:
+    - CT-guided intrathecal injections of nusinersen
+    - Measuring radiation exposure in real time
+  symptoms:
+    - HP:0002650
+  chemicals:
+    - Nusinersen
+  action_annotation_relationships:
+    - subject: CT-guided intrathecal injections
+      predicate: TREATS
+      object: HP:0007269
+      qualifier: MONDO:0005392
+      object_qualifier: with scoliosis
+      subject_extension: nusinersen
+    - subject: Measuring radiation exposure in real time
+      predicate: PREVENTS
+      object: excessive radiation exposure
+      qualifier: MONDO:0001516
+named_entities:
+  - id: MONDO:0001516
+    label: Spinal Muscular Atrophy
+  - id: HP:0002650
+    label: Scoliosis
+  - id: HP:0007269
+    label: Spinal Muscular Atrophy
+  - id: MONDO:0005392
+    label: scoliosis

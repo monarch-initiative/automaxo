@@ -1,0 +1,198 @@
+---
+input_text: "Kartagener's syndrome: a case report. BACKGROUND: Kartagener's syndrome
+  is a subset of primary ciliary dyskinesia, an autosomal recessive inherited disorder
+  characterized by the clinical triad of chronic sinusitis, bronchiectasis, and situs
+  inversus. Abnormal ciliary structure or function leading to impaired ciliary motility
+  is the main pathophysiologic problem in Kartagener's syndrome. CASE PRESENTATION:
+  A 24-year-old man from Gondar town, North-West Ethiopia, presented to University
+  of Gondar Hospital with recurrent episodes of nasal congestion with itching and
+  paranasal discomfort, and productive cough for more than a decade. Clinical and
+  imaging findings revealed chronic sinusitis, bronchiectasis, dextrocardia, and situs
+  inversus. He was treated with orally administered antibiotics, mucolytic, and chest
+  physiotherapy. He was symptomatically better with the above therapy, and started
+  on a long-term low-dose prophylactic antibiotic. CONCLUSIONS: Patients with Kartagener's
+  syndrome exist in Ethiopia as cases of chronic recurrent sinopulmonary infections.
+  As there is no easy, reliable non-invasive diagnostic test for Kartagener's syndrome
+  and the correct diagnosis is often delayed by years, it may cause chronic respiratory
+  problems with reduced quality of life. Genetic counseling and fertility issues should
+  be addressed once Kartagener's syndrome is diagnosed."
+raw_completion_output: |-
+  primary_disease: Kartagener's syndrome
+
+  medical_actions: orally administered antibiotics; mucolytic; chest physiotherapy; long-term low-dose prophylactic antibiotic
+
+  symptoms: nasal congestion with itching; paranasal discomfort; productive cough; chronic sinusitis; bronchiectasis; situs inversus; dextrocardia
+
+  chemicals: antibiotics
+
+  action_annotation_relationships: orally administered antibiotics TREATS chronic sinusitis IN Kartagener's syndrome; orally administered antibiotics TREATS bronchiectasis IN Kartagener's syndrome; mucolytic TREATS productive cough IN Kartagener's syndrome; chest physiotherapy TREATS chronic sinusitis IN Kartagener's syndrome; chest physiotherapy TREATS bronchiectasis IN Kartagener's syndrome; long-term low-dose prophylactic antibiotic PREVENTS chronic sinusitis IN Kartagener's syndrome; long-term low-dose prophylactic antibiotic PREVENTS bronchiectasis IN Kartagener's syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  long-term low-dose prophylactic antibiotic PREVENTS bronchiectasis IN Kartagener's syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0016575
+  medical_actions:
+    - orally administered antibiotics
+    - mucolytic
+    - MAXO:0000516
+    - long-term low-dose prophylactic antibiotic
+  symptoms:
+    - nasal congestion with itching
+    - paranasal discomfort
+    - HP:0031245
+    - HP:0011109
+    - HP:0002110
+    - HP:0001696
+    - HP:0001651
+  chemicals:
+    - CHEBI:33281
+  action_annotation_relationships:
+    - subject: orally administered antibiotics
+      predicate: TREATS
+      object: HP:0011109
+      qualifier: MONDO:0016575
+      subject_qualifier: orally
+      subject_extension: CHEBI:33281
+    - subject: <orally administered antibiotics>
+      predicate: <TREATS>
+      object: <bronchiectasis>
+      qualifier: <Kartagener's syndrome>
+      subject_qualifier: <orally administered>
+      subject_extension: <antibiotics>
+    - subject: <mucolytic>
+      predicate: <TREATS>
+      object: <productive cough>
+      qualifier: <Kartagener's syndrome>
+      subject_extension: <mucolytic>
+    - subject: MAXO:0000516
+      predicate: TREATS
+      object: HP:0011109
+      qualifier: MONDO:0016575
+    - subject: MAXO:0000516
+      predicate: TREATS
+      object: HP:0002110
+      qualifier: MONDO:0016575
+    - subject: long-term low-dose prophylactic antibiotic
+      predicate: PREVENTS
+      object: HP:0000246
+      qualifier: MONDO:0016575
+      subject_qualifier: long-term low-dose
+      object_qualifier: chronic
+      subject_extension: prophylactic antibiotic
+      object_extension: chronic
+    - subject: prophylactic antibiotic
+      predicate: PREVENTS
+      object: HP:0002110
+      qualifier: MONDO:0016575
+      subject_qualifier: long-term low-dose
+      subject_extension: prophylactic antibiotic
+named_entities:
+  - id: MONDO:0008932
+    label: Primary ciliary dyskinesia (PCD)
+  - id: HP:0034315
+    label: Chronic cough
+  - id: HP:0002643
+    label: Neonatal respiratory distress
+  - id: MAXO:0000506
+    label: non-invasive ventilation (NIV)
+  - id: HP:0003251
+    label: Male infertility
+  - id: HP:0001696
+    label: Situs inversus
+  - id: MONDO:0004247
+    label: Peptic Ulcer Disease (PUD)
+  - id: MAXO:0001193
+    label: Upper gastrointestinal endoscopy
+  - id: HP:0002239
+    label: Gastrointestinal hemorrhage
+  - id: CHEBI:18361
+    label: Proton pump inhibitor (PPI)
+  - id: CHEBI:49200
+    label: Proton pump inhibitor
+  - id: HP:0002044
+    label: Zollinger-Ellison syndrome
+  - id: MONDO:0016575
+    label: Primary Ciliary Dyskinesia
+  - id: MONDO:0009061
+    label: Cystic Fibrosis
+  - id: CHEBI:33281
+    label: antibiotics
+  - id: HP:0012262
+    label: Abnormal ciliary motility
+  - id: CHEBI:41774
+    label: Tamoxifen
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0100750
+    label: atelectasis
+  - id: HP:0002878
+    label: respiratory failure
+  - id: HP:0011962
+    label: Obstructive azoospermia
+  - id: HP:0004395
+    label: malnutrition
+  - id: MONDO:0100096
+    label: COVID-19 infection
+  - id: MONDO:0008377
+    label: recurrent pneumonia (RP)
+  - id: MONDO:0005936
+    label: recurrent pneumonia
+  - id: HP:0000246
+    label: Sinusitis
+  - id: HP:0002110
+    label: Bronchiectasis
+  - id: MONDO:0018597
+    label: Plastic bronchitis
+  - id: CHEBI:29864
+    label: Mannitol
+  - id: CHEBI:28864
+    label: Tobramycin
+  - id: CHEBI:161680
+    label: Aztreonam
+  - id: CHEBI:37943
+    label: Colistin
+  - id: CHEBI:2637
+    label: Amikacin
+  - id: CHEBI:77034
+    label: mucolytics
+  - id: MONDO:0018677
+    label: heterotaxy
+  - id: MAXO:0025001
+    label: cardiac surgery
+  - id: MAXO:0000503
+    label: mechanical ventilation
+  - id: MAXO:0000504
+    label: tracheostomies
+  - id: HP:0001627
+    label: congenital heart disease
+  - id: HP:0001708
+    label: right-sided heart failure
+  - id: MAXO:0000003
+    label: Diagnostic testing
+  - id: MAXO:0000011
+    label: physiotherapy
+  - id: HP:0000388
+    label: otitis media
+  - id: HP:0031245
+    label: wet cough
+  - id: MAXO:0000516
+    label: chest physiotherapy
+  - id: HP:0011109
+    label: chronic sinusitis
+  - id: HP:0001651
+    label: dextrocardia
