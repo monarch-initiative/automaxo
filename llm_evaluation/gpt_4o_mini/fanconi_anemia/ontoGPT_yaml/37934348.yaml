@@ -1,0 +1,116 @@
+---
+input_text: Gastric cancer with Fanconi anemia in adolescent and young adult patient
+  diagnosed by comprehensive genome profiling using next-generation sequencing. Recently,
+  the results of gastric cancer treatment have improved; however, its characteristics
+  in adolescents and young adults are not well known. We report the case of a patient
+  with advanced gastric cancer, Fanconi anemia (FA), and primary biliary cholangitis.
+  A 26-year-old woman visited a local physician complaining of epigastralgia. Esophagogastroduodenoscopy
+  revealed edematous changes with poor distension and circumferential thickened folds
+  with erosions in the gastric body. Biopsy results of the lesion specimens revealed
+  poorly differentiated adenocarcinoma. Abdominal contrast-enhanced computed tomography
+  revealed gastric wall with irregular thickness, several nodules in the peritoneal
+  cavity, and a mass lesion in the right ovary. We diagnosed the patient with T4N2M1
+  stage IV gastric cancer accompanied by peritoneal and ovarian metastases and initiated
+  nivolumab with S-1 plus oxaliplatin as the first-line treatment regimen. Because
+  of immune-related adverse events after one course of systemic treatment, the regimen
+  was changed to ramucirumab combined with nab-paclitaxel chemotherapy as the second-line
+  treatment. After three cycles of weekly nab-paclitaxel with ramucirumab, the decreased
+  platelet count did not recover, and her general condition gradually deteriorated.
+  Comprehensive genome profiling using next-generation sequencing was performed to
+  determine the feasibility of genotype-matched therapies. Alterations in FA complementation
+  group A (FANCA) F1263del (49.1%) and E484Q (12.3%), which encode a key component
+  of the multiprotein FA complex, were identified. The patient died 10 months after
+  treatment initiation. In conclusion, when treating malignancies in adolescent and
+  young adult patients, the genomic background should be considered.
+raw_completion_output: |-
+  primary_disease: Gastric cancer  
+  medical_actions: comprehensive genome profiling; nivolumab treatment; S-1 treatment; oxaliplatin treatment; ramucirumab treatment; nab-paclitaxel chemotherapy  
+  symptoms: epigastralgia; poor distension; circumferential thickened folds; erosions; decreased platelet count; general condition deterioration  
+  chemicals: nivolumab; S-1; oxaliplatin; ramucirumab; nab-paclitaxel  
+  action_annotation_relationships: comprehensive genome profiling TREATS symptom in gastric cancer; nivolumab TREATS symptom in gastric cancer; S-1 TREATS symptom in gastric cancer; oxaliplatin TREATS symptom in gastric cancer; ramucirumab TREATS symptom in gastric cancer; nab-paclitaxel TREATS symptom in gastric cancer
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  nab-paclitaxel TREATS symptom in gastric cancer
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0001056
+  medical_actions:
+    - comprehensive genome profiling
+    - nivolumab treatment
+    - S-1 treatment
+    - oxaliplatin treatment
+    - ramucirumab treatment
+    - nab-paclitaxel chemotherapy
+  symptoms:
+    - epigastralgia
+    - poor distension
+    - circumferential thickened folds
+    - HP:0200041
+    - decreased platelet count
+    - general condition deterioration
+  chemicals:
+    - CHEBI:231614
+    - S-1
+    - CHEBI:31941
+    - ramucirumab
+    - nab-paclitaxel
+  action_annotation_relationships:
+    - subject: comprehensive genome profiling
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0001056
+      subject_extension: genome profiling
+      object_extension: symptom
+    - subject: TREATS
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0001056
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: CHEBI:231614
+      object_extension: None
+    - predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0001056
+    - predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0001056
+      subject_extension: CHEBI:31941
+    - predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0001056
+      subject_extension: ramucirumab
+    - predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0001056
+      subject_extension: nab-paclitaxel
+named_entities:
+  - id: MONDO:0001056
+    label: Gastric cancer
+    original_spans:
+      - 0:13
+      - 176:189
+      - 343:356
+      - 943:956
+  - id: HP:0200041
+    label: erosions
+    original_spans:
+      - 605:612
+  - id: CHEBI:31941
+    label: oxaliplatin
+    original_spans:
+      - 1045:1055

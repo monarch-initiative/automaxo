@@ -1,0 +1,94 @@
+---
+input_text: "Cannabidiol for the treatment of Lennox-Gastaut syndrome and Dravet syndrome:
+  experts' recommendations for its use in clinical practice in Spain. INTRODUCTION:
+  Cannabidiol (CBD) is one of the main components of the cannabis plant that has demonstrated
+  anti-epileptic seizure effect. Following its clinical development, in September
+  2019 the European Medicines Agency approved its indication for the adjunctive therapy
+  of epileptic seizures associated with Lennox-Gastaut syndrome (LGS) and Dravet syndrome
+  (DS), combined with clobazam (CLB), in patients of 2 years of age and older. AIM:
+  To establish recommendations on the use of plant-derived highly purified CBD on
+  which Spanish experts have reached consensus for the treatment of epilepsy in patients
+  with DS and LGS based on their clinical experience and the scientific evidence.
+  DEVELOPMENT: Consensus meeting with the participation of four Spanish neurologists
+  and neuropediatric who are experts in epilepsy secondary to DS and LGS and with
+  clinical experience in the use and management of CBD. They discussed on several
+  topics, including posology (starting dose, dose escalation schema), efficacy (assessment
+  of outcomes and indications for treatment withdrawal), and safety (evaluation, drug-drug
+  interactions, adverse events management). CONCLUSIONS: In order to optimise CBD
+  treatment, a slow dose escalation (= 4 weeks) is recommended until the maximum recommended
+  dose or the desire effect is reached. It is also recommended that the concomitant
+  antiseizure medications (ASMs) be reduced in case of adverse events due to interactions,
+  and that the treatment continues for at least 6 months if it is well tolerated.
+  The efficacy and safety of CBD must be assessed individually, considering the benefits
+  and risks for individual patients."
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Lennox-Gastaut syndrome; Dravet syndrome
+
+  medical_actions: adjunctive therapy with cannabidiol (CBD); concomitant antiseizure medications (ASMs) reduction; slow dose escalation of CBD; treatment continuation for at least 6 months
+
+  symptoms: epileptic seizures; adverse events
+
+  chemicals: cannabidiol (CBD); clobazam (CLB)
+
+  action_annotation_relationships: cannabidiol (CBD) TREATS epileptic seizures IN Lennox-Gastaut syndrome and Dravet syndrome; cannabidiol (CBD) + clobazam (CLB) TREATS epileptic seizures IN Lennox-Gastaut syndrome and Dravet syndrome; reduction of concomitant antiseizure medications (ASMs) PREVENTS adverse events IN Lennox-Gastaut syndrome and Dravet syndrome; slow dose escalation of cannabidiol (CBD) TREATS epileptic seizures IN Lennox-Gastaut syndrome and Dravet syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  slow dose escalation of cannabidiol (CBD) TREATS epileptic seizures IN Lennox-Gastaut syndrome and Dravet syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: Lennox-Gastaut syndrome; Dravet syndrome
+  medical_actions:
+    - adjunctive therapy with cannabidiol (CBD)
+    - concomitant antiseizure medications (ASMs) reduction
+    - slow dose escalation of CBD
+    - treatment continuation for at least 6 months
+  symptoms:
+    - HP:0001250
+    - adverse events
+  chemicals:
+    - CHEBI:69478
+    - CHEBI:31413
+  action_annotation_relationships:
+    - subject: MAXO:0001298
+      predicate: TREATS
+      object: HP:0001250
+      qualifier: Lennox-Gastaut syndrome and Dravet syndrome
+      subject_qualifier: using cannabidiol
+      object_qualifier: epileptic
+      subject_extension: CHEBI:69478
+      object_extension: epileptic
+    - subject: cannabidiol (CBD) + clobazam (CLB) therapy
+      predicate: TREATS
+      object: HP:0001250
+      qualifier: Lennox-Gastaut syndrome, Dravet syndrome
+      subject_qualifier: combined
+      subject_extension: cannabidiol, clobazam
+      object_extension: epileptic
+    - predicate: PREVENTS
+      object: adverse events
+      qualifier: Lennox-Gastaut syndrome and Dravet syndrome
+      subject_qualifier: concomitant
+    - subject: dose escalation
+      predicate: TREATS
+      object: HP:0001250
+      qualifier: Lennox-Gastaut syndrome and Dravet syndrome
+      subject_qualifier: slow
+      object_qualifier: epileptic
+      subject_extension: CHEBI:69478
+      object_extension: epileptic

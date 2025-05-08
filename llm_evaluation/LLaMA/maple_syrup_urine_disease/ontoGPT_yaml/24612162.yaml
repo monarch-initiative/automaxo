@@ -1,0 +1,115 @@
+---
+input_text: 'Utility of peritoneal dialysis in neonates affected by inborn errors
+  of metabolism. AIM: Some inborn errors of metabolism induce metabolic encephalopathy
+  through accumulation of neurotoxic metabolites. Rapid elimination of these metabolites
+  by peritoneal or extracorporeal dialysis is crucial to prevent neuronal damage or
+  death. In this retrospective study, we evaluated the outcomes of nine neonates with
+  metabolic crisis treated with peritoneal dialysis. METHOD: Six neonates with hyperammonemic
+  coma (four with organic acidemias, two with urea cycle disorders) and three with
+  leucine accumulation due to maple syrup urine disease (MSUD) were managed with peritoneal
+  dialysis in conjunction with dietary and pharmacological therapy. RESULTS: Three
+  patients with organic acidemia survived. One of the patients was normal; others
+  had moderate and severe neurological impairments. One neonate with organic acidemia
+  and both neonates with urea cycle disorders died. Two of the three patients with
+  MSUD survived without neurological impairment; the other had severe neurological
+  damage and died at 9 months of age due to sepsis. CONCLUSION: Theoretically, extracorporeal
+  dialysis should be the first dialysis treatment of choice; however, this report
+  demonstrates that peritoneal dialysis has a chance to prevent neurological damage
+  in some patients. Therefore, in developing countries without extracorporeal dialysis
+  opportunities, it can be still a life-saving procedure, if it is applied with skilled
+  staff and standard procedures.'
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: inborn errors of metabolism
+
+  medical_actions: peritoneal dialysis; extracorporeal dialysis; dietary therapy; pharmacological therapy
+
+  symptoms: metabolic encephalopathy; hyperammonemic coma; leucine accumulation; neuronal damage; neurological impairments; severe neurological damage; sepsis
+
+  chemicals: 
+
+  action_annotation_relationships: peritoneal dialysis TREATS metabolic encephalopathy IN inborn errors of metabolism; peritoneal dialysis TREATS hyperammonemic coma IN inborn errors of metabolism; peritoneal dialysis TREATS leucine accumulation IN maple syrup urine disease (MSUD); extracorporeal dialysis TREATS metabolic encephalopathy IN inborn errors of metabolism; dietary therapy TREATS metabolic encephalopathy IN inborn errors of metabolism; pharmacological therapy TREATS metabolic encephalopathy IN inborn errors of metabolism
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  pharmacological therapy TREATS metabolic encephalopathy IN inborn errors of metabolism
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0019052
+  medical_actions:
+    - MAXO:0000603
+    - extracorporeal dialysis
+    - dietary therapy
+    - pharmacological therapy
+  symptoms:
+    - metabolic encephalopathy
+    - hyperammonemic coma
+    - leucine accumulation
+    - neuronal damage
+    - neurological impairments
+    - severe neurological damage
+    - HP:0100806
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: metabolic encephalopathy
+      qualifier: MONDO:0019052
+    - predicate: TREATS
+      object: hyperammonemic coma
+      qualifier: MONDO:0019052
+    - subject: MAXO:0000603
+      predicate: TREATS
+      object: leucine accumulation
+      qualifier: MONDO:0009563
+      subject_extension: dialysis
+      object_extension: accumulation
+    - subject: extracorporeal dialysis
+      predicate: TREATS
+      object: HP:0001298
+      qualifier: MONDO:0019052
+      subject_qualifier: extracorporeal
+      object_qualifier: metabolic
+      subject_extension: dialysis
+      object_extension: metabolic
+    - predicate: TREATS
+      object: metabolic encephalopathy
+      qualifier: MONDO:0019052
+      subject_extension: dietary
+    - predicate: TREATS
+      object: metabolic encephalopathy
+      qualifier: MONDO:0019052
+      subject_extension: pharmacological
+named_entities:
+  - id: MONDO:0019052
+    label: inborn errors of metabolism
+    original_spans:
+      - 55:81
+      - 94:120
+  - id: MAXO:0000603
+    label: peritoneal dialysis
+    original_spans:
+      - 11:29
+      - 437:455
+      - 659:677
+      - 1267:1285
+  - id: HP:0100806
+    label: sepsis
+    original_spans:
+      - 1119:1124
+  - id: HP:0001298
+    label: encephalopathy
+    original_spans:
+      - 139:152

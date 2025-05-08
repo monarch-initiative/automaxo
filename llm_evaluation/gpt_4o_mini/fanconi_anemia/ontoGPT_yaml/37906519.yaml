@@ -1,0 +1,44 @@
+---
+input_text: 'In Utero Hematopoietic Cell Transplantation Leads to Sustained Engraftment
+  in a Mouse Model of Fanconi Anemia. '
+raw_completion_output: |-
+  primary_disease: Fanconi Anemia  
+  medical_actions: In Utero Hematopoietic Cell Transplantation  
+  symptoms: Sustained Engraftment  
+  chemicals: None  
+  action_annotation_relationships: In Utero Hematopoietic Cell Transplantation TREATS Sustained Engraftment IN Fanconi Anemia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  In Utero Hematopoietic Cell Transplantation TREATS Sustained Engraftment IN Fanconi Anemia
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0019391
+  medical_actions:
+    - In Utero Hematopoietic Cell Transplantation
+  symptoms:
+    - Sustained Engraftment
+  chemicals:
+    - None
+  action_annotation_relationships:
+    - subject: Utero Hematopoietic Cell Transplantation
+      predicate: TREATS
+      object: Sustained Engraftment
+      qualifier: MONDO:0019391
+      subject_qualifier: In
+      object_qualifier: None
+      subject_extension: Hematopoietic Cell Transplantation
+      object_extension: Engraftment

@@ -1,0 +1,95 @@
+---
+input_text: 'Pathological evaluation of renal complications in children following
+  allogeneic hematopoietic stem cell transplantation: a retrospective cohort study.
+  BACKGROUND: Allogeneic hematopoietic stem cell transplantation (allo-HSCT) is a
+  curative therapy for hematologic malignancies and non-malignant disorders, such
+  as aplastic anemia, fanconi anemia, and certain immune deficiencies. Post-transplantation
+  kidney injury is a common complication and involves a wide spectrum of structural
+  abnormalities, including glomerular (MSPGN, mesangial proliferative glomerulonephritis;
+  FSGS, focal segmental glomerulosclerosis; MPGN, membranoproliferative glomerulonephritis;
+  MCD, minimal change disease), vascular (TMA, thrombotic microangiopathy), and/or
+  tubulointerstitial (TIN, tubulointerstitial nephritis; ATI, acute tubular injury).
+  Renal biopsy is the gold-standard examination for defining multiple etiologies of
+  kidney impairment. Although kidney injury following HSCT has been studied, little
+  is known about the effects of allo-HSCT on renal pathology in pediatric patients.
+  METHODS: We retrospectively analyzed renal biopsy specimens from children with kidney
+  injury after allo-HSCT and correlated results with clinical data in the last 10
+  years. RESULTS: Among 25 children (18 males and 7 females), three patients had proteinuria
+  indicating nephrotic syndrome (24-hour urinary total protein/weight > 50 mg/kg/d),
+  nine patients had severely reduced estimated glomerular filtration rate (eGFR <
+  30 ml/min/1.73 m2) and four patients received kidney replacement therapy (KRT).
+  The main pathologies identified from kidney biopsies were MSPGN (n = 12), FSGS (n
+  = 12), MPGN (n = 5), TMA (n = 4), MCD (n = 3), diffuse glomerular fibrosis (DGF,
+  n = 2), ATI and TIN, in isolation or combined with other pathologies. The median
+  follow-up time was 16.5 (0.5 ~ 68.0) months. Three patients died of recurrent malignancy
+  and/or severe infection, one child developed to end-stage renal disease (ESRD),
+  six patients (24%) had elevated serum creatinine (SCr > 100micromol/l) and nine
+  patients (36%) still had proteinuria. CONCLUSIONS: This study evaluates histomorphologic
+  findings from kidney biopsies of pediatric recipients following allo-HSCT. Detailed
+  evaluation of renal biopsy samples is helpful to elucidate the nature of renal insult,
+  and may potentially identify treatable disease processes.'
+raw_completion_output: |-
+  primary_disease: allogeneic hematopoietic stem cell transplantation complications  
+  medical_actions: renal biopsy; kidney replacement therapy  
+  symptoms: proteinuria; severely reduced estimated glomerular filtration rate; elevated serum creatinine  
+  chemicals: none  
+  action_annotation_relationships: renal biopsy TREATS symptom (proteinuria) IN allogeneic hematopoietic stem cell transplantation complications; renal biopsy TREATS symptom (severely reduced estimated glomerular filtration rate) IN allogeneic hematopoietic stem cell transplantation complications; kidney replacement therapy TREATS symptom (elevated serum creatinine) IN allogeneic hematopoietic stem cell transplantation complications
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  kidney replacement therapy TREATS symptom (elevated serum creatinine) IN allogeneic hematopoietic stem cell transplantation complications
+
+  ===
+
+extracted_object:
+  primary_disease: allogeneic hematopoietic stem cell transplantation complications
+  medical_actions:
+    - renal biopsy
+    - MAXO:0000600
+  symptoms:
+    - HP:0000093
+    - severely reduced estimated glomerular filtration rate
+    - HP:0003259
+  chemicals:
+    - none
+  action_annotation_relationships:
+    - subject: renal biopsy
+      predicate: TREATS
+      object: HP:0000093
+      qualifier: allogeneic hematopoietic stem cell transplantation complications
+      subject_extension: renal biopsy
+      object_extension: proteinuria
+    - predicate: TREATS
+      object: severely reduced estimated glomerular filtration rate
+      qualifier: allogeneic hematopoietic stem cell transplantation complications
+    - subject: MAXO:0000600
+      predicate: TREATS
+      object: HP:0003259
+      qualifier: allogeneic hematopoietic stem cell transplantation complications
+      subject_extension: kidney replacement therapy
+      object_extension: elevated serum creatinine
+named_entities:
+  - id: MAXO:0000600
+    label: kidney replacement therapy
+    original_spans:
+      - 1537:1562
+  - id: HP:0000093
+    label: proteinuria
+    original_spans:
+      - 1316:1326
+      - 2089:2099
+  - id: HP:0003259
+    label: elevated serum creatinine
+    original_spans:
+      - 2007:2031

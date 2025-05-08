@@ -1,0 +1,118 @@
+---
+input_text: 'Molecular mechanisms in chloroquine-exposed muscle cells elucidated by
+  combined proteomic and microscopic studies. OBJECTIVES: Chloroquine (CQ) is an antimalarial
+  drug with a growing number of applications as recently demonstrated in attempts
+  to treat Covid-19. For decades, it has been well known that skeletal and cardiac
+  muscle cells might display vulnerability against CQ exposure resulting in the clinical
+  manifestation of a CQ-induced myopathy. In line with the known effect of CQ on inhibition
+  of the lysosomal function and thus cellular protein clearance, the build-up of autophagic
+  vacuoles along with protein aggregates is a histological hallmark of the disease.
+  Given that protein targets of the perturbed proteostasis are still not fully discovered,
+  we applied different proteomic and immunological-based studies to improve the current
+  understanding of the biochemical nature of CQ-myopathy. METHODS: To gain a comprehensive
+  understanding of the molecular pathogenesis of this acquired myopathy and to define
+  proteins targets as well as pathophysiological processes beyond impaired proteolysis,
+  utilising CQ-treated C2C12 cells and muscle biopsies derived from CQ-myopathy patients,
+  we performed different proteomic approaches and Coherent Anti-Stokes Raman Scattering
+  (CARS) microscopy, in addition to immunohistochemical studies. RESULTS: Our combined
+  studies confirmed an impact of CQ-exposure on proper protein processing/folding
+  and clearance, highlighted changes in the interactome of p62, a known aggregation
+  marker and hereby identified the Rett syndrome protein MeCP2 as being affected.
+  Moreover, our approach revealed-among others-a vulnerability of the extracellular
+  matrix, cytoskeleton and lipid homeostasis. CONCLUSION: We demonstrated that CQ
+  exposure (secondarily) impacts biological processes beyond lysosomal function and
+  linked a variety of proteins with known roles in the manifestation of other neuromuscular
+  diseases.'
+raw_completion_output: |-
+  primary_disease: CQ-induced myopathy  
+  medical_actions: proteomic studies; microscopic studies; immunological studies; microscopy  
+  symptoms: vulnerability of skeletal and cardiac muscle cells; build-up of autophagic vacuoles; protein aggregates  
+  chemicals: chloroquine  
+  action_annotation_relationships: proteomic studies TREATS vulnerability of skeletal and cardiac muscle cells IN CQ-induced myopathy; microscopic studies TREATS build-up of autophagic vacuoles IN CQ-induced myopathy; immunological studies TREATS protein aggregates IN CQ-induced myopathy; microscopy TREATS build-up of autophagic vacuoles IN CQ-induced myopathy; microscopy TREATS protein aggregates IN CQ-induced myopathy; treatment (with chloroquine) TREATS vulnerability of skeletal and cardiac muscle cells IN CQ-induced myopathy.
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  treatment (with chloroquine) TREATS vulnerability of skeletal and cardiac muscle cells IN CQ-induced myopathy.
+
+  ===
+
+extracted_object:
+  primary_disease: CQ-induced myopathy
+  medical_actions:
+    - proteomic studies
+    - microscopic studies
+    - immunological studies
+    - microscopy
+  symptoms:
+    - vulnerability of skeletal and cardiac muscle cells
+    - build-up of autophagic vacuoles
+    - protein aggregates
+  chemicals:
+    - CHEBI:3638
+  action_annotation_relationships:
+    - subject: TREATS
+      predicate: TREATS
+      object: vulnerability of skeletal and cardiac muscle cells
+      qualifier: CQ-induced myopathy
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: proteomic studies
+      object_extension: vulnerability
+    - subject: microscopic studies
+      predicate: TREATS
+      object: build-up of autophagic vacuoles
+      qualifier: MONDO:0005336
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: autophagic vacuoles
+      object_extension: CQ-induced
+    - subject: TREATS
+      predicate: TREATS
+      object: protein aggregates
+      qualifier: CQ-induced myopathy
+      subject_extension: immunological studies
+      object_extension: protein aggregates
+    - subject: microscopy
+      predicate: TREATS
+      object: build-up of autophagic vacuoles
+      qualifier: CQ-induced myopathy
+      subject_extension: microscopy
+      object_extension: build-up of autophagic vacuoles
+    - subject: microscopy
+      predicate: TREATS
+      object: protein aggregates
+      qualifier: CQ-induced myopathy
+      subject_extension: microscopy
+      object_extension: protein aggregates
+    - subject: treatment
+      predicate: TREATS
+      object: vulnerability of skeletal and cardiac muscle cells
+      qualifier: CQ-induced myopathy
+      subject_qualifier: with chloroquine
+      object_qualifier: skeletal and cardiac
+      subject_extension: CHEBI:3638
+      object_extension: vulnerability
+named_entities:
+  - id: CHEBI:3638
+    label: chloroquine
+    original_spans:
+      - 24:34
+      - 127:137
+  - id: MONDO:0005336
+    label: myopathy
+    original_spans:
+      - 441:448
+      - 894:901
+      - 998:1005
+      - 1176:1183

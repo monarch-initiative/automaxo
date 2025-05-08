@@ -1,0 +1,101 @@
+---
+input_text: Treatment with the Bacterial Toxin CNF1 Selectively Rescues Cognitive
+  and Brain Mitochondrial Deficits in a Female Mouse Model of Rett Syndrome Carrying
+  a MeCP2-Null Mutation. Rett syndrome (RTT) is a rare neurological disorder caused
+  by mutations in the X-linked MECP2 gene and a major cause of intellectual disability
+  in females. No cure exists for RTT. We previously reported that the behavioural
+  phenotype and brain mitochondria dysfunction are widely rescued by a single intracerebroventricular
+  injection of the bacterial toxin CNF1 in a RTT mouse model carrying a truncating
+  mutation of the MeCP2 gene (MeCP2-308 mice). Given the heterogeneity of MECP2 mutations
+  in RTT patients, we tested the CNF1 therapeutic efficacy in a mouse model carrying
+  a null mutation (MeCP2-Bird mice). CNF1 selectively rescued cognitive defects, without
+  improving other RTT-related behavioural alterations, and restored brain mitochondrial
+  respiratory chain complex activity in MeCP2-Bird mice. To shed light on the molecular
+  mechanisms underlying the differential CNF1 effects on the behavioural phenotype,
+  we compared treatment effects on relevant signalling cascades in the brain of the
+  two RTT models. CNF1 provided a significant boost of the mTOR activation in MeCP2-308
+  hippocampus, which was not observed in the MeCP2-Bird model, possibly explaining
+  the differential effects of CNF1. These results demonstrate that CNF1 efficacy depends
+  on the mutation beared by MeCP2-mutated mice, stressing the need of testing potential
+  therapeutic approaches across RTT models.
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Rett syndrome
+
+  medical_actions: intracerebroventricular injection of CNF1; treatment with CNF1
+
+  symptoms: cognitive defects; behavioural alterations; brain mitochondrial dysfunction; brain mitochondrial respiratory chain complex activity deficits; intellectual disability
+
+  chemicals: CNF1; mTOR
+
+  action_annotation_relationships: CNF1 TREATS cognitive defects IN Rett syndrome; CNF1 RESTORES brain mitochondrial respiratory chain complex activity IN Rett syndrome; CNF1 TREATS brain mitochondrial dysfunction IN Rett syndrome; CNF1 (with mTOR activation) TREATS behavioural phenotype IN Rett syndrome (MeCP2-308 mice); CNF1 (without mTOR activation) DOES NOT TREAT behavioural phenotype IN Rett syndrome (MeCP2-Bird mice)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  CNF1 (without mTOR activation) DOES NOT TREAT behavioural phenotype IN Rett syndrome (MeCP2-Bird mice)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010726
+  medical_actions:
+    - intracerebroventricular injection of CNF1
+    - treatment with CNF1
+  symptoms:
+    - HP:0100543
+    - behavioural alterations
+    - brain mitochondrial dysfunction
+    - brain mitochondrial respiratory chain complex activity deficits
+    - HP:0001249
+  chemicals:
+    - CNF1
+    - mTOR
+  action_annotation_relationships:
+    - subject: Therapy or treatment
+      predicate: TREATS
+      object: HP:0100543
+      qualifier: MONDO:0010726
+      subject_extension: CNF1
+      object_extension: cognitive defects
+    - predicate: RESTORES
+      object: brain mitochondrial respiratory chain complex activity
+      qualifier: MONDO:0010726
+      subject_qualifier: CNF1
+      subject_extension: CNF1
+    - predicate: TREATS
+      object: brain mitochondrial dysfunction
+      qualifier: MONDO:0010726
+      subject_extension: CNF1
+    - subject: CNF1
+      predicate: TREATS
+      object: behavioural phenotype
+      qualifier: MONDO:0010726
+      subject_qualifier: with mTOR activation
+      object_qualifier: IN MeCP2-308 mice
+      subject_extension: CNF1
+      object_extension: behavioural phenotype
+    - subject: therapy with CNF1
+      predicate: DOES NOT TREAT
+      object: behavioural phenotype
+      qualifier: MONDO:0010726
+      subject_qualifier: without mTOR activation
+      object_qualifier: in MeCP2-Bird mice
+      subject_extension: CNF1
+      object_extension: behavioural phenotype
+named_entities:
+  - id: HP:0100543
+    label: cognitive defects
+    original_spans:
+      - 812:828

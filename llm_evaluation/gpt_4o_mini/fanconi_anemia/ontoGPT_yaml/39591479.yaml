@@ -1,0 +1,78 @@
+---
+input_text: '[Application of gene therapy in the treatment of hematological diseases:
+  achievements, and economic and ethical aspects of the topic]. The discovery of the
+  structure of DNA and the mechanisms that regulate gene expression during the first
+  half of the last century established the theoretical and methodological bases for
+  the development of technology that makes it possible to modify a gene or a genome.
+  The clinical application of techniques that modify the expression of a gene is called
+  gene therapy (GT). These techniques include platforms (viral and non-viral) that
+  bring genetic modification systems or healthy genes to the target cells. ClinicalTrial.gov
+  is a repository of clinical trials that incorporates protocols using TG. In this
+  work, a systematic review of the works registered in ClinicalTrial.gov on the use
+  of TG in hematological diseases was carried out. A total of 41 GT-related clinical
+  trials were found most of which were registered in the United States of America
+  (56.1%). On the other hand, 41.46% of the protocols obtained private funding. Of
+  50% of all pathologies, only diseases of hematological origin of monogenic origin
+  (hemophilia A, hemophilia B, and Fanconi anemia) received TG. On the other hand,
+  the number of clinical protocols registered by country was positively correlated
+  with economic development, scientific development, investment in health per capita,
+  and quality of life. Finally, there are still many bioethical, social, political,
+  and economic controversies that must be solved.'
+raw_completion_output: |-
+  primary_disease: hematological diseases  
+  medical_actions: gene therapy  
+  symptoms: hemophilia A; hemophilia B; Fanconi anemia  
+  chemicals: None  
+  action_annotation_relationships: gene therapy TREATS symptom hemophilia A IN hematological diseases; gene therapy TREATS symptom hemophilia B IN hematological diseases; gene therapy TREATS symptom Fanconi anemia IN hematological diseases  
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  gene therapy TREATS symptom Fanconi anemia IN hematological diseases
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005570
+  medical_actions:
+    - MAXO:0001001
+  symptoms:
+    - HP:0003125
+    - hemophilia B
+    - Fanconi anemia
+  chemicals:
+    - None
+  action_annotation_relationships:
+    - subject: MAXO:0001001
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0005570
+      subject_extension: gene therapy
+      object_extension: hemophilia A
+    - predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0010604
+      subject_extension: gene therapy
+    - predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0019391
+      subject_extension: gene therapy
+named_entities:
+  - id: HP:0003125
+    label: hemophilia A
+    original_spans:
+      - 1152:1163
+  - id: MONDO:0010604
+    label: hemophilia B
+    original_spans:
+      - 1166:1177

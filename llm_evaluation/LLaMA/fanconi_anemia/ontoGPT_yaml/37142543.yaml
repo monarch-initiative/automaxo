@@ -1,0 +1,109 @@
+---
+input_text: 'Beyond current treatment of Fanconi Anemia: What do advances in cell
+  and gene-based approaches offer? Fanconi anemia (FA) is a rare inherited disorder
+  that mainly affects the bone marrow. This condition causes decreased production
+  of all types of blood cells. FA is caused by a defective repair of DNA interstrand
+  crosslinks and to date, mutations in over 20 genes have been linked to the disease.
+  Advances in science and molecular biology have provided new insight between FA gene
+  mutations and the severity of clinical manifestations. Here, we will highlight the
+  current and promising therapeutic options for this rare disease. The current standard
+  treatment for FA patients is hematopoietic stem cell transplantation, a treatment
+  associated to exposure to radiation or chemotherapy, immunological complications,
+  plus opportunistic infections from prolonged immune incompetence or increased risk
+  of morbidity. New arising treatments include gene addition therapy, genome editing
+  using CRISPR-Cas9 nuclease, and hematopoietic stem cell generation from induced
+  pluripotent stem cells. Finally, we will also discuss the revolutionary developments
+  in mRNA therapeutics as an opportunity for this disease.'
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Fanconi Anemia
+
+  medical_actions: hematopoietic stem cell transplantation; gene addition therapy; genome editing using CRISPR-Cas9 nuclease; hematopoietic stem cell generation from induced pluripotent stem cells; mRNA therapeutics; chemotherapy; radiation
+
+  symptoms: decreased production of all types of blood cells; opportunistic infections; immune incompetence; morbidity; immunological complications
+
+  chemicals: CRISPR-Cas9 nuclease; mRNA; chemotherapy; radiation
+
+  action_annotation_relationships: hematopoietic stem cell transplantation TREATS decreased production of all types of blood cells IN Fanconi Anemia; gene addition therapy TREATS Fanconi Anemia; genome editing using CRISPR-Cas9 nuclease TREATS Fanconi Anemia; hematopoietic stem cell generation from induced pluripotent stem cells TREATS decreased production of all types of blood cells IN Fanconi Anemia; mRNA therapeutics TREATS Fanconi Anemia; chemotherapy PREVENTS opportunistic infections IN Fanconi Anemia; radiation PREVENTS opportunistic infections IN Fanconi Anemia; hematopoietic stem cell transplantation PREVENTS morbidity IN Fanconi Anemia; chemotherapy TREATS Fanconi Anemia; radiation TREATS Fanconi Anemia
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  radiation TREATS Fanconi Anemia
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0019391
+  medical_actions:
+    - MAXO:0000747
+    - gene addition therapy
+    - genome editing using CRISPR-Cas9 nuclease
+    - hematopoietic stem cell generation from induced pluripotent stem cells
+    - mRNA therapeutics
+    - MAXO:0000647
+    - MAXO:0000014
+  symptoms:
+    - decreased production of all types of blood cells
+    - HP:0031690
+    - immune incompetence
+    - morbidity
+    - immunological complications
+  chemicals:
+    - CRISPR-Cas9 nuclease
+    - CHEBI:33699
+    - chemotherapy
+    - radiation
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: decreased production of all types of blood cells
+      qualifier: MONDO:0019391
+      subject_extension: hematopoietic
+    - predicate: TREATS
+      object: HP:0001903
+      qualifier: Fanconi
+      subject_extension: gene addition
+    - predicate: TREATS
+      object: Fanconi Anemia
+    - predicate: TREATS
+      object: decreased production of all types of blood cells
+      qualifier: MONDO:0019391
+      subject_extension: hematopoietic stem cell
+    - predicate: TREATS
+      object: Fanconi Anemia
+    - predicate: PREVENTS
+      object: HP:0031690
+      qualifier: MONDO:0019391
+      subject_extension: chemotherapy
+    - predicate: PREVENTS
+      object: HP:0031690
+      qualifier: MONDO:0019391
+    - predicate: PREVENTS
+      object: morbidity
+      qualifier: MONDO:0019391
+    - predicate: TREATS
+      object: Fanconi Anemia
+      qualifier: MONDO:0019391
+    - predicate: TREATS
+      object: symptoms of Anemia
+      qualifier: MONDO:0019391
+named_entities:
+  - id: HP:0031690
+    label: opportunistic infections
+    original_spans:
+      - 820:843
+  - id: CHEBI:33699
+    label: mRNA
+    original_spans:
+      - 1149:1152

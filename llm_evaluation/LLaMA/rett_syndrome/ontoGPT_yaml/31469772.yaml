@@ -1,0 +1,72 @@
+---
+input_text: 'Monitoring Procedural Pain and Distress in a Child With Rett Syndrome:
+  A Case Report. BACKGROUND AND PURPOSE: Whole body vibration training is a viable
+  option for children with Rett syndrome; however, the positioning requirements and
+  intense vibration may be interpreted as pain. CASE: A 13-year-old girl with a diagnosis
+  of Rett syndrome, Stage IV, participated. The Individualized Numeric Rating Scale
+  was developed in collaboration with the caregiver and scored by a physical therapist
+  and student physical therapists during 16 sessions of whole body vibration training.
+  OUTCOMES: The therapist and students reached 100% agreement on the Individualized
+  Numeric Rating Scale ratings and successfully provided distractions to prevent pain
+  and distress from reaching a level 5 out of 10 for 139 of 144 sessions. CONCLUSION:
+  This is the first case in the literature to demonstrate use of the Individualized
+  Numeric Rating Scale with a child who is nonverbal during a potentially painful
+  physical therapy procedure.'
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Rett Syndrome
+
+  medical_actions: whole body vibration training; distractions
+
+  symptoms: pain; distress
+
+  chemicals: 
+
+  action_annotation_relationships: whole body vibration training MAY CAUSE pain IN Rett Syndrome; distractions PREVENTS pain IN Rett Syndrome; distractions PREVENTS distress IN Rett Syndrome 
+
+  Note that I did not include any chemical or drug names in the relationships as there were none mentioned in the text. Also, I used "MAY CAUSE" for the relationship between whole body vibration training and pain, as the text suggests that the vibration "may be interpreted as pain", but it's not a direct causal relationship.
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  distractions PREVENTS distress IN Rett Syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010726
+  medical_actions:
+    - whole body vibration training
+    - distractions
+  symptoms:
+    - HP:0012531
+    - distress
+  action_annotation_relationships:
+    - predicate: CAUSES
+      object: HP:0012531
+      qualifier: MONDO:0010726
+    - predicate: PREVENTS
+      object: HP:0012531
+      qualifier: MONDO:0010726
+    - predicate: PREVENTS
+      object: distress
+      qualifier: MONDO:0010726
+named_entities:
+  - id: HP:0012531
+    label: pain
+    original_spans:
+      - 22:25
+      - 274:277
+      - 735:738
+      - 978:981

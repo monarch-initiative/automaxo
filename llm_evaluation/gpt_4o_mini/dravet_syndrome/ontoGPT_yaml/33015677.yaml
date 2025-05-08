@@ -1,0 +1,94 @@
+---
+input_text: 'Seizures following vaccination in children: Risks, outcomes and management
+  of subsequent revaccination. BACKGROUND: Seizures and status epilepticus can occur
+  within 14 days following administration of inactivated and live-attenuated vaccines.
+  These vaccine-proximate seizures can undermine parental confidence in vaccine safety
+  and affect further vaccination decisions. Vaccine-proximate status epilepticus (VP-SE)
+  is uncommon but may be the first manifestation of genetic developmental epileptic
+  encephalopathies, including Dravet syndrome. OBJECTIVE: The aim of this article
+  is to review current literature on the risks and outcomes of vaccine-proximate seizures
+  and, using two clinical scenarios, outline management of subsequent revaccination.
+  DISCUSSION: Vaccine-proximate seizures require careful evaluation of the vaccine(s)
+  involved, seizure type and duration to determine a safe course for revaccination.
+  Vaccine-proximate febrile seizures (VP-FSs) have similar outcomes to other febrile
+  seizures and are not associated with increased developmental or behavioural concerns.
+  Vaccination for children with VP-FSs can occur safely in the community. However,
+  VP-SE cases warrant prompt specialist review, consideration of genetic epilepsy
+  testing and referral to a specialist immunisation clinic for subsequent vaccination
+  under medical supervision.'
+raw_completion_output: |-
+  primary_disease: Vaccine-proximate seizures  
+  medical_actions: careful evaluation of vaccines; revaccination; specialist review; genetic epilepsy testing; referral to a specialist immunisation clinic  
+  symptoms: seizures; status epilepticus; febrile seizures  
+  chemicals: None  
+  action_annotation_relationships: careful evaluation of vaccines TREATS symptom seizures IN vaccine-proximate seizures; revaccination TREATS symptom febrile seizures IN vaccine-proximate seizures; specialist review TREATS symptom status epilepticus IN vaccine-proximate seizures; genetic epilepsy testing TREATS symptom status epilepticus IN vaccine-proximate seizures; referral to a specialist immunisation clinic TREATS symptom febrile seizures IN vaccine-proximate seizures  
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  referral to a specialist immunisation clinic TREATS symptom febrile seizures IN vaccine-proximate seizures
+
+  ===
+
+extracted_object:
+  primary_disease: Vaccine-proximate seizures
+  medical_actions:
+    - careful evaluation of vaccines
+    - revaccination
+    - specialist review
+    - genetic epilepsy testing
+    - referral to a specialist immunisation clinic
+  symptoms:
+    - HP:0001250
+    - HP:0002133
+    - HP:0002373
+  chemicals:
+    - None
+  action_annotation_relationships:
+    - subject: careful evaluation of vaccines
+      predicate: TREATS
+      object: HP:0001250
+      qualifier: vaccine-proximate seizures
+      subject_qualifier: <not provided>
+      object_qualifier: <not provided>
+      subject_extension: vaccine
+      object_extension: vaccines
+    - subject: revaccination
+      predicate: TREATS
+      object: HP:0002373
+      qualifier: vaccine-proximate seizures
+      subject_extension: revaccination
+      object_extension: vaccine-proximate seizures
+    - subject: specialist review
+      predicate: TREATS
+      object: symptom status epilepticus
+      qualifier: vaccine-proximate seizures
+      subject_qualifier: <none>
+      object_qualifier: <none>
+      subject_extension: <none>
+      object_extension: <none>
+    - subject: genetic epilepsy testing
+      predicate: TREATS
+      object: symptom status epilepticus
+      subject_extension: genetic epilepsy testing
+      object_extension: vaccine-proximate seizures
+    - predicate: TREATS
+      object: HP:0002373
+      qualifier: vaccine-proximate seizures
+      subject_extension: immunisation
+named_entities:
+  - id: HP:0002373
+    label: febrile seizures
+    original_spans:
+      - 932:947
+      - 989:1004

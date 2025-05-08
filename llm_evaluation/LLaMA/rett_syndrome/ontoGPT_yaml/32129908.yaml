@@ -1,0 +1,101 @@
+---
+input_text: 'Neurophysiological Signatures of Motor Impairment in Patients with Rett
+  Syndrome. OBJECTIVE: Rett syndrome (RTT) is an X-linked dominant neurodevelopmental
+  disorder due to pathogenic mutations in the MECP2 gene. Motor impairment constitutes
+  the core diagnostic feature of RTT. Preclinical studies have consistently demonstrated
+  alteration of excitation/inhibition (E/I) balance and aberrant synaptic plasticity
+  at the cortical level. We aimed to understand neurobiological mechanisms underlying
+  motor deficit by assessing in vivo synaptic plasticity and E/I balance in the primary
+  motor cortex (M1). METHODS: In 14 patients with typical RTT, 9 epilepsy control
+  patients, and 11 healthy controls, we applied paired-pulse transcranial magnetic
+  stimulation (TMS) protocols to evaluate the excitation index, a biomarker reflecting
+  the contribution of inhibitory and facilitatory circuits in M1. Intermittent TMS-theta
+  burst stimulation was used to probe long-term potentiation (LTP)-like plasticity
+  in M1. Motor impairment, assessed by ad hoc clinical scales, was correlated with
+  neurophysiological metrics. RESULTS: RTT patients displayed a significant increase
+  of the excitation index (p = 0.003), as demonstrated by the reduction of short-interval
+  intracortical inhibition and increase of intracortical facilitation, suggesting
+  a shift toward cortical excitation likely due to GABAergic dysfunction. Impairment
+  of inhibitory circuits was also confirmed by the reduction of long-interval intracortical
+  inhibition (p = 0.002). LTP-like plasticity in M1 was abolished (p = 0.008) and
+  scaled with motor disability (all p = 0.003). INTERPRETATION: TMS is a method that
+  can be used to assess cortical motor function in RTT patients. Our findings support
+  the introduction of TMS measures in clinical and research settings to monitor the
+  progression of motor deficit and response to treatment. ANN NEUROL 2020;87:763-773.'
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Rett Syndrome
+
+  medical_actions: paired-pulse transcranial magnetic stimulation (TMS); intermittent TMS-theta burst stimulation; TMS-theta burst stimulation; clinical scales
+
+  symptoms: motor impairment; motor deficit; epilepsy; cortical excitation; GABAergic dysfunction; impairment of inhibitory circuits
+
+  chemicals: MECP2 gene; GABA
+
+  action_annotation_relationships: Rett Syndrome has symptom motor impairment; paired-pulse transcranial magnetic stimulation (TMS) TREATS motor impairment IN Rett Syndrome; intermittent TMS-theta burst stimulation TREATS motor deficit IN Rett Syndrome; MECP2 gene mutation CAUSES Rett Syndrome; GABAergic dysfunction CAUSES cortical excitation IN Rett Syndrome; TMS measures TREATS monitoring of motor deficit progression IN Rett Syndrome.
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  TMS measures TREATS monitoring of motor deficit progression IN Rett Syndrome.
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010726
+  medical_actions:
+    - MAXO:0001610
+    - intermittent TMS-theta burst stimulation
+    - TMS-theta burst stimulation
+    - clinical scales
+  symptoms:
+    - motor impairment
+    - motor deficit
+    - HP:0001250
+    - cortical excitation
+    - GABAergic dysfunction
+    - impairment of inhibitory circuits
+  chemicals:
+    - MECP2 gene
+    - CHEBI:16865
+  action_annotation_relationships:
+    - object: motor impairment
+      qualifier: MONDO:0010726
+    - predicate: TREATS
+      object: motor impairment
+      qualifier: MONDO:0010726
+    - predicate: TREATS
+      object: motor deficit
+      qualifier: MONDO:0010726
+      subject_qualifier: intermittent
+      subject_extension: TMS-theta burst stimulation
+    - predicate: CAUSES
+      object: Rett Syndrome
+      subject_extension: gene mutation
+    - predicate: CAUSES
+      object: cortical excitation
+      qualifier: MONDO:0010726
+      subject_extension: GABAergic
+    - predicate: TREATS
+      object: monitoring of motor deficit progression
+      qualifier: MONDO:0010726
+named_entities:
+  - id: MAXO:0001610
+    label: paired-pulse transcranial magnetic stimulation (TMS)
+    original_spans:
+      - 707:758
+  - id: CHEBI:16865
+    label: GABA
+    original_spans:
+      - 1376:1379

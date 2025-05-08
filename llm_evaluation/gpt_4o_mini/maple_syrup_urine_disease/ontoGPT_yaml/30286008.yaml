@@ -1,0 +1,98 @@
+---
+input_text: "Red Blood Cell Transfusion in Pediatric Orthotopic Liver Transplantation:
+  What a Difference a Few Decades Make. BACKGROUND: Liver transplantation in children
+  is often associated with coagulopathy and significant blood loss. Available data
+  are limited. In this observational retrospective study, we assessed transfusion
+  practices in pediatric patients undergoing liver transplantation at a single institution
+  over the course of 9 years. METHODS: Data were retrospectively collected from patient
+  medical records at the Children's Hospital of Pittsburgh of University of Pittsburgh
+  Medical Center. All patients who underwent liver transplantation from January 2008
+  to June 2017 were included. Primary and secondary outcomes were volume of red blood
+  cells (RBCs) transfused and mortality, respectively. RESULTS: From January 2008
+  to June 2017, there were 278 liver transplants in 271 patients. The number of primary
+  transplants were 259, second retransplants 15, and third retransplants 4. Average
+  age at transplantation was 6.9 years. Biliary atresia, maple syrup urine disease,
+  urea cycle defect, and liver tumor were the leading indications accounting for 66
+  (23.7%), 45 (16.2%), 24 (8.6%), and 23 (8.3%) of transplants, respectively. Seventy-six
+  cases (27.3%) did not require RBC transfusions. Among those transfused, 181 (89.6%)
+  of the cases required <1 blood volume (BV). The median BV transfused among all cases
+  was 0.21 (range, 0-9; Q1, 0; Q3, 0.45). There is a trend toward higher volume transfusions
+  among infants (median, 0.46 BV) compared to children >12 months of age (0.12 BV).
+  By diagnosis, the group requiring the highest median volume transfusion was patients
+  with total parenteral nutrition-related liver failure (3.41 BV) followed by patients
+  undergoing repeat transplants (0.6 BV). Comparison of primary versus repeat transplants
+  shows a trend toward higher volume transfusions in third transplants (median, 2.71
+  BV), compared to second transplants (0.43 BV) and primary transplants (0.18 BV).
+  Four of 271 patients (1.5%) died during admission involving liver transplantation.
+  Nine of 271 patients (3.3%) died subsequently. Total mortality was 4.8%. CONCLUSIONS:
+  In contrast to historically reported trends, evaluation of current transfusion practices
+  reveals that most patients undergoing liver transplantation receive <1 BV of packed
+  RBCs. More than 1 in 4 transplantations require no transfusion at all. Risk factors
+  for greater transfusion need include younger age, total parenteral nutrition-related
+  liver failure, and repeat transplantation."
+raw_completion_output: |-
+  primary_disease: Liver transplantation  
+  medical_actions: Red blood cell (RBC) transfusion; assessment of transfusion practices  
+  symptoms: Coagulopathy; significant blood loss; liver failure  
+  chemicals: None  
+  action_annotation_relationships: RBC transfusion TREATS symptom (coagulopathy) IN Liver transplantation; RBC transfusion TREATS symptom (significant blood loss) IN Liver transplantation; assessment of transfusion practices PREVENTS symptom (liver failure) IN Liver transplantation
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  assessment of transfusion practices PREVENTS symptom (liver failure) IN Liver transplantation
+
+  ===
+
+extracted_object:
+  primary_disease: Liver transplantation
+  medical_actions:
+    - Red blood cell (RBC) transfusion
+    - assessment of transfusion practices
+  symptoms:
+    - HP:0003256
+    - significant blood loss
+    - HP:0001399
+  chemicals:
+    - None
+  action_annotation_relationships:
+    - subject: RBC transfusion
+      predicate: TREATS
+      object: HP:0003256
+      qualifier: Liver transplantation
+      subject_extension: RBC transfusion
+      object_extension: coagulopathy
+    - subject: RBC transfusion
+      predicate: TREATS
+      object: significant blood loss
+      qualifier: Liver transplantation
+      subject_extension: RBC transfusion
+      object_extension: significant blood loss
+    - subject: assessment of transfusion practices
+      predicate: PREVENTS
+      object: symptom
+      qualifier: Liver transplantation
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: transfusion practices
+      object_extension: liver failure
+named_entities:
+  - id: HP:0003256
+    label: Coagulopathy
+    original_spans:
+      - 183:194
+  - id: HP:0001399
+    label: liver failure
+    original_spans:
+      - 1713:1725
+      - 2521:2533

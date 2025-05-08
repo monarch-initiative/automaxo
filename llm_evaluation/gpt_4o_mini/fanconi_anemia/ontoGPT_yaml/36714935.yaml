@@ -1,0 +1,99 @@
+---
+input_text: '[STEM CELL TRANSPLANTATIONS FOR PATIENTS WITH FANCONI ANEMIA: AN ISRAELI
+  TERTIARY CENTER EXPERIENCE]. INTRODUCTION: Fanconi anemia (FA) is a rare genetic
+  syndrome characterized by increased chromosomal breakage, congenital anomalies,
+  bone marrow failure and an increased tendency to develop malignancies. Allogeneic
+  hematopoietic stem cell transplantation (HSCT) is the only curative treatment for
+  bone marrow failure and the hematologic malignancies these patients develop. Given
+  the sensitivity of FA patients to chemotherapy and radiation, as to the clinical
+  symptoms of graft versus host disease (GvHD), HSCT in these patients is challenging.
+  Since the mid-nineties, HSCT for FA patients is performed in our center by using
+  the fludarabine based reduced-intensity protocol. AIMS: To summarize the results
+  of HSCT for patients with FA using a fludarabine based reduced-intensity conditioning
+  regimen at the Hadassah Medical Center. METHODS: This retrospective research is
+  based on the collection and analysis of clinical and laboratory data from the medical
+  records of patients. RESULTS: Since June 1996 up till February 2020, 39 patients
+  with FA underwent 43 HSCTs with a fludarabine based protocol at the Hadassah Medical
+  Center. Four patients required a second transplant due to primary engraftment failure.
+  Nine patients (23%) suffered from acute GvHD, four of them severe. Eight patients
+  (20%) developed chronic GvHD, two with an extensive and debilitating disease. Thirty-three
+  (85%) of the patients survived and six died, five shortly after the transplant,
+  and one twenty years later from malignancy. CONCLUSIONS: Our results show high survival
+  rates with low rates of engraftment failure and reasonable rates of GvHD. DISCUSSION:
+  As of today, there is an effective and safe treatment for patients with FA who require
+  HSCT by using a fludarabine-based reduced-intensity conditioning regimen, with high
+  survival rates and few complications.'
+raw_completion_output: |-
+  primary_disease: Fanconi anemia  
+  medical_actions: Allogeneic hematopoietic stem cell transplantation (HSCT); fludarabine based reduced-intensity protocol  
+  symptoms: increased chromosomal breakage; congenital anomalies; bone marrow failure; graft versus host disease (GvHD); acute GvHD; chronic GvHD  
+  chemicals: fludarabine  
+  action_annotation_relationships: treatment (with fludarabine) TREATS symptom bone marrow failure IN Fanconi anemia; treatment (with fludarabine) TREATS symptom graft versus host disease (GvHD) IN Fanconi anemia; treatment (with fludarabine) TREATS symptom acute GvHD IN Fanconi anemia; treatment (with fludarabine) TREATS symptom chronic GvHD IN Fanconi anemia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  treatment (with fludarabine) TREATS symptom chronic GvHD IN Fanconi anemia
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0019391
+  medical_actions:
+    - MAXO:0000747
+    - fludarabine based reduced-intensity protocol
+  symptoms:
+    - HP:0040012
+    - HP:0034057
+    - HP:0005528
+    - graft versus host disease (GvHD)
+    - acute GvHD
+    - chronic GvHD
+  chemicals:
+    - fludarabine
+  action_annotation_relationships:
+    - subject: treatment
+      predicate: TREATS
+      object: HP:0005528
+      qualifier: MONDO:0019391
+      subject_qualifier: with fludarabine
+      object_qualifier: N/A
+      subject_extension: fludarabine
+      object_extension: N/A
+    - subject: treatment
+      predicate: TREATS
+      object: graft versus host disease
+      qualifier: MONDO:0019391
+      subject_qualifier: with fludarabine
+      subject_extension: fludarabine
+      object_extension: GvHD
+    - subject: treatment
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0019391
+      subject_qualifier: (with fludarabine)
+      object_qualifier: acute GvHD
+      subject_extension: fludarabine
+      object_extension: acute GvHD
+    - subject: treatment
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0019391
+      subject_qualifier: with fludarabine
+      subject_extension: fludarabine
+      object_extension: chronic GvHD
+named_entities:
+  - id: HP:0040012
+    label: increased chromosomal breakage
+    original_spans:
+      - 180:209

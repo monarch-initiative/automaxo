@@ -1,0 +1,120 @@
+---
+input_text: "Emerging therapies for childhood-onset movement disorders. PURPOSE OF
+  REVIEW: We highlight novel and emerging therapies in the treatment of childhood-onset
+  movement disorders. We structured this review by therapeutic entity (small molecule
+  drugs, RNA-targeted therapeutics, gene replacement therapy, and neuromodulation),
+  recognizing that there are two main approaches to treatment: symptomatic (based
+  on phenomenology) and molecular mechanism-based therapy or 'precision medicine'
+  (which is disease-modifying). RECENT FINDINGS: We highlight reports of new small
+  molecule drugs for Tourette syndrome, Friedreich's ataxia and Rett syndrome. We
+  also discuss developments in gene therapy for aromatic l-amino acid decarboxylase
+  deficiency and hereditary spastic paraplegia, as well as current work exploring
+  optimization of deep brain stimulation and lesioning with focused ultrasound. SUMMARY:
+  Childhood-onset movement disorders have traditionally been treated symptomatically
+  based on phenomenology, but focus has recently shifted toward targeted molecular
+  mechanism-based therapeutics. The development of precision therapies is driven by
+  increasing capabilities for genetic testing and a better delineation of the underlying
+  disease mechanisms. We highlight novel and exciting approaches to the treatment
+  of genetic childhood-onset movement disorders while also discussing general challenges
+  in therapy development for rare diseases. We provide a framework for molecular mechanism-based
+  treatment approaches, a summary of specific treatments for various movement disorders,
+  and a clinical trial readiness framework."
+raw_completion_output: |-
+  primary_disease: childhood-onset movement disorders  
+  medical_actions: symptomatic treatment; molecular mechanism-based therapy; gene replacement therapy; neuromodulation; gene therapy; deep brain stimulation; lesioning with focused ultrasound  
+  symptoms: movement disorders  
+  chemicals: small molecule drugs; aromatic l-amino acid decarboxylase  
+  action_annotation_relationships: symptomatic treatment TREATS symptom movement disorders IN childhood-onset movement disorders; molecular mechanism-based therapy TREATS symptom movement disorders IN childhood-onset movement disorders; gene replacement therapy TREATS symptom movement disorders IN childhood-onset movement disorders; neuromodulation TREATS symptom movement disorders IN childhood-onset movement disorders; gene therapy TREATS symptom movement disorders IN childhood-onset movement disorders; deep brain stimulation TREATS symptom movement disorders IN childhood-onset movement disorders; lesioning with focused ultrasound TREATS symptom movement disorders IN childhood-onset movement disorders
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  lesioning with focused ultrasound TREATS symptom movement disorders IN childhood-onset movement disorders
+
+  ===
+
+extracted_object:
+  primary_disease: childhood-onset movement disorders
+  medical_actions:
+    - symptomatic treatment
+    - molecular mechanism-based therapy
+    - gene replacement therapy
+    - neuromodulation
+    - MAXO:0001001
+    - MAXO:0000943
+    - lesioning with focused ultrasound
+  symptoms:
+    - HP:0100022
+  chemicals:
+    - small molecule drugs
+    - aromatic l-amino acid decarboxylase
+  action_annotation_relationships:
+    - subject: symptomatic treatment
+      predicate: TREATS
+      object: symptom movement disorders
+      qualifier: childhood-onset movement disorders
+      subject_extension: symptomatic treatment
+      object_extension: movement disorders
+    - subject: molecular mechanism-based therapy
+      predicate: TREATS
+      object: HP:0100022
+      qualifier: childhood-onset movement disorders
+      subject_extension: molecular mechanism-based therapy
+      object_extension: movement disorders
+    - subject: gene replacement therapy
+      predicate: TREATS
+      object: symptom
+      qualifier: childhood-onset movement disorders
+      subject_extension: gene replacement therapy
+      object_extension: movement disorders
+    - subject: neuromodulation
+      predicate: TREATS
+      object: symptom
+      qualifier: childhood-onset movement disorders
+      subject_qualifier: 'NULL'
+      object_qualifier: 'NULL'
+      subject_extension: neuromodulation
+      object_extension: movement disorders
+    - subject: MAXO:0001001
+      predicate: TREATS
+      object: HP:0100022
+      qualifier: childhood-onset movement disorders
+      subject_qualifier: N/A
+      object_qualifier: N/A
+      subject_extension: gene therapy
+      object_extension: movement disorders
+    - subject: MAXO:0000943
+      predicate: TREATS
+      object: HP:0100022
+      qualifier: childhood-onset movement disorders
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: deep brain stimulation
+      object_extension: movement disorders
+    - subject: lesioning
+      predicate: TREATS
+      object: symptom movement disorders
+      qualifier: childhood-onset movement disorders
+      subject_qualifier: focused
+      object_qualifier: symptom
+      subject_extension: focused ultrasound
+      object_extension: movement disorders
+named_entities:
+  - id: HP:0100022
+    label: movement disorders
+    original_spans:
+      - 39:56
+      - 156:173
+      - 908:925
+      - 1332:1349
+      - 1554:1571

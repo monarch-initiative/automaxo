@@ -1,0 +1,198 @@
+---
+input_text: 'Characteristics of continuous venovenous hemodiafiltration in the acute
+  treatment of inherited metabolic disorders. BACKGROUND: Continuous kidney replacement
+  therapies (CKRT) have been reported to be an effective approach to removing toxic
+  metabolites in inborn errors of metabolism (IEM). The present study evaluates efficiency
+  and complications of CKRT in children with IEM. METHODS: Patients diagnosed with
+  IEM who underwent CKRT in pediatric and neonatal intensive care units were analyzed.
+  CKRT were initiated in patients with persistently high blood ammonia levels (>=
+  500 mumol/L), blood ammonia levels > 250 mumol/L in the presence of moderate encephalopathy,
+  high blood leucine levels (>= 1500 mumol/L), and blood leucine levels < 1500 mumol/L
+  in the presence of deteriorating neurological status or persistent metabolic acidosis.
+  RESULTS: Of 22 patients enrolled, nine (40.9%) Maple syrup urine disease (MSUD),
+  eight (36.4%) urea cycle disorders (UCD), and five (22.7%) organic acidemias (OA).
+  Median age was 72.3 [9.9-1040.8] days. In total, 28 dialysis sessions were analyzed
+  [16 (57.1%) continuous venovenous hemodialysis, and 12 (42.9%) continuous venovenous
+  hemodiafiltration]. A significant decrease was noted in leucine levels (from 1608.4
+  +- 885.3 to 314.6 +- 109.9 micromol/L) of patients with MSUD, while ammonia levels
+  were significantly decreased in patients with UCD and OA (from 1279.9 +- 612.1 to
+  85.1 +- 21.6 micromol/L). The most frequent complications of CKRT were thrombocytopenia
+  (60.7%), hypotension (53.6%), and hypocalcemia (42.9%). Median age of patients with
+  hypotension treated with vasoactive medications was significantly lower than median
+  age of those with normal blood pressure. CONCLUSION: CKRT is a reliable approach
+  for effective and rapid removal of toxic metabolites in children with IEM, and CKRT
+  modalities can be safely used and are well-tolerated in infants.'
+raw_completion_output: |-
+  primary_disease: inherited metabolic disorders (IEM)
+
+  medical_actions: continuous venovenous hemodiafiltration; continuous venovenous hemodialysis; administration of vasoactive medications
+
+  symptoms: persistently high blood ammonia levels; high blood leucine levels; moderate encephalopathy; deteriorating neurological status; persistent metabolic acidosis; thrombocytopenia; hypotension; hypocalcemia
+
+  chemicals: 
+
+  action_annotation_relationships: continuous venovenous hemodiafiltration TREATS persistently high blood ammonia levels IN inherited metabolic disorders (IEM); continuous venovenous hemodiafiltration TREATS high blood leucine levels IN inherited metabolic disorders (IEM); continuous venovenous hemodiafiltration PREVENTS moderate encephalopathy IN inherited metabolic disorders (IEM); continuous venovenous hemodialysis TREATS deteriorating neurological status IN inherited metabolic disorders (IEM); continuous venovenous hemodialysis TREATS persistent metabolic acidosis IN inherited metabolic disorders (IEM); administration of vasoactive medications TREATS hypotension IN inherited metabolic disorders (IEM)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  administration of vasoactive medications TREATS hypotension IN inherited metabolic disorders (IEM)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0019052
+  medical_actions:
+    - continuous venovenous hemodiafiltration
+    - continuous venovenous hemodialysis
+    - administration of vasoactive medications
+  symptoms:
+    - persistently high blood ammonia levels
+    - high blood leucine levels
+    - moderate encephalopathy
+    - deteriorating neurological status
+    - persistent metabolic acidosis
+    - HP:0001873
+    - HP:0002615
+    - HP:0002901
+  action_annotation_relationships:
+    - subject: continuous venovenous hemodiafiltration
+      predicate: TREATS
+      object: persistently high blood ammonia levels
+      qualifier: MONDO:0019052
+    - subject: continuous venovenous hemodiafiltration
+      predicate: TREATS
+      object: high blood leucine levels
+      qualifier: MONDO:0019052
+      subject_extension: continuous venovenous hemodiafiltration
+    - subject: continuous venovenous hemodiafiltration
+      predicate: PREVENTS
+      object: moderate encephalopathy
+      qualifier: MONDO:0019052
+    - subject: continuous venovenous hemodialysis
+      predicate: TREATS
+      object: deteriorating neurological status
+      qualifier: MONDO:0019052
+      subject_extension: continuous venovenous hemodialysis
+    - subject: continuous venovenous hemodialysis
+      predicate: TREATS
+      object: HP:0001942
+      qualifier: MONDO:0019052
+      object_qualifier: persistent
+      subject_extension: continuous venovenous hemodialysis
+      object_extension: persistent
+    - subject: administration of vasoactive medications
+      predicate: TREATS
+      object: HP:0002615
+      qualifier: MONDO:0019052
+named_entities:
+  - id: MONDO:0009563
+    label: Maple syrup urine disease (MSUD)
+  - id: CHEBI:25017
+    label: Leucine
+  - id: CHEBI:22359
+    label: alloisoleucine (allo-ile)
+  - id: HP:0100626
+    label: End stage liver diseases
+  - id: MONDO:0100193
+    label: End stage liver diseases
+  - id: MONDO:0019052
+    label: Inborn errors of metabolism
+  - id: MAXO:0000603
+    label: Peritoneal dialysis
+  - id: MAXO:0001175
+    label: Liver transplantation (LT)
+  - id: MAXO:0009003
+    label: Preimplantation genetic testing (PGT)
+  - id: CHEBI:24898
+    label: isoleucine
+  - id: CHEBI:27266
+    label: valine
+  - id: MAXO:0000088
+    label: diet
+  - id: HP:0001263
+    label: mental and motor retardation
+  - id: HP:0002098
+    label: respiratory distress
+  - id: MONDO:0008143
+    label: Organic Acidemias (OAs)
+  - id: MONDO:0000688
+    label: Organic Acidemias
+  - id: MONDO:0021055
+    label: Familial amyloidotic polyneuropathy (FAP)
+  - id: HP:0003159
+    label: hyperoxaluria
+  - id: MONDO:0002474
+    label: primary hyperoxaluria
+  - id: MONDO:0008294
+    label: acute intermittent porphyria
+  - id: HP:0011034
+    label: Amyloidosis
+  - id: HP:0011968
+    label: Poor feeding
+  - id: HP:0001259
+    label: Coma
+  - id: HP:0001252
+    label: Hypotonia
+  - id: HP:0002013
+    label: vomiting
+  - id: HP:0000737
+    label: irritability
+  - id: HP:0003256
+    label: Coagulopathy
+  - id: HP:0001993
+    label: Ketoacidosis
+  - id: HP:0001251
+    label: Ataxia
+  - id: MONDO:0017052
+    label: intermediate maple syrup urine disease (iMSUD)
+  - id: MAXO:0001525
+    label: Intravenous administration
+  - id: CHEBI:17895
+    label: Tyr
+  - id: CHEBI:16828
+    label: Trp
+  - id: CHEBI:141437
+    label: His
+  - id: CHEBI:16044
+    label: Met
+  - id: CHEBI:16857
+    label: Thr
+  - id: CHEBI:30011
+    label: Gln
+  - id: CHEBI:17295
+    label: Phe
+  - id: CHEBI:28300
+    label: glutamine
+  - id: CHEBI:16449
+    label: alanine
+  - id: CHEBI:27363
+    label: zinc
+  - id: CHEBI:27568
+    label: selenium
+  - id: CHEBI:27432
+    label: alpha-linolenic acid (18:3n-3)
+  - id: CHEBI:36005
+    label: docosahexaenoic acid (22:6n-3)
+  - id: CHEBI:17865
+    label: Alpha-ketoisocaproate (KIC)
+  - id: HP:0003811
+    label: Neonatal death
+  - id: HP:0001873
+    label: thrombocytopenia
+  - id: HP:0002615
+    label: hypotension
+  - id: HP:0002901
+    label: hypocalcemia
+  - id: HP:0001942
+    label: metabolic acidosis

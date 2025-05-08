@@ -1,0 +1,72 @@
+---
+input_text: 'Enzyme replacement therapy prior to haematopoietic stem cell transplantation
+  in Mucopolysaccharidosis Type I: 10 year combined experience of 2 centres. Haematopoietic
+  stem cell transplantation is the treatment of choice for the severe form of Mucopolysaccharidosis
+  Type I, or Hurler syndrome. In many centres standard practice is to deliver enzyme
+  replacement therapy alongside haematopoietic stem cell transplantation to improve
+  the condition of the patient prior to transplant. We report the combined 10 year
+  experience of this approach in two paediatric metabolic and transplant centres.
+  Of 81 patients who underwent a first transplant procedure for Hurler, 88% (71/81)
+  survived and 81% (66/81) were alive and engrafted at a median follow-up of 46 months
+  (range 3-124 months). The incidence of grade II-IV acute and any chronic graft versus
+  host disease was 17% and 11% respectively. Urinary glycosaminoglycans were significantly
+  reduced after a period of enzyme replacement therapy, and further reductions were
+  seen at 13-24 months and 25+months after transplantation. In several individuals
+  with decreased cardiac contractility, an improvement of their condition during enzyme
+  replacement therapy enabled them to undergo transplantation, with one individual
+  receiving full intensity conditioning.'
+raw_completion_output: |-
+  primary_disease: Mucopolysaccharidosis Type I  
+  medical_actions: Enzyme replacement therapy; Haematopoietic stem cell transplantation  
+  symptoms: Decreased cardiac contractility; Urinary glycosaminoglycans  
+  chemicals: None  
+  action_annotation_relationships: Enzyme replacement therapy TREATS symptom (Decreased cardiac contractility) IN Mucopolysaccharidosis Type I; Haematopoietic stem cell transplantation TREATS symptom (Survival and engraftment) IN Mucopolysaccharidosis Type I; Enzyme replacement therapy TREATS symptom (Urinary glycosaminoglycans) IN Mucopolysaccharidosis Type I
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Enzyme replacement therapy TREATS symptom (Urinary glycosaminoglycans) IN Mucopolysaccharidosis Type I
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0001586
+  medical_actions:
+    - Enzyme replacement therapy
+    - Haematopoietic stem cell transplantation
+  symptoms:
+    - Decreased cardiac contractility
+    - Urinary glycosaminoglycans
+  chemicals:
+    - None
+  action_annotation_relationships:
+    - subject: enzyme replacement therapy
+      predicate: TREATS
+      object: decreased cardiac contractility
+      qualifier: MONDO:0001586
+      subject_extension: enzyme replacement therapy
+      object_extension: decreased cardiac contractility
+    - subject: Haematopoietic stem cell transplantation
+      predicate: TREATS
+      object: Survival and engraftment
+      qualifier: MONDO:0001586
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: haematopoietic stem cell transplantation
+      object_extension: None
+    - subject: enzyme replacement therapy
+      predicate: TREATS
+      object: urinary glycosaminoglycans
+      qualifier: MONDO:0001586
+      subject_extension: enzyme replacement therapy
+      object_extension: urinary glycosaminoglycans

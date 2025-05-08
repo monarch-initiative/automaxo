@@ -1,0 +1,117 @@
+---
+input_text: 'Living donor domino liver transplantation using a maple syrup urine disease
+  donor: A case series of three children - The first report from Japan. As the priority
+  of LD-Domino LT is the safety of the first recipient, limitations and technical
+  difficulties in the second recipient often occur. The most technically challenging
+  part of LD-Domino LT is the reconstruction of the vessels. For the reconstruction
+  of HVs, the native HVs were exteriorized as far as possible using a CUSA because
+  longer extensive HVs are essential for facilitating the reconstruction. At the back
+  table, the HVs of the domino graft were sutured together, and the single cuff of
+  the HVs was anastomosed to the IVC by joining the orifices. The HAs, the presence
+  of insufficient length, and multiple vessels in the whole liver rendered the reconstruction
+  more difficult. We determined the dividing sites of the vessels according to the
+  preoperative 3D-CT findings obtained in two institutions. This is the first case
+  series using grafts in DLT obtained from LDLT for patients with MSUD between two
+  institutions. In conclusion, LD-Domino LT is a safe and feasible therapeutic option
+  to expand the donor pool by technical refinement in the reconstruction of the second
+  recipient. Further studies with a greater accumulation of patients and a longer
+  follow-up will be necessary to establish LD-Domino LT using an MSUD donor.'
+raw_completion_output: |-
+  primary_disease: maple syrup urine disease  
+  medical_actions: living donor domino liver transplantation; reconstruction of vessels; grafting; surgical anastomosis  
+  symptoms: insufficient length of vessels; multiple vessels in the whole liver  
+  chemicals: CUSA  
+  action_annotation_relationships: living donor domino liver transplantation TREATS symptom insufficient length of vessels IN maple syrup urine disease; living donor domino liver transplantation TREATS symptom multiple vessels in the whole liver IN maple syrup urine disease; reconstruction of vessels TREATS symptom insufficient length of vessels IN maple syrup urine disease; reconstruction of vessels TREATS symptom multiple vessels in the whole liver IN maple syrup urine disease; grafting TREATS symptom insufficient length of vessels IN maple syrup urine disease; grafting TREATS symptom multiple vessels in the whole liver IN maple syrup urine disease; surgical anastomosis TREATS symptom insufficient length of vessels IN maple syrup urine disease; surgical anastomosis TREATS symptom multiple vessels in the whole liver IN maple syrup urine disease; CUSA TREATS symptom insufficient length of vessels IN maple syrup urine disease; CUSA TREATS symptom multiple vessels in the whole liver IN maple syrup urine disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  CUSA TREATS symptom multiple vessels in the whole liver IN maple syrup urine disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009563
+  medical_actions:
+    - living donor domino liver transplantation
+    - reconstruction of vessels
+    - grafting
+    - surgical anastomosis
+  symptoms:
+    - insufficient length of vessels
+    - multiple vessels in the whole liver
+  chemicals:
+    - CUSA
+  action_annotation_relationships:
+    - subject: living donor domino liver transplantation
+      predicate: TREATS
+      object: insufficient length of vessels
+      qualifier: MONDO:0009563
+      subject_qualifier: living donor domino
+      object_qualifier: insufficient
+      subject_extension: liver transplantation
+      object_extension: length of vessels
+    - subject: living donor domino liver transplantation
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0009563
+      subject_qualifier: living donor domino
+      object_qualifier: whole liver
+      subject_extension: liver transplantation
+      object_extension: multiple vessels
+    - subject: reconstruction of vessels
+      predicate: TREATS
+      object: insufficient length of vessels
+      qualifier: MONDO:0009563
+      subject_extension: vessels
+      object_extension: length
+    - subject: reconstruction of vessels
+      predicate: TREATS
+      object: multiple vessels in the whole liver
+      qualifier: MONDO:0009563
+      subject_extension: <reconstruction of vessels>
+      object_extension: <multiple vessels>
+    - predicate: TREATS
+      object: insufficient length of vessels
+      qualifier: MONDO:0009563
+      subject_extension: grafting
+    - subject: grafting
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0009563
+      subject_extension: grafting
+      object_extension: multiple vessels
+    - predicate: TREATS
+      object: insufficient length of vessels
+      qualifier: MONDO:0009563
+      subject_extension: surgical anastomosis
+    - subject: surgical anastomosis
+      predicate: TREATS
+      object: multiple vessels in the whole liver
+      qualifier: MONDO:0009563
+      subject_qualifier: N/A
+      object_qualifier: N/A
+      subject_extension: surgical anastomosis
+      object_extension: N/A
+    - predicate: TREATS
+      object: insufficient length of vessels
+      qualifier: MONDO:0009563
+      subject_extension: CUSA
+    - subject: TREATS
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0009563
+      subject_qualifier: N/A
+      object_qualifier: N/A
+      subject_extension: CUSA
+      object_extension: multiple vessels

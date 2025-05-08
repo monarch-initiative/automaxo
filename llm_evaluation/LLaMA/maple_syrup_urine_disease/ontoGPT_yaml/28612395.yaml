@@ -1,0 +1,71 @@
+---
+input_text: A case of classical maple syrup urine disease that was successfully managed
+  by living donor liver transplantation. Classical MSUD is often fatal without appropriate
+  medical interventions because of metabolic crisis. There are numerous reports suggesting
+  the therapeutic potential of deceased donor liver transplantation for MSUD. However,
+  the usefulness of LDLT for MSUD is unknown. We report a case of classical MSUD,
+  which was successfully managed by LDLT from the patient's father at 1 year of age.
+  Abnormal brain findings, which were cured with effective treatment, gradually disappeared
+  after LDLT. The patient then developed normally. Findings from this case suggest
+  the importance of LDLT for maintaining low leucine levels and subsequent normal
+  neurological development. Although LDLT involves a modest surgical insult, LDLT
+  with a related donor achieves acceptable leucine levels for life.
+raw_completion_output: |-
+  Here are the extracted entities in the requested format:
+
+  primary_disease: Maple Syrup Urine Disease (MSUD)
+
+  medical_actions: Living Donor Liver Transplantation (LDLT); Deceased Donor Liver Transplantation; LDLT with a related donor
+
+  symptoms: Metabolic crisis; Abnormal brain findings; High leucine levels
+
+  chemicals: Leucine
+
+  action_annotation_relationships: LDLT TREATS metabolic crisis IN MSUD; LDLT TREATS abnormal brain findings IN MSUD; LDLT (with related donor) TREATS high leucine levels IN MSUD; Effective treatment TREATS abnormal brain findings IN MSUD
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Effective treatment TREATS abnormal brain findings IN MSUD
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009563
+  medical_actions:
+    - Living Donor Liver Transplantation (LDLT)
+    - Deceased Donor Liver Transplantation
+    - LDLT with a related donor
+  symptoms:
+    - Metabolic crisis
+    - Abnormal brain findings
+    - High leucine levels
+  chemicals:
+    - CHEBI:25017
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: metabolic crisis
+      qualifier: MONDO:0009563
+    - predicate: TREATS
+      object: abnormal brain findings
+      qualifier: MONDO:0009563
+    - predicate: TREATS
+      object: high leucine levels
+      qualifier: MONDO:0009563
+      subject_qualifier: with related donor
+    - predicate: TREATS
+      object: abnormal brain findings
+      qualifier: MONDO:0009563
+      subject_qualifier: effective
+      object_qualifier: IN MSUD
+      subject_extension: effective

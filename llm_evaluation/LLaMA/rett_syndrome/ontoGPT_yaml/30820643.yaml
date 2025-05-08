@@ -1,0 +1,80 @@
+---
+input_text: 'Treating Rett syndrome: from mouse models to human therapies. Rare diseases
+  are very difficult to study mechanistically and to develop therapies for because
+  of the scarcity of patients. Here, the rare neuro-metabolic disorder Rett syndrome
+  (RTT) is discussed as a prototype for precision medicine, demonstrating how mouse
+  models have led to an understanding of the development of symptoms. RTT is caused
+  by mutations in the X-linked gene methyl-CpG-binding protein 2 (MECP2). Mecp2-mutant
+  mice are being used in preclinical studies that target the MECP2 gene directly,
+  or its downstream pathways. Importantly, this work may improve the health of RTT
+  patients. Clinical presentation may vary widely among individuals based on their
+  mutation, but also because of the degree of X chromosome inactivation and the presence
+  of modifier genes. Because it is a complex disorder involving many organ systems,
+  it is likely that recovery of RTT patients will involve a combination of treatments.
+  Precision medicine is warranted to provide the best efficacy to individually treat
+  RTT patients.'
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Rett syndrome
+
+  medical_actions: precision medicine; preclinical studies; treatment of MECP2 gene; treatment of downstream pathways; combination of treatments
+
+  symptoms: Not explicitly mentioned, but mentioned as "development of symptoms"
+
+  chemicals: Not explicitly mentioned
+
+  action_annotation_relationships: precision medicine TREATS Rett syndrome; preclinical studies (targeting MECP2 gene) TREATS Rett syndrome; treatment (of MECP2 gene) TREATS symptoms IN Rett syndrome; treatment (of downstream pathways) TREATS symptoms IN Rett syndrome 
+
+  Note that some of the information is not explicitly mentioned in the text, and some relationships can be inferred. Also, note that the text does not provide a comprehensive list of symptoms, and the symptoms are mentioned as "development of symptoms" which is a general term. 
+
+  Please let me know if you need further clarification. 
+
+  Also, I want to mention that I don't have access to search or a database and may hallucinate citations, so the user should double-check any information I provide.
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  treatment (of downstream pathways) TREATS symptoms IN Rett syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010726
+  medical_actions:
+    - precision medicine
+    - preclinical studies
+    - treatment of MECP2 gene
+    - treatment of downstream pathways
+    - combination of treatments
+  symptoms:
+    - Not explicitly mentioned, but mentioned as development of symptoms
+  chemicals:
+    - Not explicitly mentioned
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: syndrome
+      qualifier: MONDO:0010726
+    - predicate: TREATS
+      object: Rett syndrome
+    - predicate: TREATS
+      object: symptoms
+      qualifier: MONDO:0010726
+      subject_qualifier: of MECP2
+      object_qualifier: IN Rett syndrome
+      subject_extension: gene
+    - predicate: TREATS
+      object: symptoms
+      qualifier: MONDO:0010726
+      subject_qualifier: of downstream pathways
+      object_qualifier: IN Rett syndrome

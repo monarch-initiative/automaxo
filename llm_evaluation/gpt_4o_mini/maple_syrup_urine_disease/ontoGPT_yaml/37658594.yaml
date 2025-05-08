@@ -1,0 +1,73 @@
+---
+input_text: 'Domino liver transplantation for maple syrup urine disease in children:
+  A single-center case series. BACKGROUND: Domino liver transplant (DLT) represents
+  another type of liver donor to expand the donor pool. Recent reports of successful
+  DLT in children with maple syrup urine disease (MSUD) show promising long-term outcomes.
+  METHODS: It was a retrospective study. All children with MSUD were paired with either
+  recipients with end-stage liver disease (ESLD) or non-MSUD metabolic disease. Each
+  pair underwent simultaneous liver transplant (LT), where the MSUD recipient received
+  the graft from a living-related donor and the liver explanted from the MSUD donor
+  was transplanted to the respective paired domino recipient. We report our experience
+  regarding the techniques and outcomes of DLT at our center. RESULTS: Eleven children
+  with MSUD and 12 respective DLT recipients were enrolled, one of which was domino
+  split-liver transplantation. DLT recipients included seven ESLD, two propionic acidemia
+  (PA), one glycogen storage disease(GSD) type-1, one GSD type-3, and one Citrullinemia.
+  Post-LT ICU and hospital stays were comparable (p > .05). Patient and graft survival
+  was 100% and 66.6% in the MSUD group and DLT recipients at a mean follow-up of 13.5
+  and 15 months. There was no death in the MSUD group as compared to four in the DLT
+  group. The amino acid levels rapidly normalized after the LT in the children with
+  MSUD and they tolerated the normal unrestricted diet. No vascular, biliary, or graft-related
+  complications were seen in the post-transplant period. No occurrence of MSUD was
+  noted in DLT recipients. CONCLUSION: DLTs have excellent post-surgical outcomes.
+  DLT should be strongly considered and adopted by transplant programs worldwide to
+  circumvent organ shortage.'
+raw_completion_output: |-
+  primary_disease: maple syrup urine disease  
+  medical_actions: domino liver transplant; simultaneous liver transplant  
+  symptoms: elevated amino acid levels  
+  chemicals: none  
+  action_annotation_relationships: domino liver transplant TREATS symptom (elevated amino acid levels) IN maple syrup urine disease; simultaneous liver transplant TREATS symptom (elevated amino acid levels) IN maple syrup urine disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  simultaneous liver transplant TREATS symptom (elevated amino acid levels) IN maple syrup urine disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009563
+  medical_actions:
+    - domino liver transplant
+    - simultaneous liver transplant
+  symptoms:
+    - elevated amino acid levels
+  chemicals:
+    - none
+  action_annotation_relationships:
+    - subject: liver transplant
+      predicate: TREATS
+      object: elevated amino acid levels
+      qualifier: MONDO:0009563
+      subject_qualifier: None
+      object_qualifier: elevated
+      subject_extension: liver transplant
+      object_extension: amino acid levels
+    - subject: simultaneous liver transplant
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0009563
+      subject_qualifier: simultaneous
+      object_qualifier: elevated
+      subject_extension: liver transplant
+      object_extension: elevated amino acid levels

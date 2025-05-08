@@ -1,0 +1,109 @@
+---
+input_text: 'A Blueprint for Translational Precision Medicine in Autism Spectrum Disorder
+  and Related Neurogenetic Syndromes. Objectives: Despite growing knowledge of the
+  underlying neurobiology of autism spectrum disorder (ASD) and related neurogenetic
+  syndromes, treatment discovery has remained elusive. In this review, we provide
+  a blueprint for translational precision medicine in ASD and related neurogenetic
+  syndromes. Methods: The discovery of trofinetide for Rett syndrome (RTT) is described,
+  and the role of nonmammalian, mammalian, and stem cell model systems in the identification
+  of molecular targets and drug screening is discussed. We then provide a framework
+  for translating preclinical findings to human clinical trials, including the role
+  of biomarkers in selecting molecular targets and evaluating target engagement, and
+  discuss how to leverage these findings for future ASD drug development. Results:
+  Multiple preclinical model systems for ASD have been developed, each with tradeoffs
+  with regard to suitability for high-throughput small molecule screening, conservation
+  across species, and behavioral face validity. Future clinical trials should incorporate
+  biomarkers and intermediate phenotypes to demonstrate target engagement. Factors
+  that contributed to the approval of trofinetide for RTT included replicated findings
+  in mouse models, a well-studied natural history of the syndrome, development of
+  RTT-specific outcome measures, and strong engagement of the RTT family community.
+  Conclusions: The translation of our growing understanding of the neurobiology of
+  ASD to human drug discovery will require a precision medicine approach, including
+  the use of multiple model systems for molecular target selection, evaluation of
+  target engagement, and clinical trial design strategies that address heterogeneity,
+  power, and the placebo response.'
+raw_completion_output: |-
+  primary_disease: Autism Spectrum Disorder
+  medical_actions: drug discovery; clinical trials; biomarkers evaluation; molecular target selection; target engagement evaluation
+  symptoms: neurodevelopmental abnormalities; behavioral issues; communication difficulties; social interaction challenges
+  chemicals: trofinetide
+  action_annotation_relationships: drug discovery TREATS symptom (neurodevelopmental abnormalities) IN Autism Spectrum Disorder; clinical trials TREATS symptom (behavioral issues) IN Autism Spectrum Disorder; biomarkers evaluation TREATS symptom (communication difficulties) IN Autism Spectrum Disorder; molecular target selection TREATS symptom (social interaction challenges) IN Autism Spectrum Disorder; target engagement evaluation TREATS symptom (neurodevelopmental abnormalities) IN Autism Spectrum Disorder; drug discovery (with chemical trofinetide) TREATS symptom (communication difficulties) IN Autism Spectrum Disorder
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  drug discovery (with chemical trofinetide) TREATS symptom (communication difficulties) IN Autism Spectrum Disorder
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005258
+  medical_actions:
+    - drug discovery
+    - clinical trials
+    - biomarkers evaluation
+    - molecular target selection
+    - target engagement evaluation
+  symptoms:
+    - HP:0012759
+    - behavioral issues
+    - communication difficulties
+    - social interaction challenges
+  chemicals:
+    - CHEBI:229599
+  action_annotation_relationships:
+    - subject: drug discovery
+      predicate: TREATS
+      object: HP:0012759
+      qualifier: MONDO:0005258
+      subject_extension: drug discovery
+      object_extension: neurodevelopmental abnormalities
+    - subject: clinical trials
+      predicate: TREATS
+      object: behavioral issues
+      qualifier: MONDO:0005258
+      subject_qualifier: N/A
+      object_qualifier: N/A
+      subject_extension: N/A
+      object_extension: N/A
+    - subject: biomarkers evaluation
+      predicate: TREATS
+      object: communication difficulties
+      qualifier: MONDO:0005258
+      subject_extension: biomarkers evaluation
+      object_extension: communication difficulties
+    - predicate: TREATS
+      object: social interaction challenges
+      qualifier: MONDO:0005258
+    - subject: target engagement evaluation
+      predicate: TREATS
+      object: HP:0012759
+      qualifier: MONDO:0005258
+      subject_extension: target engagement evaluation
+      object_extension: neurodevelopmental abnormalities
+    - subject: drug discovery
+      predicate: TREATS
+      object: communication difficulties
+      qualifier: MONDO:0005258
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: CHEBI:229599
+      object_extension: communication difficulties
+named_entities:
+  - id: MONDO:0005258
+    label: Autism Spectrum Disorder
+    original_spans:
+      - 52:75
+      - 185:208
+  - id: HP:0012759
+    label: neurodevelopmental abnormalities

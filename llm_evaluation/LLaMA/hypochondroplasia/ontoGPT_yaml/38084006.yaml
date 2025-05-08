@@ -1,0 +1,119 @@
+---
+input_text: 'Prophylactic Intramedullary Rodding After Femoral Lengthening in Patients
+  With Achondroplasia and Hypochondroplasia. BACKGROUND: Femoral fracture after femoral
+  lengthening in patients with achondroplasia and hypochondroplasia is a frequent
+  complication, occurring in up to 30%. The purpose of this study is to demonstrate
+  the effectiveness of prophylactic intramedullary rodding in preventing this complication.
+  METHODS: Multicenter retrospective study involving 86 femoral lengthening procedures
+  in 43 patients with achondroplasia or hypochondroplasia. Forty-two femora (21 patients)
+  were prophylactically managed with intramedullary Rush rodding after external fixation
+  removal (11 females and 10 males, mean age 14.6 years) compared with 44 femora (22
+  patients) without prophylactic intramedullary rodding (13 females and 9 males, mean
+  age 15.2 years). The mean amount of lengthening in the rodding group was 13.3 cm
+  (52.6%) with an External Fixation Index of 25.8 days/cm; in patients without rodding
+  was 14.3 cm (61.5%) and 24.5 days/cm, respectively. RESULTS: Seven cases (15.9%)
+  without rodding developed fractures. Four of them required surgical correction due
+  to displacement or shortening. Only 1 patient (2.4%) had fracture of the femur after
+  prophylactic rodding, and surgery was not required. The incidence of femur fracture
+  was significantly lower in the prophylactic rodding group compared with the nonrodding
+  group (2.4% vs. 15.9%, respectively; P =0.034). There were no cases of infection
+  or avascular necrosis. CONCLUSIONS: Prophylactic intramedullary rodding is a safe
+  and effective method for preventing femoral fractures after femoral lengthening
+  in patients with achondroplasia or hypochondroplasia. LEVEL OF EVIDENCE: Level III-a
+  retrospective comparative study.'
+raw_completion_output: |-
+  Here are the extracted entities in the requested format:
+
+  primary_disease: achondroplasia; hypochondroplasia
+
+  medical_actions: prophylactic intramedullary rodding; external fixation removal; surgical correction
+
+  symptoms: femoral fracture; displacement; shortening; infection; avascular necrosis
+
+  chemicals: 
+
+  action_annotation_relationships: prophylactic intramedullary rodding PREVENTS femoral fracture IN achondroplasia; prophylactic intramedullary rodding PREVENTS femoral fracture IN hypochondroplasia; surgical correction TREATS displacement IN achondroplasia; surgical correction TREATS shortening IN achondroplasia
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  surgical correction TREATS shortening IN achondroplasia
+
+  ===
+
+extracted_object:
+  primary_disease: achondroplasia; hypochondroplasia
+  medical_actions:
+    - prophylactic intramedullary rodding
+    - external fixation removal
+    - surgical correction
+  symptoms:
+    - HP:0031846
+    - displacement
+    - shortening
+    - infection
+    - HP:0010885
+  action_annotation_relationships:
+    - subject: rodding
+      predicate: PREVENTS
+      object: HP:0020110
+      qualifier: MONDO:0007037
+      subject_qualifier: prophylactic
+      subject_extension: intramedullary
+      object_extension: femoral
+    - subject: rodding
+      predicate: PREVENTS
+      object: HP:0020110
+      qualifier: MONDO:0007793
+      subject_qualifier: prophylactic
+      object_qualifier: None
+      subject_extension: intramedullary
+      object_extension: femoral
+    - predicate: TREATS
+      object: displacement
+      qualifier: MONDO:0007037
+    - predicate: TREATS
+      object: shortening
+      qualifier: MONDO:0007037
+named_entities:
+  - id: HP:0031846
+    label: femoral fracture
+    original_spans:
+      - 129:144
+      - 1624:1639
+  - id: HP:0010885
+    label: avascular necrosis
+    original_spans:
+      - 1509:1526
+  - id: HP:0020110
+    label: fracture
+    original_spans:
+      - 137:144
+      - 1112:1119
+      - 1226:1233
+      - 1329:1336
+      - 1632:1639
+  - id: MONDO:0007037
+    label: achondroplasia
+    original_spans:
+      - 79:92
+      - 189:202
+      - 517:530
+      - 1685:1698
+  - id: MONDO:0007793
+    label: hypochondroplasia
+    original_spans:
+      - 98:114
+      - 208:224
+      - 535:551
+      - 1703:1719

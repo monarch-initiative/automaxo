@@ -1,0 +1,104 @@
+---
+input_text: 'A few challenges in mucopolysaccharidosis type I. Here we describe the
+  current challenges of mucopolysaccharidosis type I: the need for an adequate classification,
+  establishing its relationship to therapeutic indications; an early diagnosis, from
+  neonatal screening, its advantages and barriers, to clinical suspicion of severe
+  and attenuated forms; spinal and eye disease care, from diagnosis to follow-up and
+  treatment; allergic reactions caused by enzyme replacement therapy, their diagnosis
+  and treatment. And lastly, transition to adult care.'
+raw_completion_output: |-
+  primary_disease: mucopolysaccharidosis type I
+  medical_actions: neonatal screening; disease classification; enzyme replacement therapy; diagnosis; follow-up; treatment of allergic reactions; transition to adult care
+  symptoms: spinal disease; eye disease; allergic reactions
+  chemicals: none
+  action_annotation_relationships: disease classification TREATS symptom in mucopolysaccharidosis type I; neonatal screening TREATS symptom in mucopolysaccharidosis type I; enzyme replacement therapy TREATS symptom in mucopolysaccharidosis type I; diagnosis TREATS symptom in mucopolysaccharidosis type I; follow-up TREATS symptom in mucopolysaccharidosis type I; treatment of allergic reactions TREATS symptom in mucopolysaccharidosis type I; transition to adult care TREATS symptom in mucopolysaccharidosis type I
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  transition to adult care TREATS symptom in mucopolysaccharidosis type I
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0001586
+  medical_actions:
+    - neonatal screening
+    - disease classification
+    - enzyme replacement therapy
+    - diagnosis
+    - follow-up
+    - treatment of allergic reactions
+    - transition to adult care
+  symptoms:
+    - spinal disease
+    - HP:0000478
+    - HP:0012393
+  chemicals:
+    - none
+  action_annotation_relationships:
+    - subject: disease classification
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0001586
+      subject_qualifier: none
+      object_qualifier: none
+      subject_extension: disease classification
+      object_extension: none
+    - predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0001586
+      subject_extension: neonatal screening
+    - subject: enzyme replacement therapy
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0001586
+      subject_extension: enzyme replacement therapy
+      object_extension: mucopolysaccharidosis type I
+    - subject: diagnosis
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0001586
+      subject_extension: diagnosis
+      object_extension: symptom
+    - subject: follow-up
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0001586
+      subject_extension: follow-up
+      object_extension: symptom
+    - subject: treatment
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0001586
+      subject_qualifier: <none>
+      object_qualifier: <none>
+      subject_extension: allergic reactions
+      object_extension: <none>
+    - subject: transition to adult care
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0001586
+      subject_qualifier: N/A
+      object_qualifier: N/A
+      subject_extension: N/A
+      object_extension: N/A
+named_entities:
+  - id: HP:0000478
+    label: eye disease
+    original_spans:
+      - 361:371
+  - id: HP:0012393
+    label: allergic reactions
+    original_spans:
+      - 422:439

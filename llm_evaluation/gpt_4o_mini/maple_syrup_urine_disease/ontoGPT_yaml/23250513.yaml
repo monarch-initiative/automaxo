@@ -1,0 +1,85 @@
+---
+input_text: 'Treatment of acute decompensation of maple syrup urine disease in adult
+  patients with a new parenteral amino-acid mixture. BACKGROUND: Acute decompensation
+  of maple syrup urine disease (MSUD) is usually treated by enteral feeding with an
+  amino-acid mixture without leucine (Leu), valine or isoleucine. However, its administration
+  is ineffective in cases of gastric intolerance and some adult patients refuse enteral
+  feeding via a nasogastric tube. We developed a new parenteral amino-acid mixture
+  for patients with MSUD. METHODS: Seventeen decompensation episodes in four adult
+  patients with MSUD treated with a parenteral amino-acid mixture (group P) were compared
+  to 18 previous episodes in the same patients treated by enteral feeding (group E).
+  RESULTS: The mean Leu concentration at presentation was similar in the groups P
+  and E (1196.9 mumol/L and 1212.2 mumol/L, respectively). The mean decrease in the
+  Leu concentration during the first 3 days of hospitalisation was significantly higher
+  in group P than group E (p = 0.0026); there were no side effects. The mean duration
+  of hospitalisation was similar (4 vs. 4.5 days, p = NS). No patient in group P deteriorated
+  whereas one patient in group E required dialysis. CONCLUSION: This new parenteral
+  amino-acid mixture is safe and allows efficient Leu concentration decrease during
+  acute MSUD decompensation episodes in adults. Its use avoids the need for nasogastric
+  tube insertion.'
+raw_completion_output: |-
+  primary_disease: maple syrup urine disease (MSUD)  
+  medical_actions: enteral feeding; parenteral amino-acid mixture; dialysis  
+  symptoms: gastric intolerance  
+  chemicals: leucine (Leu); valine; isoleucine  
+  action_annotation_relationships: enteral feeding TREATS symptom gastric intolerance IN maple syrup urine disease; parenteral amino-acid mixture TREATS symptom gastric intolerance IN maple syrup urine disease; dialysis TREATS symptom deterioration IN maple syrup urine disease  
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  dialysis TREATS symptom deterioration IN maple syrup urine disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009563
+  medical_actions:
+    - enteral feeding
+    - parenteral amino-acid mixture
+    - MAXO:0000601
+  symptoms:
+    - gastric intolerance
+  chemicals:
+    - CHEBI:15603
+    - CHEBI:27266
+    - CHEBI:24898
+  action_annotation_relationships:
+    - subject: enteral feeding
+      predicate: TREATS
+      object: gastric intolerance
+      qualifier: MONDO:0009563
+      subject_extension: enteral feeding
+      object_extension: gastric intolerance
+    - subject: parenteral amino-acid mixture
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0009563
+      subject_qualifier: parenteral
+      object_qualifier: gastric
+      subject_extension: amino-acid mixture
+      object_extension: gastric intolerance
+    - subject: MAXO:0000601
+      predicate: TREATS
+      object: symptom deterioration
+      qualifier: MONDO:0009563
+      subject_extension: dialysis
+      object_extension: maple syrup urine disease
+named_entities:
+  - id: MAXO:0000601
+    label: dialysis
+    original_spans:
+      - 1213:1220
+  - id: CHEBI:15603
+    label: leucine (Leu)
+    original_spans:
+      - 265:277

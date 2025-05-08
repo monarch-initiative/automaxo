@@ -1,0 +1,100 @@
+---
+input_text: The clinical, economic, and humanistic burden of Dravet syndrome - A systematic
+  literature review. Dravet syndrome (DS) is a developmental and epileptic encephalopathy
+  with evolving disease course as individuals age. In recent years, the treatment
+  landscape of DS has changed considerably, and a comprehensive systematic review
+  of the contemporary literature is lacking. Here we synthesized published evidence
+  on the occurrence of clinical impacts by age, the economic and humanistic (health-related
+  quality-of-life [HRQoL]) burden, and health state utility. We provide an evidence-based,
+  contemporary visualization of the clinical manifestations, highlighting that DS
+  is not limited to seizures; non-seizure manifestations appear early in life and
+  increase over time, contributing significantly to the economic and humanistic burden
+  of disease. The primary drivers of HRQoL in DS include seizure severity, cognition,
+  and motor and behavioral problems; in turn, these directly affect caregivers through
+  the extent of assistance required and consequent impact on activities of daily living.
+  Unsurprisingly, costs are driven by seizure-related events, hospitalizations, and
+  in-home medical care visits. This systematic review highlights a paucity of longitudinal
+  data; most studies meeting inclusion criteria were cross-sectional or had short
+  follow-up. Nonetheless, available data illustrate the substantial impact on individuals,
+  their families, and healthcare systems and establish the need for novel therapies
+  to address the complex spectrum of DS manifestations.
+raw_completion_output: |-
+  Here are the extracted entities in the requested format:
+
+  primary_disease: Dravet syndrome
+
+  medical_actions: novel therapies; in-home medical care visits; hospitalizations
+
+  symptoms: seizures; non-seizure manifestations; seizure severity; cognition; motor problems; behavioral problems
+
+  chemicals: 
+
+  action_annotation_relationships: novel therapies TREATS seizures IN Dravet syndrome; novel therapies TREATS non-seizure manifestations IN Dravet syndrome; novel therapies TREATS seizure severity IN Dravet syndrome; novel therapies TREATS cognition IN Dravet syndrome; novel therapies TREATS motor problems IN Dravet syndrome; novel therapies TREATS behavioral problems IN Dravet syndrome; in-home medical care visits TREATS seizures IN Dravet syndrome; hospitalizations TREATS seizures IN Dravet syndrome
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  hospitalizations TREATS seizures IN Dravet syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0100135
+  medical_actions:
+    - novel therapies
+    - in-home medical care visits
+    - hospitalizations
+  symptoms:
+    - HP:0001250
+    - non-seizure manifestations
+    - seizure severity
+    - cognition
+    - motor problems
+    - HP:0000708
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0100135
+    - predicate: TREATS
+      object: non-seizure manifestations
+      qualifier: MONDO:0100135
+    - predicate: TREATS
+      object: seizure severity
+      qualifier: MONDO:0100135
+      subject_extension: novel therapies
+    - predicate: TREATS
+      object: cognition
+      qualifier: MONDO:0100135
+      subject_qualifier: IN
+    - predicate: TREATS
+      object: motor problems
+      qualifier: MONDO:0100135
+    - subject: novel therapies
+      predicate: TREATS
+      object: HP:0000708
+      qualifier: MONDO:0100135
+      subject_qualifier: novel
+      object_qualifier: None
+      subject_extension: therapies
+      object_extension: behavioral problems
+    - predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0100135
+    - predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0100135
+named_entities:
+  - id: HP:0000708
+    label: behavioral problems
+    original_spans:
+      - 932:950

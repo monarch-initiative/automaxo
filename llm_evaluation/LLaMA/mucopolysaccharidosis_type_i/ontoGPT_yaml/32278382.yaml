@@ -1,0 +1,119 @@
+---
+input_text: 'A Highly Efficacious PS Gene Editing System Corrects Metabolic and Neurological
+  Complications of Mucopolysaccharidosis Type I. Our previous study delivered zinc
+  finger nucleases to treat mice with mucopolysaccharidosis type I (MPS I), resulting
+  in a phase I/II clinical trial (ClinicalTrials.gov: NCT02702115). However, in the
+  clinical trial, the efficacy needs to be improved due to the low transgene expression
+  level. To this end, we designed a proprietary system (PS) gene editing approach
+  with CRISPR to insert a promoterless alpha-l-iduronidase (IDUA) cDNA sequence into
+  the albumin locus of hepatocytes. In this study, adeno-associated virus 8 (AAV8)
+  vectors delivering the PS gene editing system were injected into neonatal and adult
+  MPS I mice. IDUA enzyme activity in the brain significantly increased, while storage
+  levels were normalized. Neurobehavioral tests showed that treated mice had better
+  memory and learning ability. Also, histological analysis showed efficacy reflected
+  by the absence of foam cells in the liver and vacuolation in neuronal cells. No
+  vector-associated toxicity or increased tumorigenesis risk was observed. Moreover,
+  no off-target effects were detected through the unbiased genome-wide unbiased identification
+  of double-stranded breaks enabled by sequencing (GUIDE-seq) analysis. In summary,
+  these results showed the safety and efficacy of the PS in treating MPS I and paved
+  the way for clinical studies. Additionally, as a therapeutic platform, the PS has
+  the potential to treat other lysosomal diseases.'
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Mucopolysaccharidosis Type I (MPS I)
+
+  medical_actions: Gene editing with CRISPR; insertion of alpha-l-iduronidase (IDUA) cDNA sequence into the albumin locus of hepatocytes; delivery of PS gene editing system using adeno-associated virus 8 (AAV8) vectors
+
+  symptoms: Metabolic complications; neurological complications; low transgene expression level; storage levels; foam cells in the liver; vacuolation in neuronal cells; impaired memory and learning ability
+
+  chemicals: Zinc finger nucleases; CRISPR; adeno-associated virus 8 (AAV8) vectors; alpha-l-iduronidase (IDUA)
+
+  action_annotation_relationships: PS gene editing system TREATS metabolic complications IN MPS I; PS gene editing system TREATS neurological complications IN MPS I; CRISPR-mediated gene editing TREATS low transgene expression level IN MPS I; IDUA enzyme activity TREATS storage levels IN MPS I; AAV8 vectors delivering PS gene editing system TREATS foam cells in the liver IN MPS I; AAV8 vectors delivering PS gene editing system TREATS vacuolation in neuronal cells IN MPS I; PS gene editing system TREATS impaired memory and learning ability IN MPS I
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  PS gene editing system TREATS impaired memory and learning ability IN MPS I
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:1012617
+  medical_actions:
+    - Gene editing with CRISPR
+    - insertion of alpha-l-iduronidase (IDUA) cDNA sequence into the albumin locus
+      of hepatocytes
+    - delivery of PS gene editing system using adeno-associated virus 8 (AAV8) vectors
+  symptoms:
+    - Metabolic complications
+    - neurological complications
+    - low transgene expression level
+    - storage levels
+    - foam cells in the liver
+    - vacuolation in neuronal cells
+    - impaired memory and learning ability
+  chemicals:
+    - Zinc finger nucleases
+    - CRISPR
+    - adeno-associated virus 8 (AAV8) vectors
+    - alpha-l-iduronidase (IDUA)
+  action_annotation_relationships:
+    - subject: PS gene editing system
+      predicate: TREATS
+      object: metabolic complications
+      qualifier: MONDO:1012617
+      subject_extension: gene editing
+      object_extension: metabolic complications
+    - subject: PS gene editing system
+      predicate: TREATS
+      object: neurological complications
+      qualifier: MONDO:1012617
+      subject_extension: gene editing system
+      object_extension: neurological complications
+    - subject: CRISPR-mediated gene editing,
+      predicate: TREATS,
+      object: low transgene expression level,
+      qualifier: MPS I,
+      subject_qualifier: CRISPR-mediated,
+      object_qualifier: ;]
+      subject_extension: gene editing,
+      object_extension: ','
+    - predicate: TREATS
+      object: storage levels
+      qualifier: MONDO:1012617
+      subject_extension: IDUA enzyme activity
+    - subject: AAV8 vectors delivering
+      predicate: TREATS
+      object: HP:0003651
+      qualifier: MONDO:1012617
+      subject_qualifier: delivering PS gene editing system
+      object_qualifier: in the liver
+      subject_extension: gene editing system
+    - predicate: TREATS
+      object: vacuolation in neuronal cells
+      qualifier: MONDO:1012617
+      subject_qualifier: delivering PS gene editing system
+      object_qualifier: in neuronal cells
+      subject_extension: PS gene editing system
+    - subject: PS gene editing system
+      predicate: TREATS
+      object: memory and learning ability
+      qualifier: MONDO:1012617
+      subject_extension: gene editing
+      object_extension: impaired
+named_entities:
+  - id: HP:0003651
+    label: foam cells
+    original_spans:
+      - 1009:1018

@@ -1,0 +1,110 @@
+---
+input_text: A murine model to evaluate immunotherapy effectiveness for human Fanconi
+  anemia-mutated acute myeloid leukemia. Fanconi anemia (FA)-mutated acute myeloid
+  leukemia (AML) is a secondary AML with very poor prognosis and limited therapeutic
+  options due to increased sensitivity to DNA-damaging agents. PD-1 immune checkpoint
+  inhibitors upregulate T-cell killing of cancer cells and is a class of promising
+  treatment for FA-AML. Here, we developed a novel FA-AML murine model that allows
+  the study of human AML with a humanized immune system in order to investigate immunotherapeutic
+  treatments in vivo. FA-AML1 cells and non-FA-mutated Kasumi-1 cells were injected
+  into 8-10 week old NSG mice. Once leukemic engraftment was confirmed by HLA-DR expression
+  in the peripheral blood, human peripheral blood mononuclear cells (hPBMCs) were
+  injected into the mice. One week post-hPBMCs injection, Nivolumab (PD-1 inhibitor)
+  or PBS vehicle control was administered to the mice bi-weekly. In our Nivolumab
+  treated mice, FA-AML1, but not Kasumi-1-engrafted mice, had significantly prolonged
+  overall survival. Both FA-AML1 and Kasumi-1 engrafted mice had decreased spleen
+  weights. Higher leukemic infiltration into vital organs was observed in FA-AML1
+  engrafted mice compared to Kasumi-1 engrafted mice. In conclusion, our novel humanized
+  murine model of FA-mutated AML is an attractive tool for supporting further studies
+  and clinical trials using PD-1 inhibitors to treat FA-mutated AML.
+raw_completion_output: |-
+  primary_disease: Fanconi anemia-mutated acute myeloid leukemia  
+  medical_actions: immunotherapy; injection of peripheral blood mononuclear cells; administration of Nivolumab; use of PBS vehicle control  
+  symptoms: poor prognosis; increased sensitivity to DNA-damaging agents; leukemic engraftment; decreased spleen weights; higher leukemic infiltration into vital organs  
+  chemicals: Nivolumab; PBS  
+  action_annotation_relationships: immunotherapy TREATS symptom (poor prognosis) IN Fanconi anemia-mutated acute myeloid leukemia; administration of Nivolumab TREATS symptom (increased sensitivity to DNA-damaging agents) IN Fanconi anemia-mutated acute myeloid leukemia; injection of peripheral blood mononuclear cells TREATS symptom (leukemic engraftment) IN Fanconi anemia-mutated acute myeloid leukemia; administration of Nivolumab TREATS symptom (prolonged overall survival) IN Fanconi anemia-mutated acute myeloid leukemia; administration of Nivolumab TREATS symptom (decreased spleen weights) IN Fanconi anemia-mutated acute myeloid leukemia; administration of Nivolumab TREATS symptom (higher leukemic infiltration into vital organs) IN Fanconi anemia-mutated acute myeloid leukemia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  administration of Nivolumab TREATS symptom (higher leukemic infiltration into vital organs) IN Fanconi anemia-mutated acute myeloid leukemia
+
+  ===
+
+extracted_object:
+  primary_disease: Fanconi anemia-mutated acute myeloid leukemia
+  medical_actions:
+    - immunotherapy
+    - injection of peripheral blood mononuclear cells
+    - administration of Nivolumab
+    - use of PBS vehicle control
+  symptoms:
+    - poor prognosis
+    - increased sensitivity to DNA-damaging agents
+    - leukemic engraftment
+    - decreased spleen weights
+    - higher leukemic infiltration into vital organs
+  chemicals:
+    - CHEBI:231614
+    - CHEBI:25016
+  action_annotation_relationships:
+    - subject: immunotherapy
+      predicate: TREATS
+      object: symptom
+      qualifier: Fanconi anemia-mutated acute myeloid leukemia
+      subject_qualifier: N/A
+      object_qualifier: N/A
+      subject_extension: immunotherapy
+      object_extension: poor prognosis
+    - subject: administration
+      predicate: TREATS
+      object: symptom
+      qualifier: Fanconi anemia-mutated acute myeloid leukemia
+      subject_extension: CHEBI:231614
+      object_extension: increased sensitivity
+    - subject: injection
+      predicate: TREATS
+      object: symptom
+      qualifier: Fanconi anemia-mutated acute myeloid leukemia
+      subject_extension: peripheral blood mononuclear cells
+      object_extension: leukemic engraftment
+    - subject: administration
+      predicate: TREATS
+      object: prolonged overall survival
+      qualifier: Fanconi anemia-mutated acute myeloid leukemia
+      subject_extension: CHEBI:231614
+      object_extension: overall survival
+    - subject: administration of Nivolumab
+      predicate: TREATS
+      object: decreased spleen weights
+      qualifier: Fanconi anemia-mutated acute myeloid leukemia
+      subject_qualifier: administration
+      object_qualifier: (none)
+      subject_extension: CHEBI:231614
+      object_extension: decreased spleen weights
+    - subject: administration of Nivolumab
+      predicate: TREATS
+      object: higher leukemic infiltration into vital organs
+      qualifier: Fanconi anemia-mutated acute myeloid leukemia
+      subject_extension: CHEBI:231614
+      object_extension: leukemic infiltration
+named_entities:
+  - id: CHEBI:231614
+    label: Nivolumab
+    original_spans:
+      - 887:895
+      - 984:992
+  - id: CHEBI:25016
+    label: PBS
+    original_spans:
+      - 917:919

@@ -1,0 +1,87 @@
+---
+input_text: 'Hematopoietic cell transplantation for Mucopolysaccharidosis I in the
+  presence of decreased cardiac function. BACKGROUND: Severe mucopolysaccharidosis
+  type I, (MPS IH) is a rare inherited lysosomal disorder resulting in progressive
+  storage of proteoglycans (GAGs) in central nervous system and somatic tissues and,
+  if left untreated, causing death within the first decade of life. Hematopoietic
+  cell transplantation (HCT) arrests many of the features of MPS IH but carries a
+  10-15% risk of mortality. Decreased cardiac function can occur in MPS IH and increase
+  the risk of HCT. METHODS: Retrospective chart review was performed to determine
+  the long-term outcome of individuals evaluated for HCT with MPS IH who had decreased
+  cardiac function as measured by cardiac echocardiogram (echo) and ejection fraction
+  (EF) of <50% at the time of initial evaluation. RESULTS: Six patients ranging in
+  age from 1 week to 21 months (median: 4 months) had EFs ranging from 25 to 47% (median:
+  32%) at diagnosis and were initiated on enzyme replacement therapy (ERT) with improvement
+  in EF in three patients by 5 months. The remaining three patients continued to have
+  EFs <50% and continuous milrinone infusion was added in the pre-HCT period. On average,
+  milrinone infusion was able to be discontinued post-HCT, prior to hospital discharge,
+  within a mean of 37 days. Five patients survived HCT and are alive today with normal
+  EFs. One patient receiving milrinone died of sepsis during HCT with a normal EF.
+  CONCLUSION: Decreased cardiac systolic function in infants with MPS IH that fails
+  to normalize with ERT alone may benefit from the addition of continuous milrinone
+  infusion during HCT.'
+raw_completion_output: |-
+  primary_disease: Mucopolysaccharidosis I  
+  medical_actions: Hematopoietic cell transplantation; enzyme replacement therapy; continuous milrinone infusion  
+  symptoms: decreased cardiac function; severe mucopolysaccharidosis type I; progressive storage of proteoglycans  
+  chemicals: milrinone  
+  action_annotation_relationships: Hematopoietic cell transplantation TREATS decreased cardiac function IN Mucopolysaccharidosis I; enzyme replacement therapy TREATS decreased cardiac function IN Mucopolysaccharidosis I; continuous milrinone infusion TREATS decreased cardiac function IN Mucopolysaccharidosis I
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  continuous milrinone infusion TREATS decreased cardiac function IN Mucopolysaccharidosis I
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0001586
+  medical_actions:
+    - Hematopoietic cell transplantation
+    - enzyme replacement therapy
+    - continuous milrinone infusion
+  symptoms:
+    - decreased cardiac function
+    - severe mucopolysaccharidosis type I
+    - progressive storage of proteoglycans
+  chemicals:
+    - CHEBI:50693
+  action_annotation_relationships:
+    - subject: Hematopoietic cell transplantation
+      predicate: TREATS
+      object: decreased cardiac function
+      qualifier: MONDO:0001586
+      subject_extension: hematopoietic cell transplantation
+      object_extension: decreased cardiac function
+    - subject: enzyme replacement therapy
+      predicate: TREATS
+      object: decreased cardiac function
+      qualifier: MONDO:0001586
+      subject_extension: enzyme replacement therapy
+      object_extension: cardiac function
+    - subject: continuous milrinone infusion
+      predicate: TREATS
+      object: decreased cardiac function
+      qualifier: MONDO:0001586
+      subject_qualifier: continuous
+      object_qualifier: decreased
+      subject_extension: CHEBI:50693
+      object_extension: cardiac function
+named_entities:
+  - id: CHEBI:50693
+    label: milrinone
+    original_spans:
+      - 1177:1185
+      - 1241:1249
+      - 1439:1447
+      - 1647:1655

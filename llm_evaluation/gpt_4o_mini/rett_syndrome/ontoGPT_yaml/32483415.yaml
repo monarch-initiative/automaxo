@@ -1,0 +1,101 @@
+---
+input_text: 'Dendrimer-conjugated glutaminase inhibitor selectively targets microglial
+  glutaminase in a mouse model of Rett syndrome. Background: Elevated glutamate production
+  and release from glial cells is a common feature of many CNS disorders. Inhibitors
+  of glutaminase (GLS), the enzyme responsible for converting glutamine to glutamate
+  have been developed to target glutamate overproduction. However, many GLS inhibitors
+  have poor aqueous solubility, are unable to cross the blood brain barrier, or demonstrate
+  significant toxicity when given systemically, precluding translation. Enhanced aqueous
+  solubility and systemic therapy targeted to activated glia may address this challenge.
+  Here we examine the impact of microglial-targeted GLS inhibition in a mouse model
+  of Rett syndrome (RTT), a developmental disorder with no viable therapies, manifesting
+  profound central nervous system effects, in which elevated glutamatergic tone, upregulation
+  of microglial GLS, oxidative stress and neuroimmune dysregulation are key features.
+  Methods: To enable this, we conjugated a potent glutaminase inhibitor, N-(5-{2-[2-(5-amino-[1,3,4]thiadiazol-2-yl)-ethylsulfanyl]-ethyl}-[1,3,4]thiadiazol-2-yl)-2-phenyl-acetamide
+  (JHU29) to a generation 4 hydroxyl PAMAM dendrimer (D-JHU29). We then examined the
+  effect of D-JHU29 in organotypic slice culture on glutamate release. We also examined
+  GLS activity in microglial and non-microglial cells, and neurobehavioral phenotype
+  after systemic administration of D-JHU29 in a mouse model of RTT. Results: We report
+  successful conjugation of JHU29 to dendrimer resulting in enhanced water solubility
+  compared to free JHU29. D-JHU29 reduced the excessive glutamate release observed
+  in tissue culture slices in a clinically relevant Mecp2-knockout (KO) RTT mouse.
+  Microglia isolated from Mecp2-KO mice demonstrated upregulation of GLS activity
+  that normalized to wild-type levels following systemic treatment with D-JHU29. Neurobehavioral
+  assessments in D-JHU29 treated Mecp2-KO mice revealed selective improvements in
+  mobility. Conclusion: These findings demonstrate that glutaminase inhibitors conjugated
+  to dendrimers are a viable mechanism to selectively inhibit microglial GLS to reduce
+  glutamate production and improve mobility in a mouse model of RTT, with broader
+  implications for selectively targeting this pathway in other neurodegenerative disorders.'
+raw_completion_output: |-
+  primary_disease: Rett syndrome  
+  medical_actions: systemic administration of D-JHU29; treatment with D-JHU29; conjugation of JHU29 to dendrimer  
+  symptoms: elevated glutamate production; oxidative stress; neuroimmune dysregulation; impaired mobility  
+  chemicals: JHU29; D-JHU29  
+  action_annotation_relationships: systemic administration of D-JHU29 TREATS impaired mobility IN Rett syndrome; treatment with D-JHU29 TREATS elevated glutamate production IN Rett syndrome; treatment with D-JHU29 TREATS oxidative stress IN Rett syndrome; treatment with D-JHU29 TREATS neuroimmune dysregulation IN Rett syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  treatment with D-JHU29 TREATS neuroimmune dysregulation IN Rett syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010726
+  medical_actions:
+    - systemic administration of D-JHU29
+    - treatment with D-JHU29
+    - conjugation of JHU29 to dendrimer
+  symptoms:
+    - elevated glutamate production
+    - HP:0025464
+    - neuroimmune dysregulation
+    - impaired mobility
+  chemicals:
+    - JHU29
+    - D-JHU29
+  action_annotation_relationships:
+    - subject: systemic administration
+      predicate: TREATS
+      object: impaired mobility
+      qualifier: MONDO:0010726
+      subject_qualifier: systemic
+      object_qualifier: None
+      subject_extension: D-JHU29
+      object_extension: impaired mobility
+    - subject: treatment
+      predicate: TREATS
+      object: elevated glutamate production
+      qualifier: MONDO:0010726
+      subject_qualifier: D-JHU29
+      object_qualifier: elevated
+      subject_extension: D-JHU29
+      object_extension: elevated glutamate production
+    - subject: treatment
+      predicate: TREATS
+      object: HP:0025464
+      qualifier: MONDO:0010726
+      subject_extension: D-JHU29
+      object_extension: oxidative stress
+    - subject: treatment
+      predicate: TREATS
+      object: neuroimmune dysregulation
+      qualifier: MONDO:0010726
+      subject_qualifier: with D-JHU29
+      subject_extension: D-JHU29
+      object_extension: neuroimmune dysregulation
+named_entities:
+  - id: HP:0025464
+    label: oxidative stress
+    original_spans:
+      - 958:973

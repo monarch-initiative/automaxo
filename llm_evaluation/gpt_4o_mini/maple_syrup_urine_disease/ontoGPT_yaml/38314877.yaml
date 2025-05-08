@@ -1,0 +1,78 @@
+---
+input_text: 'Changes in branched-chain amino acids in an infant with maple syrup urine
+  disease during perioperative pediatric liver transplant: A case report. An 11-month-old
+  female infant diagnosed with classic subtype IB maple syrup urine disease underwent
+  living donor liver transplantation. Blood samples for plasma amino acid analysis
+  were collected during the three phases of the operation. Despite the perioperative
+  prophylactic administration of 12.5% hypertonic dextrose solution with insulin and
+  a 20% intralipid emulsion, the blood levels of the branched-chain amino acids increased
+  dramatically during surgery, consistent with an acute intraoperative metabolic decompensation.
+  However, these blood levels normalized soon after liver transplantation with an
+  excellent outcome. We suggest that the occurrence of an intraoperative metabolic
+  crisis during liver transplantation is not necessarily a sign of graft failure.'
+raw_completion_output: |-
+  primary_disease: maple syrup urine disease  
+  medical_actions: liver transplantation; administration of hypertonic dextrose solution; administration of insulin; administration of intralipid emulsion  
+  symptoms: increased blood levels of branched-chain amino acids; acute intraoperative metabolic decompensation  
+  chemicals: hypertonic dextrose; insulin; intralipid emulsion  
+  action_annotation_relationships: liver transplantation TREATS symptom increased blood levels of branched-chain amino acids IN maple syrup urine disease; administration of hypertonic dextrose solution TREATS symptom acute intraoperative metabolic decompensation IN maple syrup urine disease; administration of insulin TREATS symptom acute intraoperative metabolic decompensation IN maple syrup urine disease; administration of intralipid emulsion TREATS symptom acute intraoperative metabolic decompensation IN maple syrup urine disease  
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  administration of intralipid emulsion TREATS symptom acute intraoperative metabolic decompensation IN maple syrup urine disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009563
+  medical_actions:
+    - MAXO:0001175
+    - administration of hypertonic dextrose solution
+    - administration of insulin
+    - administration of intralipid emulsion
+  symptoms:
+    - increased blood levels of branched-chain amino acids
+    - acute intraoperative metabolic decompensation
+  chemicals:
+    - hypertonic dextrose
+    - CHEBI:145810
+    - intralipid emulsion
+  action_annotation_relationships:
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: increased blood levels of branched-chain amino acids
+      qualifier: MONDO:0009563
+      subject_extension: liver transplantation
+      object_extension: branched-chain amino acids
+    - subject: administration
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0009563
+      subject_extension: hypertonic dextrose solution
+      object_extension: acute intraoperative metabolic decompensation
+    - subject: administration of insulin
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0009563
+      subject_extension: CHEBI:145810
+      object_extension: acute intraoperative metabolic decompensation
+    - predicate: TREATS
+      object: acute intraoperative metabolic decompensation
+      qualifier: MONDO:0009563
+      subject_extension: intralipid emulsion
+named_entities:
+  - id: CHEBI:145810
+    label: insulin
+    original_spans:
+      - 481:487

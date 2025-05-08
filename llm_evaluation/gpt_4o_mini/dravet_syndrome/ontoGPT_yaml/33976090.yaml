@@ -1,0 +1,44 @@
+---
+input_text: 'Stiripentol (Diacomit) for Dravet syndrome. '
+raw_completion_output: |-
+  primary_disease: Dravet syndrome  
+  medical_actions: Stiripentol (Diacomit)  
+  symptoms: Not specified  
+  chemicals: Stiripentol (Diacomit)  
+  action_annotation_relationships: Stiripentol (Diacomit) TREATS symptom IN Dravet syndrome
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Stiripentol (Diacomit) TREATS symptom IN Dravet syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0100135
+  medical_actions:
+    - Stiripentol (Diacomit)
+  symptoms:
+    - Not specified
+  chemicals:
+    - CHEBI:94435
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0100135
+      subject_extension: CHEBI:228488
+named_entities:
+  - id: CHEBI:94435
+    label: Stiripentol (Diacomit)
+    original_spans:
+      - 0:21

@@ -1,0 +1,108 @@
+---
+input_text: 'The effect of haemopoietic stem cell transplantation on the ocular phenotype
+  in mucopolysaccharidosis type I (Hurler). PURPOSE: To determine whether the ocular
+  phenotype in patients with mucopolysaccharidosis type I (MPSI) Hurler is affected
+  by the efficacy of previous haemopoietic stem cell transplantation (HSCT). DESIGN:
+  A retrospective cohort study of patients with MPSI who had undergone treatment with
+  HSCT. METHODS: Ocular phenotype was documented for each patient and compared to
+  levels of biomarkers representing efficacy of previous transplantation. MAIN OUTCOME
+  MEASURES: Assessment of visual acuity (VA), severity of corneal clouding and the
+  presence of optic neuropathy or retinopathy. Biomarker assessment included dermatan
+  sulphate/chondroitin sulphate (DS/CS) ratio and iduronidase enzyme level. RESULTS:
+  Severe corneal clouding was significantly greater in patients with lower iduronidase
+  levels (p = 0.023) and raised DS/CS ratio (R2  = 0.28 p = 0.043). Better VA was
+  related to a higher iduronidase levels (R2  = 0.15, p = 0.004) and lower DS/CS ratio
+  (R2  = 0.38, p = 0.001). CONCLUSION: Improved ocular phenotypes in MPSI are associated
+  with markers signifying efficacy of prior transplant. Early and effective HSCT may
+  result in a better visual prognosis and reduction in ocular complications for patients
+  with MPSI.'
+raw_completion_output: |-
+  primary_disease: mucopolysaccharidosis type I (Hurler)
+  medical_actions: haemopoietic stem cell transplantation (HSCT)
+  symptoms: ocular phenotype; visual acuity; corneal clouding; optic neuropathy; retinopathy
+  chemicals: dermatan sulphate; chondroitin sulphate; iduronidase
+  action_annotation_relationships: haemopoietic stem cell transplantation (HSCT) TREATS ocular phenotype IN mucopolysaccharidosis type I (Hurler); haemopoietic stem cell transplantation (HSCT) TREATS visual acuity IN mucopolysaccharidosis type I (Hurler); haemopoietic stem cell transplantation (HSCT) TREATS corneal clouding IN mucopolysaccharidosis type I (Hurler); iduronidase TREATS visual acuity IN mucopolysaccharidosis type I (Hurler); iduronidase TREATS corneal clouding IN mucopolysaccharidosis type I (Hurler); dermatan sulphate/chondroitin sulphate (DS/CS) ratio TREATS corneal clouding IN mucopolysaccharidosis type I (Hurler)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  dermatan sulphate/chondroitin sulphate (DS/CS) ratio TREATS corneal clouding IN mucopolysaccharidosis type I (Hurler)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0001586
+  medical_actions:
+    - MAXO:0000747
+  symptoms:
+    - ocular phenotype
+    - visual acuity
+    - HP:0007957
+    - HP:0001138
+    - HP:0000488
+  chemicals:
+    - dermatan sulphate
+    - CHEBI:37397
+    - iduronidase
+  action_annotation_relationships:
+    - subject: haemopoietic stem cell transplantation
+      predicate: TREATS
+      object: ocular phenotype
+      qualifier: MONDO:0001586
+      subject_extension: haemopoietic stem cell transplantation
+      object_extension: ocular phenotype
+    - subject: haemopoietic stem cell transplantation
+      predicate: TREATS
+      object: visual acuity
+      qualifier: MONDO:0001586
+      subject_extension: haemopoietic stem cell transplantation
+      object_extension: visual acuity
+    - subject: haemopoietic stem cell transplantation
+      predicate: TREATS
+      object: HP:0007957
+      qualifier: MONDO:0001586
+      subject_extension: haemopoietic stem cell transplantation
+      object_extension: corneal clouding
+    - subject: TREATS
+      predicate: TREATS
+      object: visual acuity
+      qualifier: MONDO:0001586
+      subject_extension: iduronidase
+      object_extension: visual acuity
+    - subject: TREATS
+      predicate: TREATS
+      object: HP:0007957
+      qualifier: MONDO:0001586
+      subject_extension: iduronidase
+      object_extension: corneal clouding
+    - subject: TREATS
+      predicate: TREATS
+      object: HP:0007957
+      qualifier: MONDO:0001586
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: dermatan sulphate/chondroitin sulphate
+      object_extension: corneal clouding
+named_entities:
+  - id: HP:0001138
+    label: optic neuropathy
+    original_spans:
+      - 667:682
+  - id: HP:0000488
+    label: retinopathy
+    original_spans:
+      - 687:697
+  - id: CHEBI:37397
+    label: chondroitin sulphate
+    original_spans:
+      - 748:767

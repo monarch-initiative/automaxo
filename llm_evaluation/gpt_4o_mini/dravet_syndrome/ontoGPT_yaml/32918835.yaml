@@ -1,0 +1,99 @@
+---
+input_text: 'Clinical implications of trials investigating drug-drug interactions
+  between cannabidiol and enzyme inducers or inhibitors or common antiseizure drugs.
+  Highly purified cannabidiol (CBD) has demonstrated efficacy with an acceptable safety
+  profile in patients with Lennox-Gastaut syndrome or Dravet syndrome in randomized,
+  double-blind, add-on, controlled phase 3 trials. It is important to consider the
+  possibility of drug-drug interactions (DDIs). Here, we review six trials of CBD
+  (Epidiolex/Epidyolex; 100 mg/mL oral solution) in healthy volunteers or patients
+  with epilepsy, which investigated potential interactions between CBD and enzymes
+  involved in drug metabolism of common antiseizure drugs (ASDs). CBD did not affect
+  CYP3A4 activity. Induction of CYP3A4 and CYP2C19 led to small reductions in exposure
+  to CBD and its major metabolites. Inhibition of CYP3A4 activity did not affect CBD
+  exposure and caused small increases in exposure to CBD metabolites. Inhibition of
+  CYP2C19 activity led to a small increase in exposure to CBD and small decreases
+  in exposure to CBD metabolites. One potentially clinically important DDI was identified:
+  combination of CBD and clobazam (CLB) did not affect CBD or CLB exposure, but increased
+  exposure to major metabolites of both compounds. Reduction of CLB dose may be considered
+  if adverse reactions known to occur with CLB are experienced when it is coadministered
+  with CBD. There was a small increase of exposure to stiripentol (STP) when coadministered
+  with CBD. STP had no effect on CBD exposure but led to minor decreases in exposure
+  to CBD metabolites. Combination of CBD and valproate (VPA) did not cause clinically
+  important changes in the pharmacokinetics of either drug, or 2-propyl-4-pentenoic
+  acid. Concomitant VPA caused small increases in exposure to CBD metabolites. Dose
+  adjustments are not likely to be necessary when CBD is combined with STP or VPA.
+  The safety results from these trials were consistent with the known safety profile
+  of CBD. These trials indicate an overall low potential for DDIs between CBD and
+  other ASDs, except for CLB.'
+raw_completion_output: |-
+  primary_disease: Lennox-Gastaut syndrome; Dravet syndrome  
+  medical_actions: use of cannabidiol (CBD); dose adjustment of clobazam (CLB); coadministration of CBD with clobazam, stiripentol (STP), and valproate (VPA)  
+  symptoms: adverse reactions  
+  chemicals: cannabidiol (CBD); clobazam (CLB); stiripentol (STP); valproate (VPA)  
+  action_annotation_relationships: use of cannabidiol (CBD) TREATS symptom adverse reactions IN Lennox-Gastaut syndrome; dose adjustment of clobazam (CLB) TREATS symptom adverse reactions IN Lennox-Gastaut syndrome; coadministration of CBD with clobazam TREATS symptom adverse reactions IN Lennox-Gastaut syndrome; coadministration of CBD with stiripentol TREATS symptom adverse reactions IN Lennox-Gastaut syndrome; coadministration of CBD with valproate TREATS symptom adverse reactions IN Lennox-Gastaut syndrome.
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  coadministration of CBD with valproate TREATS symptom adverse reactions IN Lennox-Gastaut syndrome.
+
+  ===
+
+extracted_object:
+  primary_disease: Lennox-Gastaut syndrome; Dravet syndrome
+  medical_actions:
+    - use of cannabidiol (CBD)
+    - dose adjustment of clobazam (CLB)
+    - coadministration of CBD with clobazam, stiripentol (STP), and valproate (VPA)
+  symptoms:
+    - adverse reactions
+  chemicals:
+    - CHEBI:69478
+    - CHEBI:31413
+    - CHEBI:228488
+    - CHEBI:39867
+  action_annotation_relationships:
+    - subject: use of cannabidiol (CBD)
+      predicate: TREATS
+      object: symptom adverse reactions
+      qualifier: MONDO:0016532
+      subject_qualifier: N/A
+      object_qualifier: N/A
+      subject_extension: CHEBI:69478
+      object_extension: adverse reactions
+    - subject: dose adjustment
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0016532
+      subject_extension: CHEBI:31413
+      object_extension: adverse reactions
+    - subject: coadministration
+      predicate: TREATS
+      object: adverse reactions
+      qualifier: MONDO:0016532
+      subject_extension: CHEBI:31413
+      object_extension: CBD
+    - subject: coadministration
+      predicate: TREATS
+      object: adverse reactions
+      qualifier: MONDO:0016532
+      subject_extension: CBD
+      object_extension: stiripentol
+    - subject: coadministration
+      predicate: TREATS
+      object: adverse reactions
+      qualifier: MONDO:0016532
+      subject_qualifier: N/A
+      object_qualifier: N/A
+      subject_extension: CBD
+      object_extension: valproate

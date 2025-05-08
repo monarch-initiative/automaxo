@@ -1,0 +1,134 @@
+---
+input_text: 'Long-term outcome in patients with Fanconi anemia who received hematopoietic
+  stem cell transplantation: a retrospective nationwide analysis. We retrospectively
+  analyzed nationwide records of 163 Fanconi anemia (FA) patients [aplastic anemia
+  (AA), n = 118; myelodysplastic syndrome (MDS), n = 30; acute leukemia, n = 15] who
+  underwent first allogeneic hematopoietic stem cell transplantation (HSCT) between
+  1987 and 2015 in Japan. An alternative donor was used in 119 (73%) patients, and
+  160 (98%) patients received a non-T-cell-depleted graft. With an 8.7-year median
+  follow-up, 5-year overall survival (OS) was 81%. The 5-year OS was significantly
+  higher in AA patients than in MDS and acute leukemia patients (89%, 71%, and 44%,
+  respectively). In the MDS/leukemia group, factors associated with poor outcome in
+  univariate analysis were older age at HSCT (>= 18 years), conditioning regimen without
+  anti-thymocyte or lymphocyte globulin, and grade II-IV acute graft-versus-host disease.
+  After 1 year, of 137 survivors, 15 developed subsequent malignancies, of whom 12
+  were diagnosed with head and neck (HN)/esophageal cancer. An irradiation regimen
+  and older age were associated with the risk of HN/esophageal cancer. Five of seven
+  deaths were attributed to subsequent malignancies more than 5 years after HSCT.
+  On the basis of the risk factors for HSCT in MDS/leukemia patients and subsequent
+  malignancies, a more effective HSCT approach is required.'
+raw_completion_output: |-
+  primary_disease: Fanconi anemia  
+  medical_actions: hematopoietic stem cell transplantation; allogeneic stem cell transplantation; conditioning regimen; use of anti-thymocyte globulin; use of lymphocyte globulin  
+  symptoms: aplastic anemia; myelodysplastic syndrome; acute leukemia; graft-versus-host disease; subsequent malignancies; head and neck/esophageal cancer  
+  chemicals: anti-thymocyte globulin; lymphocyte globulin  
+  action_annotation_relationships: hematopoietic stem cell transplantation TREATS aplastic anemia IN Fanconi anemia; hematopoietic stem cell transplantation TREATS myelodysplastic syndrome IN Fanconi anemia; hematopoietic stem cell transplantation TREATS acute leukemia IN Fanconi anemia; conditioning regimen TREATS graft-versus-host disease IN Fanconi anemia; use of anti-thymocyte globulin TREATS graft-versus-host disease IN Fanconi anemia; use of lymphocyte globulin TREATS graft-versus-host disease IN Fanconi anemia; hematopoietic stem cell transplantation TREATS subsequent malignancies IN Fanconi anemia; irradiation regimen TREATS head and neck/esophageal cancer IN Fanconi anemia; older age TREATS head and neck/esophageal cancer IN Fanconi anemia.
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  older age TREATS head and neck/esophageal cancer IN Fanconi anemia.
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0019391
+  medical_actions:
+    - MAXO:0000747
+    - allogeneic stem cell transplantation
+    - MAXO:0000750
+    - use of anti-thymocyte globulin
+    - use of lymphocyte globulin
+  symptoms:
+    - HP:0001915
+    - HP:0002863
+    - HP:0002488
+    - graft-versus-host disease
+    - subsequent malignancies
+    - head and neck/esophageal cancer
+  chemicals:
+    - anti-thymocyte globulin
+    - lymphocyte globulin
+  action_annotation_relationships:
+    - subject: MAXO:0000747
+      predicate: TREATS
+      object: HP:0001915
+      qualifier: MONDO:0019391
+      subject_qualifier: N/A
+      object_qualifier: N/A
+      subject_extension: hematopoietic stem cell transplantation
+      object_extension: aplastic anemia
+    - subject: MAXO:0000747
+      predicate: TREATS
+      object: HP:0002863
+      qualifier: MONDO:0019391
+      subject_extension: hematopoietic stem cell transplantation
+      object_extension: myelodysplastic syndrome
+    - subject: MAXO:0000747
+      predicate: TREATS
+      object: HP:0002488
+      qualifier: MONDO:0019391
+      subject_extension: hematopoietic stem cell transplantation
+      object_extension: acute leukemia
+    - subject: MAXO:0000750
+      predicate: TREATS
+      object: graft-versus-host disease
+      qualifier: MONDO:0019391
+      subject_qualifier: <N/A>
+      object_qualifier: <N/A>
+      subject_extension: <N/A>
+      object_extension: <N/A>
+    - subject: use of anti-thymocyte globulin
+      predicate: TREATS
+      object: graft-versus-host disease
+      qualifier: MONDO:0019391
+      subject_extension: anti-thymocyte globulin
+      object_extension: graft-versus-host disease
+    - subject: use of lymphocyte globulin
+      predicate: TREATS
+      object: graft-versus-host disease
+      qualifier: MONDO:0019391
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: lymphocyte globulin
+      object_extension: graft-versus-host disease
+    - subject: MAXO:0000747
+      predicate: TREATS
+      object: HP:0011793
+      qualifier: MONDO:0019391
+      subject_extension: hematopoietic stem cell transplantation
+      object_extension: subsequent
+    - subject: irradiation regimen
+      predicate: TREATS
+      object: head and neck/esophageal cancer
+      qualifier: MONDO:0019391
+      subject_extension: irradiation regimen
+      object_extension: head and neck/esophageal cancer
+    - subject: TREATS
+      predicate: TREATS
+      object: head and neck/esophageal cancer
+      qualifier: MONDO:0019391
+      subject_qualifier: N/A
+      object_qualifier: N/A
+      subject_extension: older age
+      object_extension: head and neck/esophageal cancer
+named_entities:
+  - id: MAXO:0000750
+    label: conditioning regimen
+    original_spans:
+      - 871:890
+  - id: HP:0002488
+    label: acute leukemia
+    original_spans:
+      - 296:309
+      - 687:700

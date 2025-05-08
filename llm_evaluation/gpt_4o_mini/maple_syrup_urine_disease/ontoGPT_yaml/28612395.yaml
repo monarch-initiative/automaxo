@@ -1,0 +1,101 @@
+---
+input_text: A case of classical maple syrup urine disease that was successfully managed
+  by living donor liver transplantation. Classical MSUD is often fatal without appropriate
+  medical interventions because of metabolic crisis. There are numerous reports suggesting
+  the therapeutic potential of deceased donor liver transplantation for MSUD. However,
+  the usefulness of LDLT for MSUD is unknown. We report a case of classical MSUD,
+  which was successfully managed by LDLT from the patient's father at 1 year of age.
+  Abnormal brain findings, which were cured with effective treatment, gradually disappeared
+  after LDLT. The patient then developed normally. Findings from this case suggest
+  the importance of LDLT for maintaining low leucine levels and subsequent normal
+  neurological development. Although LDLT involves a modest surgical insult, LDLT
+  with a related donor achieves acceptable leucine levels for life.
+raw_completion_output: |-
+  primary_disease: classical maple syrup urine disease  
+  medical_actions: living donor liver transplantation; deceased donor liver transplantation  
+  symptoms: metabolic crisis; abnormal brain findings; high leucine levels  
+  chemicals: leucine  
+  action_annotation_relationships: living donor liver transplantation TREATS metabolic crisis IN classical maple syrup urine disease; living donor liver transplantation TREATS abnormal brain findings IN classical maple syrup urine disease; living donor liver transplantation PREVENTS high leucine levels IN classical maple syrup urine disease; living donor liver transplantation TREATS normal neurological development IN classical maple syrup urine disease; deceased donor liver transplantation TREATS metabolic crisis IN classical maple syrup urine disease; deceased donor liver transplantation TREATS abnormal brain findings IN classical maple syrup urine disease; deceased donor liver transplantation PREVENTS high leucine levels IN classical maple syrup urine disease; deceased donor liver transplantation TREATS normal neurological development IN classical maple syrup urine disease.
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  deceased donor liver transplantation TREATS normal neurological development IN classical maple syrup urine disease.
+
+  ===
+
+extracted_object:
+  primary_disease: classical maple syrup urine disease
+  medical_actions:
+    - living donor liver transplantation
+    - deceased donor liver transplantation
+  symptoms:
+    - metabolic crisis
+    - abnormal brain findings
+    - high leucine levels
+  chemicals:
+    - CHEBI:25017
+  action_annotation_relationships:
+    - subject: living donor liver transplantation
+      predicate: TREATS
+      object: metabolic crisis
+      qualifier: classical maple syrup urine disease
+      subject_qualifier: living donor
+      object_qualifier: none
+      subject_extension: liver transplantation
+      object_extension: metabolic crisis
+    - subject: living donor liver transplantation
+      predicate: TREATS
+      object: abnormal brain findings
+      qualifier: classical maple syrup urine disease
+      subject_extension: liver transplantation
+      object_extension: brain findings
+    - subject: living donor liver transplantation
+      predicate: PREVENTS
+      object: high leucine levels
+      qualifier: classical maple syrup urine disease
+      subject_qualifier: living donor
+      object_qualifier: N/A
+      subject_extension: liver transplantation
+      object_extension: high leucine levels
+    - subject: living donor liver transplantation
+      predicate: TREATS
+      object: normal neurological development
+      qualifier: classical maple syrup urine disease
+      subject_qualifier: N/A
+      object_qualifier: N/A
+      subject_extension: liver transplantation
+      object_extension: neurological development
+    - subject: deceased donor liver transplantation
+      predicate: TREATS
+      object: metabolic crisis
+      qualifier: classical maple syrup urine disease
+      subject_qualifier: deceased donor
+      subject_extension: liver transplantation
+      object_extension: metabolic crisis
+    - predicate: TREATS
+      object: abnormal brain findings
+      qualifier: classical maple syrup urine disease
+      subject_extension: liver transplantation
+    - subject: deceased donor liver transplantation
+      predicate: PREVENTS
+      object: high leucine levels
+      qualifier: classical maple syrup urine disease
+      subject_extension: liver transplantation
+      object_extension: high leucine levels
+    - subject: deceased donor liver transplantation
+      predicate: TREATS
+      object: normal neurological development
+      qualifier: classical maple syrup urine disease
+      subject_extension: liver transplantation
+      object_extension: neurological development

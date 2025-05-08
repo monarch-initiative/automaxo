@@ -1,0 +1,312 @@
+---
+input_text: 'Unrelated Donor Cord Blood Transplantation in Children: Lessons Learned
+  Over 3 Decades. Four decades ago, Broxmeyer et al. demonstrated that umbilical cord
+  blood (CB) contained hematopoietic stem cells (HSC) and hypothesized that CB could
+  be used as a source of donor HSC for rescue of myeloablated bone marrow. In 1988,
+  Gluckman et al. reported the first successful matched sibling cord blood transplant
+  (CBT) in a child with Fanconi Anemia. In 1991, Rubinstein et al. established an
+  unrelated donor CB bank, and in 1993, the first unrelated CBT used a unit from this
+  bank. Since that time, >40 000 CBTs have been performed worldwide. Early outcomes
+  of CBT were mixed and demonstrated the importance of cell dose from the CB donor.
+  We hypothesized that improvements in CB banking and transplantation favorably impacted
+  outcomes of CBT today and performed a retrospective study combining data from Eurocord
+  and Duke University in 4834 children transplanted with a single unrelated CB unit
+  (CBU) from 1993 to 2019. Changes in standard transplant outcomes (overall survival
+  [OS], disease free survival [DFS], acute and chronic graft-versus-host disease [GvHD],
+  treatment related mortality [TRM], and relapse) over 3 time periods (1: <2005; 2:
+  2005 to <2010; and 3: >2010 to 2019) were studied. Increased cell dose and degree
+  of HLA matching were observed over time. OS, times to engraftment, and DFS improved
+  over time. The incidence of TRM and GvHD decreased while the incidence of relapse
+  remained unchanged. Relative contributions of cell dose and HLA matching to transplant
+  outcomes were also assessed and showed that HLA matching was more important than
+  cell dose in this pediatric cohort.'
+raw_completion_output: |-
+  primary_disease: Fanconi Anemia
+  medical_actions: cord blood transplantation; improvements in cord blood banking; HLA matching
+  symptoms: myeloablated bone marrow; acute and chronic graft-versus-host disease (GvHD); treatment related mortality (TRM); relapse
+  chemicals: hematopoietic stem cells (HSC)
+  action_annotation_relationships: cord blood transplantation (with hematopoietic stem cells) TREATS myeloablated bone marrow IN Fanconi Anemia; improvements in cord blood banking PREVENTS acute and chronic graft-versus-host disease (GvHD) IN Fanconi Anemia; HLA matching PREVENTS treatment related mortality (TRM) IN Fanconi Anemia; cord blood transplantation (with hematopoietic stem cells) PREVENTS relapse IN Fanconi Anemia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  cord blood transplantation (with hematopoietic stem cells) PREVENTS relapse IN Fanconi Anemia
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0019391
+  medical_actions:
+    - MAXO:0010033
+    - improvements in cord blood banking
+    - HLA matching
+  symptoms:
+    - myeloablated bone marrow
+    - acute and chronic graft-versus-host disease (GvHD)
+    - treatment related mortality (TRM)
+    - relapse
+  chemicals:
+    - CHEBI:50443
+  action_annotation_relationships:
+    - subject: MAXO:0010033
+      predicate: TREATS
+      object: myeloablated bone marrow
+      qualifier: MONDO:0019391
+      subject_qualifier: with hematopoietic stem cells
+      subject_extension: hematopoietic stem cells
+    - subject: improvements in cord blood banking
+      predicate: PREVENTS
+      object: graft-versus-host disease (GvHD)
+      qualifier: MONDO:0019391
+      object_qualifier: acute and chronic
+      subject_extension: cord blood banking
+      object_extension: acute and chronic
+    - subject: <HLA matching>
+      predicate: <PREVENTS>
+      object: <treatment related mortality>
+      qualifier: <Fanconi Anemia>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <HLA matching>
+      object_extension: <treatment related mortality>
+    - subject: <cord blood transplantation>
+      predicate: <PREVENTS>
+      object: <relapse>
+      qualifier: <Fanconi Anemia>
+      subject_qualifier: <with hematopoietic stem cells>
+      subject_extension: <hematopoietic stem cells>
+named_entities:
+  - id: MONDO:0019391
+    label: Fanconi anemia
+  - id: MAXO:0000747
+    label: Hematopoietic stem cell transplantation (HSCT)
+  - id: CHEBI:18198
+    label: ADCs
+  - id: CHEBI:4027
+    label: cyclophosphamide
+  - id: MAXO:0000750
+    label: conditioning regimens
+  - id: CHEBI:37153
+    label: Calcineurin inhibitor
+  - id: CHEBI:38215
+    label: Calcium channel blocker
+  - id: CHEBI:4031
+    label: Cyclosporine
+  - id: CHEBI:8069
+    label: Phenobarbital
+  - id: CHEBI:2668
+    label: Amlodipine
+  - id: MAXO:0000149
+    label: Hematopoietic cell transplantation (HCT)
+  - id: MAXO:0000016
+    label: Cellular therapy
+  - id: HP:0001871
+    label: Blood dyscrasias
+  - id: MAXO:0000595
+    label: Radiography
+  - id: HP:0005528
+    label: Bone marrow failure
+  - id: HP:0034057
+    label: Congenital defects
+  - id: CHEBI:28901
+    label: Busulfan
+  - id: CHEBI:44185
+    label: Methotrexate
+  - id: MONDO:0005233
+    label: Non-small cell lung cancer (NSCLC)
+  - id: CHEBI:33364
+    label: Platinum
+  - id: MAXO:0000647
+    label: chemotherapy
+  - id: HP:0030358
+    label: Non-small cell lung cancer
+  - id: MAXO:0001479
+    label: Allogeneic hematopoietic stem cell transplantation (allo-HSCT)
+  - id: HP:0002863
+    label: Myelodysplasia
+  - id: HP:0001909
+    label: Leukemia
+  - id: MONDO:0016624
+    label: Hereditary anemia
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: MONDO:0005570
+    label: Hematological disorders
+  - id: HP:0002664
+    label: cancer
+  - id: MONDO:0015253
+    label: Diamond Blackfan anemia
+  - id: MAXO:0000600
+    label: Kidney replacement therapy (KRT)
+  - id: HP:0000093
+    label: Proteinuria
+  - id: HP:0003259
+    label: Elevated serum creatinine (SCr > 100micromol/l)
+  - id: MONDO:0001529
+    label: Bone marrow failure (BMF)
+  - id: HP:0002860
+    label: oral squamous cell carcinoma (SCC)
+  - id: MONDO:0100339
+    label: Fanconi anemia (FA)
+  - id: CHEBI:28680
+    label: Ara-C
+  - id: CHEBI:27899
+    label: Cisplatin
+  - id: HP:0011793
+    label: Malignant tumors
+  - id: HP:0000818
+    label: Endocrinopathies
+  - id: HP:0002745
+    label: Oral leukoplakia
+  - id: CHEBI:64357
+    label: rituximab
+  - id: CHEBI:61049
+    label: Tacrolimus
+  - id: HP:0002910
+    label: elevated liver function tests
+  - id: CHEBI:125354
+    label: plerixafor
+  - id: CHEBI:231614
+    label: Nivolumab
+  - id: CHEBI:25016
+    label: PBS
+  - id: MONDO:0009693
+    label: Multiple Myeloma
+  - id: CHEBI:28876
+    label: Melphalan
+  - id: CHEBI:229764
+    label: Selinexor
+  - id: CHEBI:229762
+    label: Eltanexor
+  - id: HP:0006775
+    label: Multiple Myeloma
+  - id: CHEBI:229763
+    label: exportin 1 inhibitors
+  - id: MONDO:0015909
+    label: aplastic anemia
+  - id: HP:0004808
+    label: Acute myeloid leukaemia
+  - id: MAXO:0000004
+    label: Surgery
+  - id: MAXO:0000014
+    label: Radiotherapy
+  - id: MONDO:0001881
+    label: Septic shock
+  - id: MAXO:0001021
+    label: Antimicrobial treatment
+  - id: MAXO:0000174
+    label: Antifungal treatment
+  - id: HP:0001876
+    label: Pancytopenia
+  - id: HP:0001945
+    label: Fever
+  - id: CHEBI:133748
+    label: Citrate
+  - id: CHEBI:41879
+    label: Dexamethasone
+  - id: CHEBI:33281
+    label: Antimicrobial
+  - id: CHEBI:35718
+    label: Antifungal
+  - id: MONDO:0044033
+    label: Posterior reversible encephalopathy syndrome (PRES)
+  - id: MAXO:0010030
+    label: Bone marrow transplantation
+  - id: MAXO:0001188
+    label: Laparoscopy
+  - id: HP:0000988
+    label: Skin rash
+  - id: MONDO:0010161
+    label: Tyrosinemia Type 1
+  - id: HP:0001919
+    label: acute kidney injury (AKI)
+  - id: HP:0000822
+    label: hypertension
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0040012
+    label: Increased chromosomal breakage
+  - id: MONDO:0004631
+    label: Tongue cancer (TC)
+  - id: CHEBI:4735
+    label: EDTA
+  - id: HP:0002014
+    label: Diarrhea
+  - id: HP:0025085
+    label: Blood in stool
+  - id: HP:0000568
+    label: Microphthalmia
+  - id: HP:0000482
+    label: microcornea
+  - id: HP:0000508
+    label: ptosis
+  - id: HP:0011496
+    label: limbal neovascularization
+  - id: HP:0001097
+    label: keratoconjunctivitis sicca
+  - id: CHEBI:62932
+    label: Mycophenolate
+  - id: MONDO:0008903
+    label: Lung Cancer
+  - id: MONDO:0100096
+    label: COVID-19
+  - id: HP:0032169
+    label: severe infections
+  - id: MONDO:0044348
+    label: Hemoglobinopathies
+  - id: MONDO:0005109
+    label: HIV
+  - id: HP:0001622
+    label: Preterm delivery
+  - id: HP:0100601
+    label: Eclampsia
+  - id: MONDO:0043455
+    label: Hereditary hematological malignancy (HHM)
+  - id: MONDO:0043797
+    label: Spinal Cord Injury (SCI)
+  - id: CHEBI:27306
+    label: Vitamin B6
+  - id: HP:0001915
+    label: aplastic anemia
+  - id: MONDO:0001056
+    label: Gastric cancer
+  - id: MAXO:0001193
+    label: Esophagogastroduodenoscopy
+  - id: CHEBI:31941
+    label: Oxaliplatin
+  - id: HP:0012126
+    label: Gastric cancer
+  - id: MONDO:0005575
+    label: Colorectal Cancer
+  - id: CHEBI:46345
+    label: 5-fluorouracil (5-FU)
+  - id: CHEBI:15640
+    label: Folinic acid
+  - id: HP:0008209
+    label: Premature ovarian insufficiency (POI)
+  - id: HP:0000026
+    label: Testicular failure
+  - id: CHEBI:81569
+    label: Follicle-stimulating hormone (FSH)
+  - id: CHEBI:74539
+    label: Luteinizing hormone (LH)
+  - id: MONDO:0010651
+    label: myelodysplastic syndromes (MDS)
+  - id: MAXO:0000079
+    label: genetic counseling
+  - id: MONDO:0018881
+    label: myelodysplastic syndromes
+  - id: MAXO:0010033
+    label: cord blood transplantation
+  - id: CHEBI:50443
+    label: hematopoietic stem cells (HSC)

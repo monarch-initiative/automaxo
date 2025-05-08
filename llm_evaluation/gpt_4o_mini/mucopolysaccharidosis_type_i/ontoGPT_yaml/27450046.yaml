@@ -1,0 +1,78 @@
+---
+input_text: Deleterious effects of interruption followed by reintroduction of enzyme
+  replacement therapy on a lysosomal storage disorder. Temporary interruption of enzyme
+  replacement therapy (ERT) in patients with different lysosomal storage disorders
+  may happen for different reasons (adverse reactions, issues with reimbursement,
+  logistic difficulties, and so forth), and the impact of the interruption is still
+  uncertain. In the present work, we studied the effects of the interruption of intravenous
+  ERT (Laronidase, Genzyme) followed by its reintroduction in mice with the prototypical
+  lysosomal storage disorder mucopolysaccharidosis type I, comparing to mice receiving
+  continuous treatment, untreated mucopolysaccharidosis type I mice, and normal mice.
+  In the animals which treatment was temporarily interrupted, we observed clear benefits
+  of treatment in several organs (liver, lung, heart, kidney, and testis) after reintroduction,
+  but a worsening in the thickness of the aortic wall was detected. Furthermore, these
+  mice had just partial improvements in behavioral tests, suggesting some deterioration
+  in the brain function. Despite worsening is some disease aspects, urinary glycosaminoglycans
+  levels did not increase during interruption, which indicates that this biomarker
+  commonly used to monitor treatment in patients should not be used alone to assess
+  treatment efficacy. The deterioration observed was not caused by the development
+  of serum antienzyme antibodies. All together our results suggest that temporary
+  ERT interruption leads to deterioration of function in some organs and should be
+  avoided whenever possible.
+raw_completion_output: |-
+  primary_disease: mucopolysaccharidosis type I  
+  medical_actions: enzyme replacement therapy (ERT); intravenous therapy  
+  symptoms: deterioration in brain function; worsening in the thickness of the aortic wall; partial improvements in behavioral tests  
+  chemicals: Laronidase  
+  action_annotation_relationships: enzyme replacement therapy (with Laronidase) TREATS deterioration in brain function IN mucopolysaccharidosis type I; enzyme replacement therapy (with Laronidase) TREATS worsening in the thickness of the aortic wall IN mucopolysaccharidosis type I; enzyme replacement therapy (with Laronidase) TREATS partial improvements in behavioral tests IN mucopolysaccharidosis type I
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  enzyme replacement therapy (with Laronidase) TREATS partial improvements in behavioral tests IN mucopolysaccharidosis type I
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0001586
+  medical_actions:
+    - enzyme replacement therapy (ERT)
+    - intravenous therapy
+  symptoms:
+    - deterioration in brain function
+    - worsening in the thickness of the aortic wall
+    - partial improvements in behavioral tests
+  chemicals:
+    - Laronidase
+  action_annotation_relationships:
+    - subject: enzyme replacement therapy
+      predicate: TREATS
+      object: deterioration in brain function
+      qualifier: MONDO:0001586
+      subject_qualifier: with Laronidase
+      subject_extension: Laronidase
+      object_extension: deterioration in brain function
+    - subject: enzyme replacement therapy
+      predicate: TREATS
+      object: worsening in the thickness of the aortic wall
+      qualifier: MONDO:0001586
+      subject_qualifier: none
+      object_qualifier: none
+      subject_extension: Laronidase
+      object_extension: aortic wall thickness
+    - subject: enzyme replacement therapy
+      predicate: TREATS
+      object: partial improvements in behavioral tests
+      qualifier: MONDO:0001586
+      subject_extension: Laronidase
+      object_extension: behavioral tests

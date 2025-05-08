@@ -1,0 +1,94 @@
+---
+input_text: Discovery of allosteric regulators with clinical potential to stabilize
+  alpha-L-iduronidase in mucopolysaccharidosis type I. Mucopolysaccharidosis type
+  I (MPS I) is an inherited lysosomal disease caused by lowered activity of the enzyme
+  alpha-L-iduronidase (IDUA). Current therapeutic options show limited efficacy and
+  do not treat some important aspects of the disease. Therefore, it may be advantageous
+  to identify strategies that could improve the efficacy of existing treatments. Pharmacological
+  chaperones are small molecules that protect proteins from degradation, and their
+  use in combination with enzyme replacement therapy (ERT) has been proposed as an
+  alternative therapeutic strategy. Using the SEE-Tx  proprietary computational drug
+  discovery platform, a new allosteric ligand binding cavity in IDUA was identified
+  distal from the active site. Virtual high-throughput screening of approximately
+  5 million compounds using the SEE-Tx  docking platform identified a subset of small
+  molecules that bound to the druggable cavity and functioned as novel allosteric
+  chaperones of IDUA. Experimental validation by differential scanning fluorimetry
+  showed an overall hit rate of 11.4%. Biophysical studies showed that one exemplary
+  hit molecule GT-01803 bound to (Kd = 22 muM) and stabilized recombinant human IDUA
+  (rhIDUA) in a dose-dependent manner. Co-administration of rhIDUA and GT-01803 increased
+  IDUA activity in patient-derived fibroblasts. Preliminary in vivo studies have shown
+  that GT-01803 improved the pharmacokinetic (PK) profile of rhIDUA, increasing plasma
+  levels in a dose-dependent manner. Furthermore, GT-01803 also increased IDUA enzymatic
+  activity in bone marrow tissue, which benefits least from standard ERT. Oral bioavailability
+  of GT-01803 was found to be good (50%). Overall, the discovery and validation of
+  a novel allosteric chaperone for rhIDUA presents a promising strategy to enhance
+  the efficacy of existing treatments for MPS I. The compound's ability to increase
+  rhIDUA activity in patient-derived fibroblasts and its good oral bioavailability
+  underscore its potential as a potent adjunct to ERT, particularly for addressing
+  aspects of the disease less responsive to standard treatment.
+raw_completion_output: |-
+  primary_disease: mucopolysaccharidosis type I  
+  medical_actions: enzyme replacement therapy (ERT); identification of allosteric regulators; co-administration of rhIDUA and GT-01803  
+  symptoms: lowered activity of alpha-L-iduronidase; insufficient treatment response; aspects of the disease less responsive to standard treatment  
+  chemicals: GT-01803; alpha-L-iduronidase (IDUA)  
+  action_annotation_relationships: enzyme replacement therapy (ERT) TREATS lowered activity of alpha-L-iduronidase IN mucopolysaccharidosis type I; identification of allosteric regulators TREATS aspect of the disease less responsive to standard treatment IN mucopolysaccharidosis type I; co-administration of rhIDUA and GT-01803 TREATS insufficient treatment response IN mucopolysaccharidosis type I; treatment (with chemical GT-01803) TREATS increased IDUA activity IN mucopolysaccharidosis type I
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  treatment (with chemical GT-01803) TREATS increased IDUA activity IN mucopolysaccharidosis type I
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0001586
+  medical_actions:
+    - enzyme replacement therapy (ERT)
+    - identification of allosteric regulators
+    - co-administration of rhIDUA and GT-01803
+  symptoms:
+    - lowered activity of alpha-L-iduronidase
+    - insufficient treatment response
+    - aspects of the disease less responsive to standard treatment
+  chemicals:
+    - GT-01803
+    - alpha-L-iduronidase (IDUA)
+  action_annotation_relationships:
+    - subject: enzyme replacement therapy
+      predicate: TREATS
+      object: lowered activity of alpha-L-iduronidase
+      qualifier: MONDO:0001586
+      subject_qualifier: N/A
+      object_qualifier: N/A
+      subject_extension: enzyme replacement therapy
+      object_extension: N/A
+    - subject: identification of allosteric regulators
+      predicate: TREATS
+      object: aspect of the disease less responsive to standard treatment
+      qualifier: MONDO:0001586
+      subject_extension: allosteric regulators
+      object_extension: responsive
+    - subject: co-administration
+      predicate: TREATS
+      object: insufficient treatment response
+      qualifier: MONDO:0001586
+      subject_extension: rhIDUA
+      object_extension: GT-01803
+    - subject: treatment
+      predicate: TREATS
+      object: increased IDUA activity
+      qualifier: MONDO:0001586
+      subject_qualifier: with chemical
+      object_qualifier: none
+      subject_extension: GT-01803
+      object_extension: IDUA activity

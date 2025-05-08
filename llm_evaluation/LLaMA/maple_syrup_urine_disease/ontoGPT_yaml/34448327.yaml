@@ -1,0 +1,79 @@
+---
+input_text: 'Domino transplantation for pediatric liver recipients: Obstacles, challenges,
+  and successes. BACKGROUND: Domino liver transplantation aims to address the need
+  to increase the liver donor supply. In a domino liver transplant, the domino recipient
+  receives the explanted liver from the recipient of a traditional liver transplant.
+  The domino donor typically requires liver transplant to correct a metabolic disorder;
+  the explanted liver thus has a single gene defect but otherwise normal structure
+  and function. METHODS: In this review, we detail the history of domino liver transplantation,
+  appropriate domino donor indications, the technical advances to the surgical approach,
+  current outcomes, and future opportunities. RESULTS: Development of de novo disease
+  in the domino recipient has relegated adult domino liver transplant to be considered
+  a source of marginal donor livers. However, pediatric domino liver transplant has
+  leveraged certain metabolic disorders, especially maple syrup urine disease, in
+  which the liver enzyme deficiency can be compensated by the systemic presence of
+  sufficient enzyme. Advances in the surgical aspects of assuring adequate length
+  of vasculature have improved the safety of the procedure in both domino donors and
+  recipients. CONCLUSIONS: Pediatric domino liver transplant utilizing domino donors
+  with specific metabolic liver diseases should be considered a viable live donor
+  option for children awaiting liver transplant.'
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: liver disease; metabolic disorder; maple syrup urine disease
+
+  medical_actions: liver transplantation; domino liver transplantation; surgical approach
+
+  symptoms: de novo disease; liver enzyme deficiency
+
+  chemicals: 
+
+  action_annotation_relationships: liver transplantation TREATS liver disease IN pediatric recipients; domino liver transplantation TREATS metabolic disorder IN pediatric recipients; liver transplantation (with enzyme compensation) TREATS maple syrup urine disease IN pediatric recipients; surgical approach PREVENTS complications IN domino donors and recipients
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  surgical approach PREVENTS complications IN domino donors and recipients
+
+  ===
+
+extracted_object:
+  primary_disease: liver disease; metabolic disorder; maple syrup urine disease
+  medical_actions:
+    - MAXO:0001175
+    - domino liver transplantation
+    - surgical approach
+  symptoms:
+    - de novo disease
+    - liver enzyme deficiency
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: HP:0001392
+      qualifier: pediatric recipients
+    - predicate: TREATS
+      object: metabolic disorder
+      qualifier: pediatric recipients
+      object_qualifier: pediatric recipients
+      subject_extension: domino liver
+    - predicate: TREATS
+      object: maple syrup urine disease
+      qualifier: pediatric recipients
+      subject_qualifier: with enzyme compensation
+      subject_extension: transplantation
+    - predicate: PREVENTS
+      object: complications
+named_entities:
+  - id: HP:0001392
+    label: liver disease
+    original_spans:
+      - 1359:1371

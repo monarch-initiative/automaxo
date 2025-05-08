@@ -1,0 +1,250 @@
+---
+input_text: 'Vaccination and childhood epilepsies. INTRODUCTION: The evidence relating
+  vaccination to febrile seizures and epilepsy is evaluated with an emphasis on febrile
+  seizures (FS), Dravet syndrome (DS), West syndrome, and other developmental and
+  epileptic encephalopathies. METHODS: A systematic literature review using search
+  words vaccination/immunization AND febrile seizures/epilepsy/Dravet/epileptic encephalopathy/developmental
+  encephalopathy was performed. The role of vaccination as the cause/trigger/aggravation
+  factor for FS or epilepsies and preventive measures were analyzed. RESULTS: From
+  1428 results, 846 duplicates and 447 irrelevant articles were eliminated; 120 were
+  analyzed. CONCLUSIONS: There is no evidence that vaccinations cause epilepsy in
+  healthy populations. Vaccinations do not cause epileptic encephalopathies but may
+  be non-specific triggers to seizures in underlying structural or genetic etiologies.
+  The first seizure in DS may be earlier in vaccinated versus non-vaccinated patients,
+  but developmental outcome is similar in both groups. Children with a personal or
+  family history of FS or epilepsy should receive all routine vaccinations. This recommendation
+  includes DS. The known risks of the infectious diseases prevented by immunization
+  are well established. Vaccination should be deferred in case of acute illness. Acellular
+  pertussis DTaP (diphtheria-tetanus-pertussis) is recommended. The combination of
+  certain vaccine types may increase the risk of febrile seizures however the public
+  health benefit of separating immunizations has not been proven. Measles-containing
+  vaccine should be administered at age 12-15 months. Routine prophylactic antipyretics
+  are not indicated, as there is no evidence of decreased FS risk and they can attenuate
+  the antibody response following vaccination. Prophylactic measures (preventive antipyretic
+  medication) are recommended in DS due to the increased risk of prolonged seizures
+  with fever.'
+raw_completion_output: |-
+  primary_disease: childhood epilepsies
+  medical_actions: systematic literature review; vaccination; deferral of vaccination in case of acute illness; administration of DTaP vaccine; administration of measles-containing vaccine at age 12-15 months; recommended avoidance of routine prophylactic antipyretics; recommended preventive antipyretic medication in Dravet syndrome
+  symptoms: febrile seizures; seizures; prolonged seizures with fever
+  chemicals: Acellular pertussis DTaP; measles-containing vaccine
+  action_annotation_relationships: vaccination PREVENTS febrile seizures IN childhood epilepsies; deferral of vaccination in case of acute illness PREVENTS aggravation of symptoms IN childhood epilepsies; administration of DTaP (with Acellular pertussis DTaP) PREVENTS febrile seizures IN childhood epilepsies; administration of measles-containing vaccine (with measles-containing vaccine) at age 12-15 months PREVENTS febrile seizures IN childhood epilepsies; recommended avoidance of routine prophylactic antipyretics PREVENTS attenuation of antibody response IN childhood epilepsies; recommended preventive antipyretic medication TREATS prolonged seizures with fever IN Dravet syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  recommended preventive antipyretic medication TREATS prolonged seizures with fever IN Dravet syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: childhood epilepsies
+  medical_actions:
+    - systematic literature review
+    - MAXO:0001017
+    - deferral of vaccination in case of acute illness
+    - administration of DTaP vaccine
+    - administration of measles-containing vaccine at age 12-15 months
+    - recommended avoidance of routine prophylactic antipyretics
+    - recommended preventive antipyretic medication in Dravet syndrome
+  symptoms:
+    - HP:0002373
+    - HP:0001250
+    - prolonged seizures with fever
+  chemicals:
+    - Acellular pertussis DTaP
+    - measles-containing vaccine
+  action_annotation_relationships:
+    - subject: MAXO:0001017
+      predicate: PREVENTS
+      object: HP:0002373
+      qualifier: childhood epilepsies
+    - subject: deferral of vaccination
+      predicate: PREVENTS
+      object: aggravation of symptoms
+      qualifier: childhood epilepsies
+      subject_qualifier: in case of acute illness
+      subject_extension: vaccination
+    - subject: administration of DTaP
+      predicate: PREVENTS
+      object: HP:0002373
+      qualifier: childhood epilepsies
+      subject_qualifier: with Acellular pertussis DTaP
+      subject_extension: DTaP
+    - subject: administration of measles-containing vaccine
+      predicate: PREVENTS
+      object: HP:0002373
+      qualifier: childhood epilepsies
+      subject_qualifier: at age 12-15 months
+      subject_extension: measles-containing vaccine
+    - subject: avoidance of routine prophylactic antipyretics
+      predicate: PREVENTS
+      object: attenuation of antibody response
+      qualifier: childhood epilepsies
+      subject_qualifier: recommended
+      subject_extension: CHEBI:35493
+    - subject: preventive antipyretic medication
+      predicate: TREATS
+      object: prolonged seizures with fever
+      qualifier: MONDO:0100135
+      subject_qualifier: recommended
+      subject_extension: antipyretic medication
+named_entities:
+  - id: MONDO:0100135
+    label: Dravet syndrome
+  - id: MAXO:0001187
+    label: hysteroscopy
+  - id: CHEBI:44915
+    label: propofol
+  - id: CHEBI:119915
+    label: fentanyl
+  - id: CHEBI:9130
+    label: sevoflurane
+  - id: HP:0001250
+    label: seizures
+  - id: CHEBI:6443
+    label: Mirena
+  - id: MONDO:0002602
+    label: Central nervous system diseases
+  - id: HP:0002011
+    label: central nervous system diseases
+  - id: MONDO:0005027
+    label: Epilepsy
+  - id: HP:0002014
+    label: Diarrhea
+  - id: HP:0000988
+    label: Rash
+  - id: CHEBI:228488
+    label: Stiripentol
+  - id: CHEBI:60654
+    label: Valproate
+  - id: CHEBI:69478
+    label: Cannabidiol
+  - id: CHEBI:80634
+    label: 2-propyl-4-pentenoic acid (4-ene-VPA)
+  - id: HP:0002373
+    label: Febrile seizures
+  - id: MAXO:0001298
+    label: therapy
+  - id: CHEBI:31413
+    label: clobazam (CLB)
+  - id: HP:0010819
+    label: drop seizures
+  - id: HP:0002329
+    label: somnolence
+  - id: HP:0004396
+    label: decreased appetite
+  - id: CHEBI:9925
+    label: sodium valproate
+  - id: MONDO:0016532
+    label: Lennox-Gastaut syndrome
+  - id: HP:0000729
+    label: Autistic behaviors
+  - id: HP:0033258
+    label: Sudden unexpected death in epilepsy
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: MONDO:0002125
+    label: Status epilepticus
+  - id: HP:0032656
+    label: Febrile status epilepticus
+  - id: MAXO:0001017
+    label: vaccination
+  - id: HP:0002069
+    label: Generalized tonic-clonic seizure
+  - id: CHEBI:3359
+    label: CBDA
+  - id: CHEBI:167557
+    label: CBCA
+  - id: CHEBI:66964
+    label: Delta9-tetrahydrocannabinol (THC)
+  - id: CHEBI:39867
+    label: Valproic acid
+  - id: CHEBI:5000
+    label: Fenfluramine
+  - id: HP:0033349
+    label: recurrent seizures
+  - id: MAXO:0000058
+    label: Drug treatment
+  - id: HP:0020219
+    label: motor seizures
+  - id: CHEBI:76720
+    label: Antisense oligonucleotides
+  - id: MAXO:0001593
+    label: ASO therapy
+  - id: HP:0012378
+    label: Fatigue
+  - id: HP:0001945
+    label: Pyrexia
+  - id: HP:0001654
+    label: valvular heart disease
+  - id: HP:0002092
+    label: pulmonary arterial hypertension
+  - id: HP:0002133
+    label: Status epilepticus
+  - id: CHEBI:17115
+    label: vaccine(s)
+  - id: MONDO:0100062
+    label: Developmental and/or epileptic encephalopathies (DEE)
+  - id: HP:0001260
+    label: dysarthria
+  - id: HP:0001254
+    label: lethargy
+  - id: HP:0002315
+    label: headache
+  - id: CHEBI:233158
+    label: soticlestat
+  - id: CHEBI:34310
+    label: 24S-hydroxycholesterol (24HC)
+  - id: CHEBI:9586
+    label: Tiagabine
+  - id: CHEBI:6437
+    label: Levetiracetam
+  - id: HP:0000708
+    label: behavioral problems
+  - id: CHEBI:16113
+    label: Cholesterol
+  - id: MAXO:0001394
+    label: Oral administration
+  - id: CHEBI:173124
+    label: 2-linoleoyl glycerol (2-LG)
+  - id: CHEBI:52392
+    label: 2-AG
+  - id: CHEBI:2700
+    label: anandamide
+  - id: CHEBI:52640
+    label: N-acylethanolamines
+  - id: CHEBI:35623
+    label: Anticonvulsants
+  - id: MAXO:0000942
+    label: Vagus nerve stimulation (VNS)
+  - id: HP:0002360
+    label: Sleep disturbance
+  - id: HP:0001249
+    label: Intellectual disability
+  - id: HP:0001251
+    label: ataxia
+  - id: CHEBI:42638
+    label: fenfluramine (FFA)
+  - id: HP:0032794
+    label: Myoclonic seizures
+  - id: CHEBI:190616
+    label: N-desmethylclobazam
+  - id: MONDO:0013801
+    label: SCN8A encephalopathy
+  - id: HP:0001263
+    label: Developmental delay
+  - id: HP:0100543
+    label: Cognitive impairment
+  - id: CHEBI:35493
+    label: antipyretics

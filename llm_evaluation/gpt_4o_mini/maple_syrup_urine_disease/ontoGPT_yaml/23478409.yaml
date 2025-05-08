@@ -1,0 +1,111 @@
+---
+input_text: Biochemical correlates of neuropsychiatric illness in maple syrup urine
+  disease. Maple syrup urine disease (MSUD) is an inherited disorder of branched chain
+  amino acid metabolism presenting with neonatal encephalopathy, episodic metabolic
+  decompensation, and chronic amino acid imbalances. Dietary management enables survival
+  and reduces risk of acute crises. Liver transplantation has emerged as an effective
+  way to eliminate acute decompensation risk. Psychiatric illness is a reported MSUD
+  complication, but has not been well characterized and remains poorly understood.
+  We report the prevalence and characteristics of neuropsychiatric problems among
+  37 classical MSUD patients (ages 5-35 years, 26 on dietary therapy, 11 after liver
+  transplantation) and explore their underlying mechanisms. Compared with 26 age-matched
+  controls, MSUD patients were at higher risk for disorders of cognition, attention,
+  and mood. Using quantitative proton magnetic resonance spectroscopy, we found lower
+  brain glutamate, N-acetylaspartate (NAA), and creatine concentrations in MSUD patients,
+  which correlated with specific neuropsychiatric outcomes. Asymptomatic neonatal
+  course and stringent longitudinal biochemical control proved fundamental to optimizing
+  long-term mental health. Neuropsychiatric morbidity and neurochemistry were similar
+  among transplanted and nontransplanted MSUD patients. In conclusion, amino acid
+  dysregulation results in aberrant neural networks with neurochemical deficiencies
+  that persist after transplant and correlate with neuropsychiatric morbidities. These
+  findings may provide insight into general mechanisms of psychiatric illness.
+raw_completion_output: |-
+  primary_disease: Maple syrup urine disease (MSUD)  
+  medical_actions: Dietary management; Liver transplantation  
+  symptoms: Neonatal encephalopathy; Episodic metabolic decompensation; Chronic amino acid imbalances; Disorders of cognition; Disorders of attention; Disorders of mood  
+  chemicals: Glutamate; N-acetylaspartate (NAA); Creatine  
+  action_annotation_relationships: Dietary management TREATS symptom (Neonatal encephalopathy) IN Maple syrup urine disease; Dietary management TREATS symptom (Episodic metabolic decompensation) IN Maple syrup urine disease; Dietary management TREATS symptom (Chronic amino acid imbalances) IN Maple syrup urine disease; Liver transplantation TREATS symptom (Episodic metabolic decompensation) IN Maple syrup urine disease; Liver transplantation TREATS symptom (Chronic amino acid imbalances) IN Maple syrup urine disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Liver transplantation TREATS symptom (Chronic amino acid imbalances) IN Maple syrup urine disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009563
+  medical_actions:
+    - Dietary management
+    - MAXO:0001175
+  symptoms:
+    - Neonatal encephalopathy
+    - Episodic metabolic decompensation
+    - Chronic amino acid imbalances
+    - Disorders of cognition
+    - Disorders of attention
+    - Disorders of mood
+  chemicals:
+    - CHEBI:29987
+    - CHEBI:21547
+    - CHEBI:16919
+  action_annotation_relationships:
+    - subject: Dietary management
+      predicate: TREATS
+      object: Neonatal encephalopathy
+      qualifier: MONDO:0009563
+      subject_extension: dietary management
+      object_extension: symptom
+    - subject: Dietary management
+      predicate: TREATS
+      object: Episodic metabolic decompensation
+      qualifier: MONDO:0009563
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: Dietary management
+      object_extension: None
+    - subject: <Dietary management>
+      predicate: <TREATS>
+      object: <Chronic amino acid imbalances>
+      qualifier: <Maple syrup urine disease>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <Dietary management>
+      object_extension: <Chronic amino acid imbalances>
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: episodic metabolic decompensation
+      qualifier: MONDO:0009563
+      subject_extension: Liver transplantation
+      object_extension: episodic metabolic decompensation
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: Chronic amino acid imbalances
+      qualifier: MONDO:0009563
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: Liver transplantation
+      object_extension: amino acid imbalances
+named_entities:
+  - id: CHEBI:29987
+    label: Glutamate
+    original_spans:
+      - 997:1005
+  - id: CHEBI:21547
+    label: N-acetylaspartate (NAA)
+    original_spans:
+      - 1008:1030
+  - id: CHEBI:16919
+    label: Creatine
+    original_spans:
+      - 1037:1044

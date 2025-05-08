@@ -1,0 +1,95 @@
+---
+input_text: Differential response to renal replacement therapy in neonatal-onset inborn
+  errors of metabolism. Severe urea cycle defects (UCD), organic acidemias (OA) and
+  maple syrup urine disease (MSUD) are life-threatening disorders presenting in the
+  first days of life. Renal replacement therapy (RRT) is an emergency option in affected
+  newborns, mostly performed as ultima ratio. We report our 10-year experience using
+  emergency RRT in newborns with UCD, OA and MSUD. Twelve newborns (eight with UCD,
+  two with methylmalonic acidemia and two with MSUD) underwent emergency RRT. The
+  overall survival rate to RRT was 58.3%. Hyperammonemic newborns required earlier
+  RRT with respect to MSUD patients (75 (65-102) vs 301 (192-410) h of life, P < 0.01).
+  Hyperammonemic neonates surviving (n = 5) and non-surviving (n = 5) the acute neonatal
+  decompensation showed similar birth weight (P = 0.690), duration of intubation (P
+  = 0.917), ammonia at onset (P = 0.916) and at the start of RRT (P = 0.426), age
+  at RRT (P = 0.999) and duration of coma before RRT (P = 0.691). Remarkably, all
+  survivors quickly responded to RRT, with ammonia concentration less than 300 mumol/L
+  after 8 h of treatment. One patient with UCD successfully treated by neonatal RRT
+  died at 4 months of life because of sepsis. All patients with MSUD had normalized
+  leucine levels after 12 h of RRT, surviving the acute neonatal decompenstation.
+  All long-term survivors (five liver transplanted, one waiting for liver transplantation)
+  currently show normal or near-normal neurological development (48 +- 39 months of
+  age). Early response to RRT was associated with survival irrespective of pre-treatment
+  picture. RRT can be considered even in huge neonatal metabolic decompensations.
+  Early liver transplantation may be an option for select patients.
+raw_completion_output: |-
+  primary_disease: Inborn errors of metabolism  
+  medical_actions: Renal replacement therapy; Liver transplantation  
+  symptoms: Hyperammonemia; Acute neonatal decompensation; Sepsis; Coma  
+  chemicals: Leucine  
+  action_annotation_relationships: Renal replacement therapy TREATS symptom Hyperammonemia IN Inborn errors of metabolism; Renal replacement therapy TREATS symptom Acute neonatal decompensation IN Inborn errors of metabolism; Liver transplantation TREATS symptom Sepsis IN Inborn errors of metabolism; Renal replacement therapy TREATS symptom Coma IN Inborn errors of metabolism; Renal replacement therapy TREATS symptom Leucine levels IN Inborn errors of metabolism  
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Renal replacement therapy TREATS symptom Leucine levels IN Inborn errors of metabolism
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0019052
+  medical_actions:
+    - MAXO:0000600
+    - MAXO:0001175
+  symptoms:
+    - HP:0001987
+    - Acute neonatal decompensation
+    - HP:0100806
+    - HP:0001259
+  chemicals:
+    - CHEBI:25017
+  action_annotation_relationships:
+    - subject: MAXO:0000600
+      predicate: TREATS
+      object: HP:0001987
+      qualifier: MONDO:0019052
+      subject_extension: renal replacement therapy
+      object_extension: hyperammonemia
+    - subject: MAXO:0000600
+      predicate: TREATS
+      object: Acute neonatal decompensation
+      qualifier: MONDO:0019052
+      subject_extension: Renal replacement therapy
+      object_extension: Acute neonatal decompensation
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: HP:0100806
+      qualifier: MONDO:0019052
+      subject_extension: Liver transplantation
+      object_extension: Sepsis
+    - subject: MAXO:0000600
+      predicate: TREATS
+      object: HP:0001259
+      qualifier: MONDO:0019052
+      subject_extension: Renal replacement therapy
+      object_extension: Coma
+    - subject: MAXO:0000600
+      predicate: TREATS
+      object: leucine levels
+      qualifier: MONDO:0019052
+      subject_extension: renal replacement therapy
+      object_extension: leucine levels
+named_entities:
+  - id: HP:0100806
+    label: Sepsis
+    original_spans:
+      - 1271:1276

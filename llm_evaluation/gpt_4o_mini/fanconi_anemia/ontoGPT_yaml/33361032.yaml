@@ -1,0 +1,112 @@
+---
+input_text: "Whole exome sequencing identifies a novel FANCD2 gene splice site mutation
+  associated with disease progression in chronic myeloid leukemia: Implication in
+  targeted therapy of advanced phase CML. Tyrosine Kinase Inhibitors (TKIs) have significantly
+  improved the clinical outcome of BCR-ABL+ Chronic Phase-Chronic Myeloid Leukemia
+  (CP-CML). Nonetheless, approximately one-third of the CP-CML patient's progress
+  to advanced phases of CML (accelerated and blast phase). Impaired DNA repair including
+  mutations in Fanconi anemia (FA) pathway genes are responsible for progression of
+  many cancers. Nevertheless, FA-pathways genes have never been reported in myeloid
+  cancers. Hence, this study was aimed to discover DNA repair genes associated with
+  CML progression. AP-CML patients were subjected to whole exome sequencing along
+  with appropriate controls. A novel splice site FANCD2 mutation was detected. FANCD2
+  is a well-known FA-pathway gene with established role in DNA repair. This is first
+  report of FA-pathway DNA repair genes in myeloid cancers that can serve as a novel
+  marker of CML progression to clinically intervene CML progression. Further studies
+  are needed to establish the functional role of FANCD2 in CML progression that can
+  provide novel insights into CML pathogenesis. This study also indicates that a combination
+  TKIs and Poly (ADP-ribose) polymerase (PARP) inhibitors like Olaparib (FDA approved
+  anti-cancer drug for FA-pathway gene mutations) could improve the clinical outcome
+  CML patients in accelerated and blast-crisis phases of the disease."
+raw_completion_output: |-
+  primary_disease: Chronic Myeloid Leukemia (CML)  
+  medical_actions: whole exome sequencing; targeted therapy; Tyrosine Kinase Inhibitors (TKIs); combination TKIs and Poly (ADP-ribose) polymerase (PARP) inhibitors  
+  symptoms: disease progression; accelerated phase; blast phase  
+  chemicals: Olaparib  
+  action_annotation_relationships: whole exome sequencing TREATS symptom disease progression IN Chronic Myeloid Leukemia (CML); targeted therapy TREATS symptom disease progression IN Chronic Myeloid Leukemia (CML); Tyrosine Kinase Inhibitors (TKIs) TREATS symptom disease progression IN Chronic Myeloid Leukemia (CML); combination TKIs and Poly (ADP-ribose) polymerase (PARP) inhibitors TREATS symptom disease progression IN Chronic Myeloid Leukemia (CML); Olaparib TREATS symptom disease progression IN Chronic Myeloid Leukemia (CML)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Olaparib TREATS symptom disease progression IN Chronic Myeloid Leukemia (CML)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0011996
+  medical_actions:
+    - MAXO:0009004
+    - targeted therapy
+    - Tyrosine Kinase Inhibitors (TKIs)
+    - combination TKIs and Poly (ADP-ribose) polymerase (PARP) inhibitors
+  symptoms:
+    - disease progression
+    - accelerated phase
+    - blast phase
+  chemicals:
+    - CHEBI:83766
+  action_annotation_relationships:
+    - subject: MAXO:0009004
+      predicate: TREATS
+      object: disease progression
+      qualifier: MONDO:0011996
+      subject_extension: whole exome sequencing
+      object_extension: symptom disease progression
+    - subject: targeted therapy
+      predicate: TREATS
+      object: disease progression
+      qualifier: MONDO:0011996
+      subject_extension: targeted therapy
+      object_extension: symptom
+    - subject: TREATS
+      predicate: TREATS
+      object: symptom disease progression
+      qualifier: MONDO:0011996
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: CHEBI:38637
+      object_extension: symptom disease progression
+    - subject: combination TKIs and Poly (ADP-ribose) polymerase (PARP) inhibitors
+      predicate: TREATS
+      object: disease progression
+      qualifier: MONDO:0011996
+      subject_qualifier: combination
+      object_qualifier: None
+      subject_extension: CHEBI:62913
+      object_extension: symptom
+    - subject: TREATS
+      predicate: TREATS
+      object: disease progression
+      qualifier: MONDO:0011996
+      subject_extension: CHEBI:83766
+      object_extension: symptom
+named_entities:
+  - id: MONDO:0011996
+    label: Chronic Myeloid Leukemia (CML)
+  - id: MAXO:0009004
+    label: whole exome sequencing
+    original_spans:
+      - 0:21
+      - 793:814
+  - id: CHEBI:83766
+    label: Olaparib
+    original_spans:
+      - 1389:1396
+  - id: CHEBI:38637
+    label: Tyrosine Kinase Inhibitors
+    original_spans:
+      - 195:220
+  - id: CHEBI:62913
+    label: TKIs and Poly (ADP-ribose) polymerase (PARP) inhibitors
+    original_spans:
+      - 1328:1382

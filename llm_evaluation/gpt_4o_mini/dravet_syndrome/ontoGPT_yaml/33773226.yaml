@@ -1,0 +1,85 @@
+---
+input_text: 'Transition from pediatric to adult care in a Japanese cohort of childhood-onset
+  epilepsy: prevalence of epileptic syndromes and complexity in the transition. AIM:
+  We retrospectively examined patients with childhood-onset epilepsy who transitioned
+  from pediatric to adult care to reveal the clinical characteristics and evaluate
+  the complexity of transitioning. METHODS: The subjects were 220 patients (89 males,
+  131 females) who had been treated at our pediatric epilepsy clinic and had transferred
+  to adult care between 2014 and 2018 without attending a transition clinic or program.
+  The demographic data of the patients were retrospectively analyzed. RESULTS: The
+  ages at transition ranged from 15 to 54 years (median: 27 years old). There were
+  91 patients with focal epilepsies (FEs) and 129 patients with generalized epilepsies
+  [genetic generalized epilepsy (GGE) n = 30, generalized epilepsy of various etiologies
+  (GEv) n = 99]. A most frequent epileptic syndrome was temporal lobe epilepsy followed
+  by frontal lobe epilepsy in FEs, GTCS only followed by juvenile myoclonic epilepsy
+  in GGE and Lennox-Gastaut syndrome followed by Dravet syndrome in GEv. At the age
+  of transition, a total of 77 of the 96 patients with developmental and epileptic
+  encephalopathies (DEE) had pharmacoresistant seizures, which was positively correlated
+  with a late transition age (P<=0.05). More than monthly seizures and greater than
+  moderate disabilities were noted in 45% and 55% of the patients, respectively. CONCLUSION:
+  The patients with childhood-onset epilepsy transitioned to adult care from the hospital-based
+  pediatric epilepsy clinic were characterized by generalized>focal epilepsy, a frequent
+  complication of DEE, more than monthly seizures, and worse than moderate intellectual
+  disabilities. The complication of DEE made a smooth transition difficult and delayed
+  the transition age.'
+raw_completion_output: |-
+  primary_disease: childhood-onset epilepsy  
+  medical_actions: treatment at pediatric epilepsy clinic; transition to adult care  
+  symptoms: pharmacoresistant seizures; more than monthly seizures; moderate disabilities; greater than moderate intellectual disabilities  
+  chemicals: none  
+  action_annotation_relationships: treatment TREATS pharmacoresistant seizures IN childhood-onset epilepsy; treatment TREATS more than monthly seizures IN childhood-onset epilepsy; treatment TREATS moderate disabilities IN childhood-onset epilepsy; treatment TREATS greater than moderate intellectual disabilities IN childhood-onset epilepsy
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  treatment TREATS greater than moderate intellectual disabilities IN childhood-onset epilepsy
+
+  ===
+
+extracted_object:
+  primary_disease: childhood-onset epilepsy
+  medical_actions:
+    - treatment at pediatric epilepsy clinic
+    - transition to adult care
+  symptoms:
+    - pharmacoresistant seizures
+    - more than monthly seizures
+    - moderate disabilities
+    - greater than moderate intellectual disabilities
+  chemicals:
+    - none
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: pharmacoresistant seizures
+      qualifier: childhood-onset epilepsy
+      subject_extension: treatment
+    - subject: TREATS
+      predicate: TREATS
+      object: more than monthly seizures
+      qualifier: childhood-onset epilepsy
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: treatment
+      object_extension: childhood-onset
+    - subject: treatment
+      predicate: TREATS
+      object: disabilities
+      qualifier: childhood-onset epilepsy
+      subject_extension: treatment
+      object_extension: moderate
+    - subject: treatment
+      predicate: TREATS
+      object: greater than moderate intellectual disabilities
+      qualifier: childhood-onset epilepsy
+      subject_extension: treatment
+      object_extension: childhood-onset

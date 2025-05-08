@@ -1,0 +1,108 @@
+---
+input_text: "Technique and outcome of domino liver transplantation from patients with
+  maple syrup urine disease: Expanding the donor pool for live donor liver transplantation.
+  AIM/BACKGROUND: Domino liver transplantation (DLT) using liver allografts from patients
+  with metabolic disorders enhances organ utilization. Short- and long-term course
+  and outcome of these patients can impact the decision to offer this procedure to
+  patients, especially those with diseases that can potentially be cured with liver
+  transplant. We reviewed the outcomes of DLT from maple syrup urine disease (MSUD)
+  patients in our large academic pediatric and adult transplant program. METHODS:
+  All patients receiving DLT were analyzed retrospectively with a minimum of one-year
+  follow-up period for patient and donor characteristics, early and late postoperative
+  complications and patient and graft survival with their MSUD donors in terms of
+  age, weight, MELD/PELD scores, cold ischemia time, postoperative leucine levels,
+  and peak ALT (alanine aminotransferase) levels during the first 48 postoperative
+  hours. RESULTS: Between 2006 and May 2019, 21 patients underwent domino liver transplantation
+  with live donor allografts from MSUD patients. Four patients transplanted for different
+  metabolic diseases are focus of a separate report. Seventeen patients with minimum
+  one-year follow-up period are reported herein. The indications were primary sclerosing
+  cholangitis (PSC, n = 4), congenital hepatic fibrosis (CHF, n = 2), alpha-1 antitrypsin
+  deficiency (A-1 ATD, n = 2), progressive familial intrahepatic cholestasis (PFIC,
+  n = 2), cystic fibrosis (n = 1), primary biliary cirrhosis (PBC, n = 1), neonatal
+  hepatitis (n = 1), embryonal sarcoma (n = 1), Caroli disease (n = 1), hepatocellular
+  carcinoma (HCC, n = 1), and chronic rejection after liver transplantations for PSC
+  (n = 1). All patients and grafts survived at median follow-up of 6.4 years (range
+  1.2-12.9 years). Median domino recipient age was 16.2 years (range 0.6-64.6 years)
+  and median MSUD recipient age was 17.6 years (range 4.8-32.1 years). There were
+  no vascular complications during the early postoperative period, one patient had
+  portal vein thrombosis 3 years after DLT and a meso-Rex bypass was successfully
+  performed. Small for size syndrome (SFSS) occurred in reduced left lobe DLT recipient
+  and was managed successfully with conservative management. Biliary stricture developed
+  in 2 patients and was resolved by stenting. Comparison between DLT and MSUD recipients'
+  peak postoperative ALT results and PELD/MELD scores showed lower levels in DLT group
+  (P-value <.05). CONCLUSIONS: Patient and graft survival in DLT from MSUD donors
+  was excellent at short- and long-term follow-up. Metabolic functions have been normal
+  in all recipients on a normal unrestricted protein diet. Ischemia preservation injury
+  based on peak ALT was significantly decreased in DLT recipients. Domino transplantation
+  from pediatric and adult recipients with selected metabolic diseases should be increasingly
+  considered as an excellent option and alternative to deceased donor transplantation,
+  thereby expanding the living donor pool. This, to date, is the largest world experience
+  in DLT utilizing livers from patients with MSUD."
+raw_completion_output: |-
+  primary_disease: maple syrup urine disease (MSUD)  
+  medical_actions: domino liver transplantation; conservative management; stenting  
+  symptoms: portal vein thrombosis; small for size syndrome (SFSS); biliary stricture  
+  chemicals: none  
+  action_annotation_relationships: domino liver transplantation TREATS portal vein thrombosis IN maple syrup urine disease; conservative management TREATS small for size syndrome (SFSS) IN maple syrup urine disease; stenting TREATS biliary stricture IN maple syrup urine disease  
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  stenting TREATS biliary stricture IN maple syrup urine disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009563
+  medical_actions:
+    - domino liver transplantation
+    - conservative management
+    - MAXO:0000917
+  symptoms:
+    - HP:0030242
+    - small for size syndrome (SFSS)
+    - biliary stricture
+  chemicals:
+    - none
+  action_annotation_relationships:
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: HP:0030242
+      qualifier: MONDO:0009563
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: liver transplantation
+      object_extension: portal vein thrombosis
+    - subject: conservative management
+      predicate: TREATS
+      object: small for size syndrome (SFSS)
+      qualifier: MONDO:0009563
+      subject_qualifier: <none>
+      object_qualifier: <none>
+      subject_extension: <none>
+      object_extension: <none>
+    - subject: MAXO:0000917
+      predicate: TREATS
+      object: biliary stricture
+      qualifier: MONDO:0009563
+      subject_extension: stenting
+      object_extension: biliary stricture
+named_entities:
+  - id: MAXO:0000917
+    label: stenting
+    original_spans:
+      - 2453:2460
+  - id: HP:0030242
+    label: portal vein thrombosis
+    original_spans:
+      - 2166:2187

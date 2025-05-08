@@ -1,0 +1,93 @@
+---
+input_text: Gene therapy restores the transcriptional program of hematopoietic stem
+  cells in Fanconi anemia. Clinical trials have shown that lentiviral-mediated gene
+  therapy can ameliorate bone marrow failure (BMF) in non-conditioned Fanconi anemia
+  (FA) patients resulting from the proliferative advantage of corrected FA HSPCs,
+  however it is yet unknown if gene therapy can revert affected molecular pathways
+  in diseased HSPCs. Single-cell RNA sequencing was performed in chimeric populations
+  of corrected and uncorrected HSPCs coexisting in the BM of gene therapy treated
+  FA patients. Our study demonstrates that gene therapy reverts the transcriptional
+  signature of FA HSPCs, which then resembles the transcriptional program of healthy
+  donor HSPCs. This includes a downregulated expression of TGF-beta and p21, typically
+  upregulated in FA HSPCs, and upregulation of DNA damage response and telomere maintenance
+  pathways. Our results show for the first time the potential of gene therapy to rescue
+  defects in the HSPC transcriptional program from patients with inherited diseases,
+  in this case in FA characterized by BMF and cancer predisposition.
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Fanconi anemia
+
+  medical_actions: gene therapy; lentiviral-mediated gene therapy
+
+  symptoms: bone marrow failure (BMF); cancer predisposition
+
+  chemicals: TGF-beta; p21; lentiviral vector (implied, not explicitly mentioned but related to gene therapy)
+
+  action_annotation_relationships: gene therapy TREATS bone marrow failure IN Fanconi anemia; gene therapy TREATS defects in HSPC transcriptional program IN Fanconi anemia; lentiviral-mediated gene therapy TREATS bone marrow failure IN Fanconi anemia; gene therapy (with lentiviral vector) DOWNREGULATES TGF-beta IN Fanconi anemia; gene therapy (with lentiviral vector) DOWNREGULATES p21 IN Fanconi anemia; gene therapy UPREGULATES DNA damage response IN Fanconi anemia; gene therapy UPREGULATES telomere maintenance pathways IN Fanconi anemia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  gene therapy UPREGULATES telomere maintenance pathways IN Fanconi anemia
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0019391
+  medical_actions:
+    - MAXO:0001001
+    - lentiviral-mediated gene therapy
+  symptoms:
+    - HP:0005528
+    - cancer predisposition
+  chemicals:
+    - TGF-beta
+    - p21
+    - lentiviral vector (implied, not explicitly mentioned but related to gene therapy)
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: HP:0005528
+      qualifier: MONDO:0019391
+    - subject: MAXO:0001001
+      predicate: TREATS
+      object: defects in HSPC
+      qualifier: MONDO:0019391
+    - predicate: TREATS
+      object: HP:0005528
+      qualifier: MONDO:0019391
+      subject_qualifier: lentiviral-mediated
+      subject_extension: gene therapy
+    - predicate: DOWNREGULATES
+      object: TGF-beta
+      qualifier: MONDO:0019391
+      subject_qualifier: with lentiviral vector
+      subject_extension: gene therapy
+    - subject: MAXO:0001001
+      predicate: DOWNREGULATES
+      object: p21
+      qualifier: MONDO:0019391
+      subject_qualifier: with lentiviral vector
+      object_qualifier: None
+      subject_extension: gene
+      object_extension: p21
+    - subject: MAXO:0001298
+      predicate: UPREGULATES
+      object: DNA damage response
+      qualifier: MONDO:0019391
+      subject_extension: gene
+      object_extension: DNA damage response
+    - predicate: UPREGULATES
+      object: telomere maintenance pathways
+      qualifier: MONDO:0019391
+      subject_extension: gene

@@ -1,0 +1,152 @@
+---
+input_text: 'A phase 1b/2a study of soticlestat as adjunctive therapy in participants
+  with developmental and/or epileptic encephalopathies. OBJECTIVE: To evaluate the
+  safety, tolerability, and pharmacokinetics of soticlestat, a first-in-class cholesterol
+  24-hydroxylase inhibitor, in adults with developmental and/or epileptic encephalopathies
+  (DEE). METHODS: The study comprised a 30-day, randomized, double-blind, placebo-controlled
+  phase (Part A), followed by a 55-day open-label phase (Part B) (ClinicalTrials.gov
+  ID: NCT03166215) . In Part A, patients with DEE and at least one bilateral motor
+  seizure during the 4-week prospective baseline period were randomized 4:1 to receive
+  soticlestat or placebo, in addition to their usual antiseizure medication. In Part
+  B, all patients received open-label soticlestat. Soticlestat doses were titrated
+  according to tolerability to a maximum of 300 mg twice daily (BID). Safety evaluations
+  included the incidence of treatment-emergent adverse events (TEAEs). Plasma soticlestat
+  concentrations were measured at various times for determination of multiple-dose
+  pharmacokinetics and 24S-hydroxycholesterol (24HC). Efficacy was assessed by evaluation
+  of changes in seizure frequency from baseline. RESULTS: Eighteen patients (median
+  age, 28.5 years) were enrolled and randomized, and 14 (78 %) completed the study.
+  In Part A, TEAEs occurred in 71.4 % of soticlestat-treated patients and 100 % of
+  placebo-treated patients. In Part B, the overall incidence of TEAEs was 68.8 %.
+  In Part A, TEAEs that occurred in more than one patient in the soticlestat group
+  were dysarthria (n = 3, 21.4 %), lethargy (n = 2, 14.3 %), upper respiratory tract
+  infection (n = 2, 14.3 %), fatigue (n = 2, 14.3 %), and headache (n = 2, 14.3 %).
+  Four patients discontinued treatment because of TEAEs, of whom two reported drug-related
+  seizure clusters as serious TEAEs. There were no deaths. Pharmacokinetic analysis
+  showed dose-dependent increases in systemic exposure and peak plasma soticlestat
+  concentrations. At the end of Part B, the overall mean percent change from baseline
+  in plasma 24HC was -80.97 %. Changes from baseline in median seizure frequency were
+  +16.71 % and +22.16 % in the soticlestat and placebo groups, respectively, in Part
+  A, and -36.38 % in all participants in Part B. CONCLUSION: Soticlestat was well
+  tolerated at doses of up to 300 mg BID and was associated with a reduction in median
+  seizure frequency over the study duration. Further studies are warranted to assess
+  the possible efficacy of soticlestat as adjunctive therapy in patients with DEEs
+  such as Dravet syndrome and Lennox-Gastaut syndrome.'
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: developmental and/or epileptic encephalopathies (DEE)
+
+  medical_actions: administration of soticlestat as adjunctive therapy; titration of soticlestat doses; antiseizure medication
+
+  symptoms: bilateral motor seizures; dysarthria; lethargy; upper respiratory tract infection; fatigue; headache; seizure clusters
+
+  chemicals: soticlestat; 24S-hydroxycholesterol (24HC); cholesterol 24-hydroxylase inhibitor
+
+  action_annotation_relationships: soticlestat TREATS seizures IN developmental and/or epileptic encephalopathies (DEE); soticlestat (as adjunctive therapy) TREATS seizure frequency IN DEE; soticlestat TREATS dysarthria IN DEE; soticlestat TREATS lethargy IN DEE; soticlestat TREATS upper respiratory tract infection IN DEE; soticlestat TREATS fatigue IN DEE; soticlestat TREATS headache IN DEE; antiseizure medication TREATS seizures IN DEE
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  antiseizure medication TREATS seizures IN DEE
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0100062
+  medical_actions:
+    - administration of soticlestat as adjunctive therapy
+    - titration of soticlestat doses
+    - antiseizure medication
+  symptoms:
+    - bilateral motor seizures
+    - HP:0001260
+    - HP:0001254
+    - upper respiratory tract infection
+    - HP:0012378
+    - HP:0002315
+    - HP:0033349
+  chemicals:
+    - CHEBI:233158
+    - CHEBI:34310
+    - cholesterol 24-hydroxylase inhibitor
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0100062
+    - predicate: TREATS
+      object: seizure frequency
+      qualifier: MONDO:0100062
+      subject_qualifier: as adjunctive therapy
+      subject_extension: adjunctive therapy
+    - predicate: TREATS
+      object: HP:0001260
+      qualifier: MONDO:0100062
+      subject_extension: CHEBI:233158
+    - predicate: TREATS
+      object: HP:0001254
+      qualifier: IN DEE
+      subject_extension: CHEBI:233158
+    - predicate: TREATS
+      object: upper respiratory tract infection
+      subject_extension: CHEBI:233158
+    - predicate: TREATS
+      object: HP:0012378
+      qualifier: MONDO:0100062
+      subject_extension: CHEBI:233158
+    - predicate: TREATS
+      object: HP:0002315
+      qualifier: MONDO:0100062
+      subject_extension: CHEBI:233158
+    - predicate: TREATS
+      object: HP:0001250
+      qualifier: IN DEE
+      object_qualifier: ;However given the context IN DEE seems more likely to be
+        an object_qualifier if IN DEE stands for Infantile spasms with Epilepsy and
+        Developmental Encephalopathy.
+      subject_extension: antiseizure
+named_entities:
+  - id: MONDO:0100062
+    label: developmental and/or epileptic encephalopathies (DEE)
+    original_spans:
+      - 283:335
+  - id: HP:0001260
+    label: dysarthria
+    original_spans:
+      - 1590:1599
+  - id: HP:0001254
+    label: lethargy
+    original_spans:
+      - 1618:1625
+  - id: HP:0002315
+    label: headache
+    original_spans:
+      - 1724:1731
+  - id: CHEBI:233158
+    label: soticlestat
+    original_spans:
+      - 23:33
+      - 200:210
+      - 671:681
+      - 790:800
+      - 803:813
+      - 998:1008
+      - 1382:1392
+      - 1567:1577
+      - 1990:2000
+      - 2199:2209
+      - 2312:2322
+      - 2526:2536
+  - id: CHEBI:34310
+    label: 24S-hydroxycholesterol (24HC)
+    original_spans:
+      - 1112:1140

@@ -1,0 +1,67 @@
+---
+input_text: 'Domino liver transplantation: indications, techniques, and outcomes.
+  The long-term shortage of livers available for transplantation has spurred the development
+  of many strategies to bolster the donor organ supply. One particularly innovative
+  strategy is domino liver transplantation in which a select group of liver transplant
+  recipients can donate their explanted native livers for use as liver grafts in other
+  patients. Several hereditary metabolic diseases (such as familial amyloid polyneuropathy,
+  maple syrup urine disease, and familial hypercholesterolemia) are caused by aberrant
+  or deficient protein production in the liver, and these conditions can be cured
+  with an orthotopic liver transplant. Although their native livers eventually caused
+  severe systemic disease in these patients, these livers are otherwise structurally
+  and functionally normal, and they have been used successfully in domino liver transplants
+  for the past 15 years. This article will review the indications for donating or
+  receiving a domino liver transplant, the surgical techniques necessary to perform
+  these transplants, as well as the recently revealed long-term outcomes and risks
+  of domino transplantation.'
+raw_completion_output: |-
+  Here are the extracted entities in the requested format:
+
+  primary_disease: Liver disease; Hereditary metabolic diseases (familial amyloid polyneuropathy, maple syrup urine disease, familial hypercholesterolemia)
+
+  medical_actions: Domino liver transplantation; Orthotopic liver transplant; Surgical techniques for liver transplantation
+
+  symptoms: Severe systemic disease
+
+  chemicals: 
+
+  action_annotation_relationships: Orthotopic liver transplant TREATS hereditary metabolic diseases IN patients; Domino liver transplantation TREATS liver disease IN patients; Orthotopic liver transplant TREATS severe systemic disease IN patients with hereditary metabolic diseases; Domino liver transplant PREVENTS liver disease IN recipients
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Domino liver transplant PREVENTS liver disease IN recipients
+
+  ===
+
+extracted_object:
+  primary_disease: Liver disease; Hereditary metabolic diseases (familial amyloid
+    polyneuropathy, maple syrup urine disease, familial hypercholesterolemia)
+  medical_actions:
+    - Domino liver transplantation
+    - Orthotopic liver transplant
+    - Surgical techniques for liver transplantation
+  symptoms:
+    - Severe systemic disease
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: hereditary metabolic diseases
+    - predicate: TREATS
+      object: HP:0001392
+      object_qualifier: IN patients
+    - subject: Orthotopic liver transplant
+      predicate: TREATS
+      object: systemic disease
+      qualifier: MONDO:0019052
+    - predicate: PREVENTS
+      object: HP:0001392

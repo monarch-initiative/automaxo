@@ -1,0 +1,104 @@
+---
+input_text: 'A new step in understanding stem cell mobilization in patients with Fanconi
+  anemia: A bridge to gene therapy. BACKGROUND: Fanconi anemia (FA) is an inherited
+  disorder characterized clinically by congenital abnormalities, progressive bone
+  marrow failure (BMF), and a predisposition to malignancy. Gene therapy (GT) of FA,
+  via the infusion of gene-corrected peripheral blood (PB) autologous hematopoietic
+  stem cells (HSCs), may constitute a cure for BMF. GT bypasses the donor restrictions
+  and adverse events associated with allogenic HSC transplantation. However, adequate
+  harvesting of PB-HSCs is a crucial determinant of successful engraftment in gene
+  therapy. Harvesting the low numbers of HSCs in patients with FA is particularly
+  challenging. STUDY DESIGN AND METHODS: This open-label phase I/II trial evaluates
+  the feasibility and safety of co-administration of G-CSF and plerixafor in patients
+  with FA for the mobilization and harvesting of peripheral HSCs, intending to use
+  them in a gene therapy trial. Patients with mutations in the FANCA gene received
+  two subcutaneous injections of G-CSF (6 mug/kg x 2/d from D1 to D8. Plerixafor (0.24
+  mg/kg/d) was administered 2 h before apheresis (from D5 onward). RESULTS: CD34+
+  cells were mobilized for four patients quickly but transiently after the plerixafor
+  injection. One patient had a CD34+ cell count of over 100/mul; the mobilization
+  peaked 2 h after the injection and lasted for more than 9 h. There were no short-term
+  adverse events associated with the mobilization or harvesting procedures. CONCLUSION:
+  Our data in patients with FA show that the mobilization of HSCs with G-CSF and plerixafor
+  is safe and more efficient in younger individuals without BMF.'
+raw_completion_output: |-
+  Here are the extracted entities in the requested format:
+
+  primary_disease: Fanconi anemia
+
+  medical_actions: G-CSF administration; plerixafor administration; apheresis; gene therapy; HSC transplantation; autologous hematopoietic stem cell infusion
+
+  symptoms: congenital abnormalities; progressive bone marrow failure; malignancy predisposition; low HSC count
+
+  chemicals: G-CSF; plerixafor
+
+  action_annotation_relationships: G-CSF TREATS low HSC count IN Fanconi anemia; plerixafor TREATS low HSC count IN Fanconi anemia; G-CSF and plerixafor TREATS HSC mobilization IN Fanconi anemia; gene therapy TREATS bone marrow failure IN Fanconi anemia; HSC transplantation TREATS bone marrow failure IN Fanconi anemia; autologous hematopoietic stem cell infusion TREATS bone marrow failure IN Fanconi anemia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  autologous hematopoietic stem cell infusion TREATS bone marrow failure IN Fanconi anemia
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0019391
+  medical_actions:
+    - G-CSF administration
+    - plerixafor administration
+    - apheresis
+    - MAXO:0001001
+    - HSC transplantation
+    - autologous hematopoietic stem cell infusion
+  symptoms:
+    - HP:0034057
+    - progressive bone marrow failure
+    - malignancy predisposition
+    - low HSC count
+  chemicals:
+    - G-CSF
+    - CHEBI:125354
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: low HSC count
+      qualifier: MONDO:0019391
+      subject_extension: G-CSF
+    - predicate: TREATS
+      object: low HSC count
+      qualifier: MONDO:0019391
+    - subject: G-CSF and plerixafor administration
+      predicate: TREATS
+      object: HSC mobilization
+      qualifier: MONDO:0019391
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: mobilizing agent
+      object_extension: None
+    - predicate: TREATS
+      object: HP:0005528
+      qualifier: MONDO:0019391
+    - predicate: TREATS
+      object: HP:0005528
+      qualifier: MONDO:0019391
+    - predicate: TREATS
+      object: HP:0005528
+      qualifier: MONDO:0019391
+      subject_qualifier: autologous
+      subject_extension: autologous
+named_entities:
+  - id: CHEBI:125354
+    label: plerixafor
+    original_spans:
+      - 876:885
+      - 1129:1138
+      - 1299:1308
+      - 1641:1650

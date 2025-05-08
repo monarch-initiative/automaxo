@@ -1,0 +1,102 @@
+---
+input_text: Neonatal gene therapy achieves sustained disease rescue of maple syrup
+  urine disease in mice. Maple syrup urine disease (MSUD) is a rare recessively inherited
+  metabolic disorder causing accumulation of branched chain amino acids leading to
+  neonatal death, if untreated. Treatment for MSUD represents an unmet need because
+  the current treatment with life-long low-protein diet is challenging to maintain,
+  and despite treatment the risk of acute decompensations and neuropsychiatric symptoms
+  remains. Here, based on significant liver contribution to the catabolism of the
+  branched chain amino acid leucine, we develop a liver-directed adeno-associated
+  virus (AAV8) gene therapy for MSUD. We establish and characterize the Bckdha (branched
+  chain keto acid dehydrogenase a)-/- mouse that exhibits a lethal neonatal phenotype
+  mimicking human MSUD. Animals were treated at P0 with intravenous human BCKDHA AAV8
+  vectors under the control of either a ubiquitous or a liver-specific promoter. BCKDHA
+  gene transfer rescued the lethal phenotype. While the use of a ubiquitous promoter
+  fully and sustainably rescued the disease (long-term survival, normal phenotype
+  and correction of biochemical abnormalities), liver-specific expression of BCKDHA
+  led to partial, though sustained rescue. Here we show efficacy of gene therapy for
+  MSUD demonstrating its potential for clinical translation.
+raw_completion_output: |-
+  Here are the extracted entities in the requested format:
+
+  primary_disease: Maple syrup urine disease (MSUD)
+
+  medical_actions: Gene therapy; liver-directed adeno-associated virus (AAV8) gene therapy; intravenous human BCKDHA AAV8 vectors; life-long low-protein diet; BCKDHA gene transfer
+
+  symptoms: Neonatal death; acute decompensations; neuropsychiatric symptoms; lethal neonatal phenotype; biochemical abnormalities
+
+  chemicals: Branched chain amino acids; leucine; adeno-associated virus (AAV8); human BCKDHA
+
+  action_annotation_relationships: Gene therapy TREATS MSUD; liver-directed adeno-associated virus (AAV8) gene therapy TREATS MSUD; BCKDHA gene transfer TREATS lethal neonatal phenotype IN MSUD; life-long low-protein diet TREATS MSUD; BCKDHA gene transfer with AAV8 TREATS biochemical abnormalities IN MSUD; liver-specific expression of BCKDHA PREVENTS neonatal death IN MSUD
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  liver-specific expression of BCKDHA PREVENTS neonatal death IN MSUD
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009563
+  medical_actions:
+    - MAXO:0001001
+    - liver-directed adeno-associated virus (AAV8) gene therapy
+    - intravenous human BCKDHA AAV8 vectors
+    - life-long low-protein diet
+    - BCKDHA gene transfer
+  symptoms:
+    - HP:0003811
+    - acute decompensations
+    - neuropsychiatric symptoms
+    - lethal neonatal phenotype
+    - biochemical abnormalities
+  chemicals:
+    - CHEBI:22918
+    - CHEBI:25017
+    - adeno-associated virus (AAV8)
+    - human BCKDHA
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: MSUD
+    - predicate: TREATS
+      object: MSUD
+      subject_extension: gene therapy
+    - predicate: TREATS
+      object: lethal neonatal phenotype
+      qualifier: MONDO:0009563
+      subject_qualifier: BCKDHA
+    - predicate: TREATS
+      subject_qualifier: life-long
+    - subject: BCKDHA gene transfer
+      predicate: TREATS
+      object: biochemical abnormalities
+      qualifier: MONDO:0009563
+      subject_qualifier: with AAV8 vector
+      object_qualifier: None
+      subject_extension: gene transfer
+      object_extension: biochemical abnormalities
+    - predicate: PREVENTS
+      object: HP:0003811
+      qualifier: MONDO:0009563
+      subject_extension: BCKDHA
+named_entities:
+  - id: MAXO:0001001
+    label: Gene therapy
+    original_spans:
+      - 9:20
+      - 663:674
+      - 1302:1313
+  - id: HP:0003811
+    label: Neonatal death
+    original_spans:
+      - 240:253

@@ -1,0 +1,97 @@
+---
+input_text: "Living donor liver transplantation in maple syrup urine disease - Case
+  series and world's youngest domino liver donor and recipient. MSUD occurs due to
+  deficiency of enzyme BCKAD required for metabolism of leucine, isoleucine, and valine
+  leading to the accumulation of these and their ketoacids causing acute metabolic
+  decompensation manifesting as encephalopathy or sudden death. The patient requires
+  special protein-restricted diet to survive. As this enzyme is expressed in liver,
+  liver transplantation has been successfully performed as a cure. We report two patients
+  of MSUD who underwent LDLT while their livers were used as a domino graft for other
+  biliary cirrhotic patients. A 22-month-old male child diagnosed as a case of classic
+  MSUD underwent LDLT from an altruistic aunt as donor following which his serum leucine
+  levels normalized on an unrestricted protein diet. His liver was used as a domino
+  graft. A 38-month-old female child with diagnosed MSUD underwent LDLT from a swap
+  donor, and her liver was used as a domino graft. Her DQ improved post-transplant.
+  LDLT from non-heterozygous donors is a cure for classical MSUD. Their livers can
+  be used as domino grafts for non-MSUD cases. "
+raw_completion_output: |-
+  primary_disease: Maple syrup urine disease
+  medical_actions: living donor liver transplantation; protein-restricted diet
+  symptoms: acute metabolic decompensation; encephalopathy; sudden death
+  chemicals: leucine; isoleucine; valine; ketoacids
+  action_annotation_relationships: living donor liver transplantation TREATS acute metabolic decompensation IN Maple syrup urine disease; living donor liver transplantation TREATS encephalopathy IN Maple syrup urine disease; living donor liver transplantation TREATS sudden death IN Maple syrup urine disease; protein-restricted diet TREATS acute metabolic decompensation IN Maple syrup urine disease; protein-restricted diet TREATS encephalopathy IN Maple syrup urine disease; protein-restricted diet TREATS sudden death IN Maple syrup urine disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  protein-restricted diet TREATS sudden death IN Maple syrup urine disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009563
+  medical_actions:
+    - living donor liver transplantation
+    - protein-restricted diet
+  symptoms:
+    - acute metabolic decompensation
+    - HP:0001298
+    - HP:0001699
+  chemicals:
+    - CHEBI:25017
+    - CHEBI:24898
+    - CHEBI:27266
+    - ketoacids
+  action_annotation_relationships:
+    - subject: living donor liver transplantation
+      predicate: TREATS
+      object: acute metabolic decompensation
+      qualifier: MONDO:0009563
+      subject_qualifier: living donor
+      object_qualifier: acute
+      subject_extension: liver transplantation
+      object_extension: metabolic decompensation
+    - subject: living donor liver transplantation
+      predicate: TREATS
+      object: HP:0001298
+      qualifier: MONDO:0009563
+      subject_extension: liver transplantation
+      object_extension: encephalopathy
+    - subject: living donor liver transplantation
+      predicate: TREATS
+      object: HP:0001699
+      qualifier: MONDO:0009563
+      subject_extension: liver transplantation
+      object_extension: sudden death
+    - subject: TREATS
+      predicate: TREATS
+      object: acute metabolic decompensation
+      qualifier: MONDO:0009563
+      subject_extension: protein-restricted diet
+      object_extension: acute metabolic decompensation
+    - subject: TREATS
+      predicate: TREATS
+      object: HP:0001298
+      qualifier: MONDO:0009563
+      subject_qualifier: protein-restricted
+      object_qualifier: N/A
+      subject_extension: diet
+      object_extension: protein-restricted
+    - subject: TREATS
+      predicate: TREATS
+      object: HP:0001699
+      qualifier: MONDO:0009563
+      subject_qualifier: N/A
+      object_qualifier: N/A
+      subject_extension: protein-restricted diet
+      object_extension: N/A

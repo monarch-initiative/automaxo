@@ -1,0 +1,80 @@
+---
+input_text: 'Maple syrup urine disease in Brazil: a panorama of the last two decades.
+  OBJECTIVE: To characterize a sample of Brazilian patients with maple syrup urine
+  disease (MSUD) diagnosed between 1992 and 2011. METHODS: In this retrospective study,
+  patients were identified through a national reference laboratory for the diagnosis
+  of MSUD and through contact with other medical genetics services across Brazil.
+  Data were collected by means of a chart review. RESULTS: Eighty-three patients from
+  75 families were enrolled in the study (median age, 3 years; interquartile range
+  [IQR], 0.57-7). Median age at onset of symptoms was 10 days (IQR 5-30), whereas
+  median age at diagnosis was 60 days (IQR 29-240, p=0.001). Only three (3.6%) patients
+  were diagnosed before the onset of clinical manifestations. A comparison between
+  patients with (n=12) and without (n=71) an early diagnosis shows that early diagnosis
+  is associated with the presence of positive family history and decreased prevalence
+  of clinical manifestations at the time of diagnosis, but not with a better outcome.
+  Overall, 98.8% of patients have some psychomotor or neurodevelopmental delay. CONCLUSION:
+  In Brazil, patients with MSUD are usually diagnosed late and exhibit neurological
+  involvement and poor survival even with early diagnosis. We suggest that specific
+  public policies for diagnosis and treatment of MSUD should be developed and implemented
+  in the country.'
+raw_completion_output: |-
+  primary_disease: Maple syrup urine disease  
+  medical_actions: diagnosis; treatment  
+  symptoms: psychomotor delay; neurodevelopmental delay; clinical manifestations  
+  chemicals: None  
+  action_annotation_relationships: diagnosis TREATS symptom (psychomotor delay) IN Maple syrup urine disease; diagnosis TREATS symptom (neurodevelopmental delay) IN Maple syrup urine disease; treatment TREATS symptom (clinical manifestations) IN Maple syrup urine disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  treatment TREATS symptom (clinical manifestations) IN Maple syrup urine disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009563
+  medical_actions:
+    - diagnosis
+    - treatment
+  symptoms:
+    - HP:0001263
+    - HP:0012758
+    - clinical manifestations
+  chemicals:
+    - None
+  action_annotation_relationships:
+    - subject: diagnosis
+      predicate: TREATS
+      object: HP:0001263
+      qualifier: MONDO:0009563
+      subject_extension: diagnosis
+      object_extension: symptom
+    - subject: TREATS
+      predicate: TREATS
+      object: HP:0012758
+      qualifier: MONDO:0009563
+      subject_extension: diagnosis
+      object_extension: neurodevelopmental delay
+    - subject: treatment
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0009563
+      subject_extension: treatment
+      object_extension: clinical manifestations
+named_entities:
+  - id: HP:0001263
+    label: psychomotor delay
+  - id: HP:0012758
+    label: neurodevelopmental delay
+    original_spans:
+      - 1121:1144

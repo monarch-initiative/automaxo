@@ -1,0 +1,98 @@
+---
+input_text: Intrastromal Gene Therapy Prevents and Reverses Advanced Corneal Clouding
+  in a Canine Model of Mucopolysaccharidosis I. Mucopolysaccharidosis type I (MPS
+  I) is an autosomal recessive lysosomal storage disease characterized by severe phenotypes,
+  including corneal clouding. MPS I is caused by mutations in alpha-l-iduronidase
+  (IDUA), a ubiquitous enzyme that catalyzes the hydrolysis of glycosaminoglycans.
+  Currently, no treatment exists to address MPS I corneal clouding other than corneal
+  transplantation, which is complicated by a high risk for rejection. Investigation
+  of an adeno-associated virus (AAV) IDUA gene addition strategy targeting the corneal
+  stroma addresses this deficiency. In MPS I canines with early or advanced corneal
+  disease, a single intrastromal AAV8G9-IDUA injection was well tolerated at all administered
+  doses. The eyes with advanced disease demonstrated resolution of corneal clouding
+  as early as 1 week post-injection, followed by sustained corneal transparency until
+  the experimental endpoint of 25 weeks. AAV8G9-IDUA injection in the MPS I canine
+  eye with early corneal disease prevented the development of advanced corneal changes
+  while restoring clarity. Biodistribution studies demonstrated vector genomes in
+  ocular compartments other than the cornea and in some systemic organs; however,
+  a capsid antibody response was detected in only the highest dosed subject. Collectively,
+  the results suggest that intrastromal AAV8G9-IDUA therapy prevents and reverses
+  visual impairment associated with MPS I corneal clouding.
+raw_completion_output: |-
+  primary_disease: Mucopolysaccharidosis type I (MPS I)
+  medical_actions: intrastromal AAV8G9-IDUA injection; corneal transplantation
+  symptoms: corneal clouding; visual impairment
+  chemicals: AAV8G9-IDUA
+  action_annotation_relationships: intrastromal AAV8G9-IDUA injection TREATS corneal clouding IN Mucopolysaccharidosis type I (MPS I); intrastromal AAV8G9-IDUA injection TREATS visual impairment IN Mucopolysaccharidosis type I (MPS I); corneal transplantation TREATS corneal clouding IN Mucopolysaccharidosis type I (MPS I)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  corneal transplantation TREATS corneal clouding IN Mucopolysaccharidosis type I (MPS I)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:1012617
+  medical_actions:
+    - intrastromal AAV8G9-IDUA injection
+    - MAXO:0010034
+  symptoms:
+    - HP:0007957
+    - HP:0000505
+  chemicals:
+    - AAV8G9-IDUA
+  action_annotation_relationships:
+    - subject: intrastromal AAV8G9-IDUA injection
+      predicate: TREATS
+      object: HP:0007957
+      qualifier: MONDO:1012617
+      subject_qualifier: intrastromal
+      object_qualifier: None
+      subject_extension: AAV8G9-IDUA injection
+      object_extension: corneal clouding
+    - subject: intrastromal AAV8G9-IDUA injection
+      predicate: TREATS
+      object: HP:0000505
+      qualifier: MONDO:1012617
+      subject_qualifier: intrastromal
+      object_qualifier: N/A
+      subject_extension: AAV8G9-IDUA injection
+      object_extension: visual impairment
+    - subject: MAXO:0010034
+      predicate: TREATS
+      object: HP:0007957
+      qualifier: MONDO:1012617
+      subject_extension: corneal transplantation
+      object_extension: corneal clouding
+named_entities:
+  - id: MONDO:1012617
+    label: Mucopolysaccharidosis type I (MPS I)
+    original_spans:
+      - 120:155
+  - id: MAXO:0010034
+    label: corneal transplantation
+    original_spans:
+      - 482:504
+  - id: HP:0007957
+    label: corneal clouding
+    original_spans:
+      - 57:72
+      - 255:270
+      - 454:469
+      - 896:911
+      - 1532:1547
+  - id: HP:0000505
+    label: visual impairment
+    original_spans:
+      - 1492:1508

@@ -1,0 +1,124 @@
+---
+input_text: 'Neurocognitive and somatic stabilization in pediatric patients with severe
+  Mucopolysaccharidosis Type I after 52 weeks of intravenous brain-penetrating insulin
+  receptor antibody-iduronidase fusion protein (valanafusp alpha): an open label phase
+  1-2 trial. BACKGROUND: Mucopolysaccharidosis (MPS) Type I (MPSI) is caused by mutations
+  in the gene encoding the lysosomal enzyme, alpha-L-iduronidase (IDUA), and a majority
+  of patients present with severe neurodegeneration and cognitive impairment. Recombinant
+  IDUA does not cross the blood-brain barrier (BBB). To enable BBB transport, IDUA
+  was re-engineered as an IgG-IDUA fusion protein, valanafusp alpha, where the IgG
+  domain targets the BBB human insulin receptor to enable transport of the enzyme
+  into the brain. We report the results of a 52-week clinical trial on the safety
+  and efficacy of valanafusp alpha in pediatric MPSI patients with cognitive impairment.
+  In the phase I trial, 6 adults with attenuated MPSI were administered 0.3, 1, and
+  3 mg/kg doses of valanafusp alpha by intravenous (IV) infusion. In the phase II
+  trial, 11 pediatric subjects, 2-15 years of age, were treated for 52 weeks with
+  weekly IV infusions of valanafusp alpha at 1, 3, or 6 mg/kg. Assessments of adverse
+  events, cognitive stabilization, and somatic stabilization were made. Outcomes at
+  52 weeks were compared to baseline. RESULTS: Drug related adverse events included
+  infusion related reactions, with an incidence of 1.7%, and transient hypoglycemia,
+  with an incidence of 6.4%. The pediatric subjects had CNS involvement with a mean
+  enrollment Development Quotient (DQ) of 36.1+-7.1. The DQ, and the cortical grey
+  matter volume of brain, were stabilized by valanafusp alpha treatment. Somatic manifestations
+  were stabilized, or improved, based on urinary glycosaminoglycan levels, hepatic
+  and spleen volumes, and shoulder range of motion. CONCLUSION: Clinical evidence
+  of the cognitive and somatic stabilization indicates that valanafusp alpha is transported
+  into both the CNS and into peripheral organs due to its dual targeting mechanism
+  via the insulin receptor and the mannose 6-phosphate receptor. This novel fusion
+  protein offers a pharmacologic approach to the stabilization of cognitive function
+  in MPSI. TRIAL REGISTRATION: Clinical Trials.Gov, NCT03053089 . Retrospectively
+  registered 9 February, 2017; Clinical Trials.Gov, NCT03071341 . Registered 6 March,
+  2017.'
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Mucopolysaccharidosis Type I (MPSI)
+
+  medical_actions: intravenous brain-penetrating insulin receptor antibody-iduronidase fusion protein (valanafusp alpha) treatment; weekly IV infusions of valanafusp alpha
+
+  symptoms: cognitive impairment; neurodegeneration; somatic manifestations; infusion related reactions; transient hypoglycemia
+
+  chemicals: valanafusp alpha; iduronidase; alpha-L-iduronidase (IDUA); insulin receptor antibody-iduronidase fusion protein
+
+  action_annotation_relationships: valanafusp alpha TREATS cognitive impairment IN MPSI; valanafusp alpha TREATS neurodegeneration IN MPSI; valanafusp alpha TREATS somatic manifestations IN MPSI; valanafusp alpha PREVENTS deterioration of cortical grey matter volume IN MPSI; valanafusp alpha TREATS infusion related reactions IN MPSI; valanafusp alpha TREATS transient hypoglycemia IN MPSI
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  valanafusp alpha TREATS transient hypoglycemia IN MPSI
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0017385
+  medical_actions:
+    - intravenous brain-penetrating insulin receptor antibody-iduronidase fusion protein
+      (valanafusp alpha) treatment
+    - weekly IV infusions of valanafusp alpha
+  symptoms:
+    - HP:0100543
+    - HP:0002180
+    - somatic manifestations
+    - infusion related reactions
+    - transient hypoglycemia
+  chemicals:
+    - valanafusp alpha
+    - iduronidase
+    - alpha-L-iduronidase (IDUA)
+    - insulin receptor antibody-iduronidase fusion protein
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: HP:0100543
+      qualifier: MONDO:0017385
+      subject_extension: CHEBI:30216
+    - predicate: TREATS
+      object: HP:0002180
+      qualifier: MONDO:0017385
+    - subject: valanafusp alpha
+      predicate: TREATS
+      object: manifestations
+      qualifier: MONDO:0017385
+      subject_extension: CHEBI:30216
+      object_extension: somatic manifestations
+    - subject: valanafusp
+      predicate: PREVENTS
+      object: deterioration
+      qualifier: MONDO:0017385
+      subject_extension: CHEBI:30216
+      object_extension: cortical grey matter volume
+    - predicate: TREATS
+      object: infusion related reactions
+      qualifier: MONDO:0017385
+      subject_extension: CHEBI:30216
+    - predicate: TREATS
+      object: transient hypoglycemia
+      qualifier: MONDO:0017385
+      subject_extension: CHEBI:30216
+named_entities:
+  - id: MONDO:0017385
+    label: Mucopolysaccharidosis Type I (MPSI)
+  - id: HP:0002180
+    label: neurodegeneration
+    original_spans:
+      - 451:467
+  - id: CHEBI:30216
+    label: alpha
+    original_spans:
+      - 217:221
+      - 376:380
+      - 648:652
+      - 856:860
+      - 1026:1030
+      - 1192:1196
+      - 1706:1710
+      - 1976:1980

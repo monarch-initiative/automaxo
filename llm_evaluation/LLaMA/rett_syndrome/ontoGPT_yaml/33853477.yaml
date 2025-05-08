@@ -1,0 +1,76 @@
+---
+input_text: 'A Pilot Study Delivering Physiotherapy Support for Rett Syndrome Using
+  a Telehealth Framework Suitable for COVID-19 Lockdown. Background: Rett syndrome
+  (RTT) is a genetically caused neurodevelopmental disorder associated with severe
+  disability. We assessed the feasibility of a telehealth program supporting gross
+  motor skills in RTT.Methods: Five girls with RTT were assessed and a home-based
+  exercise program developed in response to functional goals. Families then participated
+  in monthly Skype sessions for 6 months, guided by a physiotherapist to monitor progress
+  and adjust the program as necessary. Goal Attainment Scaling was used to evaluate
+  progress and a parental satisfaction questionnaire was administered.Results: Four
+  goals were established for each participant and progress was greater than would
+  be expected in 16 of 20 goals. Parents evaluated the program as feasible and useful
+  for their daughters.Discussion: A telehealth model of home-based intervention supported
+  individuals with RTT to achieve gross motor skills and was found to be feasible.
+  This model is important at present times during COVID-19 outbreak and lockdown.'
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Rett syndrome (RTT)
+
+  medical_actions: physiotherapy; telehealth program; home-based exercise program; monthly Skype sessions; Goal Attainment Scaling
+
+  symptoms: severe disability; lack of gross motor skills
+
+  chemicals: 
+
+  action_annotation_relationships: physiotherapy TREATS lack of gross motor skills IN Rett syndrome (RTT); telehealth program SUPPORTS physiotherapy IN Rett syndrome (RTT); home-based exercise program TREATS lack of gross motor skills IN Rett syndrome (RTT); monthly Skype sessions SUPPORTS home-based exercise program IN Rett syndrome (RTT)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  monthly Skype sessions SUPPORTS home-based exercise program IN Rett syndrome (RTT)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010726
+  medical_actions:
+    - MAXO:0000011
+    - telehealth program
+    - home-based exercise program
+    - monthly Skype sessions
+    - Goal Attainment Scaling
+  symptoms:
+    - severe disability
+    - lack of gross motor skills
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: lack of gross motor skills
+      qualifier: MONDO:0010726
+      subject_extension: physiotherapy
+    - predicate: SUPPORTS
+      object: physiotherapy
+      qualifier: MONDO:0010726
+    - subject: home-based exercise program
+      predicate: TREATS
+      object: lack of gross motor skills
+      qualifier: MONDO:0010726
+      subject_qualifier: home-based
+      object_qualifier: None
+      subject_extension: exercise program
+      object_extension: gross motor skills
+    - predicate: SUPPORTS
+      object: home-based exercise program
+      qualifier: MONDO:0010726
+      subject_qualifier: monthly

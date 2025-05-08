@@ -1,0 +1,100 @@
+---
+input_text: 'Efficacy and safety of intravenous laronidase for mucopolysaccharidosis
+  type I: A systematic review and meta-analysis. OBJECTIVE: To evaluate the efficacy
+  and safety of IV laronidase for MPS I. METHODS: A systematic literature review was
+  performed by searching the ClinicalTrials.gov, MEDLINE/PubMed, EMBASE, LILACS, and
+  Cochrane Library databases, limited to clinical trials published until December
+  31, 2016. The first inclusion criterion was being a randomized controlled trial
+  (RCT). If < five RCTs were identified, open-label and nonrandomized trials, controlled
+  or uncontrolled (quasi-experimental), including >= five patients, and evaluating
+  relevant outcomes defined a priori, would also be included. For meta-analysis, primary
+  inferences were based on random-effects models. Assessment of article quality was
+  performed in accordance with the GRADE criteria. The Cochrane Risk of Bias tool
+  was used to examine the risk of bias for RCTs. RESULTS: The selection phase retrieved
+  632 articles. During the first phase of selection, 158 had the abstract or full
+  text read for assessment of eligibility, of which nine (two RCTs) were included
+  for qualitative synthesis. Four papers were included in the meta-analysis, which
+  was performed for the following outcomes: occurrence of treatment-emergent or infusion-related
+  adverse events (65%; 95%CI 53, 76), mild in most cases; development of IgG antibodies
+  to laronidase (88%; 95%CI 67, 100); apnea-hypopnea index (not significant-NS), urinary
+  glycosaminoglycans (GAGs) [mean change -65.5 mug/mg creatinine (95%CI -68.8, -62.3)],
+  liver size [mean change -31.03% (95%CI -36.1, -25.9)], left ventricular mass index
+  (LVMI) [mean change -1.8 (95%CI -2.32, -0.25)], and distance covered in the 6-minute
+  walk test (NS). Among the outcomes not included in meta-analysis, we found evidence
+  for benefit of laronidase only on shoulder flexion. CONCLUSIONS: Our findings suggest
+  that IV laronidase effectively reduces urinary GAGs excretion, hepatomegaly and
+  LVMI, and can improve shoulder flexion in MPS I patients. Laronidase appears to
+  be safe in the studied population.'
+raw_completion_output: |-
+  primary_disease: mucopolysaccharidosis type I  
+  medical_actions: intravenous laronidase  
+  symptoms: urinary glycosaminoglycans (GAGs) excretion; hepatomegaly; left ventricular mass index (LVMI); shoulder flexion  
+  chemicals: laronidase  
+  action_annotation_relationships: treatment (with laronidase) TREATS urinary glycosaminoglycans (GAGs) excretion IN mucopolysaccharidosis type I; treatment (with laronidase) TREATS hepatomegaly IN mucopolysaccharidosis type I; treatment (with laronidase) TREATS left ventricular mass index (LVMI) IN mucopolysaccharidosis type I; treatment (with laronidase) TREATS shoulder flexion IN mucopolysaccharidosis type I  
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  treatment (with laronidase) TREATS shoulder flexion IN mucopolysaccharidosis type I
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0001586
+  medical_actions:
+    - intravenous laronidase
+  symptoms:
+    - urinary glycosaminoglycans (GAGs) excretion
+    - HP:0002240
+    - left ventricular mass index (LVMI)
+    - shoulder flexion
+  chemicals:
+    - laronidase
+  action_annotation_relationships:
+    - subject: treatment
+      predicate: TREATS
+      object: urinary glycosaminoglycans (GAGs) excretion
+      qualifier: MONDO:0001586
+      subject_qualifier: with laronidase
+      object_qualifier: IN
+      subject_extension: laronidase
+      object_extension: urinary glycosaminoglycans (GAGs)
+    - subject: treatment
+      predicate: TREATS
+      object: HP:0002240
+      qualifier: MONDO:0001586
+      subject_qualifier: with laronidase
+      object_qualifier: None
+      subject_extension: laronidase
+      object_extension: hepatomegaly
+    - subject: treatment
+      predicate: TREATS
+      object: left ventricular mass index (LVMI)
+      qualifier: MONDO:0001586
+      subject_qualifier: with laronidase
+      object_qualifier: N/A
+      subject_extension: laronidase
+      object_extension: left ventricular mass index (LVMI)
+    - subject: treatment
+      predicate: TREATS
+      object: shoulder flexion
+      qualifier: MONDO:0001586
+      subject_qualifier: with laronidase
+      object_qualifier: None
+      subject_extension: laronidase
+      object_extension: shoulder flexion
+named_entities:
+  - id: HP:0002240
+    label: hepatomegaly
+    original_spans:
+      - 1980:1991

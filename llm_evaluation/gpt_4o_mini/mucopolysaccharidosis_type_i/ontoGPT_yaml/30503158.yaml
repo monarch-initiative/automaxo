@@ -1,0 +1,103 @@
+---
+input_text: 'Hematopoietic cell transplantation for severe MPS I in the first six
+  months of life: The heart of the matter. BACKGROUND: Hematopoietic cell transplantation
+  (HCT) is accepted therapy for severe mucopolysaccharidosis type I (MPS IH). With
+  implementation of newborn screening (NBS) for MPS I in the US, HCT may now occur
+  earlier than 1-2 years of age and it might be assumed that cardiac issues will be
+  fewer. To examine this hypothesis, we reviewed our records for any MPS IH infant
+  who underwent HCT at <=6 months of age. STUDY PATIENTS: Pre- and (most recent) post-HCT
+  cardiac echos and clinical courses were reviewed in all infants with MPS IH undergoing
+  HCT at <=6 months of age. RESULTS: 7 MPS IH infants (4 M) who were diagnosed at
+  median (range) (MEDRNG) of 14 (3, 22) days of life (DOL) by NBS [2] or because an
+  older sib had MPS IH [5], began enzyme replacement therapy at MEDRNG of 48 (7, 62)
+  DOL. First pre-HCT echo was performed at MEDRNG of 45 (0, 88) DOL. HCT (6 cord blood,
+  1 related) occurred at MEDRNG of 131 (105, 183) DOL with most recent echo at MEDRNG
+  of 408 (10, 1897) days after HCT. Mitral regurgitation (>=mild) occurred before
+  (2/7) and after (2/7) HCT; LVH (2/7) occurred after HCT; PFO was common before (5/7)
+  and after (3/7) HCT. One infant had severely decreased function at initial echo
+  and required ICU management. Another infant with a patent foramen ovale and indwelling
+  central line required additional neuroimaging to determine the cause of a seizure.
+  A final infant died unexpectedly 69 days post-HCT without evidence of occlusive
+  coronary disease at autopsy. CONCLUSIONS: In addition to the traditional phenotypic
+  features of severe MPS I, newborns presenting for HCT have cardiac and non-cardiac
+  problems unique to their young age. Recognition of these issues is essential for
+  optimal outcomes.'
+raw_completion_output: |-
+  primary_disease: severe mucopolysaccharidosis type I (MPS IH)  
+  medical_actions: Hematopoietic cell transplantation (HCT); enzyme replacement therapy; ICU management; neuroimaging  
+  symptoms: cardiac issues; mitral regurgitation; left ventricular hypertrophy (LVH); patent foramen ovale (PFO); seizure  
+  chemicals: None  
+  action_annotation_relationships: HCT TREATS cardiac issues IN severe mucopolysaccharidosis type I (MPS IH); enzyme replacement therapy TREATS symptoms IN severe mucopolysaccharidosis type I (MPS IH); ICU management TREATS cardiac issues IN severe mucopolysaccharidosis type I (MPS IH); neuroimaging TREATS seizure IN severe mucopolysaccharidosis type I (MPS IH)  
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  neuroimaging TREATS seizure IN severe mucopolysaccharidosis type I (MPS IH)
+
+  ===
+
+extracted_object:
+  primary_disease: severe mucopolysaccharidosis type I (MPS IH)
+  medical_actions:
+    - MAXO:0000149
+    - enzyme replacement therapy
+    - ICU management
+    - neuroimaging
+  symptoms:
+    - cardiac issues
+    - HP:0001653
+    - HP:0001712
+    - HP:0001655
+    - HP:0001250
+  chemicals:
+    - None
+  action_annotation_relationships:
+    - subject: MAXO:0000149
+      predicate: TREATS
+      object: cardiac issues
+      qualifier: MONDO:0001586
+      subject_qualifier: None
+      object_qualifier: severe
+      subject_extension: HCT
+      object_extension: cardiac issues
+    - subject: enzyme replacement therapy
+      predicate: TREATS
+      object: symptoms
+      qualifier: severe mucopolysaccharidosis type I (MPS IH)
+      subject_extension: enzyme replacement therapy
+      object_extension: symptoms
+    - subject: <ICU management>
+      predicate: <TREATS>
+      object: <cardiac issues>
+      qualifier: <mucopolysaccharidosis type I (MPS IH)>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <ICU management>
+      object_extension: <severe>
+    - predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0001586
+      subject_extension: neuroimaging
+named_entities:
+  - id: HP:0001653
+    label: mitral regurgitation
+    original_spans:
+      - 1106:1125
+  - id: HP:0001712
+    label: left ventricular hypertrophy (LVH)
+  - id: HP:0001655
+    label: patent foramen ovale (PFO)
+  - id: HP:0001250
+    label: seizure
+    original_spans:
+      - 1478:1484

@@ -1,0 +1,86 @@
+---
+input_text: 'Haplo-identical or mismatched unrelated donor hematopoietic cell transplantation
+  for Fanconi anemia: Results from the Severe Aplastic Anemia Working Party of the
+  EBMT. Allogeneic hematopoietic cell transplantation (HCT) is the only curative option
+  for bone marrow failure or hematopoietic malignant diseases for Fanconi anemia (FA)
+  patients. Although results have improved over the last decades, reaching more than
+  90% survival when a human leukocyte antigen (HLA)-identical donor is available,
+  alternative HCT donors are still less reported. We compared HCT outcomes using HLA-mismatched
+  unrelated donors (MMUD; n = 123) or haplo-identical donors (HDs), either using only
+  in vivo T cell depletion (n = 33) or T cells depleted in vivo with some type of
+  graft manipulation ex vivo (n = 59) performed for FA between 2000 and 2018. Overall
+  survival (OS) by 24 months was 62% (53-71%) for MMUD, versus 80% (66-95%) for HDs
+  with only in vivo T cell depletion and 60% (47-73%) for HDs with in vivo and ex
+  vivo T cell depletion (p = .22). Event-free survival (EFS) was better for HD-transplanted
+  FA patients with only in vivo T cell depletion 86% (73-99%) than for those transplanted
+  from a MMUD 58% (48-68%) or those with graft manipulation 56% (42-69%) (p = .046).
+  Grade II-IV acute graft-versus-host disease (GVHD) was 41% (MMUD) versus 40% (HDs
+  with no graft manipulation) versus 17% (HDs with T cell depleted graft), (p = .005).
+  No differences were found for the other transplant related outcomes. These data
+  suggest that HDs might be considered as an alternative option for FA patients with
+  better EFS using unmanipulated grafts.'
+raw_completion_output: |-
+  primary_disease: Fanconi anemia  
+  medical_actions: allogeneic hematopoietic cell transplantation; in vivo T cell depletion; ex vivo graft manipulation  
+  symptoms: bone marrow failure; hematopoietic malignant diseases; acute graft-versus-host disease  
+  chemicals: none  
+  action_annotation_relationships: allogeneic hematopoietic cell transplantation TREATS bone marrow failure IN Fanconi anemia; allogeneic hematopoietic cell transplantation TREATS hematopoietic malignant diseases IN Fanconi anemia; in vivo T cell depletion TREATS acute graft-versus-host disease IN Fanconi anemia; ex vivo graft manipulation TREATS acute graft-versus-host disease IN Fanconi anemia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  ex vivo graft manipulation TREATS acute graft-versus-host disease IN Fanconi anemia
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0019391
+  medical_actions:
+    - allogeneic hematopoietic cell transplantation
+    - in vivo T cell depletion
+    - ex vivo graft manipulation
+  symptoms:
+    - HP:0005528
+    - hematopoietic malignant diseases
+    - acute graft-versus-host disease
+  chemicals:
+    - none
+  action_annotation_relationships:
+    - subject: hematopoietic cell transplantation
+      predicate: TREATS
+      object: HP:0005528
+      qualifier: MONDO:0019391
+      subject_qualifier: allogeneic
+      subject_extension: hematopoietic cell transplantation
+      object_extension: bone marrow failure
+    - subject: allogeneic hematopoietic cell transplantation
+      predicate: TREATS
+      object: hematopoietic malignant diseases
+      qualifier: MONDO:0019391
+      subject_extension: hematopoietic cell transplantation
+      object_extension: hematopoietic
+    - subject: in vivo T cell depletion
+      predicate: TREATS
+      object: acute graft-versus-host disease
+      qualifier: MONDO:0019391
+      subject_qualifier: in vivo
+      subject_extension: T cell depletion
+      object_extension: acute graft-versus-host disease
+    - subject: ex vivo graft manipulation
+      predicate: TREATS
+      object: acute graft-versus-host disease
+      qualifier: MONDO:0019391
+      subject_qualifier: ex vivo
+      object_qualifier: None
+      subject_extension: graft manipulation
+      object_extension: acute graft-versus-host disease

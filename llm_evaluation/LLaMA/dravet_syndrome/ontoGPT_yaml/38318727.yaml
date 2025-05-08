@@ -1,0 +1,116 @@
+---
+input_text: 'Norwegian population-based study of effectiveness of vagus nerve stimulation
+  in patients with developmental and epileptic encephalopathies. OBJECTIVE: Evaluate
+  the long-term efficacy of vagus nerve stimulation (VNS) in patients with developmental
+  and epileptic encephalopathies (DEE) compared with epilepsy patients without intellectual
+  disability (ID). METHODS: Long-term outcomes from a Norwegian VNS quality registry
+  are reported in 105 patients with DEEs (Lennox-Gastaut syndrome [LGS] n = 62; Dravet
+  n = 16; Rett n = 9; other syndromes n = 18) were compared with 212 epilepsy patients
+  without ID, with median follow-up of 88 and 72 months, respectively. Total seizure
+  reduction was evaluated at 6, 12, 24, 36, and 60 months. Effect on different seizure
+  types was evaluated at baseline and last observation carried forward (LOCF). RESULTS:
+  Median monthly seizure frequency at LOCF was reduced by 42.2% (p < 0.001) in patients
+  with DEE and by 55.8% (p < 0.001) in patients without ID. In DEE patients, >=50%
+  seizure reduction at 6 and 24 months were 17.1% and 37.1%, respectively, and 33.5%
+  and 48.6% for patients without ID. Seizure reduction >=75% at 60 months occurred
+  in 14.3% of DEE patients and 23.1% of patients without ID. Highest median reduction
+  was for atonic seizures, most notably 64.6% for LGS patients. A better effect was
+  seen at 2 years among DEE patients with unchanged medication compared with those
+  with changed medication (54.5% vs. 35.6% responders, p = 0.078). More DEE patients
+  were reported to have greater improvement in ictal or postictal severity (43.8%
+  vs. 28.3%, p = 0.006) and alertness (62.9% vs. 31.6%, p < 0.001) than patients without
+  ID. For both groups, use of the magnet reduced seizure severity. Hoarseness was
+  the most common adverse effect in both groups. In addition, DEE patients were frequently
+  reported to have sleep disturbance, general discomfort, or abdominal problems. SIGNIFICANCE:
+  Our data indicate that VNS is very effective for atonic seizures. Patients without
+  ID had best overall seizure reduction, however, patients with DEE had higher retention
+  rates probably due to other positive effects. PLAIN LANGUAGE SUMMARY: DEE refers
+  to a group of patients with severe epilepsy and intellectual disability. Many of
+  these patients have restricted lifestyles with frequent seizures. VNS is a treatment
+  option for patients who do not respond well to medicines, either because of insufficient
+  effect or serious adverse effects. Our study shows that VNS is well tolerated in
+  this patient group and leads to a reduction in all seizure types, most notably for
+  seizures leading to fall. Many patients experience other positive effects like shorter
+  and milder seizures, as well as improvement in alertness.'
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Developmental and Epileptic Encephalopathies (DEE); Epilepsy
+
+  medical_actions: Vagus Nerve Stimulation (VNS); medication
+
+  symptoms: Seizures; Atonic seizures; Ictal or postictal severity; Sleep disturbance; General discomfort; Abdominal problems; Hoarseness
+
+  chemicals: 
+
+  action_annotation_relationships: Vagus Nerve Stimulation (VNS) TREATS seizures IN Developmental and Epileptic Encephalopathies (DEE); Vagus Nerve Stimulation (VNS) TREATS atonic seizures IN Lennox-Gastaut syndrome (LGS); Vagus Nerve Stimulation (VNS) TREATS seizures IN epilepsy patients without intellectual disability; medication TREATS seizures IN Developmental and Epileptic Encephalopathies (DEE); Vagus Nerve Stimulation (VNS) PREVENTS seizure severity IN Developmental and Epileptic Encephalopathies (DEE); Vagus Nerve Stimulation (VNS) PREVENTS seizure severity IN epilepsy patients without intellectual disability.
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Vagus Nerve Stimulation (VNS) PREVENTS seizure severity IN epilepsy patients without intellectual disability.
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0100062
+  medical_actions:
+    - MAXO:0000942
+    - medication
+  symptoms:
+    - HP:0001250
+    - HP:0010819
+    - Ictal or postictal severity
+    - HP:0002360
+    - General discomfort
+    - Abdominal problems
+    - HP:0001609
+  action_annotation_relationships:
+    - subject: MAXO:0000942
+      predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0100062
+      subject_extension: CHEBI:35170
+      object_extension: seizures
+    - subject: MAXO:0000942
+      predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0016532
+      subject_extension: Vagus Nerve Stimulation
+      object_extension: atonic
+    - predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0005027
+      subject_extension: CHEBI:35170
+    - predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0100062
+      subject_extension: medication
+    - predicate: PREVENTS
+      object: seizure severity
+      qualifier: MONDO:0100062
+      subject_extension: CHEBI:35170
+    - subject: MAXO:0000942
+      predicate: PREVENTS
+      object: HP:0001250
+      qualifier: MONDO:0005027
+      subject_qualifier: without intellectual disability
+named_entities:
+  - id: HP:0002360
+    label: Sleep disturbance
+    original_spans:
+      - 1858:1874
+  - id: HP:0001609
+    label: Hoarseness
+    original_spans:
+      - 1737:1746

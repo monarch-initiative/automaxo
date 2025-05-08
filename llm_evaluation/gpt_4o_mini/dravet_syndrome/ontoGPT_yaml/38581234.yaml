@@ -1,0 +1,72 @@
+---
+input_text: 'Gene replacement therapies for inherited disorders of neurotransmission:
+  Current progress in succinic semialdehyde dehydrogenase deficiency. Neurodevelopment
+  is a highly organized and complex process involving lasting and often irreversible
+  changes in the central nervous system. Inherited disorders of neurotransmission
+  (IDNT) are a group of genetic disorders where neurotransmission is primarily affected,
+  resulting in abnormal brain development from early life, manifest as neurodevelopmental
+  disorders and other chronic conditions. In principle, IDNT (particularly those of
+  monogenic causes) are amenable to gene replacement therapy via precise genetic correction.
+  However, practical challenges for gene replacement therapy remain major hurdles
+  for its translation from bench to bedside. We discuss key considerations for the
+  development of gene replacement therapies for IDNT. As an example, we describe our
+  ongoing work on gene replacement therapy for succinic semialdehyde dehydrogenase
+  deficiency, a GABA catabolic disorder.'
+raw_completion_output: |-
+  primary_disease: succinic semialdehyde dehydrogenase deficiency  
+  medical_actions: gene replacement therapy  
+  symptoms: neurodevelopmental disorders; abnormal brain development  
+  chemicals: GABA  
+  action_annotation_relationships: gene replacement therapy TREATS neurodevelopmental disorders IN succinic semialdehyde dehydrogenase deficiency; gene replacement therapy TREATS abnormal brain development IN succinic semialdehyde dehydrogenase deficiency
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  gene replacement therapy TREATS abnormal brain development IN succinic semialdehyde dehydrogenase deficiency
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010083
+  medical_actions:
+    - gene replacement therapy
+  symptoms:
+    - neurodevelopmental disorders
+    - abnormal brain development
+  chemicals:
+    - CHEBI:16865
+  action_annotation_relationships:
+    - subject: gene replacement therapy
+      predicate: TREATS
+      object: neurodevelopmental disorders
+      qualifier: MONDO:0010083
+      subject_extension: gene replacement therapy
+      object_extension: neurodevelopmental disorders
+    - subject: gene replacement therapy
+      predicate: TREATS
+      object: abnormal brain development
+      qualifier: MONDO:0010083
+      subject_qualifier: N/A
+      object_qualifier: N/A
+      subject_extension: gene replacement therapy
+      object_extension: abnormal brain development
+named_entities:
+  - id: MONDO:0010083
+    label: succinic semialdehyde dehydrogenase deficiency
+    original_spans:
+      - 93:138
+      - 958:1003
+  - id: CHEBI:16865
+    label: GABA
+    original_spans:
+      - 1008:1011

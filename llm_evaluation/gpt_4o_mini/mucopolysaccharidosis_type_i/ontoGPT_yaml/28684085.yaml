@@ -1,0 +1,81 @@
+---
+input_text: 'Incomplete biomarker response in mucopolysaccharidosis type I after successful
+  hematopoietic cell transplantation. BACKGROUND: Residual disease, primarily involving
+  musculoskeletal tissue, is a common problem in patients with neuronopathic mucopolysaccharidosis
+  type I (MPS I, Hurler or severe Hurler-Scheie phenotype) after a successful hematopoietic
+  cell transplantation (HCT). The concentration of the GAG derived biomarkers heparan
+  sulfate (HS) and dermatan sulfate (DS), may reflect residual disease and is used
+  for monitoring biochemical response to therapies. This study investigates the response
+  of HS and DS in blood and urine to HCT in MPS I patients. METHODS: In 143 blood-
+  and urine samples of 17 neuronophatic MPS I patients, collected prior and post successful
+  HCT, the concentration of the disaccharides derived after full enzymatic digestion
+  of HS and DS were analyzed by multiplex liquid chromatography tandem-mass spectrometry
+  (LC-MS/MS). RESULTS: Median follow up after HCT was 2.4years (range 0-11years).
+  HCT led to a rapid decrease of both HS and DS. However, only 38% of the patients
+  reached normal HS levels in blood and even less patients (6%) reached normal DS
+  levels. In none of the patients normalization of HS or DS was observed in urine.
+  CONCLUSIONS: Biomarker response after HCT is incomplete, which may reflect residual
+  disease activity. Novel therapeutic strategies should aim for full metabolic correction
+  to minimize clinical manifestations.'
+raw_completion_output: |-
+  primary_disease: mucopolysaccharidosis type I  
+  medical_actions: hematopoietic cell transplantation (HCT); monitoring biochemical response to therapies; novel therapeutic strategies  
+  symptoms: residual disease; incomplete biomarker response; clinical manifestations  
+  chemicals: heparan sulfate (HS); dermatan sulfate (DS)  
+  action_annotation_relationships: hematopoietic cell transplantation (HCT) TREATS incomplete biomarker response IN mucopolysaccharidosis type I; monitoring biochemical response to therapies TREATS residual disease IN mucopolysaccharidosis type I; novel therapeutic strategies TREATS clinical manifestations IN mucopolysaccharidosis type I
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  novel therapeutic strategies TREATS clinical manifestations IN mucopolysaccharidosis type I
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0001586
+  medical_actions:
+    - MAXO:0000149
+    - monitoring biochemical response to therapies
+    - novel therapeutic strategies
+  symptoms:
+    - residual disease
+    - incomplete biomarker response
+    - clinical manifestations
+  chemicals:
+    - CHEBI:15971
+    - CHEBI:17053
+  action_annotation_relationships:
+    - subject: hematopoietic cell transplantation
+      predicate: TREATS
+      object: incomplete biomarker response
+      qualifier: MONDO:0001586
+      subject_extension: hematopoietic cell transplantation
+      object_extension: incomplete biomarker response
+    - predicate: TREATS
+      object: residual disease
+      qualifier: MONDO:0001586
+    - subject: TREATS
+      predicate: TREATS
+      object: clinical manifestations
+      qualifier: MONDO:0001586
+      subject_extension: novel therapeutic strategies
+      object_extension: clinical manifestations
+named_entities:
+  - id: CHEBI:15971
+    label: heparan sulfate (HS)
+    original_spans:
+      - 428:447
+  - id: CHEBI:17053
+    label: dermatan sulfate (DS)
+    original_spans:
+      - 453:473

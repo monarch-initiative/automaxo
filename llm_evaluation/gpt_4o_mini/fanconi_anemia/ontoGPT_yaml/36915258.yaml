@@ -1,0 +1,93 @@
+---
+input_text: 'Successful sequential liver and hematopoietic stem cell transplantation
+  in a patient with Fanconi anemia. BACKGROUND: In Fanconi anemia bone marrow failure
+  is the major cause of morbidity and mortality and hematopoietic stem cell transplantation
+  represents the only curative treatment. Liver disease, in terms of elevated liver
+  function tests, as well as benign and malignant liver tumors, occurs especially
+  in case of androgen treatment. We report a unique case of a child with Fanconi anemia
+  with FANCD2 mutation who developed neonatal cryptogenic liver cirrhosis and bone
+  marrow failure. The child successfully underwent sequential liver transplantation
+  and hematopoietic stem cell transplantation in the first 2 years of life. Nineteen
+  months after hematopoietic stem cell transplantation and 30 months after liver transplantation,
+  the patient is clinically well with normal hematopoietic function and excellent
+  liver function. CONCLUSION: This is the first FA patient who successfully received
+  sequential LT and HSCT highlighting that successful sequential transplantation is
+  feasible in Fanconi anemia patients.'
+raw_completion_output: |-
+  primary_disease: Fanconi anemia  
+  medical_actions: sequential liver transplantation; hematopoietic stem cell transplantation  
+  symptoms: bone marrow failure; neonatal cryptogenic liver cirrhosis; elevated liver function tests  
+  chemicals: androgen  
+  action_annotation_relationships: treatment TREATS bone marrow failure IN Fanconi anemia; treatment TREATS neonatal cryptogenic liver cirrhosis IN Fanconi anemia; androgen TREATS elevated liver function tests IN Fanconi anemia; sequential liver transplantation TREATS bone marrow failure IN Fanconi anemia; hematopoietic stem cell transplantation TREATS bone marrow failure IN Fanconi anemia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  hematopoietic stem cell transplantation TREATS bone marrow failure IN Fanconi anemia
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0019391
+  medical_actions:
+    - sequential liver transplantation
+    - MAXO:0000747
+  symptoms:
+    - HP:0005528
+    - neonatal cryptogenic liver cirrhosis
+    - HP:0002910
+  chemicals:
+    - CHEBI:50113
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: HP:0005528
+      qualifier: MONDO:0019391
+      subject_extension: treatment
+    - subject: TREATS
+      predicate: TREATS
+      object: cryptogenic liver cirrhosis
+      qualifier: MONDO:0019391
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: treatment
+      object_extension: neonatal
+    - subject: TREATS
+      predicate: TREATS
+      object: HP:0002910
+      qualifier: MONDO:0019391
+      subject_extension: CHEBI:50113
+      object_extension: elevated liver function tests
+    - subject: sequential liver transplantation
+      predicate: TREATS
+      object: HP:0005528
+      qualifier: MONDO:0019391
+      subject_qualifier: sequential
+      subject_extension: liver transplantation
+      object_extension: bone marrow failure
+    - subject: MAXO:0000747
+      predicate: TREATS
+      object: HP:0005528
+      qualifier: MONDO:0019391
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: hematopoietic stem cell transplantation
+      object_extension: None
+named_entities:
+  - id: HP:0002910
+    label: elevated liver function tests
+    original_spans:
+      - 313:341
+  - id: CHEBI:50113
+    label: androgen
+    original_spans:
+      - 419:426

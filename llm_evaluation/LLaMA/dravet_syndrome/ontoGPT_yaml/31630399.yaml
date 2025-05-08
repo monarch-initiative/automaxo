@@ -1,0 +1,99 @@
+---
+input_text: "Long-term efficacy of add-on stiripentol treatment in children, adolescents,
+  and young adults with refractory epilepsies: A single center prospective observational
+  study. OBJECTIVE: To assess the long-term efficacy and tolerability of stiripentol
+  (STP) as an adjunctive treatment in different forms of refractory epilepsies. METHODS:
+  The medical records of all individuals consecutively treated with STP as add-on
+  therapy for refractory epilepsies, irrespective of their being focal, generalized,
+  or both, and followed at Meyer Children's Hospital between January 2007 and May
+  2018, were reviewed. The drug scheme administration consisted of a starting dose
+  of STP of 10-15 mg/kg/d with increments every week, up to a maximum of 50 mg/kg/d,
+  based on both age and weight. Etiology of epilepsy was codified as structural, genetic,
+  infectious, immune, metabolic, and unknown. Responders were defined as patients
+  who achieved a seizure frequency reduction of >=50%. Retention rate was defined
+  as the probability of continuing STP without additional therapy. Tolerability was
+  assessed by reporting adverse events. RESULTS: A total of 132 individuals aged from
+  5 months to 43 years received add-on STP, including 30 patients with Dravet syndrome
+  (DS). The median follow-up was 14.8 months (range = 4 months-18 years, interquartile
+  range = 25.72). Twenty-nine individuals (22%) received more than two antiepileptic
+  drugs. Benzodiazepines, mainly clobazam, were the most commonly used add-on drugs.
+  Sixty-six patients (50%) were responders, and 13 of them (9.8%) were seizure-free.
+  Responder rate was higher in the genetic etiology group (57%), especially in DS
+  (18/30; 60%), and in patients with refractory focal onset epilepsy without bilateral
+  tonic-clonic seizures (5/15; 33%). The median relapse-free survival was 27 months
+  in the 66 responders. The median time to STP failure was 24.6 months in all 132
+  individuals. SIGNIFICANCE: This study confirms the long-term efficacy of add-on
+  STP treatment in patients with different types of refractory epilepsies, including
+  focal onset epilepsy without bilateral tonic-clonic seizures. Further confirmations
+  based on prospectively designed studies are required to confirm STP efficacy in
+  focal epilepsy."
+raw_completion_output: |-
+  Here are the extracted entities in the requested format:
+
+  primary_disease: Epilepsy
+  medical_actions: Add-on stiripentol treatment; adjunctive treatment with stiripentol; administration of stiripentol with a starting dose of 10-15 mg/kg/d; increments of stiripentol every week up to a maximum of 50 mg/kg/d
+  symptoms: Seizures; bilateral tonic-clonic seizures
+  chemicals: Stiripentol; benzodiazepines; clobazam; antiepileptic drugs
+  action_annotation_relationships: Stiripentol TREATS seizures IN epilepsy; stiripentol TREATS refractory epilepsies IN patients; clobazam TREATS seizures IN epilepsy; antiepileptic drugs TREATS seizures IN epilepsy; add-on stiripentol treatment TREATS refractory focal onset epilepsy IN patients without bilateral tonic-clonic seizures
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  add-on stiripentol treatment TREATS refractory focal onset epilepsy IN patients without bilateral tonic-clonic seizures
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005027
+  medical_actions:
+    - Add-on stiripentol treatment
+    - adjunctive treatment with stiripentol
+    - administration of stiripentol with a starting dose of 10-15 mg/kg/d
+    - increments of stiripentol every week up to a maximum of 50 mg/kg/d
+  symptoms:
+    - HP:0001250
+    - HP:0002069
+  chemicals:
+    - CHEBI:228488
+    - CHEBI:22720
+    - CHEBI:31413
+    - antiepileptic drugs
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0005027
+    - subject: stiripentol
+      predicate: TREATS
+      object: HP:0001250
+      subject_extension: CHEBI:228488
+      object_extension: refractory
+    - predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0005027
+    - predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0005027
+      subject_extension: CHEBI:35623
+    - subject: treatment
+      predicate: TREATS
+      object: focal onset epilepsy
+      qualifier: patients without bilateral tonic-clonic seizures
+      subject_qualifier: add-on
+      object_qualifier: refractory
+      subject_extension: CHEBI:228488
+      object_extension: refractory
+named_entities:
+  - id: CHEBI:22720
+    label: benzodiazepines
+    original_spans:
+      - 1415:1429

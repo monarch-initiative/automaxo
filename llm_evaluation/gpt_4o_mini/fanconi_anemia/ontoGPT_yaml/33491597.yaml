@@ -1,0 +1,90 @@
+---
+input_text: 'Hematopoietic stem cell transplantation for inherited bone marrow failure
+  syndromes: alternative donor and disease-specific conditioning regimen with unmanipulated
+  grafts. Objective: The outcomes of alternative donor hematopoietic stem cell transplantation
+  (HSCT) with unmanipulated grafts for Inherited bone marrow failure syndromes (IBMFS)
+  are discouraging. Our study is to demonstrate that IBMFS with disease-specific characteristics
+  requires a tailored conditioning regimens to enhance engraftment and reduce regimen
+  related toxicities. Methods: We retrospectively analyzed 42 patients diagnosed with
+  IBMFS and transplanted with an alternative donor graft at our center from November
+  2012 to August 2018. Twenty-seven patients had Fanconi anemia (FA), 7 had dyskeratosis
+  congenita (DC), and 8 had severe congenital neutropenia (SCN). Patients received
+  ex-vivo unmanipulated alternative donor grafts from a matched unrelated donor (MUD)
+  (n = 22), haploidentical donor (HID) (n = 17) and unrelated cord blood donor (UCBD)
+  (n = 3). FA and DC patient subgroups received reduce intensified conditioning (RIC),
+  while SCN patients received a myeloablative conditioning (MAC) regimen. Results:
+  The median follow-up time for the surviving patients was 38 months (range: 9-63
+  months). The failure-free survival (FFS) for entire cohort was 76.1%, and was 72.4%,
+  100% and 56.2% for patients with FA, DC and SCN, respectively. There were no primary
+  graft failures. The cumulative incidence of aGVHD at day 100 was 48.1%. The cumulative
+  incidence of cGVHD at 1 and 3 years was 35.0% and 69.3%, respectively. Conclusion:
+  HSCT using alternative donors with unmanipulated grafts and disease-specific conditioning
+  regimens for IBMFS patients shows promising survival.'
+raw_completion_output: |-
+  primary_disease: Inherited bone marrow failure syndromes (IBMFS)  
+  medical_actions: hematopoietic stem cell transplantation (HSCT); tailored conditioning regimens; reduce intensified conditioning (RIC); myeloablative conditioning (MAC)  
+  symptoms: primary graft failure; acute graft-versus-host disease (aGVHD); chronic graft-versus-host disease (cGVHD)  
+  chemicals: None  
+  action_annotation_relationships: hematopoietic stem cell transplantation (HSCT) TREATS symptom primary graft failure IN Inherited bone marrow failure syndromes (IBMFS); tailored conditioning regimens TREATS symptom aGVHD IN Inherited bone marrow failure syndromes (IBMFS); tailored conditioning regimens TREATS symptom cGVHD IN Inherited bone marrow failure syndromes (IBMFS); reduce intensified conditioning (RIC) TREATS symptom aGVHD IN Inherited bone marrow failure syndromes (IBMFS); myeloablative conditioning (MAC) TREATS symptom cGVHD IN Inherited bone marrow failure syndromes (IBMFS)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  myeloablative conditioning (MAC) TREATS symptom cGVHD IN Inherited bone marrow failure syndromes (IBMFS)
+
+  ===
+
+extracted_object:
+  primary_disease: Inherited bone marrow failure syndromes (IBMFS)
+  medical_actions:
+    - MAXO:0000747
+    - tailored conditioning regimens
+    - reduce intensified conditioning (RIC)
+    - myeloablative conditioning (MAC)
+  symptoms:
+    - primary graft failure
+    - acute graft-versus-host disease (aGVHD)
+    - chronic graft-versus-host disease (cGVHD)
+  chemicals:
+    - None
+  action_annotation_relationships:
+    - subject: MAXO:0000747
+      predicate: TREATS
+      object: symptom
+      qualifier: Inherited bone marrow failure syndromes (IBMFS)
+      subject_extension: hematopoietic stem cell transplantation
+      object_extension: primary graft failure
+    - subject: TREATS
+      predicate: TREATS
+      object: symptom
+      qualifier: Inherited bone marrow failure syndromes (IBMFS)
+      subject_extension: tailored conditioning regimens
+      object_extension: aGVHD
+    - predicate: TREATS
+      object: symptom cGVHD
+      qualifier: Inherited bone marrow failure syndromes (IBMFS)
+      subject_extension: tailored conditioning regimens
+    - subject: <reduce intensified conditioning (RIC)>
+      predicate: <TREATS>
+      object: <aGVHD>
+      qualifier: <Inherited bone marrow failure syndromes (IBMFS)>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <conditioned therapy>
+      object_extension: <symptom>
+    - subject: myeloablative conditioning
+      predicate: TREATS
+      object: cGVHD
+      qualifier: Inherited bone marrow failure syndromes (IBMFS)
+      subject_extension: myeloablative conditioning
+      object_extension: cGVHD

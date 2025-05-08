@@ -1,0 +1,86 @@
+---
+input_text: 'Liver and/or kidney transplantation in amino and organic acid-related
+  inborn errors of metabolism: An overview on European data. BACKGROUND: This study
+  provides a general overview on liver and/or kidney transplantation in patients with
+  an amino and organic acid-related disorder (AOA) with the aim to investigate patient
+  characteristics and global outcome in Europe. This study was an initiative of the
+  E-IMD and the AOA subnetwork of MetabERN. METHODS: A questionnaire was sent to all
+  clinically active European Society for the Study of Inborn Errors of Metabolism
+  (SSIEM) members. The questionnaire focused on transplanted individuals with methylmalonic
+  acidemia (MMA), propionic acidemia (PA), maple syrup urine disease (MSUD), and urea-cycle
+  disorders (UCDs). RESULTS: We identified 280 transplanted AOA patients (liver transplantation
+  in 20 MMA, 37 PA, 47 MSUD, and 111 UCD patients, kidney or combined liver and kidney
+  transplantation in 57 MMA patients and undefined transplantation type in 8 MMA patients),
+  followed by 51 metabolic centers. At a median follow-up of 3.5 years, posttransplant
+  survival ranged between 78% and 100%, being the lowest in PA patients. Overall,
+  the risk of mortality was highest within 14 days posttransplantation. Neurological
+  complications were mainly reported in Mut0 type MMA (n = 8). Nonneurological complications
+  occurred in MMA (n = 28), PA (n = 7), and UCD (n = 14) patients, while it was virtually
+  absent in MSUD patients. Only 116/280 patients were psychologically tested. In all,
+  except MSUD patients, the intelligence quotient (IQ) remained unchanged in the majority
+  (76/94, 81%). Forty-one percentage (9/22) of MSUD patient showed improved IQ. CONCLUSION:
+  The survival in AOA individuals receiving liver and/or kidney transplantation seems
+  satisfactory. Evidence-based guidelines, systematic data collection, and improved
+  cooperation between transplantation centers and European Reference Networks are
+  indispensable to improve patient care and outcomes.'
+raw_completion_output: |-
+  primary_disease: amino and organic acid-related disorders  
+  medical_actions: liver transplantation; kidney transplantation  
+  symptoms: neurological complications; nonneurological complications; unchanged intelligence quotient; improved intelligence quotient  
+  chemicals: none  
+  action_annotation_relationships: liver transplantation TREATS neurological complications IN amino and organic acid-related disorders; liver transplantation TREATS nonneurological complications IN amino and organic acid-related disorders; kidney transplantation TREATS neurological complications IN amino and organic acid-related disorders; kidney transplantation TREATS nonneurological complications IN amino and organic acid-related disorders
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  kidney transplantation TREATS nonneurological complications IN amino and organic acid-related disorders
+
+  ===
+
+extracted_object:
+  primary_disease: amino and organic acid-related disorders
+  medical_actions:
+    - MAXO:0001175
+    - kidney transplantation
+  symptoms:
+    - neurological complications
+    - nonneurological complications
+    - unchanged intelligence quotient
+    - improved intelligence quotient
+  chemicals:
+    - none
+  action_annotation_relationships:
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: neurological complications
+      qualifier: amino and organic acid-related disorders
+      subject_extension: liver transplantation
+      object_extension: neurological complications
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: nonneurological complications
+      qualifier: amino and organic acid-related disorders
+      subject_extension: liver transplantation
+      object_extension: nonneurological complications
+    - subject: kidney transplantation
+      predicate: TREATS
+      object: neurological complications
+      qualifier: amino and organic acid-related disorders
+      subject_extension: kidney transplantation
+      object_extension: neurological complications
+    - subject: kidney transplantation
+      predicate: TREATS
+      object: nonneurological complications
+      qualifier: amino and organic acid-related disorders
+      subject_extension: kidney transplantation
+      object_extension: nonneurological complications

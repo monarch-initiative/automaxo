@@ -1,0 +1,74 @@
+---
+input_text: 'Management of a Woman With Maple Syrup Urine Disease During Pregnancy,
+  Delivery, and Lactation. Maple syrup urine disease (MSUD) is an inherited disorder
+  of metabolism of the branched-chain amino acids leucine, isoleucine, and valine.
+  Complications of acute elevation in plasma leucine include ketoacidosis and risk
+  of cerebral edema, which can be fatal. Individuals with MSUD are at risk of metabolic
+  crisis throughout life, especially at times of physiological stress. We present
+  a case of successful management of a woman with MSUD through pregnancy, delivery,
+  postpartum, and lactation, including nutrition therapy using modified parenteral
+  nutrition. '
+raw_completion_output: |-
+  Here are the extracted entities in the requested format:
+
+  primary_disease: Maple Syrup Urine Disease (MSUD)
+
+  medical_actions: nutrition therapy using modified parenteral nutrition; management of metabolic crisis
+
+  symptoms: ketoacidosis; cerebral edema
+
+  chemicals: leucine; isoleucine; valine
+
+  action_annotation_relationships: nutrition therapy TREATS metabolic crisis IN MSUD; modified parenteral nutrition TREATS ketoacidosis IN MSUD; modified parenteral nutrition TREATS cerebral edema IN MSUD; management of metabolic crisis PREVENTS ketoacidosis IN MSUD; management of metabolic crisis PREVENTS cerebral edema IN MSUD
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  management of metabolic crisis PREVENTS cerebral edema IN MSUD
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009563
+  medical_actions:
+    - nutrition therapy using modified parenteral nutrition
+    - management of metabolic crisis
+  symptoms:
+    - HP:0001993
+    - HP:0002181
+  chemicals:
+    - CHEBI:25017
+    - CHEBI:24898
+    - CHEBI:27266
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: metabolic crisis
+      qualifier: MONDO:0009563
+    - predicate: TREATS
+      object: HP:0001993
+      qualifier: MONDO:0009563
+      subject_qualifier: modified
+      subject_extension: parenteral nutrition
+    - predicate: TREATS
+      object: HP:0002181
+      qualifier: MONDO:0009563
+      subject_qualifier: modified
+      subject_extension: modified
+    - predicate: PREVENTS
+      object: HP:0001993
+      qualifier: MONDO:0009563
+      subject_extension: metabolic
+    - predicate: PREVENTS
+      object: HP:0002181
+      qualifier: MONDO:0009563
+      subject_extension: management

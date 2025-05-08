@@ -1,0 +1,89 @@
+---
+input_text: 'Fanconi anemia and haploidentical stem cell transplantation. BACKGROUND:
+  Fanconi anemia is a congenital disorder belonging to bone marrow syndromes, with
+  a risk of developing malignancy. Hematopoietic stem cell transplantation is the
+  only curative treatment in these cases. Here, we aimed to report our clinical experience
+  in pediatric patients with Fanconi anemia treated with haploidentical stem cell
+  transplantation and post-transplant cyclophosphamide, an alternative strategy. METHODS:
+  We performed a case report based on clinical records of two patients who signed
+  the informed consent form and were treated at Fundacion Valle del Lili. RESULT:
+  Two pediatric patients, both with reduced-intensity conditioning, prophylaxis for
+  acute graft-versus-host disease with post-transplant cyclophosphamide. They achieved
+  primary neutrophil/platelets engraftment, and 100% chimerism. Had grade I or II
+  graft-versus-host disease resolved? Currently are alive and in complete remission.
+  CONCLUSIONS: The use of mismatched related donors for haploidentical stem cell transplantation
+  and post-transplant cyclophosphamide might be a promising option, and well-tolerated
+  in pediatric patients. Serial chimerism can be useful during follow-up.'
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Fanconi anemia
+
+  medical_actions: haploidentical stem cell transplantation; post-transplant cyclophosphamide; reduced-intensity conditioning; prophylaxis for acute graft-versus-host disease
+
+  symptoms: malignancy; graft-versus-host disease
+
+  chemicals: cyclophosphamide
+
+  action_annotation_relationships: haploidentical stem cell transplantation TREATS malignancy IN Fanconi anemia; post-transplant cyclophosphamide PREVENTS graft-versus-host disease IN Fanconi anemia; post-transplant cyclophosphamide TREATS graft-versus-host disease IN Fanconi anemia; reduced-intensity conditioning TREATS Fanconi anemia; prophylaxis for acute graft-versus-host disease with post-transplant cyclophosphamide TREATS graft-versus-host disease IN Fanconi anemia; cyclophosphamide TREATS graft-versus-host disease IN Fanconi anemia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  cyclophosphamide TREATS graft-versus-host disease IN Fanconi anemia
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0019391
+  medical_actions:
+    - haploidentical stem cell transplantation
+    - post-transplant cyclophosphamide
+    - reduced-intensity conditioning
+    - prophylaxis for acute graft-versus-host disease
+  symptoms:
+    - HP:0011793
+    - graft-versus-host disease
+  chemicals:
+    - CHEBI:4027
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: HP:0011793
+      qualifier: MONDO:0019391
+      subject_qualifier: haploidentical
+      subject_extension: stem cell
+    - predicate: PREVENTS
+      object: graft-versus-host disease
+      qualifier: MONDO:0019391
+      subject_qualifier: post-transplant
+      subject_extension: CHEBI:4027
+    - predicate: TREATS
+      object: graft-versus-host disease
+      qualifier: MONDO:0019391
+      subject_qualifier: post-transplant
+      subject_extension: CHEBI:4027
+    - subject: reduced-intensity conditioning
+      predicate: TREATS
+      object: Fanconi anemia
+      object_qualifier: Fanconi
+      subject_extension: conditioning
+      object_extension: anemia
+    - subject: prophylaxis
+      predicate: TREATS
+      object: graft-versus-host disease
+      qualifier: MONDO:0019391
+      subject_qualifier: with post-transplant cyclophosphamide
+      object_qualifier: acute
+    - predicate: TREATS
+      object: graft-versus-host disease
+      qualifier: MONDO:0019391

@@ -1,0 +1,92 @@
+---
+input_text: Modern management of Fanconi anemia. In this review, we present a clinical
+  case report and discussion to outline the importance of long-term specific Fanconi
+  anemia (FA) monitoring, and we discuss the main aspects of the general management
+  of patients with FA and clinical complications. While several nontransplant treatments
+  are currently under evaluation, hematopoietic stem cell transplantation (HSCT) remains
+  the only therapeutic option for bone marrow failure (BMF). Although HSCT outcomes
+  in patients with FA have remarkably improved over the past 20 years, in addition
+  to the mortality intrinsic to the procedure, HSCT increases the risk and accelerates
+  the appearance of late malignancies. HSCT offers the best outcome when performed
+  in optimal conditions (moderate cytopenia shifting to severe, prior to transfusion
+  dependence and before clonal evolution or myelodysplasia/acute myeloid leukemia);
+  hence, an accurate surveillance program is vital. Haploidentical HSCT offers very
+  good outcomes, although long-term effects on malignancies have not been fully explored.
+  A monitoring plan is also important to identify cancers, particularly head and neck
+  carcinomas, in very early phases. Gene therapy is still experimental and offers
+  the most encouraging results when performed in early phases of BMF by infusing high
+  numbers of corrected cells without genotoxic effects. Patients with FA need comprehensive
+  monitoring and care plans, coordinated by centers with expertise in FA management,
+  that start at diagnosis and continue throughout life. Such long-term follow-up is
+  essential to detect complications related to the disease or treatment in this setting.
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Fanconi anemia
+
+  medical_actions: hematopoietic stem cell transplantation (HSCT); haploidentical HSCT; gene therapy; long-term specific Fanconi anemia (FA) monitoring; comprehensive monitoring and care plans
+
+  symptoms: bone marrow failure (BMF); cytopenia; transfusion dependence; clonal evolution; myelodysplasia; acute myeloid leukemia; head and neck carcinomas
+
+  chemicals: 
+
+  action_annotation_relationships: HSCT TREATS bone marrow failure IN Fanconi anemia; HSCT TREATS cytopenia IN Fanconi anemia; HSCT PREVENTS clonal evolution IN Fanconi anemia; haploidentical HSCT TREATS bone marrow failure IN Fanconi anemia; gene therapy TREATS bone marrow failure IN Fanconi anemia; long-term specific Fanconi anemia (FA) monitoring PREVENTS complications IN Fanconi anemia; comprehensive monitoring and care plans PREVENTS complications IN Fanconi anemia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  comprehensive monitoring and care plans PREVENTS complications IN Fanconi anemia
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0019391
+  medical_actions:
+    - MAXO:0000747
+    - haploidentical HSCT
+    - MAXO:0001001
+    - long-term specific Fanconi anemia (FA) monitoring
+    - comprehensive monitoring and care plans
+  symptoms:
+    - HP:0005528
+    - cytopenia
+    - transfusion dependence
+    - clonal evolution
+    - HP:0002863
+    - HP:0004808
+    - head and neck carcinomas
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: HP:0005528
+      qualifier: MONDO:0019391
+    - predicate: TREATS
+      object: cytopenia
+      qualifier: MONDO:0019391
+    - predicate: PREVENTS
+      object: clonal evolution
+      qualifier: MONDO:0019391
+    - predicate: TREATS
+      object: HP:0005528
+      qualifier: MONDO:0019391
+      subject_qualifier: haploidentical
+    - predicate: TREATS
+      object: HP:0005528
+      qualifier: MONDO:0019391
+    - predicate: PREVENTS
+      object: complications
+      qualifier: MONDO:0019391
+      subject_qualifier: long-term, specific
+      object_qualifier: IN Fanconi anemia
+    - predicate: PREVENTS
+      object: complications
+      qualifier: MONDO:0019391

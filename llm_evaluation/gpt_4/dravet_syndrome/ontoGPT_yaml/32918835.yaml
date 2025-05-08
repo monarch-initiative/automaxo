@@ -1,0 +1,203 @@
+---
+input_text: 'Clinical implications of trials investigating drug-drug interactions
+  between cannabidiol and enzyme inducers or inhibitors or common antiseizure drugs.
+  Highly purified cannabidiol (CBD) has demonstrated efficacy with an acceptable safety
+  profile in patients with Lennox-Gastaut syndrome or Dravet syndrome in randomized,
+  double-blind, add-on, controlled phase 3 trials. It is important to consider the
+  possibility of drug-drug interactions (DDIs). Here, we review six trials of CBD
+  (Epidiolex/Epidyolex; 100 mg/mL oral solution) in healthy volunteers or patients
+  with epilepsy, which investigated potential interactions between CBD and enzymes
+  involved in drug metabolism of common antiseizure drugs (ASDs). CBD did not affect
+  CYP3A4 activity. Induction of CYP3A4 and CYP2C19 led to small reductions in exposure
+  to CBD and its major metabolites. Inhibition of CYP3A4 activity did not affect CBD
+  exposure and caused small increases in exposure to CBD metabolites. Inhibition of
+  CYP2C19 activity led to a small increase in exposure to CBD and small decreases
+  in exposure to CBD metabolites. One potentially clinically important DDI was identified:
+  combination of CBD and clobazam (CLB) did not affect CBD or CLB exposure, but increased
+  exposure to major metabolites of both compounds. Reduction of CLB dose may be considered
+  if adverse reactions known to occur with CLB are experienced when it is coadministered
+  with CBD. There was a small increase of exposure to stiripentol (STP) when coadministered
+  with CBD. STP had no effect on CBD exposure but led to minor decreases in exposure
+  to CBD metabolites. Combination of CBD and valproate (VPA) did not cause clinically
+  important changes in the pharmacokinetics of either drug, or 2-propyl-4-pentenoic
+  acid. Concomitant VPA caused small increases in exposure to CBD metabolites. Dose
+  adjustments are not likely to be necessary when CBD is combined with STP or VPA.
+  The safety results from these trials were consistent with the known safety profile
+  of CBD. These trials indicate an overall low potential for DDIs between CBD and
+  other ASDs, except for CLB.'
+raw_completion_output: |-
+  primary_disease: Lennox-Gastaut syndrome; Dravet syndrome
+  medical_actions: reduction of CLB dose; dose adjustments; coadministration with CBD
+  symptoms: adverse reactions
+  chemicals: cannabidiol (CBD); clobazam (CLB); stiripentol (STP); valproate (VPA); CYP3A4; CYP2C19; 2-propyl-4-pentenoic acid
+  action_annotation_relationships: reduction of CLB dose TREATS adverse reactions IN Lennox-Gastaut syndrome with clobazam (CLB); reduction of CLB dose TREATS adverse reactions IN Dravet syndrome with clobazam (CLB); coadministration with CBD PREVENTS adverse reactions IN Lennox-Gastaut syndrome; coadministration with CBD PREVENTS adverse reactions IN Dravet syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  coadministration with CBD PREVENTS adverse reactions IN Dravet syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: Lennox-Gastaut syndrome; Dravet syndrome
+  medical_actions:
+    - reduction of CLB dose
+    - dose adjustments
+    - coadministration with CBD
+  symptoms:
+    - adverse reactions
+  chemicals:
+    - CHEBI:69478
+    - CHEBI:31413
+    - CHEBI:228488
+    - CHEBI:39867
+    - CYP3A4
+    - CYP2C19
+    - 2-propyl-4-pentenoic acid
+  action_annotation_relationships:
+    - subject: reduction of CLB dose
+      predicate: TREATS
+      object: adverse reactions
+      qualifier: MONDO:0016532
+      subject_extension: CHEBI:31413
+    - subject: reduction of CLB dose
+      predicate: TREATS
+      object: adverse reactions
+      qualifier: MONDO:0100135
+      subject_extension: CHEBI:31413
+    - subject: coadministration
+      predicate: PREVENTS
+      object: adverse reactions
+      qualifier: MONDO:0016532
+      subject_qualifier: with
+      subject_extension: CBD
+    - subject: coadministration
+      predicate: PREVENTS
+      object: adverse reactions
+      qualifier: MONDO:0100135
+      subject_qualifier: with CBD
+      subject_extension: CBD
+named_entities:
+  - id: MONDO:0100135
+    label: Dravet syndrome
+  - id: MAXO:0001187
+    label: hysteroscopy
+  - id: CHEBI:44915
+    label: propofol
+  - id: CHEBI:119915
+    label: fentanyl
+  - id: CHEBI:9130
+    label: sevoflurane
+  - id: HP:0001250
+    label: seizures
+  - id: CHEBI:6443
+    label: Mirena
+  - id: MONDO:0002602
+    label: Central nervous system diseases
+  - id: HP:0002011
+    label: central nervous system diseases
+  - id: MONDO:0005027
+    label: Epilepsy
+  - id: HP:0002014
+    label: Diarrhea
+  - id: HP:0000988
+    label: Rash
+  - id: CHEBI:228488
+    label: Stiripentol
+  - id: CHEBI:60654
+    label: Valproate
+  - id: CHEBI:69478
+    label: Cannabidiol
+  - id: CHEBI:80634
+    label: 2-propyl-4-pentenoic acid (4-ene-VPA)
+  - id: HP:0002373
+    label: Febrile seizures
+  - id: MAXO:0001298
+    label: therapy
+  - id: CHEBI:31413
+    label: clobazam (CLB)
+  - id: HP:0010819
+    label: drop seizures
+  - id: HP:0002329
+    label: somnolence
+  - id: HP:0004396
+    label: decreased appetite
+  - id: CHEBI:9925
+    label: sodium valproate
+  - id: MONDO:0016532
+    label: Lennox-Gastaut syndrome
+  - id: HP:0000729
+    label: Autistic behaviors
+  - id: HP:0033258
+    label: Sudden unexpected death in epilepsy
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: MONDO:0002125
+    label: Status epilepticus
+  - id: HP:0032656
+    label: Febrile status epilepticus
+  - id: MAXO:0001017
+    label: vaccination
+  - id: HP:0002069
+    label: Generalized tonic-clonic seizure
+  - id: CHEBI:3359
+    label: CBDA
+  - id: CHEBI:167557
+    label: CBCA
+  - id: CHEBI:66964
+    label: Delta9-tetrahydrocannabinol (THC)
+  - id: CHEBI:39867
+    label: Valproic acid
+  - id: CHEBI:5000
+    label: Fenfluramine
+  - id: HP:0033349
+    label: recurrent seizures
+  - id: MAXO:0000058
+    label: Drug treatment
+  - id: HP:0020219
+    label: motor seizures
+  - id: CHEBI:76720
+    label: Antisense oligonucleotides
+  - id: MAXO:0001593
+    label: ASO therapy
+  - id: HP:0012378
+    label: Fatigue
+  - id: HP:0001945
+    label: Pyrexia
+  - id: HP:0001654
+    label: valvular heart disease
+  - id: HP:0002092
+    label: pulmonary arterial hypertension
+  - id: HP:0002133
+    label: Status epilepticus
+  - id: CHEBI:17115
+    label: vaccine(s)
+  - id: MONDO:0100062
+    label: Developmental and/or epileptic encephalopathies (DEE)
+  - id: HP:0001260
+    label: dysarthria
+  - id: HP:0001254
+    label: lethargy
+  - id: HP:0002315
+    label: headache
+  - id: CHEBI:233158
+    label: soticlestat
+  - id: CHEBI:34310
+    label: 24S-hydroxycholesterol (24HC)
+  - id: CHEBI:9586
+    label: Tiagabine
+  - id: CHEBI:6437
+    label: Levetiracetam
+  - id: HP:0000708
+    label: behavioral problems

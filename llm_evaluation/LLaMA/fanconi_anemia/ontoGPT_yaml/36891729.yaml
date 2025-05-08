@@ -1,0 +1,107 @@
+---
+input_text: Gonadal function in pediatric Fanconi anemia patients treated with hematopoietic
+  stem cell transplant. Gonadal dysfunction and reduced fertility are clinical manifestations
+  well described in patients with Fanconi anemia (FA) and following hematopoietic
+  stem cell transplantation (HSCT). It is difficult to differentiate gonadal dysfunction
+  from the primary disease itself or from HSCT procedures. Therefore, it is important
+  to manage expectations about gonadal failure and infertility for all patients with
+  FA, regardless of HSCT status. We performed a retrospective analysis of 98 pediatric
+  patients with FA who were transplanted between July 1990 to June 2020 to evaluate
+  the incidence of gonadal dysfunction in female and male patients with FA. New onset
+  premature ovarian insufficiency (POI) was diagnosed in a total of 30 (52.6%) patients.
+  Follicle-stimulating hormone (FSH) and luteinizing hormone (LH) levels were increased
+  in patients diagnosed with POI. Anti-Mullerian Hormone (AMH) levels declined in
+  POI patients after HSCT (r2 = 0.21, p = 0.001). Twenty (48.8%) male patients were
+  diagnosed with testicular failure. FSH levels increased after HSCT even in patients
+  without testicular failure (r2=0.17, p=0.005). Inhibin B levels decreased over time
+  after HSCT in patients with testicular failure (r2 = 0.14, p = 0.001). These data
+  indicate brisk decline in already impaired gonadal function in transplanted children
+  with FA.
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Fanconi anemia
+
+  medical_actions: hematopoietic stem cell transplant; hormone level evaluation
+
+  symptoms: gonadal dysfunction; reduced fertility; premature ovarian insufficiency (POI); testicular failure; increased follicle-stimulating hormone (FSH) and luteinizing hormone (LH) levels; decreased Anti-Mullerian Hormone (AMH) and Inhibin B levels
+
+  chemicals: Follicle-stimulating hormone (FSH); luteinizing hormone (LH); Anti-Mullerian Hormone (AMH); Inhibin B
+
+  action_annotation_relationships: hematopoietic stem cell transplant TREATS Fanconi anemia; hematopoietic stem cell transplant TREATS gonadal dysfunction IN Fanconi anemia; hematopoietic stem cell transplant PREVENTS normal gonadal function IN Fanconi anemia; FSH level evaluation DIAGNOSES gonadal dysfunction IN Fanconi anemia; LH level evaluation DIAGNOSES gonadal dysfunction IN Fanconi anemia; AMH level evaluation DIAGNOSES premature ovarian insufficiency IN Fanconi anemia; Inhibin B level evaluation DIAGNOSES testicular failure IN Fanconi anemia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Inhibin B level evaluation DIAGNOSES testicular failure IN Fanconi anemia
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0019391
+  medical_actions:
+    - hematopoietic stem cell transplant
+    - hormone level evaluation
+  symptoms:
+    - gonadal dysfunction
+    - reduced fertility
+    - HP:0008209
+    - HP:0000026
+    - increased follicle-stimulating hormone (FSH) and luteinizing hormone (LH) levels
+    - decreased Anti-Mullerian Hormone (AMH) and Inhibin B levels
+  chemicals:
+    - CHEBI:81569
+    - CHEBI:74539
+    - Anti-Mullerian Hormone (AMH)
+    - Inhibin B
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: HP:0001903
+      qualifier: MONDO:0019391
+    - predicate: TREATS
+      object: gonadal dysfunction
+      qualifier: MONDO:0019391
+    - predicate: PREVENTS
+      object: normal gonadal function
+      qualifier: MONDO:0019391
+    - predicate: DIAGNOSES
+      object: gonadal dysfunction
+      qualifier: MONDO:0019391
+    - predicate: DIAGNOSES
+      object: gonadal dysfunction
+      qualifier: MONDO:0019391
+    - predicate: DIAGNOSES
+      object: HP:0008209
+      qualifier: MONDO:0019391
+    - predicate: DIAGNOSES
+      object: HP:0000026
+      qualifier: MONDO:0019391
+named_entities:
+  - id: HP:0008209
+    label: premature ovarian insufficiency (POI)
+    original_spans:
+      - 758:794
+  - id: HP:0000026
+    label: testicular failure
+    original_spans:
+      - 1108:1125
+      - 1185:1202
+      - 1289:1306
+  - id: CHEBI:81569
+    label: Follicle-stimulating hormone (FSH)
+    original_spans:
+      - 845:878
+  - id: CHEBI:74539
+    label: luteinizing hormone (LH)
+    original_spans:
+      - 884:907

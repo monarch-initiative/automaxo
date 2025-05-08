@@ -1,0 +1,72 @@
+---
+input_text: 'Gene replacement therapies for inherited disorders of neurotransmission:
+  Current progress in succinic semialdehyde dehydrogenase deficiency. Neurodevelopment
+  is a highly organized and complex process involving lasting and often irreversible
+  changes in the central nervous system. Inherited disorders of neurotransmission
+  (IDNT) are a group of genetic disorders where neurotransmission is primarily affected,
+  resulting in abnormal brain development from early life, manifest as neurodevelopmental
+  disorders and other chronic conditions. In principle, IDNT (particularly those of
+  monogenic causes) are amenable to gene replacement therapy via precise genetic correction.
+  However, practical challenges for gene replacement therapy remain major hurdles
+  for its translation from bench to bedside. We discuss key considerations for the
+  development of gene replacement therapies for IDNT. As an example, we describe our
+  ongoing work on gene replacement therapy for succinic semialdehyde dehydrogenase
+  deficiency, a GABA catabolic disorder.'
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Succinic semialdehyde dehydrogenase deficiency; Inherited disorders of neurotransmission (IDNT)
+
+  medical_actions: Gene replacement therapy; Genetic correction
+
+  symptoms: Neurodevelopmental disorders; Abnormal brain development; Chronic conditions
+
+  chemicals: 
+
+  action_annotation_relationships: Gene replacement therapy TREATS neurodevelopmental disorders IN Inherited disorders of neurotransmission (IDNT); Genetic correction TREATS abnormal brain development IN Inherited disorders of neurotransmission (IDNT); Gene replacement therapy TREATS chronic conditions IN Inherited disorders of neurotransmission (IDNT); Gene replacement therapy TREATS Succinic semialdehyde dehydrogenase deficiency 
+
+  Note that I did not include specific chemicals or drugs in the relationships as there were none mentioned in the text. Also, I included both Succinic semialdehyde dehydrogenase deficiency and Inherited disorders of neurotransmission (IDNT) as primary diseases, as the text discusses gene replacement therapies for both conditions.
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Gene replacement therapy TREATS Succinic semialdehyde dehydrogenase deficiency
+
+  ===
+
+extracted_object:
+  primary_disease: Succinic semialdehyde dehydrogenase deficiency; Inherited disorders
+    of neurotransmission (IDNT)
+  medical_actions:
+    - Gene replacement therapy
+    - Genetic correction
+  symptoms:
+    - Neurodevelopmental disorders
+    - Abnormal brain development
+    - Chronic conditions
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: neurodevelopmental disorders
+      qualifier: Inherited disorders of neurotransmission (IDNT)
+      subject_extension: gene replacement
+    - subject: Genetic correction
+      predicate: TREATS
+      object: abnormal brain development
+      qualifier: Inherited disorders of neurotransmission (IDNT)
+      subject_extension: genetic
+      object_extension: abnormal
+    - predicate: TREATS
+      object: chronic conditions
+      qualifier: Inherited disorders of neurotransmission (IDNT)
+    - predicate: TREATS
+      object: Succinic semialdehyde dehydrogenase deficiency

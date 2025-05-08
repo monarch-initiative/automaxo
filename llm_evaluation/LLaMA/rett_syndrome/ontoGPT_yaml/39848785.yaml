@@ -1,0 +1,85 @@
+---
+input_text: Methylmalonic acidaemia masquerading as a neurodegenerative disorder.
+  We present the case of a toddler displaying neuroregression post-acute gastroenteritis,
+  initially suggesting neurodegenerative disorders. Further investigations showed
+  atypical results-neuroimaging was inconsistent with suspected disorders, while fundus
+  evaluation, evoked potentials and nerve conduction velocity were normal. Specialised
+  tests using gas chromatography mass spectrometry and tandem mass spectrometry identified
+  methylmalonic acidaemia (MMA), implicating abnormal neurometabolism. Early diagnosis
+  and comprehensive treatment are essential. A low-protein diet suitable for MMA along
+  with a syrup containing vitamin B12 and levocarnitine were prescribed. Notable developmental
+  improvements were seen after 18 days of hospitalisation and up to 36 months of age,
+  with no further regression. To date, only one case of MMA mimicking Rett syndrome,
+  an atypical neurodegenerative variant, has been reported. This case highlights the
+  diagnostic complexity of MMA, particularly when it mimics neurodegenerative disorders.
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Methylmalonic acidaemia (MMA)
+
+  medical_actions: low-protein diet; comprehensive treatment; prescription of syrup containing vitamin B12 and levocarnitine
+
+  symptoms: neuroregression; atypical results; abnormal neurometabolism
+
+  chemicals: vitamin B12; levocarnitine
+
+  action_annotation_relationships: comprehensive treatment TREATS neuroregression IN Methylmalonic acidaemia; low-protein diet TREATS abnormal neurometabolism IN Methylmalonic acidaemia; treatment (with vitamin B12 and levocarnitine) TREATS neuroregression IN Methylmalonic acidaemia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  treatment (with vitamin B12 and levocarnitine) TREATS neuroregression IN Methylmalonic acidaemia
+
+  ===
+
+extracted_object:
+  primary_disease: Methylmalonic acidaemia (MMA)
+  medical_actions:
+    - low-protein diet
+    - comprehensive treatment
+    - prescription of syrup containing vitamin B12 and levocarnitine
+  symptoms:
+    - neuroregression
+    - atypical results
+    - abnormal neurometabolism
+  chemicals:
+    - CHEBI:176843
+    - CHEBI:16347
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: neuroregression
+      qualifier: Methylmalonic acidaemia
+      subject_qualifier: comprehensive
+      subject_extension: comprehensive
+    - subject: low-protein diet
+      predicate: TREATS
+      object: abnormal neurometabolism
+      qualifier: Methylmalonic acidaemia
+      subject_qualifier: low-protein
+      object_qualifier: abnormal
+      subject_extension: diet
+      object_extension: abnormal
+    - predicate: TREATS
+      object: neuroregression
+      qualifier: Methylmalonic acidaemia
+      subject_qualifier: with vitamin B12 and levocarnitine
+      subject_extension: vitamin B12, levocarnitine
+named_entities:
+  - id: CHEBI:176843
+    label: vitamin B12
+    original_spans:
+      - 692:702
+  - id: CHEBI:16347
+    label: levocarnitine
+    original_spans:
+      - 708:720

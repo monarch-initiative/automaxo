@@ -1,0 +1,119 @@
+---
+input_text: 'Minimal intensity conditioning strategies for bone marrow failure: is
+  it time for "preventative" transplants? Hematopoietic cell transplantation (HCT)
+  can cure blood dyscrasias and reduce the risk of hematologic cancers in patients
+  with inherited bone marrow failure syndromes (IBMFS). However, because of its high
+  mortality rate, HCT is generally reserved until patients with IBMFS manifest life-threatening
+  cytopenias or myeloid malignancy, at which point outcomes are poor. Screening tests
+  that accurately predict transformation and enable timely intervention are lacking.
+  These unknowns and risks limit the use of HCT in patients with IBMFS, sometimes
+  until significant disease-related sequelae have occurred. A major goal for IBMFS
+  is to reduce cellular therapy-related complications to the point that earlier intervention
+  can be considered before significant transfusion exposure, occurrence of comorbidities,
+  or malignant transformation. In recent decades, disease-specific allogeneic HCT
+  trials have yielded significant improvements in outcomes in IBMFS conditions, including
+  Fanconi anemia and dyskeratosis congenita. This is in large part due to marked reductions
+  in conditioning intensity to address the increased sensitivity of these patients
+  to cytotoxic chemotherapy and radiation. The success of these approaches may also
+  indicate an ability to leverage intrinsic fitness defects of hematopoietic stem
+  and progenitor cells across IBMFS disorders. Now with advances in tracking somatic
+  genetic evolution in hematopoiesis and tailored minimal intensity conditioning regimens,
+  this question arises: is it time for preventative HCT for IBMFS?'
+raw_completion_output: |-
+  primary_disease: inherited bone marrow failure syndromes (IBMFS)  
+  medical_actions: hematopoietic cell transplantation (HCT); screening tests; disease-specific allogeneic HCT trials; minimal intensity conditioning regimens  
+  symptoms: life-threatening cytopenias; myeloid malignancy; transfusion exposure; comorbidities; malignant transformation  
+  chemicals: cytotoxic chemotherapy; radiation  
+  action_annotation_relationships: hematopoietic cell transplantation (HCT) TREATS life-threatening cytopenias IN inherited bone marrow failure syndromes (IBMFS); hematopoietic cell transplantation (HCT) TREATS myeloid malignancy IN inherited bone marrow failure syndromes (IBMFS); screening tests PREVENTS malignant transformation IN inherited bone marrow failure syndromes (IBMFS); disease-specific allogeneic HCT trials TREATS symptoms IN inherited bone marrow failure syndromes (IBMFS); minimal intensity conditioning regimens PREVENTS disease-related complications IN inherited bone marrow failure syndromes (IBMFS); cytotoxic chemotherapy TREATS symptoms IN inherited bone marrow failure syndromes (IBMFS); radiation TREATS symptoms IN inherited bone marrow failure syndromes (IBMFS)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  radiation TREATS symptoms IN inherited bone marrow failure syndromes (IBMFS)
+
+  ===
+
+extracted_object:
+  primary_disease: inherited bone marrow failure syndromes (IBMFS)
+  medical_actions:
+    - MAXO:0000149
+    - screening tests
+    - disease-specific allogeneic HCT trials
+    - minimal intensity conditioning regimens
+  symptoms:
+    - life-threatening cytopenias
+    - myeloid malignancy
+    - transfusion exposure
+    - comorbidities
+    - malignant transformation
+  chemicals:
+    - cytotoxic chemotherapy
+    - radiation
+  action_annotation_relationships:
+    - subject: hematopoietic cell transplantation
+      predicate: TREATS
+      object: life-threatening cytopenias
+      qualifier: inherited bone marrow failure syndromes
+      subject_extension: hematopoietic cell transplantation
+      object_extension: life-threatening cytopenias
+    - subject: hematopoietic cell transplantation
+      predicate: TREATS
+      object: myeloid malignancy
+      qualifier: inherited bone marrow failure syndromes
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: hematopoietic cell transplantation
+      object_extension: myeloid malignancy
+    - subject: screening tests
+      predicate: PREVENTS
+      object: malignant transformation
+      qualifier: inherited bone marrow failure syndromes (IBMFS)
+      subject_extension: screening tests
+      object_extension: malignant transformation
+    - subject: disease-specific allogeneic HCT trials
+      predicate: TREATS
+      object: symptoms
+      qualifier: inherited bone marrow failure syndromes
+      subject_qualifier: disease-specific
+      object_qualifier: N/A
+      subject_extension: allogeneic HCT
+      object_extension: symptoms
+    - subject: PREVENTS
+      predicate: PREVENTS
+      object: disease-related complications
+      qualifier: inherited bone marrow failure syndromes (IBMFS)
+      subject_qualifier: minimal intensity
+      object_qualifier: none
+      subject_extension: minimal intensity conditioning regimens
+      object_extension: disease-related complications
+    - subject: cytotoxic chemotherapy
+      predicate: TREATS
+      object: symptoms
+      qualifier: inherited bone marrow failure syndromes (IBMFS)
+      subject_extension: cytotoxic chemotherapy
+      object_extension: symptoms
+    - subject: MAXO:0000014
+      predicate: TREATS
+      object: symptoms
+      qualifier: inherited bone marrow failure syndromes (IBMFS)
+      subject_extension: radiation
+      object_extension: symptoms
+named_entities:
+  - id: MAXO:0000149
+    label: hematopoietic cell transplantation (HCT)
+    original_spans:
+      - 110:149
+  - id: MAXO:0000014
+    label: radiation
+    original_spans:
+      - 1285:1293

@@ -1,0 +1,91 @@
+---
+input_text: 'Cannabidiol Treatment for Adult Patients with Drug-Resistant Epilepsies:
+  A Real-World Study in a Tertiary Center. BACKGROUND AND PURPOSE: Around 30% of patients
+  with epilepsy show drug-resistant epilepsy (DRE). While cannabidiol has demonstrated
+  efficacy as an adjunctive treatment in Dravet syndrome (DS), Lennox-Gastaut Syndrome
+  (LGS), and epilepsy related to tuberous sclerosis complex (TSC), its more global
+  effectiveness in adult patients with DRE apart from these three specific contexts
+  needs to be clarified. METHODS: We conducted a retrospective study at the epilepsy
+  unit of Pitie Salpetriere Hospital. Patients initiating pharmaceutical cannabidiol
+  treatment and followed for at least 1 year were included. Patients were categorized
+  into "authorized" (LGS, DS, or TSC) and "off-label" groups. Cannabidiol effectiveness
+  and tolerance were compared between groups, and characteristics of responders (patients
+  with >50% reduction in seizure frequency) in the off-label group were examined.
+  RESULTS: Ninety-one patients, followed by a median duration of 24 months, were included.
+  A total of 35.2% of the patients were in the authorized group. No significant differences
+  were observed in responder rates between groups (31.3% vs. 35.6%, p = 0.85) and
+  retention rates at 1 year (75.0% vs. 74.6%, p = 0.97). Sleepiness was more commonly
+  reported in the authorized group (50.0% vs. 22.0%, p = 0.01), with no other significant
+  differences. Among off-label patients (n = 59), clobazam co-prescription was more
+  prevalent in responders (71.4% vs. 28.9%, p = 0.002). CONCLUSION: Our findings suggest
+  that cannabidiol may benefit all adult patients with DRE, particularly those already
+  receiving clobazam. Randomized controlled trials are warranted in off-label patients
+  to validate these observational findings.'
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Epilepsy; Drug-Resistant Epilepsy (DRE)
+
+  medical_actions: Cannabidiol treatment; pharmaceutical cannabidiol treatment; clobazam co-prescription
+
+  symptoms: Seizure; sleepiness
+
+  chemicals: Cannabidiol; clobazam
+
+  action_annotation_relationships: Cannabidiol TREATS seizure IN Drug-Resistant Epilepsy; Cannabidiol TREATS seizure IN adult patients with DRE; clobazam TREATS seizure IN adult patients with DRE; Cannabidiol (with clobazam) TREATS seizure IN adult patients with DRE; Cannabidiol CAUSES sleepiness IN patients with DRE.
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Cannabidiol CAUSES sleepiness IN patients with DRE.
+
+  ===
+
+extracted_object:
+  primary_disease: Epilepsy; Drug-Resistant Epilepsy (DRE)
+  medical_actions:
+    - Cannabidiol treatment
+    - pharmaceutical cannabidiol treatment
+    - clobazam co-prescription
+  symptoms:
+    - HP:0001250
+    - HP:0002329
+  chemicals:
+    - CHEBI:69478
+    - CHEBI:31413
+  action_annotation_relationships:
+    - subject: Cannabidiol
+      predicate: TREATS
+      object: HP:0001250
+      qualifier: Drug-Resistant Epilepsy
+      subject_extension: CHEBI:69478
+      object_extension: seizure
+    - predicate: TREATS
+      object: HP:0001250
+      qualifier: DRE
+      subject_extension: CHEBI:69478
+    - predicate: TREATS
+      object: HP:0001250
+      qualifier: DRE in adult patients
+    - subject: Cannabidiol (with clobazam) therapy
+      predicate: TREATS
+      object: HP:0001250
+      qualifier: DRE
+      subject_qualifier: with clobazam
+      object_qualifier: IN adult patients
+      subject_extension: CHEBI:69478
+      object_extension: seizure
+    - predicate: CAUSES
+      object: HP:0002329
+      qualifier: DRE
+      subject_extension: CHEBI:69478

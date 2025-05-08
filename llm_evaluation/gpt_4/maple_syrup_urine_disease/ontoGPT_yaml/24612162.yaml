@@ -1,0 +1,97 @@
+---
+input_text: 'Utility of peritoneal dialysis in neonates affected by inborn errors
+  of metabolism. AIM: Some inborn errors of metabolism induce metabolic encephalopathy
+  through accumulation of neurotoxic metabolites. Rapid elimination of these metabolites
+  by peritoneal or extracorporeal dialysis is crucial to prevent neuronal damage or
+  death. In this retrospective study, we evaluated the outcomes of nine neonates with
+  metabolic crisis treated with peritoneal dialysis. METHOD: Six neonates with hyperammonemic
+  coma (four with organic acidemias, two with urea cycle disorders) and three with
+  leucine accumulation due to maple syrup urine disease (MSUD) were managed with peritoneal
+  dialysis in conjunction with dietary and pharmacological therapy. RESULTS: Three
+  patients with organic acidemia survived. One of the patients was normal; others
+  had moderate and severe neurological impairments. One neonate with organic acidemia
+  and both neonates with urea cycle disorders died. Two of the three patients with
+  MSUD survived without neurological impairment; the other had severe neurological
+  damage and died at 9 months of age due to sepsis. CONCLUSION: Theoretically, extracorporeal
+  dialysis should be the first dialysis treatment of choice; however, this report
+  demonstrates that peritoneal dialysis has a chance to prevent neurological damage
+  in some patients. Therefore, in developing countries without extracorporeal dialysis
+  opportunities, it can be still a life-saving procedure, if it is applied with skilled
+  staff and standard procedures.'
+raw_completion_output: |-
+  primary_disease: Inborn errors of metabolism
+  medical_actions: Peritoneal dialysis; Dietary therapy; Pharmacological therapy
+  symptoms: Metabolic encephalopathy; Hyperammonemic coma; Leucine accumulation; Neurological impairments; Neurological damage
+  chemicals: 
+  action_annotation_relationships: Peritoneal dialysis TREATS metabolic encephalopathy IN Inborn errors of metabolism; Peritoneal dialysis TREATS hyperammonemic coma IN Inborn errors of metabolism; Peritoneal dialysis TREATS leucine accumulation IN Inborn errors of metabolism; Dietary therapy PREVENTS neurological damage IN Inborn errors of metabolism; Pharmacological therapy PREVENTS neurological damage IN Inborn errors of metabolism
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Pharmacological therapy PREVENTS neurological damage IN Inborn errors of metabolism
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0019052
+  medical_actions:
+    - MAXO:0000603
+    - Dietary therapy
+    - Pharmacological therapy
+  symptoms:
+    - Metabolic encephalopathy
+    - Hyperammonemic coma
+    - Leucine accumulation
+    - Neurological impairments
+    - Neurological damage
+  action_annotation_relationships:
+    - subject: MAXO:0000603
+      predicate: TREATS
+      object: metabolic encephalopathy
+      qualifier: MONDO:0019052
+    - subject: MAXO:0000603
+      predicate: TREATS
+      object: hyperammonemic coma
+      qualifier: MONDO:0019052
+    - subject: <Peritoneal dialysis>
+      predicate: <TREATS>
+      object: <leucine accumulation>
+      qualifier: <Inborn errors of metabolism>
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: Dietary therapy
+      predicate: PREVENTS
+      object: neurological damage
+      qualifier: MONDO:0019052
+    - subject: Pharmacological therapy
+      predicate: PREVENTS
+      object: neurological damage
+      qualifier: MONDO:0019052
+      subject_extension: Pharmacological therapy
+named_entities:
+  - id: MONDO:0009563
+    label: Maple syrup urine disease (MSUD)
+  - id: CHEBI:25017
+    label: Leucine
+  - id: CHEBI:22359
+    label: alloisoleucine (allo-ile)
+  - id: HP:0100626
+    label: End stage liver diseases
+  - id: MONDO:0100193
+    label: End stage liver diseases
+  - id: MONDO:0019052
+    label: Inborn errors of metabolism
+  - id: MAXO:0000603
+    label: Peritoneal dialysis

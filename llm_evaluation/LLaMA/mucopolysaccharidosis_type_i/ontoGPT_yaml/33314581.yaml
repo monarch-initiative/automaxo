@@ -1,0 +1,103 @@
+---
+input_text: 'Thalidomide as treatment of crohn-like disease occurred after allogeneic
+  hematopoietic stem cell transplantation in a pediatric patient. BACKGROUND: Autoimmune
+  diseases may occur after allogeneic hematopoietic stem cell transplantation (allo-HSCT)
+  and inflammatory bowel disease (IBD or Crohn disease) is rarely described. We describe
+  a child who developed CD after allo-HSCT, successfully treated with thalidomide.
+  CASE REPORT: A child affected by mucopolysaccharidosis type I received two allogeneic
+  HSCTs for rejection after the first one. After cutaneous and intestinal chronic
+  GvHD and 6 months after HSCT, the patients developed a trilinear autoimmune cytopenia
+  successfully treated with rituximab and sirolimus. Due to persisting intestinal
+  symptoms, colonoscopies were performed and histological findings demonstrated a
+  picture of CD. Based on this observation and according to the recommendations for
+  the treatment of CD, thalidomide was started. A complete stable clinical response
+  was obtained 8 weeks after start of thalidomide. Colonoscopy performed 4.8 years
+  later demonstrated a complete endoscopic and histological remission of CD. DISCUSSION:
+  In this case, the diagnosis of CD after HSCT was based on histological findings.
+  Indeed, repeated colonscopies were necessary for diagnosis, since both clinical
+  and endoscopic features are often common to chronic GvHD and CD. Thalidomide was
+  started at the dose of 1.7 mg/Kg/day, and it was well tolerated. Mild peripheral
+  neurotoxicity occurred 5 years later but disappeared completely with the dose reduction.
+  Currently, the patient is in complete remission from CD, despite the discontinuation
+  of all the immunosuppressive therapies. CONCLUSIONS: Thalidomide could represent
+  a therapeutic option to treat CD as autoimmune disease after allogeneic HSCT.'
+raw_completion_output: |-
+  Here are the extracted entities in the requested format:
+
+  primary_disease: Crohn's disease (CD)
+
+  medical_actions: allogeneic hematopoietic stem cell transplantation; thalidomide treatment; rituximab treatment; sirolimus treatment; colonoscopy; dose reduction
+
+  symptoms: intestinal symptoms; trilinear autoimmune cytopenia; chronic GvHD; peripheral neurotoxicity
+
+  chemicals: thalidomide; rituximab; sirolimus
+
+  action_annotation_relationships: 
+  allogeneic hematopoietic stem cell transplantation TREATS mucopolysaccharidosis type I; 
+  rituximab TREATS trilinear autoimmune cytopenia IN patient; 
+  sirolimus TREATS trilinear autoimmune cytopenia IN patient; 
+  thalidomide TREATS Crohn's disease IN patient; 
+  thalidomide TREATS intestinal symptoms IN Crohn's disease; 
+  dose reduction TREATS peripheral neurotoxicity IN patient.
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  primary_disease: <The main disease the text is about, or its central disease topic. This is often the disease mentioned in an article's title or in its first few sentences.>
+  medical_actions: <Semicolon-separated list of medical actions, where each is a clinically prescribed procedure, therapy, intervention, or recommendation.>
+  symptoms: <Semicolon-separated list of signs or symptoms.>
+  chemicals: <Semicolon-separated list of chemicals or drugs>
+  action_annotation_relationships: <Semicolon-separated list of relationships between a disease, the mentioned signs and symptoms associated with that disease, the medical actions relating to each symptom, and the type of relationship between each action and symptom (usually TREATS or PREVENTS). The disease name must be included in the relationship, for example, "treatment TREATS symptom IN disease". If the medical action includes a specific chemical or drug, include the chemical or drug name in the relationship, for example, "treatment (with chemical) TREATS symptom IN disease".>
+
+
+  Text:
+  Thalidomide as treatment of crohn-like disease occurred after allogeneic hematopoietic stem cell transplantation in a pediatric patient. BACKGROUND: Autoimmune diseases may occur after allogeneic hematopoietic stem cell transplantation (allo-HSCT) and inflammatory bowel disease (IBD or Crohn disease) is rarely described. We describe a child who developed CD after allo-HSCT, successfully treated with thalidomide. CASE REPORT: A child affected by mucopolysaccharidosis type I received two allogeneic HSCTs for rejection after the first one. After cutaneous and intestinal chronic GvHD and 6 months after HSCT, the patients developed a trilinear autoimmune cytopenia successfully treated with rituximab and sirolimus. Due to persisting intestinal symptoms, colonoscopies were performed and histological findings demonstrated a picture of CD. Based on this observation and according to the recommendations for the treatment of CD, thalidomide was started. A complete stable clinical response was obtained 8 weeks after start of thalidomide. Colonoscopy performed 4.8 years later demonstrated a complete endoscopic and histological remission of CD. DISCUSSION: In this case, the diagnosis of CD after HSCT was based on histological findings. Indeed, repeated colonscopies were necessary for diagnosis, since both clinical and endoscopic features are often common to chronic GvHD and CD. Thalidomide was started at the dose of 1.7 mg/Kg/day, and it was well tolerated. Mild peripheral neurotoxicity occurred 5 years later but disappeared completely with the dose reduction. Currently, the patient is in complete remission from CD, despite the discontinuation of all the immunosuppressive therapies. CONCLUSIONS: Thalidomide could represent a therapeutic option to treat CD as autoimmune disease after allogeneic HSCT.
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0016063
+  medical_actions:
+    - MAXO:0001479
+    - thalidomide treatment
+    - rituximab treatment
+    - sirolimus treatment
+    - MAXO:0001184
+    - dose reduction
+  symptoms:
+    - intestinal symptoms
+    - trilinear autoimmune cytopenia
+    - chronic GvHD
+    - peripheral neurotoxicity
+  chemicals:
+    - CHEBI:9513
+    - CHEBI:64357
+    - CHEBI:9168
+named_entities:
+  - id: MONDO:0016063
+    label: Crohn's disease (CD)
+  - id: MAXO:0001479
+    label: allogeneic hematopoietic stem cell transplantation
+    original_spans:
+      - 62:111
+      - 185:234
+  - id: MAXO:0001184
+    label: colonoscopy
+    original_spans:
+      - 1041:1051
+  - id: CHEBI:9513
+    label: thalidomide
+    original_spans:
+      - 0:10
+      - 403:413
+      - 931:941
+      - 1028:1038
+      - 1386:1396
+      - 1710:1720
+  - id: CHEBI:64357
+    label: rituximab
+    original_spans:
+      - 694:702
+  - id: CHEBI:9168
+    label: sirolimus
+    original_spans:
+      - 708:716

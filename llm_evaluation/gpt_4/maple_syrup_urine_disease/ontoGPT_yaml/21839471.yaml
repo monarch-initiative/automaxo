@@ -1,0 +1,219 @@
+---
+input_text: 'Liver transplantation for classical maple syrup urine disease: long-term
+  follow-up in 37 patients and comparative United Network for Organ Sharing experience.
+  OBJECTIVE: To assess clinical and neurocognitive function in children who have undergone
+  liver transplantation for classical maple syrup urine disease (MSUD). STUDY DESIGN:
+  A total of 35 patients with classical MSUD (age 9.9 +- 7.9 years) underwent liver
+  transplantation between 2004 and 2009. Six patients donated their liver to recipients
+  without MSUD ("domino" transplant). We analyzed clinical outcomes for our cohort
+  and 17 additional cases from the national United Network for Organ Sharing registry;
+  33 patients completed IQ and adaptive testing before transplantation, and 14 completed
+  testing 1 year later. RESULTS: Patient and graft survival were 100% at 4.5 +- 2.2
+  years of follow-up. Liver function was normal in all patients. Branched-chain amino
+  acid levels were corrected within hours after surgery and remained stable, with
+  leucine tolerance increasing more than 10-fold. All domino transplant recipients
+  were alive and well with normal branched-chain amino acid homeostasis at the time
+  of this report. Patient and graft survival for all 54 patients with MSUD undergoing
+  liver transplantation in the United States during this period were 98% and 96%,
+  respectively. One-third of our patients were mentally impaired (IQ <= 70) before
+  transplantation, with no statistically significant change 1 year later. CONCLUSION:
+  Liver transplantation is an effective long-term treatment for classical MSUD and
+  may arrest brain damage, but will not reverse it.'
+raw_completion_output: |-
+  primary_disease: classical maple syrup urine disease (MSUD)
+  medical_actions: liver transplantation; clinical and neurocognitive function assessment
+  symptoms: mental impairment (IQ <= 70)
+  chemicals: branched-chain amino acids; leucine
+  action_annotation_relationships: liver transplantation TREATS classical maple syrup urine disease (MSUD); liver transplantation stabilizes branched-chain amino acids IN classical maple syrup urine disease (MSUD); liver transplantation increases leucine tolerance IN classical maple syrup urine disease (MSUD); clinical and neurocognitive function assessment MEASURES mental impairment (IQ <= 70) IN classical maple syrup urine disease (MSUD)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  clinical and neurocognitive function assessment MEASURES mental impairment (IQ <= 70) IN classical maple syrup urine disease (MSUD)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009563
+  medical_actions:
+    - MAXO:0001175
+    - clinical and neurocognitive function assessment
+  symptoms:
+    - HP:0033667
+  chemicals:
+    - CHEBI:22918
+    - CHEBI:25017
+  action_annotation_relationships:
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: classical maple syrup urine disease (MSUD)
+      qualifier: MONDO:0009563
+    - subject: MAXO:0001175
+      predicate: STABILIZES
+      object: branched-chain amino acids
+      qualifier: MONDO:0009563
+      object_extension: branched-chain amino acids
+    - subject: MAXO:0001175
+      predicate: INCREASES
+      object: leucine tolerance
+      qualifier: MONDO:0009563
+    - subject: clinical and neurocognitive function assessment
+      predicate: MEASURES
+      object: HP:0033667
+      qualifier: MONDO:0009563
+named_entities:
+  - id: MONDO:0009563
+    label: Maple syrup urine disease (MSUD)
+  - id: CHEBI:25017
+    label: Leucine
+  - id: CHEBI:22359
+    label: alloisoleucine (allo-ile)
+  - id: HP:0100626
+    label: End stage liver diseases
+  - id: MONDO:0100193
+    label: End stage liver diseases
+  - id: MONDO:0019052
+    label: Inborn errors of metabolism
+  - id: MAXO:0000603
+    label: Peritoneal dialysis
+  - id: MAXO:0001175
+    label: Liver transplantation (LT)
+  - id: MAXO:0009003
+    label: Preimplantation genetic testing (PGT)
+  - id: CHEBI:24898
+    label: isoleucine
+  - id: CHEBI:27266
+    label: valine
+  - id: MAXO:0000088
+    label: diet
+  - id: HP:0001263
+    label: mental and motor retardation
+  - id: HP:0002098
+    label: respiratory distress
+  - id: MONDO:0008143
+    label: Organic Acidemias (OAs)
+  - id: MONDO:0000688
+    label: Organic Acidemias
+  - id: MONDO:0021055
+    label: Familial amyloidotic polyneuropathy (FAP)
+  - id: HP:0003159
+    label: hyperoxaluria
+  - id: MONDO:0002474
+    label: primary hyperoxaluria
+  - id: MONDO:0008294
+    label: acute intermittent porphyria
+  - id: HP:0011034
+    label: Amyloidosis
+  - id: HP:0011968
+    label: Poor feeding
+  - id: HP:0001259
+    label: Coma
+  - id: HP:0001252
+    label: Hypotonia
+  - id: HP:0002013
+    label: vomiting
+  - id: HP:0000737
+    label: irritability
+  - id: HP:0003256
+    label: Coagulopathy
+  - id: HP:0001993
+    label: Ketoacidosis
+  - id: HP:0001251
+    label: Ataxia
+  - id: MONDO:0017052
+    label: intermediate maple syrup urine disease (iMSUD)
+  - id: MAXO:0001525
+    label: Intravenous administration
+  - id: CHEBI:17895
+    label: Tyr
+  - id: CHEBI:16828
+    label: Trp
+  - id: CHEBI:141437
+    label: His
+  - id: CHEBI:16044
+    label: Met
+  - id: CHEBI:16857
+    label: Thr
+  - id: CHEBI:30011
+    label: Gln
+  - id: CHEBI:17295
+    label: Phe
+  - id: CHEBI:28300
+    label: glutamine
+  - id: CHEBI:16449
+    label: alanine
+  - id: CHEBI:27363
+    label: zinc
+  - id: CHEBI:27568
+    label: selenium
+  - id: CHEBI:27432
+    label: alpha-linolenic acid (18:3n-3)
+  - id: CHEBI:36005
+    label: docosahexaenoic acid (22:6n-3)
+  - id: CHEBI:17865
+    label: Alpha-ketoisocaproate (KIC)
+  - id: HP:0003811
+    label: Neonatal death
+  - id: HP:0001873
+    label: thrombocytopenia
+  - id: HP:0002615
+    label: hypotension
+  - id: HP:0002901
+    label: hypocalcemia
+  - id: HP:0001942
+    label: metabolic acidosis
+  - id: CHEBI:145810
+    label: Insulin
+  - id: MONDO:0008867
+    label: biliary atresia
+  - id: CHEBI:48430
+    label: Alpha-ketoisocaproic acid (KIC)
+  - id: MAXO:0000600
+    label: renal replacement therapy (RRT)
+  - id: MAXO:0000601
+    label: dialysis
+  - id: CHEBI:15603
+    label: amino-acid mixture without leucine (Leu), valine, isoleucine
+  - id: MAXO:0001495
+    label: parenteral administration
+  - id: MAXO:0000943
+    label: Dried blood spot (DBS) monitoring
+  - id: CHEBI:22918
+    label: Branched-chain amino acids (BCAA)
+  - id: CHEBI:33349
+    label: <Dried blood spot (DBS)>
+  - id: MONDO:0009949
+    label: PC deficiency
+  - id: HP:0001977
+    label: abnormal blood clotting
+  - id: HP:0000717
+    label: Autism
+  - id: HP:0001249
+    label: Intellectual disability
+  - id: HP:0001250
+    label: Seizures
+  - id: MONDO:0004739
+    label: <Urea cycle defects (UCD), organic acidemias (OA), maple syrup urine disease
+      (MSUD)>
+  - id: HP:0001987
+    label: elevated ammonia levels
+  - id: CHEBI:29987
+    label: Glutamate
+  - id: CHEBI:21547
+    label: N-acetylaspartate (NAA)
+  - id: CHEBI:16919
+    label: Creatine
+  - id: HP:0006846
+    label: acute encephalopathy
+  - id: HP:0033667
+    label: mental impairment (IQ <= 70)

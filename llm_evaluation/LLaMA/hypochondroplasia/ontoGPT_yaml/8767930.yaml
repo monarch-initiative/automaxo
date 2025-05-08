@@ -1,0 +1,121 @@
+---
+input_text: '[Growth hormone therapy in childhood. Growth hormone therapy in small
+  children without growth hormone deficiency]. The availability of unlimited amounts
+  of recombinant human growth hormone (rhGH) has now made it possible to investigate
+  its growth-promoting effect in children in whom growth hormone production is not
+  deficient. In girls suffering from the Ullrich Turner syndrome, treatment with rhGH
+  increases final height by some 6 to 8 cm. An increase in growth rate has also been
+  observed in children with renal insufficiency, and in children with intrauterine
+  growth retardation. Favourable results have also been reported in children receiving
+  glucocorticoids for such chronic conditions as rheumatoid arthritis, and in youngsters
+  with hypochondroplasia. In a further group of children with various disorders an
+  improvement in the growth rate has been observed, although nothing can yet be said
+  about the outcome in terms of final height. To achieve an increase in growth rate,
+  pharmacological doses of growth hormone higher than those used in children with
+  growth hormone deficiency are necessary. For this reason, the risk of unwanted side
+  effects might be higher than in the latter.'
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Ullrich Turner syndrome; renal insufficiency; intrauterine growth retardation; rheumatoid arthritis; hypochondroplasia
+
+  medical_actions: growth hormone therapy; treatment with rhGH; glucocorticoids
+
+  symptoms: short stature; growth retardation; renal insufficiency
+
+  chemicals: recombinant human growth hormone (rhGH); glucocorticoids
+
+  action_annotation_relationships: treatment (with rhGH) TREATS short stature IN Ullrich Turner syndrome; rhGH TREATS growth retardation IN children with intrauterine growth retardation; rhGH TREATS renal insufficiency IN children with renal insufficiency; glucocorticoids TREATS rheumatoid arthritis IN children; rhGH TREATS hypochondroplasia IN children; growth hormone therapy TREATS short stature IN children with various disorders
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  growth hormone therapy TREATS short stature IN children with various disorders
+
+  ===
+
+extracted_object:
+  primary_disease: Ullrich Turner syndrome; renal insufficiency; intrauterine growth
+    retardation; rheumatoid arthritis; hypochondroplasia
+  medical_actions:
+    - MAXO:0000780
+    - treatment with rhGH
+    - glucocorticoids
+  symptoms:
+    - HP:0004322
+    - HP:0001510
+    - HP:0000083
+  chemicals:
+    - recombinant human growth hormone (rhGH)
+    - CHEBI:24261
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: HP:0004322
+      qualifier: Ullrich Turner syndrome
+      subject_qualifier: with rhGH
+      subject_extension: rhGH
+    - predicate: TREATS
+      object: HP:0001510
+      qualifier: MONDO:0005030
+      subject_extension: CHEBI:37845
+    - predicate: TREATS
+      object: HP:0000083
+      object_qualifier: with renal insufficiency
+      subject_extension: CHEBI:37845
+    - predicate: TREATS
+      object: HP:0001370
+      subject_extension: CHEBI:24261
+    - predicate: TREATS
+      object: hypochondroplasia
+    - predicate: TREATS
+      object: HP:0004322
+      qualifier: children with various disorders
+      subject_extension: CHEBI:37845
+named_entities:
+  - id: MAXO:0000780
+    label: growth hormone therapy
+    original_spans:
+      - 1:22
+      - 38:59
+  - id: HP:0004322
+    label: short stature
+  - id: HP:0001510
+    label: growth retardation
+    original_spans:
+      - 565:582
+  - id: HP:0000083
+    label: renal insufficiency
+    original_spans:
+      - 510:528
+  - id: CHEBI:24261
+    label: glucocorticoids
+    original_spans:
+      - 650:664
+  - id: MONDO:0005030
+    label: intrauterine growth retardation
+    original_spans:
+      - 552:582
+  - id: CHEBI:37845
+    label: growth hormone
+    original_spans:
+      - 1:14
+      - 38:51
+      - 87:100
+      - 174:187
+      - 284:297
+      - 1009:1022
+      - 1064:1077
+  - id: HP:0001370
+    label: rheumatoid arthritis
+    original_spans:
+      - 697:716

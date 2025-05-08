@@ -1,0 +1,91 @@
+---
+input_text: 'An online survey on burden of illness among families with post-stem cell
+  transplant mucopolysaccharidosis type I children in the United States. BACKGROUND:
+  Severe mucopolysaccharidosis type I (also known as Hurler syndrome) is a rare devasting
+  recessive genetic disease caused by the deficiency of an enzyme. Hematopoietic stem
+  cell transplant is the standard of care in the United States, usually conducted
+  before the child is 3 years of age, but little is known about the continued medical
+  and educational needs of the child after transplant. A greater understanding of
+  the burden of illness on the primary caregiver is also needed. Therefore, this online
+  survey sought to gather information on the burden of severe MPS I in the United
+  States at least 1 year after transplant. RESULTS: Thirty-two respondents reported
+  that children with severe MPS I have significant medical and educational needs after
+  transplant. Healthcare resource use was frequent, especially in the outpatient setting
+  specifically for bone, cardiac, and vision complications that were not relieved
+  by HSCT. Twenty-five percent of the children had been hospitalized at least once
+  in the last year and two had been hospitalized twice. The most common reasons for
+  overnight hospitalizations included orthopedic surgeries and respiratory infections.
+  Among children ages 5 and older, only 3 of 28 (11%) were able to attend school with
+  no special support. While caregivers were generally satisfied with the healthcare
+  services their child receives, 69% of working caregivers reported negative impact
+  on their ability to conduct work tasks, and 54% of caregivers did not work so that
+  they could care for the child. CONCLUSIONS: Results suggest that severe MPS I children
+  continue to  require medical care and special support for education. Future research
+  on the burden of illness on families affected by severe MPS I is needed to better
+  understand total cost of care, and to identify therapies and interventions that
+  reduce burden of illness. Future studies that compare cost of and access to health
+  care in different countries may provide a more global view of the burden of MPS
+  I.'
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Mucopolysaccharidosis type I (MPS I), also known as Hurler syndrome
+
+  medical_actions: Hematopoietic stem cell transplant; orthopedic surgeries; healthcare services
+
+  symptoms: Bone complications; cardiac complications; vision complications; respiratory infections
+
+  chemicals: 
+
+  action_annotation_relationships: Hematopoietic stem cell transplant (HSCT) TREATS MPS I; orthopedic surgeries TREATS bone complications IN MPS I; healthcare services TREATS MPS I; HSCT PREVENTS progression of MPS I, but not bone, cardiac, and vision complications.
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  HSCT PREVENTS progression of MPS I, but not bone, cardiac, and vision complications.
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:1012617
+  medical_actions:
+    - Hematopoietic stem cell transplant
+    - MAXO:0000479
+    - healthcare services
+  symptoms:
+    - Bone complications
+    - cardiac complications
+    - vision complications
+    - HP:0011947
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: MPS I
+      subject_extension: Hematopoietic stem cell
+    - predicate: TREATS
+      object: bone complications
+      qualifier: MONDO:1012617
+    - predicate: TREATS
+      object: MPS I
+    - subject: MAXO:0000747
+      predicate: does not PREVENT
+      object: bone, cardiac, and vision complications
+      qualifier: MONDO:1012617
+named_entities:
+  - id: MAXO:0000479
+    label: orthopedic surgeries
+    original_spans:
+      - 1271:1290
+  - id: HP:0011947
+    label: respiratory infections
+    original_spans:
+      - 1296:1317

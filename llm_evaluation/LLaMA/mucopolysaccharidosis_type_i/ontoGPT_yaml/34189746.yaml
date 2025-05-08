@@ -1,0 +1,89 @@
+---
+input_text: Mucopolysaccharidoses type I gene therapy. Mucopolysaccharidoses type
+  I (MPS I) is an inherited metabolic disease characterized by a malfunction of the
+  alpha-l-iduronidase (IDUA) enzyme leading to the storage of glycosaminoglycans in
+  the lysosomes. This disease has longtime been studied as a therapeutic target for
+  those studying gene therapy and many studies have been done using various vectors
+  to deliver the IDUA gene for corrective treatment. Many vectors have difficulties
+  with efficacy and insertional mutagenesis concerns including adeno-associated viral
+  (AAV) vectors. Studies of AAV vectors treating MPS I have seemed promising, but
+  recent deaths in gene therapy clinical trials for other inherited diseases using
+  AAV vectors have left questions about their safety. Additionally, the recent modifications
+  to adenoviral vectors leading them to target the vascular endothelium minimizing
+  the risk of hepatotoxicity could lead to them being a viable option for MPS I gene
+  therapy when coupled with gene editing technologies like CRISPR/Cas9.
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Mucopolysaccharidoses type I (MPS I)
+
+  medical_actions: Gene therapy; gene editing; corrective treatment with IDUA gene; treatment with adeno-associated viral (AAV) vectors; treatment with adenoviral vectors; CRISPR/Cas9 gene editing
+
+  symptoms: Storage of glycosaminoglycans in lysosomes; malfunction of alpha-l-iduronidase (IDUA) enzyme
+
+  chemicals: alpha-l-iduronidase (IDUA) enzyme; adeno-associated viral (AAV) vectors; adenoviral vectors; CRISPR/Cas9
+
+  action_annotation_relationships: Gene therapy TREATS MPS I; treatment with IDUA gene TREATS malfunction of alpha-l-iduronidase (IDUA) enzyme IN MPS I; AAV vectors TREATS MPS I; adenoviral vectors TREATS MPS I; CRISPR/Cas9 gene editing PREVENTS hepatotoxicity IN MPS I; treatment with AAV vectors TREATS storage of glycosaminoglycans in lysosomes IN MPS I
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  treatment with AAV vectors TREATS storage of glycosaminoglycans in lysosomes IN MPS I
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:1012617
+  medical_actions:
+    - MAXO:0001001
+    - gene editing
+    - corrective treatment with IDUA gene
+    - treatment with adeno-associated viral (AAV) vectors
+    - treatment with adenoviral vectors
+    - CRISPR/Cas9 gene editing
+  symptoms:
+    - Storage of glycosaminoglycans in lysosomes
+    - malfunction of alpha-l-iduronidase (IDUA) enzyme
+  chemicals:
+    - alpha-l-iduronidase (IDUA) enzyme
+    - adeno-associated viral (AAV) vectors
+    - adenoviral vectors
+    - CRISPR/Cas9
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: MPS I
+      qualifier: MONDO:1012617
+    - subject: treatment
+      predicate: TREATS
+      object: malfunction
+      qualifier: MONDO:1012617
+      subject_qualifier: with IDUA gene
+      object_qualifier: of alpha-l-iduronidase (IDUA) enzyme
+      subject_extension: gene
+      object_extension: enzyme
+    - predicate: TREATS
+      object: MPS I
+      qualifier: MONDO:0001586
+    - predicate: TREATS
+      object: MPS I
+      subject_extension: adenoviral
+    - predicate: PREVENTS
+      object: hepatotoxicity
+      qualifier: MONDO:1012617
+      subject_extension: gene editing
+    - predicate: TREATS
+      object: storage of glycosaminoglycans in lysosomes
+      qualifier: MONDO:1012617
+      subject_qualifier: with AAV vectors
+      object_qualifier: in MPS I
+      subject_extension: AAV vectors

@@ -1,0 +1,79 @@
+---
+input_text: 'The role of new medical treatments for the management of developmental
+  and epileptic encephalopathies: Novel concepts and results. Developmental and epileptic
+  encephalopathies (DEEs) are among the most challenging of all epilepsies to manage,
+  given the exceedingly frequent and often severe seizure types, pharmacoresistance
+  to conventional antiseizure medications, and numerous comorbidities. During the
+  past decade, efforts have focused on development of new treatment options for DEEs,
+  with several recently approved in the United States or Europe, including cannabidiol
+  as an orphan drug in Dravet and Lennox-Gastaut syndromes and everolimus as a possible
+  antiepileptogenic and precision drug for tuberous sclerosis complex, with its impact
+  on the mammalian target of rapamycin pathway. Furthermore, fenfluramine, an old
+  drug, was repurposed as a novel therapy in the treatment of Dravet syndrome. The
+  evolution of new insights into pathophysiological processes of various DEEs provides
+  possibilities to investigate novel and repurposed drugs and to place them into the
+  context of their role in future management of these patients. The purpose of this
+  review is to provide an overview of these new medical treatment options for the
+  DEEs and to discuss the clinical implications of these results for improved treatment.'
+raw_completion_output: |-
+  primary_disease: Developmental and epileptic encephalopathies (DEEs)  
+  medical_actions: treatment with cannabidiol; treatment with everolimus; treatment with fenfluramine  
+  symptoms: seizures; pharmacoresistance; comorbidities  
+  chemicals: cannabidiol; everolimus; fenfluramine  
+  action_annotation_relationships: treatment with cannabidiol TREATS symptom seizures IN Developmental and epileptic encephalopathies; treatment with everolimus TREATS symptom seizures IN Developmental and epileptic encephalopathies; treatment with fenfluramine TREATS symptom seizures IN Developmental and epileptic encephalopathies  
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  treatment with fenfluramine TREATS symptom seizures IN Developmental and epileptic encephalopathies
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0100062
+  medical_actions:
+    - treatment with cannabidiol
+    - treatment with everolimus
+    - treatment with fenfluramine
+  symptoms:
+    - HP:0001250
+    - pharmacoresistance
+    - comorbidities
+  chemicals:
+    - CHEBI:69478
+    - CHEBI:68478
+    - CHEBI:5000
+  action_annotation_relationships:
+    - subject: treatment
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0100062
+      subject_extension: CHEBI:69478
+      object_extension: seizures
+    - subject: treatment
+      predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0100062
+      subject_extension: CHEBI:68478
+      object_extension: seizures
+    - subject: treatment
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0100062
+      subject_extension: CHEBI:5000
+      object_extension: seizures
+named_entities:
+  - id: CHEBI:68478
+    label: everolimus
+    original_spans:
+      - 635:644

@@ -1,0 +1,62 @@
+---
+input_text: 'Cognitive and adaptive functioning after liver transplantation for maple
+  syrup urine disease: a case series. MSUD is a complex metabolic disorder that has
+  been associated with central nervous system damage, developmental delays, and neurocognitive
+  deficits. Although liver transplantation provides a metabolic cure for MSUD, changes
+  in cognitive and adaptive functioning following transplantation have not been investigated.
+  In this report, we present data from 14 patients who completed cognitive and adaptive
+  functioning testing pre- and one yr and/or three yr post-liver transplantation.
+  Findings show either no significant change (n=8) or improvement (n=5) in IQ scores
+  pre- to post-liver transplantation. Greater variability was observed in adaptive
+  functioning scores, but the majority of patients evidenced no significant change
+  (n=8) in adaptive scores. In general, findings indicate that liver transplantation
+  minimizes the likelihood of additional central nervous system damage, providing
+  an opportunity for possible stabilization or improvement in neurocognitive functioning.'
+raw_completion_output: |-
+  Here are the extracted entities in the requested format:
+
+  primary_disease: Maple Syrup Urine Disease (MSUD)
+
+  medical_actions: liver transplantation
+
+  symptoms: central nervous system damage; developmental delays; neurocognitive deficits
+
+  chemicals: 
+
+  action_annotation_relationships: liver transplantation PREVENTS central nervous system damage IN MSUD; liver transplantation TREATS neurocognitive deficits IN MSUD; liver transplantation TREATS developmental delays IN MSUD
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  liver transplantation TREATS developmental delays IN MSUD
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009563
+  medical_actions:
+    - MAXO:0001175
+  symptoms:
+    - central nervous system damage
+    - HP:0001263
+    - neurocognitive deficits
+  action_annotation_relationships:
+    - predicate: PREVENTS
+      object: central nervous system damage
+      qualifier: MONDO:0009563
+    - predicate: TREATS
+      object: neurocognitive deficits
+      qualifier: MONDO:0009563
+    - predicate: TREATS
+      object: HP:0001263
+      qualifier: MONDO:0009563

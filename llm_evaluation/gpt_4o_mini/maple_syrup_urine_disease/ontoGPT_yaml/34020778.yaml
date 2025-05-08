@@ -1,0 +1,91 @@
+---
+input_text: 'Variant haplophasing by long-read sequencing: a new approach to preimplantation
+  genetic testing workups. OBJECTIVE: To apply long-read, third-generation sequencing
+  as a part of a general workup strategy for performing structural rearrangement (PGT-SR)
+  and monogenic disease (PGT-M) embryo testing. DESIGN: Prospective study. SETTING:
+  In vitro fertilization unit. PATIENT(S): Couples presenting for PGT-SR (n = 15)
+  and PGT-M (n = 2). INTERVENTION(S): Blastocyst biopsy with molecular testing for
+  translocation breakpoints or mutations (targets). MAIN OUTCOME MEASURE(S): Detailed,
+  parental-phased, single-nucleotide polymorphism (SNP) profiles around targets for
+  selection of informative polymorphic markers to simplify and facilitate clinical
+  preimplantation genetic testing (PGT) designs that enable discrimination between
+  carrier and noncarrier embryos. RESULT(S): High definition of chromosome breakpoints
+  together with closely phased polymorphic markers was achieved for all 15 couples
+  presenting for PGT-SR. Similarly, for the two couples presenting for PGT-M, tightly
+  linked informative markers around the mutations were also simply identified. Three
+  couples with translocations t(1;17)(q21;p13), t(3;13)(p25;q21.2), and t(12;13)(q23;q22)
+  proceeded with PGT-SR, requesting preferential identification of noncarrier embryos
+  for transfer. Following selection of a set of informative SNPs linked to breakpoints,
+  we successfully performed PGT-SR tests, resulting in ongoing pregnancies with a
+  noncarrier fetus for all couples. Similarly, with the use of tests based on informative
+  SNPs linked to the parental mutations, one couple proceeded with PGT-M for maple
+  syrup urine disease, resulting in an ongoing pregnancy with a disease-free fetus.
+  CONCLUSION(S): For couples contemplating clinical PGT, variant haplophasing around
+  the target reduces the workup process by enabling rapid selection of closely linked
+  informative markers for patient-specific test design.'
+raw_completion_output: |-
+  primary_disease: maple syrup urine disease  
+  medical_actions: long-read sequencing; blastocyst biopsy; molecular testing; PGT-SR; PGT-M  
+  symptoms: chromosome breakpoints; translocations  
+  chemicals: None  
+  action_annotation_relationships: long-read sequencing TREATS chromosome breakpoints IN maple syrup urine disease; blastocyst biopsy TREATS chromosome breakpoints IN maple syrup urine disease; molecular testing TREATS chromosome breakpoints IN maple syrup urine disease; PGT-SR TREATS noncarrier embryos IN maple syrup urine disease; PGT-M TREATS disease-free fetus IN maple syrup urine disease
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  PGT-M TREATS disease-free fetus IN maple syrup urine disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009563
+  medical_actions:
+    - long-read sequencing
+    - blastocyst biopsy
+    - molecular testing
+    - PGT-SR
+    - PGT-M
+  symptoms:
+    - chromosome breakpoints
+    - translocations
+  chemicals:
+    - None
+  action_annotation_relationships:
+    - subject: long-read sequencing
+      predicate: TREATS
+      object: chromosome breakpoints
+      qualifier: MONDO:0009563
+      subject_qualifier: <none>
+      object_qualifier: <none>
+      subject_extension: long-read sequencing
+      object_extension: chromosome breakpoints
+    - subject: <blastocyst biopsy>
+      predicate: <TREATS>
+      object: <chromosome breakpoints>
+      qualifier: <maple syrup urine disease>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <blastocyst biopsy>
+      object_extension: <chromosome breakpoints>
+    - predicate: TREATS
+      object: chromosome breakpoints
+      qualifier: MONDO:0009563
+    - subject: TREATS
+      predicate: TREATS
+      object: noncarrier embryos
+      qualifier: MONDO:0009563
+      subject_extension: PGT-SR
+      object_extension: noncarrier
+    - predicate: TREATS
+      object: disease-free fetus
+      qualifier: MONDO:0009563

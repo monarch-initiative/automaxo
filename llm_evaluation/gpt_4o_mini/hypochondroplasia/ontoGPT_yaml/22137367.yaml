@@ -1,0 +1,103 @@
+---
+input_text: 'A pilot study of discontinuous, insulin-like growth factor 1-dosing growth
+  hormone treatment in young children with FGFR3 N540K-mutated hypochondroplasia.
+  OBJECTIVE: To assess the growth promoting effect of a recombinant growth hormone
+  (rGH) treatment protocol adjusted on insulin-like growth factor 1 (IGF-1) dosing
+  in children affected by the most severe forms of FGFR3 N540K-mutated hypochondroplasia.
+  STUDY DESIGN: Midterm results of an open-label, single-center, nonrandomized, 2003-2020
+  pilot trial to final stature, including 6 children (mean age, 2.6 +- 0.7 years;
+  mean height SDS, -3.0 +- 0.5) with the N540K mutation of FGFR3 gene who received
+  an rGH dosage titrated to an IGF-1 level close to 1.5 SDS of the normal range. rGH
+  therapy was interrupted 1 day per week, 1 month per year, and 6 months every 2 years.
+  RESULTS: The mean height SDS increased by 1.9 during the 6.1 +- 0.9-year study period,
+  reaching -0.8 to -1.3 at age 8.7 +- 1 years. The mean+-SDS baseline IGF-1 value
+  was -1.6 +- 0.5 before rGH treatment and 1.4+-0.3 during the last year of observation.
+  The average cumulative rGH dose was 0.075 +- 0.018 mg/kg/day (range, 0.059-0.100
+  mg/kg/day). Trunk/leg disproportion was improved. CONCLUSION: IGF-1-dosing rGH treatment
+  durably improves growth and reduces body disproportion in children with severe forms
+  of hypochondroplasia.'
+raw_completion_output: |-
+  primary_disease: FGFR3 N540K-mutated hypochondroplasia  
+  medical_actions: recombinant growth hormone treatment; insulin-like growth factor 1 dosing; rGH dosage titration; interrupted rGH therapy  
+  symptoms: growth delay; trunk/leg disproportion  
+  chemicals: recombinant growth hormone; insulin-like growth factor 1  
+  action_annotation_relationships: recombinant growth hormone treatment TREATS growth delay IN FGFR3 N540K-mutated hypochondroplasia; insulin-like growth factor 1 dosing TREATS growth delay IN FGFR3 N540K-mutated hypochondroplasia; rGH dosage titration TREATS growth delay IN FGFR3 N540K-mutated hypochondroplasia; interrupted rGH therapy TREATS trunk/leg disproportion IN FGFR3 N540K-mutated hypochondroplasia; recombinant growth hormone treatment TREATS trunk/leg disproportion IN FGFR3 N540K-mutated hypochondroplasia; insulin-like growth factor 1 dosing TREATS trunk/leg disproportion IN FGFR3 N540K-mutated hypochondroplasia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  insulin-like growth factor 1 dosing TREATS trunk/leg disproportion IN FGFR3 N540K-mutated hypochondroplasia
+
+  ===
+
+extracted_object:
+  primary_disease: FGFR3 N540K-mutated hypochondroplasia
+  medical_actions:
+    - recombinant growth hormone treatment
+    - insulin-like growth factor 1 dosing
+    - rGH dosage titration
+    - interrupted rGH therapy
+  symptoms:
+    - HP:0001510
+    - trunk/leg disproportion
+  chemicals:
+    - recombinant growth hormone
+    - insulin-like growth factor 1
+  action_annotation_relationships:
+    - subject: treatment
+      predicate: TREATS
+      object: HP:0001510
+      qualifier: FGFR3 N540K-mutated hypochondroplasia
+      subject_qualifier: recombinant
+      object_qualifier: N/A
+      subject_extension: recombinant growth hormone
+      object_extension: growth delay
+    - subject: dosing
+      predicate: TREATS
+      object: HP:0001510
+      qualifier: FGFR3 N540K-mutated hypochondroplasia
+      subject_extension: insulin-like growth factor 1
+      object_extension: growth
+    - subject: dosage titration
+      predicate: TREATS
+      object: HP:0001510
+      qualifier: FGFR3 N540K-mutated hypochondroplasia
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: rGH
+      object_extension: growth delay
+    - subject: interrupted rGH therapy
+      predicate: TREATS
+      object: trunk/leg disproportion
+      qualifier: FGFR3 N540K-mutated hypochondroplasia
+      subject_qualifier: interrupted
+      subject_extension: rGH
+      object_extension: trunk/leg disproportion
+    - subject: treatment
+      predicate: TREATS
+      object: trunk/leg disproportion
+      qualifier: FGFR3 N540K-mutated hypochondroplasia
+      subject_qualifier: recombinant
+      object_qualifier: N/A
+      subject_extension: recombinant growth hormone
+      object_extension: trunk/leg disproportion
+    - subject: insulin-like growth factor 1 dosing
+      predicate: TREATS
+      object: trunk/leg disproportion
+      qualifier: FGFR3 N540K-mutated hypochondroplasia
+      subject_qualifier: dosing
+      subject_extension: insulin-like growth factor 1
+      object_extension: trunk/leg disproportion
+named_entities:
+  - id: HP:0001510
+    label: growth delay

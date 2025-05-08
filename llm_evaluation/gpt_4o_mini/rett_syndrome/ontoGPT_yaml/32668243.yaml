@@ -1,0 +1,75 @@
+---
+input_text: In Vivo Repair of a Protein Underlying a Neurological Disorder by Programmable
+  RNA Editing. Programmable RNA editing is gaining momentum as an approach to repair
+  mutations, but its efficiency in repairing endogenous mutant RNA in complex tissue
+  is unknown. Here we apply this approach to the brain and successfully repair a guanosine-to-adenosine
+  mutation in methyl CpG binding protein 2 RNA that causes the neurodevelopmental
+  disease Rett syndrome. Repair is mediated by hippocampal injections of juvenile
+  Mecp2317G>A mice with an adeno-associated virus expressing the hyperactive catalytic
+  domain of adenosine deaminase acting on RNA 2 and Mecp2 guide. After 1 month, 50%
+  of Mecp2 RNA is recoded in three different hippocampal neuronal populations. MeCP2
+  protein localization to heterochromatin is restored in neurons to 50% of wild-type
+  levels. Whole-transcriptome RNA analysis of one neuronal population indicates that
+  the majority of off-target editing sites exhibit rates of 30% or less. This study
+  demonstrates that programmable RNA editing can be utilized to repair mutations in
+  mouse models of neurological disease.
+raw_completion_output: |-
+  primary_disease: Rett syndrome  
+  medical_actions: programmable RNA editing; hippocampal injections; adeno-associated virus therapy  
+  symptoms: neurodevelopmental delays; impaired cognition; motor skill deficits  
+  chemicals: adenosine deaminase acting on RNA 2  
+  action_annotation_relationships: programmable RNA editing TREATS neurodevelopmental delays IN Rett syndrome; hippocampal injections TREATS impaired cognition IN Rett syndrome; adeno-associated virus therapy TREATS motor skill deficits IN Rett syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  adeno-associated virus therapy TREATS motor skill deficits IN Rett syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010726
+  medical_actions:
+    - programmable RNA editing
+    - hippocampal injections
+    - adeno-associated virus therapy
+  symptoms:
+    - HP:0012758
+    - impaired cognition
+    - motor skill deficits
+  chemicals:
+    - adenosine deaminase acting on RNA 2
+  action_annotation_relationships:
+    - subject: programmable RNA editing
+      predicate: TREATS
+      object: HP:0012758
+      qualifier: MONDO:0010726
+      subject_extension: programmable RNA editing
+      object_extension: neurodevelopmental delays
+    - subject: hippocampal injections
+      predicate: TREATS
+      object: impaired cognition
+      qualifier: MONDO:0010726
+      subject_extension: hippocampal injections
+      object_extension: impaired cognition
+    - subject: adeno-associated virus therapy
+      predicate: TREATS
+      object: motor skill deficits
+      qualifier: MONDO:0010726
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: adeno-associated virus therapy
+      object_extension: motor skill deficits
+named_entities:
+  - id: HP:0012758
+    label: neurodevelopmental delays

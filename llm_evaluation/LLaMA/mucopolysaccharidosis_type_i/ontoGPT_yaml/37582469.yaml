@@ -1,0 +1,114 @@
+---
+input_text: Incidence of bloodstream infections after hematopoietic stem cell transplant
+  for Hurler Syndrome. Mucopolysaccharidosis type I (MPS I) is a rare genetic disorder
+  characterized by the deficiency of the alpha-L-iduronidase enzyme necessary for
+  the degradation of glycosaminoglycans (GAG) in the lysosome. Hurler syndrome is
+  the most severe form of MPS I, manifesting as multiorgan dysfunction, cognitive
+  delay, and death, usually within ten years if left untreated. Hematopoietic stem
+  cell transplant (HSCT) is the optimal treatment option since it provides a permanent
+  solution to enzyme deficiency and halts cognitive decline. However, transplant-associated
+  thrombotic microangiopathy (TA-TMA) and graft versus host disease (GVHD) are HSCT
+  complications that are also known risk factors for bloodstream infections (BSI).
+  BSIs are a serious complication of HSCT, contributing to poor outcomes and transplant-related
+  morbidity. There are little data evaluating BSI after HSCT in the Hurler patient
+  population. We performed a retrospective analysis of patients with Hurler syndrome
+  who underwent HSCT at our center between 2013 and 2020 to determine the incidence
+  of BSI within the first-year post-transplant. Twenty-five patients were included
+  in the analysis; the majority (n=17, 68%) were male, with a median age of 1.1 years
+  (IQR 0.35 to 1.44) at the time of transplant. The most common graft source was cord
+  blood (n=15, 54%), followed by bone marrow (n=13, 46%), with the majority from matched
+  unrelated donors (n=14, 52%) and mismatched unrelated donors (n=13, 44%). Sixteen
+  BSIs were diagnosed in 12 patients (n=12, 48%). Most infections (n=7, 43.8%) were
+  diagnosed in the first 20 days after transplant, with fewer infections being observed
+  at later time points. The incidence rate of BSIs in Hurlers patients (n=12, 48%)
+  was higher than the reported general pediatric HSCT population one-year post-transplant
+  (15-35%). Given the high rate of Hurlers patients diagnosed with both TA-TMA and
+  a BSI (n=7, 78%), we suspect a possible correlation between the two. Additionally,
+  due to the time it takes for GAG levels to normalize post-HSCT in Hurlers patients,
+  it is reasonable to suspect that the high BSI rates in these patients are linked
+  to their Hurlers diagnosis.
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Hurler Syndrome; Mucopolysaccharidosis type I (MPS I)
+
+  medical_actions: Hematopoietic stem cell transplant (HSCT); treatment with enzyme replacement
+
+  symptoms: multiorgan dysfunction; cognitive delay; death; thrombotic microangiopathy (TA-TMA); graft versus host disease (GVHD); bloodstream infections (BSI)
+
+  chemicals: alpha-L-iduronidase enzyme; glycosaminoglycans (GAG)
+
+  action_annotation_relationships: HSCT TREATS enzyme deficiency IN Hurler Syndrome; HSCT PREVENTS cognitive decline IN Hurler Syndrome; treatment (with HSCT) TREATS multiorgan dysfunction IN Hurler Syndrome; HSCT TREATS Hurler Syndrome; TA-TMA TREATS HSCT-related complications IN Hurler Syndrome; BSI TREATS HSCT-related complications IN Hurler Syndrome; GVHD TREATS HSCT-related complications IN Hurler Syndrome
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  GVHD TREATS HSCT-related complications IN Hurler Syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:1012617
+  medical_actions:
+    - MAXO:0000747
+    - treatment with enzyme replacement
+  symptoms:
+    - multiorgan dysfunction
+    - HP:0001263
+    - death
+    - thrombotic microangiopathy (TA-TMA)
+    - graft versus host disease (GVHD)
+    - bloodstream infections (BSI)
+  chemicals:
+    - alpha-L-iduronidase enzyme
+    - CHEBI:143889
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: enzyme deficiency
+      qualifier: MONDO:0011758
+    - predicate: PREVENTS
+      object: HP:0001268
+      qualifier: MONDO:0011758
+    - predicate: TREATS
+      object: multiorgan dysfunction
+      qualifier: MONDO:0011758
+      subject_qualifier: with
+    - predicate: TREATS
+      object: HP:0000943
+    - predicate: TREATS
+      object: HSCT-related complications
+      qualifier: MONDO:0011758
+    - predicate: TREATS
+      object: complications
+      qualifier: MONDO:0011758
+      subject_extension: CHEBI:64389
+    - subject: GVHD
+      predicate: TREATS
+      object: HSCT-related complications
+      qualifier: MONDO:0011758
+named_entities:
+  - id: HP:0001263
+    label: cognitive delay
+    original_spans:
+      - 392:406
+  - id: CHEBI:64389
+    label: BSI
+    original_spans:
+      - 815:817
+      - 821:823
+      - 959:961
+      - 1164:1166
+      - 1579:1581
+      - 1791:1793
+      - 1999:2001
+      - 2206:2208

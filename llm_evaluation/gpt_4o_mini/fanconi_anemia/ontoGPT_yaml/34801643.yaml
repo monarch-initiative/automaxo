@@ -1,0 +1,76 @@
+---
+input_text: Translational research for bone marrow failure patients. Bone marrow failure
+  syndromes encompass a range of inherited and acquired hematological diseases that
+  result in insufficient blood cell production, which leads to severe complications
+  including anemia, weakening of the immune system, impaired coagulation, and increased
+  risk of cancer. Within inherited bone marrow failure syndromes, a number of genetically
+  distinct diseases have been described including Shwachman-Diamond syndrome and Fanconi
+  anemia. Given the genetic complexity and poor prognosis of these inherited bone
+  marrow failure syndromes, there is increasing interest in both characterizing the
+  genetic landscapes of these diseases and developing novel gene therapies to effectively
+  monitor and cure patients. These topics were the focus of the winter 2021 International
+  Society for Experimental Hematology New Investigator Webinar, which featured presentations
+  by Dr. Akiko Shimamura and Dr. Paula Rio. Here, we review the topics covered within
+  this webinar.
+raw_completion_output: |-
+  primary_disease: bone marrow failure syndromes  
+  medical_actions: gene therapies  
+  symptoms: anemia; weakening of the immune system; impaired coagulation; increased risk of cancer  
+  chemicals: None  
+  action_annotation_relationships: gene therapies TREATS anemia IN bone marrow failure syndromes; gene therapies TREATS weakening of the immune system IN bone marrow failure syndromes; gene therapies TREATS impaired coagulation IN bone marrow failure syndromes; gene therapies TREATS increased risk of cancer IN bone marrow failure syndromes  
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  gene therapies TREATS increased risk of cancer IN bone marrow failure syndromes
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0000159
+  medical_actions:
+    - MAXO:0001001
+  symptoms:
+    - HP:0001903
+    - weakening of the immune system
+    - impaired coagulation
+    - increased risk of cancer
+  chemicals:
+    - None
+  action_annotation_relationships:
+    - subject: MAXO:0001001
+      predicate: TREATS
+      object: HP:0001903
+      qualifier: MONDO:0000159
+      subject_extension: gene therapies
+      object_extension: anemia
+    - subject: TREATS
+      predicate: TREATS
+      object: weakening of the immune system
+      qualifier: MONDO:0000159
+      subject_extension: gene therapies
+      object_extension: immune system
+    - subject: MAXO:0001001
+      predicate: TREATS
+      object: impaired coagulation
+      qualifier: MONDO:0000159
+      subject_extension: gene therapies
+      object_extension: impaired coagulation
+    - subject: TREATS
+      predicate: TREATS
+      object: increased risk of cancer
+      qualifier: MONDO:0000159
+      subject_qualifier: N/A
+      object_qualifier: N/A
+      subject_extension: gene therapies
+      object_extension: cancer

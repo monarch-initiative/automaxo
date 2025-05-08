@@ -1,0 +1,73 @@
+---
+input_text: 'Outcomes in pediatrics patients diagnosed with bone marrow failure disorders
+  treated in a tertiary care center. INTRODUCTION: Bone marrow failure (BMF) syndromes
+  are rare disorders with an annual incidence of 2-4 cases per million. Treatment
+  options include immunosuppressive therapy (IST) and hematopoietic stem cell transplantation
+  (HSCT). OBJECTIVE: To analyze the outcomes of pediatric patients diagnosed with
+  BMF treated in a tertiary care center. PATIENTS AND METHOD: Retrospective study
+  of pediatric patients diagnosed with BMF who consulted at Fundacion Valle de Lili,
+  Cali. Descriptive statistical analysis was performed according to Acquired BMF (ABMF)
+  and Inherited BMF (IBMF). The outcomes include treatment, complications, overall
+  survival (OS) in transplant patients, calculated using the Kaplan Meier method.
+  RESULTS: We included 24 patients with BMF, average age 6.5 +- 4 years, and 50% were
+  women. 58% presented IBMF, 9 with Fanconi anemia (FA), 2 dyskeratosis congenita,
+  2 congenital amegakaryocytic thrombocytopenia, and 1 presented Diamond-Blackfan
+  anemia. 12 patients treated with HSCT had a 5-year OS of 83%. ABMF represented 42%.
+  6 patients received IST-HSCT, 3 received IST, and 1 received HSCT. The OS of the
+  IST-HSCT group was 86%. Six patients died, four of them related to infection. CONCLUSIONS:
+  In this series, there was a higher number of cases with IBMF. The OS of patients
+  treated with HSCT is similar to that reported in recent studies. The most frequent
+  cause of death was of infectious origin which has also been previously reported.
+  The treatment esta blished in the patients showed favorable results in a Latin American
+  tertiary care center.'
+raw_completion_output: |-
+  primary_disease: Bone marrow failure (BMF) syndromes  
+  medical_actions: immunosuppressive therapy (IST); hematopoietic stem cell transplantation (HSCT)  
+  symptoms: infection  
+  chemicals: None  
+  action_annotation_relationships: immunosuppressive therapy (IST) TREATS symptom infection IN bone marrow failure (BMF) syndromes; hematopoietic stem cell transplantation (HSCT) TREATS symptom infection IN bone marrow failure (BMF) syndromes
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  hematopoietic stem cell transplantation (HSCT) TREATS symptom infection IN bone marrow failure (BMF) syndromes
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0000159
+  medical_actions:
+    - immunosuppressive therapy (IST)
+    - MAXO:0000747
+  symptoms:
+    - infection
+  chemicals:
+    - None
+  action_annotation_relationships:
+    - subject: immunosuppressive therapy
+      predicate: TREATS
+      object: infection
+      qualifier: MONDO:0000159
+      subject_extension: immunosuppressive therapy
+      object_extension: infection
+    - subject: MAXO:0000747
+      predicate: TREATS
+      object: infection
+      qualifier: MONDO:0000159
+      subject_extension: hematopoietic stem cell transplantation
+      object_extension: infection
+named_entities:
+  - id: MONDO:0000159
+    label: Bone marrow failure (BMF) syndromes
+    original_spans:
+      - 126:160

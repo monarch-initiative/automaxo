@@ -1,0 +1,110 @@
+---
+input_text: 'Evolution of maple syrup urine disease in patients diagnosed by newborn
+  screening versus late diagnosis. Maple syrup urine disease (MSUD) is a rare metabolic
+  disorder for which the newborn screening (NBS) is possible but it has not been yet
+  implemented for most Spanish regions. In the present study, we assess the clinical
+  features and outcome of 14 MSUD Spanish patients with similar treatment protocol
+  diagnosed either by NBS or by clinical symptoms. Eight patients were detected by
+  NBS, four classic and four moderate MSUD. The average age at detection was 4.6 days,
+  the mean plasmatic concentration of leucine at diagnosis was 1807 muM; the average
+  number of days with leucine >1000 muM was 0.7 (0-4) and the mean number of total
+  hospitalizations was 1.6 (0-5). Mean follow-up time was 70 months. They had good
+  evolution: all remain asymptomatic, but 2 patients have attention deficit and hyperactivity
+  disorder. Six patients with late diagnosis of classic MSUD were followed during
+  41 months. All presented with acute encephalopathy during the first month of life,
+  mean leucine levels of 2355 muM, mean number of days with leucine >1000 muM of 6.6
+  (1-13) and mean number of total hospitalizations of 5.3 (4-7). Only two patients
+  have a psychomotor development index in the lower limit (80 and 83). For all patients
+  a good genotype-phenotype correlation was found and four novel mutations were identified:
+  p.A311H, p.T84S, p.T397L, pL398P. Our study support that NBS improves prognosis
+  of MSUD patients. But early diagnosis and an aggressive treatment together with
+  a close monitoring of leucine levels improve neurological evolution in MSUD patients,
+  even for those not detected by NBS. '
+raw_completion_output: |-
+  primary_disease: Maple syrup urine disease (MSUD)  
+  medical_actions: newborn screening (NBS); aggressive treatment; close monitoring of leucine levels  
+  symptoms: asymptomatic; attention deficit; hyperactivity disorder; acute encephalopathy; psychomotor development index in the lower limit  
+  chemicals: leucine  
+  action_annotation_relationships: newborn screening (NBS) TREATS asymptomatic IN Maple syrup urine disease (MSUD); aggressive treatment TREATS attention deficit IN Maple syrup urine disease (MSUD); aggressive treatment TREATS hyperactivity disorder IN Maple syrup urine disease (MSUD); aggressive treatment TREATS acute encephalopathy IN Maple syrup urine disease (MSUD); close monitoring of leucine levels TREATS psychomotor development index in the lower limit IN Maple syrup urine disease (MSUD); close monitoring of leucine levels TREATS acute encephalopathy IN Maple syrup urine disease (MSUD)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  close monitoring of leucine levels TREATS acute encephalopathy IN Maple syrup urine disease (MSUD)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009563
+  medical_actions:
+    - newborn screening (NBS)
+    - aggressive treatment
+    - close monitoring of leucine levels
+  symptoms:
+    - asymptomatic
+    - HP:0007018
+    - hyperactivity disorder
+    - HP:0006846
+    - psychomotor development index in the lower limit
+  chemicals:
+    - CHEBI:25017
+  action_annotation_relationships:
+    - subject: newborn screening
+      predicate: TREATS
+      object: asymptomatic
+      qualifier: MONDO:0009563
+      subject_extension: <newborn screening>
+      object_extension: <asymptomatic>
+    - subject: aggressive treatment
+      predicate: TREATS
+      object: HP:0007018
+      qualifier: MONDO:0009563
+      subject_extension: aggressive treatment
+      object_extension: attention deficit
+    - subject: aggressive treatment
+      predicate: TREATS
+      object: hyperactivity disorder
+      qualifier: MONDO:0009563
+      subject_extension: aggressive treatment
+      object_extension: hyperactivity disorder
+    - subject: aggressive treatment
+      predicate: TREATS
+      object: HP:0006846
+      qualifier: MONDO:0009563
+      subject_extension: aggressive treatment
+      object_extension: acute encephalopathy
+    - subject: close monitoring
+      predicate: TREATS
+      object: psychomotor development index
+      qualifier: MONDO:0009563
+      subject_qualifier: N/A
+      object_qualifier: in the lower limit
+      subject_extension: leucine monitoring
+      object_extension: psychomotor development index
+    - subject: close monitoring
+      predicate: TREATS
+      object: HP:0006846
+      qualifier: MONDO:0009563
+      subject_qualifier: '-'
+      object_qualifier: '-'
+      subject_extension: leucine levels
+      object_extension: acute encephalopathy
+named_entities:
+  - id: HP:0007018
+    label: attention deficit
+    original_spans:
+      - 872:888
+  - id: HP:0006846
+    label: acute encephalopathy
+    original_spans:
+      - 1018:1037

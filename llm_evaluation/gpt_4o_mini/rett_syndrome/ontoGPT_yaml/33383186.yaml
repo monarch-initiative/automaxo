@@ -1,0 +1,134 @@
+---
+input_text: 'Severe offtarget effects following intravenous delivery of AAV9-MECP2
+  in a female mouse model of Rett syndrome. Rett syndrome (RTT) is a severe X-linked
+  neurodevelopmental disorder that is primarily caused by mutations in the methyl
+  CpG binding protein 2 gene (MECP2). RTT is the second most prevalent genetic cause
+  of intellectual disability in girls, and there is currently no cure for the disease.
+  We have previously shown that gene therapy using a self-complementary AAV9 viral
+  vector expressing a codon-optimized Mecp2 version (AAV9-MCO) significantly improved
+  symptoms and increased survival in male Mecp2-deficient mice. Here, we pursued our
+  studies and investigated the safety and efficacy of long-term gene therapy in the
+  genetically relevant RTT mouse model: the heterozygous (HET) Mecp2 deficient female
+  mouse. These mice were injected with the AAV9-MCO vector through the tail vein and
+  an array of behavioral tests was performed. At 16- and 30-weeks post-injection,
+  this treatment was able to rescue apneas and improved the spontaneous locomotor
+  deficits and circadian locomotor activity in Mecp2 HET mice treated with AAV9-MCO
+  at a dose of 5 x 1011 vg/mouse. To examine whether a higher dose of vector could
+  result in increased improvements, we injected Mecp2 HET mice with a higher MCO vector
+  dose (1012 vg/mouse), which resulted in some severe, sometimes lethal, side effects.
+  In order to confirm these effects, a new cohort of Mecp2 HET mice were administered
+  increasing doses of MCO vector (1011, 5 x 1011 and 1012 vg/mouse). Again, two weeks
+  after vector administration, some Mecp2 HET mice were found dead while others displayed
+  severe side effects and had to be euthanized. These deleterious effects were not
+  observed in Mecp2 HET mice injected with a high dose of AAV9-GFP and were directly
+  proportionate to vector dosage (0, 23 or 54% mortality at an AAV9-MCO dose of 1011,
+  5 x 1011, 1012 vg/mouse, respectively), and no such lethality was observed in wild-type
+  (WT) mice. In the Mecp2 HET mice treated with the high and medium AAV9-MCO doses,
+  blood chemistry analysis and post-mortem histology showed liver damage with drastically
+  elevated levels of liver transaminases and disorganized liver architecture. Apoptosis
+  was confirmed by the presence of TUNEL- and cleaved-caspase 3-positive cells in
+  the Mecp2 HET mice treated with the higher doses of AAV9-MCO. We then studied the
+  involvement of the unfolded protein response (UPR) in triggering apoptosis since
+  it can be activated by AAV vectors. Increased expression of the C/EBP homologous
+  protein (CHOP), one of UPR downstream effectors, was confirmed in Mecp2 HET mice
+  after vector administration. The toxic reaction seen in some treated mice indicates
+  that, although gene therapy for RTT improved breathing deficits observed in Mecp2
+  HET mice, further studies are needed to better understand the underlying mechanisms
+  and caution must be exercised before similar attempts are undertaken in female Rett
+  patients.'
+raw_completion_output: |-
+  primary_disease: Rett syndrome  
+  medical_actions: gene therapy; injection of AAV9-MCO vector; behavioral tests; blood chemistry analysis; post-mortem histology  
+  symptoms: apneas; spontaneous locomotor deficits; circadian locomotor activity; liver damage; elevated levels of liver transaminases; disorganized liver architecture; apoptosis  
+  chemicals: AAV9-MCO; AAV9-GFP  
+  action_annotation_relationships: gene therapy TREATS apneas IN Rett syndrome; gene therapy TREATS spontaneous locomotor deficits IN Rett syndrome; gene therapy TREATS circadian locomotor activity IN Rett syndrome; blood chemistry analysis TREATS liver damage IN Rett syndrome; post-mortem histology TREATS elevated levels of liver transaminases IN Rett syndrome; post-mortem histology TREATS disorganized liver architecture IN Rett syndrome; gene therapy (with chemical AAV9-MCO) TREATS apoptosis IN Rett syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  gene therapy (with chemical AAV9-MCO) TREATS apoptosis IN Rett syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010726
+  medical_actions:
+    - MAXO:0001001
+    - injection of AAV9-MCO vector
+    - behavioral tests
+    - blood chemistry analysis
+    - post-mortem histology
+  symptoms:
+    - HP:0002104
+    - spontaneous locomotor deficits
+    - circadian locomotor activity
+    - liver damage
+    - elevated levels of liver transaminases
+    - disorganized liver architecture
+    - apoptosis
+  chemicals:
+    - AAV9-MCO
+    - AAV9-GFP
+  action_annotation_relationships:
+    - subject: MAXO:0001001
+      predicate: TREATS
+      object: HP:0002104
+      qualifier: MONDO:0010726
+      subject_extension: gene therapy
+      object_extension: apneas
+    - subject: MAXO:0001001
+      predicate: TREATS
+      object: spontaneous locomotor deficits
+      qualifier: MONDO:0010726
+      subject_qualifier: 'NULL'
+      object_qualifier: 'NULL'
+      subject_extension: gene therapy
+      object_extension: spontaneous locomotor deficits
+    - subject: MAXO:0001001
+      predicate: TREATS
+      object: circadian locomotor activity
+      qualifier: MONDO:0010726
+      subject_extension: gene therapy
+      object_extension: circadian locomotor activity
+    - subject: <blood chemistry analysis>
+      predicate: <TREATS>
+      object: <liver damage>
+      qualifier: <Rett syndrome>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <blood chemistry analysis>
+      object_extension: <liver damage>
+    - subject: post-mortem histology
+      predicate: TREATS
+      object: elevated levels of liver transaminases
+      qualifier: MONDO:0010726
+      subject_extension: post-mortem histology
+      object_extension: elevated levels
+    - subject: post-mortem histology
+      predicate: TREATS
+      object: disorganized liver architecture
+      qualifier: MONDO:0010726
+      subject_extension: post-mortem histology
+      object_extension: disorganized liver architecture
+    - subject: MAXO:0001001
+      predicate: TREATS
+      object: apoptosis
+      qualifier: MONDO:0010726
+      subject_qualifier: with chemical AAV9-MCO
+      subject_extension: AAV9-MCO
+      object_extension: apoptosis
+named_entities:
+  - id: HP:0002104
+    label: apneas
+    original_spans:
+      - 1012:1017

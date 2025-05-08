@@ -8,6 +8,10 @@ from ontogpt.io.template_loader import get_template_details
 from ontogpt.cli import write_extraction
 from tqdm import tqdm
 
+from oaklib.utilities.apikey_manager import get_apikey_value
+from ontogpt.clients.llm_client import LLMClient
+
+
 # Initialize logger
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -41,7 +45,8 @@ def process_article(pubmed_id: str, text: str, ke: SPIRESEngine, output_dir: str
         template=template,
         output=output,
         output_format=output_format,
-        knowledge_engine=ke
+        knowledge_engine=ke,
+        cut_input_text=False,
     )
 
     # Save the output to a YAML file named after the PubMed ID in the specified output directory
@@ -84,13 +89,18 @@ def process_tsv_file(file_path: str, ke, output_dir: str, existing_pmids: set, t
 @click.option('-t','--template', default='maxo') # help='Template to use for extraction (default: maxo)'
 def main(input_file, output_dir, template):
     # Initialize the SPIRES engine with the specified template
+    model_name="gpt-4-0125-preview", # GPT 4
+    # model_name="gpt-4o-mini-2024-07-18", # GPT 4o-mini
+    client = LLMClient(
+        api_key=get_apikey_value("openai"),
+        model = model_name,
+        custom_llm_provider = "openai",
+    )
     ke = SPIRESEngine(
         template_details=get_template_details(template=template),
-        model="gpt-4-0125-preview",
-        model_source="openai",
-        # api_base ="https:/api.cborg.lbl.gov",
-        # api_key=
-        # https://cborg.lbl.gov/api_examples/ 
+        client=client,
+        model = model_name,
+
     )
 
     # Create the output directory if it does not exist

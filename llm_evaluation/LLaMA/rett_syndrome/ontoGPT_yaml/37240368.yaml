@@ -1,0 +1,102 @@
+---
+input_text: 'Evidence Synthesis of Gene Therapy and Gene Editing from Different Disorders-Implications
+  for Individuals with Rett Syndrome: A Systematic Review. This systematic review
+  and thematic analysis critically evaluated gene therapy trials in amyotrophic lateral
+  sclerosis, haemoglobinopathies, immunodeficiencies, leukodystrophies, lysosomal
+  storage disorders and retinal dystrophies and extrapolated the key clinical findings
+  to individuals with Rett syndrome (RTT). The PRISMA guidelines were used to search
+  six databases during the last decade, followed by a thematic analysis to identify
+  the emerging themes. Thematic analysis across the different disorders revealed four
+  themes: (I) Therapeutic time window of gene therapy; (II) Administration and dosing
+  strategies for gene therapy; (III) Methods of gene therapeutics and (IV) Future
+  areas of clinical interest. Our synthesis of information has further enriched the
+  current clinical evidence base and can assist in optimising gene therapy and gene
+  editing studies in individuals with RTT, but it would also benefit when applied
+  to other disorders. The findings suggest that gene therapies have better outcomes
+  when the brain is not the primary target. Across different disorders, early intervention
+  appears to be more critical, and targeting the pre-symptomatic stage might prevent
+  symptom pathology. Intervention at later stages of disease progression may benefit
+  by helping to clinically stabilise patients and preventing disease-related symptoms
+  from worsening. If gene therapy or editing has the desired outcome, older patients
+  would need concerted rehabilitation efforts to reverse their impairments. The timing
+  of intervention and the administration route would be critical parameters for successful
+  outcomes of gene therapy/editing trials in individuals with RTT. Current approaches
+  also need to overcome the challenges of MeCP2 dosing, genotoxicity, transduction
+  efficiencies and biodistribution.'
+raw_completion_output: |-
+  Here are the extracted entities in the requested format:
+
+  primary_disease: Rett syndrome (RTT); amyotrophic lateral sclerosis; haemoglobinopathies; immunodeficiencies; leukodystrophies; lysosomal storage disorders; retinal dystrophies
+
+  medical_actions: gene therapy; gene editing; early intervention; targeting the pre-symptomatic stage; administration and dosing strategies for gene therapy; concerted rehabilitation efforts
+
+  symptoms: symptom pathology; disease-related symptoms; impairments
+
+  chemicals: MeCP2
+
+  action_annotation_relationships: gene therapy TREATS symptom pathology IN Rett syndrome; early intervention PREVENTS symptom pathology IN Rett syndrome; gene therapy TREATS disease-related symptoms IN Rett syndrome; concerted rehabilitation efforts TREATS impairments IN Rett syndrome; gene therapy (with MeCP2) TREATS Rett syndrome; targeting the pre-symptomatic stage PREVENTS symptom pathology IN Rett syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  targeting the pre-symptomatic stage PREVENTS symptom pathology IN Rett syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010726
+  medical_actions:
+    - MAXO:0001001
+    - gene editing
+    - MAXO:0009101
+    - targeting the pre-symptomatic stage
+    - administration and dosing strategies for gene therapy
+    - concerted rehabilitation efforts
+  symptoms:
+    - symptom pathology
+    - disease-related symptoms
+    - impairments
+  chemicals:
+    - MeCP2
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: symptom pathology
+      qualifier: MONDO:0010726
+    - predicate: PREVENTS
+      object: symptom pathology
+      qualifier: MONDO:0010726
+    - subject: MAXO:0001001
+      predicate: TREATS
+      object: symptoms
+      qualifier: MONDO:0010726
+    - subject: rehabilitation efforts
+      predicate: TREATS
+      object: impairments
+      qualifier: MONDO:0010726
+      subject_qualifier: concerted
+      object_qualifier: (none)
+      subject_extension: rehabilitation
+      object_extension: impairments
+    - predicate: TREATS
+      object: Rett syndrome
+      qualifier: MONDO:0010726
+      subject_qualifier: with MeCP2
+      subject_extension: gene therapy
+    - predicate: PREVENTS
+      object: symptom pathology
+      qualifier: MONDO:0010726
+named_entities:
+  - id: MAXO:0009101
+    label: early intervention
+    original_spans:
+      - 1230:1247

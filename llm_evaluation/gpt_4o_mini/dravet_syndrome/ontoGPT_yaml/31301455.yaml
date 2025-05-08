@@ -1,0 +1,83 @@
+---
+input_text: 'Seizure management and prescription patterns of anticonvulsants in Dravet
+  syndrome: A multicenter cohort study from Germany and review of literature. OBJECTIVE:
+  The aim of this study was to describe the treatment pattern of patients with Dravet
+  syndrome (DS) in Germany with routine antiepileptic drugs (AEDs) and emergency medication,
+  and to review the literature of real-world evidence on medicine utilization of patients
+  with DS in Europe. METHODS: Patient use of routine AEDs and emergency medications
+  over 3-6 months was analyzed from a 2018 multicenter survey of 93 caregivers of
+  patients with DS throughout Germany. Results were contextualized in a review of
+  real-world evidence on medicine utilization of patients with DS in Europe. RESULTS:
+  The variety of medications and the most frequent combinations routinely used by
+  patients with DS (AEDs and others) are described. Patients use a large number of
+  pharmaceutical treatments to manage seizures. The five most commonly used AEDs were
+  sodium valproate (66% of the patients; mean daily dose: 660 mg; 24.5 mg per kg bodyweight),
+  bromide (44%; 1462 mg; 51.2 mg per kg), clobazam (41%; 10.4 mg; 0.32 mg per kg),
+  stiripentol (35%; 797 mg; 27.6 mg per kg), and topiramate (24%; 107 mg; 3.5 mg per
+  kg). Ninety percent had reported using emergency medications in the last 3 months;,
+  with the most common medications being Buccolam (40%, an oromucosal form of midazolam)
+  and diazepam (20%, mostly rectal application). No discernable relationships between
+  current medication and age or seizure frequency were observed. SIGNIFICANCE: This
+  is the first comprehensive report of routine AEDs and emergency medication use in
+  a large sample of patients with DS in Germany over a period of 3-6 months and shows
+  that despite the most common AED combinations being in line with clinical guidelines/best
+  practice, there is no discernable impact of best treatment on seizure frequency.
+  We find a higher use of bromide in Germany compared with other real-world evidence
+  in Europe.'
+raw_completion_output: |-
+  primary_disease: Dravet syndrome  
+  medical_actions: prescribe anticonvulsants; use emergency medications; manage seizures  
+  symptoms: seizures  
+  chemicals: sodium valproate; bromide; clobazam; stiripentol; topiramate; midazolam; diazepam  
+  action_annotation_relationships: prescribe anticonvulsants TREATS symptom (seizures) IN Dravet syndrome; use emergency medications TREATS symptom (seizures) IN Dravet syndrome; manage seizures TREATS symptom (seizures) IN Dravet syndrome
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  manage seizures TREATS symptom (seizures) IN Dravet syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0100135
+  medical_actions:
+    - prescribe anticonvulsants
+    - use emergency medications
+    - manage seizures
+  symptoms:
+    - HP:0001250
+  chemicals:
+    - CHEBI:9925
+    - CHEBI:15858
+    - CHEBI:31413
+    - CHEBI:228488
+    - CHEBI:63631
+    - CHEBI:6931
+    - CHEBI:49575
+  action_annotation_relationships:
+    - subject: prescribe
+      predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0100135
+      subject_extension: CHEBI:35623
+      object_extension: seizures
+    - predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0100135
+      subject_extension: emergency medications
+    - subject: manage seizures
+      predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0100135
+      subject_extension: seizures
+      object_extension: symptom

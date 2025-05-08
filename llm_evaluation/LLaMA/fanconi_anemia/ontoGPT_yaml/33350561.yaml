@@ -1,0 +1,124 @@
+---
+input_text: A case series of medication-related fibrovascular hyperplasia following
+  hematopoietic stem cell transplantation for Fanconi anemia. Systemic medications
+  categorized as diphenylhydantoin, calcineurin inhibitor and calcium channel blocker
+  may have effects on the oral cavity by modifying the inflammatory and immune response
+  and causing undesired tissue proliferative reactions. Calcineurin inhibitors are
+  medications commonly used for long periods in patients undergoing allogeneic hematopoietic
+  stem cell transplant (HSCT) and solid organ transplantation. Medication-related
+  fibrovascular hyperplasia (MRFH) is an extra gingival hyperplastic nodular growth
+  associated with medications use. This study reports five cases of pediatric patients
+  (6 to 12-years-old) diagnosed with Fanconi anemia (FA) after HSCT who presented
+  similar oral mucosal lesions associated with the use of cyclosporine, phenobarbital
+  and amlodipine. After excision of the lesions, histopathological analysis described
+  them as pyogenic granuloma (PG). As the aetiology of the lesions manifested by the
+  patients was associated with the use of medications, the final diagnosis was MRFH.
+  Despite the clinical and histopathological similarity between PG and MRFH, it is
+  fundamental to know the aetiological agent for achieving definitive diagnosis and
+  correct management. Considering the etiologic agent (medication) and histopathological
+  findings, it is suggested that the most appropriate term for this manifestation
+  should be "medication-related fibrovascular hyperplasia". The correct nomenclature
+  related to extra gingival hyperplastic lesions identified in patients on medications
+  with potential to induce hyperplastic reactions should be adopted to facilitate
+  scientific communication and improve the treatment.
+raw_completion_output: |-
+  Here are the extracted entities in the requested format:
+
+  primary_disease: Fanconi anemia; medication-related fibrovascular hyperplasia
+
+  medical_actions: hematopoietic stem cell transplantation; excision of lesions; use of cyclosporine; use of phenobarbital; use of amlodipine
+
+  symptoms: oral mucosal lesions; extra gingival hyperplastic nodular growth; pyogenic granuloma; undesired tissue proliferative reactions
+
+  chemicals: diphenylhydantoin; calcineurin inhibitor; calcium channel blocker; cyclosporine; phenobarbital; amlodipine
+
+  action_annotation_relationships: cyclosporine TREATS Fanconi anemia IN patients; phenobarbital TREATS Fanconi anemia IN patients; amlodipine TREATS Fanconi anemia IN patients; hematopoietic stem cell transplantation TREATS Fanconi anemia; excision of lesions TREATS medication-related fibrovascular hyperplasia IN patients; calcineurin inhibitor PREVENTS not explicitly stated symptom IN patients with Fanconi anemia; diphenylhydantoin PREVENTS not explicitly stated symptom IN patients with Fanconi anemia; calcium channel blocker PREVENTS not explicitly stated symptom IN patients with Fanconi anemia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  calcium channel blocker PREVENTS not explicitly stated symptom IN patients with Fanconi anemia
+
+  ===
+
+extracted_object:
+  primary_disease: Fanconi anemia; medication-related fibrovascular hyperplasia
+  medical_actions:
+    - MAXO:0000747
+    - excision of lesions
+    - use of cyclosporine
+    - use of phenobarbital
+    - use of amlodipine
+  symptoms:
+    - oral mucosal lesions
+    - extra gingival hyperplastic nodular growth
+    - pyogenic granuloma
+    - undesired tissue proliferative reactions
+  chemicals:
+    - diphenylhydantoin
+    - CHEBI:37153
+    - CHEBI:38215
+    - CHEBI:4031
+    - CHEBI:8069
+    - CHEBI:2668
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: Fanconi anemia
+      subject_extension: CHEBI:4031
+    - predicate: TREATS
+      object: Fanconi anemia
+    - predicate: TREATS
+      object: symptoms or complications of Fanconi anemia
+      qualifier: MONDO:0019391
+      subject_qualifier: IN patients
+      subject_extension: CHEBI:2668
+    - predicate: TREATS
+      object: Fanconi anemia
+    - predicate: TREATS
+      object: fibrovascular hyperplasia
+      qualifier: medication-related
+      object_qualifier: medication-related
+    - predicate: PREVENTS
+      object: not explicitly stated symptom
+      qualifier: MONDO:0019391
+      subject_extension: CHEBI:37153
+    - predicate: PREVENTS
+      object: not explicitly stated symptom
+      qualifier: MONDO:0019391
+    - subject: calcium channel blocker
+      predicate: PREVENTS
+      object: symptom (not specified)
+      qualifier: MONDO:0019391
+      subject_extension: CHEBI:38215
+named_entities:
+  - id: CHEBI:37153
+    label: calcineurin inhibitor
+    original_spans:
+      - 187:207
+      - 377:397
+  - id: CHEBI:38215
+    label: calcium channel blocker
+    original_spans:
+      - 213:235
+  - id: CHEBI:4031
+    label: cyclosporine
+    original_spans:
+      - 878:889
+  - id: CHEBI:8069
+    label: phenobarbital
+    original_spans:
+      - 892:904
+  - id: CHEBI:2668
+    label: amlodipine
+    original_spans:
+      - 910:919

@@ -1,0 +1,95 @@
+---
+input_text: "Treatment of maple syrup urine disease: Benefits, risks, and challenges
+  of liver transplantation. Maple syrup urine disease (MSUD) is caused by a deficiency
+  in the activity of the branched-chain alpha-ketoacid dehydrogenase (BCKD) complex,
+  promoting the accumulation of the branched-chain amino acids (BCAA) leucine, isoleucine,
+  and valine, as well as their respective alpha-keto acids. MSUD is an autosomal recessive
+  hereditary metabolic disorder characterized by ketoacidosis, ataxia, coma, and mental
+  and psychomotor retardation. The mechanisms involved in the brain damage caused
+  by MSUD are not fully understood. Early diagnosis and treatment, as well as proper
+  control of metabolic decompensation crises, are crucial for patients' survival and
+  for a better prognosis. The recommended treatment consists of a high-calorie diet
+  with restricted protein intake and specific formulas containing essential amino
+  acids, except those accumulated in MSUD. This treatment will be maintained throughout
+  life, being adjusted according to the patients' nutritional needs and BCAA concentration.
+  Because dietary treatment may not be sufficient to prevent neurological damage in
+  MSUD patients, other therapeutic strategies have been studied, including liver transplantation.
+  With transplantation, it is possible to obtain an increase of about 10% of the normal
+  BCKD in the body, an amount sufficient to maintain amino acid homeostasis and reduce
+  metabolic decompensation crises. However, the experience related to this practice
+  is very limited when considering the shortage of liver for transplantation and the
+  risks related to the surgical procedure and immunosuppression. Thus, the purpose
+  of this review is to survey the benefits, risks, and challenges of liver transplantation
+  in the treatment of MSUD."
+raw_completion_output: |-
+  primary_disease: Maple syrup urine disease (MSUD)  
+  medical_actions: high-calorie diet with restricted protein intake; specific formulas containing essential amino acids; liver transplantation  
+  symptoms: ketoacidosis; ataxia; coma; mental retardation; psychomotor retardation  
+  chemicals: branched-chain amino acids (BCAA)  
+  action_annotation_relationships: high-calorie diet with restricted protein intake TREATS symptom ketoacidosis IN Maple syrup urine disease (MSUD); specific formulas containing essential amino acids TREATS symptom ketoacidosis IN Maple syrup urine disease (MSUD); liver transplantation TREATS symptom neurological damage IN Maple syrup urine disease (MSUD)  
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  liver transplantation TREATS symptom neurological damage IN Maple syrup urine disease (MSUD)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009563
+  medical_actions:
+    - high-calorie diet with restricted protein intake
+    - specific formulas containing essential amino acids
+    - MAXO:0001175
+  symptoms:
+    - HP:0001993
+    - HP:0001251
+    - HP:0001259
+    - HP:0001249
+    - psychomotor retardation
+  chemicals:
+    - CHEBI:22918
+  action_annotation_relationships:
+    - subject: TREATS
+      predicate: TREATS
+      object: symptom ketoacidosis
+      qualifier: MONDO:0009563
+      subject_qualifier: high-calorie
+      object_qualifier: restricted protein intake
+      subject_extension: high-calorie diet
+      object_extension: restricted protein intake
+    - subject: specific formulas containing essential amino acids
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0009563
+      subject_extension: essential amino acids
+      object_extension: ketoacidosis
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: neurological damage
+      qualifier: MONDO:0009563
+      subject_extension: liver transplantation
+      object_extension: neurological damage
+named_entities:
+  - id: HP:0001993
+    label: ketoacidosis
+    original_spans:
+      - 465:476
+  - id: HP:0001251
+    label: ataxia
+    original_spans:
+      - 479:484
+  - id: CHEBI:22918
+    label: branched-chain amino acids (BCAA)
+    original_spans:
+      - 274:306

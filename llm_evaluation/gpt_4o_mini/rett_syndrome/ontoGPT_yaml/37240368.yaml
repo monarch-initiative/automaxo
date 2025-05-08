@@ -1,0 +1,87 @@
+---
+input_text: 'Evidence Synthesis of Gene Therapy and Gene Editing from Different Disorders-Implications
+  for Individuals with Rett Syndrome: A Systematic Review. This systematic review
+  and thematic analysis critically evaluated gene therapy trials in amyotrophic lateral
+  sclerosis, haemoglobinopathies, immunodeficiencies, leukodystrophies, lysosomal
+  storage disorders and retinal dystrophies and extrapolated the key clinical findings
+  to individuals with Rett syndrome (RTT). The PRISMA guidelines were used to search
+  six databases during the last decade, followed by a thematic analysis to identify
+  the emerging themes. Thematic analysis across the different disorders revealed four
+  themes: (I) Therapeutic time window of gene therapy; (II) Administration and dosing
+  strategies for gene therapy; (III) Methods of gene therapeutics and (IV) Future
+  areas of clinical interest. Our synthesis of information has further enriched the
+  current clinical evidence base and can assist in optimising gene therapy and gene
+  editing studies in individuals with RTT, but it would also benefit when applied
+  to other disorders. The findings suggest that gene therapies have better outcomes
+  when the brain is not the primary target. Across different disorders, early intervention
+  appears to be more critical, and targeting the pre-symptomatic stage might prevent
+  symptom pathology. Intervention at later stages of disease progression may benefit
+  by helping to clinically stabilise patients and preventing disease-related symptoms
+  from worsening. If gene therapy or editing has the desired outcome, older patients
+  would need concerted rehabilitation efforts to reverse their impairments. The timing
+  of intervention and the administration route would be critical parameters for successful
+  outcomes of gene therapy/editing trials in individuals with RTT. Current approaches
+  also need to overcome the challenges of MeCP2 dosing, genotoxicity, transduction
+  efficiencies and biodistribution.'
+raw_completion_output: |-
+  primary_disease: Rett Syndrome  
+  medical_actions: Gene therapy; Gene editing; Rehabilitation efforts  
+  symptoms: Symptom pathology; Disease-related symptoms  
+  chemicals: MeCP2  
+  action_annotation_relationships: Gene therapy TREATS symptom pathology IN Rett Syndrome; Gene therapy PREVENTS disease-related symptoms IN Rett Syndrome; Gene editing TREATS symptom pathology IN Rett Syndrome; Rehabilitation efforts TREATS symptom pathology IN Rett Syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Rehabilitation efforts TREATS symptom pathology IN Rett Syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010726
+  medical_actions:
+    - MAXO:0001001
+    - Gene editing
+    - Rehabilitation efforts
+  symptoms:
+    - Symptom pathology
+    - Disease-related symptoms
+  chemicals:
+    - MeCP2
+  action_annotation_relationships:
+    - subject: MAXO:0001001
+      predicate: TREATS
+      object: symptom pathology
+      qualifier: MONDO:0010726
+      subject_extension: gene therapy
+      object_extension: symptom pathology
+    - subject: MAXO:0001001
+      predicate: PREVENTS
+      object: disease-related symptoms
+      qualifier: MONDO:0010726
+      subject_extension: gene therapy
+      object_extension: disease-related symptoms
+    - subject: gene editing
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0010726
+      subject_extension: gene editing
+      object_extension: pathology
+    - subject: Rehabilitation
+      predicate: TREATS
+      object: symptom pathology
+      qualifier: MONDO:0010726
+      subject_qualifier: N/A
+      object_qualifier: N/A
+      subject_extension: Rehabilitation efforts
+      object_extension: symptom pathology

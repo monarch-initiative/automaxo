@@ -1,0 +1,105 @@
+---
+input_text: Living related versus deceased donor liver transplantation for maple syrup
+  urine disease. Maple syrup urine disease (MSUD) is an inherited disorder of branched
+  chain ketoacid (BCKA) oxidation associated with episodic and chronic brain disease.
+  Transplantation of liver from an unrelated deceased donor restores 9-13% whole-body
+  BCKA oxidation capacity and stabilizes MSUD. Recent reports document encouraging
+  short-term outcomes for MSUD patients who received a liver segment from mutation
+  heterozygous living related donors (LRDT). To investigate effects of living related
+  versus deceased unrelated grafts, we studied four Brazilian MSUD patients treated
+  with LRDT who were followed for a mean 19 +- 12 postoperative months, and compared
+  metabolic and clinical outcomes to 37 classical MSUD patients treated with deceased
+  donor transplant. Patient and graft survival for LRDT were 100%. Three of 4 MSUD
+  livers were successfully domino transplanted into non-MSUD subjects. Following LRDT,
+  all subjects resumed a protein-unrestricted diet as mean plasma leucine decreased
+  from 224 +- 306 muM to 143 +- 44 muM and allo-isoleucine decreased 91%. We observed
+  no episodes of hyperleucinemia during 80 aggregate postoperative patient-months.
+  Mean plasma leucine:isoleucine:valine concentration ratios were ~2:1:4 after deceased
+  donor transplant compared to ~1:1:1.5 following LRDT, resulting in differences of
+  predicted cerebral amino acid uptake. Mutant heterozygous liver segments effectively
+  maintain steady-state BCAA and BCKA homeostasis on an unrestricted diet and during
+  most catabolic states, but might have different metabolic effects than grafts from
+  unrelated deceased donors. Neither living related nor deceased donor transplant
+  affords complete protection from metabolic intoxication, but both strategies represent
+  viable alternatives to nutritional management.
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Maple syrup urine disease (MSUD)
+
+  medical_actions: Liver transplantation from living related donors; Liver transplantation from deceased unrelated donors; Nutritional management
+
+  symptoms: Hyperleucinemia; Episodic and chronic brain disease; Metabolic intoxication
+
+  chemicals: Leucine; Isoleucine; Valine; Branched chain ketoacid (BCKA)
+
+  action_annotation_relationships: Liver transplantation from living related donors TREATS hyperleucinemia IN MSUD; Liver transplantation from deceased unrelated donors TREATS hyperleucinemia IN MSUD; Liver transplantation from living related donors PREVENTS metabolic intoxication IN MSUD; Liver transplantation from deceased unrelated donors PREVENTS metabolic intoxication IN MSUD; Nutritional management TREATS MSUD; Liver transplantation (with living related donor graft) TREATS episodic and chronic brain disease IN MSUD; Liver transplantation (with deceased unrelated donor graft) TREATS episodic and chronic brain disease IN MSUD
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Liver transplantation (with deceased unrelated donor graft) TREATS episodic and chronic brain disease IN MSUD
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009563
+  medical_actions:
+    - Liver transplantation from living related donors
+    - Liver transplantation from deceased unrelated donors
+    - Nutritional management
+  symptoms:
+    - HP:0010911
+    - Episodic and chronic brain disease
+    - Metabolic intoxication
+  chemicals:
+    - CHEBI:25017
+    - CHEBI:24898
+    - CHEBI:27266
+    - CHEBI:191197
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: HP:0010911
+      qualifier: MONDO:0009563
+      subject_qualifier: from living related donors
+    - predicate: TREATS
+      object: HP:0010911
+      qualifier: MONDO:0009563
+      subject_qualifier: from deceased unrelated donors
+    - subject: MAXO:0001175
+      predicate: PREVENTS
+      object: metabolic intoxication
+      qualifier: MONDO:0009563
+      subject_qualifier: from living related donors
+      object_qualifier: IN MSUD
+      subject_extension: transplantation
+      object_extension: intoxication
+    - predicate: PREVENTS
+      object: metabolic intoxication
+      qualifier: MONDO:0009563
+      subject_qualifier: from deceased unrelated donors
+      object_qualifier: IN MSUD
+    - predicate: TREATS
+    - predicate: TREATS
+      object: episodic and chronic brain disease
+      qualifier: MONDO:0009563
+      subject_qualifier: with living related donor graft
+    - predicate: TREATS
+      object: episodic and chronic brain disease
+      qualifier: MONDO:0009563
+      subject_qualifier: with deceased unrelated donor graft
+named_entities:
+  - id: HP:0010911
+    label: Hyperleucinemia
+    original_spans:
+      - 1170:1184

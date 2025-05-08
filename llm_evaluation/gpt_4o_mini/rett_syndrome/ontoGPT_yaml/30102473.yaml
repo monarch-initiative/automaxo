@@ -1,0 +1,90 @@
+---
+input_text: 'Clinical and molecular evaluation of 16 patients with Rett syndrome.
+  Zengin-Akkus P, Taskiran EZ, Kabacam S, Simsek-Kiper PO, Haliloglu G, Boduroglu
+  K, Utine GE. Clinical and molecular evaluation of 16 patients with Rett syndrome.
+  Turk J Pediatr 2018; 60: 1-9. Rett syndrome is a neurodevelopmental disorder caused
+  by mutations in MECP2. The disease is characterized by early neurological regression
+  following a normal initial development. The diagnosis is a clinical one, based on
+  major and minor diagnostic criteria. This study, in a group of patients from a single
+  tertiary center, aimed to evaluate the efficiency of clinical diagnosis and to see
+  if there was a diagnostic delay. A second aim was to investigate genotype-phenotype
+  correlations, based on Pineda scores. In this study, sixteen patients with a median
+  age of 6.5 years (2.5-22 years) were included, following molecular confirmation
+  of clinical diagnosis. The median age at the onset of symptoms and the median age
+  at clinical diagnosis was 1.5 years and 2.5 years, respectively, the difference
+  being statistically significant. Considering the Rett syndrome diagnostic criteria,
+  initially regulated in 2002 and revised in 2010, seven and two patients in our group,
+  respectively, did not meet the main criteria. Pineda scores among mutation groups
+  were statistically not different. To conclude, the present study revealed presence
+  of a diagnostic delay. The challenge may be that the patients do not exhibit full-blown
+  clinical picture initially. No genotype-phenotype correlations were detected in
+  clinical severity, as measured by Pineda scores. Moreover, the diagnostic criteria
+  revised in 2010 are more comprehensive as compared to the 2002 criteria; however,
+  further revision may increase diagnostic sensitivity.'
+raw_completion_output: |-
+  primary_disease: Rett syndrome  
+  medical_actions: clinical evaluation; molecular evaluation; diagnostic criteria assessment  
+  symptoms: neurological regression; developmental delay  
+  chemicals: MECP2  
+  action_annotation_relationships: clinical evaluation TREATS symptom neurological regression IN Rett syndrome; clinical evaluation TREATS symptom developmental delay IN Rett syndrome; molecular evaluation TREATS symptom neurological regression IN Rett syndrome; molecular evaluation TREATS symptom developmental delay IN Rett syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  molecular evaluation TREATS symptom developmental delay IN Rett syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010726
+  medical_actions:
+    - clinical evaluation
+    - molecular evaluation
+    - diagnostic criteria assessment
+  symptoms:
+    - neurological regression
+    - HP:0001263
+  chemicals:
+    - MECP2
+  action_annotation_relationships:
+    - subject: clinical evaluation
+      predicate: TREATS
+      object: neurological regression
+      qualifier: MONDO:0010726
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: <None>
+      object_extension: <None>
+    - subject: clinical evaluation
+      predicate: TREATS
+      object: symptom developmental delay
+      qualifier: MONDO:0010726
+      subject_qualifier: <none>
+      object_qualifier: <none>
+      subject_extension: <none>
+      object_extension: <none>
+    - subject: molecular evaluation
+      predicate: TREATS
+      object: neurological regression
+      qualifier: MONDO:0010726
+      subject_extension: molecular evaluation
+      object_extension: neurological regression
+    - subject: molecular evaluation
+      predicate: TREATS
+      object: HP:0001263
+      qualifier: MONDO:0010726
+      subject_extension: molecular evaluation
+      object_extension: developmental delay
+named_entities:
+  - id: HP:0001263
+    label: developmental delay

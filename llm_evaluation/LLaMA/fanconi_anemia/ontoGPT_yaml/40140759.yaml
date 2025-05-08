@@ -1,0 +1,171 @@
+---
+input_text: "Effective management of pediatric septic shock: a case study utilizing
+  continuous renal replacement therapy with cytosorb and citrate in a leukemic patient
+  with hyper-interleukin (IL)-6-naemia and severe thrombocytopenia. BACKGROUND: Sepsis
+  is a critical condition characterized by a dysregulated immune response to infection,
+  often resulting in organ dysfunction. Interleukin-6 (IL-6) is a key proinflammatory
+  cytokine associated with sepsis and its complications. This case study explored
+  the use of Continuous Renal Replacement Therapy (CRRT) combined with Cytosorb in
+  managing pediatric patients with leukemia, severe thrombocytopenia, and elevated
+  IL-6 levels. CASE PRESENTATION: A 10-year-old boy with Fanconi anemia presented
+  with pancytopenia, fever, and necrotic lesions, indicative of mucormycosis. Following
+  the diagnosis of acute myeloid leukemia (AML), the patient experienced severe complications,
+  including septic shock. Despite appropriate treatment, inflammatory markers, such
+  as C-reactive protein (CRP), procalcitonin (PCT), and IL-6, were significantly elevated.
+  CRRT with Cytosorb was initiated to manage hypercytokinemia and improve the patient's
+  clinical status. INTERVENTION: The CRRT procedure utilizes citrate as an anticoagulant
+  because of severe thrombocytopenia. The treatment lasted for 20 h, during which
+  the inflammatory biomarkers were monitored. The post-treatment results indicated
+  a significant reduction in IL-6 levels within 24 h and a decrease in PCT levels
+  at 8 h. CRP levels gradually declined over 40 h. OUTCOME: The patient exhibited
+  marked clinical improvement, with significant healing of cutaneous lesions and stabilization
+  of inflammatory markers, allowing transfer to the ward for continued chemotherapy.
+  CONCLUSION: This case suggests that CRRT combined with cytosorb may be a valuable
+  adjunctive therapy for managing complex cases of septic shock. The observed reduction
+  in inflammatory markers, particularly IL-6, warrants further investigation. Concurrent
+  antimicrobial, antifungal, and dexamethasone treatments for IRIS may have influenced
+  the observed outcomes in this single case. Controlled studies are needed to evaluate
+  the specific contribution of Cytosorb-CRRT and assess its long-term efficacy and
+  safety in similar patient populations, particularly in resource-limited settings.
+  CLINICAL TRIAL NUMBER: Not applicable."
+raw_completion_output: |-
+  Here are the extracted entities in the requested format:
+
+  primary_disease: septic shock; leukemia; mucormycosis
+
+  medical_actions: Continuous Renal Replacement Therapy (CRRT); CRRT with Cytosorb; antimicrobial treatment; antifungal treatment; dexamethasone treatment; chemotherapy
+
+  symptoms: hyper-interleukin (IL)-6-naemia; severe thrombocytopenia; pancytopenia; fever; necrotic lesions; elevated C-reactive protein (CRP); elevated procalcitonin (PCT); elevated IL-6
+
+  chemicals: Cytosorb; citrate; dexamethasone
+
+  action_annotation_relationships: CRRT with Cytosorb TREATS hypercytokinemia IN septic shock; CRRT with Cytosorb TREATS elevated IL-6 IN septic shock; antimicrobial treatment TREATS mucormycosis IN leukemia; antifungal treatment TREATS mucormycosis IN leukemia; dexamethasone treatment TREATS IRIS IN leukemia; chemotherapy TREATS leukemia; CRRT with citrate PREVENTS thrombosis IN severe thrombocytopenia; Cytosorb TREATS elevated IL-6 IN septic shock (with CRRT)
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Cytosorb TREATS elevated IL-6 IN septic shock (with CRRT)
+
+  ===
+
+extracted_object:
+  primary_disease: septic shock; leukemia; mucormycosis
+  medical_actions:
+    - Continuous Renal Replacement Therapy (CRRT)
+    - CRRT with Cytosorb
+    - MAXO:0001021
+    - MAXO:0000174
+    - dexamethasone treatment
+    - MAXO:0000647
+  symptoms:
+    - hyper-interleukin (IL)-6-naemia
+    - severe thrombocytopenia
+    - HP:0001876
+    - HP:0001945
+    - necrotic lesions
+    - elevated C-reactive protein (CRP)
+    - elevated procalcitonin (PCT)
+    - elevated IL-6
+  chemicals:
+    - Cytosorb
+    - CHEBI:133748
+    - CHEBI:41879
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: HP:0033041
+      qualifier: MONDO:0001881
+      subject_qualifier: with Cytosorb
+      subject_extension: Cytosorb
+    - subject: CRRT
+      predicate: TREATS
+      object: IL-6
+      qualifier: MONDO:0001881
+      subject_qualifier: with Cytosorb
+      object_qualifier: elevated
+      subject_extension: Cytosorb
+      object_extension: elevated
+    - predicate: TREATS
+      object: mucormycosis
+      qualifier: MONDO:0005059
+      subject_extension: CHEBI:33281
+    - predicate: TREATS
+      object: mucormycosis
+      qualifier: MONDO:0005059
+      subject_qualifier: antifungal
+      subject_extension: CHEBI:35718
+    - predicate: TREATS
+      object: IRIS
+      qualifier: MONDO:0005059
+    - predicate: TREATS
+      object: HP:0001909
+    - predicate: PREVENTS
+      object: thrombosis
+      qualifier: MONDO:0002049
+      subject_qualifier: with citrate
+      object_qualifier: severe
+      subject_extension: CHEBI:133748
+    - predicate: TREATS
+      object: elevated IL-6
+      qualifier: MONDO:0001881
+      subject_qualifier: with CRRT
+named_entities:
+  - id: MAXO:0001021
+    label: antimicrobial treatment
+  - id: MAXO:0000174
+    label: antifungal treatment
+  - id: HP:0001876
+    label: pancytopenia
+    original_spans:
+      - 738:749
+  - id: HP:0001945
+    label: fever
+    original_spans:
+      - 752:756
+  - id: CHEBI:133748
+    label: citrate
+    original_spans:
+      - 126:132
+      - 1228:1234
+  - id: CHEBI:41879
+    label: dexamethasone
+    original_spans:
+      - 2039:2051
+  - id: HP:0033041
+    label: hypercytokinemia
+    original_spans:
+      - 1126:1141
+  - id: MONDO:0001881
+    label: septic shock
+    original_spans:
+      - 34:45
+      - 922:933
+      - 1884:1895
+  - id: CHEBI:33281
+    label: antimicrobial
+    original_spans:
+      - 2008:2020
+  - id: MONDO:0005059
+    label: leukemia
+    original_spans:
+      - 605:612
+      - 850:857
+  - id: CHEBI:35718
+    label: antifungal
+    original_spans:
+      - 2023:2032
+  - id: MONDO:0002049
+    label: thrombocytopenia
+    original_spans:
+      - 204:219
+      - 622:637
+      - 1274:1289

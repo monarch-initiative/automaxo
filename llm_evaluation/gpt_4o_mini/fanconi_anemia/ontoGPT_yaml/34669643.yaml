@@ -1,0 +1,51 @@
+---
+input_text: 'Successful hematopoietic stem cell transplantation with haploidentical
+  donors and non-irradiation conditioning in patients with Fanconi anemia. '
+raw_completion_output: |-
+  primary_disease: Fanconi anemia  
+  medical_actions: hematopoietic stem cell transplantation; non-irradiation conditioning  
+  symptoms: N/A  
+  chemicals: N/A  
+  action_annotation_relationships: hematopoietic stem cell transplantation TREATS symptom IN Fanconi anemia; non-irradiation conditioning TREATS symptom IN Fanconi anemia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  non-irradiation conditioning TREATS symptom IN Fanconi anemia
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0019391
+  medical_actions:
+    - MAXO:0000747
+    - non-irradiation conditioning
+  symptoms:
+    - N/A
+  chemicals:
+    - N/A
+  action_annotation_relationships:
+    - subject: MAXO:0000747
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0019391
+      subject_qualifier: N/A
+      object_qualifier: N/A
+      subject_extension: hematopoietic stem cell transplantation
+      object_extension: N/A
+    - subject: non-irradiation conditioning
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0019391
+      subject_extension: non-irradiation conditioning
+      object_extension: symptom

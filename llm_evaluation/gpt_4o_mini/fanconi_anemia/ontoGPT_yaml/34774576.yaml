@@ -1,0 +1,98 @@
+---
+input_text: 'Ocular Manifestations in Patients with Fanconi Anemia: A Single-Center
+  Experience Including 106 Patients. OBJECTIVES: To describe the prevalence of acquired
+  ocular manifestations in patients with Fanconi anemia (FA) and to describe and correlate
+  the congenital ocular malformations with the genetic subtypes of the disease. STUDY
+  DESIGN: This is a cross-sectional observational study of 106 consecutive patients
+  with confirmed diagnosis of FA who were followed at the Hematopoietic Stem Cell
+  Transplantation (HSCT) Service at the Federal University of Parana, Curitiba, Parana,
+  Brazil. Participants underwent a complete ophthalmologic evaluation and 84 patients
+  underwent ocular ultrasound examination. This study was conducted between November
+  2014 and August 2017. RESULTS: The patients ranged in age from 6 months to 43 years
+  of age. Microphthalmia was the most common congenital ocular abnormality (95.2%).
+  A decrease in anthropometric measurements was observed, including palpebral fissure
+  length (78/103 patients [76.5%]), microcornea (48/103 patients [46.6%]), and ptosis
+  (31/103 patients [30.1%]). We identified a new ophthalmic condition in 15 patients
+  with FA, that is, epiretinal tissue on the optic disc. The genetic subtype was identified
+  in 78 patients (79.6%), the FA-A subtype was most prevalent (50%). The most common
+  acquired ocular manifestation (non-graft-versus-host disease [GVHD] related) in
+  patients who did not undergo HSCT (n = 44) was limbal neovascularization (13.6%),
+  whereas in patients who underwent HSCT (n = 62), the GVHD-related manifestation
+  was ocular GVHD (51.6%). The most frequent symptom of ocular GVHD was keratoconjunctivitis
+  sicca (29%). CONCLUSIONS: Several ocular manifestations were identified in patients
+  with FA.'
+raw_completion_output: |-
+  primary_disease: Fanconi Anemia  
+  medical_actions: complete ophthalmologic evaluation; ocular ultrasound examination  
+  symptoms: microphthalmia; decrease in palpebral fissure length; microcornea; ptosis; epiretinal tissue on the optic disc; limbal neovascularization; ocular GVHD; keratoconjunctivitis sicca  
+  chemicals: None  
+  action_annotation_relationships: complete ophthalmologic evaluation TREATS symptom in disease; ocular ultrasound examination TREATS symptom in disease
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  ocular ultrasound examination TREATS symptom in disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0019391
+  medical_actions:
+    - complete ophthalmologic evaluation
+    - ocular ultrasound examination
+  symptoms:
+    - HP:0000568
+    - decrease in palpebral fissure length
+    - HP:0000482
+    - HP:0000508
+    - epiretinal tissue on the optic disc
+    - HP:0011496
+    - ocular GVHD
+    - HP:0001097
+  chemicals:
+    - None
+  action_annotation_relationships:
+    - subject: complete ophthalmologic evaluation
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0000001
+      subject_qualifier: complete
+      subject_extension: ophthalmologic evaluation
+      object_extension: symptom
+    - subject: ocular ultrasound examination
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0000001
+      subject_extension: ocular ultrasound examination
+      object_extension: symptom
+named_entities:
+  - id: HP:0000568
+    label: microphthalmia
+    original_spans:
+      - 837:850
+  - id: HP:0000482
+    label: microcornea
+    original_spans:
+      - 1029:1039
+  - id: HP:0000508
+    label: ptosis
+    original_spans:
+      - 1072:1077
+  - id: HP:0011496
+    label: limbal neovascularization
+    original_spans:
+      - 1462:1486
+  - id: HP:0001097
+    label: keratoconjunctivitis sicca
+    original_spans:
+      - 1647:1672

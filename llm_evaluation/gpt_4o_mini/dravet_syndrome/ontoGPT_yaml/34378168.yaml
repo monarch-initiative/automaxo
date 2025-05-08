@@ -1,0 +1,86 @@
+---
+input_text: "Dravet Syndrome: Novel Approaches for the Most Common Genetic Epilepsy.
+  Dravet syndrome (DS) is a severe developmental and epileptic encephalopathy that
+  is mainly associated with variants in SCN1A. While drug-resistant epilepsy is the
+  most notable feature of this syndrome, numerous symptoms are present that have significant
+  impact on patients' quality of life. In spite of novel, third-generation anti-seizure
+  treatment options becoming available over the last several years, seizure freedom
+  is often not attained and non-seizure symptoms remain. Precision medicine now offers
+  realistic hope for seizure freedom in DS patients, with several approaches demonstrating
+  preclinical success. Therapeutic approaches such as antisense oligonucleotides (ASO)
+  and adeno-associated virus (AAV)-delivered gene modulation have expanded the potential
+  treatment options for DS, with some of these approaches now transitioning to clinical
+  trials. Several of these treatments may risk the exacerbation of gain-of-function
+  variants and may not be reversible, therefore emphasizing the need for functional
+  testing of new pathogenic variants. The current absence of treatments that address
+  the overall disease, in addition to seizures, exposes the urgent need for reliable,
+  valid measures of the entire complement of symptoms as outcome measures to truly
+  know the impact of treatments on DS. Additionally, with so many treatment options
+  on the horizon, there will be a need to understand how to select appropriate patients
+  for each treatment, whether treatments are complementary or adverse to each other,
+  and long-term risks of the treatment. Nevertheless, precision therapeutics hold
+  tremendous potential to provide long-lasting seizure freedom and even complete cures
+  for this devastating disease."
+raw_completion_output: |-
+  primary_disease: Dravet syndrome  
+  medical_actions: anti-seizure treatment; antisense oligonucleotides (ASO); adeno-associated virus (AAV)-delivered gene modulation; functional testing  
+  symptoms: drug-resistant epilepsy; non-seizure symptoms  
+  chemicals: none  
+  action_annotation_relationships: anti-seizure treatment TREATS drug-resistant epilepsy IN Dravet syndrome; antisense oligonucleotides (ASO) TREATS drug-resistant epilepsy IN Dravet syndrome; adeno-associated virus (AAV)-delivered gene modulation TREATS drug-resistant epilepsy IN Dravet syndrome; functional testing TREATS non-seizure symptoms IN Dravet syndrome  
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  functional testing TREATS non-seizure symptoms IN Dravet syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0100135
+  medical_actions:
+    - anti-seizure treatment
+    - antisense oligonucleotides (ASO)
+    - adeno-associated virus (AAV)-delivered gene modulation
+    - functional testing
+  symptoms:
+    - drug-resistant epilepsy
+    - non-seizure symptoms
+  chemicals:
+    - none
+  action_annotation_relationships:
+    - subject: TREATS
+      predicate: TREATS
+      object: drug-resistant epilepsy
+      qualifier: MONDO:0100135
+      subject_extension: anti-seizure treatment
+      object_extension: drug-resistant
+    - subject: TREATS
+      predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0100135
+      subject_extension: CHEBI:76720
+      object_extension: drug-resistant
+    - subject: gene modulation
+      predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0100135
+      subject_qualifier: adeno-associated virus (AAV)-delivered
+      object_qualifier: resistant
+      subject_extension: gene modulation
+      object_extension: drug-resistant
+    - subject: functional testing
+      predicate: TREATS
+      object: non-seizure symptoms
+      qualifier: MONDO:0100135
+      subject_extension: functional testing
+      object_extension: non-seizure symptoms

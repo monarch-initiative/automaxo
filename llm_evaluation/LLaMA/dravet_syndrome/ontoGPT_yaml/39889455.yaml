@@ -1,0 +1,78 @@
+---
+input_text: 'Effectiveness of Vagus Nerve Stimulation in Patients With Dravet Syndrome:
+  A Case Series and Meta-Analysis. OBJECTIVE: This case series and meta-analysis aimed
+  to determine effectiveness of vagus nerve stimulation (VNS) in patients with Dravet
+  syndrome (DS). METHODS: All patients with DS and VNS were included in this case
+  series. For meta-analysis, a literature search of electronic databases PubMed, Cochrane,
+  and Embase was performed. Critical Appraisal Tools were used to evaluate study quality.
+  Responder (>50% seizure reduction from baseline) rate was the main outcome, which
+  was quantitatively synthesized at specific follow-up points (at least six months).
+  Subgroup analyses were conducted based on duration of epilepsy, proportion of males,
+  and duration of follow-up. Additionally, cognitive and behavior changes were analyzed
+  as secondary outcomes in case series only. RESULTS: Of the case series, two of four
+  patients responded. In the meta-analysis, of 1183 studies retrieved in the initial
+  search, nine comprising 92 patients were included. The overall responder rate reached
+  0.55 (95% confidence interval [CI] 0.45 to 0.64). Subgroup analyses were performed.
+  The responder rates in groups with duration of epilepsy groups greater than or equal
+  to six years and less than six years were 0.38 (95% CI 0.14 to 0.61) and 0.65 (95%
+  CI 0.47 to 0.82) (P = 0.07). No heterogeneity was found in responder rate in groups
+  with different proportion of males (>50%, <=50%) or two groups with different duration
+  of follow-up (greater than or equal to three years, less than three years) (P >
+  0.1). CONCLUSIONS: VNS was an effective option in patients with DS who failed to
+  respond to medications. Patients with short duration of epilepsy (less than six
+  years) were prone to respond to VNS.'
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Dravet Syndrome
+
+  medical_actions: Vagus Nerve Stimulation (VNS); medication
+
+  symptoms: seizure
+
+  chemicals: 
+
+  action_annotation_relationships: Vagus Nerve Stimulation (VNS) TREATS seizure IN Dravet Syndrome; medication TREATS seizure IN Dravet Syndrome; Vagus Nerve Stimulation (VNS) TREATS Dravet Syndrome 
+
+  Note that there are limited details in the provided text about specific chemicals or drugs used as part of the medical actions, which is why the "chemicals" field is empty. The relationships between actions and symptoms are also limited based on the information provided. 
+
+  Also, note that I didn't include "cognitive and behavior changes" as symptoms, as they seem to be secondary outcomes analyzed in the case series, rather than primary symptoms of the disease. If you'd like me to include them, I can update the symptoms field accordingly. 
+
+  Let me know if you'd like me to revise anything!
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Vagus Nerve Stimulation (VNS) TREATS Dravet Syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0100135
+  medical_actions:
+    - MAXO:0000942
+    - medication
+  symptoms:
+    - HP:0001250
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0100135
+      subject_extension: CHEBI:35170
+    - predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0100135
+      subject_extension: medication
+    - predicate: TREATS
+      object: Symptoms of Dravet Syndrome
+      qualifier: MONDO:0100135

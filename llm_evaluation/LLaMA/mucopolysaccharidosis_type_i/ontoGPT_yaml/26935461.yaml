@@ -1,0 +1,95 @@
+---
+input_text: 'Progression of Hip Dysplasia in Mucopolysaccharidosis Type I Hurler After
+  Successful Hematopoietic Stem Cell Transplantation. BACKGROUND: Dysostosis multiplex
+  contributes substantially to morbidity in patients with Hurler syndrome (mucopolysaccharidosis
+  type I Hurler phenotype [MPS I-H]), even after successful hematopoietic stem cell
+  transplantation (HSCT). One of the hallmarks of dysostosis multiplex in MPS I-H
+  is hip dysplasia, which often requires surgical intervention. We sought to describe
+  in detail the course of hip dysplasia in this group of patients, as assessed by
+  radiographic analysis, and to identify potential outcome predictors. METHODS: Longitudinal
+  data were obtained from digitally scored pelvic radiographs of patients with MPS
+  I-H using OrthoGon software for parameters including, but not limited to, the acetabular
+  index, migration percentage, Smith ratio, and neck-shaft angle. Scoring was performed
+  independently by two blinded observers. Additional information on genotype, enzyme
+  replacement therapy pre-HSCT, donor chimerism, and enzyme activity post-HSCT were
+  obtained. General trends and potential correlations were calculated with mixed-model
+  statistics. RESULTS: Fifty-two patients (192 radiographs) were included in this
+  analysis. Intraobserver and interobserver variation analysis showed an intraclass
+  correlation coefficient ranging from 0.78 to 1.00. Among the twenty-one patients
+  with follow-up beyond the age of five years, the acetabular index was in the range
+  of severe hip dysplasia in up to 86% of the patients. Severe coxa valga was seen
+  in 91% of the patients. Lateral and superior femoral displacement were highly prevalent,
+  with the migration percentage outside the reference range in up to 96% of the patients.
+  Finally, anterior pelvic tilt increased with age (p = 0.001). No correlations were
+  identified between clinical parameters and radiographic findings. CONCLUSIONS: Our
+  study shows that progressive acetabular dysplasia as well as coxa valga and hip
+  displacement are highly prevalent and progressive over time in patients with MPS
+  I-H, despite successful HSCT. These data may provide essential natural history determinations
+  for the assessment of efficacy of new therapeutic strategies aimed at improving
+  skeletal outcomes in patients with MPS I-H.'
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Mucopolysaccharidosis Type I Hurler (MPS I-H), also known as Hurler syndrome
+
+  medical_actions: Hematopoietic Stem Cell Transplantation (HSCT); surgical intervention; enzyme replacement therapy; 
+
+  symptoms: hip dysplasia; acetabular dysplasia; coxa valga; lateral and superior femoral displacement; anterior pelvic tilt; 
+
+  chemicals: 
+
+  action_annotation_relationships: Hematopoietic Stem Cell Transplantation (HSCT) DOES NOT TREAT hip dysplasia IN Mucopolysaccharidosis Type I Hurler; surgical intervention TREATS hip dysplasia IN Mucopolysaccharidosis Type I Hurler; enzyme replacement therapy PREVENTS progression of disease IN Mucopolysaccharidosis Type I Hurler; 
+
+  Note that the action_annotation_relationships are not explicitly stated in the text and are inferred based on the context. Also, the text does not mention specific chemicals or drugs, so the chemicals list is empty.
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  enzyme replacement therapy PREVENTS progression of disease IN Mucopolysaccharidosis Type I Hurler
+
+  ===
+
+extracted_object:
+  primary_disease: Mucopolysaccharidosis Type I Hurler (MPS I-H), also known as Hurler
+    syndrome
+  medical_actions:
+    - MAXO:0000747
+    - MAXO:0000004
+    - enzyme replacement therapy
+  symptoms:
+    - HP:0001385
+    - HP:0008807
+    - HP:0002673
+    - lateral and superior femoral displacement
+    - anterior pelvic tilt
+  action_annotation_relationships:
+    - predicate: DOES NOT TREAT
+      object: HP:0001385
+      qualifier: Mucopolysaccharidosis Type I Hurler
+    - predicate: TREATS
+      object: HP:0001385
+      qualifier: Mucopolysaccharidosis Type I Hurler
+    - subject: MAXO:0001298
+      predicate: PREVENTS
+      object: progression of disease
+      qualifier: Mucopolysaccharidosis Type I Hurler
+      subject_qualifier: enzyme
+      object_qualifier: disease
+      subject_extension: enzyme replacement
+      object_extension: progression of disease
+named_entities:
+  - id: HP:0002673
+    label: coxa valga
+    original_spans:
+      - 1564:1573
+      - 1988:1997

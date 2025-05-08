@@ -1,0 +1,73 @@
+---
+input_text: '[Peritoneal dialysis in a neonate with maple syrup urine disease. A case
+  report]. Maple syrup disease is an autosomal recessive entity caused by a congenital
+  error in the metabolism of three essential branchedchain amino acids: valine, leucine
+  and isoleucine. The neonatal form of this disease is expressed by a severe and progressive
+  neurological compromise, associated with a peculiar smell of urine, a consequence
+  of the elimination of the excess of these amino acids. This smell of burnt sugar
+  mimics the molasses obtained from maples, which gives its name to this disease.
+  The best method to eliminate these toxins is hemodiafiltration, but in centers where
+  this practice is not possible, peritoneal dialysis is an alternative. We present
+  a newborn with leukinosis with severe central nervous system involvement in whom
+  peritoneal dialysis was useful to overcome metabolic decompensation.'
+raw_completion_output: |-
+  primary_disease: maple syrup urine disease  
+  medical_actions: hemodiafiltration; peritoneal dialysis  
+  symptoms: severe neurological compromise; peculiar smell of urine  
+  chemicals: valine; leucine; isoleucine  
+  action_annotation_relationships: hemodiafiltration TREATS severe neurological compromise IN maple syrup urine disease; hemodiafiltration TREATS peculiar smell of urine IN maple syrup urine disease; peritoneal dialysis TREATS severe neurological compromise IN maple syrup urine disease; peritoneal dialysis TREATS peculiar smell of urine IN maple syrup urine disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  peritoneal dialysis TREATS peculiar smell of urine IN maple syrup urine disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009563
+  medical_actions:
+    - hemodiafiltration
+    - MAXO:0000603
+  symptoms:
+    - severe neurological compromise
+    - peculiar smell of urine
+  chemicals:
+    - CHEBI:27266
+    - CHEBI:25017
+    - CHEBI:24898
+  action_annotation_relationships:
+    - subject: hemodiafiltration
+      predicate: TREATS
+      object: neurological compromise
+      qualifier: MONDO:0009563
+      subject_qualifier: <none>
+      object_qualifier: <none>
+      subject_extension: <none>
+      object_extension: <severe>
+    - predicate: TREATS
+      object: peculiar smell of urine
+      qualifier: MONDO:0009563
+      subject_extension: hemodiafiltration
+    - subject: MAXO:0000603
+      predicate: TREATS
+      object: neurological compromise
+      qualifier: MONDO:0009563
+      subject_extension: peritoneal dialysis
+      object_extension: severe
+    - subject: MAXO:0000603
+      predicate: TREATS
+      object: peculiar smell of urine
+      qualifier: MONDO:0009563
+      subject_extension: peritoneal dialysis
+      object_extension: peculiar smell of urine

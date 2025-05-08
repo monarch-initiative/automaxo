@@ -1,0 +1,66 @@
+---
+input_text: 'Treating Rett syndrome: from mouse models to human therapies. Rare diseases
+  are very difficult to study mechanistically and to develop therapies for because
+  of the scarcity of patients. Here, the rare neuro-metabolic disorder Rett syndrome
+  (RTT) is discussed as a prototype for precision medicine, demonstrating how mouse
+  models have led to an understanding of the development of symptoms. RTT is caused
+  by mutations in the X-linked gene methyl-CpG-binding protein 2 (MECP2). Mecp2-mutant
+  mice are being used in preclinical studies that target the MECP2 gene directly,
+  or its downstream pathways. Importantly, this work may improve the health of RTT
+  patients. Clinical presentation may vary widely among individuals based on their
+  mutation, but also because of the degree of X chromosome inactivation and the presence
+  of modifier genes. Because it is a complex disorder involving many organ systems,
+  it is likely that recovery of RTT patients will involve a combination of treatments.
+  Precision medicine is warranted to provide the best efficacy to individually treat
+  RTT patients.'
+raw_completion_output: |-
+  primary_disease: Rett syndrome  
+  medical_actions: targeting MECP2 gene; precision medicine  
+  symptoms: neuro-metabolic disorder; clinical presentation variability  
+  chemicals: MECP2  
+  action_annotation_relationships: targeting MECP2 gene TREATS neuro-metabolic disorder IN Rett syndrome; precision medicine TREATS clinical presentation variability IN Rett syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  precision medicine TREATS clinical presentation variability IN Rett syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010726
+  medical_actions:
+    - targeting MECP2 gene
+    - precision medicine
+  symptoms:
+    - neuro-metabolic disorder
+    - clinical presentation variability
+  chemicals:
+    - MECP2
+  action_annotation_relationships:
+    - subject: targeting
+      predicate: TREATS
+      object: neuro-metabolic disorder
+      qualifier: MONDO:0010726
+      subject_qualifier: N/A
+      object_qualifier: N/A
+      subject_extension: MECP2 gene therapy
+      object_extension: neuro-metabolic disorder
+    - subject: TREATS
+      predicate: TREATS
+      object: clinical presentation variability
+      qualifier: MONDO:0010726
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: precision medicine
+      object_extension: clinical presentation variability

@@ -1,0 +1,123 @@
+---
+input_text: 'Radiation-free reduced-intensity hematopoietic stem cell transplantation
+  with in vivo T-cell depletion from matched related and unrelated donors for Fanconi
+  anemia: prognostic factor analysis. Fanconi anemia (FA) is a rare and complex genetic
+  disorder, clinically characterized by bone marrow failure, congenital defects, and
+  cancer predisposition. Hematopoietic stem cell transplantation (HSCT) represents
+  the only therapeutic option to restore normal hematopoiesis after the occurrence
+  of marrow failure or clonal hematopoietic abnormality. However, radiation exposure
+  during transplant may increase the risk of later malignancies. In this retrospective
+  study, we analyzed the results of HSCT with a radiation-free, busulfan-based conditioning
+  regimen in FA patients. A total of 122 patients (median age: 8 years, range: 2-18
+  years) with FA who underwent HSCT between January 2008 and January 2020 were enrolled
+  in this study and followed up to the end of 2020. The preparative regimen included
+  busulfan (0.2 mg/kg/day, days -9 to -6), cyclophosphamide (15 mg/kg/day, days -5
+  to -2), and in vivo T-cell depletion with rabbit anti-thymocyte globulin. All patients
+  received graft-versus-host disease prophylaxis with cyclosporine combined with methotrexate.
+  We used the Kaplan-Meier method, log-rank test, and Cox proportional hazards models
+  to analyze patient survival. Peripheral blood, bone marrow and cord blood hematopoietic
+  stem cells were used in 84 (68.9%), 31 (25.4%) and 7 (5.7%) patients, respectively.
+  Donors were matched siblings in 48 (39.3%), matched other relatives in 56 (45.9%),
+  and matched unrelated persons in 18 (14.8%) patients. With a median follow-up time
+  of 24.25 months, graft rejection occurred in only one patient. The 1- and 5-year
+  overall survival rates were 84.14% (95% confidence interval: 76.02-89.70) and 82.16%
+  (95% confidence interval: 73.01-88.45), respectively. Of the patient characteristics
+  documented before transplant, the presence of cardiopulmonary, genitourinary tract,
+  central nervous system, and limb malformations significantly affected survival rates.
+  Our results indicate excellent outcomes in patients with FA undergoing HSCT with
+  a radiation-free, busulfan-based conditioning regimen. It would be desirable to
+  aim at optimizing the outcome of HSCT in FA patients in future studies.'
+raw_completion_output: |-
+  Here are the extracted entities in the requested format:
+
+  primary_disease: Fanconi anemia
+
+  medical_actions: Hematopoietic stem cell transplantation (HSCT); in vivo T-cell depletion with rabbit anti-thymocyte globulin; graft-versus-host disease prophylaxis with cyclosporine combined with methotrexate; busulfan-based conditioning regimen
+
+  symptoms: bone marrow failure; congenital defects; cancer predisposition; cardiopulmonary malformations; genitourinary tract malformations; central nervous system malformations; limb malformations; graft rejection
+
+  chemicals: busulfan; cyclophosphamide; rabbit anti-thymocyte globulin; cyclosporine; methotrexate
+
+  action_annotation_relationships: HSCT TREATS bone marrow failure IN Fanconi anemia; HSCT TREATS cancer predisposition IN Fanconi anemia; busulfan-based conditioning regimen TREATS bone marrow failure IN Fanconi anemia; in vivo T-cell depletion with rabbit anti-thymocyte globulin PREVENTS graft-versus-host disease IN Fanconi anemia; cyclosporine combined with methotrexate PREVENTS graft-versus-host disease IN Fanconi anemia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  cyclosporine combined with methotrexate PREVENTS graft-versus-host disease IN Fanconi anemia
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0019391
+  medical_actions:
+    - MAXO:0000747
+    - in vivo T-cell depletion with rabbit anti-thymocyte globulin
+    - graft-versus-host disease prophylaxis with cyclosporine combined with methotrexate
+    - busulfan-based conditioning regimen
+  symptoms:
+    - HP:0005528
+    - HP:0034057
+    - cancer predisposition
+    - cardiopulmonary malformations
+    - HP:0000119
+    - central nervous system malformations
+    - limb malformations
+    - graft rejection
+  chemicals:
+    - CHEBI:28901
+    - CHEBI:4027
+    - rabbit anti-thymocyte globulin
+    - CHEBI:4031
+    - CHEBI:44185
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: HP:0005528
+      qualifier: MONDO:0019391
+    - predicate: TREATS
+      object: cancer predisposition
+      qualifier: MONDO:0019391
+    - predicate: TREATS
+      object: HP:0005528
+      qualifier: MONDO:0019391
+      subject_extension: busulfan-based
+    - predicate: PREVENTS
+      object: graft-versus-host disease
+      qualifier: MONDO:0019391
+      subject_qualifier: in vivo, with rabbit anti-thymocyte globulin
+      subject_extension: T-cell depletion
+    - predicate: PREVENTS
+      object: graft-versus-host disease
+      qualifier: MONDO:0019391
+      subject_qualifier: combined
+      subject_extension: immunosuppressive
+named_entities:
+  - id: HP:0005528
+    label: bone marrow failure
+    original_spans:
+      - 281:299
+  - id: HP:0034057
+    label: congenital defects
+    original_spans:
+      - 302:319
+  - id: HP:0000119
+    label: genitourinary tract malformations
+  - id: CHEBI:28901
+    label: busulfan
+    original_spans:
+      - 718:725
+      - 997:1004
+      - 2200:2207
+  - id: CHEBI:44185
+    label: methotrexate
+    original_spans:
+      - 1244:1255

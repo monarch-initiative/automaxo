@@ -1,0 +1,83 @@
+---
+input_text: 'Vaccination management in an asymptomatic child with a novel SCN1A variant
+  and family history of status epilepticus following vaccination: A case report on
+  a potential new direction in personalised medicine. PURPOSE: SCN1A variants cause
+  a spectrum of epilepsy syndromes from Dravet Syndrome, a severe epileptic encephalopathy
+  of early infancy to the milder disorder of genetic epilepsy with febrile seizures
+  plus (GEFS+). These genetic epilepsies are associated with increased risk of poor
+  outcome including complications of status epilepticus and early mortality. Individualised
+  management of young children known to be at increased risk should be considered,
+  such as around vaccination management. METHODS: We describe two siblings with a
+  novel pathogenic SCN1A variant, their management and clinical outcomes following
+  routine childhood vaccinations. RESULTS: The index case who had a family history
+  of epilepsy of unknown genetic aetiology, died from hypoxic ischemic encephalopathy
+  following his 12-month vaccinations, in the context of status epilepticus and enterovirus
+  71 infection. The sibling of the index case with the same SCN1A variant was subsequently
+  managed with prophylactic regular sodium valproate and additional clobazam post
+  vaccination to reduce the risk of seizure. She has successfully completed the childhood
+  immunisations to 18 months with no seizures and normal neurodevelopmental progress.
+  CONCLUSION: As the aetiology of genetic epilepsies is increasingly known in early
+  childhood, opportunities to personalise care, minimise risks and optimise outcomes
+  are changing. Further research is needed on the risks and benefits of symptomatic
+  and preventative management of seizures around vaccinations in young children with
+  genetic epilepsies.'
+raw_completion_output: |-
+  primary_disease: SCN1A variant-associated epilepsy syndromes  
+  medical_actions: vaccination management; prophylactic regular sodium valproate; additional clobazam  
+  symptoms: status epilepticus; seizures; hypoxic ischemic encephalopathy  
+  chemicals: sodium valproate; clobazam  
+  action_annotation_relationships: vaccination management PREVENTS symptom status epilepticus IN disease SCN1A variant-associated epilepsy syndromes; prophylactic regular sodium valproate TREATS symptom seizures IN disease SCN1A variant-associated epilepsy syndromes; additional clobazam TREATS symptom seizures IN disease SCN1A variant-associated epilepsy syndromes
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  additional clobazam TREATS symptom seizures IN disease SCN1A variant-associated epilepsy syndromes
+
+  ===
+
+extracted_object:
+  primary_disease: SCN1A variant-associated epilepsy syndromes
+  medical_actions:
+    - vaccination management
+    - prophylactic regular sodium valproate
+    - additional clobazam
+  symptoms:
+    - HP:0002133
+    - HP:0001250
+    - hypoxic ischemic encephalopathy
+  chemicals:
+    - CHEBI:9925
+    - CHEBI:31413
+  action_annotation_relationships:
+    - subject: vaccination management
+      predicate: PREVENTS
+      object: symptom status epilepticus
+      qualifier: SCN1A variant-associated epilepsy syndromes
+      subject_extension: vaccination management
+      object_extension: symptom
+    - subject: prophylactic regular sodium valproate
+      predicate: TREATS
+      object: symptom seizures
+      qualifier: SCN1A variant-associated epilepsy syndromes
+      subject_qualifier: prophylactic regular
+      object_qualifier: N/A
+      subject_extension: CHEBI:9925
+      object_extension: seizures
+    - subject: TREATS
+      predicate: TREATS
+      object: HP:0001250
+      qualifier: SCN1A variant-associated epilepsy syndromes
+      subject_qualifier: additional
+      object_qualifier: N/A
+      subject_extension: CHEBI:31413
+      object_extension: seizures

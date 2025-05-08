@@ -1,0 +1,118 @@
+---
+input_text: Neonatal combination therapy improves some of the clinical manifestations
+  in the Mucopolysaccharidosis type I murine model. Mucopolysaccharidosis type I (MPS-I),
+  a lysosomal storage disorder caused by a deficiency of alpha-L-iduronidase enzyme,
+  results in the progressive accumulation of glycosaminoglycans and consequent multiorgan
+  dysfunction. Despite the effectiveness of hematopoietic stem cell transplantation
+  (HSCT) and enzyme replacement therapy (ERT) in correcting clinical manifestations
+  related to visceral organs, complete improvement of musculoskeletal and neurocognitive
+  defects remains an unmet challenge and provides an impact on patients' quality of
+  life. We tested the therapeutic efficacy of combining HSCT and ERT in the neonatal
+  period. Using a mouse model of MPS-I, we demonstrated that the combination therapy
+  improved clinical manifestations in organs usually refractory to current treatment.
+  Moreover, combination with HSCT prevented the production of anti-IDUA antibodies
+  that negatively impact ERT efficacy. The added benefits of combining both treatments
+  also resulted in a reduction of skeletal anomalies and a trend towards decreased
+  neuroinflammation and metabolic abnormalities. As currently there are limited therapeutic
+  options for MPS-I patients, our findings suggest that the combination of HSCT and
+  ERT during the neonatal period may provide a further step forward in the treatment
+  of this rare disease.
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Mucopolysaccharidosis type I (MPS-I)
+
+  medical_actions: Hematopoietic stem cell transplantation (HSCT); Enzyme replacement therapy (ERT); Combination therapy of HSCT and ERT
+
+  symptoms: Multiorgan dysfunction; Musculoskeletal defects; Neurocognitive defects; Skeletal anomalies; Neuroinflammation; Metabolic abnormalities; Clinical manifestations
+
+  chemicals: alpha-L-iduronidase enzyme; Glycosaminoglycans; Anti-IDUA antibodies
+
+  action_annotation_relationships: HSCT TREATS clinical manifestations IN MPS-I; ERT TREATS clinical manifestations IN MPS-I; Combination therapy of HSCT and ERT TREATS musculoskeletal defects IN MPS-I; Combination therapy of HSCT and ERT TREATS neurocognitive defects IN MPS-I; HSCT PREVENTS production of anti-IDUA antibodies IN MPS-I; Combination therapy of HSCT and ERT TREATS skeletal anomalies IN MPS-I; Combination therapy of HSCT and ERT TREATS neuroinflammation IN MPS-I; Combination therapy of HSCT and ERT TREATS metabolic abnormalities IN MPS-I
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Combination therapy of HSCT and ERT TREATS metabolic abnormalities IN MPS-I
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0001586
+  medical_actions:
+    - MAXO:0000747
+    - Enzyme replacement therapy (ERT)
+    - Combination therapy of HSCT and ERT
+  symptoms:
+    - Multiorgan dysfunction
+    - Musculoskeletal defects
+    - Neurocognitive defects
+    - HP:0000924
+    - HP:0033429
+    - Metabolic abnormalities
+    - Clinical manifestations
+  chemicals:
+    - alpha-L-iduronidase enzyme
+    - CHEBI:18085
+    - Anti-IDUA antibodies
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: clinical manifestations
+      qualifier: MPS-I
+    - subject: ERT
+      predicate: TREATS
+      object: clinical manifestations
+      qualifier: MPS-I
+      subject_extension: ERT
+      object_extension: clinical manifestations
+    - subject: HSCT and ERT
+      predicate: TREATS
+      object: musculoskeletal defects
+      qualifier: MPS-I
+      subject_extension: Combination
+      object_extension: musculoskeletal
+    - predicate: TREATS
+      object: neurocognitive defects
+      qualifier: MPS-I
+      subject_qualifier: of HSCT and ERT
+      object_qualifier: IN MPS-I
+      subject_extension: HSCT, ERT
+    - predicate: PREVENTS
+      object: production of anti-IDUA antibodies
+      qualifier: MPS-I
+    - subject: Combination therapy
+      predicate: TREATS
+      object: anomalies
+      qualifier: MPS-I
+      subject_qualifier: combination
+      object_qualifier: skeletal
+      subject_extension: <HSCT, ERT>
+      object_extension: skeletal
+    - predicate: TREATS
+      object: HP:0033429
+      qualifier: MPS-I
+      subject_qualifier: of HSCT and ERT
+      subject_extension: HSCT, ERT
+    - subject: Combination therapy of HSCT and ERT
+      predicate: TREATS
+      object: metabolic abnormalities
+      qualifier: MPS-I
+      subject_qualifier: Combination
+      object_qualifier: metabolic
+      subject_extension: HSCT, ERT
+      object_extension: metabolic
+named_entities:
+  - id: HP:0000924
+    label: Skeletal anomalies
+    original_spans:
+      - 1114:1131

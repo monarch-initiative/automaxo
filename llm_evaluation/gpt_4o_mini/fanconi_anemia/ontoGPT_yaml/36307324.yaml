@@ -1,0 +1,104 @@
+---
+input_text: '[Management of genetic predisposition to hematologic malignancies in
+  patients undergoing allogeneic hematopoietic cell transplantation (HCT): Guidelines
+  from the SFGM-TC]. The advent of new technologies has made it possible to identify
+  genetic predispositions to myelodysplastic syndromes (MDS) and acute leukemias (AL)
+  more frequently. The most frequent and best characterized at present are mutations
+  in CEBPA, RUNX1, GATA2, ETV6 and DDX41 and, either in the presence of one of these
+  mutations with a high allelic frequency, or in the case of a personal or family
+  history suggestive of blood abnormalities such as non-immune thrombocytopenia, it
+  is recommended to look for the possibility of a hereditary hematological malignancy
+  (HHM). Indeed, early recognition of these HHMs allows better adaptation of the management
+  of patients and their relatives, as allogeneic hematopoietic stem cell transplantation
+  (HSCT) is very often proposed for these pathologies. According to current data,
+  with the exception of the GATA2 mutation, the constitutional or somatic nature of
+  the mutations does not seem to influence the prognosis of hematological diseases.
+  Therefore, the indication for an allograft will be determined according to the usual
+  criteria. However, when searching for a family donor, it is important to ensure
+  that there is no hereditary disease in the donor. In order to guarantee the possibility
+  of performing the HSC allograft within a short period of time, it may be necessary
+  to initiate a parallel procedure to find an unrelated donor. Given the limited information
+  on the modalities of HSC transplantation in this setting, it is important to assess
+  the benefit/risk of the disease and the procedure to decide on the type of conditioning
+  (myeloablative or reduced intensity). In view of the limited experience with the
+  risk of secondary cancers in the medium and long-term, it may be appropriate to
+  recommend reduced intensity conditioning, as in the case of better characterized
+  syndromic hematological diseases such as Fanconi anemia or telomere diseases. In
+  summary, it seems important to evoke HHM more frequently, particularly in the presence
+  of a family history, certain mutations or persistent blood abnormalities, in order
+  to discuss the specific modalities of HSC allografting, particularly with regard
+  to the search for a donor and the evaluation of certain modalities of the procedure,
+  such as conditioning. It should be noted that the discovery of HHM, especially if
+  the indication of an allogeneic HSC transplant is retained, will raise ethical and
+  psychological considerations not only for the patient, but also for his family.
+  A multidisciplinary approach involving molecular biologists, geneticists, hematologists
+  and psychologists is essential.'
+raw_completion_output: |-
+  primary_disease: hereditary hematological malignancy (HHM)  
+  medical_actions: allogeneic hematopoietic stem cell transplantation (HSCT); assessing benefit/risk of the disease and the procedure; recommending reduced intensity conditioning  
+  symptoms: non-immune thrombocytopenia; blood abnormalities  
+  chemicals: None  
+  action_annotation_relationships: allogeneic hematopoietic stem cell transplantation (HSCT) TREATS non-immune thrombocytopenia IN hereditary hematological malignancy (HHM); allogeneic hematopoietic stem cell transplantation (HSCT) TREATS blood abnormalities IN hereditary hematological malignancy (HHM); recommending reduced intensity conditioning TREATS risk factors IN hereditary hematological malignancy (HHM); assessing benefit/risk of the disease and the procedure TREATS management strategies IN hereditary hematological malignancy (HHM)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  assessing benefit/risk of the disease and the procedure TREATS management strategies IN hereditary hematological malignancy (HHM)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0043455
+  medical_actions:
+    - MAXO:0000747
+    - assessing benefit/risk of the disease and the procedure
+    - recommending reduced intensity conditioning
+  symptoms:
+    - non-immune thrombocytopenia
+    - blood abnormalities
+  chemicals:
+    - None
+  action_annotation_relationships:
+    - subject: MAXO:0001479
+      predicate: TREATS
+      object: HP:0001873
+      qualifier: hereditary hematological malignancy
+      subject_extension: allogeneic hematopoietic stem cell transplantation
+      object_extension: non-immune
+    - subject: MAXO:0001479
+      predicate: TREATS
+      object: blood abnormalities
+      qualifier: hereditary hematological malignancy
+      subject_extension: allogeneic hematopoietic stem cell transplantation
+      object_extension: blood abnormalities
+    - subject: recommending reduced intensity conditioning
+      predicate: TREATS
+      object: risk factors
+      qualifier: MONDO:0043455
+      subject_qualifier: N/A
+      object_qualifier: N/A
+      subject_extension: reduced intensity conditioning
+      object_extension: risk factors
+    - subject: assessing benefit/risk of the disease and the procedure
+      predicate: TREATS
+      object: hereditary hematological malignancy (HHM)
+      qualifier: MONDO:0043455
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: management strategies
+      object_extension: hereditary
+named_entities:
+  - id: MONDO:0043455
+    label: hereditary hematological malignancy (HHM)
+    original_spans:
+      - 696:736

@@ -1,0 +1,84 @@
+---
+input_text: Differential Intraoperative Effect of Liver Transplant in Different Inborn
+  Errors of Metabolism. Liver transplant (LT) is a therapeutic option for a growing
+  number of inborn errors of metabolism (IEM), including some disorders not confined
+  to the liver. Clinical advantages of LT in maple syrup urine disease (MSUD), methylmalonic
+  acidemia (MMA), and argininosuccinic aciduria (ASA) have been reported. However,
+  no information on the early metabolic effect of LT after portal reperfusion is available
+  in these disorders. Here we describe the intraoperative differential metabolic outcome
+  of LT in MSUD, MMA, and ASA. In these IEM, LT promptly cleared toxic metabolites
+  to safe concentrations. In MSUD, leucine concentration reached physiological concentration
+  within 12 hours after portal reperfusion. In MMA and ASA, LT allowed faster clearance
+  of methylmalonate and argininosuccinate, respectively, both dropping by ~90% within
+  the first hour after portal reperfusion. The early biochemical benefits of LT in
+  MSUD, MMA, and ASA demonstrate its immediate effectiveness in protecting patients
+  from intercurrent metabolic decompensations.
+raw_completion_output: |-
+  primary_disease: Inborn Errors of Metabolism  
+  medical_actions: Liver transplant (LT)  
+  symptoms: Toxic metabolites; Elevated leucine concentration; Elevated methylmalonate concentration; Elevated argininosuccinate concentration  
+  chemicals: Leucine; Methylmalonate; Argininosuccinate  
+  action_annotation_relationships: treatment (Liver transplant) TREATS symptom (Toxic metabolites) IN disease (Inborn Errors of Metabolism); treatment (Liver transplant) TREATS symptom (Elevated leucine concentration) IN disease (Inborn Errors of Metabolism); treatment (Liver transplant) TREATS symptom (Elevated methylmalonate concentration) IN disease (Inborn Errors of Metabolism); treatment (Liver transplant) TREATS symptom (Elevated argininosuccinate concentration) IN disease (Inborn Errors of Metabolism)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  treatment (Liver transplant) TREATS symptom (Elevated argininosuccinate concentration) IN disease (Inborn Errors of Metabolism)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0019052
+  medical_actions:
+    - Liver transplant (LT)
+  symptoms:
+    - Toxic metabolites
+    - Elevated leucine concentration
+    - Elevated methylmalonate concentration
+    - Elevated argininosuccinate concentration
+  chemicals:
+    - CHEBI:25017
+    - CHEBI:17453
+    - Argininosuccinate
+  action_annotation_relationships:
+    - subject: treatment
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0019052
+      subject_extension: liver transplant
+      object_extension: toxic metabolites
+    - subject: treatment
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0019052
+      subject_extension: Liver transplant
+      object_extension: Elevated leucine concentration
+    - subject: treatment
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0019052
+      subject_qualifier: N/A
+      object_qualifier: N/A
+      subject_extension: Liver transplant
+      object_extension: Elevated methylmalonate concentration
+    - subject: treatment
+      predicate: TREATS
+      object: Elevated argininosuccinate concentration
+      qualifier: MONDO:0019052
+      subject_extension: Liver transplant
+      object_extension: argininosuccinate
+named_entities:
+  - id: CHEBI:17453
+    label: Methylmalonate
+    original_spans:
+      - 849:862

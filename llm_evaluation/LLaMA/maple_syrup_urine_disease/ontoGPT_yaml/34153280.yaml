@@ -1,0 +1,79 @@
+---
+input_text: 'Metabolic Control and "Ideal" Outcomes in Liver Transplantation for Maple
+  Syrup Urine Disease. OBJECTIVES: To assess outcomes following liver transplantation
+  for maple syrup urine disease by determining attainment and sustainability of metabolic
+  control and apply an "ideal" outcome composite in long-term survivors. STUDY DESIGN:
+  A single center, retrospective review collected clinical data including branched-chain
+  amino acid (leucine, isoleucine, and valine) levels following liver transplant and
+  determined achievement of an ideal long-term outcome profile of a first allograft
+  stable on immunosuppression monotherapy, normal growth, and absence of common transplant-related
+  sequelae. RESULTS: Of 77 patients meeting inclusion criteria identified, 23 were
+  long-term (>=10-year) survivors and were additionally assessed for ideal outcome
+  attainment. Patient and graft survival were 100% and 99%, respectively, and all
+  patients were on an unrestricted protein intake diet. Although significant variation
+  was noted in mean isoleucine (P < .01) and leucine (P < .05) levels postliver transplantation,
+  no difference was seen in valine (P = .29) and overall clinical impact was likely
+  negligible as metabolic stability was achieved and sustained beyond 3 years postliver
+  transplantation and no metabolic crises were identified. Of 23 long-term survivors
+  with available data, 9 (39%) achieved all composite metrics determined to define
+  "ideal" outcomes in pediatric postliver transplantation populations. CONCLUSIONS:
+  Liver transplant enables long-term metabolic stability for patients with maple syrup
+  urine disease. A combination of experience and improvement in both pre- and postliver
+  transplantation care has enabled excellent survival and minimal comorbidities following
+  transplant.'
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Maple Syrup Urine Disease
+
+  medical_actions: liver transplantation; immunosuppression monotherapy
+
+  symptoms: metabolic crises; abnormal branched-chain amino acid levels (leucine, isoleucine, and valine)
+
+  chemicals: leucine; isoleucine; valine
+
+  action_annotation_relationships: liver transplantation TREATS metabolic crises IN Maple Syrup Urine Disease; liver transplantation TREATS abnormal branched-chain amino acid levels IN Maple Syrup Urine Disease; immunosuppression monotherapy PREVENTS transplant-related sequelae IN Maple Syrup Urine Disease; liver transplantation (with immunosuppression monotherapy) TREATS Maple Syrup Urine Disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  liver transplantation (with immunosuppression monotherapy) TREATS Maple Syrup Urine Disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009563
+  medical_actions:
+    - MAXO:0001175
+    - immunosuppression monotherapy
+  symptoms:
+    - metabolic crises
+    - abnormal branched-chain amino acid levels (leucine, isoleucine, and valine)
+  chemicals:
+    - CHEBI:25017
+    - CHEBI:24898
+    - CHEBI:27266
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: metabolic crises
+      qualifier: MONDO:0009563
+    - predicate: TREATS
+      object: abnormal branched-chain amino acid levels
+      qualifier: MONDO:0009563
+    - predicate: PREVENTS
+      object: transplant-related sequelae
+      qualifier: MONDO:0009563
+      subject_extension: immunosuppression
+    - predicate: TREATS
+      object: Maple Syrup Urine Disease
+      subject_extension: transplantation

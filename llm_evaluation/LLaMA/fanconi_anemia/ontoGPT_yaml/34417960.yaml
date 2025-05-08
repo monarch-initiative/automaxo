@@ -1,0 +1,82 @@
+---
+input_text: 'Post-hematopoietic stem cell transplant squamous cell carcinoma in patients
+  with Fanconi anemia: a dreadful enemy. INTRODUCTION: Hematopoietic stem cell transplantation
+  (HSCT) is a curative option for patients with Fanconi anemia (FA) and hematological
+  manifestations but it does not prevent solid tumors, especially squamous cell carcinomas
+  (SCC). METHODS: Retrospective study in 22 FA patients who had received HSCT and
+  had been followed up beyond 2 years after HSCT. RESULTS: The median follow-up was
+  15 years. Six patients developed head-and-neck SCC after transplantation. The cumulative
+  incidence of SCC at 15 and 30 years from the HSCT was 14.2% and 71.2%, respectively.
+  One patient was diagnosed in stage IV and the rest, who were being followed up in
+  cancer screening programs, in stage I. Treatment of SCC consisted of surgery in
+  all patients; radiotherapy and chemotherapy were used in two patients and were poorly
+  tolerated. CONCLUSION: FA patients have high risk of head-and-neck SCC. Multi-disciplinary
+  programs for early cancer detection are of special relevance in these patients.'
+raw_completion_output: |-
+  Here are the extracted entities in the requested format:
+
+  primary_disease: Fanconi anemia
+
+  medical_actions: Hematopoietic stem cell transplantation (HSCT); surgery; radiotherapy; chemotherapy; cancer screening programs
+
+  symptoms: squamous cell carcinomas (SCC); head-and-neck SCC
+
+  chemicals: 
+
+  action_annotation_relationships: HSCT TREATS hematological manifestations IN Fanconi anemia; surgery TREATS SCC IN Fanconi anemia; radiotherapy TREATS SCC IN Fanconi anemia; chemotherapy TREATS SCC IN Fanconi anemia; cancer screening programs PREVENTS late-stage SCC IN Fanconi anemia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  cancer screening programs PREVENTS late-stage SCC IN Fanconi anemia
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0019391
+  medical_actions:
+    - MAXO:0000747
+    - MAXO:0000004
+    - MAXO:0000014
+    - MAXO:0000647
+    - cancer screening programs
+  symptoms:
+    - HP:0002860
+    - head-and-neck SCC
+  action_annotation_relationships:
+    - subject: MAXO:0000747
+      predicate: TREATS
+      object: manifestations
+      qualifier: MONDO:0019391
+    - predicate: TREATS
+      object: HP:0002860
+      qualifier: MONDO:0019391
+    - predicate: TREATS
+      object: HP:0002860
+      qualifier: MONDO:0019391
+    - predicate: TREATS
+      object: HP:0002860
+      qualifier: MONDO:0019391
+      subject_extension: chemotherapy
+    - predicate: PREVENTS
+      object: late-stage SCC
+      qualifier: MONDO:0019391
+named_entities:
+  - id: MAXO:0000004
+    label: surgery
+    original_spans:
+      - 829:835
+  - id: MAXO:0000014
+    label: radiotherapy
+    original_spans:
+      - 854:865

@@ -1,0 +1,78 @@
+---
+input_text: Does cannabidiol have antiseizure activity independent of its interactions
+  with clobazam? An appraisal of the evidence from randomized controlled trials. Four
+  pivotal randomized placebo-controlled trials have demonstrated that adjunctive therapy
+  with cannabidiol (CBD) improves seizure control in patients with Dravet syndrome
+  (DS) and Lennox-Gastaut syndrome (LGS). Between 47% and 68% of patients allocated
+  to CBD treatment in these trials were receiving clobazam (CLB), which shows complex
+  interactions with CBD resulting, in particular, in a 3.4- to 5-fold increase in
+  plasma concentration of the active metabolite norclobazam. This raises concern as
+  to the role played by these interactions in determining the reduction in seizure
+  frequency in CBD-treated patients, and the question of whether CBD per se has clinically
+  evident antiseizure effects. We appraised available evidence on the clinical consequences
+  of the CBD-CLB interaction, focusing on subgroup analyses of seizure outcomes in
+  patients on and off CLB comedication in the pivotal CBD trials, as provided by the
+  European Medicines Agency Public Assessment Report. Evaluation of the results of
+  individual trials clearly showed that improvement in seizure control over placebo
+  was greater when CBD was added on to CLB than when it was added on to other medications.
+  However, seizure control was also improved in patients off CLB, and despite the
+  small sample size the difference vs placebo was statistically significant for the
+  10 mg/kg/d dose in one of the two LGS trials. Stronger evidence for an antiseizure
+  effect of CBD independent of an interaction with CLB emerges from meta-analyses
+  of seizure outcomes in the pooled population of LGS and DS patients not receiving
+  CLB comedication. Although these results need to be interpreted taking into account
+  methodological limitations, they provide the best clinical evidence to date that
+  CBD exerts therapeutic effects in patients with epilepsy that are independent of
+  its interaction with CLB. Greater antiseizure effects, and a greater burden of adverse
+  effects, are observed when CBD is combined with CLB.
+raw_completion_output: |-
+  primary_disease: Epilepsy  
+  medical_actions: Adjunctive therapy with cannabidiol (CBD); Treatment with clobazam (CLB)  
+  symptoms: Seizures  
+  chemicals: Cannabidiol (CBD); Clobazam (CLB)  
+  action_annotation_relationships: Adjunctive therapy with cannabidiol (CBD) TREATS symptom (Seizures) IN disease (Epilepsy); Treatment with clobazam (CLB) TREATS symptom (Seizures) IN disease (Epilepsy)  
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Treatment with clobazam (CLB) TREATS symptom (Seizures) IN disease (Epilepsy)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005027
+  medical_actions:
+    - Adjunctive therapy with cannabidiol (CBD)
+    - Treatment with clobazam (CLB)
+  symptoms:
+    - HP:0001250
+  chemicals:
+    - CHEBI:69478
+    - CHEBI:31413
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0005027
+      subject_extension: CHEBI:69478
+    - subject: Treatment
+      predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0005027
+      subject_qualifier: with clobazam
+      subject_extension: CHEBI:31413
+      object_extension: Seizures
+named_entities:
+  - id: CHEBI:31413
+    label: Clobazam (CLB)
+    original_spans:
+      - 457:470

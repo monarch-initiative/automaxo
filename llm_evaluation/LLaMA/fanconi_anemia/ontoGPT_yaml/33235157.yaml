@@ -1,0 +1,79 @@
+---
+input_text: Care Coordination in a SARS-CoV-2-infected Child With Newly Diagnosed
+  Medulloblastoma and Fanconi Anemia. COVID-19, caused by severe acute respiratory
+  syndrome coronavirus 2 (SARS-CoV-2), is responsible for a global pandemic that can
+  cause severe infections in children, especially those with comorbid conditions.
+  Here, we report a case of a child with a newly diagnosed medulloblastoma, Fanconi
+  Anemia, and SARS-CoV-2 infection. Through multidisciplinary care coordination and
+  meticulous planning, we were able to safely initiate this patient's oncology care
+  and implement a long-term model to address the patient's care. This approach could
+  be replicated with any newly diagnosed pediatric patient that requires monitoring
+  for signs of COVID-19 with concurrent oncology care.
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Medulloblastoma; Fanconi Anemia; COVID-19
+
+  medical_actions: care coordination; oncology care; monitoring for signs of COVID-19; meticulous planning
+
+  symptoms: None explicitly mentioned
+
+  chemicals: SARS-CoV-2; severe acute respiratory syndrome coronavirus 2 
+
+  action_annotation_relationships: care coordination TREATS medulloblastoma AND Fanconi Anemia IN patient; oncology care TREATS medulloblastoma IN patient; monitoring for signs of COVID-19 PREVENTS COVID-19 IN patient; care coordination TREATS COVID-19 IN patient with medulloblastoma AND Fanconi Anemia; oncology care TREATS medulloblastoma AND Fanconi Anemia IN patient with COVID-19
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  oncology care TREATS medulloblastoma AND Fanconi Anemia IN patient with COVID-19
+
+  ===
+
+extracted_object:
+  primary_disease: Medulloblastoma; Fanconi Anemia; COVID-19
+  medical_actions:
+    - care coordination
+    - oncology care
+    - monitoring for signs of COVID-19
+    - meticulous planning
+  symptoms:
+    - None explicitly mentioned
+  chemicals:
+    - SARS-CoV-2
+    - severe acute respiratory syndrome coronavirus 2
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: medulloblastoma AND Fanconi Anemia
+    - predicate: TREATS
+      object: HP:0002885
+      qualifier: MONDO:0007959
+      subject_qualifier: IN patient
+    - predicate: PREVENTS
+      object: COVID-19
+    - predicate: TREATS
+      object: COVID-19
+      qualifier: patient with medulloblastoma AND Fanconi Anemia
+    - predicate: TREATS
+      object: Fanconi Anemia
+      qualifier: patient with COVID-19
+named_entities:
+  - id: HP:0002885
+    label: medulloblastoma
+    original_spans:
+      - 70:84
+      - 371:385
+  - id: MONDO:0007959
+    label: medulloblastoma
+    original_spans:
+      - 70:84
+      - 371:385

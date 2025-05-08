@@ -1,0 +1,118 @@
+---
+input_text: 'Kidney complications in 107 Fanconi anemia patients submitted to hematopoietic
+  cell transplantation. Fanconi anemia (FA) is a rare disease characterized by progressive
+  bone marrow failure, cancer predisposition, and multiple systemic malformations,
+  including congenital abnormalities of the kidney and urinary tract (CAKUT). Hematopoietic
+  cell transplantation (HCT), the only potentially curative treatment for the hematological
+  complications of FA, may precipitate acute kidney injury (AKI) and hypertension.
+  We retrospectively investigated 107 FA patients who underwent HCT between 2009 and
+  2017. We investigated the incidence and risk factors of AKI within 100 days after
+  HCT in a cohort of FA patients, and kidney function and hypertension over 2-year
+  follow-up.The incidence of AKI (mainly stage I) was 18.7%. Patients aged >= 11 years
+  at transplantation showed a higher risk of AKI (OR 3.53). The eGFR was 60-90 mL/min/1.73
+  m2 in 53 (49.5%), 55 (51.4%), 50 (50.5%), 50 (51%), and 46 (59.7%) patients before
+  HCT, at 100 days, 6 months, 1 year, and 2 years. Within the first 100 days after
+  HCT, hypertension was observed in 72% of the patients and was associated with cyclosporine
+  therapy. Most (62.3%) patients had stage 2 hypertension. CAKUT was observed in 33.7%
+  of the patients and was associated with both hypertension (86%) and diminished kidney
+  function but not with AKI.Conlusion: Although AKI, a commonly known HCT complication,
+  was mild in this study, the prevalence of chronic kidney disease (CKD), as well
+  as the high incidence of hypertension, specially associated with CAKUT point out
+  the importance of kidney care in short and long-term follow up of FA patients. What
+  is Known:   Fanconi anemia (FA) is the most frequent inherited bone marrow failure
+  in children, and 30% of cases have congenital anomalies of kidney (CAKUT).   Acute
+  kidney injury and hypertension after hematopoietic cell transplantation (HCT) may
+  impact the outcomes.. What is New:   Despite the presence of CAKUT and stage 2 CKD
+  in 33.7% and 50% of the patients, respectively, AKI was mild and transitory after
+  HCT in FA patients.   CAKUT in FA patients was associated with lower kidney function
+  and hypertension after HCT.'
+raw_completion_output: |-
+  primary_disease: Fanconi anemia  
+  medical_actions: hematopoietic cell transplantation; cyclosporine therapy  
+  symptoms: acute kidney injury; hypertension; congenital abnormalities of the kidney and urinary tract; chronic kidney disease  
+  chemicals: cyclosporine  
+  action_annotation_relationships: hematopoietic cell transplantation TREATS acute kidney injury IN Fanconi anemia; cyclosporine therapy TREATS hypertension IN Fanconi anemia; hematopoietic cell transplantation TREATS chronic kidney disease IN Fanconi anemia; hematopoietic cell transplantation PREVENTS acute kidney injury IN Fanconi anemia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  hematopoietic cell transplantation PREVENTS acute kidney injury IN Fanconi anemia
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0019391
+  medical_actions:
+    - hematopoietic cell transplantation
+    - cyclosporine therapy
+  symptoms:
+    - HP:0001919
+    - HP:0000822
+    - congenital abnormalities of the kidney and urinary tract
+    - HP:0012622
+  chemicals:
+    - CHEBI:4031
+  action_annotation_relationships:
+    - subject: hematopoietic cell transplantation
+      predicate: TREATS
+      object: HP:0001919
+      qualifier: MONDO:0019391
+      subject_extension: hematopoietic cell transplantation
+      object_extension: acute kidney injury
+    - subject: MAXO:0001298
+      predicate: TREATS
+      object: HP:0000822
+      qualifier: MONDO:0019391
+      subject_qualifier: none
+      object_qualifier: none
+      subject_extension: CHEBI:4031
+      object_extension: none
+    - subject: hematopoietic cell transplantation
+      predicate: TREATS
+      object: HP:0012622
+      qualifier: MONDO:0019391
+      subject_extension: hematopoietic cell transplantation
+      object_extension: chronic kidney disease
+    - subject: hematopoietic cell transplantation
+      predicate: PREVENTS
+      object: HP:0001919
+      qualifier: MONDO:0019391
+      subject_qualifier: N/A
+      object_qualifier: N/A
+      subject_extension: hematopoietic cell transplantation
+      object_extension: acute kidney injury
+named_entities:
+  - id: HP:0001919
+    label: acute kidney injury
+    original_spans:
+      - 466:484
+      - 1847:1865
+  - id: HP:0000822
+    label: hypertension
+    original_spans:
+      - 496:507
+      - 731:742
+      - 1099:1110
+      - 1228:1239
+      - 1315:1326
+      - 1547:1558
+      - 1871:1882
+      - 2189:2200
+  - id: HP:0012622
+    label: chronic kidney disease
+    original_spans:
+      - 1484:1505
+  - id: MAXO:0001298
+    label: therapy
+    original_spans:
+      - 1185:1191

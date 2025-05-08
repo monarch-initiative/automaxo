@@ -1,0 +1,83 @@
+---
+input_text: 'Cannabidiol efficacy and clobazam status: A systematic review and meta-analysis.
+  OBJECTIVE: To evaluate the potential impact of concomitant clobazam (CLB) use on
+  the efficacy of cannabidiol (CBD) treatment in patients with Dravet syndrome and
+  Lennox-Gastaut syndrome using meta-analytical techniques. METHODS: We searched for
+  randomized, placebo-controlled, single- or double-blinded trials. The proportion
+  of patients who achieved >=50% reduction from baseline in seizure frequency during
+  the treatment period was assessed according to CLB status. Risk ratios (RRs) with
+  95% confidence intervals (CIs) were estimated. RESULTS: Four trials were included
+  and enrolled 714 participants, 429 for the add-on CBD group and 285 for the add-on
+  placebo group. Among CBD-treated patients, 240 (55.9%) were taking concomitant CLB
+  (CLB-On) and 189 (44.1%) were not taking concomitant CLB (CLB-Off); in placebo-treated
+  patients, 158 (55.4%) were CLB-On and 127 (44.6%) CLB-Off. The percentages of patients
+  who had at least 50% reduction in seizure frequency during the treatment period
+  were 29.1% in the CBD arm and 15.7% in the placebo group among CLB-Off patients
+  (RR = 1.80, 95% CI = 1.12-2.90, P = .015). Among CBL-On patients, the >=50% reduction
+  in seizure frequency was found in 52.9% and 27.8% in the CBD and placebo groups,
+  respectively (RR = 1.85, 95% CI = 1.40-2.44, P < .001). SIGNIFICANCE: CBD was associated
+  with a higher rate of seizure response in comparison to placebo when added to the
+  existing antiepileptic regimen both in patients taking and in those not taking concomitant
+  CLB. The lack of randomization for CLB status and the limited sample size need to
+  be considered in the interpretation of the findings.'
+raw_completion_output: |-
+  primary_disease: Dravet syndrome; Lennox-Gastaut syndrome  
+  medical_actions: use of cannabidiol (CBD); use of clobazam (CLB)  
+  symptoms: seizure frequency  
+  chemicals: cannabidiol (CBD); clobazam (CLB)  
+  action_annotation_relationships: use of cannabidiol (CBD) TREATS symptom seizure frequency IN Dravet syndrome; use of cannabidiol (CBD) TREATS symptom seizure frequency IN Lennox-Gastaut syndrome; use of clobazam (CLB) TREATS symptom seizure frequency IN Dravet syndrome; use of clobazam (CLB) TREATS symptom seizure frequency IN Lennox-Gastaut syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  use of clobazam (CLB) TREATS symptom seizure frequency IN Lennox-Gastaut syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: Dravet syndrome; Lennox-Gastaut syndrome
+  medical_actions:
+    - use of cannabidiol (CBD)
+    - use of clobazam (CLB)
+  symptoms:
+    - seizure frequency
+  chemicals:
+    - CHEBI:69478
+    - CHEBI:31413
+  action_annotation_relationships:
+    - subject: use of cannabidiol (CBD)
+      predicate: TREATS
+      object: seizure frequency
+      qualifier: MONDO:0100135
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: CHEBI:69478
+      object_extension: None
+    - subject: use of cannabidiol (CBD)
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0016532
+      subject_extension: CHEBI:69478
+      object_extension: seizure frequency
+    - subject: use of clobazam
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0100135
+      subject_extension: CHEBI:31413
+      object_extension: seizure frequency
+    - subject: use of clobazam
+      predicate: TREATS
+      object: symptom seizure frequency
+      qualifier: MONDO:0016532
+      subject_extension: CHEBI:31413
+      object_extension: seizure frequency

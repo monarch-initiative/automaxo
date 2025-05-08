@@ -1,0 +1,84 @@
+---
+input_text: "[Clinical Analysis of Salvage Treatment of Glucocorticoid Resistant Graft-Versus-Host
+  Disease with Vedolizumab in Children]. OBJECTIVE: To investigate the efficacy and
+  safety of VDZ (Vedolizumab) in the salvage treatment of glucocorticoid resistance
+  to gastrointestinal graft-versus-host disease (GR-GI GVHD) after allogeneic hematopoietic
+  stem cell transplantation (allo-HSCT) in children. METHODS: The clinical data of
+  5 patients with refractory GI GVHD who received allo-HSCT in Wuhan Children's Hospital
+  from December 2020 to December 2021 were retrospectively analyzed with VDZ salvage
+  therapy. RESULTS: Among the 5 children with refractory GI GVHD, there were 1 male
+  and 4 female, including 2 cases of extremely severe aplastic anemia, 1 case of acute
+  myeloid leukemia (M2, high-risk), 1 case of fanconi anemia and 1 case of myelodysplastic
+  syndrome. The median age of transplant recipients was 54.4 (12-164) months. The
+  median treatment time from transplantation to VDZ was 1.4 (0.6-6.8) months. On average,
+  3.5 (2-5) doses of VDZ were received. After receiving treatment, 2 patients achieved
+  a complete response (CR), 2 patients achieved a very good partial response (VGPR),
+  1 patient was non-responsive (NR) after a short-term partial response (PR). Compared
+  with that before VDZ treatment, the amount of diarrhea, stool color, blood and traits
+  of the children after medication were effectively improved. The median follow-up
+  time was 9.3 (7.23-12.83) months. No disseminated or severe bacterial/fungal infections
+  occurred during VDZ treatment and follow-up, and 2 children died of leukemia recurrence
+  and pulmonary bronchiolitis obliterans. CONCLUSION: VDZ salvage treatment of refractory
+  GI GVHD in children has obvious short-term efficacy and good safety."
+raw_completion_output: |-
+  primary_disease: Glucocorticoid Resistant Graft-Versus-Host Disease  
+  medical_actions: salvage treatment with Vedolizumab  
+  symptoms: diarrhea; stool color changes; blood in stool  
+  chemicals: Vedolizumab  
+  action_annotation_relationships: salvage treatment with Vedolizumab TREATS diarrhea IN Glucocorticoid Resistant Graft-Versus-Host Disease; salvage treatment with Vedolizumab TREATS stool color changes IN Glucocorticoid Resistant Graft-Versus-Host Disease; salvage treatment with Vedolizumab TREATS blood in stool IN Glucocorticoid Resistant Graft-Versus-Host Disease  
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  salvage treatment with Vedolizumab TREATS blood in stool IN Glucocorticoid Resistant Graft-Versus-Host Disease
+
+  ===
+
+extracted_object:
+  primary_disease: Glucocorticoid Resistant Graft-Versus-Host Disease
+  medical_actions:
+    - salvage treatment with Vedolizumab
+  symptoms:
+    - HP:0002014
+    - stool color changes
+    - HP:0025085
+  chemicals:
+    - Vedolizumab
+  action_annotation_relationships:
+    - subject: salvage treatment
+      predicate: TREATS
+      object: HP:0002014
+      qualifier: Glucocorticoid Resistant Graft-Versus-Host Disease
+      subject_qualifier: N/A
+      object_qualifier: N/A
+      subject_extension: Vedolizumab
+      object_extension: N/A
+    - subject: salvage treatment
+      predicate: TREATS
+      object: stool color changes
+      qualifier: Glucocorticoid Resistant Graft-Versus-Host Disease
+      subject_extension: Vedolizumab
+      object_extension: stool color changes
+    - subject: salvage treatment
+      predicate: TREATS
+      object: HP:0025085
+      qualifier: Glucocorticoid Resistant Graft-Versus-Host Disease
+      subject_extension: Vedolizumab
+      object_extension: blood in stool
+named_entities:
+  - id: HP:0002014
+    label: diarrhea
+    original_spans:
+      - 1314:1321
+  - id: HP:0025085
+    label: blood in stool

@@ -1,0 +1,88 @@
+---
+input_text: CRISPR/dCas9-based Scn1a gene activation in inhibitory neurons ameliorates
+  epileptic and behavioral phenotypes of Dravet syndrome model mice. Dravet syndrome
+  is a severe infantile-onset epileptic encephalopathy which begins with febrile seizures
+  and is caused by heterozygous loss-of-function mutations of the voltage-gated sodium
+  channel gene SCN1A. We designed a CRISPR-based gene therapy for Scn1a-haplodeficient
+  mice using multiple guide RNAs (gRNAs) in the promoter regions together with the
+  nuclease-deficient Cas9 fused to transcription activators (dCas9-VPR) to trigger
+  the transcription of SCN1A or Scn1a in vitro. We tested the effect of this strategy
+  in vivo using an adeno-associated virus (AAV) mediated system targeting inhibitory
+  neurons and investigating febrile seizures and behavioral parameters. In both the
+  human and mouse genes multiple guide RNAs (gRNAs) in the upstream, rather than downstream,
+  promoter region showed high and synergistic activities to increase the transcription
+  of SCN1A or Scn1a in cultured cells. Intravenous injections of AAV particles containing
+  the optimal combination of 4 gRNAs into transgenic mice with Scn1a-haplodeficiency
+  and inhibitory neuron-specific expression of dCas9-VPR at four weeks of age increased
+  Nav1.1 expression in parvalbumin-positive GABAergic neurons, ameliorated their febrile
+  seizures and improved their behavioral impairments. Although the usage of transgenic
+  mice and rather modest improvements in seizures and abnormal behaviors hamper direct
+  clinical application, our results indicate that the upregulation of Scn1a expression
+  in the inhibitory neurons can significantly improve the phenotypes, even when applied
+  after the juvenile stages. Our findings also suggest that the decrease in Nav1.1
+  is directly involved in the symptoms seen in adults with Dravet syndrome and open
+  a way to improve this condition.
+raw_completion_output: |-
+  primary_disease: Dravet syndrome  
+  medical_actions: CRISPR-based gene therapy; intravenous injections of AAV particles  
+  symptoms: febrile seizures; behavioral impairments  
+  chemicals: dCas9-VPR; AAV  
+  action_annotation_relationships: CRISPR-based gene therapy TREATS febrile seizures IN Dravet syndrome; CRISPR-based gene therapy TREATS behavioral impairments IN Dravet syndrome; intravenous injections of AAV particles TREATS febrile seizures IN Dravet syndrome; intravenous injections of AAV particles TREATS behavioral impairments IN Dravet syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  intravenous injections of AAV particles TREATS behavioral impairments IN Dravet syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0100135
+  medical_actions:
+    - CRISPR-based gene therapy
+    - intravenous injections of AAV particles
+  symptoms:
+    - HP:0002373
+    - behavioral impairments
+  chemicals:
+    - dCas9-VPR
+    - AAV
+  action_annotation_relationships:
+    - subject: TREATS
+      predicate: TREATS
+      object: HP:0002373
+      qualifier: MONDO:0100135
+      subject_qualifier: CRISPR-based
+      object_qualifier: None
+      subject_extension: CRISPR-based gene therapy
+      object_extension: febrile seizures
+    - subject: MAXO:0001001
+      predicate: TREATS
+      object: behavioral impairments
+      qualifier: MONDO:0100135
+      subject_qualifier: CRISPR-based
+      object_qualifier: None
+      subject_extension: gene therapy
+      object_extension: behavioral
+    - predicate: TREATS
+      object: HP:0002373
+      qualifier: MONDO:0100135
+      subject_extension: AAV particles
+    - subject: intravenous injections
+      predicate: TREATS
+      object: behavioral impairments
+      qualifier: MONDO:0100135
+      subject_qualifier: intravenous
+      object_qualifier: None
+      subject_extension: AAV particles
+      object_extension: behavioral impairments

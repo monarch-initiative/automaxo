@@ -1,0 +1,130 @@
+---
+input_text: 'Survival and toxicity outcomes of hematopoietic stem cell transplantation
+  for pediatric patients with Fanconi anemia: a unified multicentric national study
+  from the Spanish Working Group for Bone Marrow Transplantation in Children. Hematopoietic
+  stem cell transplantation (HSCT) is currently the only curative option for hematological
+  manifestations in patients with Fanconi anemia (FA). We report the outcome of 34
+  patients with FA inside a collaborative multicenter national study based on recommendations
+  of Spanish Working Group for Bone Marrow Transplantation in Children (GETMON) between
+  2009 and 2016. Fludarabine-based conditioning regimen was carried out in all patients,
+  with low dose total body irradiation in unrelated transplants. Disease status before
+  HSCT was bone marrow failure (BMF) in 30 patients and myelodysplastic syndrome (MDS)
+  in four. Donors were matched siblings donors (MSD) in 18, matched unrelated donors
+  (MUD) in 15, and one haploidentical donor. All except one patient engrafted. Cumulative
+  incidence of grades II-IV acute graft-versus-host disease (GVHD) was 29% and 11%
+  for chronic GVHD. Median follow-up after HSCT was 6.5 years. Seven patients (21%)
+  died due to transplant-related causes, two (6%) because of MDS relapse, and one
+  (3%) after a squamous cell carcinoma. Overall survival (OS) was 73% at 5 years post-transplant,
+  with no differences between MSD and MUD transplants. OS for patients with BMF was
+  80% while for MDS was 25%. Our data suggest HSCT can cure hematologic manifestations
+  of most FA patients with BMF.'
+raw_completion_output: |-
+  primary_disease: Fanconi anemia  
+  medical_actions: hematopoietic stem cell transplantation (HSCT); fludarabine-based conditioning regimen; total body irradiation  
+  symptoms: bone marrow failure (BMF); myelodysplastic syndrome (MDS); acute graft-versus-host disease (GVHD); chronic graft-versus-host disease (GVHD); transplant-related causes; relapse; squamous cell carcinoma  
+  chemicals: fludarabine  
+  action_annotation_relationships: HSCT TREATS bone marrow failure (BMF) IN Fanconi anemia; HSCT TREATS myelodysplastic syndrome (MDS) IN Fanconi anemia; fludarabine-based conditioning regimen TREATS bone marrow failure (BMF) IN Fanconi anemia; total body irradiation TREATS bone marrow failure (BMF) IN Fanconi anemia; HSCT TREATS acute graft-versus-host disease (GVHD) IN Fanconi anemia; HSCT TREATS chronic graft-versus-host disease (GVHD) IN Fanconi anemia; HSCT TREATS transplant-related causes IN Fanconi anemia; HSCT TREATS relapse IN Fanconi anemia; HSCT TREATS squamous cell carcinoma IN Fanconi anemia
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  HSCT TREATS squamous cell carcinoma IN Fanconi anemia
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0019391
+  medical_actions:
+    - MAXO:0000747
+    - fludarabine-based conditioning regimen
+    - total body irradiation
+  symptoms:
+    - HP:0005528
+    - HP:0002863
+    - acute graft-versus-host disease (GVHD)
+    - chronic graft-versus-host disease (GVHD)
+    - transplant-related causes
+    - relapse
+    - HP:0002860
+  chemicals:
+    - fludarabine
+  action_annotation_relationships:
+    - subject: MAXO:0000747
+      predicate: TREATS
+      object: HP:0005528
+      qualifier: MONDO:0019391
+      subject_qualifier: <None>
+      object_qualifier: <None>
+      subject_extension: HSCT
+      object_extension: bone marrow failure
+    - subject: MAXO:0000747
+      predicate: TREATS
+      object: HP:0002863
+      qualifier: MONDO:0019391
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: Hematopoietic stem cell transplantation
+      object_extension: None
+    - subject: TREATS
+      predicate: TREATS
+      object: HP:0005528
+      qualifier: MONDO:0019391
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: fludarabine-based conditioning regimen
+      object_extension: bone marrow failure
+    - subject: total body irradiation
+      predicate: TREATS
+      object: HP:0005528
+      qualifier: MONDO:0019391
+      subject_extension: total body irradiation
+      object_extension: bone marrow failure
+    - subject: MAXO:0000747
+      predicate: TREATS
+      object: acute graft-versus-host disease
+      qualifier: MONDO:0019391
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: HSCT
+      object_extension: acute graft-versus-host disease
+    - subject: MAXO:0000747
+      predicate: TREATS
+      object: chronic graft-versus-host disease
+      qualifier: MONDO:0019391
+      subject_extension: HSCT
+      object_extension: chronic graft-versus-host disease
+    - subject: MAXO:0000747
+      predicate: TREATS
+      object: transplant-related causes
+      qualifier: MONDO:0019391
+      subject_extension: hematopoietic stem cell transplantation
+      object_extension: transplant-related causes
+    - subject: MAXO:0000747
+      predicate: TREATS
+      object: relapse
+      qualifier: MONDO:0019391
+      subject_qualifier: N/A
+      object_qualifier: N/A
+      subject_extension: HSCT
+      object_extension: N/A
+    - subject: MAXO:0000747
+      predicate: TREATS
+      object: HP:0002860
+      qualifier: MONDO:0019391
+      subject_extension: HSCT
+      object_extension: squamous cell carcinoma
+named_entities:
+  - id: HP:0002860
+    label: squamous cell carcinoma
+    original_spans:
+      - 1278:1300

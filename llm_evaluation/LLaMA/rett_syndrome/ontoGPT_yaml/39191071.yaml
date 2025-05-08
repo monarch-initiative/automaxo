@@ -1,0 +1,86 @@
+---
+input_text: "Neurosurgical gene therapy for central nervous system diseases. Viral
+  vector mediated gene therapies for neurodegenerative and neurodevelopmental conditions
+  that require neurosurgical administration continue to expand. We systematically
+  reviewed the National Institutes of Health (NIH) ClinicalTrials.gov database to
+  identify all clinical trials studying in-vivo viral vector mediated gene therapies
+  targeted to the CNS for neurodegenerative and neurodevelopmental diseases. We isolated
+  studies which delivered therapies using neurosurgical approaches: intracisternal,
+  intraventricular, and/or intraparenchymal. Clinical trials primarily registered
+  in international countries were included if they were referenced by an NIH registered
+  clinical trial. We performed a scoping review to identify the preclinical studies
+  that supported each human clinical trial. Key preclinical and clinical data were
+  aggregated to characterize vector capsid design, delivery methods, gene expression
+  profile, and clinical benefit. A total of 64 clinical trials were identified in
+  active, completed, terminated, and long-term follow-up stages. A range of CNS conditions
+  across pediatric and adult populations are being studied with CNS targeted viral
+  vector gene therapy, including Alzheimer's disease, Parkinson's disease, AADC deficiency,
+  sphingolipidoses, mucopolysaccharidoses, neuronal ceroid lipofuscinoses, spinal
+  muscular atrophy, adrenoleukodystrophy, Canavan disease, frontotemporal dementia,
+  Huntington's disease, Rett syndrome, Dravet syndrome, mesial temporal lobe epilepsy,
+  and glutaric acidemia. Adeno-associated viral vectors (AAVs) were utilized by the
+  majority of tested therapies, with vector serotypes, regulatory elements, delivery
+  methods, and vector monitoring varying based on the disease being studied. Intraparenchymal
+  delivery has evolved significantly, with MRI-guided convection-enhanced delivery
+  established as a gold standard method for pioneering novel gene targets."
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Central nervous system diseases; neurodegenerative diseases; neurodevelopmental diseases
+
+  medical_actions: Neurosurgical gene therapy; viral vector mediated gene therapies; intracisternal delivery; intraventricular delivery; intraparenchymal delivery; MRI-guided convection-enhanced delivery
+
+  symptoms: Not explicitly mentioned, but the text implies various symptoms associated with the listed diseases
+
+  chemicals: Adeno-associated viral vectors (AAVs)
+
+  action_annotation_relationships: 
+  - Neurosurgical gene therapy TREATS central nervous system diseases
+  - Viral vector mediated gene therapies TREATS neurodegenerative diseases; viral vector mediated gene therapies TREATS neurodevelopmental diseases
+  - Intracisternal delivery; intraventricular delivery; intraparenchymal delivery TREATS various CNS conditions (e.g., Alzheimer's disease, Parkinson's disease, etc.)
+  - Adeno-associated viral vectors (AAVs) TREATS various CNS conditions (e.g., Alzheimer's disease, Parkinson's disease, etc.) IN central nervous system diseases 
+  - MRI-guided convection-enhanced delivery TREATS various CNS conditions IN central nervous system diseases 
+
+  Note that the relationships are not exhaustive, as there are many diseases and medical actions mentioned in the text. Also, keep in mind that I may have hallucinated some citations or relationships, so please double-check the information.
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  - Neurosurgical gene therapy TREATS central nervous system diseases
+
+  ===
+
+extracted_object:
+  primary_disease: Central nervous system diseases; neurodegenerative diseases; neurodevelopmental
+    diseases
+  medical_actions:
+    - Neurosurgical gene therapy
+    - viral vector mediated gene therapies
+    - intracisternal delivery
+    - intraventricular delivery
+    - intraparenchymal delivery
+    - MRI-guided convection-enhanced delivery
+  symptoms:
+    - Not explicitly mentioned, but the text implies various symptoms associated with
+      the listed diseases
+  chemicals:
+    - Adeno-associated viral vectors (AAVs)
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: HP:0002011
+      subject_extension: gene therapy
+named_entities:
+  - id: HP:0002011
+    label: central nervous system diseases
+    original_spans:
+      - 31:61

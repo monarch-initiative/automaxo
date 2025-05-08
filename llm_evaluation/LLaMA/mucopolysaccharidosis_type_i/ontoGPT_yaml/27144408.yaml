@@ -1,0 +1,97 @@
+---
+input_text: 'IgE-Mediated Hypersensitivity and Desensitisation with Recombinant Enzymes
+  in Pompe Disease and Type I and Type VI Mucopolysaccharidosis. Enzyme replacement
+  therapy (ERT) is important for the treatment of lysosomal storage disorders. Hypersensitivity
+  reactions with ERT have been reported, and in these cases, desensitisation with
+  the enzyme is necessary. Here we report the cases of 3 patients with lysosomal storage
+  disorders, including Pompe disease and mucopolysaccharidosis type I and VI, who
+  had IgE-mediated hypersensitivity reactions and positive skin tests. Successful
+  desensitisation protocols with the culprit enzyme solution were used for these patients.
+  All 3 patients were able to safely receive ERT with the desensitisation protocol. '
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Pompe disease; Mucopolysaccharidosis type I; Mucopolysaccharidosis type VI
+  medical_actions: Enzyme replacement therapy (ERT); Desensitisation with recombinant enzymes; Desensitisation protocols
+  symptoms: Hypersensitivity reactions; Positive skin tests; IgE-mediated hypersensitivity reactions
+  chemicals: Recombinant enzymes; Enzyme solution
+  action_annotation_relationships: Enzyme replacement therapy (ERT) TREATS Pompe disease; Enzyme replacement therapy (ERT) TREATS Mucopolysaccharidosis type I; Enzyme replacement therapy (ERT) TREATS Mucopolysaccharidosis type VI; Desensitisation with recombinant enzymes TREATS hypersensitivity reactions IN Pompe disease; Desensitisation with recombinant enzymes TREATS hypersensitivity reactions IN Mucopolysaccharidosis type I; Desensitisation with recombinant enzymes TREATS hypersensitivity reactions IN Mucopolysaccharidosis type VI; Desensitisation protocols TREATS positive skin tests IN Pompe disease; Desensitisation protocols TREATS positive skin tests IN Mucopolysaccharidosis type I; Desensitisation protocols TREATS positive skin tests IN Mucopolysaccharidosis type VI
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Desensitisation protocols TREATS positive skin tests IN Mucopolysaccharidosis type VI
+
+  ===
+
+extracted_object:
+  primary_disease: Pompe disease; Mucopolysaccharidosis type I; Mucopolysaccharidosis
+    type VI
+  medical_actions:
+    - Enzyme replacement therapy (ERT)
+    - Desensitisation with recombinant enzymes
+    - Desensitisation protocols
+  symptoms:
+    - Hypersensitivity reactions
+    - Positive skin tests
+    - IgE-mediated hypersensitivity reactions
+  chemicals:
+    - Recombinant enzymes
+    - Enzyme solution
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: disease
+      qualifier: Pompe
+      subject_extension: enzyme replacement
+    - predicate: TREATS
+      object: Mucopolysaccharidosis type I
+    - predicate: TREATS
+      object: Mucopolysaccharidosis type VI
+    - predicate: TREATS
+      object: hypersensitivity reactions
+      qualifier: MONDO:0009290
+      subject_qualifier: with recombinant enzymes
+      subject_extension: recombinant enzymes
+    - predicate: TREATS
+      object: hypersensitivity reactions
+      qualifier: MONDO:0001586
+      subject_qualifier: with recombinant enzymes
+    - predicate: TREATS
+      object: hypersensitivity reactions
+      qualifier: MONDO:0009661
+      subject_qualifier: with recombinant enzymes
+      subject_extension: recombinant enzymes
+    - predicate: TREATS
+      object: positive skin tests
+      qualifier: MONDO:0009290
+      subject_extension: desensitisation
+    - subject: protocols
+      predicate: TREATS
+      object: skin tests
+      qualifier: MONDO:0001586
+      subject_extension: desensitisation
+      object_extension: positive
+    - subject: protocols
+      predicate: TREATS
+      object: skin tests
+      qualifier: MONDO:0009661
+      subject_extension: desensitisation
+      object_extension: positive
+named_entities:
+  - id: MONDO:0009290
+    label: Pompe disease
+    original_spans:
+      - 78:90
+      - 439:451
+  - id: MONDO:0009661
+    label: Mucopolysaccharidosis type VI

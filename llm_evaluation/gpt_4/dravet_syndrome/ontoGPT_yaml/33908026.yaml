@@ -1,0 +1,162 @@
+---
+input_text: 'New therapeutic approach in Dravet syndrome and Lennox-Gastaut syndrome
+  with cannabidiol. INTRODUCTION: Dravet syndrome (DS) and Lennox-Gastaut syndrome
+  (LGS) are two serious epileptic syndromes with paediatric onset which are refractory
+  to therapy and are associated with an important increase in mortality rates and
+  comorbidities compared to the general population. These pathologies have a strong
+  impact on the lives of patients and their families, because they undergo multiple
+  pharmacological therapies (many of them without specific indication), with frequent
+  changes due to poor efficacy and associated adverse effects. The specialists who
+  care for these patients highlight unmet needs and the lack of specific, safe and
+  effective treatments for better management of the syndrome. DEVELOPMENT: A group
+  of four neurologists specializing in epilepsy has met to review the scientific literature
+  and evaluate the efficacy and safety of oral solution cannabidiol in the treatment
+  of these syndromes, both in randomized clinical trials (CT) and in some observational
+  studies. CONCLUSIONS: Cannabidiol is positioned as an innovative therapy that allows
+  better control of epileptic seizures and comorbidities of DS and LGS, furthermore
+  its efficacy and safety have been evaluated in more than 700 patients. In CTs, cannabidiol
+  significantly reduced the percentage of convulsive seizures and drop seizures compared
+  to placebo in patients with DS and LGS respectively, which could improve their quality
+  of life and that of their family members. The most frequent adverse effects reported
+  were somnolence and decreased appetite. Elevated liver aminotransferase levels were
+  also reported, especially in patients given concomitant sodium valproate. This therapy
+  may allow better control of the epileptic seizures associated with these syndromes.'
+raw_completion_output: |-
+  primary_disease: Dravet syndrome; Lennox-Gastaut syndrome
+  medical_actions: review of scientific literature; evaluate the efficacy and safety of oral solution cannabidiol; control of epileptic seizures
+  symptoms: convulsive seizures; drop seizures; somnolence; decreased appetite; elevated liver aminotransferase levels
+  chemicals: cannabidiol; sodium valproate
+  action_annotation_relationships: evaluate the efficacy and safety of oral solution cannabidiol TREATS convulsive seizures IN Dravet syndrome; evaluate the efficacy and safety of oral solution cannabidiol TREATS drop seizures IN Lennox-Gastaut syndrome; control of epileptic seizures TREATS convulsive seizures IN Dravet syndrome; control of epileptic seizures TREATS drop seizures IN Lennox-Gastaut syndrome; cannabidiol TREATS somnolence IN Dravet syndrome; cannabidiol TREATS somnolence IN Lennox-Gastaut syndrome; cannabidiol TREATS decreased appetite IN Dravet syndrome; cannabidiol TREATS decreased appetite IN Lennox-Gastaut syndrome; cannabidiol (with sodium valproate) TREATS elevated liver aminotransferase levels IN Dravet syndrome; cannabidiol (with sodium valproate) TREATS elevated liver aminotransferase levels IN Lennox-Gastaut syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  cannabidiol (with sodium valproate) TREATS elevated liver aminotransferase levels IN Lennox-Gastaut syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: Dravet syndrome; Lennox-Gastaut syndrome
+  medical_actions:
+    - review of scientific literature
+    - evaluate the efficacy and safety of oral solution cannabidiol
+    - control of epileptic seizures
+  symptoms:
+    - convulsive seizures
+    - HP:0010819
+    - HP:0002329
+    - HP:0004396
+    - elevated liver aminotransferase levels
+  chemicals:
+    - CHEBI:69478
+    - CHEBI:9925
+  action_annotation_relationships:
+    - subject: evaluate the efficacy and safety of oral solution
+      predicate: TREATS
+      object: convulsive seizures
+      qualifier: MONDO:0100135
+      subject_qualifier: oral
+      subject_extension: CHEBI:69478
+    - subject: oral solution cannabidiol therapy
+      predicate: TREATS
+      object: HP:0010819
+      qualifier: MONDO:0016532
+      subject_extension: CHEBI:69478
+    - subject: control of epileptic seizures
+      predicate: TREATS
+      object: convulsive seizures
+      qualifier: MONDO:0100135
+    - subject: control of epileptic seizures
+      predicate: TREATS
+      object: HP:0010819
+      qualifier: MONDO:0016532
+    - predicate: TREATS
+      object: HP:0002329
+      qualifier: MONDO:0100135
+      subject_extension: CHEBI:69478
+    - predicate: TREATS
+      object: HP:0002329
+      qualifier: MONDO:0016532
+      subject_extension: CHEBI:69478
+    - subject: cannabidiol
+      predicate: TREATS
+      object: HP:0004396
+      qualifier: MONDO:0100135
+      subject_extension: CHEBI:69478
+    - subject: <cannabidiol>
+      predicate: <TREATS>
+      object: <decreased appetite>
+      qualifier: <Lennox-Gastaut syndrome>
+      subject_extension: <cannabidiol>
+    - subject: TREATS
+      predicate: TREATS
+      object: elevated liver aminotransferase levels
+      qualifier: MONDO:0100135
+      subject_qualifier: with sodium valproate
+      subject_extension: CHEBI:69478
+      object_extension: sodium valproate
+    - subject: cannabidiol (with sodium valproate)
+      predicate: TREATS
+      object: elevated liver aminotransferase levels
+      qualifier: MONDO:0016532
+      subject_extension: CHEBI:69478
+      object_extension: with sodium valproate
+named_entities:
+  - id: MONDO:0100135
+    label: Dravet syndrome
+  - id: MAXO:0001187
+    label: hysteroscopy
+  - id: CHEBI:44915
+    label: propofol
+  - id: CHEBI:119915
+    label: fentanyl
+  - id: CHEBI:9130
+    label: sevoflurane
+  - id: HP:0001250
+    label: seizures
+  - id: CHEBI:6443
+    label: Mirena
+  - id: MONDO:0002602
+    label: Central nervous system diseases
+  - id: HP:0002011
+    label: central nervous system diseases
+  - id: MONDO:0005027
+    label: Epilepsy
+  - id: HP:0002014
+    label: Diarrhea
+  - id: HP:0000988
+    label: Rash
+  - id: CHEBI:228488
+    label: Stiripentol
+  - id: CHEBI:60654
+    label: Valproate
+  - id: CHEBI:69478
+    label: Cannabidiol
+  - id: CHEBI:80634
+    label: 2-propyl-4-pentenoic acid (4-ene-VPA)
+  - id: HP:0002373
+    label: Febrile seizures
+  - id: MAXO:0001298
+    label: therapy
+  - id: CHEBI:31413
+    label: clobazam (CLB)
+  - id: HP:0010819
+    label: drop seizures
+  - id: HP:0002329
+    label: somnolence
+  - id: HP:0004396
+    label: decreased appetite
+  - id: CHEBI:9925
+    label: sodium valproate
+  - id: MONDO:0016532
+    label: Lennox-Gastaut syndrome

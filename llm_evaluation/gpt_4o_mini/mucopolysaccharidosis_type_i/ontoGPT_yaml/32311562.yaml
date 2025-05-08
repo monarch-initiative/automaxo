@@ -1,0 +1,139 @@
+---
+input_text: 'Treatment of Severe Kyphoscoliosis in Children with Mucopolysaccharidosis
+  Type I (Pfaundler-Hurler Syndrome) Using the Growing Rod Technique: A Case Series
+  with Mid-Term Results. BACKGROUND: Patients with mucopolysaccharidosis type I (MPS
+  I) have a good life expectancy due to early therapeutic options, such as stem cell
+  therapy. Stem cell therapy can prevent the progression of some skeletal malformations.
+  In contrast, the progression of thoracolumbar kyphoscoliosis, genua vara, and hip
+  dysplasia cannot be influenced. We present 3 cases of children with MPS I with thoracolumbar
+  kyphosis/kyphoscoliosis treated with a growing rod system. CASE DESCRIPTION: The
+  medical records and radiologic imaging of 3 children with a diagnosis of MPS I and
+  kyphosis/kyphoscoliosis of the lumbar spine treated between 2007 and 2019 were retrospectively
+  analyzed. Two children presented with a kyphoscoliosis, and 1 child had a combination
+  of severe anterolisthesis and kyphoscoliosis. Surgery to correct the kyphosis and
+  dorsal stabilization was performed in all patients after exhausted conservative
+  treatment. There were no neurologic complications. Postoperative treatment and aftercare
+  included a corset for 4 months and physical therapy. In all 3 patients, distraction
+  surgery of the lumbar stabilization was done twice at a mean interval of 1 year.
+  CONCLUSIONS: If conservative treatment fails and surgery is necessary, an individual
+  approach is needed. Dorsal stabilization with pedicle screws using a growing rod
+  technique is an option for the correction of thoracolumbar/lumbar kyphosis in children
+  with MPS I. However, fusion should be prevented initially or should be kept as short
+  as possible. We achieved acceptable correction of the spinal deformity using the
+  growing rod technique. Finally, surgery with correction and fusion is necessary
+  after exhausted correction potential.'
+raw_completion_output: |-
+  primary_disease: Mucopolysaccharidosis Type I  
+  medical_actions: stem cell therapy; growing rod technique; surgery to correct kyphosis; dorsal stabilization; postoperative treatment; physical therapy; distraction surgery  
+  symptoms: kyphoscoliosis; thoracolumbar kyphosis; genua vara; hip dysplasia; severe anterolisthesis  
+  chemicals: None  
+  action_annotation_relationships: stem cell therapy PREVENTS symptom (genua vara) IN disease; growing rod technique TREATS symptom (kyphoscoliosis) IN disease; surgery to correct kyphosis TREATS symptom (kyphosis) IN disease; dorsal stabilization TREATS symptom (kyphosis) IN disease; postoperative treatment TREATS symptom (none) IN disease; physical therapy TREATS symptom (none) IN disease; distraction surgery TREATS symptom (none) IN disease  
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  distraction surgery TREATS symptom (none) IN disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0001586
+  medical_actions:
+    - stem cell therapy
+    - growing rod technique
+    - surgery to correct kyphosis
+    - dorsal stabilization
+    - postoperative treatment
+    - MAXO:0000011
+    - distraction surgery
+  symptoms:
+    - HP:0002751
+    - HP:0005619
+    - HP:0002970
+    - HP:0001385
+    - severe anterolisthesis
+  chemicals:
+    - None
+  action_annotation_relationships:
+    - subject: stem cell therapy
+      predicate: PREVENTS
+      object: HP:0002970
+      qualifier: MONDO:0000001
+      subject_extension: stem cell therapy
+      object_extension: symptom
+    - subject: growing rod technique
+      predicate: TREATS
+      object: HP:0002751
+      qualifier: MONDO:0000001
+      subject_extension: growing rod technique
+      object_extension: kyphoscoliosis
+    - subject: MAXO:0000004
+      predicate: TREATS
+      object: HP:0002808
+      qualifier: MONDO:0000001
+      subject_qualifier: to correct kyphosis
+      object_qualifier: None
+      subject_extension: surgery
+      object_extension: kyphosis
+    - subject: dorsal stabilization
+      predicate: TREATS
+      object: HP:0002808
+      qualifier: MONDO:0000001
+      subject_extension: dorsal stabilization
+      object_extension: kyphosis
+    - subject: postoperative treatment
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0000001
+      subject_qualifier: <none>
+      object_qualifier: <none>
+      subject_extension: <none>
+      object_extension: <none>
+    - subject: MAXO:0000011
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0000001
+      subject_extension: physical therapy
+      object_extension: none
+    - subject: distraction surgery
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0000001
+      subject_qualifier: <none>
+      object_qualifier: <none>
+      subject_extension: <none>
+      object_extension: <none>
+named_entities:
+  - id: MAXO:0000011
+    label: physical therapy
+    original_spans:
+      - 1215:1230
+  - id: HP:0002751
+    label: kyphoscoliosis
+    original_spans:
+      - 20:33
+      - 455:468
+      - 593:606
+      - 757:770
+      - 883:896
+      - 959:972
+  - id: HP:0005619
+    label: thoracolumbar kyphosis
+    original_spans:
+      - 570:591
+  - id: HP:0002970
+    label: genua vara
+    original_spans:
+      - 471:480
+  - id: MONDO:0000001
+    label: disease

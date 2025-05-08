@@ -1,0 +1,80 @@
+---
+input_text: 'Incomplete biomarker response in mucopolysaccharidosis type I after successful
+  hematopoietic cell transplantation. BACKGROUND: Residual disease, primarily involving
+  musculoskeletal tissue, is a common problem in patients with neuronopathic mucopolysaccharidosis
+  type I (MPS I, Hurler or severe Hurler-Scheie phenotype) after a successful hematopoietic
+  cell transplantation (HCT). The concentration of the GAG derived biomarkers heparan
+  sulfate (HS) and dermatan sulfate (DS), may reflect residual disease and is used
+  for monitoring biochemical response to therapies. This study investigates the response
+  of HS and DS in blood and urine to HCT in MPS I patients. METHODS: In 143 blood-
+  and urine samples of 17 neuronophatic MPS I patients, collected prior and post successful
+  HCT, the concentration of the disaccharides derived after full enzymatic digestion
+  of HS and DS were analyzed by multiplex liquid chromatography tandem-mass spectrometry
+  (LC-MS/MS). RESULTS: Median follow up after HCT was 2.4years (range 0-11years).
+  HCT led to a rapid decrease of both HS and DS. However, only 38% of the patients
+  reached normal HS levels in blood and even less patients (6%) reached normal DS
+  levels. In none of the patients normalization of HS or DS was observed in urine.
+  CONCLUSIONS: Biomarker response after HCT is incomplete, which may reflect residual
+  disease activity. Novel therapeutic strategies should aim for full metabolic correction
+  to minimize clinical manifestations.'
+raw_completion_output: |-
+  Here are the extracted entities in the requested format:
+
+  primary_disease: Mucopolysaccharidosis type I (MPS I)
+
+  medical_actions: Hematopoietic cell transplantation (HCT); monitoring biochemical response to therapies
+
+  symptoms: Residual disease; musculoskeletal tissue involvement; elevated levels of heparan sulfate (HS) and dermatan sulfate (DS)
+
+  chemicals: Heparan sulfate (HS); dermatan sulfate (DS)
+
+  action_annotation_relationships: Hematopoietic cell transplantation (HCT) TREATS residual disease IN Mucopolysaccharidosis type I (MPS I); Hematopoietic cell transplantation (HCT) TREATS elevated levels of heparan sulfate (HS) IN Mucopolysaccharidosis type I (MPS I); Hematopoietic cell transplantation (HCT) TREATS elevated levels of dermatan sulfate (DS) IN Mucopolysaccharidosis type I (MPS I); monitoring biochemical response to therapies PREVENTS clinical manifestations IN Mucopolysaccharidosis type I (MPS I)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  monitoring biochemical response to therapies PREVENTS clinical manifestations IN Mucopolysaccharidosis type I (MPS I)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:1012617
+  medical_actions:
+    - MAXO:0000149
+    - monitoring biochemical response to therapies
+  symptoms:
+    - Residual disease
+    - musculoskeletal tissue involvement
+    - elevated levels of heparan sulfate (HS) and dermatan sulfate (DS)
+  chemicals:
+    - CHEBI:15971
+    - CHEBI:17053
+  action_annotation_relationships:
+    - subject: MAXO:0000149
+      predicate: TREATS
+      object: residual disease
+      qualifier: MONDO:1012617
+    - predicate: TREATS
+      object: elevated levels of heparan sulfate (HS)
+      qualifier: MONDO:1012617
+    - predicate: TREATS
+      object: elevated levels of dermatan sulfate (DS)
+      qualifier: MONDO:1012617
+    - subject: monitoring
+      predicate: PREVENTS
+      object: clinical manifestations
+      qualifier: MONDO:1012617
+      subject_qualifier: biochemical response to therapies
+      object_qualifier: IN Mucopolysaccharidosis type I (MPS I)
+      subject_extension: biochemical response
+      object_extension: clinical manifestations

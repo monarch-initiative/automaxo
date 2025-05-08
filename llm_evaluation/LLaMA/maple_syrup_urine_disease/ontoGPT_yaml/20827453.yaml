@@ -1,0 +1,79 @@
+---
+input_text: '[Anaesthesia in patients with maple syrup urine disease. Case report
+  and perioperative anaesthetic management]. Maple syrup urine disease is a rare autosomal-recessive
+  metabolic disorder caused by a deficit of oxidative decarboxylation of branched-chain
+  amino acids. First symptoms appear in the neonatal period. Without treatment the
+  disease is characterized by rapid progression of neurological symptoms. During stressful
+  situations, such as infection or surgery, patients may experience severe ketoacidosis,
+  rapid neurological deterioration and hypoglycemia. The perioperative management
+  of a 26-year-old man with maple syrup urine disease is described, a review of the
+  disease is given and anaesthesia-related implications are discussed.'
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Maple syrup urine disease
+
+  medical_actions: perioperative anaesthetic management; treatment
+
+  symptoms: neurological symptoms; severe ketoacidosis; rapid neurological deterioration; hypoglycemia
+
+  chemicals: 
+
+  action_annotation_relationships: treatment TREATS neurological symptoms IN maple syrup urine disease; perioperative anaesthetic management TREATS maple syrup urine disease; treatment PREVENTS rapid neurological deterioration IN maple syrup urine disease; treatment PREVENTS severe ketoacidosis IN maple syrup urine disease; treatment PREVENTS hypoglycemia IN maple syrup urine disease
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  treatment PREVENTS hypoglycemia IN maple syrup urine disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009563
+  medical_actions:
+    - perioperative anaesthetic management
+    - treatment
+  symptoms:
+    - neurological symptoms
+    - severe ketoacidosis
+    - rapid neurological deterioration
+    - HP:0001943
+  action_annotation_relationships:
+    - subject: treatment
+      predicate: TREATS
+      object: symptoms
+      qualifier: MONDO:0009563
+    - predicate: TREATS
+      object: maple syrup urine disease
+      qualifier: maple syrup
+      subject_extension: CHEBI:38867
+      object_extension: urine disease
+    - predicate: PREVENTS
+      object: rapid neurological deterioration
+      qualifier: MONDO:0009563
+    - subject: treatment
+      predicate: PREVENTS
+      object: HP:0001993
+      qualifier: MONDO:0009563
+    - predicate: PREVENTS
+      object: HP:0001943
+      qualifier: MONDO:0009563
+named_entities:
+  - id: HP:0001943
+    label: hypoglycemia
+    original_spans:
+      - 548:559
+  - id: CHEBI:38867
+    label: anaesthetic
+    original_spans:
+      - 87:97

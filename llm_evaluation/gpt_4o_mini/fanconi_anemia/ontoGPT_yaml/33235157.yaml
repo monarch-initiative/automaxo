@@ -1,0 +1,76 @@
+---
+input_text: Care Coordination in a SARS-CoV-2-infected Child With Newly Diagnosed
+  Medulloblastoma and Fanconi Anemia. COVID-19, caused by severe acute respiratory
+  syndrome coronavirus 2 (SARS-CoV-2), is responsible for a global pandemic that can
+  cause severe infections in children, especially those with comorbid conditions.
+  Here, we report a case of a child with a newly diagnosed medulloblastoma, Fanconi
+  Anemia, and SARS-CoV-2 infection. Through multidisciplinary care coordination and
+  meticulous planning, we were able to safely initiate this patient's oncology care
+  and implement a long-term model to address the patient's care. This approach could
+  be replicated with any newly diagnosed pediatric patient that requires monitoring
+  for signs of COVID-19 with concurrent oncology care.
+raw_completion_output: |-
+  primary_disease: Medulloblastoma  
+  medical_actions: multidisciplinary care coordination; oncology care initiation; monitoring for signs of COVID-19  
+  symptoms: severe infections  
+  chemicals: None  
+  action_annotation_relationships: multidisciplinary care coordination TREATS symptom (severe infections) IN Medulloblastoma; oncology care initiation TREATS symptom (severe infections) IN Medulloblastoma; monitoring for signs of COVID-19 TREATS symptom (severe infections) IN Medulloblastoma  
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  monitoring for signs of COVID-19 TREATS symptom (severe infections) IN Medulloblastoma
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0007959
+  medical_actions:
+    - multidisciplinary care coordination
+    - oncology care initiation
+    - monitoring for signs of COVID-19
+  symptoms:
+    - HP:0032169
+  chemicals:
+    - None
+  action_annotation_relationships:
+    - subject: multidisciplinary care coordination
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0007959
+    - subject: oncology care initiation
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0007959
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: oncology care
+      object_extension: severe infections
+    - subject: monitoring for signs
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0007959
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: COVID-19
+      object_extension: severe infections
+named_entities:
+  - id: MONDO:0007959
+    label: Medulloblastoma
+    original_spans:
+      - 70:84
+      - 371:385
+  - id: HP:0032169
+    label: severe infections
+    original_spans:
+      - 240:256

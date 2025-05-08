@@ -1,0 +1,79 @@
+---
+input_text: 'Surgical Aspects of Liver Transplantation and Domino Liver Transplantation
+  in Maple Syrup Urine Disease: Analysis of 15 Donor-Recipient Pairs. Liver transplantation
+  (LT) has been shown to be a feasible treatment in patients with severe forms of
+  maple syrup urine disease (MSUD). Because of a sufficient extrahepatic enzyme activity
+  in non-MSUD individuals, the organ of MSUD patients can be used as a domino graft.
+  We performed a retrospective data collection of all LTs for MSUD carried out at
+  the University Medical Center Hamburg-Eppendorf (2016-2018). Moreover, data from
+  all consecutive domino LTs of the MSUD grafts either transplanted at our institution
+  or allocated to other transplant centers were analyzed. During the study period,
+  15 LTs in MSUD patients were performed (12 children, 3 adults; median age, 10.9
+  years; range, 0.3-26.1 years). Biliary complications occurred in 20%, and 13.3%
+  suffered from bleeding complications. No further surgical problems occurred. At
+  present, all MSUD patients are alive with a well-functioning liver graft and on
+  an unrestricted diet. In total, 14 consecutive domino LTs were performed. No surgical
+  complications requiring intervention occurred. One patient died because of HCC relapse,
+  and all other patients are alive with good liver graft function. In conclusion,
+  the use of MSUD livers as domino grafts is safe and allows application of LT in
+  MSUD patients without net extraction of a liver graft from the limited donor pool.'
+raw_completion_output: |-
+  primary_disease: Maple Syrup Urine Disease (MSUD)  
+  medical_actions: Liver transplantation; domino liver transplantation  
+  symptoms: biliary complications; bleeding complications  
+  chemicals: None  
+  action_annotation_relationships: liver transplantation TREATS symptom biliary complications IN Maple Syrup Urine Disease; liver transplantation TREATS symptom bleeding complications IN Maple Syrup Urine Disease; domino liver transplantation TREATS symptom biliary complications IN Maple Syrup Urine Disease; domino liver transplantation TREATS symptom bleeding complications IN Maple Syrup Urine Disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  domino liver transplantation TREATS symptom bleeding complications IN Maple Syrup Urine Disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009563
+  medical_actions:
+    - MAXO:0001175
+    - domino liver transplantation
+  symptoms:
+    - biliary complications
+    - bleeding complications
+  chemicals:
+    - None
+  action_annotation_relationships:
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: biliary complications
+      qualifier: MONDO:0009563
+      subject_extension: liver transplantation
+      object_extension: biliary complications
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: bleeding complications
+      qualifier: MONDO:0009563
+      subject_extension: liver transplantation
+      object_extension: bleeding complications
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: biliary complications
+      qualifier: MONDO:0009563
+      subject_qualifier: domino
+      subject_extension: liver transplantation
+      object_extension: biliary complications
+    - subject: domino liver transplantation
+      predicate: TREATS
+      object: symptom bleeding complications
+      qualifier: MONDO:0009563
+      subject_extension: liver transplantation
+      object_extension: bleeding complications

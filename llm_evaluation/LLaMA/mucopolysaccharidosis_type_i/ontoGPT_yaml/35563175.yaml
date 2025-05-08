@@ -1,0 +1,76 @@
+---
+input_text: Nanoemulsions as Gene Delivery in Mucopolysaccharidosis Type I-A Mini-Review.
+  Mucopolysaccharidosis type I (MPS I) is a rare monogenic disease in which glycosaminoglycans'
+  abnormal metabolism leads to the storage of heparan sulfate and dermatan sulfate
+  in various tissues. It causes its damage and impairment. Patients with the severe
+  form of MPS I usually do not live up to the age of ten. Currently, the therapy is
+  based on multidisciplinary care and enzyme replacement therapy or hematopoietic
+  stem cell transplantation. Applying gene therapy might benefit the MPS I patients
+  because it overcomes the typical limitations of standard treatments. Nanoparticles,
+  including nanoemulsions, are used more and more in medicine to deliver a particular
+  drug to the target cells. It allows for creating a specific, efficient therapy method
+  in MPS I and other lysosomal storage disorders. This article briefly presents the
+  basics of nanoemulsions and discusses the current state of knowledge about their
+  usage in mucopolysaccharidosis type I.
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Mucopolysaccharidosis type I (MPS I)
+
+  medical_actions: multidisciplinary care; enzyme replacement therapy; hematopoietic stem cell transplantation; gene therapy
+
+  symptoms: storage of heparan sulfate and dermatan sulfate in various tissues; damage and impairment of tissues
+
+  chemicals: heparan sulfate; dermatan sulfate
+
+  action_annotation_relationships: enzyme replacement therapy TREATS MPS I; hematopoietic stem cell transplantation TREATS MPS I; gene therapy TREATS MPS I; multidisciplinary care TREATS symptoms IN MPS I; nanoemulsions DELIVERS gene therapy TO target cells IN MPS I
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  nanoemulsions DELIVERS gene therapy TO target cells IN MPS I
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:1012617
+  medical_actions:
+    - multidisciplinary care
+    - enzyme replacement therapy
+    - MAXO:0000747
+    - MAXO:0001001
+  symptoms:
+    - storage of heparan sulfate and dermatan sulfate in various tissues
+    - damage and impairment of tissues
+  chemicals:
+    - CHEBI:28815
+    - CHEBI:18376
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: MPS I
+      subject_extension: enzyme
+    - predicate: TREATS
+      object: MPS I
+      qualifier: MONDO:1012617
+    - predicate: TREATS
+      object: MPS I
+      subject_extension: gene
+    - predicate: TREATS
+      object: symptoms
+      qualifier: MONDO:1012617
+    - subject: nanoemulsions
+      predicate: DELIVERS
+      object: therapy
+      qualifier: MONDO:1012617
+      subject_extension: gene therapy
+      object_extension: target cells

@@ -1,0 +1,86 @@
+---
+input_text: 'The implementation of neonatal peritoneal dialysis in a clinical setting.
+  OBJECTIVE: To investigate etiology, outcome and complications related to neonatal
+  peritoneal dialysis (PD). METHODS: Neonates treated with PD in our neonatal intensive
+  care unit during 2007-2010 were analyzed retrospectively. RESULTS: Among 4036 hospitalized
+  neonates; 20 neonates (0.5%) who underwent 21 cycles of PD [7 preterm, 13 term;
+  13 female, 7 male] were included. The mean birth weight was 2930.2 +- 720.6 g (1120-4570),
+  mean gestational age was 37.5 +- 3.5 weeks (27-41). The etiologic disorders included
+  inborn errors of metabolism (propionic acidemia, methylmalonic acidemia, citrullinemia,
+  glutaric aciduria type 2, maple syrup urine disease, 10), or acute renal failure
+  secondary to perinatal asphyxia (4), sepsis (2), prematurity (2), hypoplastic left
+  heart syndrome (1), kernicterus (1). The complications included peritonitis (2),
+  early leakage (4), hemorrhage (1), catheter removal (3) and occlusion (2). The mortality
+  rate was 50%. The gestational ages and birth weights of surviving neonates were
+  higher (p < 0.05). Among surviving neonates, chronic renal failure (1), severe (4)
+  and moderate neuromotor impairment (2) developed within 4-43 months. CONCLUSION:
+  PD, although invasive, is an effective therapy in neonates. The complexity and invasiveness
+  of the procedure is probably responsible for high rate of complications and mortality.
+  If appropriate catheter selection and technique in the placement should be done,
+  PD might improve outcome.'
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Neonatal renal failure; acute renal failure; inborn errors of metabolism
+
+  medical_actions: Peritoneal dialysis (PD); catheter placement; catheter removal
+
+  symptoms: Peritonitis; leakage; hemorrhage; occlusion; chronic renal failure; severe neuromotor impairment; moderate neuromotor impairment
+
+  chemicals: Propionic acidemia treatment (not specified); methylmalonic acidemia treatment (not specified); citrullinemia treatment (not specified); glutaric aciduria type 2 treatment (not specified); maple syrup urine disease treatment (not specified)
+
+  action_annotation_relationships: 
+  Peritoneal dialysis (PD) TREATS acute renal failure IN neonates; 
+  Peritoneal dialysis (PD) TREATS inborn errors of metabolism IN neonates; 
+  catheter placement TREATS neonatal renal failure IN neonates; 
+  catheter removal TREATS occlusion IN neonates; 
+  catheter removal TREATS leakage IN neonates; 
+  propionic acidemia treatment TREATS propionic acidemia IN neonates; 
+  methylmalonic acidemia treatment TREATS methylmalonic acidemia IN neonates; 
+  citrullinemia treatment TREATS citrullinemia IN neonates; 
+  glutaric aciduria type 2 treatment TREATS glutaric aciduria type 2 IN neonates; 
+  maple syrup urine disease treatment TREATS maple syrup urine disease IN neonates.
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  primary_disease: <The main disease the text is about, or its central disease topic. This is often the disease mentioned in an article's title or in its first few sentences.>
+  medical_actions: <Semicolon-separated list of medical actions, where each is a clinically prescribed procedure, therapy, intervention, or recommendation.>
+  symptoms: <Semicolon-separated list of signs or symptoms.>
+  chemicals: <Semicolon-separated list of chemicals or drugs>
+  action_annotation_relationships: <Semicolon-separated list of relationships between a disease, the mentioned signs and symptoms associated with that disease, the medical actions relating to each symptom, and the type of relationship between each action and symptom (usually TREATS or PREVENTS). The disease name must be included in the relationship, for example, "treatment TREATS symptom IN disease". If the medical action includes a specific chemical or drug, include the chemical or drug name in the relationship, for example, "treatment (with chemical) TREATS symptom IN disease".>
+
+
+  Text:
+  The implementation of neonatal peritoneal dialysis in a clinical setting. OBJECTIVE: To investigate etiology, outcome and complications related to neonatal peritoneal dialysis (PD). METHODS: Neonates treated with PD in our neonatal intensive care unit during 2007-2010 were analyzed retrospectively. RESULTS: Among 4036 hospitalized neonates; 20 neonates (0.5%) who underwent 21 cycles of PD [7 preterm, 13 term; 13 female, 7 male] were included. The mean birth weight was 2930.2 +- 720.6 g (1120-4570), mean gestational age was 37.5 +- 3.5 weeks (27-41). The etiologic disorders included inborn errors of metabolism (propionic acidemia, methylmalonic acidemia, citrullinemia, glutaric aciduria type 2, maple syrup urine disease, 10), or acute renal failure secondary to perinatal asphyxia (4), sepsis (2), prematurity (2), hypoplastic left heart syndrome (1), kernicterus (1). The complications included peritonitis (2), early leakage (4), hemorrhage (1), catheter removal (3) and occlusion (2). The mortality rate was 50%. The gestational ages and birth weights of surviving neonates were higher (p < 0.05). Among surviving neonates, chronic renal failure (1), severe (4) and moderate neuromotor impairment (2) developed within 4-43 months. CONCLUSION: PD, although invasive, is an effective therapy in neonates. The complexity and invasiveness of the procedure is probably responsible for high rate of complications and mortality. If appropriate catheter selection and technique in the placement should be done, PD might improve outcome.
+
+  ===
+
+extracted_object:
+  primary_disease: Neonatal renal failure; acute renal failure; inborn errors of metabolism
+  medical_actions:
+    - MAXO:0000603
+    - catheter placement
+    - catheter removal
+  symptoms:
+    - HP:0002586
+    - leakage
+    - hemorrhage
+    - occlusion
+    - HP:0003774
+    - severe neuromotor impairment
+    - moderate neuromotor impairment
+  chemicals:
+    - Propionic acidemia treatment (not specified)
+    - methylmalonic acidemia treatment (not specified)
+    - citrullinemia treatment (not specified)
+    - glutaric aciduria type 2 treatment (not specified)
+    - maple syrup urine disease treatment (not specified)
+named_entities:
+  - id: HP:0002586
+    label: Peritonitis
+    original_spans:
+      - 905:915
+  - id: HP:0003774
+    label: chronic renal failure
+    original_spans:
+      - 1136:1156

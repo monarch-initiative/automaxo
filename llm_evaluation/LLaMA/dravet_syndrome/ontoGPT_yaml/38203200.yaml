@@ -1,0 +1,88 @@
+---
+input_text: "Clinical and Genetic Features of Dravet Syndrome: A Prime Example of
+  the Role of Precision Medicine in Genetic Epilepsy. Dravet syndrome (DS), also known
+  as severe myoclonic epilepsy of infancy, is a rare and drug-resistant form of developmental
+  and epileptic encephalopathies, which is both debilitating and challenging to manage,
+  typically arising during the first year of life, with seizures often triggered by
+  fever, infections, or vaccinations. It is characterized by frequent and prolonged
+  seizures, developmental delays, and various other neurological and behavioral impairments.
+  Most cases result from pathogenic mutations in the sodium voltage-gated channel
+  alpha subunit 1 (SCN1A) gene, which encodes a critical voltage-gated sodium channel
+  subunit involved in neuronal excitability. Precision medicine offers significant
+  potential for improving DS diagnosis and treatment. Early genetic testing enables
+  timely and accurate diagnosis. Advances in our understanding of DS's underlying
+  genetic mechanisms and neurobiology have enabled the development of targeted therapies,
+  such as gene therapy, offering more effective and less invasive treatment options
+  for patients with DS. Targeted and gene therapies provide hope for more effective
+  and personalized treatments. However, research into novel approaches remains in
+  its early stages, and their clinical application remains to be seen. This review
+  addresses the current understanding of clinical DS features, genetic involvement
+  in DS development, and outcomes of novel DS therapies."
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Dravet Syndrome
+
+  medical_actions: genetic testing; targeted therapies; gene therapy
+
+  symptoms: seizures; developmental delays; neurological impairments; behavioral impairments; frequent and prolonged seizures
+
+  chemicals: 
+
+  action_annotation_relationships: genetic testing TREATS diagnosis IN Dravet Syndrome; targeted therapies TREATS seizures IN Dravet Syndrome; gene therapy TREATS seizures IN Dravet Syndrome; gene therapy TREATS developmental delays IN Dravet Syndrome; gene therapy TREATS neurological impairments IN Dravet Syndrome; gene therapy TREATS behavioral impairments IN Dravet Syndrome 
+
+  Note that I couldn't find any specific chemicals or drugs mentioned in the text, so the chemicals field is empty. Also, the action_annotation_relationships field includes inferred relationships based on the text, and may not be exhaustive or entirely accurate.
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  gene therapy TREATS behavioral impairments IN Dravet Syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0100135
+  medical_actions:
+    - MAXO:0000127
+    - targeted therapies
+    - MAXO:0001001
+  symptoms:
+    - HP:0001250
+    - HP:0001263
+    - neurological impairments
+    - behavioral impairments
+    - frequent and prolonged seizures
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: diagnosis
+      qualifier: MONDO:0100135
+    - predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0100135
+      subject_extension: targeted therapies
+    - predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0100135
+    - predicate: TREATS
+      object: HP:0001263
+      qualifier: MONDO:0100135
+    - subject: MAXO:0001001
+      predicate: TREATS
+      object: neurological impairments
+      qualifier: MONDO:0100135
+    - subject: MAXO:0001001
+      predicate: TREATS
+      object: behavioral impairments
+      qualifier: MONDO:0100135
+      subject_extension: therapy
+      object_extension: behavioral

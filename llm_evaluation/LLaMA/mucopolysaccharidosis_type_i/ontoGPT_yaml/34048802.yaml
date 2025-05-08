@@ -1,0 +1,91 @@
+---
+input_text: "Mucopolysaccharidosis Type I-Associated Corneal Disease: A Clinicopathologic
+  Study. PURPOSE: To report the anterior segment clinical features and histopathologic
+  and histochemical characteristics of explanted corneas from the largest reported
+  cohort of patients with Hurler syndrome and other variants of mucopolysaccharidosis
+  (MPS) I undergoing corneal transplantation. DESIGN: Retrospective observational
+  case series. METHODS: This institutional study reviewed 15 corneas from 9 patients
+  with MPS I spectrum disease who underwent corneal transplant to treat corneal clouding
+  between May 2011 and October 2020. We reviewed the clinical data, hematoxylin-eosin-stained
+  sections, and histochemical stains, including those for mucopolysaccharides (Alcian
+  blue and/or colloidal iron). The main outcome measures were pathology observed under
+  light microscopy and postsurgical clinical outcomes. RESULTS: Nine patients underwent
+  15 corneal transplants for corneal clouding (14/15 procedures were deep anterior
+  lamellar keratoplasty). All corneas had mucopolysaccharide deposition visible on
+  hematoxylin-eosin-stained sections, which was highlighted in blue with histochemical
+  stains. All corneas also showed alterations in Bowman's layer and the majority also
+  showed epithelial abnormalities. CONCLUSION: MPS I shows significant corneal clouding
+  that is successfully treated with deep anterior lamellar keratoplasty. The excised
+  corneas show characteristic epithelial changes, disruption or breaks in Bowman's
+  membrane, and amphophilic collections of stromal granular mucopolysaccharides which
+  are visible on hematoxylin-eosin-stained sections and highlighted by special histochemical
+  stains (Alcian blue and collodial iron). These changes, although subtle, should
+  alert the pathologist to the possibility of an underlying lysosomal storage disorder."
+raw_completion_output: |-
+  Here are the extracted entities in the requested format:
+
+  primary_disease: Mucopolysaccharidosis Type I (MPS I)
+
+  medical_actions: Corneal transplantation; Deep anterior lamellar keratoplasty
+
+  symptoms: Corneal clouding; Epithelial abnormalities; Alterations in Bowman's layer
+
+  chemicals: Alcian blue; Colloidal iron; Mucopolysaccharides
+
+  action_annotation_relationships: Deep anterior lamellar keratoplasty TREATS corneal clouding IN Mucopolysaccharidosis Type I; Corneal transplantation TREATS corneal clouding IN Mucopolysaccharidosis Type I; Alcian blue STAIN mucopolysaccharides IN Mucopolysaccharidosis Type I; Colloidal iron STAIN mucopolysaccharides IN Mucopolysaccharidosis Type I
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Colloidal iron STAIN mucopolysaccharides IN Mucopolysaccharidosis Type I
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:1012617
+  medical_actions:
+    - MAXO:0010034
+    - Deep anterior lamellar keratoplasty
+  symptoms:
+    - HP:0007957
+    - Epithelial abnormalities
+    - Alterations in Bowman's layer
+  chemicals:
+    - Alcian blue
+    - Colloidal iron
+    - CHEBI:37395
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: HP:0007957
+      qualifier: MONDO:0001586
+    - predicate: TREATS
+      object: HP:0007957
+      qualifier: MONDO:0001586
+    - subject: Alcian blue STAIN
+      predicate: STAIN
+      object: mucopolysaccharides
+      qualifier: MONDO:0001586
+      subject_extension: stain
+      object_extension: mucopolysaccharides
+    - subject: stain
+      predicate: STAIN
+      object: mucopolysaccharides
+      qualifier: MONDO:0001586
+      subject_extension: colloidal iron
+      object_extension: mucopolysaccharides
+named_entities:
+  - id: CHEBI:37395
+    label: Mucopolysaccharides
+    original_spans:
+      - 725:743
+      - 1563:1581

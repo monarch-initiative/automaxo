@@ -1,0 +1,133 @@
+---
+input_text: 'Treatment of maple syrup urine disease with high flow hemodialysis in
+  a neonate. Aygun F, Kiykim E, Aktuglu-Zeybek C, Zubarioglu T, Cam H. Treatment of
+  maple syrup urine disease with high flow hemodialysis in a neonate. Turk J Pediatr
+  2019; 61: 107-110. Continious renal replacement therapy (CRRT) is a well recognizied
+  treatment of choice in acute renal failure, however CRRT became a preferred treatment
+  of metabolic emergencies with high leucine and ammonia levels like Maple syrup urine
+  disease (MSUD). MSUD is a rare metabolic disorder caused by deficiency in the activity
+  of the branched-chain a-ketoacid dehydrogenase complex. The toxic accumulation of
+  branched chain amino acids during acute metabolic decompensation is associated with
+  the appearance of permanent neurological symptoms. Four patients were admitted to
+  our pediatric intensive care department with complains of poor feeding, vomitting,
+  irratibility and coma. Physical examination of the neonates were similar having
+  stupor, hypotonia and depressed newborn reflexes. The leucine levels were between
+  930-4400 mumol/L. The diagnosis of MSUD was confirmed in all four. They were treated
+  successfully with high flow CRRT having the rates were between 4120 ml/h/1.73m2
+  and 9830 ml/h/1.73m2. Early treatment is essential to prevent neurotoxicity and
+  death. CRRT is a choice of treatment in metabolic crisis of MSUD. Herein, we report
+  the successful treatment of acute metabolic decompensation of MSUD with CRRT in
+  4 neonates.'
+raw_completion_output: |-
+  primary_disease: maple syrup urine disease  
+  medical_actions: high flow hemodialysis; continuous renal replacement therapy (CRRT)  
+  symptoms: poor feeding; vomiting; irritability; coma; stupor; hypotonia; depressed newborn reflexes  
+  chemicals: leucine  
+  action_annotation_relationships: high flow hemodialysis TREATS symptom poor feeding IN maple syrup urine disease; high flow hemodialysis TREATS symptom vomiting IN maple syrup urine disease; high flow hemodialysis TREATS symptom irritability IN maple syrup urine disease; high flow hemodialysis TREATS symptom coma IN maple syrup urine disease; continuous renal replacement therapy (CRRT) TREATS symptom stupor IN maple syrup urine disease; continuous renal replacement therapy (CRRT) TREATS symptom hypotonia IN maple syrup urine disease; continuous renal replacement therapy (CRRT) TREATS symptom depressed newborn reflexes IN maple syrup urine disease; high flow hemodialysis TREATS symptom neurotoxicity IN maple syrup urine disease; continuous renal replacement therapy (CRRT) TREATS symptom neurotoxicity IN maple syrup urine disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  continuous renal replacement therapy (CRRT) TREATS symptom neurotoxicity IN maple syrup urine disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009563
+  medical_actions:
+    - high flow hemodialysis
+    - continuous renal replacement therapy (CRRT)
+  symptoms:
+    - HP:0011968
+    - HP:0002013
+    - HP:0000737
+    - HP:0001259
+    - HP:0001259
+    - HP:0001252
+    - depressed newborn reflexes
+  chemicals:
+    - CHEBI:25017
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: HP:0011968
+      qualifier: MONDO:0009563
+      subject_qualifier: high flow
+      subject_extension: hemodialysis
+    - predicate: TREATS
+      object: symptom vomiting
+      qualifier: MONDO:0009563
+      subject_qualifier: high flow
+      subject_extension: hemodialysis
+    - subject: high flow hemodialysis
+      predicate: TREATS
+      object: HP:0000737
+      qualifier: MONDO:0009563
+      subject_qualifier: high flow
+      object_qualifier: None
+      subject_extension: hemodialysis
+      object_extension: symptom
+    - subject: high flow hemodialysis
+      predicate: TREATS
+      object: symptom coma
+      qualifier: MONDO:0009563
+      subject_qualifier: high flow
+      subject_extension: hemodialysis
+      object_extension: coma
+    - subject: continuous renal replacement therapy
+      predicate: TREATS
+      object: HP:0001259
+      qualifier: MONDO:0009563
+      subject_qualifier: N/A
+      object_qualifier: N/A
+      subject_extension: renal replacement therapy
+      object_extension: N/A
+    - subject: continuous renal replacement therapy
+      predicate: TREATS
+      object: HP:0001252
+      qualifier: MONDO:0009563
+      subject_extension: continuous renal replacement therapy
+      object_extension: hypotonia
+    - predicate: TREATS
+      object: depressed newborn reflexes
+      qualifier: MONDO:0009563
+      subject_extension: continuous renal replacement therapy
+    - subject: high flow hemodialysis
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0009563
+      subject_qualifier: high flow
+      subject_extension: hemodialysis
+      object_extension: neurotoxicity
+    - subject: continuous renal replacement therapy
+      predicate: TREATS
+      object: neurotoxicity
+      qualifier: MONDO:0009563
+      subject_extension: continuous renal replacement therapy
+      object_extension: neurotoxicity
+named_entities:
+  - id: HP:0011968
+    label: poor feeding
+    original_spans:
+      - 884:895
+  - id: HP:0002013
+    label: vomiting
+  - id: HP:0000737
+    label: irritability
+  - id: HP:0001259
+    label: coma
+    original_spans:
+      - 926:929
+  - id: HP:0001252
+    label: hypotonia
+    original_spans:
+      - 997:1005

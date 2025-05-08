@@ -1,0 +1,90 @@
+---
+input_text: 'A Phase 1, Open-Label Study to Evaluate the Effects of Food and Evening
+  Dosing on the Pharmacokinetics of Oral Trofinetide in Healthy Adult Subjects. BACKGROUND
+  AND OBJECTIVE: Trofinetide, a synthetic analog of tripeptide glycine-proline-glutamate,
+  is an investigational agent for the treatment of Rett syndrome, a neurodevelopmental
+  disorder with affected individuals requiring lifelong support. Food can affect the
+  pharmacokinetic profile of a drug, and this phase 1 study assessed the potential
+  effect of food on the pharmacokinetics of trofinetide. The study also evaluated
+  the potential effect of evening dosing on trofinetide bioavailability and characterized
+  the pharmacokinetic profile of trofinetide in urine. METHODS: A 60 mL oral solution
+  of trofinetide (12 g) was administered in three dosing periods: morning fasted (A;
+  reference), morning fed (B), and evening fasted (C). Healthy adult subjects (18-45
+  years) were randomized to sequence ABC (n = 19) or BAC (n = 22). Blood and urine
+  samples were collected at scheduled timepoints for trofinetide pharmacokinetic analysis.
+  Bioequivalence was confirmed if 90% confidence intervals for geometric mean ratio
+  between B/A or C/A fell within 80-125% equivalence limits for area under the concentration-time
+  curve (AUC) and maximum concentration (Cmax) in whole blood. RESULTS: Bioequivalence
+  criteria were met for all conditions (i.e., morning fed vs. morning fasted and evening
+  fasted vs. morning fasted) except Cmax in the fed versus fasted condition, which
+  was just below the bioequivalence limit (75.49%), suggesting a negligible food effect
+  and lack of diurnal variation on bioavailability. Trofinetide was primarily excreted
+  unchanged in urine. Trofinetide was well tolerated, and there were no significant
+  changes in vital signs or laboratory parameters. CONCLUSION: This study supports
+  dosing of trofinetide without regard to food.'
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Rett syndrome
+
+  medical_actions: Administration of 60 mL oral solution of trofinetide (12 g) in morning fasted, morning fed, and evening fasted conditions; assessment of pharmacokinetic profile of trofinetide in urine; collection of blood and urine samples at scheduled timepoints for trofinetide pharmacokinetic analysis
+
+  symptoms: None mentioned
+
+  chemicals: Trofinetide; glycine-proline-glutamate
+
+  action_annotation_relationships: trofinetide TREATS Rett syndrome IN individuals; administration of trofinetide (in morning fasted condition) TREATS Rett syndrome IN individuals; administration of trofinetide (in morning fed condition) TREATS Rett syndrome IN individuals; administration of trofinetide (in evening fasted condition) TREATS Rett syndrome IN individuals; trofinetide (in urine) CHARACTERIZES pharmacokinetic profile IN individuals
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  trofinetide (in urine) CHARACTERIZES pharmacokinetic profile IN individuals
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010726
+  medical_actions:
+    - Administration of 60 mL oral solution of trofinetide (12 g) in morning fasted,
+      morning fed, and evening fasted conditions
+    - assessment of pharmacokinetic profile of trofinetide in urine
+    - collection of blood and urine samples at scheduled timepoints for trofinetide
+      pharmacokinetic analysis
+  symptoms:
+    - None mentioned
+  chemicals:
+    - CHEBI:229599
+    - glycine-proline-glutamate
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: symptoms of Rett syndrome
+      qualifier: MONDO:0010726
+      subject_qualifier: IN individuals
+    - predicate: TREATS
+      object: Rett syndrome
+      qualifier: MONDO:0010726
+      subject_qualifier: in morning fasted condition
+      object_qualifier: in individuals
+      subject_extension: CHEBI:229599
+    - predicate: TREATS
+      object: symptoms of Rett syndrome
+      qualifier: MONDO:0010726
+      subject_qualifier: in morning fed condition
+      object_qualifier: in individuals
+      subject_extension: CHEBI:229599
+    - predicate: TREATS
+      object: Rett syndrome
+      object_qualifier: IN individuals
+      subject_extension: CHEBI:229599
+    - object_qualifier: IN individuals
+      subject_extension: CHEBI:229599

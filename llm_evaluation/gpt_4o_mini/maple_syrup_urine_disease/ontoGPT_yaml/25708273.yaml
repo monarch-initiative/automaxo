@@ -1,0 +1,70 @@
+---
+input_text: 'Living donor liver transplantation from a heterozygous parent for classical
+  maple syrup urine disease. MSUD is a hereditary metabolic disorder that is characterized
+  by impaired activity of the BCKADC. Liver transplantation has been approved as a
+  treatment for some MSUD cases in which the control of BCAAs is insufficient. Although
+  there have been several reports about DDLT for MSUD, few LDLT cases have been reported.
+  Because either of parents who are heterozygote of this disease usually applies to
+  be a candidate of donor in LDLT, the impairment of BCKADC activity of graft liver
+  should be concerned. We performed LDLT for 10 month-old girl with a left lateral
+  segment graft from her father. BCKADC activities of the patient and her parents
+  were measured using lysates of lymphocytes isolated from peripheral blood specimen
+  before the transplant. As a consequence, the activity of BCKADC of father was not
+  inferior to a normal range. The patient tolerated the operation well. Postoperative
+  course was uneventful and mixed milk was started at 8th POD. The serum BCAAs levels
+  have remained within normal range. It should be necessary to follow the physical
+  growth and mental development of the recipient in the future. '
+raw_completion_output: |-
+  primary_disease: classical maple syrup urine disease  
+  medical_actions: liver transplantation; follow-up care  
+  symptoms: impaired BCKADC activity  
+  chemicals: BCAAs  
+  action_annotation_relationships: liver transplantation TREATS impaired BCKADC activity IN classical maple syrup urine disease; follow-up care TREATS physical growth IN classical maple syrup urine disease; follow-up care TREATS mental development IN classical maple syrup urine disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  follow-up care TREATS mental development IN classical maple syrup urine disease
+
+  ===
+
+extracted_object:
+  primary_disease: classical maple syrup urine disease
+  medical_actions:
+    - MAXO:0001175
+    - follow-up care
+  symptoms:
+    - impaired BCKADC activity
+  chemicals:
+    - BCAAs
+  action_annotation_relationships:
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: impaired BCKADC activity
+      qualifier: classical maple syrup urine disease
+      subject_extension: liver transplantation
+      object_extension: impaired BCKADC activity
+    - subject: follow-up care
+      predicate: TREATS
+      object: physical growth
+      qualifier: classical maple syrup urine disease
+      subject_extension: follow-up care
+      object_extension: physical growth
+    - subject: follow-up care
+      predicate: TREATS
+      object: mental development
+      qualifier: classical maple syrup urine disease
+      subject_qualifier: <N/A>
+      object_qualifier: <N/A>
+      subject_extension: <N/A>
+      object_extension: <N/A>

@@ -1,0 +1,76 @@
+---
+input_text: Novel MeCP2 Gene Therapy is Effective in a Multicenter Study using Two
+  Mouse Models of Rett Syndrome and is Safe in Non-human Primates. The AAV9 gene therapy
+  vector presented in this study is safe in mice and non-human primates and highly
+  efficacious without causing overexpression toxicity, a major challenge for clinical
+  translation of Rett Syndrome gene therapy vectors to date. Our team designed a new
+  truncated methyl CpG binding protein 2 (MeCP2) promoter allowing widespread expression
+  of MeCP2 in mice and non-human primates after a single injection into the cerebrospinal
+  fluid without causing overexpression symptoms up to 18 months post injection. Additionally,
+  this new vector is highly efficacious at lower doses compared to previous constructs
+  as demonstrated in extensive efficacy studies performed by two independent laboratories
+  in two different Rett syndrome mouse models carrying either a knockout or one of
+  the most frequent human mutations of MeCP2. Overall, data from this multicenter
+  study highlights the efficacy and safety of this gene therapy construct, making
+  it a promising candidate for first in human studies to treat Rett syndrome.
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Rett Syndrome
+
+  medical_actions: AAV9 gene therapy vector; gene therapy; injection into the cerebrospinal fluid
+
+  symptoms: overexpression toxicity; overexpression symptoms
+
+  chemicals: 
+
+  action_annotation_relationships: AAV9 gene therapy vector TREATS Rett Syndrome; AAV9 gene therapy vector PREVENTS overexpression toxicity IN Rett Syndrome; gene therapy TREATS Rett Syndrome; injection into the cerebrospinal fluid TREATS Rett Syndrome; truncated MeCP2 promoter TREATS Rett Syndrome IN mice and non-human primates; AAV9 gene therapy vector (with MeCP2) TREATS Rett Syndrome 
+
+  Note that I did not include "MeCP2" as a chemical, as it appears to be a gene or protein rather than a chemical or drug. Let me know if you have any further questions or if you'd like me to clarify any of these extracted entities!
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  AAV9 gene therapy vector (with MeCP2) TREATS Rett Syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010726
+  medical_actions:
+    - AAV9 gene therapy vector
+    - MAXO:0001001
+    - injection into the cerebrospinal fluid
+  symptoms:
+    - overexpression toxicity
+    - overexpression symptoms
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: symptoms of Rett Syndrome
+      qualifier: MONDO:0010726
+      subject_extension: AAV9
+    - predicate: PREVENTS
+      object: overexpression toxicity
+      qualifier: MONDO:0010726
+      subject_extension: gene therapy
+    - predicate: TREATS
+      object: Rett Syndrome
+    - predicate: TREATS
+      subject_extension: injection
+    - predicate: TREATS
+      object: Rett Syndrome
+    - predicate: TREATS
+      object: symptoms
+      qualifier: MONDO:0010726
+      subject_qualifier: with MeCP2, AAV9
+      subject_extension: gene therapy

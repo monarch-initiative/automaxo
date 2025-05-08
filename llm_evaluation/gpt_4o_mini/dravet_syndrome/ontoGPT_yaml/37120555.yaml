@@ -1,0 +1,132 @@
+---
+input_text: "Sleep quality, anxiety, symptoms of depression, and caregiver burden
+  among those caring for patients with Dravet syndrome: a prospective multicenter
+  study in Germany. BACKGROUND: This study measured sleep quality among caregivers
+  of patients with Dravet syndrome (DS) and assessed the impacts of mental health
+  problems and caregiver burden on sleep quality. METHODS: This multicenter, cross-sectional
+  study of patients with DS and their caregivers throughout Germany consisted of a
+  questionnaire and a prospective 4-week diary querying disease characteristics, demographic
+  data, living conditions, nocturnal supervision, and caregivers' work situations.
+  Sleep quality was assessed using the Pittsburgh Sleeping Quality Index (PSQI). The
+  Hospital Anxiety and Depression Scale (HADS) and the Burden Scale for Family Caregivers
+  (BSFC) were used to measure anxiety, symptoms of depression, and caregiver burden.
+  RESULTS: Our analysis included 108 questionnaires and 82 four-week diaries. Patients
+  with DS were 49.1% male (n = 53), with a mean age of 13.5 +- 10.0 years. Caregivers
+  were 92.6% (n = 100) female, with a mean age of 44.7 +- 10.6 years. The overall
+  mean PSQI score was 8.7 +- 3.5, with 76.9% of participants (n = 83) scoring 6 or
+  higher, indicating abnormal sleep quality. The HADS for anxiety and depression had
+  overall mean scores of 9.3 +- 4.3 and 7.9 +- 3.7, respectively; 61.8% and 50.9%
+  of participants scored above the cutoff value of 8 for anxiety and depression, respectively.
+  Statistical analyses revealed caregiver anxiety levels and patients' sleep disturbances
+  as major factors influencing PSQI scores. The overall mean BSFC score of 41.7 +-
+  11.7 indicates a moderate burden, with 45.3% of caregivers scoring 42 or higher.
+  CONCLUSIONS: Sleep quality is severely affected among caregivers of patients with
+  DS, correlating with anxiety, comorbidities, and patients' sleep disturbances. A
+  holistic therapeutic approach should be implemented for patients with DS and their
+  caregivers, focusing on the sleep quality and mental health of caregivers. TRIAL
+  REGISTRATION: German Clinical Trials Register (DRKS), DRKS00016967. Registered 27
+  May 2019, http://www.drks.de/DRKS00016967."
+raw_completion_output: |-
+  primary_disease: Dravet syndrome  
+  medical_actions: assess sleep quality; measure anxiety; measure symptoms of depression; measure caregiver burden; implement therapeutic approach  
+  symptoms: sleep quality issues; anxiety; symptoms of depression; caregiver burden; sleep disturbances  
+  chemicals: None  
+  action_annotation_relationships: assess sleep quality TREATS symptom sleep quality issues IN Dravet syndrome; measure anxiety TREATS symptom anxiety IN Dravet syndrome; measure symptoms of depression TREATS symptom symptoms of depression IN Dravet syndrome; measure caregiver burden TREATS symptom caregiver burden IN Dravet syndrome; implement therapeutic approach TREATS symptom sleep quality issues IN Dravet syndrome; implement therapeutic approach TREATS symptom anxiety IN Dravet syndrome; implement therapeutic approach TREATS symptom symptoms of depression IN Dravet syndrome; implement therapeutic approach TREATS symptom caregiver burden IN Dravet syndrome; implement therapeutic approach TREATS symptom sleep disturbances IN Dravet syndrome  
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  implement therapeutic approach TREATS symptom sleep disturbances IN Dravet syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0100135
+  medical_actions:
+    - assess sleep quality
+    - measure anxiety
+    - measure symptoms of depression
+    - measure caregiver burden
+    - implement therapeutic approach
+  symptoms:
+    - sleep quality issues
+    - HP:0000739
+    - symptoms of depression
+    - caregiver burden
+    - HP:0002360
+  chemicals:
+    - None
+  action_annotation_relationships:
+    - subject: assess sleep quality
+      predicate: TREATS
+      object: sleep quality issues
+      qualifier: MONDO:0100135
+      subject_qualifier: <N/A>
+      object_qualifier: <N/A>
+      subject_extension: <N/A>
+      object_extension: <N/A>
+    - subject: measure anxiety
+      predicate: TREATS
+      object: HP:0000739
+      qualifier: MONDO:0100135
+      subject_extension: anxiety
+      object_extension: symptom
+    - predicate: TREATS
+      object: symptom symptoms of depression
+      qualifier: MONDO:0100135
+    - predicate: TREATS
+      object: symptom caregiver burden
+      qualifier: MONDO:0100135
+    - subject: implement therapeutic approach
+      predicate: TREATS
+      object: symptom sleep quality issues
+      qualifier: MONDO:0100135
+      subject_extension: therapeutic approach
+      object_extension: sleep quality
+    - subject: implement therapeutic approach
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0100135
+      subject_extension: therapeutic approach
+      object_extension: anxiety
+    - subject: TREATS
+      predicate: TREATS
+      object: symptoms of depression
+      qualifier: MONDO:0100135
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: therapeutic approach
+      object_extension: symptoms
+    - subject: implement therapeutic approach
+      predicate: TREATS
+      object: symptom caregiver burden
+      qualifier: MONDO:0100135
+      subject_extension: therapeutic approach
+      object_extension: caregiver burden
+    - subject: implement therapeutic approach
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0100135
+      subject_extension: therapeutic approach
+      object_extension: sleep disturbances
+named_entities:
+  - id: HP:0000739
+    label: anxiety
+    original_spans:
+      - 15:21
+      - 746:752
+      - 853:859
+      - 1294:1300
+      - 1456:1462
+      - 1534:1540
+      - 1847:1853

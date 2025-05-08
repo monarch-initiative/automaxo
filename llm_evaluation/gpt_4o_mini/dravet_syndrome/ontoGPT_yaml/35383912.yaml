@@ -1,0 +1,80 @@
+---
+input_text: "COVID-19 vaccine in patients with Dravet syndrome: Observations and real-world
+  experiences. OBJECTIVE: Vaccination against the SARS-CoV-2 virus is a primary tool
+  to combat the COVID-19 pandemic. However, vaccination is a common seizure trigger
+  in individuals with Dravet syndrome (DS). Information surrounding COVID-19 vaccine
+  side effects in patients with DS would aid caregivers and providers in decisions
+  for and management of COVID-19 vaccination. METHODS: A survey was emailed to the
+  Dravet Syndrome Foundation's Family Network and posted to the Dravet Parent & Caregiver
+  Support Group on Facebook between May and August 2021. Deidentified information
+  obtained included demographics and vaccination status for individuals with DS. Vaccine
+  type, side effects, preventative measures, and changes in seizure activity following
+  COVID-19 vaccination were recorded. For unvaccinated individuals, caregivers were
+  asked about intent to vaccinate and reasons for their decision. RESULTS: Of 278
+  survey responses, 120 represented vaccinated individuals with DS (median age = 19.5
+  years), with 50% reporting no side effects from COVID-19 vaccination. Increased
+  seizures following COVID-19 vaccination were reported in 16 individuals, but none
+  had status epilepticus. Of the 158 individuals who had not received a COVID-19 vaccination,
+  37 were older than 12 years (i.e., eligible at time of study), and only six of these
+  caregivers indicated intent to seek vaccination. The remaining 121 responses were
+  caregivers to children younger than 12 years, 60 of whom indicated they would not
+  seek COVID-19 vaccination when their child with DS became eligible. Reasons for
+  vaccine hesitancy were fear of increased seizure activity and concerns about vaccine
+  safety. SIGNIFICANCE: These results indicate COVID-19 vaccination is well tolerated
+  by individuals with DS. One main reason for vaccine hesitancy was fear of increased
+  seizure activity, which occurred in only 13% of vaccinated individuals, and none
+  had status epilepticus. This study provides critical and reassuring insights for
+  caregivers and health care providers making decisions about the safety of COVID-19
+  vaccinations for individuals with DS."
+raw_completion_output: |-
+  primary_disease: Dravet syndrome  
+  medical_actions: vaccination; survey; management of vaccination  
+  symptoms: increased seizures; side effects  
+  chemicals: COVID-19 vaccine  
+  action_annotation_relationships: vaccination TREATS symptom increased seizures IN Dravet syndrome; vaccination TREATS symptom side effects IN Dravet syndrome; management of vaccination PREVENTS symptom increased seizures IN Dravet syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  management of vaccination PREVENTS symptom increased seizures IN Dravet syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0100135
+  medical_actions:
+    - MAXO:0001017
+    - survey
+    - management of vaccination
+  symptoms:
+    - increased seizures
+    - side effects
+  chemicals:
+    - COVID-19 vaccine
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: increased seizures
+      qualifier: MONDO:0100135
+      subject_extension: vaccination
+    - subject: MAXO:0001017
+      predicate: TREATS
+      object: symptom side effects
+      qualifier: MONDO:0100135
+      subject_extension: vaccination
+      object_extension: side effects
+    - subject: management of vaccination
+      predicate: PREVENTS
+      object: increased seizures
+      qualifier: MONDO:0100135
+      subject_extension: vaccination
+      object_extension: symptom

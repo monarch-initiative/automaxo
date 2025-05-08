@@ -1,0 +1,335 @@
+---
+input_text: 'Hematopoietic cell transplantation for severe MPS I in the first six
+  months of life: The heart of the matter. BACKGROUND: Hematopoietic cell transplantation
+  (HCT) is accepted therapy for severe mucopolysaccharidosis type I (MPS IH). With
+  implementation of newborn screening (NBS) for MPS I in the US, HCT may now occur
+  earlier than 1-2 years of age and it might be assumed that cardiac issues will be
+  fewer. To examine this hypothesis, we reviewed our records for any MPS IH infant
+  who underwent HCT at <=6 months of age. STUDY PATIENTS: Pre- and (most recent) post-HCT
+  cardiac echos and clinical courses were reviewed in all infants with MPS IH undergoing
+  HCT at <=6 months of age. RESULTS: 7 MPS IH infants (4 M) who were diagnosed at
+  median (range) (MEDRNG) of 14 (3, 22) days of life (DOL) by NBS [2] or because an
+  older sib had MPS IH [5], began enzyme replacement therapy at MEDRNG of 48 (7, 62)
+  DOL. First pre-HCT echo was performed at MEDRNG of 45 (0, 88) DOL. HCT (6 cord blood,
+  1 related) occurred at MEDRNG of 131 (105, 183) DOL with most recent echo at MEDRNG
+  of 408 (10, 1897) days after HCT. Mitral regurgitation (>=mild) occurred before
+  (2/7) and after (2/7) HCT; LVH (2/7) occurred after HCT; PFO was common before (5/7)
+  and after (3/7) HCT. One infant had severely decreased function at initial echo
+  and required ICU management. Another infant with a patent foramen ovale and indwelling
+  central line required additional neuroimaging to determine the cause of a seizure.
+  A final infant died unexpectedly 69 days post-HCT without evidence of occlusive
+  coronary disease at autopsy. CONCLUSIONS: In addition to the traditional phenotypic
+  features of severe MPS I, newborns presenting for HCT have cardiac and non-cardiac
+  problems unique to their young age. Recognition of these issues is essential for
+  optimal outcomes.'
+raw_completion_output: |-
+  primary_disease: severe MPS I
+  medical_actions: hematopoietic cell transplantation (HCT); enzyme replacement therapy; cardiac echos; ICU management; neuroimaging
+  symptoms: mitral regurgitation; LVH (left ventricular hypertrophy); PFO (patent foramen ovale); decreased function; seizure
+  chemicals: 
+  action_annotation_relationships: hematopoietic cell transplantation (HCT) TREATS severe MPS I IN severe MPS I; enzyme replacement therapy TREATS severe MPS I IN severe MPS I; cardiac echos OBSERVES mitral regurgitation IN severe MPS I; cardiac echos OBSERVES LVH IN severe MPS I; cardiac echos OBSERVES PFO IN severe MPS I; cardiac echos OBSERVES decreased function IN severe MPS I; ICU management TREATS decreased function IN severe MPS I; neuroimaging INVESTIGATES seizure IN severe MPS I
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  neuroimaging INVESTIGATES seizure IN severe MPS I
+
+  ===
+
+extracted_object:
+  primary_disease: severe MPS I
+  medical_actions:
+    - MAXO:0000149
+    - enzyme replacement therapy
+    - cardiac echos
+    - ICU management
+    - neuroimaging
+  symptoms:
+    - HP:0001653
+    - HP:0001712
+    - HP:0001655
+    - decreased function
+    - HP:0001250
+  action_annotation_relationships:
+    - subject: MAXO:0000149
+      predicate: TREATS
+      object: severe MPS I
+      qualifier: severe MPS I
+      subject_extension: hematopoietic cell transplantation
+      object_extension: severe MPS I
+    - subject: enzyme replacement therapy
+      predicate: TREATS
+      object: severe MPS I
+      qualifier: severe MPS I
+      object_qualifier: severe
+      subject_extension: enzyme replacement therapy
+      object_extension: severe
+    - subject: cardiac echos
+      predicate: OBSERVES
+      object: HP:0001653
+      qualifier: MONDO:1012617
+      object_qualifier: severe
+    - subject: cardiac echos
+      predicate: OBSERVES
+      object: LVH
+      qualifier: MONDO:1012617
+      object_qualifier: severe
+    - subject: cardiac echos
+      predicate: OBSERVES
+      object: PFO
+      qualifier: MONDO:1012617
+      object_qualifier: severe
+    - subject: cardiac echos
+      predicate: OBSERVES
+      object: decreased function
+      qualifier: MONDO:1012617
+      object_qualifier: severe
+    - subject: ICU management
+      predicate: TREATS
+      object: decreased function
+      qualifier: MONDO:1012617
+      object_qualifier: severe
+    - subject: neuroimaging
+      predicate: INVESTIGATES
+      object: HP:0001250
+      qualifier: MONDO:1012617
+      object_qualifier: severe
+named_entities:
+  - id: MONDO:0001586
+    label: mucopolysaccharidosis type I
+  - id: MONDO:1012617
+    label: Mucopolysaccharidosis Type I (MPS I)
+  - id: CHEBI:60285
+    label: DOPE
+  - id: MAXO:0001521
+    label: nasal administration
+  - id: MONDO:0011758
+    label: Mucopolysaccharidosis type I Hurler (MPSIH)
+  - id: MAXO:0000747
+    label: hematopoietic stem cell transplantation (HSCT)
+  - id: MAXO:0000487
+    label: clinical assessment (growth measurement, kyphosis and genu velgum evaluation)
+  - id: HP:0002808
+    label: kyphosis
+  - id: HP:0001376
+    label: limited joint mobility
+  - id: HP:0008807
+    label: acetabular dysplasia
+  - id: MAXO:0010034
+    label: Corneal transplantation
+  - id: HP:0007957
+    label: Corneal clouding
+  - id: MAXO:0000149
+    label: Hematopoietic cell transplantation (HCT)
+  - id: HP:0000238
+    label: Hydrocephalus
+  - id: MAXO:0000068
+    label: transplantation
+  - id: MAXO:0000004
+    label: surgery
+  - id: MAXO:0000526
+    label: clinical examination
+  - id: CHEBI:143889
+    label: glycosaminoglycan (GAG)
+  - id: HP:0004322
+    label: short stature
+  - id: HP:0005619
+    label: thoracolumbar kyphosis
+  - id: HP:0000943
+    label: dysostosis multiplex
+  - id: MONDO:0011759
+    label: Hurler-Scheie syndrome
+  - id: HP:0001387
+    label: joint stiffness
+  - id: HP:0000403
+    label: recurrent otitis media
+  - id: HP:0001999
+    label: facial dysmorphism
+  - id: HP:0002781
+    label: Upper airway obstruction
+  - id: HP:0001638
+    label: Cardiomyopathy
+  - id: MAXO:0001479
+    label: Allogeneic hematopoietic stem cell transplantation
+  - id: MAXO:0001001
+    label: Gene therapy
+  - id: CHEBI:58187
+    label: Alginate
+  - id: CHEBI:53412
+    label: PLL (Poly-L-lysine)
+  - id: CHEBI:50594
+    label: Carbon nanotubes
+  - id: HP:0007663
+    label: Reduced visual acuity
+  - id: MAXO:0000016
+    label: cellular therapy
+  - id: CHEBI:19226
+    label: Tm
+  - id: MONDO:0017385
+    label: mucopolysaccharidosis type I (MPSI) Hurler
+  - id: MAXO:0000018
+    label: Biomarker assessment
+  - id: HP:0001138
+    label: Optic neuropathy
+  - id: HP:0000488
+    label: Retinopathy
+  - id: MONDO:0019052
+    label: Inborn errors of metabolism
+  - id: CHEBI:28901
+    label: Busulfan
+  - id: CHEBI:33310
+    label: MCT (NE)
+  - id: HP:0001367
+    label: joint disease
+  - id: HP:0002652
+    label: skeletal dysplasia
+  - id: HP:0000618
+    label: vision impairments
+  - id: HP:0000365
+    label: hearing impairments
+  - id: MONDO:0007147
+    label: Obstructive sleep apnea syndrome (OSAS)
+  - id: MAXO:0000915
+    label: Overnight polysomnography (PSG)
+  - id: HP:0002104
+    label: Apnea
+  - id: HP:0040213
+    label: Hypopnea
+  - id: MAXO:0010033
+    label: Umbilical cord blood transplantation
+  - id: MONDO:0009290
+    label: Pompe Disease
+  - id: HP:0005162
+    label: Left ventricular failure
+  - id: HP:0011675
+    label: Conduction abnormalities
+  - id: HP:0001677
+    label: Coronary artery disease
+  - id: HP:0001433
+    label: Hepatosplenomegaly
+  - id: HP:0033126
+    label: Necrosis
+  - id: CHEBI:46793
+    label: 1,2-distearoyl-sn-glycero-3-phosphoethanolamine-N-(amino[polyethylene glycol]-
+      2000) (DSPE-PEG)
+  - id: CHEBI:17754
+    label: Glycerol
+  - id: CHEBI:15377
+    label: Water
+  - id: CHEBI:27881
+    label: Resveratrol
+  - id: HP:0010864
+    label: severe mental retardation
+  - id: CHEBI:82467
+    label: Evans blue
+  - id: MONDO:0006249
+    label: mucopolysaccharidoses (MPS)
+  - id: CHEBI:232920
+    label: Alginate-poly-L-lysine-alginate (APA)
+  - id: HP:0000708
+    label: Behavioral abnormalities
+  - id: HP:0033429
+    label: Neuroinflammation
+  - id: MAXO:0001525
+    label: Intravenous administration
+  - id: HP:6000847
+    label: cardiac mass
+  - id: HP:0012393
+    label: Allergic reactions
+  - id: HP:0001268
+    label: Cognitive decline
+  - id: HP:0000388
+    label: Otitis media
+  - id: HP:0000750
+    label: Language delays
+  - id: MAXO:0000479
+    label: Orthopedic surgeries
+  - id: HP:0011947
+    label: Respiratory infections
+  - id: CHEBI:28088
+    label: Genistein
+  - id: MAXO:0000506
+    label: Non-invasive ventilation
+  - id: HP:0002091
+    label: Restrictive lung disease
+  - id: HP:0001513
+    label: Obesity
+  - id: HP:0000822
+    label: High blood pressure
+  - id: HP:0001626
+    label: Cardiovascular abnormalities
+  - id: CHEBI:18376
+    label: dermatan sulfate
+  - id: CHEBI:28815
+    label: heparan sulfate
+  - id: CHEBI:37397
+    label: chondroitin sulfate
+  - id: CHEBI:15971
+    label: heparan sulfate (HS)
+  - id: CHEBI:17053
+    label: dermatan sulfate (DS)
+  - id: CHEBI:16991
+    label: DNA
+  - id: HP:0001385
+    label: Hip dysplasia
+  - id: HP:0001263
+    label: Cognitive delay
+  - id: CHEBI:50693
+    label: Milrinone
+  - id: MAXO:0000011
+    label: Physical therapy
+  - id: HP:0003423
+    label: Thoracolumbar kyphoscoliosis
+  - id: HP:0002970
+    label: Genua vara
+  - id: HP:0002650
+    label: Scoliosis
+  - id: HP:0002857
+    label: Genua valga
+  - id: HP:0003311
+    label: Odontoid hypoplasia
+  - id: HP:0100543
+    label: cognitive impairment
+  - id: HP:0002180
+    label: neurodegeneration
+  - id: CHEBI:50803
+    label: nanoparticles
+  - id: HP:0002176
+    label: spinal cord compression
+  - id: HP:0012531
+    label: pain (injection site, back, groin)
+  - id: HP:0002315
+    label: headache
+  - id: HP:0033482
+    label: limited shoulder flexion
+  - id: HP:0004349
+    label: decreased bone mineral density
+  - id: HP:0000924
+    label: skeletal anomalies
+  - id: HP:0002240
+    label: hepatomegaly
+  - id: HP:0010619
+    label: correlation of reaction time with fractional anisotropy (FA) in frontal
+      and parietal white matter
+  - id: HP:0003541
+    label: Urinary glycosaminoglycan (GAG) excretion
+  - id: HP:0002870
+    label: Obstructive sleep apnea syndrome (OSAS)
+  - id: HP:0001653
+    label: mitral regurgitation
+  - id: HP:0001712
+    label: LVH (left ventricular hypertrophy)
+  - id: HP:0001655
+    label: PFO (patent foramen ovale)
+  - id: HP:0001250
+    label: seizure

@@ -1,0 +1,94 @@
+---
+input_text: 'Alteration in brain connectivity in patients with Dravet syndrome after
+  vagus nerve stimulation (VNS): exploration of its effectiveness using graph theory
+  analysis with electroencephalography. OBJECTIVE: Vagus nerve stimulation (VNS) is
+  a nonpharmacologic therapeutic option for patients who have pharmaco-resistant Dravet
+  syndrome (DS). Plentiful efforts have been made for delivering VNS to DS patients,
+  but its effectiveness still requires further verification. We investigated the effectiveness
+  of the VNS treatment of DS patients using brain connectivity analysis with electroencephalography
+  (EEG). APPROACH: Twenty pharmaco-resistant DS patients were selected to undergo
+  VNS implantation and classified into responder and non-responder groups after 24
+  months post-VNS. The effect of VNS between 6 months pre- and 6, 12, and 24 months
+  post-VNS in all patients, responders, and non-responders on four different frequency
+  categories of four brain parameters were compared using resting-state EEG. MAIN
+  RESULTS: In alpha and beta bands, all patients showed positive results for characteristic
+  path length (CPL), global efficiency (GE), and transitivity after VNS treatment,
+  and changes in betweenness centrality (BC) were not significant. The difference
+  in transitivity between responders and non-responders is more pronounced than those
+  in CPL and GE are, in both the alpha (p < 0.015) and beta (p < 0.001) bands. There
+  was an obvious change in BC, especially in the alpha band, as the hubs tended to
+  move from frontal lobe to parietal lobe for responders; however, there was no change
+  for the non-responders. SIGNIFICANCE: We investigated the alteration in brain connectivity
+  of DS patients in alpha and beta bands during a long-term follow-up and found the
+  responders have a decreased transitivity after the VNS treatment. Moreover, the
+  hubs with high values in the alpha band tended to move from frontal lobe to parietal
+  lobe for responders after VNS treatment.'
+raw_completion_output: |-
+  Here are the extracted entities in the requested format:
+
+  primary_disease: Dravet syndrome
+
+  medical_actions: Vagus nerve stimulation (VNS); electroencephalography (EEG)
+
+  symptoms: alteration in brain connectivity; changes in characteristic path length (CPL); changes in global efficiency (GE); changes in transitivity; changes in betweenness centrality (BC)
+
+  chemicals: 
+
+  action_annotation_relationships: Vagus nerve stimulation (VNS) TREATS alteration in brain connectivity IN Dravet syndrome; Vagus nerve stimulation (VNS) TREATS changes in characteristic path length (CPL) IN Dravet syndrome; Vagus nerve stimulation (VNS) TREATS changes in global efficiency (GE) IN Dravet syndrome; Vagus nerve stimulation (VNS) TREATS changes in transitivity IN Dravet syndrome; electroencephalography (EEG) PREVENTS none IN Dravet syndrome (only used for analysis)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  electroencephalography (EEG) PREVENTS none IN Dravet syndrome (only used for analysis)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0100135
+  medical_actions:
+    - MAXO:0000942
+    - MAXO:0000932
+  symptoms:
+    - alteration in brain connectivity
+    - changes in characteristic path length (CPL)
+    - changes in global efficiency (GE)
+    - changes in transitivity
+    - changes in betweenness centrality (BC)
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: alteration in brain connectivity
+      qualifier: MONDO:0100135
+    - predicate: TREATS
+      object: changes in characteristic path length (CPL)
+      qualifier: MONDO:0100135
+      subject_extension: Vagus nerve stimulation
+    - predicate: TREATS
+      object: changes in global efficiency (GE)
+      qualifier: MONDO:0100135
+    - subject: MAXO:0000942
+      predicate: TREATS
+      object: changes in transitivity
+      qualifier: MONDO:0100135
+    - predicate: PREVENTS
+      object: none
+      qualifier: MONDO:0100135
+named_entities:
+  - id: MAXO:0000942
+    label: Vagus nerve stimulation (VNS)
+    original_spans:
+      - 72:100
+      - 204:232
+  - id: MAXO:0000932
+    label: electroencephalography (EEG)
+    original_spans:
+      - 574:601

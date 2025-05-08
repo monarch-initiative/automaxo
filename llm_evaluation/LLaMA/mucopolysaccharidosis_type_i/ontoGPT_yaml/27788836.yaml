@@ -1,0 +1,104 @@
+---
+input_text: 'Outcomes of Long-Term Treatment with Laronidase in Patients with Mucopolysaccharidosis
+  Type I. OBJECTIVE: To evaluate long-term outcomes of laronidase enzyme replacement
+  therapy in patients with attenuated mucopolysaccharidosis type I. STUDY DESIGN:
+  Retrospective analyses of case notes, laboratory results, and data from clinical
+  trials were used to evaluate urinary glycosaminoglycans, forced vital capacity (FVC),
+  6-minute walk test (6MWT), height-for-age Z score, cardiac valve function, corneal
+  clouding, and visual acuity in 35 patients with attenuated mucopolysaccharidosis
+  type I (Hurler-Scheie and Scheie syndromes) for up to 10 years following the initiation
+  of laronidase therapy. RESULTS: Statistically significant (P < .001) reductions
+  in mean urinary glycosaminoglycan levels relative to baseline were observed 6 months
+  after treatment initiation and were sustained throughout follow-up. Disease remained
+  stable after treatment initiation with no statistically significant changes in mean
+  FVC, 6MWT, or height-for-age Z score. At last assessments, mitral and aortic valve
+  function remained stable in 65% (22/34) of patients; corneal clouding remained stable
+  in 78% (18/23); visual acuity remained stable in 33% (8/24) and improved in 42%
+  (10/24) of patients. Younger patients (<10 years at treatment initiation) maintained
+  disease measures closer to norms for age for FVC, 6MWT, and height and showed fewer
+  deteriorations in mitral and aortic valve disease and corneal clouding compared
+  with patients aged >=10 years at treatment initiation. CONCLUSION: Laronidase treatment
+  resulted in disease stabilization in the majority of patients with a mean follow-up
+  of 6.1 years. Data suggest that early treatment may result in better outcomes.'
+raw_completion_output: |-
+  Here are the extracted entities in the requested format:
+
+  primary_disease: Mucopolysaccharidosis Type I
+
+  medical_actions: Laronidase enzyme replacement therapy; treatment with laronidase
+
+  symptoms: urinary glycosaminoglycans; reduced forced vital capacity (FVC); reduced 6-minute walk test (6MWT); reduced height-for-age Z score; cardiac valve dysfunction; corneal clouding; reduced visual acuity
+
+  chemicals: Laronidase
+
+  action_annotation_relationships: Laronidase TREATS urinary glycosaminoglycans IN Mucopolysaccharidosis Type I; Laronidase TREATS cardiac valve dysfunction IN Mucopolysaccharidosis Type I; Laronidase TREATS corneal clouding IN Mucopolysaccharidosis Type I; Laronidase TREATS visual acuity IN Mucopolysaccharidosis Type I; treatment with laronidase PREVENTS deterioration of FVC IN Mucopolysaccharidosis Type I; treatment with laronidase PREVENTS deterioration of 6MWT IN Mucopolysaccharidosis Type I; treatment with laronidase PREVENTS deterioration of height-for-age Z score IN Mucopolysaccharidosis Type I
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  treatment with laronidase PREVENTS deterioration of height-for-age Z score IN Mucopolysaccharidosis Type I
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0001586
+  medical_actions:
+    - Laronidase enzyme replacement therapy
+    - treatment with laronidase
+  symptoms:
+    - urinary glycosaminoglycans
+    - HP:0032341
+    - reduced 6-minute walk test (6MWT)
+    - reduced height-for-age Z score
+    - cardiac valve dysfunction
+    - HP:0007957
+    - HP:0007663
+  chemicals:
+    - Laronidase
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: urinary glycosaminoglycans
+      qualifier: MONDO:0001586
+    - predicate: TREATS
+      object: cardiac valve dysfunction
+      qualifier: MONDO:0001586
+      subject_extension: Laronidase
+    - predicate: TREATS
+      object: HP:0007957
+      qualifier: MONDO:0001586
+      subject_extension: laronidase
+    - predicate: TREATS
+      object: visual acuity
+      qualifier: MONDO:0001586
+    - predicate: PREVENTS
+      object: deterioration of FVC
+      qualifier: MONDO:0001586
+      subject_qualifier: with laronidase
+      object_qualifier: of FVC
+      subject_extension: laronidase
+    - predicate: PREVENTS
+      object: deterioration of 6MWT
+      qualifier: MONDO:0001586
+      subject_qualifier: with laronidase
+      object_qualifier: of 6MWT
+      subject_extension: laronidase
+    - predicate: PREVENTS
+      object: deterioration of height-for-age Z score
+      qualifier: MONDO:0001586
+      subject_qualifier: with laronidase
+      subject_extension: laronidase
+named_entities:
+  - id: HP:0032341
+    label: reduced forced vital capacity (FVC)
+  - id: HP:0007663
+    label: reduced visual acuity

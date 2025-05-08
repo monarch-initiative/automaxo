@@ -1,0 +1,94 @@
+---
+input_text: 'Acrodermatitis dysmetabolica: lessons from two pediatric cases. OBJECTIVES:
+  Acrodermatitis dysmetabolica (AD) is a dermatologic manifestation associated with
+  inherited metabolic disorders (IMDs), distinct from acrodermatitis enteropathica,
+  which occurs solely due to zinc deficiency. CASE PRESENTATION: This report presents
+  two pediatric cases: a 30-month-old girl with maple syrup urine disease (MSUD) experiencing
+  AD secondary to severe isoleucine deficiency due to a protein-restricted diet, showing
+  improvement with dietary adjustments, and a 2.5-month-old boy infant with propionic
+  acidemia (PA) who developed AD alongside septic shock, which progressed despite
+  intervention. CONCLUSIONS: These cases emphasize the importance of identifying AD
+  in IMDs and the critical need for meticulous monitoring of amino acid levels, as
+  deficiencies may lead to severe complications.'
+raw_completion_output: |-
+  Here are the extracted entities in the requested format:
+
+  primary_disease: Acrodermatitis dysmetabolica
+
+  medical_actions: dietary adjustments; intervention; monitoring of amino acid levels
+
+  symptoms: Acrodermatitis dysmetabolica; severe isoleucine deficiency; septic shock
+
+  chemicals: zinc; isoleucine; maple syrup (related to MSUD); propionic acid (related to PA)
+
+  action_annotation_relationships: dietary adjustments TREATS severe isoleucine deficiency IN Acrodermatitis dysmetabolica; intervention TREATS septic shock IN Acrodermatitis dysmetabolica; monitoring of amino acid levels PREVENTS severe complications IN Acrodermatitis dysmetabolica; protein-restricted diet CAUSES severe isoleucine deficiency IN maple syrup urine disease; dietary adjustments TREATS Acrodermatitis dysmetabolica IN maple syrup urine disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  dietary adjustments TREATS Acrodermatitis dysmetabolica IN maple syrup urine disease
+
+  ===
+
+extracted_object:
+  primary_disease: Acrodermatitis dysmetabolica
+  medical_actions:
+    - dietary adjustments
+    - intervention
+    - monitoring of amino acid levels
+  symptoms:
+    - Acrodermatitis dysmetabolica
+    - severe isoleucine deficiency
+    - septic shock
+  chemicals:
+    - CHEBI:27363
+    - CHEBI:24898
+    - maple syrup (related to MSUD)
+    - CHEBI:30768
+  action_annotation_relationships:
+    - subject: dietary adjustments
+      predicate: TREATS
+      object: isoleucine deficiency
+      qualifier: Acrodermatitis dysmetabolica
+      subject_extension: dietary adjustments
+      object_extension: severe
+    - predicate: TREATS
+      object: septic shock
+      qualifier: Acrodermatitis dysmetabolica
+    - subject: monitoring of amino acid levels
+      predicate: PREVENTS
+      object: severe complications
+      qualifier: Acrodermatitis dysmetabolica
+      subject_qualifier: of amino acid
+      object_qualifier: severe
+      subject_extension: monitoring
+      object_extension: levels
+    - subject: protein-restricted diet
+      predicate: CAUSES
+      object: isoleucine deficiency
+      qualifier: MONDO:0009563
+    - predicate: TREATS
+      object: Acrodermatitis dysmetabolica
+      qualifier: MONDO:0009563
+      subject_extension: dietary
+named_entities:
+  - id: CHEBI:27363
+    label: zinc
+    original_spans:
+      - 267:270
+  - id: CHEBI:24898
+    label: isoleucine
+    original_spans:
+      - 439:448
+  - id: CHEBI:30768
+    label: propionic acid (related to PA)

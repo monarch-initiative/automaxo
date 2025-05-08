@@ -1,0 +1,117 @@
+---
+input_text: 'Characteristics of continuous venovenous hemodiafiltration in the acute
+  treatment of inherited metabolic disorders. BACKGROUND: Continuous kidney replacement
+  therapies (CKRT) have been reported to be an effective approach to removing toxic
+  metabolites in inborn errors of metabolism (IEM). The present study evaluates efficiency
+  and complications of CKRT in children with IEM. METHODS: Patients diagnosed with
+  IEM who underwent CKRT in pediatric and neonatal intensive care units were analyzed.
+  CKRT were initiated in patients with persistently high blood ammonia levels (>=
+  500 mumol/L), blood ammonia levels > 250 mumol/L in the presence of moderate encephalopathy,
+  high blood leucine levels (>= 1500 mumol/L), and blood leucine levels < 1500 mumol/L
+  in the presence of deteriorating neurological status or persistent metabolic acidosis.
+  RESULTS: Of 22 patients enrolled, nine (40.9%) Maple syrup urine disease (MSUD),
+  eight (36.4%) urea cycle disorders (UCD), and five (22.7%) organic acidemias (OA).
+  Median age was 72.3 [9.9-1040.8] days. In total, 28 dialysis sessions were analyzed
+  [16 (57.1%) continuous venovenous hemodialysis, and 12 (42.9%) continuous venovenous
+  hemodiafiltration]. A significant decrease was noted in leucine levels (from 1608.4
+  +- 885.3 to 314.6 +- 109.9 micromol/L) of patients with MSUD, while ammonia levels
+  were significantly decreased in patients with UCD and OA (from 1279.9 +- 612.1 to
+  85.1 +- 21.6 micromol/L). The most frequent complications of CKRT were thrombocytopenia
+  (60.7%), hypotension (53.6%), and hypocalcemia (42.9%). Median age of patients with
+  hypotension treated with vasoactive medications was significantly lower than median
+  age of those with normal blood pressure. CONCLUSION: CKRT is a reliable approach
+  for effective and rapid removal of toxic metabolites in children with IEM, and CKRT
+  modalities can be safely used and are well-tolerated in infants.'
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: inborn errors of metabolism (IEM); Maple syrup urine disease (MSUD); urea cycle disorders (UCD); organic acidemias (OA)
+
+  medical_actions: continuous kidney replacement therapies (CKRT); continuous venovenous hemodiafiltration; continuous venovenous hemodialysis; vasoactive medications
+
+  symptoms: high blood ammonia levels; moderate encephalopathy; high blood leucine levels; deteriorating neurological status; persistent metabolic acidosis; thrombocytopenia; hypotension; hypocalcemia
+
+  chemicals: 
+
+  action_annotation_relationships: CKRT TREATS high blood ammonia levels IN IEM; CKRT TREATS high blood leucine levels IN IEM; CKRT TREATS moderate encephalopathy IN IEM; CKRT TREATS deteriorating neurological status IN IEM; CKRT TREATS persistent metabolic acidosis IN IEM; vasoactive medications TREATS hypotension IN IEM; CKRT (with continuous venovenous hemodiafiltration) TREATS thrombocytopenia IN IEM; CKRT (with continuous venovenous hemodiafiltration) TREATS hypocalcemia IN IEM
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  CKRT (with continuous venovenous hemodiafiltration) TREATS hypocalcemia IN IEM
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009563
+  medical_actions:
+    - continuous kidney replacement therapies (CKRT)
+    - continuous venovenous hemodiafiltration
+    - continuous venovenous hemodialysis
+    - vasoactive medications
+  symptoms:
+    - HP:0001987
+    - moderate encephalopathy
+    - high blood leucine levels
+    - deteriorating neurological status
+    - persistent metabolic acidosis
+    - HP:0001873
+    - HP:0002615
+    - HP:0002901
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: HP:0001987
+      qualifier: IEM
+    - predicate: TREATS
+      object: high blood leucine levels
+      qualifier: IEM
+    - subject: CKRT
+      predicate: TREATS
+      object: HP:0001298
+      qualifier: IEM
+    - predicate: TREATS
+      object: deteriorating neurological status
+      qualifier: IEM
+    - predicate: TREATS
+      object: persistent metabolic acidosis
+      qualifier: IEM
+    - predicate: TREATS
+      object: HP:0002615
+      qualifier: IEM
+      subject_extension: vasoactive
+    - predicate: TREATS
+      object: HP:0001873
+      qualifier: IEM
+      subject_qualifier: with continuous venovenous hemodiafiltration
+    - predicate: TREATS
+      object: HP:0002901
+      qualifier: IEM
+      subject_qualifier: with continuous venovenous hemodiafiltration
+named_entities:
+  - id: HP:0001987
+    label: high blood ammonia levels
+    original_spans:
+      - 545:569
+  - id: HP:0001873
+    label: thrombocytopenia
+    original_spans:
+      - 1493:1508
+  - id: HP:0002615
+    label: hypotension
+    original_spans:
+      - 1519:1529
+      - 1594:1604
+  - id: HP:0002901
+    label: hypocalcemia
+    original_spans:
+      - 1544:1555

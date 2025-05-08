@@ -1,0 +1,173 @@
+---
+input_text: 'Caregiver-reported outcomes with real-world use of cannabidiol in Lennox-Gastaut
+  syndrome and Dravet syndrome from the BECOME survey. PURPOSE: Plant-derived highly
+  purified cannabidiol (CBD) reduced the frequency of seizures associated with Lennox-Gastaut
+  syndrome (LGS) and Dravet syndrome (DS) and improved the overall condition of patients
+  in placebo-controlled phase 3 clinical trials. Anecdotal reports also suggest a
+  positive effect on nonseizure outcomes. In this study, we aimed to identify, through
+  a caregiver survey which nonseizure outcomes were most likely to change in these
+  patients. METHODS: The BEhavior, COgnition, and More with Epidiolex  (BECOME) was
+  a 20-minute, cross-sectional, online survey that was developed with extensive input
+  from caregivers, healthcare professionals, and epilepsy researchers, and was based
+  on questions from validated measures and previously published caregiver reports.
+  US-based caregivers (from Jazz Pharmaceuticals patient/caregiver database) of people
+  with LGS or DS who were treated with CBD (Epidiolex , 100 mg/mL oral solution) for
+  >=3 months were asked to compare the past month to the period before CBD initiation
+  and rate their impression of changes using symmetrical Likert scales. RESULTS: A
+  total of 498 caregivers (97% parents) of patients with LGS (80%) or DS (20%) completed
+  the survey. Mean (range) age of patients was 16 (1-73) years, and 52% were male.
+  Patients were taking a median CBD dose of 14 mg/kg/d and median 4 concomitant antiseizure
+  medications. A large proportion of respondents reported improvements in >=1 survey
+  question for all nonseizure-related domains: alertness, cognition, and executive
+  function (85%); emotional functioning (82%); language and communication (79% in
+  nonverbal patients and 74% in verbal); activities of daily living (51%); sleep (51%);
+  and physical functioning (46%). Respondents reported improvements in seizure-related
+  domains, including overall seizure frequency (85%), overall seizure severity (76%),
+  seizure-free days per week for >=1 seizure type (67%), and seizure freedom during
+  the past month (16%). The majority of respondents who reported reduction in seizure
+  frequency also reported improvements in nonseizure outcomes domains (51-80%). However,
+  improvements in nonseizure outcomes (18-56%) were also reported in patients who
+  either had no change or worsening of seizure frequency. CONCLUSIONS: This survey
+  characterized and quantified caregiver impression of changes in the seizure and
+  nonseizure outcomes in patients taking add-on CBD treatment. Overall, 93% of caregivers
+  reported planning to continue CBD treatment, primarily because of reduced seizure
+  burden but also because of improvements in nonseizure-related outcomes. Despite
+  the limitations that are associated with a retrospective survey-based study design,
+  these results support further evaluation of the effect of CBD treatment on nonseizure
+  outcomes among patients with LGS or DS.'
+raw_completion_output: |-
+  primary_disease: Lennox-Gastaut syndrome; Dravet syndrome  
+  medical_actions: prescribing cannabidiol; monitoring seizure frequency; assessing nonseizure outcomes  
+  symptoms: seizures; alertness; cognition; executive function; emotional functioning; language and communication; activities of daily living; sleep; physical functioning  
+  chemicals: cannabidiol; Epidiolex  
+  action_annotation_relationships: prescribing cannabidiol TREATS seizures IN Lennox-Gastaut syndrome; prescribing cannabidiol TREATS seizures IN Dravet syndrome; monitoring seizure frequency TREATS seizures IN Lennox-Gastaut syndrome; monitoring seizure frequency TREATS seizures IN Dravet syndrome; assessing nonseizure outcomes TREATS alertness IN Lennox-Gastaut syndrome; assessing nonseizure outcomes TREATS cognition IN Lennox-Gastaut syndrome; assessing nonseizure outcomes TREATS executive function IN Lennox-Gastaut syndrome; assessing nonseizure outcomes TREATS emotional functioning IN Lennox-Gastaut syndrome; assessing nonseizure outcomes TREATS language and communication IN Lennox-Gastaut syndrome; assessing nonseizure outcomes TREATS activities of daily living IN Lennox-Gastaut syndrome; assessing nonseizure outcomes TREATS sleep IN Lennox-Gastaut syndrome; assessing nonseizure outcomes TREATS physical functioning IN Lennox-Gastaut syndrome; prescribing cannabidiol (with chemical) TREATS seizures IN Lennox-Gastaut syndrome; prescribing cannabidiol (with chemical) TREATS seizures IN Dravet syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  prescribing cannabidiol (with chemical) TREATS seizures IN Dravet syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: Lennox-Gastaut syndrome; Dravet syndrome
+  medical_actions:
+    - prescribing cannabidiol
+    - monitoring seizure frequency
+    - assessing nonseizure outcomes
+  symptoms:
+    - HP:0001250
+    - alertness
+    - cognition
+    - executive function
+    - emotional functioning
+    - language and communication
+    - activities of daily living
+    - sleep
+    - physical functioning
+  chemicals:
+    - CHEBI:69478
+    - Epidiolex
+  action_annotation_relationships:
+    - subject: prescribing
+      predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0016532
+      subject_extension: CHEBI:69478
+      object_extension: seizures
+    - subject: prescribing
+      predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0100135
+      subject_extension: CHEBI:69478
+      object_extension: seizures
+    - predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0016532
+    - subject: monitoring seizure frequency
+      predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0100135
+      subject_qualifier: <none>
+      object_qualifier: <none>
+      subject_extension: <none>
+      object_extension: <none>
+    - subject: <assessing nonseizure outcomes>
+      predicate: <TREATS>
+      object: <alertness>
+      qualifier: <Lennox-Gastaut syndrome>
+      subject_qualifier: <nonseizure>
+      object_qualifier: <none>
+      subject_extension: <assessing nonseizure outcomes>
+      object_extension: <alertness>
+    - subject: <assessing>
+      predicate: <TREATS>
+      object: <cognition>
+      qualifier: <Lennox-Gastaut syndrome>
+      subject_extension: <assessing>
+      object_extension: <cognition>
+    - subject: assessing nonseizure outcomes
+      predicate: TREATS
+      object: executive function
+      qualifier: MONDO:0016532
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: None
+      object_extension: None
+    - subject: assessing nonseizure outcomes
+      predicate: TREATS
+      object: emotional functioning
+      qualifier: MONDO:0016532
+      subject_qualifier: N/A
+      object_qualifier: N/A
+      subject_extension: N/A
+      object_extension: N/A
+    - predicate: TREATS
+      object: language and communication
+      qualifier: MONDO:0016532
+    - subject: assessing nonseizure outcomes
+      predicate: TREATS
+      object: activities of daily living
+      qualifier: MONDO:0016532
+      subject_qualifier: <none>
+      object_qualifier: <none>
+      subject_extension: <none>
+      object_extension: <none>
+    - predicate: TREATS
+      object: sleep
+      qualifier: MONDO:0016532
+      subject_extension: <sleep>
+    - subject: assessing nonseizure outcomes
+      predicate: TREATS
+      object: physical functioning
+      qualifier: MONDO:0016532
+      subject_qualifier: <none>
+      object_qualifier: <none>
+      subject_extension: <none>
+      object_extension: <none>
+    - subject: prescribing
+      predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0016532
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: CHEBI:69478
+      object_extension: None
+    - subject: prescribing
+      predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0100135
+      subject_qualifier: N/A
+      object_qualifier: N/A
+      subject_extension: CHEBI:69478
+      object_extension: N/A

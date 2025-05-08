@@ -1,0 +1,93 @@
+---
+input_text: 'Long-term results of liver transplantation for maple syrup urine disease:
+  A single-center experience in Turkey. OBJECTIVES: Maple syrup urine disease (MSUD)
+  is an autosomal recessive inherited disorder. Despite the advances in medical nutrition
+  therapies, classical phenotype causes severe neurological disorders and sudden death.
+  It is known that MSUD patients do not experience metabolic attacks despite their
+  free diet after liver transplantation (LT). This study aims to reveal the long-term
+  results, development, mental, motor, intellectual and nutritional status of MSUD
+  patients who underwent LT. METHODS: The data of 12 patients who underwent deceased
+  donor (5 recipients) and living donor liver transplantation (7 recipients) were
+  retrospectively analyzed. The age, genotype, psychometric and mental status, development,
+  BCAA values, type of LT, donor-recipient proximity, complications, and survival
+  were assessed. RESULTS: There were 4 (33%) girls and 8 (67%) boys. The mean current
+  age was 9.33 +- 4.58 years. The mean follow-up time was 3 +- 2.5 years. The repeated
+  measures of leucine and isoleucine values revealed that there were no significant
+  differences from the pre-LT to post-LT 1-year. The protein-restricted nutrition
+  was switched to a free diet when oral intake was opened after LT. None of the recipients
+  experienced metabolic attacks after the living donor or deceased donor LT. The 1-,
+  3-, and 5-year survival rate of the patients is 83.3%. There was no significant
+  difference in survival between living and deceased donor liver transplantation.
+  CONCLUSIONS: Liver transplantation is a treatment option for MSUD in proper conditions
+  to save the patient life, increase the quality of life, and provide essential amino
+  acids with free diet intake for growth and development.'
+raw_completion_output: |-
+  Here are the extracted entities in the requested format:
+
+  primary_disease: Maple syrup urine disease (MSUD)
+
+  medical_actions: liver transplantation; protein-restricted nutrition; free diet intake
+
+  symptoms: severe neurological disorders; sudden death; metabolic attacks
+
+  chemicals: leucine; isoleucine; BCAA (branched-chain amino acids)
+
+  action_annotation_relationships: liver transplantation TREATS metabolic attacks IN MSUD; liver transplantation TREATS severe neurological disorders IN MSUD; protein-restricted nutrition PREVENTS metabolic attacks IN MSUD; free diet intake SUPPORTS growth and development IN MSUD; liver transplantation (with deceased donor) TREATS MSUD; liver transplantation (with living donor) TREATS MSUD
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  liver transplantation (with living donor) TREATS MSUD
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009563
+  medical_actions:
+    - MAXO:0001175
+    - protein-restricted nutrition
+    - free diet intake
+  symptoms:
+    - severe neurological disorders
+    - HP:0001699
+    - metabolic attacks
+  chemicals:
+    - CHEBI:25017
+    - CHEBI:24898
+    - CHEBI:22918
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: metabolic attacks
+      qualifier: MONDO:0009563
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: neurological disorders
+      qualifier: MONDO:0009563
+      subject_extension: transplantation
+      object_extension: severe
+    - predicate: PREVENTS
+      object: metabolic attacks
+      qualifier: MONDO:0009563
+      subject_extension: nutrition
+    - predicate: SUPPORTS
+      object: growth and development
+      qualifier: MONDO:0009563
+    - predicate: TREATS
+      object: MSUD
+    - predicate: TREATS
+      subject_qualifier: with living donor
+named_entities:
+  - id: HP:0001699
+    label: sudden death
+    original_spans:
+      - 317:328

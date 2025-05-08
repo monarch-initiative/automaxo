@@ -1,0 +1,156 @@
+---
+input_text: "Effective management of pediatric septic shock: a case study utilizing
+  continuous renal replacement therapy with cytosorb and citrate in a leukemic patient
+  with hyper-interleukin (IL)-6-naemia and severe thrombocytopenia. BACKGROUND: Sepsis
+  is a critical condition characterized by a dysregulated immune response to infection,
+  often resulting in organ dysfunction. Interleukin-6 (IL-6) is a key proinflammatory
+  cytokine associated with sepsis and its complications. This case study explored
+  the use of Continuous Renal Replacement Therapy (CRRT) combined with Cytosorb in
+  managing pediatric patients with leukemia, severe thrombocytopenia, and elevated
+  IL-6 levels. CASE PRESENTATION: A 10-year-old boy with Fanconi anemia presented
+  with pancytopenia, fever, and necrotic lesions, indicative of mucormycosis. Following
+  the diagnosis of acute myeloid leukemia (AML), the patient experienced severe complications,
+  including septic shock. Despite appropriate treatment, inflammatory markers, such
+  as C-reactive protein (CRP), procalcitonin (PCT), and IL-6, were significantly elevated.
+  CRRT with Cytosorb was initiated to manage hypercytokinemia and improve the patient's
+  clinical status. INTERVENTION: The CRRT procedure utilizes citrate as an anticoagulant
+  because of severe thrombocytopenia. The treatment lasted for 20 h, during which
+  the inflammatory biomarkers were monitored. The post-treatment results indicated
+  a significant reduction in IL-6 levels within 24 h and a decrease in PCT levels
+  at 8 h. CRP levels gradually declined over 40 h. OUTCOME: The patient exhibited
+  marked clinical improvement, with significant healing of cutaneous lesions and stabilization
+  of inflammatory markers, allowing transfer to the ward for continued chemotherapy.
+  CONCLUSION: This case suggests that CRRT combined with cytosorb may be a valuable
+  adjunctive therapy for managing complex cases of septic shock. The observed reduction
+  in inflammatory markers, particularly IL-6, warrants further investigation. Concurrent
+  antimicrobial, antifungal, and dexamethasone treatments for IRIS may have influenced
+  the observed outcomes in this single case. Controlled studies are needed to evaluate
+  the specific contribution of Cytosorb-CRRT and assess its long-term efficacy and
+  safety in similar patient populations, particularly in resource-limited settings.
+  CLINICAL TRIAL NUMBER: Not applicable."
+raw_completion_output: |-
+  primary_disease: septic shock  
+  medical_actions: Continuous Renal Replacement Therapy (CRRT); Cytosorb treatment; antimicrobial treatment; antifungal treatment; dexamethasone treatment  
+  symptoms: fever; necrotic lesions; thrombocytopenia; elevated IL-6 levels; pancytopenia  
+  chemicals: citrate; dexamethasone  
+  action_annotation_relationships: CRRT TREATS symptom thrombocytopenia IN septic shock; CRRT (with chemical citrate) TREATS symptom thrombocytopenia IN septic shock; Cytosorb treatment TREATS symptom elevated IL-6 levels IN septic shock; antimicrobial treatment TREATS symptom fever IN septic shock; antifungal treatment TREATS symptom necrotic lesions IN septic shock; dexamethasone treatment TREATS symptom elevated IL-6 levels IN septic shock
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  dexamethasone treatment TREATS symptom elevated IL-6 levels IN septic shock
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0001881
+  medical_actions:
+    - Continuous Renal Replacement Therapy (CRRT)
+    - Cytosorb treatment
+    - MAXO:0001021
+    - MAXO:0000174
+    - dexamethasone treatment
+  symptoms:
+    - HP:0001945
+    - necrotic lesions
+    - HP:0001873
+    - elevated IL-6 levels
+    - HP:0001876
+  chemicals:
+    - CHEBI:133748
+    - CHEBI:41879
+  action_annotation_relationships:
+    - subject: CRRT
+      predicate: TREATS
+      object: HP:0001873
+      qualifier: MONDO:0001881
+      subject_extension: CRRT
+      object_extension: thrombocytopenia
+    - subject: CRRT
+      predicate: TREATS
+      object: HP:0001873
+      qualifier: MONDO:0001881
+      subject_qualifier: with chemical
+      object_qualifier: None
+      subject_extension: CHEBI:133748
+      object_extension: None
+    - subject: Cytosorb treatment
+      predicate: TREATS
+      object: elevated IL-6 levels
+      qualifier: MONDO:0001881
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: Cytosorb
+      object_extension: elevated IL-6 levels
+    - subject: MAXO:0001021
+      predicate: TREATS
+      object: HP:0001945
+      qualifier: MONDO:0001881
+      subject_qualifier: N/A
+      object_qualifier: N/A
+      subject_extension: CHEBI:33281
+      object_extension: N/A
+    - predicate: TREATS
+      object: necrotic lesions
+      qualifier: MONDO:0001881
+      subject_extension: CHEBI:35718
+    - subject: treatment
+      predicate: TREATS
+      object: elevated IL-6 levels
+      qualifier: MONDO:0001881
+      subject_qualifier: dexamethasone
+      object_qualifier: elevated
+      subject_extension: CHEBI:41879
+      object_extension: IL-6 levels
+named_entities:
+  - id: MONDO:0001881
+    label: septic shock
+    original_spans:
+      - 34:45
+      - 922:933
+      - 1884:1895
+  - id: MAXO:0001021
+    label: antimicrobial treatment
+  - id: MAXO:0000174
+    label: antifungal treatment
+  - id: HP:0001945
+    label: fever
+    original_spans:
+      - 752:756
+  - id: HP:0001873
+    label: thrombocytopenia
+    original_spans:
+      - 204:219
+      - 622:637
+      - 1274:1289
+  - id: HP:0001876
+    label: pancytopenia
+    original_spans:
+      - 738:749
+  - id: CHEBI:133748
+    label: citrate
+    original_spans:
+      - 126:132
+      - 1228:1234
+  - id: CHEBI:41879
+    label: dexamethasone
+    original_spans:
+      - 2039:2051
+  - id: CHEBI:33281
+    label: antimicrobial
+    original_spans:
+      - 2008:2020
+  - id: CHEBI:35718
+    label: antifungal
+    original_spans:
+      - 2023:2032

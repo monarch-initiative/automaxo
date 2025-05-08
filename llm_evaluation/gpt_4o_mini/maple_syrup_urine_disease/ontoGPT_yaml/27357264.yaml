@@ -1,0 +1,96 @@
+---
+input_text: "Heterozygous liver transplantation for maple syrup urine disease: First
+  European reported case. MSUD is an autosomal recessive metabolic disorder that results
+  from a defect in the BCKDH enzyme. This enzyme is essential for the second step
+  in the metabolism of the branched-chain amino acids, leucine, isoleucine, and valine.
+  Patients with MSUD are subject to severe, irreversible neurologic injury unless
+  closely managed with a specialized metabolic formula and a diet restricted in leucine
+  throughout their lifetime. During times of illness, patients with MSUD can suffer
+  from severe metabolic derangement, acute cerebral edema, and untimely death. Deceased
+  donor liver transplant restores the ability to metabolize branched-chain amino acids,
+  even on an unrestricted diet, and prevents metabolic derangements during times of
+  illness. We report a successful case of living donor (parental) transplant for a
+  child with MSUD. The donor was the child's father. This approach has been controversial
+  as parents of children with MSUD are obligate heterozygotes for the condition and
+  have diminished levels of BCKDH activity. If effective, living-related donor transplant
+  provides a promising alternative for deceased donor liver transplant, which often
+  requires a prolonged waiting period and may not be feasible in areas with limited
+  medical resources. "
+raw_completion_output: |-
+  primary_disease: Maple Syrup Urine Disease (MSUD)  
+  medical_actions: liver transplantation; specialized metabolic formula; diet restriction in leucine  
+  symptoms: severe irreversible neurologic injury; severe metabolic derangement; acute cerebral edema; untimely death  
+  chemicals: BCKDH enzyme  
+  action_annotation_relationships: liver transplantation TREATS severe irreversible neurologic injury IN Maple Syrup Urine Disease; specialized metabolic formula TREATS severe metabolic derangement IN Maple Syrup Urine Disease; diet restriction in leucine TREATS severe metabolic derangement IN Maple Syrup Urine Disease; living donor transplant TREATS severe irreversible neurologic injury IN Maple Syrup Urine Disease; living donor transplant TREATS acute cerebral edema IN Maple Syrup Urine Disease; (with BCKDH enzyme) TREATS severe metabolic derangement IN Maple Syrup Urine Disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  (with BCKDH enzyme) TREATS severe metabolic derangement IN Maple Syrup Urine Disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009563
+  medical_actions:
+    - MAXO:0001175
+    - specialized metabolic formula
+    - diet restriction in leucine
+  symptoms:
+    - severe irreversible neurologic injury
+    - severe metabolic derangement
+    - acute cerebral edema
+    - untimely death
+  chemicals:
+    - BCKDH enzyme
+  action_annotation_relationships:
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: irreversible neurologic injury
+      qualifier: MONDO:0009563
+      subject_extension: liver transplantation
+      object_extension: severe
+    - predicate: TREATS
+      object: severe metabolic derangement
+      qualifier: MONDO:0009563
+      subject_extension: specialized metabolic formula
+    - subject: diet restriction
+      predicate: TREATS
+      object: metabolic derangement
+      qualifier: MONDO:0009563
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: CHEBI:25017
+      object_extension: severe
+    - subject: living donor transplant
+      predicate: TREATS
+      object: irreversible neurologic injury
+      qualifier: MONDO:0009563
+      subject_extension: transplant
+      object_extension: severe
+    - subject: living donor transplant
+      predicate: TREATS
+      object: acute cerebral edema
+      qualifier: MONDO:0009563
+      subject_qualifier: living donor
+      object_qualifier: acute
+      subject_extension: transplant
+      object_extension: acute cerebral edema
+    - subject: TREATS
+      predicate: TREATS
+      object: severe metabolic derangement
+      qualifier: MONDO:0009563
+      subject_qualifier: (with BCKDH enzyme)
+      object_qualifier: severe
+      subject_extension: BCKDH enzyme
+      object_extension: severe metabolic derangement

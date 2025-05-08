@@ -1,0 +1,101 @@
+---
+input_text: "Therapeutic hypothermia for pediatric refractory status epilepticus May
+  Ameliorate post-status epilepticus epilepsy. BACKGROUND: To compare the clinical
+  characteristics and outcomes of pediatric patients with refractory status epilepticus
+  (RSE) and super-refractory status epilepticus (SRSE) who received therapeutic hypothermia
+  (TH) plus anticonvulsants or anticonvulsants alone. METHODS: Two-medical referral
+  centers, retrospective cohort study. Pediatric Intensive Care Unit (PICU) at Taoyuan
+  Chang Gung Children's hospital and Kaohsiung Chang Gung Memorial Hospital. We reviewed
+  the medical records of 23 patients with RSE/SRSE who were admitted to PICU from
+  January 2014 to December 2017. Of these, 11 patients received TH (TH group) and
+  12 patients did not (control group). RESULTS: The selective endpoints were RSE/SRSE
+  duration, length of PICU stay, and Glasgow Outcome Scale (GOS) score. We applied
+  TH using the Artic Sun  temperature management system (target temperature, 34-35\
+  \  C; duration, 48-72 h). Of the 11 patients who received TH, 7 had febrile infection-related
+  epilepsy syndrome (FIRSE), one had Dravet syndrome, and three had traumatic brain
+  injury. The TH group had significantly shortern seizure durations than did the control
+  group (hrs; median (IQR) 24(40) vs. 96(90), p < 0.05). Two patients in the TH group
+  died of pulmonary embolism and extreme brain edema. The length of PICU stay was
+  similar between the groups (days; median (IQR) 30(42) v.s 30.5(30.25)). The TH group
+  had significantly better long-term outcomes than did the control group (GOS score,
+  median (IQR) 4(2) v.s 3 (0.75), p = 0.01*). The TH group had a significantly lower
+  incidence of later chronic refractory epilepsy than did the control group (TH v.s
+  non-TH, 5/11 (45%) v.s. 12/12(100%), p < 0.01). CONCLUSIONS: TH effectively reduced
+  the seizure burden in patients with RSE/SRSE. Our findings support that for patients
+  with RSE/SRSE, TH shortens the seizure duration, ultimately reducing the occurrence
+  of post-status epilepticus epilepsy and improving patients' long-term survival."
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: refractory status epilepticus (RSE) and super-refractory status epilepticus (SRSE)
+
+  medical_actions: therapeutic hypothermia (TH); administration of anticonvulsants
+
+  symptoms: seizure; febrile infection-related epilepsy syndrome (FIRSE); Dravet syndrome; traumatic brain injury; pulmonary embolism; extreme brain edema; chronic refractory epilepsy; post-status epilepticus epilepsy
+
+  chemicals: 
+
+  action_annotation_relationships: therapeutic hypothermia (TH) TREATS seizure IN refractory status epilepticus (RSE) and super-refractory status epilepticus (SRSE); therapeutic hypothermia (TH) PREVENTS post-status epilepticus epilepsy IN refractory status epilepticus (RSE) and super-refractory status epilepticus (SRSE); therapeutic hypothermia (TH) TREATS febrile infection-related epilepsy syndrome (FIRSE) IN refractory status epilepticus (RSE) and super-refractory status epilepticus (SRSE); anticonvulsants TREATS seizure IN refractory status epilepticus (RSE) and super-refractory status epilepticus (SRSE)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  anticonvulsants TREATS seizure IN refractory status epilepticus (RSE) and super-refractory status epilepticus (SRSE)
+
+  ===
+
+extracted_object:
+  primary_disease: refractory status epilepticus (RSE) and super-refractory status
+    epilepticus (SRSE)
+  medical_actions:
+    - therapeutic hypothermia (TH)
+    - administration of anticonvulsants
+  symptoms:
+    - HP:0001250
+    - febrile infection-related epilepsy syndrome (FIRSE)
+    - Dravet syndrome
+    - traumatic brain injury
+    - HP:0002204
+    - extreme brain edema
+    - chronic refractory epilepsy
+    - post-status epilepticus epilepsy
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: HP:0001250
+      qualifier: refractory status epilepticus (RSE) and super-refractory status epilepticus
+        (SRSE)
+      subject_extension: therapeutic
+    - subject: hypothermia
+      predicate: PREVENTS
+      object: HP:0001250
+      qualifier: refractory status epilepticus and super-refractory status epilepticus
+      subject_qualifier: therapeutic
+      object_qualifier: post-status epilepticus
+      subject_extension: therapeutic
+      object_extension: post-status epilepticus
+    - predicate: TREATS
+      object: febrile infection-related epilepsy syndrome (FIRSE)
+      qualifier: refractory status epilepticus (RSE) and super-refractory status epilepticus
+        (SRSE)
+      object_qualifier: refractory
+      subject_extension: therapeutic
+    - predicate: TREATS
+      object: HP:0001250
+      qualifier: refractory status epilepticus (RSE) and super-refractory status epilepticus
+        (SRSE)
+      subject_extension: CHEBI:35623
+named_entities:
+  - id: HP:0002204
+    label: pulmonary embolism
+    original_spans:
+      - 1342:1359

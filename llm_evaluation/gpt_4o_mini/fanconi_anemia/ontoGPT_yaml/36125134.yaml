@@ -1,0 +1,89 @@
+---
+input_text: 'Molecular Monitoring of Allogeneic Stem Cell Transplantation in Fanconi
+  Anemia. BACKGROUND: Allogeneic hematopoietic stem cell transplantation (HSCT) is
+  the treatment of choice in patients with Fanconi anemia (FA). The aim of our study
+  is to evaluate the impact and benefits of allogenic matched donor HSCT in a case
+  of a 12 year-old girl with FA, who displayed good clinical evolution following 2
+  months post-transplantation. METHODS: In the pre-transplant phase, reference blood
+  samples from the donor and recipient were collected on EDTA. The DNA from blood
+  samples was extracted using an automated Maxwell  48 RSC instrument (Promega, USA)
+  with the Maxwell  RSC Whole blood DNA kit (Promega, USA). For DNA quantification,
+  the PowerQuant System kit (Promega, USA) was used with the ABI 7500 Real-time PCR
+  system (Applied Biosystems, USA). The amplification of the short tandem repeat markers
+  was performed using the 24plex Investigator QS kit (Qiagen, Germany) on a ProFlex
+  PCR System. Furthermore, the PCR products were separated and detected on an ABI
+  3500 Genetic Analyzer (Applied Biosytems, USA). RESULTS: Thirty days post transplantation,
+  a complete chimerism (CC) was achieved with a full replacement by do-nor derived
+  hematopoietic cells. Sixty days post transplantation, the CC status was maintained
+  with improvement of hematological findings. CONCLUSIONS: In FA, chimerism monitoring
+  after HSCT provides useful information regarding engraftment or possibility of post-transplantation
+  complications such as graft versus host disease.'
+raw_completion_output: |-
+  primary_disease: Fanconi Anemia  
+  medical_actions: allogeneic hematopoietic stem cell transplantation; DNA extraction; DNA quantification; PCR amplification; chimerism monitoring  
+  symptoms: good clinical evolution; improvement of hematological findings; graft versus host disease  
+  chemicals: EDTA; Maxwell RSC Whole blood DNA kit; PowerQuant System kit; 24plex Investigator QS kit  
+  action_annotation_relationships: allogeneic hematopoietic stem cell transplantation TREATS good clinical evolution IN Fanconi Anemia; allogeneic hematopoietic stem cell transplantation TREATS improvement of hematological findings IN Fanconi Anemia; allogeneic hematopoietic stem cell transplantation PREVENTS graft versus host disease IN Fanconi Anemia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  allogeneic hematopoietic stem cell transplantation PREVENTS graft versus host disease IN Fanconi Anemia
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0019391
+  medical_actions:
+    - MAXO:0001479
+    - DNA extraction
+    - DNA quantification
+    - PCR amplification
+    - chimerism monitoring
+  symptoms:
+    - good clinical evolution
+    - improvement of hematological findings
+    - graft versus host disease
+  chemicals:
+    - CHEBI:4735
+    - Maxwell RSC Whole blood DNA kit
+    - PowerQuant System kit
+    - 24plex Investigator QS kit
+  action_annotation_relationships:
+    - subject: MAXO:0000747
+      predicate: TREATS
+      object: good clinical evolution
+      qualifier: MONDO:0019391
+      subject_qualifier: allogeneic
+      object_qualifier: N/A
+      subject_extension: hematopoietic stem cell transplantation
+      object_extension: clinical evolution
+    - subject: MAXO:0001479
+      predicate: TREATS
+      object: hematological findings
+      qualifier: MONDO:0019391
+      subject_extension: hematopoietic stem cell transplantation
+      object_extension: improvement
+    - subject: MAXO:0001479
+      predicate: PREVENTS
+      object: graft versus host disease
+      qualifier: MONDO:0019391
+      subject_qualifier: allogeneic
+      object_qualifier: N/A
+      subject_extension: hematopoietic stem cell transplantation
+      object_extension: graft versus host disease
+named_entities:
+  - id: CHEBI:4735
+    label: EDTA
+    original_spans:
+      - 536:539

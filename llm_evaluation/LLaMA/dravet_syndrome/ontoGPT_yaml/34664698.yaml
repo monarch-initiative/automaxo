@@ -1,0 +1,110 @@
+---
+input_text: 'Vagus Nerve Stimulation in Intractable Epilepsy. AIM: To investigate
+  and compare the efficacy and safety of vagus nerve stimulation (VNS) therapy in
+  different types of epilepsy. MATERIAL AND METHODS: Patients, who were implanted
+  with VNS between the years 2005 and 2020, were retrospectively included in the study.
+  Age, gender, age at seizure onset, epilepsy types, VNS implantation year, replacement
+  year, pre and post-VNS seizure frequency, number of responders, number of antiseizure
+  medication and adverse events were recorded. RESULTS: In total, 41 patients were
+  included in the study. The number of patients with focal epilepsy was 21 (51.2%).
+  10 patients (24.4%) had generalized epilepsy and 10 patients (24.4%) had ?combined
+  generalized and focal epilepsy? (Lennox-Gastaut, Dravet syndrome). The Pre-VNS median
+  seizure frequency was 1.5/day in the focal group, 0.6/day in the generalized group
+  and 6/day in the combined group. Seizure frequencies dropped to 0.3/day in the focal
+  group, 0.2/day in the generalized group and 3.0/day in the combined group at the
+  12th month after VNS (p < 0.001, p=0.004, p < 0.001). The response rate was found
+  to be 68.3% at the 12th month after VNS. The number of antiseizure medications was
+  decreased from 3.6/day to 3.1/day at the 12th months after VNS (p < 0.001). Two
+  patients? (4.9%) VNS therapy was discontinued due to adverse events. CONCLUSION:
+  The study indicates that VNS therapy is safe and effective in focal, generalized
+  and combined epilepsy types. Despite having a low seizure freedom rate, VNS is a
+  good alternative treatment option for patients who for any reason are not candidates
+  for resective surgery.'
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Epilepsy
+
+  medical_actions: Vagus Nerve Stimulation (VNS) therapy; antiseizure medication
+
+  symptoms: Seizures; focal epilepsy; generalized epilepsy; combined generalized and focal epilepsy; Lennox-Gastaut syndrome; Dravet syndrome
+
+  chemicals: Antiseizure medication
+
+  action_annotation_relationships: VNS therapy TREATS seizures IN epilepsy; antiseizure medication TREATS seizures IN epilepsy; VNS therapy TREATS focal epilepsy IN epilepsy; VNS therapy TREATS generalized epilepsy IN epilepsy; VNS therapy TREATS combined generalized and focal epilepsy IN epilepsy; reduction of antiseizure medication PREVENTS seizures IN epilepsy
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  reduction of antiseizure medication PREVENTS seizures IN epilepsy
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005027
+  medical_actions:
+    - Vagus Nerve Stimulation (VNS) therapy
+    - antiseizure medication
+  symptoms:
+    - HP:0001250
+    - focal epilepsy
+    - generalized epilepsy
+    - combined generalized and focal epilepsy
+    - Lennox-Gastaut syndrome
+    - Dravet syndrome
+  chemicals:
+    - Antiseizure medication
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0005027
+      subject_extension: CHEBI:35170
+    - predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0005027
+      subject_extension: antiseizure
+    - subject: VNS therapy
+      predicate: TREATS
+      object: focal epilepsy
+      qualifier: MONDO:0005027
+      subject_extension: CHEBI:35170
+      object_extension: focal
+    - predicate: TREATS
+      object: generalized epilepsy
+      qualifier: MONDO:0005027
+      subject_extension: CHEBI:35170
+    - predicate: TREATS
+      object: combined generalized and focal epilepsy
+      qualifier: MONDO:0005027
+      subject_extension: CHEBI:35170
+    - predicate: PREVENTS
+      object: HP:0001250
+      qualifier: MONDO:0005027
+      subject_qualifier: antiseizure
+      object_qualifier: IN
+      subject_extension: antiseizure
+named_entities:
+  - id: CHEBI:35170
+    label: VNS
+    original_spans:
+      - 133:135
+      - 234:236
+      - 366:368
+      - 420:422
+      - 808:810
+      - 1085:1087
+      - 1186:1188
+      - 1292:1294
+      - 1330:1332
+      - 1419:1421
+      - 1547:1549

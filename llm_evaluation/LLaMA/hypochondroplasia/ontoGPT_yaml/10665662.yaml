@@ -1,0 +1,101 @@
+---
+input_text: Perceptions of the outcome of orthopedic surgery in patients with chondrodysplasias.
+  As part of a larger survey of patients with chondrodysplasias, 197 patients or their
+  parents were asked whether they had undergone orthopedic surgery related to their
+  chondrodysplasia and, if so, to rate their impression of the outcome. Seventy-four
+  patients (37.6%) had undergone a total of 152 procedures (221 if concurrent bilateral
+  operations are counted separately). The percentage of patients treated surgically
+  ranged from a low of 8.3% for hypochondroplasia to a high of 87.5% for diastrophic
+  dysplasia. Of the patients who had surgery, the mean number of procedures per patient
+  ranged from 1.0 for hypochondroplasia to 2.69 for pseudoachondroplasia. Of 180 individual
+  procedures related to the limbs, the outcome in 88.8% was judged 'a bit better'
+  or higher and in 68.8% 'much better' or higher. The responses ranged from a low
+  of 70.4 and 66.7%, respectively for proximal femoral osteotomies to a high of 100
+  and 85.9% for hip replacement. The comparable figures for spine related surgery
+  were 81.8 and 48.5% with a low of 58.3 and 50.0% for foramen magnum-cervical surgery
+  and a high of 93.8 and 43.8% for thoracolumbar procedures. The expressed perception
+  of lack of satisfaction varied not only by procedure but by diagnosis. Overall,
+  patients perceived a high level of post-surgical improvement, although a number
+  experienced subsequent deterioration and the need for further intervention.
+raw_completion_output: |-
+  Here are the extracted entities in the requested format:
+
+  primary_disease: chondrodysplasias
+
+  medical_actions: orthopedic surgery; surgical procedures; proximal femoral osteotomies; hip replacement; foramen magnum-cervical surgery; thoracolumbar procedures
+
+  symptoms: lack of satisfaction; deterioration
+
+  chemicals: 
+
+  action_annotation_relationships: orthopedic surgery TREATS chondrodysplasias; surgical procedures TREATS chondrodysplasias; proximal femoral osteotomies TREATS chondrodysplasias; hip replacement TREATS chondrodysplasias; foramen magnum-cervical surgery TREATS chondrodysplasias; thoracolumbar procedures TREATS chondrodysplasias; orthopedic surgery PREVENTS deterioration IN chondrodysplasias; surgical procedures PREVENTS deterioration IN chondrodysplasias
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  surgical procedures PREVENTS deterioration IN chondrodysplasias
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0022723
+  medical_actions:
+    - MAXO:0000479
+    - MAXO:0000004
+    - proximal femoral osteotomies
+    - MAXO:0009047
+    - foramen magnum-cervical surgery
+    - thoracolumbar procedures
+  symptoms:
+    - lack of satisfaction
+    - deterioration
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: chondrodysplasias
+    - predicate: TREATS
+      object: chondrodysplasias
+    - predicate: TREATS
+      object: chondrodysplasias
+    - predicate: TREATS
+      object: chondrodysplasias
+    - predicate: TREATS
+      object: chondrodysplasias
+    - predicate: TREATS
+      object: chondrodysplasias
+    - subject: MAXO:0000004
+      predicate: PREVENTS
+      object: deterioration
+      qualifier: MONDO:0022723
+      subject_qualifier: orthopedic
+      subject_extension: orthopedic
+      object_extension: deterioration
+    - predicate: PREVENTS
+      object: deterioration
+      qualifier: MONDO:0022723
+named_entities:
+  - id: MONDO:0022723
+    label: chondrodysplasias
+    original_spans:
+      - 66:82
+      - 129:145
+  - id: MAXO:0000479
+    label: orthopedic surgery
+    original_spans:
+      - 30:47
+      - 216:233
+  - id: MAXO:0000004
+    label: surgical procedures
+  - id: MAXO:0009047
+    label: hip replacement
+    original_spans:
+      - 1018:1032

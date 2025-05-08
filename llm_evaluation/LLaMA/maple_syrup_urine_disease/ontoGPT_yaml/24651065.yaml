@@ -1,0 +1,98 @@
+---
+input_text: 'Branched-chain amino acid metabolism: from rare Mendelian diseases to
+  more common disorders. Branched-chain amino acid (BCAA) metabolism plays a central
+  role in the pathophysiology of both rare inborn errors of metabolism and the more
+  common multifactorial diseases. Although deficiency of the branched-chain ketoacid
+  dehydrogenase (BCKDC) and associated elevations in the BCAAs and their ketoacids
+  have been recognized as the cause of maple syrup urine disease (MSUD) for decades,
+  treatment options for this disorder have been limited to dietary interventions.
+  In recent years, the discovery of improved leucine tolerance after liver transplantation
+  has resulted in a new therapeutic strategy for this disorder. Likewise, targeting
+  the regulation of the BCKDC activity may be an alternative potential treatment strategy
+  for MSUD. The regulation of the BCKDC by the branched-chain ketoacid dehydrogenase
+  kinase has also been implicated in a new inborn error of metabolism characterized
+  by autism, intellectual disability and seizures. Finally, there is a growing body
+  of literature implicating BCAA metabolism in more common disorders such as the metabolic
+  syndrome, cancer and hepatic disease. This review surveys the knowledge acquired
+  on the topic over the past 50 years and focuses on recent developments in the field
+  of BCAA metabolism. '
+raw_completion_output: |-
+  Here are the extracted entities in the requested format:
+
+  primary_disease: Maple syrup urine disease (MSUD); metabolic syndrome; cancer; hepatic disease
+
+  medical_actions: dietary interventions; liver transplantation; targeting the regulation of the BCKDC activity
+
+  symptoms: autism; intellectual disability; seizures; elevations in BCAAs and their ketoacids
+
+  chemicals: branched-chain amino acids (BCAAs); branched-chain ketoacids; leucine
+
+  action_annotation_relationships: dietary interventions TREATS MSUD; liver transplantation TREATS MSUD; targeting the regulation of the BCKDC activity TREATS MSUD; treatment (with leucine tolerance) TREATS MSUD; BCKDC activity regulation PREVENTS symptoms IN MSUD; branched-chain ketoacid dehydrogenase kinase TREATS autism; intellectual disability; seizures IN new inborn error of metabolism
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  seizures IN new inborn error of metabolism
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009563
+  medical_actions:
+    - MAXO:0000088
+    - MAXO:0001175
+    - targeting the regulation of the BCKDC activity
+  symptoms:
+    - HP:0000717
+    - HP:0001249
+    - HP:0001250
+    - elevations in BCAAs and their ketoacids
+  chemicals:
+    - CHEBI:22918
+    - CHEBI:191197
+    - CHEBI:25017
+  action_annotation_relationships:
+    - predicate: TREATS
+      subject_extension: dietary
+    - predicate: TREATS
+      object: MSUD
+      qualifier: 'MSUD  # Assuming MSUD is a disease'
+    - predicate: TREATS
+      object: MSUD
+      subject_extension: BCKDC activity
+    - predicate: TREATS
+      object: MSUD
+      subject_extension: tolerance
+    - predicate: PREVENTS
+      object: symptoms
+      qualifier: MONDO:0009563
+      subject_extension: BCKDC activity
+    - predicate: TREATS
+      object: HP:0000717
+    - object: HP:0001250
+      qualifier: new inborn error of metabolism
+named_entities:
+  - id: HP:0000717
+    label: autism
+    original_spans:
+      - 989:994
+  - id: HP:0001249
+    label: intellectual disability
+    original_spans:
+      - 997:1019
+  - id: HP:0001250
+    label: seizures
+    original_spans:
+      - 1025:1032
+  - id: CHEBI:191197
+    label: branched-chain ketoacids

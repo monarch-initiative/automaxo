@@ -1,0 +1,118 @@
+---
+input_text: Neonatal combination therapy improves some of the clinical manifestations
+  in the Mucopolysaccharidosis type I murine model. Mucopolysaccharidosis type I (MPS-I),
+  a lysosomal storage disorder caused by a deficiency of alpha-L-iduronidase enzyme,
+  results in the progressive accumulation of glycosaminoglycans and consequent multiorgan
+  dysfunction. Despite the effectiveness of hematopoietic stem cell transplantation
+  (HSCT) and enzyme replacement therapy (ERT) in correcting clinical manifestations
+  related to visceral organs, complete improvement of musculoskeletal and neurocognitive
+  defects remains an unmet challenge and provides an impact on patients' quality of
+  life. We tested the therapeutic efficacy of combining HSCT and ERT in the neonatal
+  period. Using a mouse model of MPS-I, we demonstrated that the combination therapy
+  improved clinical manifestations in organs usually refractory to current treatment.
+  Moreover, combination with HSCT prevented the production of anti-IDUA antibodies
+  that negatively impact ERT efficacy. The added benefits of combining both treatments
+  also resulted in a reduction of skeletal anomalies and a trend towards decreased
+  neuroinflammation and metabolic abnormalities. As currently there are limited therapeutic
+  options for MPS-I patients, our findings suggest that the combination of HSCT and
+  ERT during the neonatal period may provide a further step forward in the treatment
+  of this rare disease.
+raw_completion_output: |-
+  primary_disease: Mucopolysaccharidosis type I  
+  medical_actions: hematopoietic stem cell transplantation; enzyme replacement therapy  
+  symptoms: multiorgan dysfunction; musculoskeletal defects; neurocognitive defects; skeletal anomalies; neuroinflammation; metabolic abnormalities  
+  chemicals: alpha-L-iduronidase  
+  action_annotation_relationships: hematopoietic stem cell transplantation TREATS multiorgan dysfunction IN Mucopolysaccharidosis type I; enzyme replacement therapy TREATS musculoskeletal defects IN Mucopolysaccharidosis type I; enzyme replacement therapy TREATS neurocognitive defects IN Mucopolysaccharidosis type I; hematopoietic stem cell transplantation PREVENTS production of anti-IDUA antibodies IN Mucopolysaccharidosis type I; hematopoietic stem cell transplantation TREATS skeletal anomalies IN Mucopolysaccharidosis type I; hematopoietic stem cell transplantation TREATS neuroinflammation IN Mucopolysaccharidosis type I; hematopoietic stem cell transplantation TREATS metabolic abnormalities IN Mucopolysaccharidosis type I; enzyme replacement therapy (with alpha-L-iduronidase) TREATS musculoskeletal defects IN Mucopolysaccharidosis type I; enzyme replacement therapy (with alpha-L-iduronidase) TREATS neurocognitive defects IN Mucopolysaccharidosis type I
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  enzyme replacement therapy (with alpha-L-iduronidase) TREATS neurocognitive defects IN Mucopolysaccharidosis type I
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0001586
+  medical_actions:
+    - MAXO:0000747
+    - enzyme replacement therapy
+  symptoms:
+    - multiorgan dysfunction
+    - musculoskeletal defects
+    - neurocognitive defects
+    - HP:0000924
+    - HP:0033429
+    - metabolic abnormalities
+  chemicals:
+    - alpha-L-iduronidase
+  action_annotation_relationships:
+    - subject: MAXO:0000747
+      predicate: TREATS
+      object: multiorgan dysfunction
+      qualifier: MONDO:0001586
+      subject_extension: hematopoietic stem cell transplantation
+      object_extension: multiorgan dysfunction
+    - subject: enzyme replacement therapy
+      predicate: TREATS
+      object: musculoskeletal defects
+      qualifier: MONDO:0001586
+      subject_extension: enzyme replacement therapy
+      object_extension: musculoskeletal defects
+    - subject: enzyme replacement therapy
+      predicate: TREATS
+      object: neurocognitive defects
+      qualifier: MONDO:0001586
+      subject_extension: enzyme replacement therapy
+      object_extension: neurocognitive defects
+    - subject: MAXO:0000747
+      predicate: PREVENTS
+      object: production of anti-IDUA antibodies
+      qualifier: MONDO:0001586
+      subject_extension: hematopoietic stem cell transplantation
+      object_extension: anti-IDUA antibodies
+    - subject: MAXO:0000747
+      predicate: TREATS
+      object: HP:0000924
+      qualifier: MONDO:0001586
+      subject_extension: hematopoietic stem cell transplantation
+      object_extension: skeletal anomalies
+    - subject: MAXO:0000747
+      predicate: TREATS
+      object: HP:0033429
+      qualifier: MONDO:0001586
+      subject_extension: hematopoietic stem cell transplantation
+      object_extension: neuroinflammation
+    - subject: MAXO:0000747
+      predicate: TREATS
+      object: metabolic abnormalities
+      qualifier: MONDO:0001586
+      subject_extension: hematopoietic stem cell transplantation
+      object_extension: metabolic abnormalities
+    - subject: enzyme replacement therapy
+      predicate: TREATS
+      object: musculoskeletal defects
+      qualifier: MONDO:0001586
+      subject_extension: alpha-L-iduronidase
+      object_extension: musculoskeletal defects
+    - subject: enzyme replacement therapy
+      predicate: TREATS
+      object: neurocognitive defects
+      qualifier: MONDO:0001586
+      subject_qualifier: with alpha-L-iduronidase
+      subject_extension: alpha-L-iduronidase
+      object_extension: neurocognitive
+named_entities:
+  - id: HP:0000924
+    label: skeletal anomalies
+    original_spans:
+      - 1114:1131

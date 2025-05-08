@@ -1,0 +1,100 @@
+---
+input_text: Division of labor within the DNA damage tolerance system reveals non-epistatic
+  and clinically actionable targets for precision cancer medicine. Crosslink repair
+  depends on the Fanconi anemia pathway and translesion synthesis polymerases that
+  replicate over unhooked crosslinks. Translesion synthesis is regulated via ubiquitination
+  of PCNA, and independently via translesion synthesis polymerase REV1. The division
+  of labor between PCNA-ubiquitination and REV1 in interstrand crosslink repair is
+  unclear. Inhibition of either of these pathways has been proposed as a strategy
+  to increase cytotoxicity of platinating agents in cancer treatment. Here, we defined
+  the importance of PCNA-ubiquitination and REV1 for DNA in mammalian ICL repair.
+  In mice, loss of PCNA-ubiquitination, but not REV1, resulted in germ cell defects
+  and hypersensitivity to cisplatin. Loss of PCNA-ubiquitination, but not REV1 sensitized
+  mammalian cancer cell lines to cisplatin. We identify polymerase Kappa as essential
+  in tolerating DNA damage-induced lesions, in particular cisplatin lesions. Polk-deficient
+  tumors were controlled by cisplatin treatment and it significantly delayed tumor
+  outgrowth and increased overall survival of tumor bearing mice. Our results indicate
+  that PCNA-ubiquitination and REV1 play distinct roles in DNA damage tolerance. Moreover,
+  our results highlight POLK as a critical TLS polymerase in tolerating multiple genotoxic
+  lesions, including cisplatin lesions. The relative frequent loss of Polk in cancers
+  indicates an exploitable vulnerability for precision cancer medicine.
+raw_completion_output: |-
+  primary_disease: cancer  
+  medical_actions: inhibition of pathways; cisplatin treatment  
+  symptoms: germ cell defects; hypersensitivity  
+  chemicals: cisplatin  
+  action_annotation_relationships: inhibition of pathways TREATS hypersensitivity IN cancer; cisplatin treatment TREATS germ cell defects IN cancer; cisplatin treatment TREATS hypersensitivity IN cancer
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  cisplatin treatment TREATS hypersensitivity IN cancer
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0004992
+  medical_actions:
+    - inhibition of pathways
+    - cisplatin treatment
+  symptoms:
+    - germ cell defects
+    - HP:0041092
+  chemicals:
+    - CHEBI:27899
+  action_annotation_relationships:
+    - subject: inhibition of pathways
+      predicate: TREATS
+      object: HP:0041092
+      qualifier: MONDO:0004992
+      subject_extension: CHEBI:34922
+      object_extension: hypersensitivity
+    - subject: treatment
+      predicate: TREATS
+      object: germ cell defects
+      qualifier: MONDO:0004992
+      subject_qualifier: cisplatin
+      object_qualifier: None
+      subject_extension: CHEBI:27899
+      object_extension: cancer
+    - subject: cisplatin treatment
+      predicate: TREATS
+      object: HP:0041092
+      qualifier: MONDO:0004992
+      subject_extension: chemotherapeutic agent
+      object_extension: hypersensitivity
+named_entities:
+  - id: MONDO:0004992
+    label: cancer
+    original_spans:
+      - 127:132
+      - 626:631
+      - 921:926
+      - 1505:1510
+      - 1566:1571
+  - id: HP:0041092
+    label: hypersensitivity
+    original_spans:
+      - 827:842
+  - id: CHEBI:27899
+    label: cisplatin
+    original_spans:
+      - 847:855
+      - 942:950
+      - 1051:1059
+      - 1111:1119
+      - 1448:1456
+  - id: CHEBI:34922
+    label: pathways
+    original_spans:
+      - 535:542

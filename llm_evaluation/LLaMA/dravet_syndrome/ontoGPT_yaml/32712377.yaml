@@ -1,0 +1,71 @@
+---
+input_text: 'Efficacy of the ketogenic diet in patients with Dravet syndrome: A meta-analysis.
+  PURPOSE: Dravet syndrome is an infantile epilepsy syndrome with drug resistant seizures
+  and cognitive impairment. The aim of this meta-analysis was to summarize the findings
+  of relevant published studies to identify the efficacy of a ketogenic diet in patients
+  with Dravet syndrome and their compliance thereof, and to provide useful information
+  for clinical practice. METHODS: The PubMed, Embase, Wanfang, and CNKI databases
+  were searched for relevant studies published up to September 25, 2019; the included
+  studies were reviewed. Meta-analyses were performed using R software to determine
+  the combined efficacy rates and retention rate for the ketogenic diet in patients
+  with Dravet syndrome. RESULTS: Seven studies involving 167 patients met the inclusion
+  criteria: four were retrospective studies, and three were prospective studies. The
+  meta-analysis revealed that 63 %, 60 %, and 47 % of responder patients achieved
+  >=50 % seizure reduction at month 3, 6, and 12, respectively. The pooled retention
+  rate of the ketogenic diet at month 6 and month 12 was 78 % and 49 %, respectively.
+  CONCLUSIONS: Our meta-analysis indicates that the ketogenic diet is a treatment
+  option for patients with Dravet syndrome. The ketogenic diet is safe and its adverse
+  effects are mostly acceptable. However, further investigations, especially high-quality
+  controlled trials with large samples, are required.'
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Dravet syndrome
+
+  medical_actions: ketogenic diet; meta-analysis
+
+  symptoms: drug resistant seizures; cognitive impairment; seizures
+
+  chemicals: ketogenic diet 
+
+  action_annotation_relationships: ketogenic diet TREATS drug resistant seizures IN Dravet syndrome; ketogenic diet TREATS seizures IN Dravet syndrome; ketogenic diet PREVENTS cognitive impairment IN Dravet syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  ketogenic diet PREVENTS cognitive impairment IN Dravet syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0100135
+  medical_actions:
+    - ketogenic diet
+    - meta-analysis
+  symptoms:
+    - drug resistant seizures
+    - HP:0100543
+    - HP:0001250
+  chemicals:
+    - ketogenic diet
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: drug resistant seizures
+      qualifier: MONDO:0100135
+    - predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0100135
+    - predicate: PREVENTS
+      object: HP:0100543
+      qualifier: MONDO:0100135
+      subject_extension: ketogenic

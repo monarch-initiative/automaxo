@@ -1,0 +1,77 @@
+---
+input_text: 'Liver transplantation for classical maple syrup urine disease: long-term
+  follow-up in 37 patients and comparative United Network for Organ Sharing experience.
+  OBJECTIVE: To assess clinical and neurocognitive function in children who have undergone
+  liver transplantation for classical maple syrup urine disease (MSUD). STUDY DESIGN:
+  A total of 35 patients with classical MSUD (age 9.9 +- 7.9 years) underwent liver
+  transplantation between 2004 and 2009. Six patients donated their liver to recipients
+  without MSUD ("domino" transplant). We analyzed clinical outcomes for our cohort
+  and 17 additional cases from the national United Network for Organ Sharing registry;
+  33 patients completed IQ and adaptive testing before transplantation, and 14 completed
+  testing 1 year later. RESULTS: Patient and graft survival were 100% at 4.5 +- 2.2
+  years of follow-up. Liver function was normal in all patients. Branched-chain amino
+  acid levels were corrected within hours after surgery and remained stable, with
+  leucine tolerance increasing more than 10-fold. All domino transplant recipients
+  were alive and well with normal branched-chain amino acid homeostasis at the time
+  of this report. Patient and graft survival for all 54 patients with MSUD undergoing
+  liver transplantation in the United States during this period were 98% and 96%,
+  respectively. One-third of our patients were mentally impaired (IQ <= 70) before
+  transplantation, with no statistically significant change 1 year later. CONCLUSION:
+  Liver transplantation is an effective long-term treatment for classical MSUD and
+  may arrest brain damage, but will not reverse it.'
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Maple Syrup Urine Disease (MSUD)
+
+  medical_actions: Liver transplantation; IQ and adaptive testing
+
+  symptoms: Mental impairment (IQ <= 70); abnormal branched-chain amino acid levels
+
+  chemicals: Leucine; Branched-chain amino acids
+
+  action_annotation_relationships: Liver transplantation TREATS abnormal branched-chain amino acid levels IN Maple Syrup Urine Disease; Liver transplantation TREATS mental impairment IN Maple Syrup Urine Disease; Liver transplantation PREVENTS brain damage IN Maple Syrup Urine Disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Liver transplantation PREVENTS brain damage IN Maple Syrup Urine Disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009563
+  medical_actions:
+    - MAXO:0001175
+    - IQ and adaptive testing
+  symptoms:
+    - HP:0033667
+    - abnormal branched-chain amino acid levels
+  chemicals:
+    - CHEBI:25017
+    - CHEBI:22918
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: abnormal branched-chain amino acid levels
+      qualifier: MONDO:0009563
+    - predicate: TREATS
+      object: HP:0033667
+      qualifier: MONDO:0009563
+    - predicate: PREVENTS
+      object: brain damage
+      qualifier: MONDO:0009563
+      subject_qualifier: for Maple Syrup Urine Disease
+      object_qualifier: associated with Maple Syrup Urine Disease
+named_entities:
+  - id: HP:0033667
+    label: Mental impairment (IQ <= 70)

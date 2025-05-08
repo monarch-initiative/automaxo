@@ -1,0 +1,74 @@
+---
+input_text: '18-year follow-up of enzyme-replacement therapy in two siblings with
+  attenuated mucopolysaccharidosis I. Mucopolysaccharidosis type I (MPS I) is an autosomal
+  recessive disorder caused by the deficiency of alpha-L-iduronidase and characterized
+  by a progressive course with multisystem involvement. Clinically, MPS I is divided
+  into two forms: (1) severe (Hurler syndrome), which presents in infancy and is characterized
+  by rapid progressive neurological involvement; (2) attenuated (Hurler/Scheie and
+  Scheie syndromes), which displays a slower progression and absent to mild nervous
+  system involvement. The specific treatment for attenuated MPS I consists of enzyme-replacement
+  therapy with laronidase (human recombinant alpha-L-iduronidase, Aldurazyme). We
+  present updated data after 18 years of laronidase treatment in two siblings affected
+  by the attenuated form of MPS I who started therapy at 5 months and 5 years of age,
+  respectively. Clinical and laboratory data of the siblings show that long-term enzyme
+  replacement therapy may improve/stabilize many symptoms already present at the time
+  of the diagnosis and reduce the disease progression. This study confirms that early
+  diagnosis and early initiation of enzyme-replacement therapy are essential to modify
+  positively the natural history of the attenuated form of MPS I.'
+raw_completion_output: |-
+  primary_disease: Mucopolysaccharidosis type I (MPS I)  
+  medical_actions: enzyme-replacement therapy  
+  symptoms: progressive course; multisystem involvement; neurological involvement  
+  chemicals: laronidase; human recombinant alpha-L-iduronidase; Aldurazyme  
+  action_annotation_relationships: enzyme-replacement therapy (with chemical laronidase) TREATS symptom progressive course IN Mucopolysaccharidosis type I (MPS I); enzyme-replacement therapy (with chemical laronidase) TREATS symptom multisystem involvement IN Mucopolysaccharidosis type I (MPS I); enzyme-replacement therapy (with chemical laronidase) TREATS symptom neurological involvement IN Mucopolysaccharidosis type I (MPS I)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  enzyme-replacement therapy (with chemical laronidase) TREATS symptom neurological involvement IN Mucopolysaccharidosis type I (MPS I)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:1012617
+  medical_actions:
+    - enzyme-replacement therapy
+  symptoms:
+    - progressive course
+    - multisystem involvement
+    - neurological involvement
+  chemicals:
+    - laronidase
+    - human recombinant alpha-L-iduronidase
+    - Aldurazyme
+  action_annotation_relationships:
+    - subject: enzyme-replacement therapy
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:1012617
+      subject_qualifier: with chemical
+      subject_extension: laronidase
+      object_extension: progressive course
+    - subject: enzyme-replacement therapy
+      predicate: TREATS
+      object: multisystem involvement
+      qualifier: MONDO:1012617
+      subject_qualifier: with chemical
+      subject_extension: laronidase
+      object_extension: multisystem involvement
+    - subject: enzyme-replacement therapy
+      predicate: TREATS
+      object: neurological involvement
+      qualifier: MONDO:1012617
+      subject_extension: laronidase
+      object_extension: neurological involvement

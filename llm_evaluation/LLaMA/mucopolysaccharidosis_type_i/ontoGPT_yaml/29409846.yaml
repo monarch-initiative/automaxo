@@ -1,0 +1,110 @@
+---
+input_text: 'Metabolic Syndrome and Cardiovascular Risk Factors after Hematopoietic
+  Cell Transplantation in Severe Mucopolysaccharidosis Type I (Hurler Syndrome). Hematopoietic
+  cell transplantation is a life-saving procedure, but one associated with increasing
+  long-term cardiovascular risk requiring frequent long-term follow-up. This therapy
+  has significantly lengthened survival in mucopolysaccharidosis type IH (Hurler syndrome),
+  a disease with known coronary artery involvement. Metabolic syndrome-a constellation
+  of central obesity, high blood pressure, low high-density lipoprotein cholesterol,
+  elevated triglycerides, and fasting blood glucose-is associated with increased cardiovascular
+  risk, and occurs when any 3 or more of these 5 components is present within a single
+  individual. The incidence of metabolic syndrome and its components is poorly defined
+  after transplantation for Hurler syndrome. Chart review of all long-term survivors
+  of hematopoietic cell transplantation for Hurler syndrome >=9 years of age for factors
+  comprising the metabolic syndrome: obesity, high blood pressure, low high-density
+  lipoprotein cholesterol, elevated triglycerides, and fasting blood glucose. Sixty-three
+  patients were evaluated, 20 of whom had components of the metabolic syndrome available
+  for review. There was no significant difference in age at transplantation, sex,
+  number of transplants, pretransplant radiation, or percent engraftment between those
+  with and without these data. Median follow-up after transplantation for the 20 patients
+  with data was 14.3 years. Only 1 (5%) patient of this group fulfilled the criteria
+  for metabolic syndrome. Fifty-three percent of the patients had 1 or more components
+  of metabolic syndrome: the most common was high blood pressure occurring in 40%.
+  Metabolic syndrome is uncommon in this cohort of long-term survivors of hematopoietic
+  cell transplantation for Hurler syndrome but almost half of the patients had 1 or
+  more components of the syndrome, with high blood pressure being the most common.
+  Further studies are needed to develop guidelines in this diagnosis as well as other
+  nonmalignant diseases of children.'
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Mucopolysaccharidosis Type I (Hurler Syndrome)
+
+  medical_actions: Hematopoietic cell transplantation; long-term follow-up; chart review
+
+  symptoms: central obesity; high blood pressure; low high-density lipoprotein cholesterol; elevated triglycerides; fasting blood glucose
+
+  chemicals: 
+
+  action_annotation_relationships: Hematopoietic cell transplantation TREATS Mucopolysaccharidosis Type I (Hurler Syndrome); high blood pressure IS_A_SYMPTOM_OF metabolic syndrome IN Mucopolysaccharidosis Type I (Hurler Syndrome); low high-density lipoprotein cholesterol IS_A_SYMPTOM_OF metabolic syndrome IN Mucopolysaccharidosis Type I (Hurler Syndrome); elevated triglycerides IS_A_SYMPTOM_OF metabolic syndrome IN Mucopolysaccharidosis Type I (Hurler Syndrome); fasting blood glucose IS_A_SYMPTOM_OF metabolic syndrome IN Mucopolysaccharidosis Type I (Hurler Syndrome); central obesity IS_A_SYMPTOM_OF metabolic syndrome IN Mucopolysaccharidosis Type I (Hurler Syndrome)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  central obesity IS_A_SYMPTOM_OF metabolic syndrome IN Mucopolysaccharidosis Type I (Hurler Syndrome)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0011758
+  medical_actions:
+    - Hematopoietic cell transplantation
+    - long-term follow-up
+    - chart review
+  symptoms:
+    - HP:0012743
+    - HP:0000822
+    - low high-density lipoprotein cholesterol
+    - elevated triglycerides
+    - fasting blood glucose
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: Mucopolysaccharidosis Type I
+      qualifier: MONDO:0011758
+    - predicate: PREVENTS/IS ASSOCIATED_WITH
+      object: HP:0000822
+      qualifier: MONDO:0011758
+    - object: low high-density lipoprotein cholesterol
+      qualifier: MONDO:0000816
+    - predicate: ASSOCIATED_WITH
+      object: elevated triglycerides
+      qualifier: MONDO:0011758
+    - predicate: IS_A_SYMPTOM_OF
+      object: HP:0000943
+      qualifier: MONDO:0011758
+    - predicate: IS_A_SYMPTOM_OF
+      object: metabolic syndrome
+      qualifier: MONDO:0011758
+named_entities:
+  - id: HP:0012743
+    label: central obesity
+    original_spans:
+      - 509:523
+  - id: HP:0000822
+    label: high blood pressure
+    original_spans:
+      - 526:544
+      - 1067:1085
+      - 1744:1762
+      - 1988:2006
+  - id: MONDO:0000816
+    label: metabolic syndrome
+    original_spans:
+      - 0:17
+      - 471:488
+      - 797:814
+      - 1038:1055
+      - 1251:1268
+      - 1620:1637
+      - 1704:1721
+      - 1782:1799

@@ -1,0 +1,80 @@
+---
+input_text: 'Changes in pediatric referrals after the 2009 ketogenic diet consensus
+  recommendations. BACKGROUND: In 2009, the International Ketogenic Diet Study Group
+  published recommendations for children receiving ketogenic diet (KD) therapy for
+  epilepsy. The document included a table listing epilepsy syndromes and conditions
+  in which the KD has been particularly beneficial, hoping that physicians would refer
+  children for the KD sooner. PURPOSE: To measure the impact of these 2009 recommendations
+  on referral practice, we compared children initiated on the KD at Johns Hopkins
+  Hospital (JHH) 10 years before and after the recommendations. RESULTS: Overall,
+  children referred to the KD who met indications increased from the pre- to post-recommendation
+  group, 44 % (112/256) to 69 % (175/255) (p < 0.001), with JHH neurologists specifically
+  referring more frequently (10/112, 9 % to 58/175, 33 %) (p < 0.01). Referrals increased
+  for Glut-1 deficiency (0 % to 2.4 %, p = 0.015), Dravet syndrome (0 % to 6.7 %,
+  p < 0.01), Rett syndrome (0.4 % to 3 %, p = 0.018), and formula-fed only status
+  (16 % to 31 %, p < 0.01). The chances of > 50 % seizure reduction for all children
+  referred improved slightly between decades (56 % to 61 %, p = 0.30). CONCLUSIONS:
+  Following the 2009 recommendations, our study shows there was an increase in referrals
+  for children with indications at our center. Referrals from neurologists at our
+  own institution increased the most. Ketogenic diet efficacy improved slightly over
+  time but did not reach significance.'
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Epilepsy
+
+  medical_actions: Ketogenic diet (KD) therapy; KD
+
+  symptoms: Seizures
+
+  chemicals: 
+
+  action_annotation_relationships: Ketogenic diet (KD) TREATS seizures IN epilepsy; KD therapy TREATS seizures IN epilepsy
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  KD therapy TREATS seizures IN epilepsy
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005027
+  medical_actions:
+    - Ketogenic diet (KD) therapy
+    - KD
+  symptoms:
+    - HP:0001250
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0005027
+    - predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0005027
+      subject_qualifier: KD
+      subject_extension: CHEBI:73601
+named_entities:
+  - id: MONDO:0005027
+    label: Epilepsy
+    original_spans:
+      - 235:242
+      - 283:290
+  - id: CHEBI:73601
+    label: KD
+    original_spans:
+      - 219:220
+      - 330:331
+      - 419:420
+      - 551:552
+      - 676:677

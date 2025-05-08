@@ -1,0 +1,99 @@
+---
+input_text: BCKDHA-BCKDHB digenic gene therapy restores metabolic homeostasis in two
+  mouse models and a calf with classic maple syrup urine disease. Classic maple syrup
+  urine disease (MSUD) results from biallelic mutations in genes that encode the branched-chain
+  alpha-ketoacid dehydrogenase E1alpha (BCKDHA), E1beta (BCKDHB), or dihydrolipoamide
+  branched-chain transacylase (DBT) subunits, which interact to form the mitochondrial
+  BCKDH complex that decarboxylates ketoacid derivatives of leucine, isoleucine, and
+  valine. MSUD is an inborn error of metabolism characterized by recurrent life-threatening
+  neurologic crises and progressive brain injury that can only be managed with an
+  exacting prescription diet or allogeneic liver transplant. To develop a gene replacement
+  therapy for MSUD, we designed a dual-function recombinant adeno-associated virus
+  serotype 9 (rAAV9) vector to deliver codon-optimized BCKDHA and BCKDHB (rAAV9.hA-BiP-hB)
+  to the liver, muscle, heart, and brain. rAAV9.hA-BiP-hB restored coexpression of
+  BCKDHA and BCKDHB as well as BCKDH holoenzyme activity in BCKDHA-/- HEK293T cells
+  and did not perturb physiologic branched-chain amino acid homeostasis in wild-type
+  mice at a systemic dose of 2.7 x 1014 vector genomes per kilogram. In two models
+  of severe MSUD (Bckdha-/- and Bckdhb-/- mice) and a newborn calf homozygous for
+  BCKDHA c.248C>T, one postnatal injection prevented perinatal death, normalized growth,
+  restored coordinated expression of BCKDHA and BCKDHB in the skeletal muscle, liver,
+  heart, and brain, and stabilized MSUD biomarkers in the face of high protein ingestion.
+  In summary, we developed a one-time BCKDHA-BCKDHB systemic dual-gene replacement
+  strategy that holds promise as a therapeutic alternative to prescription diet and
+  liver transplant for treatment of MSUD types 1A and 1B, the two most common forms
+  of MSUD in humans.
+raw_completion_output: |-
+  Here are the extracted entities in the requested format:
+
+  primary_disease: Classic maple syrup urine disease (MSUD)
+
+  medical_actions: Gene replacement therapy; dual-gene replacement strategy; prescription diet; allogeneic liver transplant; rAAV9.hA-BiP-hB injection
+
+  symptoms: Recurrent life-threatening neurologic crises; progressive brain injury; perinatal death; abnormal growth
+
+  chemicals: 
+
+  action_annotation_relationships: rAAV9.hA-BiP-hB TREATS neurologic crises IN MSUD; rAAV9.hA-BiP-hB TREATS progressive brain injury IN MSUD; rAAV9.hA-BiP-hB PREVENTS perinatal death IN MSUD; rAAV9.hA-BiP-hB RESTORES growth IN MSUD; prescription diet MANAGES MSUD; allogeneic liver transplant MANAGES MSUD; BCKDHA-BCKDHB gene therapy TREATS MSUD; dual-gene replacement strategy TREATS MSUD types 1A and 1B
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  dual-gene replacement strategy TREATS MSUD types 1A and 1B
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009563
+  medical_actions:
+    - Gene replacement therapy
+    - dual-gene replacement strategy
+    - prescription diet
+    - allogeneic liver transplant
+    - rAAV9.hA-BiP-hB injection
+  symptoms:
+    - Recurrent life-threatening neurologic crises
+    - progressive brain injury
+    - perinatal death
+    - HP:0001507
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: neurologic crises
+      qualifier: MONDO:0009563
+    - predicate: TREATS
+      object: progressive brain injury
+      qualifier: MONDO:0009563
+    - predicate: PREVENTS
+      object: perinatal death
+      qualifier: MONDO:0009563
+    - subject: rAAV9
+      predicate: RESTORES
+      object: growth
+      qualifier: MONDO:0009563
+      subject_extension: hA-BiP-hB
+      object_extension: growth
+    - predicate: MANAGES
+      object: MSUD
+      qualifier: MONDO:0009563
+      subject_qualifier: prescription
+      subject_extension: prescription
+    - predicate: MANAGES
+      object: MSUD
+      qualifier: MONDO:0009563
+    - predicate: TREATS
+      object: MSUD
+      subject_extension: gene therapy
+    - predicate: TREATS
+      object: MSUD
+named_entities:
+  - id: HP:0001507
+    label: abnormal growth

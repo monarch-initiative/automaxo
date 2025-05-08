@@ -1,0 +1,70 @@
+---
+input_text: '[Clinical condition and therapy of bone diseases]. Skeletal dysplasia
+  is the term which represents disorders including growth and differentiation of bone,
+  cartilage and ligament. A lot of diseases are included, and new disorders have been
+  added. However, the therapy of most bone diseases is less well-established. Achondroplasia,
+  hypochondroplasia, and osteogenesis imperfecta are most frequent bone diseases.
+  There is no curative treatment for these diseases, however, supportive therapies
+  are available ; for example, growth-hormone therapy for achondroplasia and hypochondroplasia,
+  and bisphosphonate therapy for osteogenesis imperfecta. In addition, enzyme replacement
+  therapy for hypophosphatasia is now on clinical trial. '
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Bone diseases; Skeletal dysplasia
+  medical_actions: growth-hormone therapy; bisphosphonate therapy; enzyme replacement therapy; supportive therapies
+  symptoms: None mentioned explicitly
+  chemicals: growth hormone; bisphosphonate
+  action_annotation_relationships: growth-hormone therapy TREATS achondroplasia and hypochondroplasia IN bone diseases; bisphosphonate therapy TREATS osteogenesis imperfecta IN bone diseases; enzyme replacement therapy TREATS hypophosphatasia IN bone diseases
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  enzyme replacement therapy TREATS hypophosphatasia IN bone diseases
+
+  ===
+
+extracted_object:
+  primary_disease: Bone diseases; Skeletal dysplasia
+  medical_actions:
+    - growth-hormone therapy
+    - bisphosphonate therapy
+    - enzyme replacement therapy
+    - supportive therapies
+  symptoms:
+    - None mentioned explicitly
+  chemicals:
+    - CHEBI:37845
+    - CHEBI:77383
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: achondroplasia and hypochondroplasia
+      qualifier: bone diseases
+      subject_extension: growth-hormone
+    - predicate: TREATS
+      object: osteogenesis imperfecta
+      qualifier: bone diseases
+      subject_extension: CHEBI:77383
+    - predicate: TREATS
+      object: HP:0004839
+      qualifier: bone diseases
+      subject_extension: replacement
+named_entities:
+  - id: CHEBI:77383
+    label: bisphosphonate
+    original_spans:
+      - 590:603
+  - id: HP:0004839
+    label: hypophosphatasia
+    original_spans:
+      - 686:701

@@ -1,0 +1,94 @@
+---
+input_text: 'Status epilepticus following vaccination in children aged <=24 months:
+  A five-year retrospective observational study. BACKGROUND: Status epilepticus is
+  associated with significant morbidity and mortality. While vaccine-proximate status
+  epilepticus (VP-SE) has rarely been associated with cases of Dravet syndrome, it
+  is not known whether VP-SE differs clinically from non-vaccine proximate status
+  epilepticus (NVP-SE). METHODS: Medical records of children aged <=24 months, presenting
+  to one of five Australian tertiary pediatric hospitals with their first episode
+  of status epilepticus from 2013 to 2017 were identified using ICD-coded discharge
+  diagnoses. Vaccination history was obtained from the Australian Immunisation Register.
+  Hospitalization details, subsequent epilepsy diagnosis, and vaccination uptake were
+  compared between VP-SE and NVP-SE cases. RESULTS: Of 245 first status epilepticus
+  hospitalization with immunization records, 35 (14%) were VP-SE and 21 (60%) followed
+  measles-containing vaccines. Vaccine-proximate status epilepticus cases had a median
+  age of 12.5 months [IQR 7.1-14.73], 23 (66%) were in males, 15 (43%) were febrile
+  status epilepticus and 17 (49%) had an infection confirmed. There were no significant
+  differences in hospitalization duration (P = 0.50) or intensive care unit admission
+  (P = 0.42) between children with VP-SE compared to children with NVP-SE. Children
+  with no history of seizures at their first VP-SE had longer hospitalizations, were
+  more likely to require intensive care unit admission, but were less likely to have
+  a subsequent diagnosis of epilepsy than children with previous seizures at their
+  first VP-SE. CONCLUSION: First VP-SE was predominantly associated with a measles-containing
+  vaccine at 12-months of age. Seizure severity was no different between first VP-SE
+  and first NVP-SE. In children with VP-SE, subsequent seizure admissions and epilepsy
+  diagnosis were associated with having seizure prior to their first SE.'
+raw_completion_output: |-
+  Here are the extracted entities in the requested format:
+
+  primary_disease: Status epilepticus
+
+  medical_actions: vaccination; hospitalization; intensive care unit admission; subsequent epilepsy diagnosis
+
+  symptoms: febrile status epilepticus; seizures
+
+  chemicals: measles-containing vaccines
+
+  action_annotation_relationships: 
+  - measles-containing vaccines TREATS not applicable IN Status epilepticus; 
+  - vaccination TREATS not applicable IN Status epilepticus; 
+  - hospitalization TREATS Status epilepticus; 
+  - intensive care unit admission TREATS Status epilepticus; 
+  - febrile status epilepticus ASSOCIATED_WITH Status epilepticus; 
+  - seizures ASSOCIATED_WITH Status epilepticus; 
+  - subsequent epilepsy diagnosis ASSOCIATED_WITH Status epilepticus; 
+  - measles-containing vaccines PREVENTS not applicable IN Status epilepticus
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  primary_disease: <The main disease the text is about, or its central disease topic. This is often the disease mentioned in an article's title or in its first few sentences.>
+  medical_actions: <Semicolon-separated list of medical actions, where each is a clinically prescribed procedure, therapy, intervention, or recommendation.>
+  symptoms: <Semicolon-separated list of signs or symptoms.>
+  chemicals: <Semicolon-separated list of chemicals or drugs>
+  action_annotation_relationships: <Semicolon-separated list of relationships between a disease, the mentioned signs and symptoms associated with that disease, the medical actions relating to each symptom, and the type of relationship between each action and symptom (usually TREATS or PREVENTS). The disease name must be included in the relationship, for example, "treatment TREATS symptom IN disease". If the medical action includes a specific chemical or drug, include the chemical or drug name in the relationship, for example, "treatment (with chemical) TREATS symptom IN disease".>
+
+
+  Text:
+  Status epilepticus following vaccination in children aged <=24 months: A five-year retrospective observational study. BACKGROUND: Status epilepticus is associated with significant morbidity and mortality. While vaccine-proximate status epilepticus (VP-SE) has rarely been associated with cases of Dravet syndrome, it is not known whether VP-SE differs clinically from non-vaccine proximate status epilepticus (NVP-SE). METHODS: Medical records of children aged <=24 months, presenting to one of five Australian tertiary pediatric hospitals with their first episode of status epilepticus from 2013 to 2017 were identified using ICD-coded discharge diagnoses. Vaccination history was obtained from the Australian Immunisation Register. Hospitalization details, subsequent epilepsy diagnosis, and vaccination uptake were compared between VP-SE and NVP-SE cases. RESULTS: Of 245 first status epilepticus hospitalization with immunization records, 35 (14%) were VP-SE and 21 (60%) followed measles-containing vaccines. Vaccine-proximate status epilepticus cases had a median age of 12.5 months [IQR 7.1-14.73], 23 (66%) were in males, 15 (43%) were febrile status epilepticus and 17 (49%) had an infection confirmed. There were no significant differences in hospitalization duration (P = 0.50) or intensive care unit admission (P = 0.42) between children with VP-SE compared to children with NVP-SE. Children with no history of seizures at their first VP-SE had longer hospitalizations, were more likely to require intensive care unit admission, but were less likely to have a subsequent diagnosis of epilepsy than children with previous seizures at their first VP-SE. CONCLUSION: First VP-SE was predominantly associated with a measles-containing vaccine at 12-months of age. Seizure severity was no different between first VP-SE and first NVP-SE. In children with VP-SE, subsequent seizure admissions and epilepsy diagnosis were associated with having seizure prior to their first SE.
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0002125
+  medical_actions:
+    - MAXO:0001017
+    - hospitalization
+    - intensive care unit admission
+    - subsequent epilepsy diagnosis
+  symptoms:
+    - HP:0032656
+    - HP:0001250
+  chemicals:
+    - measles-containing vaccines
+named_entities:
+  - id: MONDO:0002125
+    label: Status epilepticus
+    original_spans:
+      - 0:17
+      - 130:147
+      - 229:246
+      - 390:407
+      - 568:585
+      - 881:898
+      - 1032:1049
+      - 1152:1169
+  - id: MAXO:0001017
+    label: vaccination
+    original_spans:
+      - 29:39
+      - 658:668
+      - 794:804
+  - id: HP:0032656
+    label: febrile status epilepticus
+    original_spans:
+      - 1144:1169

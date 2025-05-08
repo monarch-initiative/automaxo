@@ -1,0 +1,110 @@
+---
+input_text: 'Beyond current treatment of Fanconi Anemia: What do advances in cell
+  and gene-based approaches offer? Fanconi anemia (FA) is a rare inherited disorder
+  that mainly affects the bone marrow. This condition causes decreased production
+  of all types of blood cells. FA is caused by a defective repair of DNA interstrand
+  crosslinks and to date, mutations in over 20 genes have been linked to the disease.
+  Advances in science and molecular biology have provided new insight between FA gene
+  mutations and the severity of clinical manifestations. Here, we will highlight the
+  current and promising therapeutic options for this rare disease. The current standard
+  treatment for FA patients is hematopoietic stem cell transplantation, a treatment
+  associated to exposure to radiation or chemotherapy, immunological complications,
+  plus opportunistic infections from prolonged immune incompetence or increased risk
+  of morbidity. New arising treatments include gene addition therapy, genome editing
+  using CRISPR-Cas9 nuclease, and hematopoietic stem cell generation from induced
+  pluripotent stem cells. Finally, we will also discuss the revolutionary developments
+  in mRNA therapeutics as an opportunity for this disease.'
+raw_completion_output: |-
+  primary_disease: Fanconi Anemia  
+  medical_actions: hematopoietic stem cell transplantation; gene addition therapy; genome editing using CRISPR-Cas9 nuclease; hematopoietic stem cell generation from induced pluripotent stem cells; mRNA therapeutics  
+  symptoms: decreased production of all types of blood cells; immunological complications; opportunistic infections; increased risk of morbidity  
+  chemicals: chemotherapy; radiation  
+  action_annotation_relationships: hematopoietic stem cell transplantation TREATS decreased production of all types of blood cells IN Fanconi Anemia; hematopoietic stem cell transplantation TREATS immunological complications IN Fanconi Anemia; chemotherapy TREATS immunological complications IN Fanconi Anemia; radiation TREATS immunological complications IN Fanconi Anemia; gene addition therapy TREATS decreased production of all types of blood cells IN Fanconi Anemia; genome editing using CRISPR-Cas9 nuclease TREATS decreased production of all types of blood cells IN Fanconi Anemia; mRNA therapeutics TREATS decreased production of all types of blood cells IN Fanconi Anemia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  mRNA therapeutics TREATS decreased production of all types of blood cells IN Fanconi Anemia
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0019391
+  medical_actions:
+    - MAXO:0000747
+    - gene addition therapy
+    - genome editing using CRISPR-Cas9 nuclease
+    - hematopoietic stem cell generation from induced pluripotent stem cells
+    - mRNA therapeutics
+  symptoms:
+    - decreased production of all types of blood cells
+    - immunological complications
+    - HP:0031690
+    - increased risk of morbidity
+  chemicals:
+    - chemotherapy
+    - radiation
+  action_annotation_relationships:
+    - subject: MAXO:0000747
+      predicate: TREATS
+      object: decreased production of all types of blood cells
+      qualifier: MONDO:0019391
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: hematopoietic stem cell transplantation
+      object_extension: blood cells
+    - subject: MAXO:0000747
+      predicate: TREATS
+      object: immunological complications
+      qualifier: MONDO:0019391
+      subject_extension: hematopoietic stem cell transplantation
+      object_extension: immunological complications
+    - subject: MAXO:0000647
+      predicate: TREATS
+      object: immunological complications
+      qualifier: MONDO:0019391
+      subject_extension: chemotherapy
+      object_extension: immunological
+    - subject: MAXO:0000014
+      predicate: TREATS
+      object: immunological complications
+      qualifier: MONDO:0019391
+      subject_extension: radiation
+      object_extension: immunological
+    - subject: gene addition therapy
+      predicate: TREATS
+      object: decreased production of all types of blood cells
+      qualifier: MONDO:0019391
+      subject_qualifier: N/A
+      object_qualifier: N/A
+      subject_extension: gene addition therapy
+      object_extension: blood cell production
+    - subject: genome editing
+      predicate: TREATS
+      object: decreased production of all types of blood cells
+      qualifier: MONDO:0019391
+      subject_qualifier: using
+      object_qualifier: none
+      subject_extension: CRISPR-Cas9 nuclease
+      object_extension: all types of blood cells
+    - subject: TREATS
+      predicate: TREATS
+      object: decreased production of all types of blood cells
+      qualifier: MONDO:0019391
+      subject_extension: mRNA therapeutics
+      object_extension: blood cells
+named_entities:
+  - id: HP:0031690
+    label: opportunistic infections
+    original_spans:
+      - 820:843

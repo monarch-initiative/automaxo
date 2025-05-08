@@ -1,0 +1,69 @@
+---
+input_text: "Well-woman care and HPV vaccination rates in women with Rett syndrome.
+  BACKGROUND: Lifespan has increased in individuals with Rett syndrome (RTT), but
+  little is currently known about the provision of well-woman care to these individuals.
+  OBJECTIVE: To collect data on well-woman examinations and human papillomavirus (HPV)
+  vaccination rates in women with RTT to understand the current state of women's healthcare
+  in individuals with RTT. METHODS: A retrospective cross-sectional chart review and
+  prospective survey of 77 patients with Rett syndrome who were cared for at a single
+  specialty clinic over five years was conducted to collect data on women's health
+  examinations and HPV vaccination rates. RESULTS: The following percentages represent
+  women with RTT who have met the recommendations of ACOG for well-woman examinations:
+  breast examinations- 40.3%, pelvic examinations- 51.2%, mammograms- 75.0%, external
+  genitourinary examinations -31.6%. Many of these women also had delayed exams. 22.9%
+  of women who were eligible for the HPV vaccine have received it. CONCLUSIONS: Many
+  women with RTT do not undergo well-woman examinations and HPV vaccinations as recommended
+  by ACOG. Since these women are not usually sexually active, many guardians believe
+  the HPV vaccine is unnecessary. However, like other women with disabilities, RTT
+  females are at risk for sexual abuse and disparities in access to women's health
+  services, so these topics should be discussed with caretakers."
+raw_completion_output: |-
+  primary_disease: Rett syndrome  
+  medical_actions: well-woman examinations; HPV vaccination  
+  symptoms: delayed exams  
+  chemicals: HPV vaccine  
+  action_annotation_relationships: well-woman examinations TREATS symptom (delayed exams) IN Rett syndrome; HPV vaccination TREATS symptom (delayed exams) IN Rett syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  HPV vaccination TREATS symptom (delayed exams) IN Rett syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010726
+  medical_actions:
+    - well-woman examinations
+    - MAXO:0000759
+  symptoms:
+    - delayed exams
+  chemicals:
+    - HPV vaccine
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: delayed exams
+      qualifier: MONDO:0010726
+    - subject: MAXO:0000759
+      predicate: TREATS
+      object: delayed exams
+      qualifier: MONDO:0010726
+      subject_extension: HPV vaccination
+      object_extension: delayed exams
+named_entities:
+  - id: MAXO:0000759
+    label: HPV vaccination
+    original_spans:
+      - 20:34
+      - 678:692
+      - 1141:1155

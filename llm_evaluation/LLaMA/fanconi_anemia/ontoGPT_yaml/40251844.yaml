@@ -1,0 +1,82 @@
+---
+input_text: 'High-Power Laser Treatment for Oral Leukoplakia in Fanconi Anemia: A
+  Case Series Report. INTRODUCTION: Fanconi Anemia (FA) is a rare genetic disorder
+  with high susceptibility to oral squamous cell carcinoma (SCC). Oral leukoplakia
+  (OL) is frequent in FA patients and lacks a defined treatment. High-power diode
+  lasers (HPDL) offer precise, minimally invasive ablation with favorable healing.
+  This paper reports HPDL use in OL management in FA patients. CASE REPORT: Four FA
+  patients (1742 years) with clinically and histologically confirmed OL underwent
+  HPDL ablation (808 nm, 1.52 W). Lesions were removed with a 0.5 mm safety margin.
+  All cases showed good healing, no recurrences within 1218 months, and minimal discomfort.
+  Two lesions had dysplasia; one patient had prior SCC. DISCUSSION/CONCLUSION: HPDL
+  showed favorable short-term outcomes for OL in FA patients. Though limited by small
+  sample and follow-up, the approach may delay malignant transformation. Further studies
+  are needed to confirm long-term benefits.'
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Fanconi Anemia; Oral Leukoplakia; Oral Squamous Cell Carcinoma
+
+  medical_actions: High-power diode laser ablation; HPDL ablation; minimally invasive ablation
+
+  symptoms: oral leukoplakia; dysplasia; discomfort; malignant transformation
+
+  chemicals: 
+
+  action_annotation_relationships: High-power diode laser ablation TREATS oral leukoplakia IN Fanconi Anemia; HPDL ablation TREATS dysplasia IN Fanconi Anemia; HPDL ablation PREVENTS malignant transformation IN Fanconi Anemia; HPDL ablation TREATS oral leukoplakia (with 808 nm, 1.52 W) IN Fanconi Anemia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  HPDL ablation TREATS oral leukoplakia (with 808 nm, 1.52 W) IN Fanconi Anemia
+
+  ===
+
+extracted_object:
+  primary_disease: Fanconi Anemia; Oral Leukoplakia; Oral Squamous Cell Carcinoma
+  medical_actions:
+    - High-power diode laser ablation
+    - HPDL ablation
+    - minimally invasive ablation
+  symptoms:
+    - HP:0002745
+    - dysplasia
+    - discomfort
+    - malignant transformation
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: HP:0002745
+      qualifier: MONDO:0019391
+      subject_qualifier: high-power diode
+      subject_extension: laser ablation
+    - predicate: TREATS
+      object: dysplasia
+      qualifier: MONDO:0019391
+      subject_extension: ablation
+    - subject: HPDL ablation
+      predicate: PREVENTS
+      object: malignant transformation
+      qualifier: MONDO:0019391
+      subject_extension: ablation
+      object_extension: malignant transformation
+    - predicate: TREATS
+      object: HP:0002745
+      qualifier: MONDO:0019391
+      subject_qualifier: with 808 nm, 1.52 W
+      subject_extension: ablation
+named_entities:
+  - id: HP:0002745
+    label: oral leukoplakia
+    original_spans:
+      - 31:46
+      - 214:229

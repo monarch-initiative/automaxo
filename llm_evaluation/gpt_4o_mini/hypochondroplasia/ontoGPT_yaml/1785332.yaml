@@ -1,0 +1,93 @@
+---
+input_text: Growth-promoting effect of human growth hormone on patients with achondroplasia.
+  To evaluate the effect of human growth hormone (hGH) on the growth of children with
+  achondroplasia, three patients with achondroplasia and one patient with hypochondroplasia
+  were treated with 0.5 IU/kg/W of pituitary-extracted hGH for 6-12 months. Mean height
+  velocity was significantly increased from 4.0 +/- 0.4 to 7.5 +/- 0.7 cm/year (P
+  less than 0.05) by hGH. The tibial index, defined as the length/width ratio of left
+  tibia, did not change during the treatment, indicating that hGH promotes growth
+  without exaggeration of tubular bone deformity. Case 2, who had atlantoaxial dislocation,
+  developed sleep apnea and neurological deficits during the second hGH treatment,
+  but these were cured by operation. Thus, hGH therapy is effective in promoting growth
+  in patients with achondroplasia, but the complication of atlantoaxial dislocation
+  should be explored and corrected before the treatment.
+raw_completion_output: |-
+  primary_disease: achondroplasia  
+  medical_actions: treatment with human growth hormone (hGH); surgical operation  
+  symptoms: sleep apnea; neurological deficits; atlantoaxial dislocation  
+  chemicals: human growth hormone (hGH); pituitary-extracted hGH  
+  action_annotation_relationships: treatment with human growth hormone (hGH) TREATS symptom growth IN achondroplasia; treatment (with chemical) TREATS symptom sleep apnea IN achondroplasia; treatment (with chemical) TREATS symptom neurological deficits IN achondroplasia; surgical operation TREATS symptom atlantoaxial dislocation IN achondroplasia  
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  surgical operation TREATS symptom atlantoaxial dislocation IN achondroplasia
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0007037
+  medical_actions:
+    - treatment with human growth hormone (hGH)
+    - MAXO:0000004
+  symptoms:
+    - HP:0010535
+    - neurological deficits
+    - HP:0003414
+  chemicals:
+    - human growth hormone (hGH)
+    - pituitary-extracted hGH
+  action_annotation_relationships:
+    - subject: treatment
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0007037
+      subject_qualifier: with human growth hormone (hGH)
+      object_qualifier: N/A
+      subject_extension: human growth hormone
+      object_extension: growth
+    - subject: treatment
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0007037
+      subject_qualifier: with chemical
+      object_qualifier: N/A
+      subject_extension: chemical
+      object_extension: sleep apnea
+    - subject: treatment
+      predicate: TREATS
+      object: neurological deficits
+      qualifier: MONDO:0007037
+      subject_qualifier: with chemical
+      subject_extension: chemical
+      object_extension: neurological deficits
+    - subject: MAXO:0000004
+      predicate: TREATS
+      object: HP:0003414
+      qualifier: MONDO:0007037
+      subject_qualifier: N/A
+      object_qualifier: N/A
+      subject_extension: surgical operation
+      object_extension: N/A
+named_entities:
+  - id: MAXO:0000004
+    label: surgical operation
+  - id: HP:0010535
+    label: sleep apnea
+    original_spans:
+      - 685:695
+  - id: HP:0003414
+    label: atlantoaxial dislocation
+    original_spans:
+      - 649:672
+      - 899:922

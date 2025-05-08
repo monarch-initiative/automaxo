@@ -1,0 +1,103 @@
+---
+input_text: 'Monitoring Procedural Pain and Distress in a Child With Rett Syndrome:
+  A Case Report. BACKGROUND AND PURPOSE: Whole body vibration training is a viable
+  option for children with Rett syndrome; however, the positioning requirements and
+  intense vibration may be interpreted as pain. CASE: A 13-year-old girl with a diagnosis
+  of Rett syndrome, Stage IV, participated. The Individualized Numeric Rating Scale
+  was developed in collaboration with the caregiver and scored by a physical therapist
+  and student physical therapists during 16 sessions of whole body vibration training.
+  OUTCOMES: The therapist and students reached 100% agreement on the Individualized
+  Numeric Rating Scale ratings and successfully provided distractions to prevent pain
+  and distress from reaching a level 5 out of 10 for 139 of 144 sessions. CONCLUSION:
+  This is the first case in the literature to demonstrate use of the Individualized
+  Numeric Rating Scale with a child who is nonverbal during a potentially painful
+  physical therapy procedure.'
+raw_completion_output: |-
+  primary_disease: Rett Syndrome
+
+  medical_actions: Whole body vibration training; Developed Individualized Numeric Rating Scale; Provided distractions
+
+  symptoms: Pain; Distress
+
+  chemicals: 
+
+  action_annotation_relationships: Whole body vibration training TREATS Rett Syndrome; Developed Individualized Numeric Rating Scale TREATS Pain IN Rett Syndrome; Developed Individualized Numeric Rating Scale TREATS Distress IN Rett Syndrome; Provided distractions PREVENTS Pain IN Rett Syndrome; Provided distractions PREVENTS Distress IN Rett Syndrome
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Provided distractions PREVENTS Distress IN Rett Syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010726
+  medical_actions:
+    - Whole body vibration training
+    - Developed Individualized Numeric Rating Scale
+    - Provided distractions
+  symptoms:
+    - HP:0012531
+    - Distress
+  action_annotation_relationships:
+    - subject: Whole body vibration training
+      predicate: TREATS
+      object: Rett Syndrome
+    - subject: Individualized Numeric Rating Scale
+      predicate: TREATS
+      object: HP:0012531
+      qualifier: MONDO:0010726
+      subject_qualifier: Developed
+    - subject: Developed Individualized Numeric Rating Scale
+      predicate: TREATS
+      object: Distress
+      qualifier: MONDO:0010726
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: None
+      object_extension: None
+    - subject: Provided distractions
+      predicate: PREVENTS
+      object: HP:0012531
+      qualifier: MONDO:0010726
+    - subject: Provided distractions
+      predicate: PREVENTS
+      object: Distress
+      qualifier: MONDO:0010726
+named_entities:
+  - id: MONDO:0005647
+    label: Genital warts
+  - id: MONDO:0002602
+    label: Central nervous system diseases
+  - id: HP:0002011
+    label: central nervous system diseases
+  - id: MONDO:0010726
+    label: Rett syndrome
+  - id: MONDO:0005027
+    label: epilepsy
+  - id: HP:0001250
+    label: seizures
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0002186
+    label: apraxia
+  - id: HP:0002333
+    label: motor deterioration
+  - id: CHEBI:229599
+    label: Trofinetide
+  - id: HP:0012444
+    label: Brain atrophy
+  - id: CHEBI:182159
+    label: Cannabidivarin (CBDV)
+  - id: HP:0012531
+    label: Pain

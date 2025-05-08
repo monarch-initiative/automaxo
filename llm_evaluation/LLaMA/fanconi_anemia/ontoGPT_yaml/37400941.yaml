@@ -1,0 +1,77 @@
+---
+input_text: "Cancer in buccal mucosa in patients with Fanconi anemia: Report of six
+  cases. INTRODUCTION: Fanconi anemia (FA) is a recessive hereditary disease characterized
+  by bone marrow failure, and the treatment is hematopoietic stem cell transplantation
+  (HSCT). Patients diagnosed with FA are more predisposed to develop oral squamous
+  cell carcinoma (SCC), and this risk increases in transplant patients. The clinical
+  characteristics of the oral manifestations of SCC in this group of patients do not
+  differ from the lesions present in patients without the disease; however, they can
+  be diagnosed in young patients and less common locations, such as, for example,
+  in the buccal mucosa. OBJECTIVE: To report a case series of patients diagnosed with
+  FA with oral SCC. METHOD: Included in this case series are six patients diagnosed
+  with SCC in the buccal mucosa with similar clinical characteristics. FINAL CONSIDERATIONS:
+  There are still difficulties in establishing the natural history of oral lesions
+  in patients with FA. Thus, disclosing a series of cases with similar changes may
+  be relevant to improving and refining the multidisciplinary team's clinical view
+  of suspected SCC or oral potentially malignant disorders (OPMD), providing surveillance
+  and timely management."
+raw_completion_output: |-
+  Here are the extracted entities in the requested format:
+
+  primary_disease: Fanconi anemia; oral squamous cell carcinoma (SCC)
+
+  medical_actions: hematopoietic stem cell transplantation (HSCT); surveillance; timely management
+
+  symptoms: bone marrow failure; oral manifestations of SCC; lesions in buccal mucosa
+
+  chemicals: 
+
+  action_annotation_relationships: hematopoietic stem cell transplantation (HSCT) TREATS bone marrow failure IN Fanconi anemia; surveillance PREVENTS oral squamous cell carcinoma (SCC) IN Fanconi anemia; timely management TREATS oral squamous cell carcinoma (SCC) IN Fanconi anemia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  timely management TREATS oral squamous cell carcinoma (SCC) IN Fanconi anemia
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005096
+  medical_actions:
+    - MAXO:0000747
+    - surveillance
+    - timely management
+  symptoms:
+    - HP:0005528
+    - oral manifestations of SCC
+    - lesions in buccal mucosa
+  action_annotation_relationships:
+    - subject: MAXO:0000747
+      predicate: TREATS
+      object: HP:0005528
+      qualifier: MONDO:0019391
+      subject_extension: hematopoietic stem cell
+      object_extension: bone marrow failure
+    - predicate: PREVENTS
+      object: HP:0002860
+      qualifier: MONDO:0019391
+    - predicate: TREATS
+      object: HP:0002860
+      qualifier: MONDO:0019391
+named_entities:
+  - id: MONDO:0005096
+    label: Fanconi anemia; oral squamous cell carcinoma (SCC)
+  - id: HP:0002860
+    label: oral squamous cell carcinoma (SCC)
+    original_spans:
+      - 312:345

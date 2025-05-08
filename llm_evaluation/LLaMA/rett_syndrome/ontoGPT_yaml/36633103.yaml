@@ -1,0 +1,118 @@
+---
+input_text: 'Molecular mechanisms in chloroquine-exposed muscle cells elucidated by
+  combined proteomic and microscopic studies. OBJECTIVES: Chloroquine (CQ) is an antimalarial
+  drug with a growing number of applications as recently demonstrated in attempts
+  to treat Covid-19. For decades, it has been well known that skeletal and cardiac
+  muscle cells might display vulnerability against CQ exposure resulting in the clinical
+  manifestation of a CQ-induced myopathy. In line with the known effect of CQ on inhibition
+  of the lysosomal function and thus cellular protein clearance, the build-up of autophagic
+  vacuoles along with protein aggregates is a histological hallmark of the disease.
+  Given that protein targets of the perturbed proteostasis are still not fully discovered,
+  we applied different proteomic and immunological-based studies to improve the current
+  understanding of the biochemical nature of CQ-myopathy. METHODS: To gain a comprehensive
+  understanding of the molecular pathogenesis of this acquired myopathy and to define
+  proteins targets as well as pathophysiological processes beyond impaired proteolysis,
+  utilising CQ-treated C2C12 cells and muscle biopsies derived from CQ-myopathy patients,
+  we performed different proteomic approaches and Coherent Anti-Stokes Raman Scattering
+  (CARS) microscopy, in addition to immunohistochemical studies. RESULTS: Our combined
+  studies confirmed an impact of CQ-exposure on proper protein processing/folding
+  and clearance, highlighted changes in the interactome of p62, a known aggregation
+  marker and hereby identified the Rett syndrome protein MeCP2 as being affected.
+  Moreover, our approach revealed-among others-a vulnerability of the extracellular
+  matrix, cytoskeleton and lipid homeostasis. CONCLUSION: We demonstrated that CQ
+  exposure (secondarily) impacts biological processes beyond lysosomal function and
+  linked a variety of proteins with known roles in the manifestation of other neuromuscular
+  diseases.'
+raw_completion_output: |-
+  Here are the extracted entities in the requested format:
+
+  primary_disease: CQ-induced myopathy
+
+  medical_actions: Chloroquine (CQ) exposure; treatment with Chloroquine (CQ)
+
+  symptoms: build-up of autophagic vacuoles; protein aggregates; impaired proteolysis; changes in protein processing/folding and clearance; vulnerability of the extracellular matrix, cytoskeleton and lipid homeostasis
+
+  chemicals: Chloroquine (CQ); p62; MeCP2
+
+  action_annotation_relationships: Chloroquine (CQ) exposure LEADS TO build-up of autophagic vacuoles IN CQ-induced myopathy; Chloroquine (CQ) exposure LEADS TO protein aggregates IN CQ-induced myopathy; Chloroquine (CQ) TREATS Covid-19; treatment with Chloroquine (CQ) TREATS CQ-induced myopathy; impaired proteolysis ASSOCIATED WITH CQ-induced myopathy; changes in protein processing/folding and clearance ASSOCIATED WITH CQ-induced myopathy; vulnerability of the extracellular matrix, cytoskeleton and lipid homeostasis ASSOCIATED WITH CQ-induced myopathy
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  vulnerability of the extracellular matrix, cytoskeleton and lipid homeostasis ASSOCIATED WITH CQ-induced myopathy
+
+  ===
+
+extracted_object:
+  primary_disease: CQ-induced myopathy
+  medical_actions:
+    - Chloroquine (CQ) exposure
+    - treatment with Chloroquine (CQ)
+  symptoms:
+    - build-up of autophagic vacuoles
+    - protein aggregates
+    - impaired proteolysis
+    - changes in protein processing/folding and clearance
+    - vulnerability of the extracellular matrix, cytoskeleton and lipid homeostasis
+  chemicals:
+    - CHEBI:3638
+    - p62
+    - MeCP2
+  action_annotation_relationships:
+    - subject: chloroquine exposure
+      predicate: LEADS TO
+      object: build-up of autophagic vacuoles
+      qualifier: CQ-induced myopathy
+      subject_extension: CHEBI:3638
+      object_extension: autophagic vacuoles
+    - predicate: LEADS TO
+      object: protein aggregates
+      qualifier: MONDO:0005336
+      subject_extension: CHEBI:3638
+    - predicate: TREATS
+      object: Covid-19
+      subject_extension: CHEBI:3638
+    - subject: treatment
+      predicate: TREATS
+      object: HP:0003198
+      object_qualifier: CQ-induced
+      subject_extension: CHEBI:3638
+    - predicate: ASSOCIATED WITH
+      object: HP:0003198
+    - subject: changes in protein processing/folding and clearance
+      predicate: ASSOCIATED WITH
+      object: CQ-induced myopathy
+      subject_extension: CQ
+      object_extension: myopathy
+    - predicate: ASSOCIATED WITH
+      object: HP:0003198
+      object_qualifier: CQ-induced
+named_entities:
+  - id: CHEBI:3638
+    label: Chloroquine (CQ)
+    original_spans:
+      - 127:142
+  - id: MONDO:0005336
+    label: myopathy
+    original_spans:
+      - 441:448
+      - 894:901
+      - 998:1005
+      - 1176:1183
+  - id: HP:0003198
+    label: myopathy
+    original_spans:
+      - 441:448
+      - 894:901
+      - 998:1005
+      - 1176:1183

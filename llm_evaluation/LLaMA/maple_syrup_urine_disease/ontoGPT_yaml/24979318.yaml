@@ -1,0 +1,84 @@
+---
+input_text: 'Liver transplantation for classical maple syrup urine disease: long-term
+  follow-up. OBJECTIVES: The aim of the study was to evaluate indications, results,
+  and clinical and neurological evolution in children who have undergone liver transplantation
+  for classical maple syrup urine disease (MSUD). METHODS: Descriptive study of liver
+  transplantation for MSUD between 1991 and 2012. Eight patients were transplanted.
+  RESULTS: Indications for transplant were poor metabolic control expressed as significant
+  psychomotor disabilities (4 had psychomotor delays, 5 had spasticity, and 5 had
+  epilepsy) and poor quality of life (mean number of acute metabolic decompensations
+  and mean number of total hospitalizations before transplantation 5 and 12, respectively).
+  Four required nasogastric tube, with a maximum 4 g/day protein-restricted diet in
+  all of them. Seven sustained significant alterations in brain magnetic resonance
+  imaging. Mean leucine and alloisoleucine levels were 608 (standard deviation [SD]
+  516) and 218 mumol/L (SD 216), respectively. All of the patients received transplants
+  with deceased-donor livers, with ages between 1.5 and 2.5 years (mean 1.78 years).
+  Mean posttransplantation follow-up period was 12.2 years (range 5-21 years). Final
+  patient and graft survival was 87.5% and 75%, respectively. Following transplantation,
+  none required hospitalization in the last 3 years nor did any have new acute metabolic
+  decompensations following a normal diet. Five followed normal schooling, 2 had motor
+  disabilities, and 2 had convulsive crises. Brain magnetic resonance imaging was
+  taken in 4 patients, showing neuroimage improvement in 3 of them. Mean leucine levels
+  were <350 mumol/L from the immediate posttransplantation period (mean 225 mumol/L,
+  SD 78), with a maximum alloisoleucine level of 20 mumol/L. CONCLUSIONS: Liver transplantation
+  is an effective treatment for classical MSUD that arrests brain damage, although
+  it does not reverse the process.'
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Maple Syrup Urine Disease (MSUD)
+
+  medical_actions: Liver transplantation; protein-restricted diet; nasogastric tube; normal diet
+
+  symptoms: Psychomotor delays; spasticity; epilepsy; acute metabolic decompensations; significant alterations in brain magnetic resonance imaging; motor disabilities; convulsive crises
+
+  chemicals: Leucine; alloisoleucine
+
+  action_annotation_relationships: 
+  Liver transplantation TREATS psychomotor delays IN MSUD; 
+  Liver transplantation TREATS spasticity IN MSUD; 
+  Liver transplantation TREATS epilepsy IN MSUD; 
+  Liver transplantation TREATS acute metabolic decompensations IN MSUD; 
+  protein-restricted diet TREATS psychomotor delays IN MSUD; 
+  nasogastric tube TREATS psychomotor delays IN MSUD; 
+  normal diet PREVENTS acute metabolic decompensations IN MSUD; 
+  Liver transplantation TREATS significant alterations in brain magnetic resonance imaging IN MSUD; 
+  Leucine levels <350 mumol/L TREATS brain damage IN MSUD
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  primary_disease: <The main disease the text is about, or its central disease topic. This is often the disease mentioned in an article's title or in its first few sentences.>
+  medical_actions: <Semicolon-separated list of medical actions, where each is a clinically prescribed procedure, therapy, intervention, or recommendation.>
+  symptoms: <Semicolon-separated list of signs or symptoms.>
+  chemicals: <Semicolon-separated list of chemicals or drugs>
+  action_annotation_relationships: <Semicolon-separated list of relationships between a disease, the mentioned signs and symptoms associated with that disease, the medical actions relating to each symptom, and the type of relationship between each action and symptom (usually TREATS or PREVENTS). The disease name must be included in the relationship, for example, "treatment TREATS symptom IN disease". If the medical action includes a specific chemical or drug, include the chemical or drug name in the relationship, for example, "treatment (with chemical) TREATS symptom IN disease".>
+
+
+  Text:
+  Liver transplantation for classical maple syrup urine disease: long-term follow-up. OBJECTIVES: The aim of the study was to evaluate indications, results, and clinical and neurological evolution in children who have undergone liver transplantation for classical maple syrup urine disease (MSUD). METHODS: Descriptive study of liver transplantation for MSUD between 1991 and 2012. Eight patients were transplanted. RESULTS: Indications for transplant were poor metabolic control expressed as significant psychomotor disabilities (4 had psychomotor delays, 5 had spasticity, and 5 had epilepsy) and poor quality of life (mean number of acute metabolic decompensations and mean number of total hospitalizations before transplantation 5 and 12, respectively). Four required nasogastric tube, with a maximum 4 g/day protein-restricted diet in all of them. Seven sustained significant alterations in brain magnetic resonance imaging. Mean leucine and alloisoleucine levels were 608 (standard deviation [SD] 516) and 218 mumol/L (SD 216), respectively. All of the patients received transplants with deceased-donor livers, with ages between 1.5 and 2.5 years (mean 1.78 years). Mean posttransplantation follow-up period was 12.2 years (range 5-21 years). Final patient and graft survival was 87.5% and 75%, respectively. Following transplantation, none required hospitalization in the last 3 years nor did any have new acute metabolic decompensations following a normal diet. Five followed normal schooling, 2 had motor disabilities, and 2 had convulsive crises. Brain magnetic resonance imaging was taken in 4 patients, showing neuroimage improvement in 3 of them. Mean leucine levels were <350 mumol/L from the immediate posttransplantation period (mean 225 mumol/L, SD 78), with a maximum alloisoleucine level of 20 mumol/L. CONCLUSIONS: Liver transplantation is an effective treatment for classical MSUD that arrests brain damage, although it does not reverse the process.
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009563
+  medical_actions:
+    - MAXO:0001175
+    - protein-restricted diet
+    - nasogastric tube
+    - normal diet
+  symptoms:
+    - HP:0001263
+    - HP:0001257
+    - HP:0001250
+    - acute metabolic decompensations
+    - significant alterations in brain magnetic resonance imaging
+    - motor disabilities
+    - convulsive crises
+  chemicals:
+    - CHEBI:25017
+    - CHEBI:22359
+named_entities:
+  - id: HP:0001257
+    label: spasticity
+    original_spans:
+      - 561:570

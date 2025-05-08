@@ -1,0 +1,92 @@
+---
+input_text: 'Intravenous administration of a branched-chain amino-acid-free solution
+  in children and adults with acute decompensation of maple syrup urine disease: a
+  prospective multicentre observational study. BACKGROUND: Patients with maple syrup
+  urine disease (MSUD) experiencing metabolic decompensations have traditionally been
+  treated with branched-chain amino acid (BCAA)-free mixture via oral or nasogastric
+  administration routes. In some patients, enteral administration is not possible,
+  either because the patient presents with vomiting, coma, or refuses nasogastric
+  administration, thus intravenous (IV) BCAA-free solution is an appropriate intervention
+  for these challenging cases. AIMS: This study aimed to evaluate the effectiveness
+  and safety of managing metabolic decompensations by administering an IV BCAA-free
+  solution. METHODS: This is an observational prospective study of data from MSUD
+  patients hospitalised for decompensation episodes between 2010 and 2016 at 6 centres
+  for rare metabolic diseases in France. RESULTS: A total of 24 patients (16 males;
+  8 females) experiencing 126 MSUD metabolic decompensation episodes (39 in children;
+  87 in adults) were admitted to hospital. At presentation, mean leucine plasma concentration
+  was >= 381 micromol/L in 113/126 (89.7%) episodes. Children were treated with continuous
+  IV BCAA-free solution at doses of 0.8 to 2.0 g/kg/day, for 4.8 days and adults for
+  3.8 days at doses of 0.5 to 2.6 g/kg/day. In the efficacy set of 102 analysable
+  episodes leucine concentrations were normalised (to below 381 micromol/L) in 82%
+  (n = 18/22) of episodes in children and in 84% (n = 67/80) of episodes in adults.
+  Mean time to leucine normalisation was 3.0 days. This was significantly (p < 0.001)
+  shorter than the algorithmically predicted time to leucine normalisation with traditional
+  BCAA-free mixture. Duration of hospitalisation was significantly longer for children
+  than for adults (7.1 days in children vs 5.2 days in adults, p = 0.012). No treatment-related
+  adverse events were reported in any patients on IV BCAA-free solution. CONCLUSION:
+  The IV BCAA-free solution is safe and effective in normalising leucine concentrations
+  during MSUD decompensation episodes in both children and adults, offering a practical
+  treatment alternative for those patients who cannot receive BCAA-free mixture via
+  oral or nasogastric routes.'
+raw_completion_output: |-
+  primary_disease: maple syrup urine disease  
+  medical_actions: intravenous administration of BCAA-free solution  
+  symptoms: metabolic decompensation; vomiting; coma  
+  chemicals: branched-chain amino acids (BCAA)  
+  action_annotation_relationships: intravenous administration of BCAA-free solution TREATS metabolic decompensation IN maple syrup urine disease; intravenous administration of BCAA-free solution TREATS vomiting IN maple syrup urine disease; intravenous administration of BCAA-free solution TREATS coma IN maple syrup urine disease  
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  intravenous administration of BCAA-free solution TREATS coma IN maple syrup urine disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009563
+  medical_actions:
+    - intravenous administration of BCAA-free solution
+  symptoms:
+    - metabolic decompensation
+    - HP:0002013
+    - HP:0001259
+  chemicals:
+    - CHEBI:22918
+  action_annotation_relationships:
+    - subject: MAXO:0001525
+      predicate: TREATS
+      object: metabolic decompensation
+      qualifier: MONDO:0009563
+      subject_extension: BCAA-free solution
+      object_extension: metabolic
+    - subject: MAXO:0001525
+      predicate: TREATS
+      object: HP:0002013
+      qualifier: MONDO:0009563
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: BCAA-free solution
+      object_extension: None
+    - subject: MAXO:0001525
+      predicate: TREATS
+      object: HP:0001259
+      qualifier: MONDO:0009563
+      subject_qualifier: <none>
+      object_qualifier: <none>
+      subject_extension: BCAA-free solution
+      object_extension: <none>
+named_entities:
+  - id: MAXO:0001525
+    label: intravenous administration
+    original_spans:
+      - 0:25

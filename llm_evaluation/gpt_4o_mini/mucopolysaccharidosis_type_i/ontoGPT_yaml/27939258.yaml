@@ -1,0 +1,49 @@
+---
+input_text: 'Mucopolysaccharidosis Type I Newborn Screening: Best Practices for Diagnosis
+  and Management. '
+raw_completion_output: |-
+  primary_disease: Mucopolysaccharidosis Type I  
+  medical_actions: Diagnosis; Management  
+  symptoms: Not specified  
+  chemicals: Not specified  
+  action_annotation_relationships: Diagnosis TREATS symptom IN Mucopolysaccharidosis Type I; Management TREATS symptom IN Mucopolysaccharidosis Type I
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Management TREATS symptom IN Mucopolysaccharidosis Type I
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0001586
+  medical_actions:
+    - Diagnosis
+    - Management
+  symptoms:
+    - Not specified
+  chemicals:
+    - Not specified
+  action_annotation_relationships:
+    - subject: TREATS
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0001586
+      subject_extension: Diagnosis
+      object_extension: Mucopolysaccharidosis Type I
+    - subject: Management
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0001586
+      subject_extension: Management
+      object_extension: symptom

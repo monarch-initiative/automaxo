@@ -1,0 +1,120 @@
+---
+input_text: 'Continuous venovenous hemodiafiltration in the treatment of newborns
+  with an inborn metabolic disease: a single center experience Background/aim: Most
+  inborn metabolic diseases are diagnosed during the neonatal period. The accumulation
+  of toxic metabolites may cause acute metabolic crisis with long-term neurological
+  dysfunction and death. Renal replacement therapy (RRT) modalities allow the efficient
+  removal of toxic metabolites. In this study, we reviewed our experience with continuous
+  venovenous hemodiafiltration (CVVHDF) as RRT for newborns with an inborn metabolic
+  disease. Materials and methods: Patients diagnosed with an inborn metabolic disease
+  and who received CVVHDF treatment at our neonatal intensive care unit between January
+  2014 and December 2017 were included in this study. Their demographic and clinical
+  data were collected, and the efficacy and safety of CVVHDF was evaluated. Results:
+  A total of nine continuous RRT (CRRT) sessions as CVVHDF were performed in eight
+  newborns with a diagnosis of urea cycle defect (n = 5), maple syrup urine disease
+  (n = 2), or methylmalonic acidemia (n = 1). The mean age at admission was 10 +-
+  8.6 days (range: 3-28 days). The mean plasma levels of ammonium were 1120 +- 512.6
+  mg/dL and 227.5 +- 141.6 mg/dL before and at the end of the treatment, respectively.
+  Plasma levels of leucine were 2053.5 +- 1282 mumol/L and 473.5 +- 7.8 mumol/L before
+  and at the end of the treatment, respectively. The CVVHDF duration was 32.3 +- 11.1
+  h (median: 37 h; range: 16-44 h), and the mean length of hospitalization was 14.6
+  +- 12.9 days. The mean duration of CVVHDF was 32.3 +- 11.1 h (range: 16-44 h). Circuit
+  clotting was the most common observed complication (37.5%) and the survival rate
+  was 50%. Among surviving patients, two developed severe and two developed mild mental
+  and motor retardation. Conclusion: CVVHDF is a CRRT modality that can be used to
+  treat newborns with an inborn metabolic disease. Early diagnosis, commencement of
+  specific medical therapy, diet, and extracorporeal support, if needed, are likely
+  to result in improved short and long- term outcomes.'
+raw_completion_output: |-
+  primary_disease: inborn metabolic disease
+  medical_actions: continuous venovenous hemodiafiltration (CVVHDF); renal replacement therapy (RRT); early diagnosis; commencement of specific medical therapy; diet; extracorporeal support
+  symptoms: accumulation of toxic metabolites; acute metabolic crisis; long-term neurological dysfunction; mental retardation; motor retardation
+  chemicals: none
+  action_annotation_relationships: continuous venovenous hemodiafiltration (CVVHDF) TREATS accumulation of toxic metabolites IN inborn metabolic disease; continuous venovenous hemodiafiltration (CVVHDF) TREATS acute metabolic crisis IN inborn metabolic disease; early diagnosis PREVENTS long-term neurological dysfunction IN inborn metabolic disease; commencement of specific medical therapy TREATS mental retardation IN inborn metabolic disease; diet TREATS motor retardation IN inborn metabolic disease; extracorporeal support TREATS acute metabolic crisis IN inborn metabolic disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  extracorporeal support TREATS acute metabolic crisis IN inborn metabolic disease
+
+  ===
+
+extracted_object:
+  primary_disease: inborn metabolic disease
+  medical_actions:
+    - continuous venovenous hemodiafiltration (CVVHDF)
+    - MAXO:0000600
+    - early diagnosis
+    - commencement of specific medical therapy
+    - MAXO:0000088
+    - extracorporeal support
+  symptoms:
+    - accumulation of toxic metabolites
+    - acute metabolic crisis
+    - long-term neurological dysfunction
+    - HP:0001249
+    - HP:0001270
+  chemicals:
+    - none
+  action_annotation_relationships:
+    - subject: continuous venovenous hemodiafiltration
+      predicate: TREATS
+      object: accumulation of toxic metabolites
+      qualifier: inborn metabolic disease
+      subject_qualifier: continuous
+      object_qualifier: accumulation
+      subject_extension: hemodiafiltration
+      object_extension: toxic metabolites
+    - subject: continuous venovenous hemodiafiltration (CVVHDF)
+      predicate: TREATS
+      object: metabolic crisis
+      qualifier: inborn metabolic disease
+      subject_extension: continuous venovenous hemodiafiltration
+      object_extension: acute
+    - subject: early diagnosis
+      predicate: PREVENTS
+      object: long-term neurological dysfunction
+      qualifier: inborn metabolic disease
+      subject_extension: <inborn metabolic disease>
+      object_extension: <long-term neurological dysfunction>
+    - subject: commencement of specific medical therapy
+      predicate: TREATS
+      object: HP:0001249
+      qualifier: inborn metabolic disease
+      subject_extension: specific medical therapy
+      object_extension: mental retardation
+    - predicate: TREATS
+      object: HP:0001270
+      qualifier: inborn metabolic disease
+      subject_extension: diet
+    - subject: extracorporeal support
+      predicate: TREATS
+      object: acute metabolic crisis
+      qualifier: inborn metabolic disease
+      subject_extension: extracorporeal support
+      object_extension: metabolic crisis
+named_entities:
+  - id: MAXO:0000600
+    label: renal replacement therapy (RRT)
+    original_spans:
+      - 341:371
+  - id: MAXO:0000088
+    label: diet
+    original_spans:
+      - 2016:2019
+  - id: HP:0001249
+    label: mental retardation
+  - id: HP:0001270
+    label: motor retardation
+    original_spans:
+      - 1831:1847

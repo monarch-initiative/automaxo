@@ -1,0 +1,83 @@
+---
+input_text: 'Late diagnoses of Dravet syndrome: How many individuals are we missing?
+  We report new genetic diagnoses of Dravet syndrome in a group of adults with complex
+  epilepsy of unknown cause, under follow-up at a tertiary epilepsy center. Individuals
+  with epilepsy and other features of unknown cause from our unit underwent whole-genome
+  sequencing through the 100 000 Genomes Project. Virtual gene panels were applied
+  to frequency-filtered variants based on phenotype summary. Of 1078 individuals recruited,
+  8 (0.74%) were identified to have a pathogenic or likely pathogenic variant in SCN1A.
+  Variant types were as follows: nonsense (stopgain) in five (62.5%) and missense
+  in three (37.5%). Detailed review of childhood history confirmed a phenotype compatible
+  with Dravet syndrome. Median age at genetic diagnosis was 44.5 years (range 28-52
+  years). Tonic-clonic seizures were ongoing in all despite polytherapy including
+  valproate. All had a history of fever sensitivity and myoclonic seizures, which
+  were ongoing in two (25%) and three (37.5%) individuals, respectively. Salient features
+  of Dravet syndrome may be less apparent in adulthood, making clinical diagnosis
+  difficult. Regardless of age, benefits of a genetic diagnosis include access to
+  syndrome-specific treatment options, avoidance of harmful drugs, and monitoring
+  for common complications.'
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Dravet syndrome
+
+  medical_actions: whole-genome sequencing; polytherapy including valproate; monitoring for common complications; access to syndrome-specific treatment options; avoidance of harmful drugs
+
+  symptoms: tonic-clonic seizures; fever sensitivity; myoclonic seizures
+
+  chemicals: valproate
+
+  action_annotation_relationships: whole-genome sequencing IDENTIFIES pathogenic variant IN Dravet syndrome; polytherapy (with valproate) TREATS tonic-clonic seizures IN Dravet syndrome; access to syndrome-specific treatment options TREATS Dravet syndrome; avoidance of harmful drugs PREVENTS complications IN Dravet syndrome; monitoring for common complications TREATS complications IN Dravet syndrome; valproate TREATS tonic-clonic seizures IN Dravet syndrome
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  valproate TREATS tonic-clonic seizures IN Dravet syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0100135
+  medical_actions:
+    - whole-genome sequencing
+    - polytherapy including valproate
+    - monitoring for common complications
+    - access to syndrome-specific treatment options
+    - avoidance of harmful drugs
+  symptoms:
+    - HP:0002069
+    - fever sensitivity
+    - HP:0032794
+  chemicals:
+    - CHEBI:60654
+  action_annotation_relationships:
+    - predicate: IDENTIFIES
+      object: pathogenic variant
+      qualifier: MONDO:0100135
+    - predicate: TREATS
+      object: HP:0002069
+      qualifier: MONDO:0100135
+      subject_qualifier: with valproate
+      subject_extension: polytherapy
+    - predicate: TREATS
+      object: Dravet syndrome
+    - predicate: PREVENTS
+      object: complications
+      qualifier: MONDO:0100135
+    - predicate: TREATS
+      object: complications
+      qualifier: MONDO:0100135
+    - predicate: TREATS
+      object: HP:0002069
+      qualifier: MONDO:0100135
+      subject_extension: CHEBI:60654

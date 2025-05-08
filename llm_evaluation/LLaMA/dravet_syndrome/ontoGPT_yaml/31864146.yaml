@@ -1,0 +1,98 @@
+---
+input_text: "A single-center, retrospective analysis of genotype-phenotype correlations
+  in children with Dravet syndrome. PURPOSE: Dravet syndrome is an early-onset epileptic
+  encephalopathy caused most often by loss-of-function SCN1A variants. Following recognition
+  of its genetic basis and unique clinical features, Dravet syndrome has become one
+  of the most well-studied genetic epilepsies. We sought to evaluate the genetic diversity
+  and correlative seizure phenotype, comorbidities, and response to antiepileptic
+  therapies of patients with clinically-diagnosed Dravet syndrome seen in a tertiary
+  care center. The goal of this study was to examine genotype-phenotype correlations
+  and to ascertain if specific antiepileptic therapies may be more effective on the
+  basis of genetic test result alone. METHOD: Retrospective chart review of demographics,
+  comorbidities, seizure types, and responses to antiepileptic therapies of all patients
+  (n = 137) with a clinical diagnosis of Dravet syndrome seen at Lurie Children's
+  Hospital of Chicago from 2008 to 2016. RESULTS: Of the 96% of Dravet syndrome patients
+  with pathogenic SCN1A variants subdivided by missense or truncating variant, there
+  was no difference in clinical presentation. Response to antiepileptic therapies
+  did not differ by genotype with regard to medication class. CONCLUSIONS: This is
+  the largest cohort of Dravet patients from within the US to report medication response
+  with respect to genotype. Missense variants in SCN1A were most common in the voltage-sensor
+  and pore domains. All patients were most likely to respond to the recommended medication
+  triad compared to other antiepileptic therapies."
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Dravet syndrome
+
+  medical_actions: antiepileptic therapies; medication
+
+  symptoms: seizures; comorbidities
+
+  chemicals: SCN1A variants; antiepileptic therapies; medication
+
+  action_annotation_relationships: antiepileptic therapies TREATS seizures IN Dravet syndrome; medication TREATS seizures IN Dravet syndrome; SCN1A variants ASSOCIATED_WITH seizures IN Dravet syndrome; recommended medication triad TREATS seizures IN Dravet syndrome 
+
+  Note that some relationships could be inferred but not directly stated, such as specific types of antiepileptic therapies or medication being more effective for certain genotypes. Also, keep in mind that I don't have access to search or a database, so the accuracy of these extracted entities should be double-checked.
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  recommended medication triad TREATS seizures IN Dravet syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0100135
+  medical_actions:
+    - MAXO:0000167
+    - medication
+  symptoms:
+    - HP:0001250
+    - comorbidities
+  chemicals:
+    - SCN1A variants
+    - antiepileptic therapies
+    - medication
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0100135
+      subject_extension: CHEBI:35623
+    - predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0100135
+      subject_extension: medication
+    - predicate: ASSOCIATED_WITH
+      object: HP:0001250
+      qualifier: MONDO:0100135
+    - predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0100135
+      subject_extension: medication
+named_entities:
+  - id: MAXO:0000167
+    label: antiepileptic therapies
+    original_spans:
+      - 490:512
+      - 699:721
+      - 887:909
+      - 1233:1255
+      - 1630:1652
+  - id: CHEBI:35623
+    label: antiepileptic
+    original_spans:
+      - 490:502
+      - 699:711
+      - 887:899
+      - 1233:1245
+      - 1630:1642

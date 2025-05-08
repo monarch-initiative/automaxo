@@ -1,0 +1,80 @@
+---
+input_text: Nanoemulsions as Gene Delivery in Mucopolysaccharidosis Type I-A Mini-Review.
+  Mucopolysaccharidosis type I (MPS I) is a rare monogenic disease in which glycosaminoglycans'
+  abnormal metabolism leads to the storage of heparan sulfate and dermatan sulfate
+  in various tissues. It causes its damage and impairment. Patients with the severe
+  form of MPS I usually do not live up to the age of ten. Currently, the therapy is
+  based on multidisciplinary care and enzyme replacement therapy or hematopoietic
+  stem cell transplantation. Applying gene therapy might benefit the MPS I patients
+  because it overcomes the typical limitations of standard treatments. Nanoparticles,
+  including nanoemulsions, are used more and more in medicine to deliver a particular
+  drug to the target cells. It allows for creating a specific, efficient therapy method
+  in MPS I and other lysosomal storage disorders. This article briefly presents the
+  basics of nanoemulsions and discusses the current state of knowledge about their
+  usage in mucopolysaccharidosis type I.
+raw_completion_output: |-
+  primary_disease: Mucopolysaccharidosis Type I  
+  medical_actions: enzyme replacement therapy; hematopoietic stem cell transplantation; gene therapy  
+  symptoms: storage of heparan sulfate; storage of dermatan sulfate; damage; impairment  
+  chemicals: none  
+  action_annotation_relationships: enzyme replacement therapy TREATS damage IN Mucopolysaccharidosis Type I; enzyme replacement therapy TREATS impairment IN Mucopolysaccharidosis Type I; hematopoietic stem cell transplantation TREATS damage IN Mucopolysaccharidosis Type I; hematopoietic stem cell transplantation TREATS impairment IN Mucopolysaccharidosis Type I; gene therapy TREATS damage IN Mucopolysaccharidosis Type I; gene therapy TREATS impairment IN Mucopolysaccharidosis Type I
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  gene therapy TREATS impairment IN Mucopolysaccharidosis Type I
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0001586
+  medical_actions:
+    - enzyme replacement therapy
+    - MAXO:0000747
+    - MAXO:0001001
+  symptoms:
+    - storage of heparan sulfate
+    - storage of dermatan sulfate
+    - damage
+    - impairment
+  chemicals:
+    - none
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: damage
+      qualifier: MONDO:0001586
+      subject_extension: enzyme replacement
+    - predicate: TREATS
+      object: impairment
+      qualifier: MONDO:0001586
+      subject_extension: enzyme replacement therapy
+    - predicate: TREATS
+      object: damage
+      qualifier: MONDO:0001586
+      subject_extension: hematopoietic stem cell transplantation
+    - subject: MAXO:0000747
+      predicate: TREATS
+      object: impairment
+      qualifier: MONDO:0001586
+      subject_extension: <hematopoietic stem cell transplantation>
+      object_extension: <impairment>
+    - subject: MAXO:0001001
+      predicate: TREATS
+      object: damage
+      qualifier: MONDO:0001586
+      subject_extension: gene therapy
+      object_extension: damage
+    - predicate: TREATS
+      object: impairment
+      qualifier: MONDO:0001586
+      subject_extension: gene therapy

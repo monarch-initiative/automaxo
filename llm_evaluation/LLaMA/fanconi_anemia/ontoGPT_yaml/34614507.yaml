@@ -1,0 +1,109 @@
+---
+input_text: Graft rejection markers in children undergoing hematopoietic cell transplant
+  for bone marrow failure. Graft rejection (GR) is a poorly understood complication
+  of hematopoietic cell transplant (HCT). GR risk factors are well published, but
+  there are no reliable biomarkers or therapies known. Fever is the most common symptom
+  of GR, but no study has evaluated fever kinetics as a diagnostic marker of GR. The
+  objectives of this study were to identify mechanisms, biomarkers, and potential
+  therapies for GR after HCT. Chemokine ligand 9 (CXCL9), B-cell activating factor
+  (BAFF), and complement markers (sC5b-9, C3a, and C5a) were measured in 7 patients
+  with GR and compared with 15 HCT controls. All patients had a diagnosis of aplastic
+  anemia, Fanconi anemia, or genetically undefined chromosomal fragility syndrome.
+  All patients with GR were febrile during GR; therefore, control patients who underwent
+  HCT were matched for diagnosis and early fevers after HCT. Patients withh GR had
+  significantly higher CXCL9, BAFF, and sC5b-9 at the time of fever and GR compared
+  with control patients who underwent HCT at the time of fever. The maximum fever
+  was significantly higher and occurred significantly later in the transplant course
+  in patients with GR compared with febrile HCT controls. These data support the use
+  of CXCL9, BAFF, sC5b-9, and fever kinetics as GR markers. Two patients with GR underwent
+  a second HCT that was complicated by high fevers. Both patients received interferon
+  and complement blockers during their second HCT, and both preserved their graft.
+  These laboratory and clinical findings support larger studies to evaluate the safety
+  and efficacy of interferon, complement, and BAFF inhibitors for the prevention and
+  treatment of GR after HCT.
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Graft rejection; Bone marrow failure; Aplastic anemia; Fanconi anemia; chromosomal fragility syndrome
+
+  medical_actions: Hematopoietic cell transplant (HCT); Interferon therapy; Complement blockers; Second HCT
+
+  symptoms: Fever; High fevers
+
+  chemicals: Chemokine ligand 9 (CXCL9); B-cell activating factor (BAFF); Complement markers (sC5b-9, C3a, and C5a); Interferon; Complement blockers; BAFF inhibitors
+
+  action_annotation_relationships: Hematopoietic cell transplant (HCT) TREATS Bone marrow failure; Interferon TREATS Graft rejection; Complement blockers TREATS Graft rejection; BAFF inhibitors PREVENTS Graft rejection; CXCL9 ASSOCIATED_WITH Fever IN Graft rejection; BAFF ASSOCIATED_WITH Fever IN Graft rejection; sC5b-9 ASSOCIATED_WITH Fever IN Graft rejection; Fever TREATS Graft rejection; Interferon (therapy) TREATS Graft rejection WITH complement blockers IN Graft rejection
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Interferon (therapy) TREATS Graft rejection WITH complement blockers IN Graft rejection
+
+  ===
+
+extracted_object:
+  primary_disease: Graft rejection; Bone marrow failure; Aplastic anemia; Fanconi
+    anemia; chromosomal fragility syndrome
+  medical_actions:
+    - MAXO:0000149
+    - Interferon therapy
+    - Complement blockers
+    - Second HCT
+  symptoms:
+    - HP:0001945
+    - High fevers
+  chemicals:
+    - CHEBI:138154
+    - B-cell activating factor (BAFF)
+    - Complement markers (sC5b-9, C3a, and C5a)
+    - CHEBI:52999
+    - Complement blockers
+    - BAFF inhibitors
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: HP:0005528
+    - predicate: TREATS
+      object: Graft rejection
+      subject_extension: CHEBI:52999
+    - predicate: TREATS
+      object: Graft rejection
+      subject_extension: blockers
+    - predicate: PREVENTS
+      object: Graft rejection
+      subject_extension: BAFF inhibitors
+    - predicate: ASSOCIATED_WITH
+      object: HP:0001945
+      qualifier: Graft rejection
+    - predicate: ASSOCIATED_WITH
+      object: HP:0001945
+      qualifier: Graft rejection
+    - predicate: ASSOCIATED_WITH
+      object: HP:0001945
+      qualifier: Graft rejection
+    - predicate: TREATS
+      object: Graft rejection
+    - predicate: TREATS
+      object: Graft rejection
+      qualifier: Graft rejection
+      subject_qualifier: WITH complement blockers
+      subject_extension: CHEBI:52999
+named_entities:
+  - id: CHEBI:138154
+    label: Chemokine ligand 9 (CXCL9)
+    original_spans:
+      - 516:541
+  - id: CHEBI:52999
+    label: Interferon
+    original_spans:
+      - 1474:1483
+      - 1667:1676

@@ -1,0 +1,108 @@
+---
+input_text: 'A Blueprint for Translational Precision Medicine in Autism Spectrum Disorder
+  and Related Neurogenetic Syndromes. Objectives: Despite growing knowledge of the
+  underlying neurobiology of autism spectrum disorder (ASD) and related neurogenetic
+  syndromes, treatment discovery has remained elusive. In this review, we provide
+  a blueprint for translational precision medicine in ASD and related neurogenetic
+  syndromes. Methods: The discovery of trofinetide for Rett syndrome (RTT) is described,
+  and the role of nonmammalian, mammalian, and stem cell model systems in the identification
+  of molecular targets and drug screening is discussed. We then provide a framework
+  for translating preclinical findings to human clinical trials, including the role
+  of biomarkers in selecting molecular targets and evaluating target engagement, and
+  discuss how to leverage these findings for future ASD drug development. Results:
+  Multiple preclinical model systems for ASD have been developed, each with tradeoffs
+  with regard to suitability for high-throughput small molecule screening, conservation
+  across species, and behavioral face validity. Future clinical trials should incorporate
+  biomarkers and intermediate phenotypes to demonstrate target engagement. Factors
+  that contributed to the approval of trofinetide for RTT included replicated findings
+  in mouse models, a well-studied natural history of the syndrome, development of
+  RTT-specific outcome measures, and strong engagement of the RTT family community.
+  Conclusions: The translation of our growing understanding of the neurobiology of
+  ASD to human drug discovery will require a precision medicine approach, including
+  the use of multiple model systems for molecular target selection, evaluation of
+  target engagement, and clinical trial design strategies that address heterogeneity,
+  power, and the placebo response.'
+raw_completion_output: |-
+  Here are the extracted entities in the requested format:
+
+  primary_disease: Autism Spectrum Disorder (ASD); Rett syndrome (RTT)
+
+  medical_actions: drug screening; translational precision medicine; use of biomarkers; evaluation of target engagement; clinical trials; high-throughput small molecule screening; development of outcome measures
+
+  symptoms: None
+
+  chemicals: trofinetide
+
+  action_annotation_relationships: trofinetide TREATS RTT; translational precision medicine TREATS ASD; drug screening PREVENTS ASD progression IN ASD; biomarkers EVALUATES target engagement IN ASD; evaluation of target engagement TREATS ASD; clinical trials TREATS ASD; trofinetide (with trofinetide) TREATS RTT IN RTT
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  trofinetide (with trofinetide) TREATS RTT IN RTT
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0006664
+  medical_actions:
+    - drug screening
+    - translational precision medicine
+    - use of biomarkers
+    - evaluation of target engagement
+    - clinical trials
+    - high-throughput small molecule screening
+    - development of outcome measures
+  symptoms:
+    - None
+  chemicals:
+    - CHEBI:229599
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: RTT
+      subject_extension: CHEBI:229599
+    - predicate: TREATS
+      object: HP:0000729
+    - predicate: PREVENTS
+      object: ASD progression
+      qualifier: MONDO:0006664
+      subject_extension: CHEBI:23888
+    - predicate: EVALUATES
+      object: target engagement
+      qualifier: MONDO:0006664
+    - predicate: TREATS
+      object: HP:0000729
+    - predicate: TREATS
+      object: HP:0000729
+    - predicate: TREATS
+      object: RTT
+      qualifier: MONDO:0010726
+      subject_qualifier: with trofinetide
+      object_qualifier: IN RTT
+      subject_extension: CHEBI:229599
+named_entities:
+  - id: MONDO:0006664
+    label: Autism Spectrum Disorder (ASD); Rett syndrome (RTT)
+  - id: HP:0000729
+    label: ASD
+    original_spans:
+      - 211:213
+      - 373:375
+      - 877:879
+      - 947:949
+      - 1575:1577
+  - id: CHEBI:23888
+    label: drug
+    original_spans:
+      - 605:608
+      - 881:884
+      - 1588:1591

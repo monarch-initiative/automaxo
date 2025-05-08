@@ -1,0 +1,79 @@
+---
+input_text: "Living donor liver transplantation in maple syrup urine disease - Case
+  series and world's youngest domino liver donor and recipient. MSUD occurs due to
+  deficiency of enzyme BCKAD required for metabolism of leucine, isoleucine, and valine
+  leading to the accumulation of these and their ketoacids causing acute metabolic
+  decompensation manifesting as encephalopathy or sudden death. The patient requires
+  special protein-restricted diet to survive. As this enzyme is expressed in liver,
+  liver transplantation has been successfully performed as a cure. We report two patients
+  of MSUD who underwent LDLT while their livers were used as a domino graft for other
+  biliary cirrhotic patients. A 22-month-old male child diagnosed as a case of classic
+  MSUD underwent LDLT from an altruistic aunt as donor following which his serum leucine
+  levels normalized on an unrestricted protein diet. His liver was used as a domino
+  graft. A 38-month-old female child with diagnosed MSUD underwent LDLT from a swap
+  donor, and her liver was used as a domino graft. Her DQ improved post-transplant.
+  LDLT from non-heterozygous donors is a cure for classical MSUD. Their livers can
+  be used as domino grafts for non-MSUD cases. "
+raw_completion_output: |-
+  Here are the extracted entities in the requested format:
+
+  primary_disease: Maple Syrup Urine Disease (MSUD)
+
+  medical_actions: Liver Transplantation; Living Donor Liver Transplantation (LDLT); protein-restricted diet
+
+  symptoms: encephalopathy; sudden death; acute metabolic decompensation
+
+  chemicals: leucine; isoleucine; valine; ketoacids; BCKAD
+
+  action_annotation_relationships: Liver Transplantation TREATS MSUD; LDLT TREATS MSUD; protein-restricted diet PREVENTS acute metabolic decompensation IN MSUD; Liver Transplantation (with domino graft) TREATS biliary cirrhosis IN non-MSUD patients; LDLT (from non-heterozygous donors) CURES classical MSUD
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  LDLT (from non-heterozygous donors) CURES classical MSUD
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009563
+  medical_actions:
+    - MAXO:0001175
+    - Living Donor Liver Transplantation (LDLT)
+    - protein-restricted diet
+  symptoms:
+    - HP:0001298
+    - HP:0001699
+    - acute metabolic decompensation
+  chemicals:
+    - CHEBI:25017
+    - CHEBI:24898
+    - CHEBI:27266
+    - ketoacids
+    - BCKAD
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: MSUD
+    - predicate: TREATS
+      object: MSUD
+    - predicate: PREVENTS
+      object: acute metabolic decompensation
+      qualifier: MONDO:0009563
+      subject_qualifier: protein-restricted
+      subject_extension: protein-restricted
+    - predicate: TREATS
+      object: HP:0002613
+      qualifier: non-MSUD patients
+      subject_qualifier: with domino graft
+    - predicate: CURES
+      object: classical MSUD
+      subject_qualifier: from non-heterozygous donors

@@ -1,0 +1,118 @@
+---
+input_text: "Early skeletal outcomes after hematopoietic stem and progenitor cell
+  gene therapy for Hurler syndrome. Mucopolysaccharidosis type I Hurler (MPSIH) is
+  characterized by severe and progressive skeletal dysplasia that is not fully addressed
+  by allogeneic hematopoietic stem cell transplantation (HSCT). Autologous hematopoietic
+  stem progenitor cell-gene therapy (HSPC-GT) provides superior metabolic correction
+  in patients with MPSIH compared with HSCT; however, its ability to affect skeletal
+  manifestations is unknown. Eight patients with MPSIH (mean age at treatment: 1.9
+  years) received lentiviral-based HSPC-GT in a phase 1/2 clinical trial (NCT03488394).
+  Clinical (growth, measures of kyphosis and genu velgum), functional (motor function,
+  joint range of motion), and radiological [acetabular index (AI), migration percentage
+  (MP) in hip x-rays and MRIs and spine MRI score] parameters of skeletal dysplasia
+  were evaluated at baseline and multiple time points up to 4 years after treatment.
+  Specific skeletal measures were retrospectively compared with an external cohort
+  of HSCT-treated patients. At a median follow-up of 3.78 years after HSPC-GT, all
+  patients treated with HSPC-GT exhibited longitudinal growth within WHO reference
+  ranges and a median height gain greater than that observed in patients treated with
+  HSCT after 3-year follow-up. Patients receiving HSPC-GT experienced complete and
+  earlier normalization of joint mobility compared with patients treated with HSCT.
+  Mean AI and MP showed progressive decreases after HSPC-GT, suggesting a reduction
+  in acetabular dysplasia. Typical spine alterations measured through a spine MRI
+  score stabilized after HSPC-GT. Clinical, functional, and radiological measures
+  suggested an early beneficial effect of HSPC-GT on MPSIH-typical skeletal features.
+  Longer follow-up is needed to draw definitive conclusions on HSPC-GT's impact on
+  MPSIH skeletal dysplasia."
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Mucopolysaccharidosis type I Hurler (MPSIH), also known as Hurler syndrome
+
+  medical_actions: hematopoietic stem and progenitor cell gene therapy (HSPC-GT); allogeneic hematopoietic stem cell transplantation (HSCT); lentiviral-based HSPC-GT
+
+  symptoms: severe and progressive skeletal dysplasia; kyphosis; genu velgum; limited joint range of motion; acetabular dysplasia; spine alterations
+
+  chemicals: 
+
+  action_annotation_relationships: HSPC-GT TREATS skeletal dysplasia IN MPSIH; HSPC-GT TREATS kyphosis IN MPSIH; HSPC-GT TREATS genu velgum IN MPSIH; HSPC-GT TREATS limited joint range of motion IN MPSIH; HSPC-GT TREATS acetabular dysplasia IN MPSIH; HSPC-GT TREATS spine alterations IN MPSIH; HSCT TREATS skeletal dysplasia IN MPSIH; lentiviral-based HSPC-GT TREATS skeletal dysplasia IN MPSIH
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  lentiviral-based HSPC-GT TREATS skeletal dysplasia IN MPSIH
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0011758
+  medical_actions:
+    - hematopoietic stem and progenitor cell gene therapy (HSPC-GT)
+    - MAXO:0000747
+    - lentiviral-based HSPC-GT
+  symptoms:
+    - severe and progressive skeletal dysplasia
+    - HP:0002808
+    - genu velgum
+    - limited joint range of motion
+    - HP:0008807
+    - spine alterations
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: HP:0002652
+      qualifier: MONDO:0011758
+      subject_extension: HSPC-GT
+    - predicate: TREATS
+      object: HP:0002808
+      qualifier: MPSIH with IN
+      subject_extension: HSPC-GT
+    - predicate: TREATS
+      object: genu velgum
+      qualifier: MONDO:0011758
+      subject_extension: HSPC-GT
+    - predicate: TREATS
+      object: limited joint range of motion
+      qualifier: MONDO:0011758
+    - predicate: TREATS
+      object: HP:0008807
+      qualifier: MONDO:0011758
+    - predicate: TREATS
+      object: spine alterations
+      qualifier: MONDO:0011758
+    - predicate: TREATS
+      object: HP:0002652
+      qualifier: MONDO:0011758
+    - predicate: TREATS
+      object: HP:0002652
+      qualifier: MONDO:0011758
+      subject_extension: lentiviral-based
+named_entities:
+  - id: MONDO:0011758
+    label: Mucopolysaccharidosis type I Hurler (MPSIH), also known as Hurler syndrome
+  - id: MAXO:0000747
+    label: allogeneic hematopoietic stem cell transplantation (HSCT)
+    original_spans:
+      - 240:296
+  - id: HP:0002808
+    label: kyphosis
+    original_spans:
+      - 687:694
+  - id: HP:0008807
+    label: acetabular dysplasia
+    original_spans:
+      - 1568:1587
+  - id: HP:0002652
+    label: skeletal dysplasia
+    original_spans:
+      - 190:207
+      - 891:908
+      - 1896:1913

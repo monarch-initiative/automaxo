@@ -1,0 +1,92 @@
+---
+input_text: RTB lectin-mediated delivery of lysosomal alpha-l-iduronidase mitigates
+  disease manifestations systemically including the central nervous system. Mucopolysaccharidosis
+  type I (MPS I) is a lysosomal disease resulting from deficiency in the alpha-L-iduronidase
+  (IDUA) hydrolase and subsequent accumulation of glycosaminoglycan (GAG). Clinically,
+  enzyme replacement therapy (ERT) with IDUA achieves negligible neurological benefits
+  presumably due to blood-brain-barrier (BBB) limitations. To investigate the plant
+  lectin ricin B chain (RTB) as a novel carrier for enzyme delivery to the brain,
+  an IDUA:RTB fusion protein (IDUAL), produced in N. benthamiana leaves, was tested
+  in a murine model of Hurler syndrome (MPS I). Affect mice (n=3 for each group) were
+  intravenously injected with a single dose of IDUAL (0.58, 2 or 5.8mgIDUAequivalents/kg)
+  and analyzed after 24h. IDUA activities in liver, kidney and spleen increased significantly,
+  and liver GAG levels were significantly reduced in all three groups. Plasma IDUA
+  levels for all treated groups were high at 1h after injection and decreased by 95%
+  at 4h, indicating efficient distribution into tissues. For long-term evaluations,
+  IDUAL (0.58 or 2mg/kg, 8 weekly injections) was intravenously injected into MPS
+  I mice (n=12 for each group). Thirteen days after the 8th injection, significant
+  IDUA activity was detected in the liver and spleen. GAG levels in tissues including
+  the brain cortex and cerebellum were significantly reduced in treated animals. Treated
+  MPS I mice also showed significant improvement in neurocognitive testing. ELISA
+  results showed that while there was a significant antibody response against IDUAL
+  and plant-derived IDUA, there was no significant antibody response to RTB. No major
+  toxicity or adverse events were observed. Together, these results showed that infusion
+  of IDUAL allowed for significant IDUA levels and GAG reduction in the brain and
+  subsequent neurological benefits. This RTB-mediated delivery may have significant
+  implications for therapeutic protein delivery impacting a broad spectrum of lysosomal,
+  and potentially neurological diseases.
+raw_completion_output: |-
+  primary_disease: Mucopolysaccharidosis type I (MPS I)
+  medical_actions: enzyme replacement therapy (ERT) with IDUA; intravenous injection of IDUAL
+  symptoms: disease manifestations; negligible neurological benefits; GAG accumulation; neurocognitive impairment
+  chemicals: alpha-L-iduronidase (IDUA)
+  action_annotation_relationships: enzyme replacement therapy (ERT) with IDUA TREATS symptom negligible neurological benefits IN Mucopolysaccharidosis type I (MPS I); intravenous injection of IDUAL TREATS symptom neurocognitive impairment IN Mucopolysaccharidosis type I (MPS I); intravenous injection of IDUAL TREATS symptom disease manifestations IN Mucopolysaccharidosis type I (MPS I); intravenous injection of IDUAL (with chemical alpha-L-iduronidase) TREATS symptom GAG accumulation IN Mucopolysaccharidosis type I (MPS I)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  intravenous injection of IDUAL (with chemical alpha-L-iduronidase) TREATS symptom GAG accumulation IN Mucopolysaccharidosis type I (MPS I)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:1012617
+  medical_actions:
+    - enzyme replacement therapy (ERT) with IDUA
+    - intravenous injection of IDUAL
+  symptoms:
+    - disease manifestations
+    - negligible neurological benefits
+    - GAG accumulation
+    - neurocognitive impairment
+  chemicals:
+    - alpha-L-iduronidase (IDUA)
+  action_annotation_relationships:
+    - subject: enzyme replacement therapy (ERT)
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:1012617
+      subject_qualifier: with IDUA
+      subject_extension: IDUA
+      object_extension: negligible
+    - subject: intravenous injection
+      predicate: TREATS
+      object: neurocognitive impairment
+      qualifier: MONDO:1012617
+      subject_qualifier: intravenous
+      subject_extension: IDUAL
+      object_extension: neurocognitive impairment
+    - subject: intravenous injection
+      predicate: TREATS
+      object: symptom disease manifestations
+      qualifier: MONDO:1012617
+      subject_qualifier: intravenous
+      object_qualifier: N/A
+      subject_extension: IDUAL
+      object_extension: symptom disease manifestations
+    - subject: intravenous injection
+      predicate: TREATS
+      object: GAG accumulation
+      qualifier: MONDO:0001586
+      subject_extension: alpha-L-iduronidase
+      object_extension: GAG accumulation

@@ -1,0 +1,109 @@
+---
+input_text: "Safety outcomes and patients' preferences for home-based intravenous
+  enzyme replacement therapy (ERT) in pompe disease and mucopolysaccharidosis type
+  I (MPS I) disorder: COVID-19 and beyond. BACKGROUND: The Italian Medicines Agency
+  (AIFA) demands precise information on benefit/risk profile of home-based enzyme
+  replacement therapy (ERT) for the treatment of patients with Pompe disease and Mucopolysaccharidosis
+  type I (MPS I). This passage is necessary to obtain the authorization for ERT home
+  therapy, even after the coronavirus disease-19 (COVID-19) pandemic period. This
+  research intends to evaluate the safety, treatment satisfaction, and compliance
+  of MPS I patients treated with laronidase (Aldurazyme ) and Pompe Disease patients
+  treated with alglucosidase alfa (Myozyme ) in a homecare setting. RESULTS: We report
+  herein an early interim analysis of the HomERT (Home infusions of ERT) study, a
+  multicenter, non-interventional, double-cohort study that retrospectively analyzed
+  38 patients from 14 sites in Italy: cohort A (Pompe disease - 32 patients) and cohort
+  B (MPS I - 6 patients). Among the selected patients who started home therapy before
+  enrollment, the average number of missed home-based infusions was 0.7 (1.3) in cohort
+  A and 3.8 (6.4) in cohort B with no return to the hospital setting. Irrespective
+  of the treatment location, 3 prior ADRs per cohort were reported. The majority of
+  patients preferred home-based infusions (cohort A: 96.9%; cohort B: 100%): the main
+  reason was attributed to treatment convenience (cohort A: 81.3%; cohort B: 83.3%).
+  Despite the underlying conditions, most patients self-evaluated their health as
+  \"good\" (cohort A: 50%; cohort B: 83.3%). CONCLUSIONS: Evidence of favorable safety
+  profile, improved treatment compliance and personal satisfaction validates the use
+  of ERT with laronidase and alglucosidase alfa as a strong candidate for home therapy."
+raw_completion_output: |-
+  primary_disease: Pompe disease; Mucopolysaccharidosis type I (MPS I)
+  medical_actions: home-based intravenous enzyme replacement therapy (ERT); treatment with laronidase; treatment with alglucosidase alfa
+  symptoms: missed home-based infusions; prior ADRs; self-evaluated health as "good"
+  chemicals: laronidase; alglucosidase alfa
+  action_annotation_relationships: treatment with laronidase TREATS missed home-based infusions IN Pompe disease; treatment with alglucosidase alfa TREATS missed home-based infusions IN Mucopolysaccharidosis type I (MPS I); treatment with laronidase TREATS prior ADRs IN Pompe disease; treatment with alglucosidase alfa TREATS prior ADRs IN Mucopolysaccharidosis type I (MPS I); treatment with laronidase TREATS self-evaluated health as "good" IN Pompe disease; treatment with alglucosidase alfa TREATS self-evaluated health as "good" IN Mucopolysaccharidosis type I (MPS I)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  treatment with alglucosidase alfa TREATS self-evaluated health as good IN Mucopolysaccharidosis type I (MPS I)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:1012617
+  medical_actions:
+    - home-based intravenous enzyme replacement therapy (ERT)
+    - treatment with laronidase
+    - treatment with alglucosidase alfa
+  symptoms:
+    - missed home-based infusions
+    - prior ADRs
+    - self-evaluated health as good
+  chemicals:
+    - laronidase
+    - alglucosidase alfa
+  action_annotation_relationships:
+    - subject: treatment
+      predicate: TREATS
+      object: missed home-based infusions
+      qualifier: MONDO:0009290
+      subject_extension: laronidase
+      object_extension: missed home-based infusions
+    - subject: treatment
+      predicate: TREATS
+      object: missed home-based infusions
+      qualifier: MONDO:1012617
+      subject_extension: alglucosidase alfa
+      object_extension: missed home-based infusions
+    - subject: treatment
+      predicate: TREATS
+      object: HP:0020172
+      qualifier: MONDO:0009290
+      subject_qualifier: with laronidase
+      object_qualifier: prior
+      subject_extension: laronidase
+      object_extension: prior ADRs
+    - subject: treatment
+      predicate: TREATS
+      object: prior ADRs
+      qualifier: MONDO:1012617
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: alglucosidase alfa
+      object_extension: None
+    - subject: treatment
+      predicate: TREATS
+      object: self-evaluated health
+      qualifier: MONDO:0009290
+      subject_extension: laronidase
+      object_extension: self-evaluated health
+    - subject: treatment
+      predicate: TREATS
+      object: health
+      qualifier: MONDO:1012617
+      subject_qualifier: none
+      object_qualifier: self-evaluated
+      subject_extension: alglucosidase alfa
+      object_extension: self-evaluated health
+named_entities:
+  - id: HP:0020172
+    label: ADRs
+    original_spans:
+      - 1359:1362

@@ -1,0 +1,74 @@
+---
+input_text: 'MPS I: Early diagnosis, bone disease and treatment, where are we now?
+  Mucopolysaccharidosis type I (MPS I) is a lysosomal storage disorder characterized
+  by alpha-L-iduronidase deficiency. Patients present with a broad spectrum of disease
+  severity ranging from the most severe phenotype (Hurler) with devastating neurocognitive
+  decline, bone disease and early death to intermediate (Hurler-Scheie) and more attenuated
+  (Scheie) phenotypes, with a normal life expectancy. The most severely affected patients
+  are preferably treated with hematopoietic stem cell transplantation, which halts
+  the neurocognitive decline. Patients with more attenuated phenotypes are treated
+  with enzyme replacement therapy. There are several challenges to be met in the treatment
+  of MPS I patients. First, to optimize outcome, early recognition of the disease
+  and clinical phenotype is needed to guide decisions on therapeutic strategies. Second,
+  there is thus far no effective treatment available for MPS I bone disease. The pathophysiological
+  mechanisms behind bone disease are largely unknown, limiting the development of
+  effective therapeutic strategies. This article is a state of the art that comprehensively
+  discusses three of the most urgent open issues in MPS I: early diagnosis of MPS
+  I patients, pathophysiology of MPS I bone disease, and emerging therapeutic strategies
+  for MPS I bone disease.'
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Mucopolysaccharidosis type I (MPS I)
+
+  medical_actions: hematopoietic stem cell transplantation; enzyme replacement therapy
+
+  symptoms: neurocognitive decline; bone disease; devastating neurocognitive decline; early death
+
+  chemicals: alpha-L-iduronidase
+
+  action_annotation_relationships: hematopoietic stem cell transplantation TREATS neurocognitive decline IN MPS I; enzyme replacement therapy TREATS MPS I; alpha-L-iduronidase deficiency ASSOCIATED_WITH MPS I; hematopoietic stem cell transplantation TREATS MPS I (Hurler)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  hematopoietic stem cell transplantation TREATS MPS I (Hurler)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:1012617
+  medical_actions:
+    - MAXO:0000747
+    - enzyme replacement therapy
+  symptoms:
+    - neurocognitive decline
+    - bone disease
+    - devastating neurocognitive decline
+    - early death
+  chemicals:
+    - alpha-L-iduronidase
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: neurocognitive decline
+      qualifier: MONDO:1012617
+      subject_extension: hematopoietic stem cell
+    - predicate: TREATS
+      object: MPS I
+      subject_extension: enzyme
+    - predicate: ASSOCIATED_WITH
+      object: MPS I
+    - predicate: TREATS
+      object: MPS I
+      qualifier: Hurler
+      subject_extension: hematopoietic

@@ -1,6 +1,6 @@
 import click
 import src.automaxo as automaxo
-from automaxo import import_mesh_data, pmid_extractor, process_article_jsons_to_tsv, process_ontogpt_articles, process_triplets_and_mesh, ontology_validation
+from automaxo import import_mesh_data, pmid_extractor, process_article_jsons_to_tsv, text_filter, process_ontogpt_articles, process_triplets_and_mesh, ontology_validation
 
 class AutoMaxoRunner:
     def __init__(self, disease_name, max_articles_to_save):
@@ -9,7 +9,9 @@ class AutoMaxoRunner:
         self.base_data_path = f"data/{disease_name.replace(' ', '_')}/"
         self.json_files_dir = self.base_data_path + "pubtator3_json/"
         self.mesh_info_file_path = self.base_data_path + "selected_pmid_mesh_info.json"
+        self.finetuned_pubmed_bert_model_dir = "ml_optimisation/finetuned_pubmedbert/"
         self.no_replaced_tsv_file_path = self.base_data_path + f"{disease_name.replace(' ', '_')}_no_replaced.tsv"
+        self.filtered_tsv_file_path = self.base_data_path + f"{disease_name.replace(' ', '_')}_filtered.tsv"
         self.poet_replaced_tsv_file_path = self.base_data_path + f"{disease_name.replace(' ', '_')}_poet_replaced.tsv"
         self.ontogpt_yaml_files_dir = self.base_data_path + "ontoGPT_yaml/"
         self.output_json_path = self.base_data_path + "detailed_post_ontoGPT.json"
@@ -31,10 +33,17 @@ class AutoMaxoRunner:
             self.json_files_dir,
             self.no_replaced_tsv_file_path
             )
+        
+        print(f"Starting to filter relevant articles using fine-tuned pubmed_bert each row is title and abstract ...")
+        text_filter(
+            self.no_replaced_tsv_file_path,
+            self.finetuned_pubmed_bert_model_dir,
+            self.filtered_tsv_file_path
+            )
 
         print(f"Starting integration of OntoGPT article by article ...")
         process_ontogpt_articles(
-            self.no_replaced_tsv_file_path, 
+            self.filtered_tsv_file_path, 
             self.ontogpt_yaml_files_dir, 
             template='maxo'
             )

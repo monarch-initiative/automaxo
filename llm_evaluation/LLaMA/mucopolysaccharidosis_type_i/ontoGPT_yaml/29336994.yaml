@@ -1,0 +1,92 @@
+---
+input_text: 'Agreement between the results of meta-analyses from case reports and
+  from clinical studies regarding the efficacy of laronidase therapy in patients with
+  mucopolysaccharidosis type I who initiated enzyme replacement therapy in adult age:
+  An example of case reports meta-analyses as an useful tool for evidence-based medicine
+  in rare diseases. BACKGROUND: Case reports might have a prominent role in the rare
+  diseases field, due to the small number of patients affected by one such disease.
+  A previous systematic review regarding the efficacy of laronidase therapy in patients
+  with mucopolysaccharidosis type I (MPS-I) who initiated enzyme replacement therapy
+  (ERT) in adult age has been published. The review included a meta-analysis of 19
+  clinical studies and the description of eleven case reports. It was of interest
+  to perform a meta-analysis of those case reports to explore the role of such meta-analyses
+  as a tool for evidence-based medicine in rare diseases. METHODS: The study included
+  all case reports with standard treatment regimen. Primary analysis was the percentage
+  of case reports showing an improvement in a specific outcome. Only when that percentage
+  was statistically higher than 5%, the improvement was confirmed as such. The outcomes
+  that accomplished this criterion were ranked and compared to the GRADE criteria
+  obtained by those same outcomes in the previous meta-analysis of clinical studies.
+  RESULTS: There were three outcomes that had a significant improvement: Urine glycosaminoglycans,
+  liver volume and 6-minute walking test. Positive and negative predictive values,
+  sensitivity and specificity for the results of the meta-analysis of case reports
+  as compared to that of clinical studies were 100%, 88.9%, 75% and 100%, respectively.
+  Accordingly, absolute (Rho=0.82, 95%CI: 0.47 to 0.95) and relative agreement (Kappa=0.79,
+  95%CI: 0.593 to 0.99) between the number of case reports with improvement in a specific
+  outcome and the GRADE evidence score for that outcome were good. Sensitivity analysis
+  showed that agreement between the meta-analysis of case reports and that of the
+  clinical studies were good only when using a strong confirmatory strategy for outcome
+  improvement in case reports. CONCLUSIONS: We found an agreement between the results
+  of meta-analyses from case reports and from clinical studies in the efficacy of
+  laronidase therapy in patients with MPS-I who initiated ERT in adult age. This agreement
+  suggests that combining case reports quantitatively, rather than analyzing them
+  separately or qualitatively, may improve conclusions in the field of rare diseases.'
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Mucopolysaccharidosis type I (MPS-I)
+
+  medical_actions: Enzyme replacement therapy (ERT); laronidase therapy
+
+  symptoms: Urine glycosaminoglycans; liver volume; 6-minute walking test
+
+  chemicals: Laronidase
+
+  action_annotation_relationships: Laronidase TREATS urine glycosaminoglycans IN MPS-I; Laronidase TREATS liver volume IN MPS-I; Laronidase TREATS 6-minute walking test IN MPS-I; ERT TREATS MPS-I
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  ERT TREATS MPS-I
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0001586
+  medical_actions:
+    - Enzyme replacement therapy (ERT)
+    - laronidase therapy
+  symptoms:
+    - Urine glycosaminoglycans
+    - liver volume
+    - 6-minute walking test
+  chemicals:
+    - Laronidase
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: urine glycosaminoglycans
+      qualifier: MPS-I
+      subject_extension: laronidase
+    - predicate: TREATS
+      object: liver volume
+      qualifier: MPS-I
+    - predicate: TREATS
+      object: 6-minute walking test
+      qualifier: MPS-I
+    - predicate: TREATS
+      object: MPS-I
+      qualifier: MPS-I
+named_entities:
+  - id: MONDO:0001586
+    label: Mucopolysaccharidosis type I (MPS-I)
+    original_spans:
+      - 580:615

@@ -1,0 +1,124 @@
+---
+input_text: Bone marrow transplant using fludarabine-based reduced intensity conditioning
+  regimen with in vivo T cell depletion in patients with Fanconi anemia. FA is the
+  most common cause of inherited BMF syndromes. The only cure for BMF in FA remains
+  HSCT. Due to DNA instability in FA, RIC has been used to decrease immediate and
+  late complications of HSCT. Most FA conditioning regimens in mismatched and unrelated
+  donor transplants rely on TBI, which increases the risk of secondary malignancies.
+  Most of the non-TBI conditioning regimens use an ex vivo T-cell depletion approach,
+  but this is not feasible at all pediatric stem cell transplant programs. To evaluate
+  the success of HSCT in patients with FA using non-TBI conditioning regimens with
+  in vivo T-cell depletion approach. HSCT using non-TBI based conditioning was performed
+  on two siblings with FA. The first sibling underwent matched unrelated donor transplant
+  with a BM graft using fludarabine, alemtuzumab, busulfan, and cyclophosphamide conditioning
+  and cyclosporine and mycophenolate as GVHD prophylaxis. The second sibling underwent
+  MSD transplant with UCB and BM grafts using similar approach, but without busulfan
+  and mycophenolate. Both siblings had engraftment without signs of acute or chronic
+  GVHD. Acute post-transplant complications included brief viral reactivations. At
+  last follow-up, both siblings continued to have full immune reconstitution with
+  stable chimerism. Conditioning regimens without radiation and inclusion of alemtuzumab
+  can lead to successful engraftment without development of GVHD and reduce risk of
+  developing secondary neoplasms, even with unrelated donor transplants.
+raw_completion_output: |-
+  Here are the extracted entities in the requested format:
+
+  primary_disease: Fanconi anemia (FA)
+
+  medical_actions: Bone marrow transplant; HSCT (Hematopoietic Stem Cell Transplantation); fludarabine-based reduced intensity conditioning regimen; in vivo T cell depletion; TBI (Total Body Irradiation); ex vivo T-cell depletion; GVHD prophylaxis; cyclosporine and mycophenolate treatment; alemtuzumab treatment; busulfan and cyclophosphamide conditioning
+
+  symptoms: inherited BMF (Bone Marrow Failure) syndromes; DNA instability; secondary malignancies; acute GVHD; chronic GVHD; viral reactivations
+
+  chemicals: fludarabine; alemtuzumab; busulfan; cyclophosphamide; cyclosporine; mycophenolate
+
+  action_annotation_relationships: HSCT TREATS inherited BMF syndromes IN Fanconi anemia; fludarabine-based reduced intensity conditioning regimen TREATS DNA instability IN Fanconi anemia; alemtuzumab TREATS GVHD IN Fanconi anemia; cyclosporine and mycophenolate TREATS GVHD IN Fanconi anemia; busulfan and cyclophosphamide conditioning TREATS inherited BMF syndromes IN Fanconi anemia; conditioning regimens without radiation PREVENTS secondary malignancies IN Fanconi anemia; alemtuzumab PREVENTS GVHD IN Fanconi anemia; HSCT with fludarabine, alemtuzumab, busulfan, and cyclophosphamide TREATS inherited BMF syndromes IN Fanconi anemia; HSCT with non-TBI based conditioning TREATS inherited BMF syndromes IN Fanconi anemia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  HSCT with non-TBI based conditioning TREATS inherited BMF syndromes IN Fanconi anemia
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0100339
+  medical_actions:
+    - Bone marrow transplant
+    - MAXO:0000747
+    - fludarabine-based reduced intensity conditioning regimen
+    - in vivo T cell depletion
+    - TBI (Total Body Irradiation)
+    - ex vivo T-cell depletion
+    - GVHD prophylaxis
+    - cyclosporine and mycophenolate treatment
+    - alemtuzumab treatment
+    - busulfan and cyclophosphamide conditioning
+  symptoms:
+    - HP:0005528
+    - DNA instability
+    - secondary malignancies
+    - acute GVHD
+    - chronic GVHD
+    - viral reactivations
+  chemicals:
+    - fludarabine
+    - alemtuzumab
+    - CHEBI:28901
+    - CHEBI:4027
+    - CHEBI:4031
+    - CHEBI:62932
+  action_annotation_relationships:
+    - subject: MAXO:0000747
+      predicate: TREATS
+      object: BMF syndromes
+      qualifier: MONDO:0019391
+    - predicate: TREATS
+      object: DNA instability
+      qualifier: MONDO:0019391
+      subject_qualifier: reduced intensity
+      subject_extension: fludarabine-based
+    - predicate: TREATS
+      object: GVHD
+      qualifier: MONDO:0019391
+    - predicate: TREATS
+      object: GVHD
+      qualifier: MONDO:0019391
+      subject_extension: immunosuppressive
+    - predicate: TREATS
+      object: inherited BMF syndromes
+      qualifier: MONDO:0019391
+      subject_extension: conditioning
+    - predicate: PREVENTS
+      object: secondary malignancies
+      qualifier: MONDO:0019391
+      subject_qualifier: without radiation
+    - predicate: PREVENTS
+      object: GVHD
+      qualifier: MONDO:0019391
+      subject_extension: alemtuzumab
+    - predicate: TREATS
+      object: inherited BMF syndromes
+      qualifier: MONDO:0019391
+      subject_qualifier: with fludarabine, alemtuzumab, busulfan, and cyclophosphamide
+      subject_extension: HSCT
+    - predicate: TREATS
+      object: inherited BMF syndromes
+      qualifier: MONDO:0019391
+      subject_qualifier: with non-TBI based conditioning
+      object_qualifier: inherited
+      subject_extension: HSCT
+named_entities:
+  - id: CHEBI:62932
+    label: mycophenolate
+    original_spans:
+      - 1028:1040
+      - 1179:1191

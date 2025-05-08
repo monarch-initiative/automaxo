@@ -1,0 +1,134 @@
+---
+input_text: "Early skeletal outcomes after hematopoietic stem and progenitor cell
+  gene therapy for Hurler syndrome. Mucopolysaccharidosis type I Hurler (MPSIH) is
+  characterized by severe and progressive skeletal dysplasia that is not fully addressed
+  by allogeneic hematopoietic stem cell transplantation (HSCT). Autologous hematopoietic
+  stem progenitor cell-gene therapy (HSPC-GT) provides superior metabolic correction
+  in patients with MPSIH compared with HSCT; however, its ability to affect skeletal
+  manifestations is unknown. Eight patients with MPSIH (mean age at treatment: 1.9
+  years) received lentiviral-based HSPC-GT in a phase 1/2 clinical trial (NCT03488394).
+  Clinical (growth, measures of kyphosis and genu velgum), functional (motor function,
+  joint range of motion), and radiological [acetabular index (AI), migration percentage
+  (MP) in hip x-rays and MRIs and spine MRI score] parameters of skeletal dysplasia
+  were evaluated at baseline and multiple time points up to 4 years after treatment.
+  Specific skeletal measures were retrospectively compared with an external cohort
+  of HSCT-treated patients. At a median follow-up of 3.78 years after HSPC-GT, all
+  patients treated with HSPC-GT exhibited longitudinal growth within WHO reference
+  ranges and a median height gain greater than that observed in patients treated with
+  HSCT after 3-year follow-up. Patients receiving HSPC-GT experienced complete and
+  earlier normalization of joint mobility compared with patients treated with HSCT.
+  Mean AI and MP showed progressive decreases after HSPC-GT, suggesting a reduction
+  in acetabular dysplasia. Typical spine alterations measured through a spine MRI
+  score stabilized after HSPC-GT. Clinical, functional, and radiological measures
+  suggested an early beneficial effect of HSPC-GT on MPSIH-typical skeletal features.
+  Longer follow-up is needed to draw definitive conclusions on HSPC-GT's impact on
+  MPSIH skeletal dysplasia."
+raw_completion_output: |-
+  primary_disease: Mucopolysaccharidosis type I Hurler (MPSIH)
+
+  medical_actions: hematopoietic stem cell transplantation (HSCT); autologous hematopoietic stem progenitor cell-gene therapy (HSPC-GT); clinical assessment (growth measurement, kyphosis and genu velgum evaluation); functional assessment (motor function evaluation, joint range of motion assessment); radiological assessment (acetabular index, migration percentage in hip x-rays and MRIs, spine MRI score evaluation)
+
+  symptoms: severe and progressive skeletal dysplasia; growth impairment; kyphosis; genu velgum; limited joint mobility; acetabular dysplasia; spine alterations
+
+  chemicals: lentiviral-based gene therapy
+
+  action_annotation_relationships: HSPC-GT TREATS severe and progressive skeletal dysplasia IN Mucopolysaccharidosis type I Hurler (MPSIH); HSPC-GT (with lentiviral-based gene therapy) TREATS growth impairment IN Mucopolysaccharidosis type I Hurler (MPSIH); clinical assessment (growth measurement, kyphosis and genu velgum evaluation) MONITORS kyphosis IN Mucopolysaccharidosis type I Hurler (MPSIH); clinical assessment (growth measurement, kyphosis and genu velgum evaluation) MONITORS genu velgum IN Mucopolysaccharidosis type I Hurler (MPSIH); functional assessment (motor function evaluation, joint range of motion assessment) MONITORS limited joint mobility IN Mucopolysaccharidosis type I Hurler (MPSIH); radiological assessment (acetabular index, migration percentage in hip x-rays and MRIs, spine MRI score evaluation) MONITORS acetabular dysplasia IN Mucopolysaccharidosis type I Hurler (MPSIH); radiological assessment (acetabular index, migration percentage in hip x-rays and MRIs, spine MRI score evaluation) MONITORS spine alterations IN Mucopolysaccharidosis type I Hurler (MPSIH)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  radiological assessment (acetabular index, migration percentage in hip x-rays and MRIs, spine MRI score evaluation) MONITORS spine alterations IN Mucopolysaccharidosis type I Hurler (MPSIH)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0011758
+  medical_actions:
+    - MAXO:0000747
+    - autologous hematopoietic stem progenitor cell-gene therapy (HSPC-GT)
+    - MAXO:0000487
+    - functional assessment (motor function evaluation, joint range of motion assessment)
+    - radiological assessment (acetabular index, migration percentage in hip x-rays
+      and MRIs, spine MRI score evaluation)
+  symptoms:
+    - severe and progressive skeletal dysplasia
+    - growth impairment
+    - HP:0002808
+    - genu velgum
+    - HP:0001376
+    - HP:0008807
+    - spine alterations
+  chemicals:
+    - lentiviral-based gene therapy
+  action_annotation_relationships:
+    - subject: HSPC-GT
+      predicate: TREATS
+      object: severe and progressive skeletal dysplasia
+      qualifier: MONDO:0011758
+      object_qualifier: severe
+      subject_extension: HSPC-GT
+    - subject: HSPC-GT
+      predicate: TREATS
+      object: growth impairment
+      qualifier: MONDO:0011758
+      subject_qualifier: with
+      subject_extension: lentiviral-based gene therapy
+    - subject: MAXO:0000487
+      predicate: MONITORS
+      object: HP:0002808
+      qualifier: MONDO:0011758
+    - subject: MAXO:0000487
+      predicate: MONITORS
+      object: genu velgum
+      qualifier: MONDO:0011758
+    - subject: functional assessment
+      predicate: MONITORS
+      object: HP:0001376
+      qualifier: MONDO:0011758
+      subject_qualifier: motor function evaluation, joint range of motion assessment
+    - subject: <radiological assessment>
+      predicate: <MONITORS>
+      object: <acetabular dysplasia>
+      qualifier: MONDO:0011758
+      subject_qualifier: <acetabular index, migration percentage in hip x-rays and
+        MRIs, spine MRI score evaluation>
+      object_qualifier: <NA>
+      subject_extension: <NA>
+      object_extension: <NA>
+    - subject: radiological assessment
+      predicate: MONITORS
+      object: spine alterations
+      qualifier: MONDO:0011758
+      subject_qualifier: acetabular index, migration percentage in hip x-rays and
+        MRIs, spine MRI score evaluation
+named_entities:
+  - id: MONDO:0001586
+    label: mucopolysaccharidosis type I
+  - id: MONDO:1012617
+    label: Mucopolysaccharidosis Type I (MPS I)
+  - id: CHEBI:60285
+    label: DOPE
+  - id: MAXO:0001521
+    label: nasal administration
+  - id: MONDO:0011758
+    label: Mucopolysaccharidosis type I Hurler (MPSIH)
+  - id: MAXO:0000747
+    label: hematopoietic stem cell transplantation (HSCT)
+  - id: MAXO:0000487
+    label: clinical assessment (growth measurement, kyphosis and genu velgum evaluation)
+  - id: HP:0002808
+    label: kyphosis
+  - id: HP:0001376
+    label: limited joint mobility
+  - id: HP:0008807
+    label: acetabular dysplasia

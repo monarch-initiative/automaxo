@@ -1,0 +1,68 @@
+---
+input_text: 'Maple syrup urine disease: tailoring a plan for pregnancy. Maple syrup
+  urine disease (MSUD) is an autosomal metabolic condition that can cause significant
+  morbidity in pregnant women and their infants. Advances in nutritional management
+  mean more mothers with congenital metabolic disorders are becoming pregnant, and
+  presenting challenges in obstetric care. In particular, the increase in protein
+  requirements during pregnancy and metabolic stress of childbirth require careful
+  planning and caloric titration. We report a case of a second time mother with MSUD
+  and demonstrate a treatment scaffold to help achieve successful pregnancies for
+  women with this and similar conditions.'
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Maple syrup urine disease (MSUD)
+
+  medical_actions: nutritional management; careful planning; caloric titration; treatment
+
+  symptoms: significant morbidity; metabolic stress
+
+  chemicals: 
+
+  action_annotation_relationships: nutritional management TREATS significant morbidity IN Maple syrup urine disease; careful planning TREATS metabolic stress IN Maple syrup urine disease; caloric titration TREATS metabolic stress IN Maple syrup urine disease; treatment TREATS significant morbidity IN Maple syrup urine disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  treatment TREATS significant morbidity IN Maple syrup urine disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009563
+  medical_actions:
+    - nutritional management
+    - careful planning
+    - caloric titration
+    - treatment
+  symptoms:
+    - significant morbidity
+    - metabolic stress
+  action_annotation_relationships:
+    - subject: management
+      predicate: TREATS
+      object: morbidity
+      qualifier: MONDO:0009563
+      subject_qualifier: nutritional
+      object_qualifier: significant
+      subject_extension: nutritional
+      object_extension: significant
+    - predicate: TREATS
+      object: metabolic stress
+      qualifier: MONDO:0009563
+    - predicate: TREATS
+      object: metabolic stress
+      qualifier: MONDO:0009563
+    - predicate: TREATS
+      object: significant morbidity
+      qualifier: MONDO:0009563

@@ -1,0 +1,91 @@
+---
+input_text: The Impact of Diet on Body Composition in a Cohort of Pediatric and Adult
+  Patients with Maple Syrup Urine Disease. The treatment for Maple Syrup Urine Disease
+  (MSUD) consists of a hypoproteic diet with integration therapy to limit leucine
+  intake, ensuring adequate energy, macronutrients, and micronutrients to prevent
+  catabolism and promote anabolism. We conducted a retrospective cross-sectional study
+  at the Metabolic Rare Disease Unit, Fondazione IRCCS San Gerardo dei Tintori, Monza,
+  Italy. Patients with MSUD who were over 3 years old, not treated with liver transplantation,
+  and who provided written consent, were included. The study aimed to describe the
+  dietary treatment of patients with MSUD, evaluate growth data, and analyze the effect
+  of a low-protein and semi-synthetic diet on body composition. Data on height, weight,
+  BMI, waist circumference, food intake, physical activity, and DEXA scans were collected.
+  Thirteen subjects (11 classic MSUD, 2 intermediate MSUD) were included, of which
+  5 < 18 years old. Results indicated that patients with MSUD follow a balanced diet
+  and have body compositions like healthy subjects in terms of fat and lean mass.
+  A high incidence of osteopenia was observed from a young age, with a positive correlation
+  between protein intake and lean mass and a negative correlation between BCAA-free
+  mixture consumption and bone mineral density z-score. The study highlights the positive
+  effects and potential consequences of the semi-synthetic diet on the body composition
+  of patients with MSUD. A similar study involving all Italian metabolic centers treating
+  MSUD is recommended.
+raw_completion_output: |-
+  primary_disease: Maple Syrup Urine Disease  
+  medical_actions: hypoproteic diet; integration therapy; dietary treatment  
+  symptoms: osteopenia; low bone mineral density  
+  chemicals: leucine; BCAA-free mixture  
+  action_annotation_relationships: hypoproteic diet TREATS osteopenia IN Maple Syrup Urine Disease; integration therapy TREATS low bone mineral density IN Maple Syrup Urine Disease; dietary treatment TREATS osteopenia IN Maple Syrup Urine Disease; dietary treatment TREATS low bone mineral density IN Maple Syrup Urine Disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  dietary treatment TREATS low bone mineral density IN Maple Syrup Urine Disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009563
+  medical_actions:
+    - hypoproteic diet
+    - integration therapy
+    - dietary treatment
+  symptoms:
+    - HP:0000938
+    - low bone mineral density
+  chemicals:
+    - CHEBI:25017
+    - BCAA-free mixture
+  action_annotation_relationships:
+    - subject: <hypoproteic diet>
+      predicate: <TREATS>
+      object: <osteopenia>
+      qualifier: <Maple Syrup Urine Disease>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <diet>
+      object_extension: <diet>
+    - subject: integration therapy
+      predicate: TREATS
+      object: low bone mineral density
+      qualifier: MONDO:0009563
+      subject_extension: integration therapy
+      object_extension: low bone mineral density
+    - subject: dietary treatment
+      predicate: TREATS
+      object: HP:0000938
+      qualifier: MONDO:0009563
+      subject_extension: dietary treatment
+      object_extension: osteopenia
+    - subject: dietary treatment
+      predicate: TREATS
+      object: low bone mineral density
+      qualifier: MONDO:0009563
+      subject_qualifier: 'NULL'
+      object_qualifier: 'NULL'
+      subject_extension: dietary treatment
+      object_extension: low bone mineral density
+named_entities:
+  - id: HP:0000938
+    label: osteopenia
+    original_spans:
+      - 1188:1197

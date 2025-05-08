@@ -1,0 +1,76 @@
+---
+input_text: 'Continuous Venovenous Hemodiafiltration in the Treatment of Maple Syrup
+  Urine Disease. BACKGROUND: The study aims to define the efficacy of continuous renal
+  replacement therapy in acute metabolic decompensation treatment of maple syrup urine
+  disease (MSUD). METHODS: All the neonates, infants and children who have had life
+  threatening conditions due to MSUD and were treated with continuous venovenous hemodiafiltration
+  (CVVHDF) were analyzed retrospectively. RESULTS: Fourteen patients underwent 15
+  sessions of CVVHDF (age range 15 days to 87 months, mean 40.8 +- 31.4 months). One
+  patient required additional CVVHDF 1 week after cessation of CVVHDF. Twenty seven
+  percent (n = 4) of the patients were intubated and mechanically ventilated. Twelve
+  patients responded to treatment and dramatic neurological improvement was observed
+  within 24 h. Two of the 14 patients required 36 h of CVVHDF for neurological improvement.
+  The mean duration of CVVHDF was 20.2 +- 8.6 (9-36) h. The mean leucine level was
+  1,648 +- 623.8 (714-2,768) mumol/l before and was 256.5 +- 150.6 (117-646) mumol/l
+  at the end of treatment. No mortality was observed. CONCLUSION: Continuous hemodiafiltration
+  is an effective and safe method in correcting metabolic disturbances in MSUD.'
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Maple Syrup Urine Disease (MSUD)
+
+  medical_actions: Continuous Venovenous Hemodiafiltration (CVVHDF); Continuous renal replacement therapy
+
+  symptoms: life threatening conditions; metabolic decompensation; high leucine levels; neurological deterioration
+
+  chemicals: Leucine
+
+  action_annotation_relationships: Continuous Venovenous Hemodiafiltration (CVVHDF) TREATS metabolic decompensation IN Maple Syrup Urine Disease (MSUD); Continuous Venovenous Hemodiafiltration (CVVHDF) TREATS high leucine levels IN Maple Syrup Urine Disease (MSUD); Continuous Venovenous Hemodiafiltration (CVVHDF) TREATS neurological deterioration IN Maple Syrup Urine Disease (MSUD); Continuous renal replacement therapy TREATS metabolic decompensation IN Maple Syrup Urine Disease (MSUD)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Continuous renal replacement therapy TREATS metabolic decompensation IN Maple Syrup Urine Disease (MSUD)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009563
+  medical_actions:
+    - Continuous Venovenous Hemodiafiltration (CVVHDF)
+    - Continuous renal replacement therapy
+  symptoms:
+    - life threatening conditions
+    - metabolic decompensation
+    - high leucine levels
+    - neurological deterioration
+  chemicals:
+    - CHEBI:25017
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: metabolic decompensation
+      qualifier: MONDO:0009563
+    - predicate: TREATS
+      object: high leucine levels
+      qualifier: MONDO:0009563
+    - predicate: TREATS
+      object: neurological deterioration
+      qualifier: MONDO:0009563
+    - subject: MAXO:0000600
+      predicate: TREATS
+      object: metabolic decompensation
+      qualifier: MONDO:0009563
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: continuous
+      object_extension: metabolic

@@ -1,0 +1,126 @@
+---
+input_text: Gonadal function in pediatric Fanconi anemia patients treated with hematopoietic
+  stem cell transplant. Gonadal dysfunction and reduced fertility are clinical manifestations
+  well described in patients with Fanconi anemia (FA) and following hematopoietic
+  stem cell transplantation (HSCT). It is difficult to differentiate gonadal dysfunction
+  from the primary disease itself or from HSCT procedures. Therefore, it is important
+  to manage expectations about gonadal failure and infertility for all patients with
+  FA, regardless of HSCT status. We performed a retrospective analysis of 98 pediatric
+  patients with FA who were transplanted between July 1990 to June 2020 to evaluate
+  the incidence of gonadal dysfunction in female and male patients with FA. New onset
+  premature ovarian insufficiency (POI) was diagnosed in a total of 30 (52.6%) patients.
+  Follicle-stimulating hormone (FSH) and luteinizing hormone (LH) levels were increased
+  in patients diagnosed with POI. Anti-Mullerian Hormone (AMH) levels declined in
+  POI patients after HSCT (r2 = 0.21, p = 0.001). Twenty (48.8%) male patients were
+  diagnosed with testicular failure. FSH levels increased after HSCT even in patients
+  without testicular failure (r2=0.17, p=0.005). Inhibin B levels decreased over time
+  after HSCT in patients with testicular failure (r2 = 0.14, p = 0.001). These data
+  indicate brisk decline in already impaired gonadal function in transplanted children
+  with FA.
+raw_completion_output: |-
+  primary_disease: Fanconi anemia  
+  medical_actions: hematopoietic stem cell transplant; management of expectations  
+  symptoms: gonadal dysfunction; reduced fertility; premature ovarian insufficiency; testicular failure  
+  chemicals: follicle-stimulating hormone; luteinizing hormone; Anti-Mullerian Hormone; Inhibin B  
+  action_annotation_relationships: management of expectations TREATS symptom gonadal dysfunction IN Fanconi anemia; management of expectations TREATS symptom reduced fertility IN Fanconi anemia; hematopoietic stem cell transplant TREATS symptom premature ovarian insufficiency IN Fanconi anemia; hematopoietic stem cell transplant TREATS symptom testicular failure IN Fanconi anemia; treatment with follicle-stimulating hormone TREATS symptom gonadal dysfunction IN Fanconi anemia; treatment with luteinizing hormone TREATS symptom gonadal dysfunction IN Fanconi anemia; treatment with Anti-Mullerian Hormone TREATS symptom gonadal dysfunction IN Fanconi anemia; treatment with Inhibin B TREATS symptom testicular failure IN Fanconi anemia.
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  treatment with Inhibin B TREATS symptom testicular failure IN Fanconi anemia.
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0019391
+  medical_actions:
+    - hematopoietic stem cell transplant
+    - management of expectations
+  symptoms:
+    - gonadal dysfunction
+    - reduced fertility
+    - HP:0008209
+    - HP:0000026
+  chemicals:
+    - follicle-stimulating hormone
+    - CHEBI:81568
+    - Anti-Mullerian Hormone
+    - Inhibin B
+  action_annotation_relationships:
+    - subject: management of expectations
+      predicate: TREATS
+      object: gonadal dysfunction
+      qualifier: MONDO:0019391
+      subject_qualifier: <none>
+      object_qualifier: <none>
+      subject_extension: <none>
+      object_extension: <none>
+    - subject: management of expectations
+      predicate: TREATS
+      object: reduced fertility
+      qualifier: MONDO:0019391
+      subject_extension: management of expectations
+      object_extension: fertility
+    - subject: hematopoietic stem cell transplant
+      predicate: TREATS
+      object: HP:0008209
+      qualifier: MONDO:0019391
+      subject_qualifier: N/A
+      object_qualifier: N/A
+      subject_extension: hematopoietic stem cell transplant
+      object_extension: N/A
+    - predicate: TREATS
+      object: HP:0000026
+      qualifier: MONDO:0019391
+      subject_extension: hematopoietic stem cell transplant
+    - subject: treatment with follicle-stimulating hormone
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0019391
+      subject_extension: follicle-stimulating hormone
+      object_extension: gonadal dysfunction
+    - subject: treatment
+      predicate: TREATS
+      object: gonadal dysfunction
+      qualifier: MONDO:0019391
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: CHEBI:81568
+      object_extension: None
+    - predicate: TREATS
+      object: gonadal dysfunction
+      qualifier: MONDO:0019391
+      subject_extension: Anti-Mullerian Hormone
+    - subject: treatment
+      predicate: TREATS
+      object: HP:0000026
+      qualifier: MONDO:0019391
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: Inhibin B
+      object_extension: None
+named_entities:
+  - id: HP:0008209
+    label: premature ovarian insufficiency
+    original_spans:
+      - 758:788
+  - id: HP:0000026
+    label: testicular failure
+    original_spans:
+      - 1108:1125
+      - 1185:1202
+      - 1289:1306
+  - id: CHEBI:81568
+    label: luteinizing hormone
+    original_spans:
+      - 884:902

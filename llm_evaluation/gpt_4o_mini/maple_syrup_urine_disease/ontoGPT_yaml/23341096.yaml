@@ -1,0 +1,102 @@
+---
+input_text: 'Diagnostic tools of early brain disturbances in an asymptomatic neonate
+  with maple syrup urine disease. Maple syrup urine disease (MSUD) is a rare inherited
+  metabolic disorder resulting from the defective activity of branched-chain 2-ketoacid
+  dehydrogenase complex. Routine screening of newborn with tandem mass spectroscopy
+  on the third day of life may detect elevated branched-chain amino acids in blood
+  before the appearance of encephalopathic symptoms in MSUD cases. If undiagnosed
+  by such a routine screening test, patients often present with encephalopathy and
+  seizures. Clinical neurologic examination is supplemented by electroencephalography
+  and imaging. Here, we report abnormal amplitude-integrated electroencephalography,
+  electroencephalography, magnetic resonance imaging, and magnetic resonance imaging
+  spectroscopy findings in a neurologically asymptomatic male newborn who was diagnosed
+  with MSUD at the third week of life. These neurologic disturbances disappeared at
+  the fourth month of life with appropriate special diet. Therefore, even in already
+  asymptomatic cases, early neurologic deterioration of brain metabolism and structure
+  can be detected with these early laboratory findings, indicating the importance
+  of early diagnosis and management. Patients may also benefit from these investigations
+  during the follow-up period. '
+raw_completion_output: |-
+  primary_disease: Maple syrup urine disease  
+  medical_actions: Routine screening; Tandem mass spectroscopy; Clinical neurologic examination; Electroencephalography; Imaging; Special diet  
+  symptoms: Encephalopathy; Seizures; Neurologic disturbances  
+  chemicals: None  
+  action_annotation_relationships: Routine screening TREATS symptom (elevated branched-chain amino acids) IN Maple syrup urine disease; Clinical neurologic examination TREATS symptom (neurologic disturbances) IN Maple syrup urine disease; Electroencephalography TREATS symptom (neurologic disturbances) IN Maple syrup urine disease; Imaging TREATS symptom (neurologic disturbances) IN Maple syrup urine disease; Special diet TREATS symptom (neurologic disturbances) IN Maple syrup urine disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Special diet TREATS symptom (neurologic disturbances) IN Maple syrup urine disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009563
+  medical_actions:
+    - Routine screening
+    - Tandem mass spectroscopy
+    - Clinical neurologic examination
+    - MAXO:0000932
+    - Imaging
+    - Special diet
+  symptoms:
+    - HP:0001298
+    - HP:0001250
+    - Neurologic disturbances
+  chemicals:
+    - None
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: elevated branched-chain amino acids
+      qualifier: MONDO:0009563
+    - subject: <Clinical neurologic examination>
+      predicate: <TREATS>
+      object: <symptom>
+      qualifier: <Maple syrup urine disease>
+      subject_qualifier: <>
+      object_qualifier: <>
+      subject_extension: <neurologic examination>
+      object_extension: <neurologic disturbances>
+    - subject: MAXO:0000932
+      predicate: TREATS
+      object: neurologic disturbances
+      qualifier: MONDO:0009563
+      subject_extension: Electroencephalography
+      object_extension: neurologic disturbances
+    - subject: imaging
+      predicate: TREATS
+      object: neurologic disturbances
+      qualifier: MONDO:0009563
+      subject_qualifier: N/A
+      object_qualifier: N/A
+      subject_extension: imaging
+      object_extension: neurologic disturbances
+    - subject: <diet>
+      predicate: <TREATS>
+      object: <neurologic disturbances>
+      qualifier: <Maple syrup urine disease>
+      subject_qualifier: <special>
+      object_qualifier: <>
+      subject_extension: <diet>
+      object_extension: <neurologic disturbances>
+named_entities:
+  - id: MAXO:0000932
+    label: Electroencephalography
+    original_spans:
+      - 628:649
+      - 710:731
+      - 734:755
+  - id: HP:0001298
+    label: Encephalopathy
+    original_spans:
+      - 548:561

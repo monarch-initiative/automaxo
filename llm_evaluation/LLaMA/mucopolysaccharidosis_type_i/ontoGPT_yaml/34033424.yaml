@@ -1,0 +1,99 @@
+---
+input_text: 'A few challenges in mucopolysaccharidosis type I. Here we describe the
+  current challenges of mucopolysaccharidosis type I: the need for an adequate classification,
+  establishing its relationship to therapeutic indications; an early diagnosis, from
+  neonatal screening, its advantages and barriers, to clinical suspicion of severe
+  and attenuated forms; spinal and eye disease care, from diagnosis to follow-up and
+  treatment; allergic reactions caused by enzyme replacement therapy, their diagnosis
+  and treatment. And lastly, transition to adult care.'
+raw_completion_output: |-
+  Here are the extracted entities in the requested format:
+
+  primary_disease: mucopolysaccharidosis type I
+
+  medical_actions: classification; early diagnosis; neonatal screening; clinical suspicion; spinal and eye disease care; follow-up; treatment; enzyme replacement therapy; transition to adult care
+
+  symptoms: spinal disease; eye disease; allergic reactions
+
+  chemicals: enzyme 
+
+  action_annotation_relationships: classification HELPS establish therapeutic indications IN mucopolysaccharidosis type I; early diagnosis TREATS mucopolysaccharidosis type I; neonatal screening FACILITATES early diagnosis IN mucopolysaccharidosis type I; clinical suspicion DIAGNOSES severe and attenuated forms IN mucopolysaccharidosis type I; spinal and eye disease care TREATS spinal and eye disease IN mucopolysaccharidosis type I; enzyme replacement therapy TREATS mucopolysaccharidosis type I; enzyme replacement therapy CAUSES allergic reactions IN mucopolysaccharidosis type I; treatment TREATS allergic reactions IN mucopolysaccharidosis type I; transition to adult care FACILITATES adult care IN mucopolysaccharidosis type I
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  transition to adult care FACILITATES adult care IN mucopolysaccharidosis type I
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0001586
+  medical_actions:
+    - classification
+    - early diagnosis
+    - neonatal screening
+    - clinical suspicion
+    - spinal and eye disease care
+    - follow-up
+    - treatment
+    - enzyme replacement therapy
+    - transition to adult care
+  symptoms:
+    - spinal disease
+    - HP:0000478
+    - HP:0012393
+  chemicals:
+    - enzyme
+  action_annotation_relationships:
+    - subject: classification
+      predicate: HELPS establish
+      object: indications
+      qualifier: MONDO:0001586
+    - subject: early diagnosis
+      predicate: TREATS
+      object: mucopolysaccharidosis
+    - predicate: FACILITATES
+      object: early diagnosis
+      qualifier: MONDO:0001586
+    - predicate: DIAGNOSES
+      object: severe and attenuated forms
+      qualifier: MONDO:0001586
+      subject_qualifier: clinical
+      object_qualifier: severe and attenuated
+    - predicate: TREATS
+      object: spinal and eye disease
+      qualifier: MONDO:0001586
+    - predicate: TREATS
+      object: mucopolysaccharidosis type I
+      subject_extension: replacement
+    - subject: enzyme replacement therapy
+      predicate: CAUSES
+      object: reactions
+      qualifier: MONDO:0001586
+      subject_extension: replacement
+      object_extension: allergic
+    - predicate: TREATS
+      object: HP:0012393
+      qualifier: MONDO:0001586
+    - predicate: FACILITATES
+      object: adult care
+      qualifier: MONDO:0001586
+named_entities:
+  - id: HP:0000478
+    label: eye disease
+    original_spans:
+      - 361:371
+  - id: HP:0012393
+    label: allergic reactions
+    original_spans:
+      - 422:439

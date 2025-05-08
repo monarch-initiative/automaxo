@@ -1,0 +1,110 @@
+---
+input_text: 'Transcranial pulsed ultrasound facilitates brain uptake of laronidase
+  in enzyme replacement therapy for Mucopolysaccharidosis type I disease. BACKGROUND:
+  Mucopolysaccharidosis type I (MPS I) is a debilitating hereditary disease characterized
+  by alpha-L-iduronidase (IDUA) deficiency and consequent inability to degrade glycosaminoglycans.
+  The pathological accumulation of glycosaminoglycans systemically results in severe
+  mental retardation and multiple organ dysfunction. Enzyme replacement therapy with
+  recombinant human alpha-L-iduronidase (rhIDU) improves the function of some organs
+  but not neurological deficits owing to its exclusion from the brain by the blood-brain
+  barrier (BBB). METHODS: We divided MPS I mice into control group, enzyme replacement
+  group with rhIDU 2.9 mg/kg injection, enzyme replacement with one-spot ultrasound
+  treatment group, and enzyme replacement with two-spot ultrasound treatment group,
+  and compare treatment effectiveness between groups. All ultrasound treatments were
+  applied on left side brain. Evans blue was used to simulate the distribution of
+  rhIDU in the brain. RESULTS: Transcranial pulsed weakly focused ultrasound combined
+  with microbubbles facilitates brain rhIDU delivery in MPS I mice receiving systemic
+  enzyme replacement therapy. With intravenously injected rhIDU 2.9 mg/kg, the IDUA
+  enzyme activity on the ultrasound treated side of the cerebral hemisphere raised
+  to 7.81-fold that on the untreated side and to 75.84% of its normal value. Evans
+  blue simulation showed the distribution of the delivered drug was extensive, involving
+  a large volume of the treated cerebral hemisphere. Two-spot ultrasound treatment
+  scheme is more efficient for brain rhIDU delivery than one-spot ultrasound treatment
+  scheme. CONCLUSIONS: Transcranial pulsed weakly focused ultrasound can open BBB
+  extensively and facilitates brain rhIDU delivery. This novel technology may provide
+  a new MPS I treatment strategy.'
+raw_completion_output: |-
+  primary_disease: Mucopolysaccharidosis type I  
+  medical_actions: enzyme replacement therapy; transcranial pulsed ultrasound treatment  
+  symptoms: severe mental retardation; multiple organ dysfunction  
+  chemicals: laronidase; recombinant human alpha-L-iduronidase (rhIDU); Evans blue  
+  action_annotation_relationships: enzyme replacement therapy TREATS severe mental retardation IN Mucopolysaccharidosis type I; enzyme replacement therapy TREATS multiple organ dysfunction IN Mucopolysaccharidosis type I; transcranial pulsed ultrasound treatment TREATS delivery of rhIDU in Mucopolysaccharidosis type I; enzyme replacement therapy (with chemical rhIDU) TREATS severe mental retardation IN Mucopolysaccharidosis type I; enzyme replacement therapy (with chemical rhIDU) TREATS multiple organ dysfunction IN Mucopolysaccharidosis type I
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  enzyme replacement therapy (with chemical rhIDU) TREATS multiple organ dysfunction IN Mucopolysaccharidosis type I
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0001586
+  medical_actions:
+    - enzyme replacement therapy
+    - transcranial pulsed ultrasound treatment
+  symptoms:
+    - HP:0010864
+    - multiple organ dysfunction
+  chemicals:
+    - laronidase
+    - recombinant human alpha-L-iduronidase (rhIDU)
+    - CHEBI:82467
+  action_annotation_relationships:
+    - subject: enzyme replacement therapy
+      predicate: TREATS
+      object: HP:0001249
+      qualifier: MONDO:0001586
+      subject_extension: enzyme replacement therapy
+      object_extension: severe
+    - subject: enzyme replacement therapy
+      predicate: TREATS
+      object: multiple organ dysfunction
+      qualifier: MONDO:0001586
+      subject_extension: enzyme replacement therapy
+      object_extension: multiple organ dysfunction
+    - subject: transcranial pulsed ultrasound treatment
+      predicate: TREATS
+      object: delivery of rhIDU
+      qualifier: MONDO:0001586
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: transcranial pulsed ultrasound
+      object_extension: rhIDU
+    - subject: enzyme replacement therapy
+      predicate: TREATS
+      object: HP:0001249
+      qualifier: MONDO:0001586
+      subject_extension: rhIDU
+      object_extension: severe
+    - subject: enzyme replacement therapy
+      predicate: TREATS
+      object: multiple organ dysfunction
+      qualifier: MONDO:0001586
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: enzyme replacement therapy
+      object_extension: chemical rhIDU
+named_entities:
+  - id: HP:0010864
+    label: severe mental retardation
+    original_spans:
+      - 415:439
+  - id: CHEBI:82467
+    label: Evans blue
+    original_spans:
+      - 1035:1044
+      - 1493:1502
+  - id: HP:0001249
+    label: mental retardation
+    original_spans:
+      - 422:439

@@ -1,0 +1,79 @@
+---
+input_text: "Mucopolysaccharidosis Type I in Children, a Forgotten Diagnosis Responsible
+  for Undiagnosed Musculoskeletal Complaints: Report of Two Cases. Mucopolysaccharidoses
+  (MPS) are a subgroup of lysosomal storage disorders. The underlying mechanism of
+  MPS disorders are deficiency in specific enzymes which leads to accumulation of
+  partially degraded glycosaminoglycans (GAGs) in various tissues. A wide variety
+  of manifestations are reported but musculoskeletal complaints are common among them.
+  In milder forms of MPS, musculoskeletal complaints are presenting symptoms. Delays
+  in diagnosis due to unspecific and mild symptoms is common. Misdiagnosis of MPS
+  as juvenile idiopathic arthritis and other inflammatory arthritis disorders is frequent.
+  Early diagnosis and treatment prevents irreversible cellular damages and is a key
+  factor in efficacy of enzyme replacement therapy. In this study we described two
+  MPS patients with musculoskeletal complaints who were not diagnosed for a period
+  of time. Although musculoskeletal manifestation are common in a variety of clinical
+  conditions, their presence at low ages or co-occurrence of other manifestations
+  (such as cardiac, respiratory, neurologic, etc.) in multiple systems should prompt
+  evaluation of patients for MPS and other metabolic disorders. The rheumatologists'
+  awareness on MPS should be promoted to achieve timely diagnosis and subsequent early
+  treatment."
+raw_completion_output: |-
+  Here are the extracted entities in the requested format:
+
+  primary_disease: Mucopolysaccharidosis Type I
+
+  medical_actions: enzyme replacement therapy; early treatment; evaluation of patients for MPS and other metabolic disorders
+
+  symptoms: musculoskeletal complaints; unspecific and mild symptoms; cardiac manifestations; respiratory manifestations; neurologic manifestations
+
+  chemicals: 
+
+  action_annotation_relationships: enzyme replacement therapy TREATS Mucopolysaccharidosis Type I; early treatment PREVENTS irreversible cellular damages IN Mucopolysaccharidosis Type I; evaluation of patients for MPS and other metabolic disorders TREATS musculoskeletal complaints IN Mucopolysaccharidosis Type I; early treatment TREATS musculoskeletal complaints IN Mucopolysaccharidosis Type I
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  early treatment TREATS musculoskeletal complaints IN Mucopolysaccharidosis Type I
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0001586
+  medical_actions:
+    - enzyme replacement therapy
+    - early treatment
+    - evaluation of patients for MPS and other metabolic disorders
+  symptoms:
+    - musculoskeletal complaints
+    - unspecific and mild symptoms
+    - cardiac manifestations
+    - respiratory manifestations
+    - neurologic manifestations
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: Mucopolysaccharidosis
+      qualifier: Type I
+    - predicate: PREVENTS
+      object: irreversible cellular damages
+      qualifier: MONDO:0001586
+      subject_qualifier: early
+      object_qualifier: irreversible
+    - predicate: TREATS
+      object: musculoskeletal complaints
+      qualifier: MONDO:0001586
+      subject_qualifier: for MPS and other metabolic disorders
+      object_qualifier: IN
+    - predicate: TREATS
+      object: musculoskeletal complaints
+      qualifier: MONDO:0001586
+      subject_qualifier: early

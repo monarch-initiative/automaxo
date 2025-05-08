@@ -1,0 +1,147 @@
+---
+input_text: 'Liver transplantation for classical maple syrup urine disease: long-term
+  follow-up. OBJECTIVES: The aim of the study was to evaluate indications, results,
+  and clinical and neurological evolution in children who have undergone liver transplantation
+  for classical maple syrup urine disease (MSUD). METHODS: Descriptive study of liver
+  transplantation for MSUD between 1991 and 2012. Eight patients were transplanted.
+  RESULTS: Indications for transplant were poor metabolic control expressed as significant
+  psychomotor disabilities (4 had psychomotor delays, 5 had spasticity, and 5 had
+  epilepsy) and poor quality of life (mean number of acute metabolic decompensations
+  and mean number of total hospitalizations before transplantation 5 and 12, respectively).
+  Four required nasogastric tube, with a maximum 4 g/day protein-restricted diet in
+  all of them. Seven sustained significant alterations in brain magnetic resonance
+  imaging. Mean leucine and alloisoleucine levels were 608 (standard deviation [SD]
+  516) and 218 mumol/L (SD 216), respectively. All of the patients received transplants
+  with deceased-donor livers, with ages between 1.5 and 2.5 years (mean 1.78 years).
+  Mean posttransplantation follow-up period was 12.2 years (range 5-21 years). Final
+  patient and graft survival was 87.5% and 75%, respectively. Following transplantation,
+  none required hospitalization in the last 3 years nor did any have new acute metabolic
+  decompensations following a normal diet. Five followed normal schooling, 2 had motor
+  disabilities, and 2 had convulsive crises. Brain magnetic resonance imaging was
+  taken in 4 patients, showing neuroimage improvement in 3 of them. Mean leucine levels
+  were <350 mumol/L from the immediate posttransplantation period (mean 225 mumol/L,
+  SD 78), with a maximum alloisoleucine level of 20 mumol/L. CONCLUSIONS: Liver transplantation
+  is an effective treatment for classical MSUD that arrests brain damage, although
+  it does not reverse the process.'
+raw_completion_output: |-
+  primary_disease: classical maple syrup urine disease  
+  medical_actions: liver transplantation; protein-restricted diet; brain magnetic resonance imaging  
+  symptoms: psychomotor delays; spasticity; epilepsy; poor quality of life; acute metabolic decompensations; motor disabilities; convulsive crises  
+  chemicals: leucine; alloisoleucine  
+  action_annotation_relationships: liver transplantation TREATS symptom psychomotor delays IN classical maple syrup urine disease; liver transplantation TREATS symptom spasticity IN classical maple syrup urine disease; liver transplantation TREATS symptom epilepsy IN classical maple syrup urine disease; liver transplantation TREATS symptom poor quality of life IN classical maple syrup urine disease; liver transplantation TREATS symptom acute metabolic decompensations IN classical maple syrup urine disease; liver transplantation TREATS symptom motor disabilities IN classical maple syrup urine disease; liver transplantation TREATS symptom convulsive crises IN classical maple syrup urine disease; protein-restricted diet TREATS symptom acute metabolic decompensations IN classical maple syrup urine disease; brain magnetic resonance imaging TREATS symptom psychomotor delays IN classical maple syrup urine disease; brain magnetic resonance imaging TREATS symptom spasticity IN classical maple syrup urine disease; brain magnetic resonance imaging TREATS symptom epilepsy IN classical maple syrup urine disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  brain magnetic resonance imaging TREATS symptom epilepsy IN classical maple syrup urine disease
+
+  ===
+
+extracted_object:
+  primary_disease: classical maple syrup urine disease
+  medical_actions:
+    - MAXO:0001175
+    - protein-restricted diet
+    - MAXO:0000427
+  symptoms:
+    - HP:0001263
+    - HP:0001257
+    - HP:0001250
+    - poor quality of life
+    - acute metabolic decompensations
+    - motor disabilities
+    - convulsive crises
+  chemicals:
+    - CHEBI:25017
+    - CHEBI:22359
+  action_annotation_relationships:
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: HP:0001263
+      qualifier: classical maple syrup urine disease
+      subject_extension: liver transplantation
+      object_extension: psychomotor delays
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: HP:0001257
+      qualifier: classical maple syrup urine disease
+      subject_extension: liver transplantation
+      object_extension: spasticity
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: HP:0001250
+      qualifier: classical maple syrup urine disease
+      subject_extension: liver transplantation
+      object_extension: epilepsy
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: poor quality of life
+      qualifier: classical maple syrup urine disease
+      subject_qualifier: <Not applicable>
+      object_qualifier: <Not applicable>
+      subject_extension: liver transplantation
+      object_extension: poor quality of life
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: acute metabolic decompensations
+      qualifier: classical maple syrup urine disease
+      subject_extension: liver transplantation
+      object_extension: acute metabolic decompensations
+    - predicate: TREATS
+      object: motor disabilities
+      qualifier: classical maple syrup urine disease
+      subject_extension: liver transplantation
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: convulsive crises
+      qualifier: classical maple syrup urine disease
+      subject_extension: liver transplantation
+      object_extension: convulsive crises
+    - subject: TREATS
+      predicate: TREATS
+      object: acute metabolic decompensations
+      qualifier: classical maple syrup urine disease
+      subject_qualifier: protein-restricted
+      object_qualifier: severe
+      subject_extension: protein-restricted diet
+      object_extension: acute metabolic decompensations
+    - subject: MAXO:0000427
+      predicate: TREATS
+      object: HP:0001263
+      qualifier: classical maple syrup urine disease
+      subject_extension: magnetic resonance imaging
+      object_extension: psychomotor delays
+    - subject: MAXO:0000427
+      predicate: TREATS
+      object: HP:0001257
+      qualifier: classical maple syrup urine disease
+      subject_extension: magnetic resonance imaging
+      object_extension: spasticity
+    - subject: MAXO:0000427
+      predicate: TREATS
+      object: symptom
+      qualifier: classical maple syrup urine disease
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: brain magnetic resonance imaging
+      object_extension: epilepsy
+named_entities:
+  - id: MAXO:0000427
+    label: brain magnetic resonance imaging
+    original_spans:
+      - 894:925
+      - 1555:1586
+  - id: HP:0001257
+    label: spasticity
+    original_spans:
+      - 561:570

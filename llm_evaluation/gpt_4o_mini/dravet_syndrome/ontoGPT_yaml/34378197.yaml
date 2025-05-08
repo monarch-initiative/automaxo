@@ -1,0 +1,96 @@
+---
+input_text: 'Efficacy, tolerability, and retention of fenfluramine for the treatment
+  of seizures in patients with Dravet syndrome: Compassionate use program in Germany.
+  OBJECTIVE: Dravet syndrome (DS) is a rare but severe drug-resistant epilepsy. Before
+  the approval of fenfluramine (FFA) for the treatment of seizures in DS, patients
+  in Germany could receive treatment under a compassionate use program (CUP). METHODS:
+  We conducted a multicenter, retrospective, observational study to describe the efficacy,
+  tolerability, and retention of FFA within the CUP. Patients received add-on therapy
+  with oral FFA gradually titrated to a target dose between .13 and .7 mg/kg/day.
+  RESULTS: Overall, 78 patients with DS (median age = 8.0 years, range = 2.1-46.0;
+  53% female, median concomitant antiseizure medications [ASMs] = 3) were treated
+  with FFA for a median duration of 255.5 days (range = 31-572). Responder rates (a
+  >=50% reduction; n = 78) and seizure-freedom rates at 3 months were 68% and 14%
+  for total seizures, respectively, and 67% and 23% for generalized tonic-clonic seizures.
+  Responder rates were consistent at 6 and 12 months (n = 66 and n = 43, respectively).
+  Median seizure days per month significantly decreased from 10.0 (range = .5-30)
+  to 3.0 (range = 0-30) in the 3-month period before and after FFA treatment (p <
+  .001). Significantly fewer patients reported at least one episode of status epilepticus
+  (28% vs. 14% patients before and after FFA initiation, p = .005). During FFA treatment,
+  35 (45%) patients were able to discontinue a concomitant ASM. At the last follow-up
+  date, 66 (85%) patients remained on treatment with FFA. The most common adverse
+  events were somnolence (36%), decreased appetite (22%), and ataxia (8%). Forty-eight
+  (62%) patients were reported as having a meaningful global clinical improvement.
+  SIGNIFICANCE: In a large cohort of patients, FFA demonstrated efficacy across a
+  range of outcomes including clinically significant reductions in convulsive seizures,
+  and was well tolerated, providing valuable information for real-world practice.'
+raw_completion_output: |-
+  primary_disease: Dravet syndrome  
+  medical_actions: treatment with fenfluramine; add-on therapy with oral fenfluramine  
+  symptoms: seizures; status epilepticus; somnolence; decreased appetite; ataxia  
+  chemicals: fenfluramine  
+  action_annotation_relationships: treatment with fenfluramine TREATS symptom seizures IN Dravet syndrome; treatment with fenfluramine TREATS symptom status epilepticus IN Dravet syndrome; treatment with fenfluramine TREATS symptom somnolence IN Dravet syndrome; treatment with fenfluramine TREATS symptom decreased appetite IN Dravet syndrome; treatment with fenfluramine TREATS symptom ataxia IN Dravet syndrome  
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  treatment with fenfluramine TREATS symptom ataxia IN Dravet syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0100135
+  medical_actions:
+    - treatment with fenfluramine
+    - add-on therapy with oral fenfluramine
+  symptoms:
+    - HP:0001250
+    - HP:0002133
+    - HP:0002329
+    - HP:0004396
+    - HP:0001251
+  chemicals:
+    - CHEBI:5000
+  action_annotation_relationships:
+    - subject: treatment
+      predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0100135
+      subject_extension: CHEBI:5000
+      object_extension: seizures
+    - predicate: TREATS
+      object: symptom status epilepticus
+      qualifier: MONDO:0100135
+      subject_extension: CHEBI:5000
+    - subject: treatment
+      predicate: TREATS
+      object: HP:0002329
+      qualifier: MONDO:0100135
+      subject_extension: CHEBI:5000
+      object_extension: somnolence
+    - predicate: TREATS
+      object: HP:0004396
+      qualifier: MONDO:0100135
+      subject_extension: CHEBI:5000
+    - subject: treatment
+      predicate: TREATS
+      object: HP:0001251
+      qualifier: MONDO:0100135
+      subject_qualifier: with fenfluramine
+      subject_extension: CHEBI:5000
+      object_extension: ataxia
+named_entities:
+  - id: HP:0001251
+    label: ataxia
+    original_spans:
+      - 1718:1723

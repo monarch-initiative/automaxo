@@ -1,0 +1,71 @@
+---
+input_text: Intestinal Mucormycosis in a Child With Maple Syrup Urine Disease After
+  Orthotopic Liver Transplant. Mucormycosis can result in serious morbidity and mortality,
+  especially in transplant recipients. In this case report, we present a 3-year-old
+  female patient with maple syrup urine disease who developed mucormycosis infection
+  after deceased donor split liver transplant. Progressive segmental necrosis of the
+  small intestines and new ischemic areas were observed after repeated abdominal surgeries.
+  Microscopic examination of biopsy material revealed mucormycosis. Early recognition
+  is crucial for treatment, and patients with clinical suspicion can be treated empirically
+  with antifungal medicine. However, diagnostic tests with accurate and fast results
+  are needed and more effective therapeutic methods should be developed for better
+  outcomes.
+raw_completion_output: |-
+  primary_disease: Mucormycosis  
+  medical_actions: Orthotopic liver transplant; empirical treatment with antifungal medicine  
+  symptoms: progressive segmental necrosis of the small intestines; new ischemic areas  
+  chemicals: antifungal medicine  
+  action_annotation_relationships: treatment (with antifungal medicine) TREATS symptom (progressive segmental necrosis of the small intestines) IN mucormycosis; treatment (with antifungal medicine) TREATS symptom (new ischemic areas) IN mucormycosis
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  treatment (with antifungal medicine) TREATS symptom (new ischemic areas) IN mucormycosis
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0019136
+  medical_actions:
+    - Orthotopic liver transplant
+    - empirical treatment with antifungal medicine
+  symptoms:
+    - progressive segmental necrosis of the small intestines
+    - new ischemic areas
+  chemicals:
+    - antifungal medicine
+  action_annotation_relationships:
+    - subject: treatment
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0019136
+      subject_qualifier: with antifungal medicine
+      object_qualifier: progressive segmental necrosis of the small intestines
+      subject_extension: antifungal medicine
+      object_extension: progressive segmental necrosis
+    - subject: treatment
+      predicate: TREATS
+      object: new ischemic areas
+      qualifier: MONDO:0019136
+      subject_qualifier: N/A
+      object_qualifier: N/A
+      subject_extension: antifungal medicine
+      object_extension: N/A
+named_entities:
+  - id: MONDO:0019136
+    label: Mucormycosis
+    original_spans:
+      - 11:22
+      - 101:112
+      - 303:314
+      - 551:562

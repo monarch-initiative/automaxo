@@ -1,0 +1,96 @@
+---
+input_text: Thrombocytopenia in pediatric patients on concurrent cannabidiol and valproic
+  acid. In January 2019, a new plant-derived purified cannabidiol preparation, approved
+  by the US Food and Drug Administration, became commercially available for patients
+  >=2 years old with Lennox-Gastaut syndrome or Dravet syndrome. Among our patients
+  who were prescribed the new cannabidiol formulation, we observed several cases of
+  thrombocytopenia and therefore embarked on this study. We conducted a single-center
+  systematic chart review of all pediatric patients (<21 years old) who were prescribed
+  cannabidiol from January to August 2019. We evaluated salient features of the patients'
+  epilepsy syndrome, age, concurrent medications, and surveillance laboratory results
+  before and after cannabidiol initiation. Among 87 patients, nine (10%) developed
+  thrombocytopenia (platelet nadir range = 17 000-108 000) following initiation of
+  cannabidiol. Each of these nine children was on combination therapy of cannabidiol
+  with valproic acid. Whereas no children on cannabidiol without valproic acid (0/57)
+  developed thrombocytopenia, nine of 23 treated with combination valproic acid and
+  cannabidiol developed platelets < 110 000/microL (P < .0001). We report a novel
+  and clinically important side effect of thrombocytopenia in one-third of patients
+  treated concurrently with cannabidiol and valproic acid. If this finding is confirmed,
+  clinicians should perform close monitoring for thrombocytopenia when adding cannabidiol
+  to a regimen that includes valproic acid.
+raw_completion_output: |-
+  primary_disease: thrombocytopenia  
+  medical_actions: prescribed cannabidiol; prescribed valproic acid; close monitoring  
+  symptoms: thrombocytopenia  
+  chemicals: cannabidiol; valproic acid  
+  action_annotation_relationships: prescribed cannabidiol TREATS thrombocytopenia IN thrombocytopenia; prescribed valproic acid TREATS thrombocytopenia IN thrombocytopenia; close monitoring PREVENTS thrombocytopenia IN thrombocytopenia  
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  close monitoring PREVENTS thrombocytopenia IN thrombocytopenia
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0002049
+  medical_actions:
+    - prescribed cannabidiol
+    - prescribed valproic acid
+    - close monitoring
+  symptoms:
+    - HP:0001873
+  chemicals:
+    - CHEBI:69478
+    - CHEBI:39867
+  action_annotation_relationships:
+    - subject: prescribed
+      predicate: TREATS
+      object: HP:0001873
+      qualifier: MONDO:0002049
+      subject_extension: CHEBI:69478
+      object_extension: thrombocytopenia
+    - subject: prescribed valproic acid
+      predicate: TREATS
+      object: HP:0001873
+      qualifier: MONDO:0002049
+      subject_qualifier: prescribed
+      subject_extension: CHEBI:39867
+      object_extension: thrombocytopenia
+    - subject: close monitoring
+      predicate: PREVENTS
+      object: HP:0001873
+      qualifier: None
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: monitoring
+      object_extension: None
+named_entities:
+  - id: MONDO:0002049
+    label: thrombocytopenia
+    original_spans:
+      - 0:15
+      - 411:426
+      - 834:849
+      - 1092:1107
+      - 1284:1299
+      - 1460:1475
+  - id: HP:0001873
+    label: thrombocytopenia
+    original_spans:
+      - 0:15
+      - 411:426
+      - 834:849
+      - 1092:1107
+      - 1284:1299
+      - 1460:1475

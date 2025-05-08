@@ -1,0 +1,89 @@
+---
+input_text: Neonatal umbilical cord blood transplantation halts skeletal disease progression
+  in the murine model of MPS-I. Umbilical cord blood (UCB) is a promising source of
+  stem cells to use in early haematopoietic stem cell transplantation (HSCT) approaches
+  for several genetic diseases that can be diagnosed at birth. Mucopolysaccharidosis
+  type I (MPS-I) is a progressive multi-system disorder caused by deficiency of lysosomal
+  enzyme alpha-L-iduronidase, and patients treated with allogeneic HSCT at the onset
+  have improved outcome, suggesting to administer such therapy as early as possible.
+  Given that the best characterized MPS-I murine model is an immunocompetent mouse,
+  we here developed a transplantation system based on murine UCB. With the final aim
+  of testing the therapeutic efficacy of UCB in MPS-I mice transplanted at birth,
+  we first defined the features of murine UCB cells and demonstrated that they are
+  capable of multi-lineage haematopoietic repopulation of myeloablated adult mice
+  similarly to bone marrow cells. We then assessed the effectiveness of murine UCB
+  cells transplantation in busulfan-conditioned newborn MPS-I mice. Twenty weeks after
+  treatment, iduronidase activity was increased in visceral organs of MPS-I animals,
+  glycosaminoglycans storage was reduced, and skeletal phenotype was ameliorated.
+  This study explores a potential therapy for MPS-I at a very early stage in life
+  and represents a novel model to test UCB-based transplantation approaches for various
+  diseases.
+raw_completion_output: |-
+  primary_disease: Mucopolysaccharidosis type I (MPS-I)  
+  medical_actions: umbilical cord blood transplantation; allogeneic hematopoietic stem cell transplantation (HSCT); busulfan conditioning  
+  symptoms: skeletal disease progression; iduronidase deficiency; glycosaminoglycans storage; skeletal phenotype abnormalities  
+  chemicals: busulfan  
+  action_annotation_relationships: umbilical cord blood transplantation TREATS skeletal disease progression IN Mucopolysaccharidosis type I (MPS-I); allogeneic HSCT TREATS iduronidase deficiency IN Mucopolysaccharidosis type I (MPS-I); busulfan conditioning TREATS glycosaminoglycans storage IN Mucopolysaccharidosis type I (MPS-I); busulfan conditioning TREATS skeletal phenotype abnormalities IN Mucopolysaccharidosis type I (MPS-I)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  busulfan conditioning TREATS skeletal phenotype abnormalities IN Mucopolysaccharidosis type I (MPS-I)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0001586
+  medical_actions:
+    - MAXO:0010033
+    - MAXO:0000747
+    - busulfan conditioning
+  symptoms:
+    - skeletal disease progression
+    - iduronidase deficiency
+    - glycosaminoglycans storage
+    - skeletal phenotype abnormalities
+  chemicals:
+    - CHEBI:28901
+  action_annotation_relationships:
+    - subject: MAXO:0010033
+      predicate: TREATS
+      object: skeletal disease progression
+      qualifier: MONDO:0001586
+      subject_extension: umbilical cord blood transplantation
+      object_extension: skeletal disease progression
+    - subject: allogeneic HSCT
+      predicate: TREATS
+      object: iduronidase deficiency
+      qualifier: MONDO:0001586
+      subject_extension: allogeneic HSCT
+      object_extension: iduronidase deficiency
+    - subject: conditioning
+      predicate: TREATS
+      object: storage
+      qualifier: MONDO:0001586
+      subject_extension: CHEBI:28901
+      object_extension: glycosaminoglycans
+    - subject: conditioning
+      predicate: TREATS
+      object: skeletal phenotype abnormalities
+      qualifier: MONDO:0001586
+      subject_qualifier: busulfan
+      object_qualifier: None
+      subject_extension: CHEBI:28901
+      object_extension: skeletal phenotype abnormalities
+named_entities:
+  - id: MAXO:0010033
+    label: umbilical cord blood transplantation
+    original_spans:
+      - 9:44

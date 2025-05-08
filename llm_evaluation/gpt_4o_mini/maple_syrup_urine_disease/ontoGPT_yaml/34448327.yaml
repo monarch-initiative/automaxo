@@ -1,0 +1,68 @@
+---
+input_text: 'Domino transplantation for pediatric liver recipients: Obstacles, challenges,
+  and successes. BACKGROUND: Domino liver transplantation aims to address the need
+  to increase the liver donor supply. In a domino liver transplant, the domino recipient
+  receives the explanted liver from the recipient of a traditional liver transplant.
+  The domino donor typically requires liver transplant to correct a metabolic disorder;
+  the explanted liver thus has a single gene defect but otherwise normal structure
+  and function. METHODS: In this review, we detail the history of domino liver transplantation,
+  appropriate domino donor indications, the technical advances to the surgical approach,
+  current outcomes, and future opportunities. RESULTS: Development of de novo disease
+  in the domino recipient has relegated adult domino liver transplant to be considered
+  a source of marginal donor livers. However, pediatric domino liver transplant has
+  leveraged certain metabolic disorders, especially maple syrup urine disease, in
+  which the liver enzyme deficiency can be compensated by the systemic presence of
+  sufficient enzyme. Advances in the surgical aspects of assuring adequate length
+  of vasculature have improved the safety of the procedure in both domino donors and
+  recipients. CONCLUSIONS: Pediatric domino liver transplant utilizing domino donors
+  with specific metabolic liver diseases should be considered a viable live donor
+  option for children awaiting liver transplant.'
+raw_completion_output: |-
+  primary_disease: pediatric liver disease  
+  medical_actions: domino liver transplantation; liver transplant  
+  symptoms: metabolic disorder; liver enzyme deficiency  
+  chemicals: none  
+  action_annotation_relationships: domino liver transplantation TREATS metabolic disorder IN pediatric liver disease; liver transplant TREATS liver enzyme deficiency IN pediatric liver disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  liver transplant TREATS liver enzyme deficiency IN pediatric liver disease
+
+  ===
+
+extracted_object:
+  primary_disease: pediatric liver disease
+  medical_actions:
+    - domino liver transplantation
+    - liver transplant
+  symptoms:
+    - metabolic disorder
+    - liver enzyme deficiency
+  chemicals:
+    - none
+  action_annotation_relationships:
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: metabolic disorder
+      qualifier: pediatric liver disease
+      subject_extension: liver transplantation
+      object_extension: metabolic disorder
+    - subject: liver transplant
+      predicate: TREATS
+      object: liver enzyme deficiency
+      qualifier: pediatric liver disease
+      subject_qualifier: N/A
+      object_qualifier: N/A
+      subject_extension: liver transplant
+      object_extension: liver enzyme deficiency

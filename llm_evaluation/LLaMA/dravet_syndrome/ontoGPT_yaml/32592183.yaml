@@ -1,0 +1,117 @@
+---
+input_text: 'Cannabidiol efficacy independent of clobazam: Meta-analysis of four randomized
+  controlled trials. OBJECTIVE: The efficacy of cannabidiol (CBD) with and without
+  concomitant clobazam (CLB) was evaluated in stratified analyses of four large randomized
+  controlled trials, two in Lennox-Gastaut syndrome, and two in Dravet syndrome. METHODS:
+  Each trial of CBD (Epidiolex  in the US; Epidyolex  in the EU; 10 and 20 mg/kg/day)
+  was evaluated by CLB use. The treatment ratio was analyzed using negative binomial
+  regression for changes in seizure frequency and logistic regression for the 50%
+  responder rate, where the principle analysis combined both indications and CBD doses
+  in a stratified meta-analysis. Pharmacokinetic data were examined for an exposure/response
+  relationship based on CLB presence/absence. Safety data were analyzed using descriptive
+  statistics. RESULTS: The meta-analysis favored CBD vs. placebo regardless of CLB
+  use. The treatment ratio (95% CI) of CBD over placebo for the average reduction
+  in seizure frequency was 0.59 (0.52, 0.68; P < .0001) with CLB and 0.85 (0.73, 0.98;
+  P = .0226) without CLB, and the 50% responder rate odds ratio (95% CI) was 2.51
+  (1.69, 3.71; P < .0001) with CLB and 2.40 (1.38, 4.16; P = .0020) without CLB. Adverse
+  events (AEs) related to somnolence, rash, pneumonia, or aggression were more common
+  in patients with concomitant CLB. There was a significant exposure/response relationship
+  for CBD and its active metabolite. CONCLUSIONS: These results indicate CBD is efficacious
+  with and without CLB, but do not exclude the possibility of a synergistic effect
+  associated with the combination of agents. The safety and tolerability profile of
+  CBD without CLB show a lower rate of certain AEs than with CLB.'
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Lennox-Gastaut syndrome; Dravet syndrome
+  medical_actions: Cannabidiol (CBD) treatment; Clobazam (CLB) treatment; CBD treatment with concomitant CLB; CBD treatment without concomitant CLB
+  symptoms: Seizure frequency; Somnolence; Rash; Pneumonia; Aggression
+  chemicals: Cannabidiol (CBD); Clobazam (CLB); Epidiolex; Epidyolex
+  action_annotation_relationships: CBD TREATS seizure frequency IN Lennox-Gastaut syndrome and Dravet syndrome; CBD TREATS seizure frequency IN Lennox-Gastaut syndrome and Dravet syndrome with CLB; CBD TREATS seizure frequency IN Lennox-Gastaut syndrome and Dravet syndrome without CLB; CBD TREATS somnolence, rash, pneumonia, or aggression IN Lennox-Gastaut syndrome and Dravet syndrome with CLB; CLB TREATS seizure frequency IN Lennox-Gastaut syndrome and Dravet syndrome; CLB PREVENTS reduction in seizure frequency IN Lennox-Gastaut syndrome and Dravet syndrome without CBD; CBD (with CLB) TREATS 50% responder rate IN Lennox-Gastaut syndrome and Dravet syndrome; CBD (without CLB) TREATS 50% responder rate IN Lennox-Gastaut syndrome and Dravet syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  CBD (without CLB) TREATS 50% responder rate IN Lennox-Gastaut syndrome and Dravet syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: Lennox-Gastaut syndrome; Dravet syndrome
+  medical_actions:
+    - Cannabidiol (CBD) treatment
+    - Clobazam (CLB) treatment
+    - CBD treatment with concomitant CLB
+    - CBD treatment without concomitant CLB
+  symptoms:
+    - Seizure frequency
+    - HP:0002329
+    - HP:0000988
+    - HP:0002090
+    - HP:0000718
+  chemicals:
+    - CHEBI:69478
+    - CHEBI:31413
+    - Epidiolex
+    - Epidyolex
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: seizure frequency
+      qualifier: Lennox-Gastaut syndrome and Dravet syndrome
+      subject_extension: CBD
+    - predicate: TREATS
+      object: seizure frequency
+      qualifier: Lennox-Gastaut syndrome and Dravet syndrome
+      subject_extension: CBD
+    - predicate: TREATS
+      object: seizure frequency
+      qualifier: Lennox-Gastaut syndrome and Dravet syndrome
+      subject_extension: CBD
+    - subject: CBD
+      predicate: TREATS
+      object: somnolence, rash, pneumonia, aggression
+      qualifier: Lennox-Gastaut syndrome, Dravet syndrome
+      object_qualifier: with CLB
+      subject_extension: CBD
+    - predicate: TREATS
+      object: seizure frequency
+      qualifier: Lennox-Gastaut syndrome and Dravet syndrome
+    - subject: CLB
+      predicate: PREVENTS
+      object: reduction in seizure frequency
+      qualifier: Lennox-Gastaut syndrome and Dravet syndrome
+      object_qualifier: IN Lennox-Gastaut syndrome and Dravet syndrome
+      subject_extension: CLB
+      object_extension: reduction in seizure frequency
+    - predicate: TREATS
+      object: 50% responder rate
+      qualifier: Lennox-Gastaut syndrome and Dravet syndrome
+      subject_qualifier: with CLB
+      subject_extension: CBD
+    - subject: Treatment
+      predicate: TREATS
+      object: 50% responder rate
+      qualifier: Lennox-Gastaut syndrome and Dravet syndrome
+      subject_qualifier: without CLB
+      object_qualifier: None
+      subject_extension: CBD
+      object_extension: 50% responder rate
+named_entities:
+  - id: HP:0002090
+    label: Pneumonia
+    original_spans:
+      - 1303:1311
+  - id: HP:0000718
+    label: Aggression
+    original_spans:
+      - 1317:1326

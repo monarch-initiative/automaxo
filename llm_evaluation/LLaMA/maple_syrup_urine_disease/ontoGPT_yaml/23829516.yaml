@@ -1,0 +1,81 @@
+---
+input_text: 'Maple syrup urine disease (MSUD): a case with long-term follow-up after
+  liver transplantation. Maple syrup urine disease (MSUD) is a rare hereditary metabolic
+  condition where the body is unable to breakdown amino acids causing toxic buildup.
+  Acute and long-term management of MSUD involves a restricted diet and regular monitoring
+  of amino acid levels; however, more recently liver transplants have been shown to
+  be successful in treating this condition. Even with successful management of MSUD
+  there is evidence from pediatric cases that shows a distinct pattern of neurocognitive
+  deficits associated with this condition, including impaired nonverbal skills and
+  psychomotor functioning with relatively intact verbal abilities. In the present
+  paper, we report an adult case of MSUD with associated neurocognitive deficits and
+  functional limitations following liver transplantation. Neuroimaging revealed no
+  structural abnormalities, while the results from the neuropsychological evaluation
+  showed impairment in visual-spatial processing, attention, executive functioning,
+  and psychomotor abilities, with relative strengths in verbal skills. The patient
+  also showed reduced adaptive functioning and mild anxiety. This case demonstrates
+  neurocognitive deficiencies within the context of normal magnetic resonance imaging.
+  The possible underlying mechanism of this neuropsychological profile is discussed
+  in relation to other neurodevelopmental models. '
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Maple syrup urine disease (MSUD)
+
+  medical_actions: restricted diet; regular monitoring of amino acid levels; liver transplantation; liver transplants
+
+  symptoms: neurocognitive deficits; impaired nonverbal skills; psychomotor functioning impairment; visual-spatial processing impairment; attention impairment; executive functioning impairment; psychomotor abilities impairment; reduced adaptive functioning; mild anxiety
+
+  chemicals: 
+
+  action_annotation_relationships: restricted diet TREATS toxic buildup IN MSUD; regular monitoring of amino acid levels PREVENTS toxic buildup IN MSUD; liver transplantation TREATS MSUD; liver transplants TREATS neurocognitive deficits IN MSUD
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  liver transplants TREATS neurocognitive deficits IN MSUD
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009563
+  medical_actions:
+    - restricted diet
+    - regular monitoring of amino acid levels
+    - MAXO:0001175
+    - liver transplants
+  symptoms:
+    - neurocognitive deficits
+    - impaired nonverbal skills
+    - psychomotor functioning impairment
+    - visual-spatial processing impairment
+    - attention impairment
+    - executive functioning impairment
+    - psychomotor abilities impairment
+    - reduced adaptive functioning
+    - mild anxiety
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: toxic buildup
+      qualifier: MONDO:0009563
+    - predicate: PREVENTS
+      object: toxic buildup
+      qualifier: MONDO:0009563
+      subject_qualifier: regular
+      subject_extension: monitoring
+    - predicate: TREATS
+      object: MSUD
+      qualifier: 'MSUD  # Assuming MSUD is a disease'
+    - predicate: TREATS
+      object: neurocognitive deficits
+      qualifier: MONDO:0009563

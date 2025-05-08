@@ -1,0 +1,92 @@
+---
+input_text: 'Efficacy of an Aquatic Exercise Program for 3 Cases of Rett Syndrome.
+  PURPOSE: To examine functional, physiological effects of participating in an aquatic
+  exercise program by 3 girls, diagnosed with Rett syndrome (RS), to explore areas
+  for possible new research. SUMMARY OF KEY POINTS: RS is a severe neurodevelopmental
+  disorder, which causes multiple disabilities and serious impairments in neuromotor
+  and cognitive abilities. Three girls (4, 6, and 7 years), diagnosed stage III RS,
+  participated in 20 months of aquatic exercise, with individually tailored, full
+  body exercises, progressively targeting functional, cardiorespiratory, muscle, and
+  flexibility training. Assessments included resting and exercise heart rates, anthropometric
+  measures, functional, clinical aspects, and psychosocial abilities. CONCLUSIONS:
+  The participants improved functional ability, mood status, relations with family
+  and schoolmates, joint mobility, muscle strength, and endurance during functional
+  activities. Periodic evaluation of exercise heart rates averaged an increase in
+  intensity of 33% above baseline, indicating cardiorespiratory stimulus. This pilot
+  program provides clinical rationale for future studies and clinical interventions
+  for RS children.'
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Rett syndrome
+
+  medical_actions: aquatic exercise; functional training; cardiorespiratory training; muscle training; flexibility training
+
+  symptoms: impairments in neuromotor and cognitive abilities; serious disabilities; joint mobility issues; muscle strength and endurance issues; mood status issues
+
+  chemicals: 
+
+  action_annotation_relationships: aquatic exercise TREATS impairments in neuromotor and cognitive abilities IN Rett syndrome; aquatic exercise TREATS joint mobility issues IN Rett syndrome; aquatic exercise TREATS muscle strength and endurance issues IN Rett syndrome; aquatic exercise TREATS mood status issues IN Rett syndrome; functional training TREATS functional ability IN Rett syndrome; cardiorespiratory training TREATS cardiorespiratory stimulus IN Rett syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  cardiorespiratory training TREATS cardiorespiratory stimulus IN Rett syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010726
+  medical_actions:
+    - aquatic exercise
+    - functional training
+    - cardiorespiratory training
+    - muscle training
+    - flexibility training
+  symptoms:
+    - impairments in neuromotor and cognitive abilities
+    - serious disabilities
+    - joint mobility issues
+    - muscle strength and endurance issues
+    - mood status issues
+  action_annotation_relationships:
+    - subject: aquatic exercise
+      predicate: TREATS
+      object: impairments in neuromotor and cognitive abilities
+      qualifier: MONDO:0010726
+      subject_qualifier: aquatic
+      object_qualifier: (none)
+      subject_extension: exercise
+      object_extension: impairments in neuromotor and cognitive abilities
+    - predicate: TREATS
+      object: joint mobility issues
+      qualifier: MONDO:0010726
+    - subject: aquatic exercise
+      predicate: TREATS
+      object: muscle strength and endurance issues
+      qualifier: MONDO:0010726
+      subject_qualifier: aquatic
+      object_qualifier: None
+      subject_extension: exercise
+      object_extension: muscle strength and endurance issues
+    - predicate: TREATS
+      object: mood status issues
+      qualifier: MONDO:0010726
+    - predicate: TREATS
+      object: functional ability
+      qualifier: MONDO:0010726
+      subject_extension: functional
+    - predicate: TREATS
+      object: cardiorespiratory stimulus
+      qualifier: MONDO:0010726
+      subject_extension: cardiorespiratory

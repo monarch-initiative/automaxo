@@ -1,0 +1,118 @@
+---
+input_text: 'Vaccination and childhood epilepsies. INTRODUCTION: The evidence relating
+  vaccination to febrile seizures and epilepsy is evaluated with an emphasis on febrile
+  seizures (FS), Dravet syndrome (DS), West syndrome, and other developmental and
+  epileptic encephalopathies. METHODS: A systematic literature review using search
+  words vaccination/immunization AND febrile seizures/epilepsy/Dravet/epileptic encephalopathy/developmental
+  encephalopathy was performed. The role of vaccination as the cause/trigger/aggravation
+  factor for FS or epilepsies and preventive measures were analyzed. RESULTS: From
+  1428 results, 846 duplicates and 447 irrelevant articles were eliminated; 120 were
+  analyzed. CONCLUSIONS: There is no evidence that vaccinations cause epilepsy in
+  healthy populations. Vaccinations do not cause epileptic encephalopathies but may
+  be non-specific triggers to seizures in underlying structural or genetic etiologies.
+  The first seizure in DS may be earlier in vaccinated versus non-vaccinated patients,
+  but developmental outcome is similar in both groups. Children with a personal or
+  family history of FS or epilepsy should receive all routine vaccinations. This recommendation
+  includes DS. The known risks of the infectious diseases prevented by immunization
+  are well established. Vaccination should be deferred in case of acute illness. Acellular
+  pertussis DTaP (diphtheria-tetanus-pertussis) is recommended. The combination of
+  certain vaccine types may increase the risk of febrile seizures however the public
+  health benefit of separating immunizations has not been proven. Measles-containing
+  vaccine should be administered at age 12-15 months. Routine prophylactic antipyretics
+  are not indicated, as there is no evidence of decreased FS risk and they can attenuate
+  the antibody response following vaccination. Prophylactic measures (preventive antipyretic
+  medication) are recommended in DS due to the increased risk of prolonged seizures
+  with fever.'
+raw_completion_output: |-
+  primary_disease: febrile seizures; Dravet syndrome; epilepsy  
+  medical_actions: Vaccination; administration of measles-containing vaccine; recommendation for routine vaccinations; prophylactic measures; administration of acellular pertussis DTaP  
+  symptoms: febrile seizures; seizures; prolonged seizures with fever  
+  chemicals: DTaP  
+  action_annotation_relationships: vaccination TREATS symptom febrile seizures IN disease; vaccination TREATS symptom seizures IN disease; administration of measles-containing vaccine TREATS symptom febrile seizures IN disease; prophylactic measures TREATS symptom prolonged seizures with fever IN disease; administration of acellular pertussis DTaP TREATS symptom seizures IN disease; recommendation for routine vaccinations TREATS symptom febrile seizures IN disease; vaccination (with chemical) DTaP TREATS symptom febrile seizures IN disease.  
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  vaccination (with chemical) DTaP TREATS symptom febrile seizures IN disease.
+
+  ===
+
+extracted_object:
+  primary_disease: febrile seizures; Dravet syndrome; epilepsy
+  medical_actions:
+    - MAXO:0001017
+    - administration of measles-containing vaccine
+    - recommendation for routine vaccinations
+    - prophylactic measures
+    - administration of acellular pertussis DTaP
+  symptoms:
+    - HP:0002373
+    - HP:0001250
+    - prolonged seizures with fever
+  chemicals:
+    - DTaP
+  action_annotation_relationships:
+    - subject: MAXO:0001017
+      predicate: TREATS
+      object: HP:0002373
+      qualifier: MONDO:0000001
+      subject_extension: vaccination
+      object_extension: symptom
+    - subject: MAXO:0001017
+      predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0000001
+      subject_extension: vaccination
+      object_extension: seizures
+    - subject: administration of measles-containing vaccine
+      predicate: TREATS
+      object: HP:0002373
+      qualifier: MONDO:0000001
+      subject_qualifier: administration
+      subject_extension: measles-containing vaccine
+      object_extension: fever
+    - subject: prophylactic measures
+      predicate: TREATS
+      object: HP:0002133
+      qualifier: unspecified disease
+      subject_qualifier: N/A
+      object_qualifier: with fever
+      subject_extension: prophylactic measures
+      object_extension: fever
+    - subject: administration
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0000001
+      subject_extension: acellular pertussis DTaP
+      object_extension: seizures
+    - subject: recommendation for routine vaccinations
+      predicate: TREATS
+      object: symptom febrile seizures
+      qualifier: NA
+      subject_qualifier: NA
+      object_qualifier: NA
+      subject_extension: routine vaccinations
+      object_extension: NA
+    - subject: MAXO:0001017
+      predicate: TREATS
+      object: HP:0002373
+      qualifier: None
+      subject_qualifier: with chemical
+      object_qualifier: None
+      subject_extension: DTaP
+      object_extension: None
+named_entities:
+  - id: MONDO:0000001
+    label: disease
+    original_spans:
+      - 1233:1239

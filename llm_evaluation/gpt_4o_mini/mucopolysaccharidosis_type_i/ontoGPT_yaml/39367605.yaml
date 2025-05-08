@@ -1,0 +1,98 @@
+---
+input_text: Engineering Memory T Cells as a platform for Long-Term Enzyme Replacement
+  Therapy in Lysosomal Storage Disorders. Enzymopathy disorders are the result of
+  missing or defective enzymes. Amongst these enzymopathies, mucopolysaccharidosis
+  type I, is a rare genetic lysosomal storage disorder caused by mutations in the
+  gene encoding alpha-L-iduronidase (IDUA), ultimately causes toxic build-up of glycosaminoglycans
+  (GAGs). There is currently no cure and standard treatments provide insufficient
+  relief to the skeletal structure and central nervous system (CNS). Human memory
+  T cells (Tm) migrate throughout the body's tissues and can persist for years, making
+  them an attractive approach for cellular-based, systemic enzyme replacement therapy.
+  Here, we tested genetically engineered, IDUA-expressing Tm as a cellular therapy
+  in an immunodeficient mouse model of MPS I. Our results demonstrate that a single
+  dose of engineered Tm leads to detectable IDUA enzyme levels in the blood for up
+  to 22 weeks and reduced urinary GAG excretion. Furthermore, engineered Tm take up
+  residence in nearly all tested tissues, producing IDUA and leading to metabolic
+  correction of GAG levels in the heart, lung, liver, spleen, kidney, bone marrow,
+  and the CNS, though only minimal improved cognition was observed. Our study indicates
+  that genetically engineered Tm holds great promise as a platform for cellular-based
+  enzyme replacement therapy for the treatment of mucopolysaccharidosis type I and
+  potentially many other enzymopathies and protein deficiencies.
+raw_completion_output: |-
+  primary_disease: mucopolysaccharidosis type I  
+  medical_actions: enzyme replacement therapy; cellular therapy  
+  symptoms: toxic build-up of glycosaminoglycans; insufficient relief to the skeletal structure and central nervous system; urinary GAG excretion; minimal improved cognition  
+  chemicals: alpha-L-iduronidase (IDUA)  
+  action_annotation_relationships: enzyme replacement therapy TREATS toxic build-up of glycosaminoglycans IN mucopolysaccharidosis type I; cellular therapy TREATS insufficient relief to the skeletal structure IN mucopolysaccharidosis type I; cellular therapy TREATS insufficient relief to the central nervous system IN mucopolysaccharidosis type I; enzyme replacement therapy TREATS urinary GAG excretion IN mucopolysaccharidosis type I; enzyme replacement therapy (with chemical alpha-L-iduronidase) TREATS metabolic correction of GAG levels IN mucopolysaccharidosis type I; cellular therapy TREATS minimal improved cognition IN mucopolysaccharidosis type I
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  cellular therapy TREATS minimal improved cognition IN mucopolysaccharidosis type I
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0001586
+  medical_actions:
+    - enzyme replacement therapy
+    - MAXO:0000016
+  symptoms:
+    - toxic build-up of glycosaminoglycans
+    - insufficient relief to the skeletal structure and central nervous system
+    - urinary GAG excretion
+    - minimal improved cognition
+  chemicals:
+    - alpha-L-iduronidase (IDUA)
+  action_annotation_relationships:
+    - subject: enzyme replacement therapy
+      predicate: TREATS
+      object: toxic build-up of glycosaminoglycans
+      qualifier: MONDO:0001586
+      subject_extension: enzyme replacement therapy
+      object_extension: glycosaminoglycans
+    - subject: MAXO:0000016
+      predicate: TREATS
+      object: insufficient relief
+      qualifier: MONDO:0001586
+      subject_extension: cellular therapy
+      object_extension: skeletal structure
+    - subject: MAXO:0000016
+      predicate: TREATS
+      object: insufficient relief
+      qualifier: MONDO:0001586
+      subject_extension: cellular therapy
+      object_extension: central nervous system
+    - predicate: TREATS
+      object: urinary GAG excretion
+      qualifier: MONDO:0001586
+      subject_extension: enzyme replacement therapy
+    - subject: enzyme replacement therapy
+      predicate: TREATS
+      object: GAG levels
+      qualifier: MONDO:0001586
+      subject_qualifier: with chemical
+      object_qualifier: IN
+      subject_extension: alpha-L-iduronidase
+      object_extension: metabolic correction
+    - subject: MAXO:0000016
+      predicate: TREATS
+      object: minimal improved cognition
+      qualifier: MONDO:0001586
+      subject_extension: cellular therapy
+      object_extension: improved cognition
+named_entities:
+  - id: MAXO:0000016
+    label: cellular therapy
+    original_spans:
+      - 806:821

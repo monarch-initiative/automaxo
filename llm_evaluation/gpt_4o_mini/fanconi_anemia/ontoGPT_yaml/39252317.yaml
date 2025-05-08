@@ -1,0 +1,104 @@
+---
+input_text: 'Clinical and genetic features of Fanconi anemia associated with a variant
+  of FANCA gene: Case report and literature review. RATIONALE: Fanconi anemia (FA)
+  is a hereditary disease caused by mutations in the genes involved in the DNA damage
+  repair pathway. The FANCA gene is the most commonly pathogenic gene, accounting
+  for more than 60% of all causative genes. PATIENT CONCERNS: The clinical case is
+  a 3-year-old boy showed mild anemia and scattered bleeding spots the size of a needle
+  tip all over his body. DIAGNOSES: Compound heterozygous mutation was identified
+  in the FANCA gene in the FA case: c.1A > T from the father in exon 1; the deletion
+  of chr16: 89857810-89858476 (exon13-14 del) from the mother; finally, the patient
+  was diagnosed as Fanconi anemia. INTERVENTION: After diagnosis, the child received
+  chemotherapy (Ara-C + Flu + Cy + ATG). Then, the hematopoietic stem cell transplantation
+  and unrelated umbilical cord blood transfusion were performed. OUTCOMES: The child
+  is recovering well and is in regular follow-up. CONCLUSION AND LESSONS: The discovery
+  of new mutations in the FANCA gene enriches the genetic profile of FA and helps
+  clinicians to further understand this disease and guide genetic counseling and prenatal
+  diagnosis. Whole-exome sequencing is a powerful tool for diagnosing FA.'
+raw_completion_output: |-
+  primary_disease: Fanconi anemia  
+  medical_actions: chemotherapy; hematopoietic stem cell transplantation; unrelated umbilical cord blood transfusion  
+  symptoms: mild anemia; scattered bleeding spots  
+  chemicals: Ara-C; Flu; Cy; ATG  
+  action_annotation_relationships: chemotherapy TREATS mild anemia IN Fanconi anemia; chemotherapy TREATS scattered bleeding spots IN Fanconi anemia; hematopoietic stem cell transplantation TREATS mild anemia IN Fanconi anemia; unrelated umbilical cord blood transfusion TREATS mild anemia IN Fanconi anemia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  unrelated umbilical cord blood transfusion TREATS mild anemia IN Fanconi anemia
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0019391
+  medical_actions:
+    - MAXO:0000647
+    - MAXO:0000747
+    - unrelated umbilical cord blood transfusion
+  symptoms:
+    - mild anemia
+    - scattered bleeding spots
+  chemicals:
+    - CHEBI:28680
+    - Flu
+    - Cy
+    - ATG
+  action_annotation_relationships:
+    - subject: MAXO:0000647
+      predicate: TREATS
+      object: HP:0001903
+      qualifier: MONDO:0019391
+      subject_extension: chemotherapy
+      object_extension: mild
+    - subject: MAXO:0000647
+      predicate: TREATS
+      object: scattered bleeding spots
+      qualifier: MONDO:0019391
+      subject_qualifier: (none)
+      object_qualifier: (none)
+      subject_extension: chemotherapy
+      object_extension: (none)
+    - subject: MAXO:0000747
+      predicate: TREATS
+      object: mild anemia
+      qualifier: MONDO:0019391
+      subject_extension: hematopoietic stem cell transplantation
+      object_extension: mild anemia
+    - subject: MAXO:0000756
+      predicate: TREATS
+      object: HP:0001903
+      qualifier: MONDO:0019391
+      subject_qualifier: unrelated
+      object_qualifier: mild
+      subject_extension: umbilical cord blood
+      object_extension: mild
+named_entities:
+  - id: MAXO:0000647
+    label: chemotherapy
+    original_spans:
+      - 814:825
+  - id: CHEBI:28680
+    label: Ara-C
+    original_spans:
+      - 828:832
+  - id: HP:0001903
+    label: anemia
+    original_spans:
+      - 41:46
+      - 143:148
+      - 429:434
+      - 756:761
+  - id: MAXO:0000756
+    label: transfusion
+    original_spans:
+      - 938:948

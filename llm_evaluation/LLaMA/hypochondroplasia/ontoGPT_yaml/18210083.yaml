@@ -1,0 +1,72 @@
+---
+input_text: '[Achondroplasia and hypochondroplasia in paediatric orthopaedics]. Achondroplasia
+  and hypochondroplasia are the most common forms of short stature. The leading sign
+  is the diminished body height. Most cases of achondroplasia can be detected by clinical
+  examination. Hypochondroplasia is more often not diagnosed until preschool age.In
+  achondroplasia many different orthopaedic problems can arise, which influence the
+  ADL. Mainly pathologic alterations of the occipitocervical region or a stenosis
+  of the medullary cavity should be expected. In the limbs a bow-leg deformity and
+  hyperlaxity of the ligaments often can be seen, which in some cases restrict walking
+  capacity. Even if many people of short stature contemplate a lengthening procedure,
+  the correction of deformities is much more important. The CORA method should be
+  used in planning any osteotomy.'
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Achondroplasia; Hypochondroplasia
+
+  medical_actions: clinical examination; lengthening procedure; osteotomy; CORA method
+
+  symptoms: diminished body height; bow-leg deformity; hyperlaxity of the ligaments; restricted walking capacity
+
+  chemicals: 
+
+  action_annotation_relationships: clinical examination DETECTS achondroplasia; lengthening procedure TREATS short stature IN achondroplasia and hypochondroplasia; osteotomy TREATS bow-leg deformity and hyperlaxity of the ligaments IN achondroplasia; CORA method PLANS osteotomy IN achondroplasia.
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  CORA method PLANS osteotomy IN achondroplasia.
+
+  ===
+
+extracted_object:
+  primary_disease: Achondroplasia; Hypochondroplasia
+  medical_actions:
+    - MAXO:0000526
+    - lengthening procedure
+    - osteotomy
+    - CORA method
+  symptoms:
+    - diminished body height
+    - bow-leg deformity
+    - hyperlaxity of the ligaments
+    - restricted walking capacity
+  action_annotation_relationships:
+    - predicate: DETECTS
+      object: achondroplasia
+      qualifier: MONDO:0007037
+    - predicate: TREATS
+      object: HP:0004322
+      qualifier: achondroplasia and hypochondroplasia
+    - predicate: TREATS
+      object: bow-leg deformity and hyperlaxity of the ligaments
+      qualifier: MONDO:0007037
+    - predicate: PLANS
+      object: osteotomy
+      qualifier: MONDO:0007037
+named_entities:
+  - id: MAXO:0000526
+    label: clinical examination
+    original_spans:
+      - 244:263

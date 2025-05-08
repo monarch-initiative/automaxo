@@ -1,0 +1,69 @@
+---
+input_text: 'Fanconi anemia and hematopoietic stem cell transplant as risk factors
+  for oral squamous cell carcinoma: A case report with a 12-year follow-up. Fanconi
+  anemia is a rare disorder resulting from defects in genes responsible for DNA damage
+  responses. It is characterized by congenital anomalies, aplastic anemia, and a predisposition
+  to cancer. Currently, hematopoietic stem cell transplant (HSCT) is the only curative
+  treatment available for bone marrow failure; however, HSCT increases oral squamous
+  cell carcinoma (OSCC) risk. Here we report the case of a patient diagnosed with
+  Fanconi anemia in childhood who was treated with HSCT and later diagnosed with multiple
+  OSCCs during a 12-year follow-up. Despite multiple surgical interventions and radiotherapy
+  regimens, the patient`s health deteriorated. Management of individuals with Fanconi
+  anemia is challenging and must be provided by a multidisciplinary healthcare team
+  to ensure better staging, treatment planning, and coordination.'
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Fanconi anemia; oral squamous cell carcinoma (OSCC)
+
+  medical_actions: hematopoietic stem cell transplant (HSCT); surgical interventions; radiotherapy
+
+  symptoms: congenital anomalies; aplastic anemia; oral squamous cell carcinoma (OSCC)
+
+  chemicals: 
+
+  action_annotation_relationships: HSCT TREATS bone marrow failure IN Fanconi anemia; HSCT INCREASES RISK OF OSCC IN Fanconi anemia; surgical interventions TREATS OSCC IN Fanconi anemia; radiotherapy TREATS OSCC IN Fanconi anemia
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  radiotherapy TREATS OSCC IN Fanconi anemia
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0004958
+  medical_actions:
+    - MAXO:0000747
+    - MAXO:0000004
+    - MAXO:0000014
+  symptoms:
+    - HP:0034057
+    - HP:0001915
+    - oral squamous cell carcinoma (OSCC)
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: HP:0005528
+      qualifier: MONDO:0019391
+    - predicate: INCREASES RISK OF
+      object: OSCC
+      qualifier: MONDO:0019391
+    - predicate: TREATS
+      object: OSCC
+      qualifier: MONDO:0019391
+    - predicate: TREATS
+      object: OSCC
+      qualifier: MONDO:0019391
+named_entities:
+  - id: MONDO:0004958
+    label: Fanconi anemia; oral squamous cell carcinoma (OSCC)

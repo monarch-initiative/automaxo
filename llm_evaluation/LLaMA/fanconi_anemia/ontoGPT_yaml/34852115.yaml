@@ -1,0 +1,62 @@
+---
+input_text: 'Nursing diagnosis after hematopoietic stem cell transplant due to Fanconi
+  anemia. OBJECTIVES: to identify nursing diagnoses in patients who underwent hematopoietic
+  stem-cell transplants due to Fanconi anemia, according to the NANDA-I taxonomy.
+  METHODS: exploratory study using a retrospective analysis of 85 records from patients
+  who underwent hematopoietic stem-cell transplants due to Fanconi anemia, developed
+  in a specialize transplant center in the South of Brazil. The results were analyzed
+  using descriptive statistics. RESULTS: 73 different diagnoses were found in 9 out
+  of the 13 domains from the NANDA-I taxonomy. From these, 22 were in 50% or more
+  of the patients investigated, and most of them are related to the domain Safety/Protection.
+  CONCLUSIONS: it was possible to identify the nursing diagnosis in the patients who
+  underwent hematopoietic stem cell transplants due to Fanconi anemia, contributing
+  to design a plan for the care of these patients. The same was true for those with
+  other syndromes of chromosomal instability that need to undergo this transplant.'
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Fanconi anemia
+
+  medical_actions: hematopoietic stem-cell transplant
+
+  symptoms: None explicitly mentioned
+
+  chemicals: None explicitly mentioned
+
+  action_annotation_relationships: hematopoietic stem-cell transplant TREATS Fanconi anemia; nursing diagnosis PREVENTS complications IN Fanconi anemia 
+
+  Note that the text does not provide a comprehensive list of symptoms or chemicals, and the relationships between medical actions and symptoms are not explicitly stated. The extracted relationships are inferred based on the context. 
+
+  Also, note that I did not include "nursing diagnosis" as a medical action, as it seems to be a process or a procedure rather than a clinically prescribed intervention. If you would like me to include it, I can revise the extraction accordingly.
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  nursing diagnosis PREVENTS complications IN Fanconi anemia
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0019391
+  medical_actions:
+    - hematopoietic stem-cell transplant
+  symptoms:
+    - None explicitly mentioned
+  chemicals:
+    - None explicitly mentioned
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: HP:0001903
+    - predicate: PREVENTS
+      object: complications
+      qualifier: MONDO:0019391

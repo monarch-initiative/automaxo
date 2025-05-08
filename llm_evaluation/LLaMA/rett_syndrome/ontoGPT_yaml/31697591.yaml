@@ -1,0 +1,94 @@
+---
+input_text: "Parental Attitudes Toward Deep Brain Stimulation in Adolescents with
+  Treatment-Resistant Conditions. Objective: To examine parent's perceptions of deep
+  brain stimulation (DBS) and whether DBS is perceived to be a viable and safe treatment
+  for their adolescent child presenting with a severe, treatment-resistant neurological
+  or psychiatric condition. Method: Two hundred and seventy-nine parents completed
+  an online survey using Amazon Mechanical Turk (MTurk). Participants were presented
+  with five vignette scenarios involving adolescents with severe, treatment-resistant
+  neurological or psychiatric conditions: Rett syndrome, autism spectrum disorder,
+  epilepsy, obsessive-compulsive disorder, and Tourette syndrome. Parents were then
+  asked to evaluate each scenario and rate overall acceptability of using DBS to improve
+  their child's core symptoms. Data were collected over a period of 2 weeks in the
+  month of October 2018. Results: We found that parents reported favorable impressions
+  of DBS regardless of the target condition, especially when greater improvement could
+  be assured and when their child had the capacity to assist in the treatment decision-making.
+  Parents indicated some reluctance to use DBS when possible safety concerns were
+  present. Familiarity with DBS was directly associated with attitudes. Conclusions:
+  The findings highlight an overall parental willingness to consider DBS as a treatment
+  option for key symptoms of neurological and psychiatric conditions in adolescents."
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Rett syndrome; autism spectrum disorder; epilepsy; obsessive-compulsive disorder; Tourette syndrome
+
+  medical_actions: deep brain stimulation (DBS)
+
+  symptoms: core symptoms
+
+  chemicals: 
+
+  action_annotation_relationships: deep brain stimulation (DBS) TREATS core symptoms IN Rett syndrome; deep brain stimulation (DBS) TREATS core symptoms IN autism spectrum disorder; deep brain stimulation (DBS) TREATS core symptoms IN epilepsy; deep brain stimulation (DBS) TREATS core symptoms IN obsessive-compulsive disorder; deep brain stimulation (DBS) TREATS core symptoms IN Tourette syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  deep brain stimulation (DBS) TREATS core symptoms IN Tourette syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: Rett syndrome; autism spectrum disorder; epilepsy; obsessive-compulsive
+    disorder; Tourette syndrome
+  medical_actions:
+    - MAXO:0000943
+  symptoms:
+    - core symptoms
+  action_annotation_relationships:
+    - subject: MAXO:0000943
+      predicate: TREATS
+      object: symptoms
+      qualifier: MONDO:0010726
+    - subject: MAXO:0000943
+      predicate: TREATS
+      object: core symptoms
+      qualifier: MONDO:0005258
+      subject_extension: deep brain stimulation
+      object_extension: core symptoms
+    - subject: MAXO:0000943
+      predicate: TREATS
+      object: symptoms
+      qualifier: MONDO:0005027
+    - subject: MAXO:0000943
+      predicate: TREATS
+      object: core symptoms
+      qualifier: MONDO:0008114
+      subject_extension: deep brain stimulation
+      object_extension: core symptoms
+    - subject: MAXO:0000943
+      predicate: TREATS
+      object: symptoms
+      qualifier: MONDO:0007661
+named_entities:
+  - id: MONDO:0005258
+    label: autism spectrum disorder
+    original_spans:
+      - 628:651
+  - id: MONDO:0008114
+    label: obsessive-compulsive disorder
+    original_spans:
+      - 664:692
+  - id: MONDO:0007661
+    label: Tourette syndrome
+    original_spans:
+      - 699:715

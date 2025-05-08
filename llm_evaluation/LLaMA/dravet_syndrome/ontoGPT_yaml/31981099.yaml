@@ -1,0 +1,102 @@
+---
+input_text: From Genetic Testing to Precision Medicine in Epilepsy. Epilepsy includes
+  a number of medical conditions with recurrent seizures as common denominator. The
+  large number of different syndromes and seizure types as well as the highly variable
+  inter-individual response to the therapies makes management of this condition often
+  challenging. In the last two decades, a genetic etiology has been revealed in more
+  than half of all epilepsies and single gene defects in ion channels or neurotransmitter
+  receptors have been associated with most inherited forms of epilepsy, including
+  some focal and lesional forms as well as specific epileptic developmental encephalopathies.
+  Several genetic tests are now available, including targeted assays up to revolutionary
+  tools that have made sequencing of all coding (whole exome) and non-coding (whole
+  genome) regions of the human genome possible. These recent technological advances
+  have also driven genetic discovery in epilepsy and increased our understanding of
+  the molecular mechanisms of many epileptic disorders, eventually providing targets
+  for precision medicine in some syndromes, such as Dravet syndrome, pyroxidine-dependent
+  epilepsy, and glucose transporter 1 deficiency. However, these examples represent
+  a relatively small subset of all types of epilepsy, and to date, precision medicine
+  in epilepsy has primarily focused on seizure control, and other clinical aspects,
+  such as neurodevelopmental and neuropsychiatric comorbidities, have yet been possible
+  to address. We herein summarize the most recent advances in genetic testing and
+  provide up-to-date approaches for the choice of the correct test for some epileptic
+  disorders and tailored treatments that are already applicable in some monogenic
+  epilepsies. In the next years, the most probably scenario is that epilepsy treatment
+  will be very different from the currently almost empirical approach, eventually
+  with a "precision medicine" approach applicable on a large scale.
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Epilepsy
+
+  medical_actions: Genetic testing; sequencing of all coding (whole exome) and non-coding (whole genome) regions; precision medicine; tailored treatments; seizure control
+
+  symptoms: Recurrent seizures; neurodevelopmental comorbidities; neuropsychiatric comorbidities
+
+  chemicals: 
+
+  action_annotation_relationships: Genetic testing TREATS Epilepsy; sequencing of all coding (whole exome) and non-coding (whole genome) regions TREATS Epilepsy; precision medicine TREATS Epilepsy; tailored treatments TREATS seizures IN Epilepsy; seizure control TREATS seizures IN Epilepsy; treatment (with precision medicine) TREATS neurodevelopmental comorbidities IN Epilepsy; treatment (with precision medicine) TREATS neuropsychiatric comorbidities IN Epilepsy
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  treatment (with precision medicine) TREATS neuropsychiatric comorbidities IN Epilepsy
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005027
+  medical_actions:
+    - MAXO:0000127
+    - sequencing of all coding (whole exome) and non-coding (whole genome) regions
+    - precision medicine
+    - tailored treatments
+    - seizure control
+  symptoms:
+    - HP:0033349
+    - neurodevelopmental comorbidities
+    - neuropsychiatric comorbidities
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: HP:0001250
+    - predicate: TREATS
+      object: HP:0001250
+      subject_extension: whole exome, whole genome
+    - predicate: TREATS
+      object: HP:0001250
+    - predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0005027
+    - predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0005027
+      subject_qualifier: control
+      subject_extension: control
+    - subject: treatment
+      predicate: TREATS
+      object: comorbidities
+      qualifier: MONDO:0005027
+      subject_qualifier: with precision medicine
+      object_qualifier: neurodevelopmental
+      subject_extension: precision medicine
+      object_extension: neurodevelopmental
+    - predicate: TREATS
+      object: neuropsychiatric comorbidities
+      qualifier: MONDO:0005027
+      subject_qualifier: with precision medicine
+      subject_extension: precision medicine
+named_entities:
+  - id: MAXO:0000127
+    label: Genetic testing
+    original_spans:
+      - 5:19
+      - 1566:1580

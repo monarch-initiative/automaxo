@@ -1,0 +1,111 @@
+---
+input_text: 'Dravet syndrome: Treatment options and management of prolonged seizures.
+  Over time, with careful delineation of Dravet syndrome, we have gained experience
+  in treatments most likely to lead to improvement in seizures, as well as those that
+  should be avoided. Sodium valproate, clobazam, stiripentol, and topiramate are all
+  medications that may lead to benefit, as well as the ketogenic diet. Bromides may
+  be utilized in resistant cases. However, equally important are outlining prompt
+  rescue treatment for prolonged seizures and avoidance of precipitants. Newer agents
+  including cannabidiol and fenfluramine have been demonstrated to be of benefit in
+  clinical trials. We propose an algorithm for management, but appreciate that the
+  positioning of newer agents is yet to be established.'
+raw_completion_output: |-
+  Here are the extracted entities in the requested format:
+
+  primary_disease: Dravet syndrome
+
+  medical_actions: treatment with sodium valproate; treatment with clobazam; treatment with stiripentol; treatment with topiramate; ketogenic diet; treatment with bromides; rescue treatment for prolonged seizures; treatment with cannabidiol; treatment with fenfluramine
+
+  symptoms: prolonged seizures
+
+  chemicals: sodium valproate; clobazam; stiripentol; topiramate; bromides; cannabidiol; fenfluramine
+
+  action_annotation_relationships: sodium valproate TREATS prolonged seizures IN Dravet syndrome; clobazam TREATS prolonged seizures IN Dravet syndrome; stiripentol TREATS prolonged seizures IN Dravet syndrome; topiramate TREATS prolonged seizures IN Dravet syndrome; ketogenic diet TREATS prolonged seizures IN Dravet syndrome; bromides TREATS prolonged seizures IN Dravet syndrome; cannabidiol TREATS prolonged seizures IN Dravet syndrome; fenfluramine TREATS prolonged seizures IN Dravet syndrome; rescue treatment TREATS prolonged seizures IN Dravet syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  rescue treatment TREATS prolonged seizures IN Dravet syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0100135
+  medical_actions:
+    - treatment with sodium valproate
+    - treatment with clobazam
+    - treatment with stiripentol
+    - treatment with topiramate
+    - ketogenic diet
+    - treatment with bromides
+    - rescue treatment for prolonged seizures
+    - treatment with cannabidiol
+    - treatment with fenfluramine
+  symptoms:
+    - HP:0002133
+  chemicals:
+    - CHEBI:9925
+    - CHEBI:31413
+    - CHEBI:228488
+    - CHEBI:63631
+    - CHEBI:15858
+    - CHEBI:69478
+    - CHEBI:5000
+  action_annotation_relationships:
+    - subject: therapy with sodium valproate
+      predicate: TREATS
+      object: HP:0002133
+      qualifier: MONDO:0100135
+      subject_extension: CHEBI:35623
+      object_extension: prolonged
+    - subject: clobazam
+      predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0100135
+      subject_extension: CHEBI:31413
+    - predicate: TREATS
+      object: HP:0002133
+      qualifier: MONDO:0100135
+    - predicate: TREATS
+      object: HP:0002133
+      qualifier: MONDO:0100135
+      subject_extension: CHEBI:35623
+    - predicate: TREATS
+      object: HP:0002133
+      qualifier: MONDO:0100135
+    - predicate: TREATS
+      object: HP:0002133
+      qualifier: MONDO:0100135
+    - predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0100135
+      subject_extension: CHEBI:69478
+      object_extension: prolonged
+    - predicate: TREATS
+      object: HP:0002133
+      qualifier: MONDO:0100135
+    - subject: treatment
+      predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0100135
+      subject_extension: rescue
+      object_extension: prolonged
+named_entities:
+  - id: CHEBI:63631
+    label: topiramate
+    original_spans:
+      - 303:312
+  - id: CHEBI:15858
+    label: bromides
+    original_spans:
+      - 391:398

@@ -1,0 +1,128 @@
+---
+input_text: Epigenome Editing in the Brain. Epigenome editing aims for an introduction
+  or removal of chromatin marks at a defined genomic region using artificial EpiEffectors
+  resulting in a modulation of the activity of the targeted functional DNA elements.
+  Rationally designed EpiEffectors consist of a targeting DNA-binding module (such
+  as a zinc finger protein, TAL effector, or CRISPR/Cas complex) and usually, but
+  not exclusively, a catalytic domain of a chromatin-modifying enzyme. Epigenome editing
+  opens a completely new strategy for basic research of the central nervous system
+  and causal treatment of psychiatric and neurological diseases, because rewriting
+  of epigenetic information can lead to the direct and durable control of the expression
+  of disease-associated genes. Here, we review current advances in the design of locus-
+  and allele-specific DNA-binding modules, approaches for spatial, and temporal control
+  of EpiEffectors and discuss some examples of existing and propose new potential
+  therapeutic strategies based on epigenome editing for treatment of neurodegenerative
+  and psychiatric diseases. These include the targeted silencing of disease-associated
+  genes or activation of neuroprotective genes which may be applied in Alzheimer's
+  and Parkinson's diseases or the control of addiction and depression. Moreover, we
+  discuss allele-specific epigenome editing as novel therapeutic approach for imprinting
+  disorders, Huntington's disease and Rett syndrome.
+raw_completion_output: |-
+  primary_disease: neurodegenerative and psychiatric diseases
+  medical_actions: epigenome editing; targeted silencing of disease-associated genes; activation of neuroprotective genes; allele-specific epigenome editing
+  symptoms: Alzheimer's disease; Parkinson's disease; addiction; depression; imprinting disorders; Huntington's disease; Rett syndrome
+  chemicals: EpiEffectors
+  action_annotation_relationships: epigenome editing TREATS symptom Alzheimer's disease IN neurodegenerative and psychiatric diseases; epigenome editing TREATS symptom Parkinson's disease IN neurodegenerative and psychiatric diseases; targeted silencing of disease-associated genes TREATS symptom addiction IN neurodegenerative and psychiatric diseases; targeted silencing of disease-associated genes TREATS symptom depression IN neurodegenerative and psychiatric diseases; allele-specific epigenome editing TREATS symptom imprinting disorders IN neurodegenerative and psychiatric diseases; allele-specific epigenome editing TREATS symptom Huntington's disease IN neurodegenerative and psychiatric diseases; allele-specific epigenome editing TREATS symptom Rett syndrome IN neurodegenerative and psychiatric diseases.
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  allele-specific epigenome editing TREATS symptom Rett syndrome IN neurodegenerative and psychiatric diseases.
+
+  ===
+
+extracted_object:
+  primary_disease: neurodegenerative and psychiatric diseases
+  medical_actions:
+    - epigenome editing
+    - targeted silencing of disease-associated genes
+    - activation of neuroprotective genes
+    - allele-specific epigenome editing
+  symptoms:
+    - HP:0002511
+    - Parkinson's disease
+    - HP:0030858
+    - HP:0000716
+    - imprinting disorders
+    - Huntington's disease
+    - Rett syndrome
+  chemicals:
+    - EpiEffectors
+  action_annotation_relationships:
+    - subject: epigenome editing
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0004975
+      subject_extension: epigenome editing
+      object_extension: symptom
+    - subject: epigenome editing
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0005180
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: epigenome editing
+      object_extension: symptom
+    - subject: targeted silencing of disease-associated genes
+      predicate: TREATS
+      object: symptom addiction
+      qualifier: neurodegenerative and psychiatric diseases
+      subject_qualifier: none
+      object_qualifier: none
+      subject_extension: targeted silencing
+      object_extension: none
+    - subject: targeted silencing
+      predicate: TREATS
+      object: symptom depression
+      qualifier: neurodegenerative and psychiatric diseases
+      subject_extension: targeted silencing
+      object_extension: disease-associated
+    - predicate: TREATS
+      object: symptom imprinting disorders
+      qualifier: neurodegenerative and psychiatric diseases
+      subject_extension: epigenome editing
+    - subject: allele-specific epigenome editing
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0007739
+      subject_extension: epigenome editing
+      object_extension: symptom
+    - subject: allele-specific epigenome editing
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0010726
+      subject_qualifier: none
+      object_qualifier: none
+      subject_extension: allele-specific epigenome editing
+      object_extension: none
+named_entities:
+  - id: HP:0002511
+    label: Alzheimer's disease
+  - id: HP:0030858
+    label: addiction
+    original_spans:
+      - 1289:1297
+  - id: HP:0000716
+    label: depression
+    original_spans:
+      - 1303:1312
+  - id: MONDO:0004975
+    label: Alzheimer's disease
+  - id: MONDO:0005180
+    label: Parkinson's disease
+    original_spans:
+      - 1250:1268
+  - id: MONDO:0007739
+    label: Huntington's disease
+    original_spans:
+      - 1426:1445

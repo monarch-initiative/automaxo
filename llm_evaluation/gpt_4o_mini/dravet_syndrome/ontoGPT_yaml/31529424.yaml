@@ -1,0 +1,95 @@
+---
+input_text: Accuracy of Flash Glucose Monitoring in a Patient with Dravet Syndrome
+  on a Ketogenic Diet. We herein report the case of a 3-year-old girl with severe
+  myoclonic epilepsy of infancy known as Dravet syndrome (DS) on a ketogenic diet
+  (KD) whose glucose concentrations were controlled by using a flash glucose monitoring
+  system. Two-hundred ninety-three events of moderate hypoglycemia with a minimum
+  of 45 mg/dL, not related to day or night, were recorded during the observational
+  period. Hypoglycemia rate declined from 24.5% of all measurements to 11.8% over
+  time; one hypoglycemia-associated seizure and one seizure due to ketone concentrations
+  below the therapeutic range were observed. In summary, this case report broadens
+  our understanding of hypoglycemia risk in patients with DS on a KD. Especially in
+  childhood, the painless and easy detection of low glucose concentrations might lead
+  to improved cognitive performance, and the reduction of hypoglycemia-induced seizures.
+raw_completion_output: |-
+  primary_disease: Dravet Syndrome  
+  medical_actions: flash glucose monitoring; ketogenic diet  
+  symptoms: moderate hypoglycemia; seizure; low glucose concentrations; low ketone concentrations  
+  chemicals: none  
+  action_annotation_relationships: flash glucose monitoring TREATS moderate hypoglycemia IN Dravet Syndrome; ketogenic diet TREATS moderate hypoglycemia IN Dravet Syndrome; ketogenic diet TREATS seizure IN Dravet Syndrome; flash glucose monitoring TREATS low glucose concentrations IN Dravet Syndrome; flash glucose monitoring TREATS cognitive performance IN Dravet Syndrome; flash glucose monitoring PREVENTS hypoglycemia-induced seizures IN Dravet Syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  flash glucose monitoring PREVENTS hypoglycemia-induced seizures IN Dravet Syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0100135
+  medical_actions:
+    - flash glucose monitoring
+    - ketogenic diet
+  symptoms:
+    - moderate hypoglycemia
+    - HP:0001250
+    - low glucose concentrations
+    - low ketone concentrations
+  chemicals:
+    - none
+  action_annotation_relationships:
+    - subject: flash glucose monitoring
+      predicate: TREATS
+      object: HP:0001943
+      qualifier: MONDO:0100135
+      subject_extension: glucose monitoring
+      object_extension: moderate
+    - subject: ketogenic diet
+      predicate: TREATS
+      object: HP:0001943
+      qualifier: MONDO:0100135
+      subject_extension: ketogenic diet
+      object_extension: moderate
+    - subject: TREATS
+      predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0100135
+      subject_extension: ketogenic diet
+      object_extension: seizure
+    - subject: flash glucose monitoring
+      predicate: TREATS
+      object: low glucose concentrations
+      qualifier: MONDO:0100135
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: glucose monitoring
+      object_extension: low glucose concentrations
+    - subject: flash glucose monitoring
+      predicate: TREATS
+      object: cognitive performance
+      qualifier: MONDO:0100135
+      subject_extension: glucose monitoring
+      object_extension: cognitive performance
+    - predicate: PREVENTS
+      object: hypoglycemia-induced seizures
+      qualifier: MONDO:0100135
+      subject_extension: flash glucose monitoring
+named_entities:
+  - id: HP:0001943
+    label: hypoglycemia
+    original_spans:
+      - 369:380
+      - 486:497
+      - 568:579
+      - 747:758
+      - 948:959

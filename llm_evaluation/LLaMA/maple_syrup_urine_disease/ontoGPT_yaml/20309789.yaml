@@ -1,0 +1,81 @@
+---
+input_text: Continuous venovenous hemofiltration rapidly lowers toxic metabolites
+  in a patient with MSUD and imminent cerebral herniation. Maple syrup urine disease
+  (MSUD) is an inborn error of amino acid metabolism. During catabolic stress encephalopathy
+  and brain swelling that can culminate in brain herniation may occur. Beyond the
+  neonatal period, these metabolic decompensations normally can be treated with a
+  conservative dietary emergency regimen. Nevertheless in exceptionally severe cases
+  also older patients may require extracorporeal interventions. We present the case
+  of a 12-year-old patient with cerebral edema and imminent cerebral herniation. Continuous
+  venovenous hemofiltration (CVVH) caused a prompt decrease of the toxic metabolite
+  levels as well as an improvement of the patient's condition.
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Maple syrup urine disease (MSUD)
+
+  medical_actions: conservative dietary emergency regimen; Continuous venovenous hemofiltration (CVVH)
+
+  symptoms: encephalopathy; brain swelling; cerebral edema; imminent cerebral herniation
+
+  chemicals: 
+
+  action_annotation_relationships: conservative dietary emergency regimen TREATS encephalopathy IN MSUD; conservative dietary emergency regimen TREATS brain swelling IN MSUD; conservative dietary emergency regimen PREVENTS brain herniation IN MSUD; Continuous venovenous hemofiltration (CVVH) TREATS imminent cerebral herniation IN MSUD; Continuous venovenous hemofiltration (CVVH) TREATS cerebral edema IN MSUD; Continuous venovenous hemofiltration (CVVH) TREATS encephalopathy IN MSUD
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Continuous venovenous hemofiltration (CVVH) TREATS encephalopathy IN MSUD
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009563
+  medical_actions:
+    - conservative dietary emergency regimen
+    - Continuous venovenous hemofiltration (CVVH)
+  symptoms:
+    - HP:0001298
+    - HP:0002181
+    - HP:0002181
+    - imminent cerebral herniation
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: HP:0001298
+      qualifier: MONDO:0009563
+      subject_qualifier: emergency
+      subject_extension: dietary
+    - predicate: TREATS
+      object: HP:0002181
+      qualifier: MONDO:0009563
+      subject_qualifier: emergency
+      subject_extension: dietary
+    - predicate: PREVENTS
+      object: brain herniation
+      qualifier: MONDO:0009563
+      subject_qualifier: conservative
+      subject_extension: dietary
+    - predicate: TREATS
+      object: imminent cerebral herniation
+      qualifier: MONDO:0009563
+    - predicate: TREATS
+      object: HP:0002181
+      qualifier: MONDO:0009563
+    - predicate: TREATS
+      object: HP:0001298
+      qualifier: MONDO:0009563
+named_entities:
+  - id: HP:0002181
+    label: brain swelling
+    original_spans:
+      - 248:261

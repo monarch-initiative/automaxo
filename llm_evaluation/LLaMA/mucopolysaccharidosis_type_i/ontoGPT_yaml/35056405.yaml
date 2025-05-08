@@ -1,0 +1,70 @@
+---
+input_text: 'Proposal of an Algorithm to Early Detect Attenuated Type I Mucopolysaccharidosis
+  (MPS Ia) among Children with Growth Abnormalities. Background and Objectives: Diagnostic
+  delay is common in attenuated Mucopolysaccharidosis Type I (MPS Ia) due to the rarity
+  of the disease and the variability of clinical presentation. Short stature and impaired
+  growth velocity are frequent findings in MPS Ia, but they rarely raise suspicion
+  as paediatric endocrinologists are generally poorly trained to detect earlier and
+  milder clinical signs of this condition. Materials and Methods: Following a consensus-based
+  methodology, a multidisciplinary panel including paediatric endocrinologists, paediatricians
+  with expertise in metabolic disorders, radiologists, and rheumatologists shared
+  their experience on a possible clinical approach to the diagnosis of MPS Ia in children
+  with short stature or stunted growth. Results: The result was the formation of an
+  algorithm that illustrates how to raise the suspicion of MPS Ia in a patient older
+  than 5 years with short stature and suggestive clinical signs. Conclusion: The proposed
+  algorithm may represent a useful tool to improve the awareness of paediatric endocrinologists
+  and reduce the diagnostic delay for patients with MPS Ia.'
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Mucopolysaccharidosis Type I (MPS Ia)
+
+  medical_actions: detection of MPS Ia; diagnosis of MPS Ia; algorithm-based approach to diagnosis
+
+  symptoms: short stature; impaired growth velocity; stunted growth
+
+  chemicals: 
+
+  action_annotation_relationships: detection of MPS Ia TREATS diagnostic delay IN Mucopolysaccharidosis Type I (MPS Ia); algorithm-based approach to diagnosis PREVENTS diagnostic delay IN Mucopolysaccharidosis Type I (MPS Ia); diagnosis of MPS Ia TREATS suspicion of MPS Ia IN Mucopolysaccharidosis Type I (MPS Ia)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  diagnosis of MPS Ia TREATS suspicion of MPS Ia IN Mucopolysaccharidosis Type I (MPS Ia)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0001586
+  medical_actions:
+    - detection of MPS Ia
+    - diagnosis of MPS Ia
+    - algorithm-based approach to diagnosis
+  symptoms:
+    - HP:0004322
+    - impaired growth velocity
+    - stunted growth
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: diagnostic delay
+      qualifier: MONDO:0001586
+      subject_extension: detection
+    - predicate: PREVENTS
+      object: diagnostic delay
+      qualifier: MONDO:0001586
+    - subject: diagnosis
+      predicate: TREATS
+      object: suspicion of MPS Ia
+      qualifier: MONDO:0001586
+      subject_extension: diagnosis
+      object_extension: suspicion

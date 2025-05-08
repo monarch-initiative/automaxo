@@ -1,0 +1,99 @@
+---
+input_text: 'Allogeneic Hematopoietic Stem Cell Transplant Offer Good Outcomes in
+  Pediatric Aplastic Anemia: Experience From Developing World. Between 2014 and 2020,
+  31 patients with severe aplastic anemia (SAA) underwent full match allogeneic hematopoietic
+  stem cell transplantation at our center. Of the 31 patients with SAA, 19 had acquired
+  aplastic anemia, 2 had Diamond Blackfan anemia and 10 had Fanconi anemia. Donors
+  were either matched sibling (n=29), related donors (n=2), or unrelated donors (n=3).
+  Peripheral blood stem cells were the graft source in all the cases except 1. Fludarabine-based
+  reduced intensity conditioning was used in all except for patients with a diagnosis
+  of Diamond Blackfan anemia. All patients except 1 achieved hematologic recovery
+  in the form of neutrophil engraftment at 13 days (range, 9 to 17), whereas platelet
+  engraftment occurred at 14 days (range, 10 to 18). Graft versus host disease (GvHD)
+  prophylaxis consisted of cyclosporine and methotrexate +-antithymocyte globulin
+  (horse/rabbit). Acute GvHD developed in 12.9% patients, whereas no patients developed
+  chronic GvHD till the time of last follow-up. The 2-year overall survival for the
+  entire cohort was 93.21+-4.6%. In patients with SAA, allogeneic stem cell transplant
+  using fludarabine-based conditioning regimens are very well tolerated and have excellent
+  outcomes in a full match setting.'
+raw_completion_output: |-
+  primary_disease: Aplastic Anemia  
+  medical_actions: Allogeneic hematopoietic stem cell transplantation; Fludarabine-based reduced intensity conditioning; Graft versus host disease prophylaxis with cyclosporine and methotrexate; Antithymocyte globulin administration  
+  symptoms: Neutrophil engraftment; Platelet engraftment; Acute graft versus host disease (GvHD)  
+  chemicals: Fludarabine; Cyclosporine; Methotrexate; Antithymocyte globulin  
+  action_annotation_relationships: Allogeneic hematopoietic stem cell transplantation TREATS neutrophil engraftment IN Aplastic Anemia; Allogeneic hematopoietic stem cell transplantation TREATS platelet engraftment IN Aplastic Anemia; Fludarabine-based reduced intensity conditioning TREATS neutrophil engraftment IN Aplastic Anemia; Graft versus host disease prophylaxis with cyclosporine and methotrexate TREATS acute graft versus host disease (GvHD) IN Aplastic Anemia; Antithymocyte globulin administration TREATS acute graft versus host disease (GvHD) IN Aplastic Anemia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Antithymocyte globulin administration TREATS acute graft versus host disease (GvHD) IN Aplastic Anemia
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0015909
+  medical_actions:
+    - MAXO:0001479
+    - Fludarabine-based reduced intensity conditioning
+    - Graft versus host disease prophylaxis with cyclosporine and methotrexate
+    - Antithymocyte globulin administration
+  symptoms:
+    - Neutrophil engraftment
+    - Platelet engraftment
+    - Acute graft versus host disease (GvHD)
+  chemicals:
+    - Fludarabine
+    - CHEBI:4031
+    - CHEBI:44185
+    - Antithymocyte globulin
+  action_annotation_relationships:
+    - subject: MAXO:0001479
+      predicate: TREATS
+      object: neutrophil engraftment
+      qualifier: MONDO:0015909
+      subject_qualifier: Allogeneic
+      object_qualifier: None
+      subject_extension: hematopoietic stem cell transplantation
+      object_extension: neutrophil engraftment
+    - subject: MAXO:0001479
+      predicate: TREATS
+      object: platelet engraftment
+      qualifier: MONDO:0015909
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: hematopoietic stem cell transplantation
+      object_extension: platelet engraftment
+    - predicate: TREATS
+      object: neutrophil engraftment
+      qualifier: MONDO:0015909
+      subject_extension: Fludarabine
+    - predicate: TREATS
+      object: acute graft versus host disease (GvHD)
+      qualifier: MONDO:0015909
+      subject_qualifier: Graft versus host disease
+      subject_extension: cyclosporine, methotrexate
+    - subject: administration
+      predicate: TREATS
+      object: acute graft versus host disease (GvHD)
+      qualifier: MONDO:0015909
+      subject_qualifier: N/A
+      object_qualifier: N/A
+      subject_extension: antithymocyte globulin
+      object_extension: N/A
+named_entities:
+  - id: MONDO:0015909
+    label: Aplastic Anemia
+    original_spans:
+      - 79:93
+      - 177:191
+      - 331:345

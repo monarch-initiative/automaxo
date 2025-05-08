@@ -1,0 +1,114 @@
+---
+input_text: "Evaluation of the risk factors for noncommunicable diseases in patients
+  with inborn errors of amino acid metabolism receiving nutrition therapy. OBJECTIVES:
+  There is growing concern about the low-protein and high-energy diet therapies used
+  in the treatment of inherited amino acid metabolism disorders. We aimed to identify
+  the risk factors for noncommunicable diseases that may arise from nutritional therapies
+  and suggests approaches that may prevent the development of the noncommunicable
+  diseases. METHODS: The present study evaluates 112 patients, on long-term nutritional
+  therapy for at least the last 2 years with a diagnosis of an inborn error of the
+  amino acid metabolism, and their 28 healthy siblings. The participants are assessed
+  for the development of overweight and metabolic syndrome based on an analysis of
+  anthropometric parameters, body composition and the results of biochemical tests.
+  RESULTS: Anthropometric measurements including BMI, weight Z-score, waist circumference
+  and fat mass were not significantly different between patients and controls. Height
+  Z-scores were similar in phenylketonuria patients compared to controls, but lower
+  in urea cycle disorders, organic acidemia and maple syrup urine disease groups.
+  No increased risk of development of overweight or metabolic syndrome was detected
+  in the patient group, while there were findings suggesting malnutrition in patients
+  diagnosed with urea cycle disorders. There was a correlation between patients' BMI
+  and C3-carnitine levels in organic acidemia patients and leucine levels in maple
+  syrup urine disease patients. CONCLUSIONS: All forms of malnutrition can be prevented
+  in patient groups receiving limited nutrients under a dietary management protocol,
+  based on the findings of anthropometric and biochemical evaluations and analyses
+  of body composition."
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: inborn errors of amino acid metabolism; noncommunicable diseases; metabolic syndrome; overweight; malnutrition
+
+  medical_actions: nutrition therapy; dietary management protocol; long-term nutritional therapy
+
+  symptoms: overweight; metabolic syndrome; malnutrition; low-protein; high-energy; anthropometric parameters; body composition abnormalities; elevated C3-carnitine levels; elevated leucine levels
+
+  chemicals: C3-carnitine; leucine
+
+  action_annotation_relationships: nutrition therapy PREVENTS malnutrition IN inborn errors of amino acid metabolism; dietary management protocol PREVENTS malnutrition IN inborn errors of amino acid metabolism; nutrition therapy TREATS inborn errors of amino acid metabolism; C3-carnitine levels TREATS metabolic syndrome IN organic acidemia; leucine levels TREATS metabolic syndrome IN maple syrup urine disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  leucine levels TREATS metabolic syndrome IN maple syrup urine disease
+
+  ===
+
+extracted_object:
+  primary_disease: inborn errors of amino acid metabolism; noncommunicable diseases;
+    metabolic syndrome; overweight; malnutrition
+  medical_actions:
+    - nutrition therapy
+    - dietary management protocol
+    - long-term nutritional therapy
+  symptoms:
+    - HP:0025502
+    - metabolic syndrome
+    - HP:0004395
+    - low-protein
+    - high-energy
+    - anthropometric parameters
+    - body composition abnormalities
+    - elevated C3-carnitine levels
+    - elevated leucine levels
+  chemicals:
+    - C3-carnitine
+    - CHEBI:25017
+  action_annotation_relationships:
+    - predicate: PREVENTS
+      object: HP:0004395
+      qualifier: MONDO:0004736
+      subject_extension: nutrition
+    - predicate: PREVENTS
+      object: HP:0004395
+      qualifier: MONDO:0004736
+      subject_extension: management
+    - predicate: TREATS
+      object: inborn errors of amino acid metabolism
+      qualifier: MONDO:0004736
+      subject_extension: nutrition
+    - predicate: TREATS
+      object: metabolic syndrome
+      qualifier: MONDO:0000688
+      subject_extension: CHEBI:17126
+    - predicate: TREATS
+      object: metabolic syndrome
+      qualifier: MONDO:0009563
+      subject_extension: CHEBI:25017
+named_entities:
+  - id: HP:0025502
+    label: overweight
+    original_spans:
+      - 766:775
+      - 1276:1285
+  - id: HP:0004395
+    label: malnutrition
+    original_spans:
+      - 1381:1392
+      - 1626:1637
+  - id: MONDO:0004736
+    label: inborn errors of amino acid metabolism
+    original_spans:
+      - 77:114
+  - id: CHEBI:17126
+    label: carnitine
+    original_spans:
+      - 1496:1504

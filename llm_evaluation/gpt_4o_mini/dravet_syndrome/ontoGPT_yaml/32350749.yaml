@@ -1,0 +1,197 @@
+---
+input_text: 'A Phase II Randomized Trial to Explore the Potential for Pharmacokinetic
+  Drug-Drug Interactions with Stiripentol or Valproate when Combined with Cannabidiol
+  in Patients with Epilepsy. BACKGROUND: In recent randomized, placebo-controlled,
+  phase III trials, highly purified cannabidiol demonstrated efficacy with an acceptable
+  safety profile in patients with Lennox-Gastaut syndrome or Dravet syndrome. It is
+  anticipated that antiepileptic drugs such as stiripentol and valproate will be administered
+  concomitantly with cannabidiol. OBJECTIVES: This trial evaluated the effect of cannabidiol
+  on steady-state pharmacokinetics of stiripentol or valproate in patients with epilepsy,
+  and the safety and tolerability of cannabidiol. METHODS: This phase II, two-arm,
+  parallel-group, double-blind, randomized, placebo-controlled trial recruited male
+  and female patients with epilepsy aged 16-55 years. Patients receiving a stable
+  dose of stiripentol or valproate were randomized 4:1 to receive concomitant double-blind
+  cannabidiol or placebo. Patients received plant-derived, highly purified cannabidiol
+  medicine (Epidiolex  in the USA; Epidyolex  in the EU; 100 mg/mL oral solution)
+  at a dose of 20 mg/kg/day from day 12 to 26, following a 10-day dose-escalation
+  period. Blood samples for pharmacokinetic evaluations were collected on days 1 and
+  26 before stiripentol/valproate dosing and up to 12 h postdose. Treatment-emergent
+  adverse events (AEs) were recorded. RESULTS: In total, 35 patients were recruited
+  to the stiripentol arm (n = 14) or the valproate arm (n = 21). Both the safety and
+  the pharmacokinetic populations of the stiripentol arm comprised 14 patients (2
+  placebo; 12 cannabidiol). The safety population of the valproate arm comprised 20
+  patients (4 placebo; 16 cannabidiol; one withdrew before receiving treatment); the
+  pharmacokinetic population comprised 15 patients (3 placebo; 12 cannabidiol). Concomitant
+  cannabidiol led to a small increase in stiripentol exposure (17% increase in maximum
+  observed plasma concentration [Cmax]; 30% increase in area under the concentration-time
+  curve over the dosing interval [AUCtau]). Concomitant cannabidiol also had little
+  effect on valproate exposure (13% decrease in Cmax; 17% decrease in AUCtau) or its
+  metabolite, 2-propyl-4-pentenoic acid (4-ene-VPA) (23% decrease in Cmax; 30% decrease
+  in AUCtau). All changes in exposure are expressed as the dose-normalized geometric
+  mean (CV%) day 26 to day 1 ratio. The most common AE was diarrhea; most AEs were
+  mild. Two patients discontinued cannabidiol because of serious AEs (rash [n = 1]
+  in the stiripentol arm; hypertransaminasemia [n = 1] in the valproate arm). A separate
+  in vitro study investigated the bidirectional effect of cannabidiol, or its metabolite
+  7-carboxy-cannabidiol, on valproate plasma protein binding; no change in plasma
+  protein binding was observed for either compound. CONCLUSIONS: The clinical relevance
+  of the increase in stiripentol exposure is unknown; patients receiving cannabidiol
+  and stiripentol concomitantly should be monitored for adverse reactions as individual
+  patient responses may vary. Coadministration of cannabidiol did not affect the pharmacokinetics
+  of valproate or its metabolite, 4-ene-VPA, in adult patients with epilepsy. Safety
+  results were consistent with the known safety profile of cannabidiol at a dose of
+  20 mg/kg/day. Clinicaltrials.gov: NCT02607891.'
+raw_completion_output: |-
+  primary_disease: Epilepsy  
+  medical_actions: administration of cannabidiol; administration of stiripentol; administration of valproate; monitoring for adverse reactions  
+  symptoms: diarrhea; rash; hypertransaminasemia  
+  chemicals: cannabidiol; stiripentol; valproate; 2-propyl-4-pentenoic acid; 7-carboxy-cannabidiol  
+  action_annotation_relationships: administration of cannabidiol TREATS symptom diarrhea IN Epilepsy; administration of cannabidiol TREATS symptom rash IN Epilepsy; administration of cannabidiol TREATS symptom hypertransaminasemia IN Epilepsy; administration of stiripentol TREATS symptom diarrhea IN Epilepsy; administration of valproate TREATS symptom diarrhea IN Epilepsy; monitoring for adverse reactions TREATS symptom rash IN Epilepsy; monitoring for adverse reactions TREATS symptom hypertransaminasemia IN Epilepsy
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  monitoring for adverse reactions TREATS symptom hypertransaminasemia IN Epilepsy
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005027
+  medical_actions:
+    - administration of cannabidiol
+    - administration of stiripentol
+    - administration of valproate
+    - monitoring for adverse reactions
+  symptoms:
+    - HP:0002014
+    - HP:0000988
+    - hypertransaminasemia
+  chemicals:
+    - CHEBI:69478
+    - CHEBI:228488
+    - CHEBI:60654
+    - 2-propyl-4-pentenoic acid
+    - 7-carboxy-cannabidiol
+  action_annotation_relationships:
+    - subject: administration
+      predicate: TREATS
+      object: HP:0002014
+      qualifier: MONDO:0005027
+      subject_qualifier: none
+      object_qualifier: none
+      subject_extension: CHEBI:69478
+      object_extension: none
+    - subject: administration
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0005027
+      subject_extension: CHEBI:69478
+      object_extension: rash
+    - subject: administration of cannabidiol
+      predicate: TREATS
+      object: hypertransaminasemia
+      qualifier: MONDO:0005027
+      subject_extension: CHEBI:69478
+      object_extension: hypertransaminasemia
+    - subject: administration of stiripentol
+      predicate: TREATS
+      object: symptom diarrhea
+      qualifier: MONDO:0005027
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: CHEBI:228488
+      object_extension: None
+    - predicate: TREATS
+      object: symptom diarrhea
+      qualifier: MONDO:0005027
+      subject_extension: CHEBI:60654
+    - subject: monitoring for adverse reactions
+      predicate: TREATS
+      object: symptom rash
+      qualifier: MONDO:0005027
+      subject_qualifier: <none>
+      object_qualifier: <none>
+      subject_extension: <none>
+      object_extension: <none>
+    - subject: monitoring for adverse reactions
+      predicate: TREATS
+      object: symptom hypertransaminasemia
+      qualifier: MONDO:0005027
+      subject_qualifier: <n/a>
+      object_qualifier: <n/a>
+      subject_extension: <n/a>
+      object_extension: <n/a>
+named_entities:
+  - id: MONDO:0005027
+    label: Epilepsy
+    original_spans:
+      - 174:181
+      - 668:675
+      - 866:873
+      - 3261:3268
+  - id: HP:0002014
+    label: diarrhea
+    original_spans:
+      - 2485:2492
+  - id: HP:0000988
+    label: rash
+    original_spans:
+      - 2577:2580
+  - id: CHEBI:69478
+    label: cannabidiol
+    original_spans:
+      - 145:155
+      - 272:282
+      - 518:528
+      - 578:588
+      - 713:723
+      - 1010:1020
+      - 1083:1093
+      - 1678:1688
+      - 1772:1782
+      - 1895:1905
+      - 1921:1931
+      - 2148:2158
+      - 2541:2551
+      - 2733:2743
+      - 2774:2784
+      - 3001:3011
+      - 3147:3157
+      - 3335:3345
+  - id: CHEBI:228488
+    label: stiripentol
+    original_spans:
+      - 101:111
+      - 452:462
+      - 626:636
+      - 929:939
+      - 1348:1358
+      - 1510:1520
+      - 1625:1635
+      - 1960:1970
+      - 2597:2607
+      - 2949:2959
+      - 3017:3027
+  - id: CHEBI:60654
+    label: valproate
+    original_spans:
+      - 116:124
+      - 468:476
+      - 641:649
+      - 944:952
+      - 1360:1368
+      - 1542:1550
+      - 1721:1729
+      - 2186:2194
+      - 2650:2658
+      - 2790:2798
+      - 3198:3206

@@ -1,0 +1,67 @@
+---
+input_text: "Successful domino liver transplantation in maple syrup urine disease
+  using a related living donor. Maple syrup urine disease (MSUD) is an autosomal recessive
+  disease associated with high levels of branched-chain amino acids. Children with
+  MSUD can present severe neurological damage, but liver transplantation (LT) allows
+  the patient to resume a normal diet and avoid further neurological damage. The use
+  of living related donors has been controversial because parents are obligatory heterozygotes.
+  We report a case of a 2-year-old child with MSUD who underwent a living donor LT.
+  The donor was the patient's mother, and his liver was then used as a domino graft.
+  The postoperative course was uneventful in all three subjects. DNA analysis performed
+  after the transplantation (sequencing of the coding regions of BCKDHA, BCKDHB, and
+  DBT genes) showed that the MSUD patient was heterozygous for a pathogenic mutation
+  in the BCKDHB gene. This mutation was not found in his mother, who is an obligatory
+  carrier for MSUD according to the family history and, as expected, presented both
+  normal clinical phenotype and levels of branched-chain amino acids. In conclusion,
+  our data suggest that the use of a related donor in LT for MSUD was effective, and
+  the liver of the MSUD patient was successfully used in domino transplantation. Routine
+  donor genotyping may not be feasible, because the test is not widely available,
+  and, most importantly, the disease is associated with both the presence of allelic
+  and locus heterogeneity. Further studies with this population of patients are required
+  to expand the use of related donors in MSUD. "
+raw_completion_output: |-
+  primary_disease: Maple syrup urine disease (MSUD)  
+  medical_actions: liver transplantation (LT); domino transplantation  
+  symptoms: severe neurological damage  
+  chemicals: branched-chain amino acids  
+  action_annotation_relationships: liver transplantation (LT) TREATS severe neurological damage IN Maple syrup urine disease (MSUD); domino transplantation TREATS severe neurological damage IN Maple syrup urine disease (MSUD)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  domino transplantation TREATS severe neurological damage IN Maple syrup urine disease (MSUD)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009563
+  medical_actions:
+    - MAXO:0001175
+    - domino transplantation
+  symptoms:
+    - severe neurological damage
+  chemicals:
+    - CHEBI:22918
+  action_annotation_relationships:
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: neurological damage
+      qualifier: MONDO:0009563
+      subject_extension: liver transplantation
+      object_extension: neurological damage
+    - subject: domino transplantation
+      predicate: TREATS
+      object: neurological damage
+      qualifier: MONDO:0009563
+      subject_extension: domino transplantation
+      object_extension: severe

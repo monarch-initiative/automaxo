@@ -1,0 +1,138 @@
+---
+input_text: 'Thalidomide as treatment of crohn-like disease occurred after allogeneic
+  hematopoietic stem cell transplantation in a pediatric patient. BACKGROUND: Autoimmune
+  diseases may occur after allogeneic hematopoietic stem cell transplantation (allo-HSCT)
+  and inflammatory bowel disease (IBD or Crohn disease) is rarely described. We describe
+  a child who developed CD after allo-HSCT, successfully treated with thalidomide.
+  CASE REPORT: A child affected by mucopolysaccharidosis type I received two allogeneic
+  HSCTs for rejection after the first one. After cutaneous and intestinal chronic
+  GvHD and 6 months after HSCT, the patients developed a trilinear autoimmune cytopenia
+  successfully treated with rituximab and sirolimus. Due to persisting intestinal
+  symptoms, colonoscopies were performed and histological findings demonstrated a
+  picture of CD. Based on this observation and according to the recommendations for
+  the treatment of CD, thalidomide was started. A complete stable clinical response
+  was obtained 8 weeks after start of thalidomide. Colonoscopy performed 4.8 years
+  later demonstrated a complete endoscopic and histological remission of CD. DISCUSSION:
+  In this case, the diagnosis of CD after HSCT was based on histological findings.
+  Indeed, repeated colonscopies were necessary for diagnosis, since both clinical
+  and endoscopic features are often common to chronic GvHD and CD. Thalidomide was
+  started at the dose of 1.7 mg/Kg/day, and it was well tolerated. Mild peripheral
+  neurotoxicity occurred 5 years later but disappeared completely with the dose reduction.
+  Currently, the patient is in complete remission from CD, despite the discontinuation
+  of all the immunosuppressive therapies. CONCLUSIONS: Thalidomide could represent
+  a therapeutic option to treat CD as autoimmune disease after allogeneic HSCT.'
+raw_completion_output: |-
+  primary_disease: Crohn disease  
+  medical_actions: thalidomide; rituximab; sirolimus; colonoscopy  
+  symptoms: intestinal symptoms; chronic GvHD; trilinear autoimmune cytopenia; mild peripheral neurotoxicity  
+  chemicals: thalidomide; rituximab; sirolimus  
+  action_annotation_relationships: thalidomide TREATS intestinal symptoms IN Crohn disease; rituximab TREATS trilinear autoimmune cytopenia IN Crohn disease; sirolimus TREATS trilinear autoimmune cytopenia IN Crohn disease; colonoscopy TREATS intestinal symptoms IN Crohn disease; thalidomide TREATS Crohn disease IN Crohn disease; thalidomide (with thalidomide) TREATS mild peripheral neurotoxicity IN Crohn disease  
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  thalidomide (with thalidomide) TREATS mild peripheral neurotoxicity IN Crohn disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005011
+  medical_actions:
+    - thalidomide
+    - rituximab
+    - sirolimus
+    - MAXO:0001184
+  symptoms:
+    - intestinal symptoms
+    - chronic GvHD
+    - trilinear autoimmune cytopenia
+    - mild peripheral neurotoxicity
+  chemicals:
+    - CHEBI:9513
+    - CHEBI:64357
+    - CHEBI:9168
+  action_annotation_relationships:
+    - subject: TREATS
+      predicate: TREATS
+      object: intestinal symptoms
+      qualifier: MONDO:0005011
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: CHEBI:9513
+      object_extension: intestinal symptoms
+    - subject: TREATS
+      predicate: TREATS
+      object: trilinear autoimmune cytopenia
+      qualifier: MONDO:0005011
+      subject_qualifier: N/A
+      object_qualifier: trilinear
+      subject_extension: CHEBI:64357
+      object_extension: autoimmune cytopenia
+    - subject: TREATS
+      predicate: TREATS
+      object: autoimmune cytopenia
+      qualifier: MONDO:0005011
+      subject_extension: CHEBI:9168
+      object_extension: autoimmune
+    - subject: MAXO:0001184
+      predicate: TREATS
+      object: intestinal symptoms
+      qualifier: MONDO:0005011
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: colonoscopy
+      object_extension: intestinal symptoms
+    - subject: TREATS
+      predicate: TREATS
+      object: HP:0100280
+      qualifier: MONDO:0005011
+      subject_extension: CHEBI:9513
+      object_extension: Crohn disease
+    - subject: TREATS
+      predicate: TREATS
+      object: mild peripheral neurotoxicity
+      qualifier: MONDO:0005011
+      subject_qualifier: with thalidomide
+      object_qualifier: mild
+      subject_extension: CHEBI:9513
+      object_extension: mild peripheral neurotoxicity
+named_entities:
+  - id: MONDO:0005011
+    label: Crohn disease
+    original_spans:
+      - 287:299
+  - id: MAXO:0001184
+    label: colonoscopy
+    original_spans:
+      - 1041:1051
+  - id: CHEBI:9513
+    label: thalidomide
+    original_spans:
+      - 0:10
+      - 403:413
+      - 931:941
+      - 1028:1038
+      - 1386:1396
+      - 1710:1720
+  - id: CHEBI:64357
+    label: rituximab
+    original_spans:
+      - 694:702
+  - id: CHEBI:9168
+    label: sirolimus
+    original_spans:
+      - 708:716
+  - id: HP:0100280
+    label: Crohn disease
+    original_spans:
+      - 287:299

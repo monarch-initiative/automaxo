@@ -1,0 +1,63 @@
+---
+input_text: 'Gene therapy for Rett syndrome. '
+raw_completion_output: |-
+  primary_disease: Rett syndrome
+  medical_actions: Gene therapy
+  symptoms: 
+  chemicals: 
+  action_annotation_relationships: Gene therapy TREATS Rett syndrome
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Gene therapy TREATS Rett syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010726
+  medical_actions:
+    - MAXO:0001001
+  action_annotation_relationships:
+    - subject: MAXO:0001001
+      predicate: TREATS
+      object: Rett syndrome
+named_entities:
+  - id: MONDO:0005647
+    label: Genital warts
+  - id: MONDO:0002602
+    label: Central nervous system diseases
+  - id: HP:0002011
+    label: central nervous system diseases
+  - id: MONDO:0010726
+    label: Rett syndrome
+  - id: MONDO:0005027
+    label: epilepsy
+  - id: HP:0001250
+    label: seizures
+  - id: MAXO:0001298
+    label: therapy
+  - id: HP:0002186
+    label: apraxia
+  - id: HP:0002333
+    label: motor deterioration
+  - id: CHEBI:229599
+    label: Trofinetide
+  - id: HP:0012444
+    label: Brain atrophy
+  - id: CHEBI:182159
+    label: Cannabidivarin (CBDV)
+  - id: HP:0012531
+    label: Pain
+  - id: MAXO:0001001
+    label: Gene therapy

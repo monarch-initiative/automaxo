@@ -1,0 +1,75 @@
+---
+input_text: 'Improvement in time to treatment, but not time to diagnosis, in patients
+  with mucopolysaccharidosis type I. OBJECTIVE: Early diagnosis and treatment initiation
+  are important factors for successful treatment of mucopolysaccharidosis type I (MPS
+  I). The purpose of this observational study was to assess whether age at diagnosis
+  and time to first treatment for individuals with MPS I have improved over the last
+  15 years. STUDY DESIGN: Data from the MPS I Registry (NCT00144794) for individuals
+  with attenuated or severe disease who initiated therapy with laronidase enzyme replacement
+  therapy (ERT) and/or hematopoietic stem cell transplantation (HSCT) between 1 January
+  2003 and 31 December 2017 were included. RESULTS: Data were available for 740 individuals
+  with attenuated (n=291) or severe (n=424) MPS I (unknown n=25). Median age at diagnosis
+  for attenuated disease did not change over time and ranged between 4.5 and 6 years
+  of age while the median duration from diagnosis to first ERT decreased from 5.6
+  years before/during 2004 to 2.4 months in 2014-2017. For severe MPS I treated with
+  HSCT, median age at diagnosis was less than 1 year and median time to first treatment
+  was less than 3 months throughout the 15-year observation period. CONCLUSIONS: Times
+  to diagnosis and HSCT initiation for individuals with severe MPS I were consistent
+  over time. For individuals with attenuated MPS I, the time to ERT initiation after
+  diagnosis has improved substantially in the last 15 years, but median age at diagnosis
+  has not improved. Efforts to improve early diagnosis in attenuated MPS I are needed
+  to ensure that patients receive appropriate treatment at the optimal time.'
+raw_completion_output: |-
+  primary_disease: mucopolysaccharidosis type I  
+  medical_actions: early diagnosis; enzyme replacement therapy (ERT); hematopoietic stem cell transplantation (HSCT)  
+  symptoms: none explicitly mentioned  
+  chemicals: laronidase  
+  action_annotation_relationships: early diagnosis TREATS symptom IN mucopolysaccharidosis type I; enzyme replacement therapy (with chemical laronidase) TREATS symptom IN mucopolysaccharidosis type I; hematopoietic stem cell transplantation (HSCT) TREATS symptom IN mucopolysaccharidosis type I  
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  hematopoietic stem cell transplantation (HSCT) TREATS symptom IN mucopolysaccharidosis type I
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0001586
+  medical_actions:
+    - early diagnosis
+    - enzyme replacement therapy (ERT)
+    - MAXO:0000747
+  symptoms:
+    - none explicitly mentioned
+  chemicals:
+    - laronidase
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0001586
+    - subject: enzyme replacement therapy
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0001586
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: laronidase
+      object_extension: None
+    - subject: MAXO:0000747
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0001586
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: hematopoietic stem cell transplantation
+      object_extension: symptom

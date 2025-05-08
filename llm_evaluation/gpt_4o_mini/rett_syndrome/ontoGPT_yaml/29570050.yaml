@@ -1,0 +1,85 @@
+---
+input_text: Forniceal deep brain stimulation induces gene expression and splicing
+  changes that promote neurogenesis and plasticity. Clinical trials are currently
+  underway to assess the efficacy of forniceal deep brain stimulation (DBS) for improvement
+  of memory in Alzheimer's patients, and forniceal DBS has been shown to improve learning
+  and memory in a mouse model of Rett syndrome (RTT), an intellectual disability disorder
+  caused by loss-of-function mutations in MECP2. The mechanism of DBS benefits has
+  been elusive, however, so we assessed changes in gene expression, splice isoforms,
+  DNA methylation, and proteome following acute forniceal DBS in wild-type mice and
+  mice lacking Mecp2. We found that DBS upregulates genes involved in synaptic function,
+  cell survival, and neurogenesis and normalized expression of ~25% of the genes altered
+  in Mecp2-null mice. Moreover, DBS induced expression of 17-24% of the genes downregulated
+  in other intellectual disability mouse models and in post-mortem human brain tissue
+  from patients with Major Depressive Disorder, suggesting forniceal DBS could benefit
+  individuals with a variety of neuropsychiatric disorders.
+raw_completion_output: |-
+  primary_disease: Alzheimer's disease; Rett syndrome; Major Depressive Disorder  
+  medical_actions: forniceal deep brain stimulation (DBS)  
+  symptoms: memory impairment; learning difficulties; intellectual disability  
+  chemicals: MECP2  
+  action_annotation_relationships: treatment (forniceal DBS) TREATS symptom memory impairment IN Alzheimer's disease; treatment (forniceal DBS) TREATS symptom learning difficulties IN Rett syndrome; treatment (forniceal DBS) TREATS symptom intellectual disability IN Rett syndrome; treatment (forniceal DBS) TREATS symptom memory impairment IN Major Depressive Disorder
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  treatment (forniceal DBS) TREATS symptom memory impairment IN Major Depressive Disorder
+
+  ===
+
+extracted_object:
+  primary_disease: Alzheimer's disease; Rett syndrome; Major Depressive Disorder
+  medical_actions:
+    - MAXO:0000943
+  symptoms:
+    - HP:0002354
+    - learning difficulties
+    - HP:0001249
+  chemicals:
+    - MECP2
+  action_annotation_relationships:
+    - subject: treatment
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0004975
+      subject_extension: forniceal DBS
+      object_extension: memory impairment
+    - subject: treatment
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0010726
+      subject_extension: forniceal DBS
+      object_extension: learning difficulties
+    - subject: treatment
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0010726
+      subject_qualifier: forniceal
+      object_qualifier: intellectual disability
+      subject_extension: forniceal DBS
+      object_extension: intellectual disability
+    - subject: treatment
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0002009
+      subject_qualifier: forniceal DBS
+      object_qualifier: memory impairment
+      subject_extension: forniceal DBS
+      object_extension: memory impairment
+named_entities:
+  - id: HP:0002354
+    label: memory impairment
+  - id: MONDO:0002009
+    label: Major Depressive Disorder
+    original_spans:
+      - 1029:1053

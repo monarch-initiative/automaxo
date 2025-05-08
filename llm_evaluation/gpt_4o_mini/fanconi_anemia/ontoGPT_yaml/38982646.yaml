@@ -1,0 +1,112 @@
+---
+input_text: Fanconi Anemia in a 31-Year-Old Patient with Multiple Malignant Tumor
+  Foci, Including Appendiceal Cancer, and Multiple Coexisting Pathologies. BACKGROUND
+  Fanconi anemia (FA) is a genetic disorder that impairs the function of the bone
+  marrow and predisposes individuals to aplastic anemia. The condition is caused by
+  mutations in genes responsible for DNA repair. People with FA have an increased
+  risk of developing tumors due to DNA damage. Flat-cell carcinomas of the head, neck,
+  esophagus, and genital organs are often observed in individuals with FA. CASE REPORT
+  A 31-year-old man with Fanconi anemia and a history of bone marrow transplantation
+  was admitted to the General Surgery Department due to elevated levels of the CEA
+  marker. Before the transplantation, chromosomal anomalies, bone marrow hypoplasia,
+  kidney agenesis, and bone defects were noted. After the transplantation, he developed
+  a skin rash. He was also diagnosed with squamous cell carcinoma of the lip and chronic
+  conditions, including cholestatic liver damage, hypertension, and hypothyroidism.
+  During the diagnostic process, computed tomography showed signs of Barrett's esophagus,
+  numerous polyps in the stomach and intestines, and a nodular formation measuring
+  4.5x5x5.5 cm in the right iliac region. Laparoscopy revealed a neoplasm of the appendix
+  with numerous metastases on the inner abdominal wall and omentum. Histological analysis
+  confirmed mucinous appendiceal cancer. The patient was discharged for palliative
+  treatment at the Oncology Center with a final diagnosis of appendiceal cancer, mucinous
+  type, grade G3. This case underscores the importance of early and comprehensive
+  cancer screening in individuals with FA, particularly those with a history of bone
+  marrow transplantation. CONCLUSIONS This clinical case underscores the critical
+  importance of thorough and timely cancer diagnosis in individuals with this genetic
+  pathology.
+raw_completion_output: |-
+  primary_disease: Fanconi Anemia  
+  medical_actions: bone marrow transplantation; palliative treatment; cancer screening  
+  symptoms: elevated CEA marker; skin rash; chromosomal anomalies; bone marrow hypoplasia; kidney agenesis; bone defects; Barrett's esophagus; numerous polyps; nodular formation; neoplasm of the appendix; metastases  
+  chemicals: None  
+  action_annotation_relationships: bone marrow transplantation TREATS symptom (bone marrow hypoplasia) IN Fanconi Anemia; palliative treatment TREATS symptom (mucinous appendiceal cancer) IN Fanconi Anemia; cancer screening PREVENTS symptom (tumors) IN Fanconi Anemia
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  cancer screening PREVENTS symptom (tumors) IN Fanconi Anemia
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0019391
+  medical_actions:
+    - MAXO:0010030
+    - palliative treatment
+    - MAXO:0000126
+  symptoms:
+    - elevated CEA marker
+    - HP:0000988
+    - chromosomal anomalies
+    - HP:0005528
+    - kidney agenesis
+    - bone defects
+    - HP:0100580
+    - numerous polyps
+    - nodular formation
+    - neoplasm of the appendix
+    - metastases
+  chemicals:
+    - None
+  action_annotation_relationships:
+    - subject: MAXO:0010030
+      predicate: TREATS
+      object: HP:0005528
+      qualifier: MONDO:0019391
+      subject_extension: bone marrow transplantation
+      object_extension: bone marrow hypoplasia
+    - subject: palliative treatment
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0019391
+      subject_extension: palliative treatment
+      object_extension: mucinous appendiceal cancer
+    - subject: MAXO:0000126
+      predicate: PREVENTS
+      object: HP:0002664
+      qualifier: MONDO:0019391
+      subject_qualifier: <none>
+      object_qualifier: <none>
+      subject_extension: cancer screening
+      object_extension: tumors
+named_entities:
+  - id: MAXO:0010030
+    label: bone marrow transplantation
+    original_spans:
+      - 621:647
+      - 1740:1766
+  - id: MAXO:0000126
+    label: cancer screening
+    original_spans:
+      - 1662:1677
+  - id: HP:0000988
+    label: skin rash
+    original_spans:
+      - 901:909
+  - id: HP:0100580
+    label: Barrett's esophagus
+    original_spans:
+      - 1135:1153
+  - id: HP:0002664
+    label: tumors
+    original_spans:
+      - 415:420

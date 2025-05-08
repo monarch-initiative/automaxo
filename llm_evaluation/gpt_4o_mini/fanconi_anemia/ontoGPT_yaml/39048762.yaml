@@ -1,0 +1,97 @@
+---
+input_text: 'MASCC/ISOO Clinical Practice Statement: The risk of secondary oral cancer
+  following hematopoietic cell transplantation. PURPOSE: A MASCC/ISOO Clinical Practice
+  Statement (CPS) is aimed at generating a concise tool for clinicians that concentrates
+  practical information needed for the management of oral complications of cancer
+  patients. This CPS is focused on the risk of secondary oral cancer following hematopoietic
+  cell transplantation (HCT). METHODS: This CPS was developed based on critical evaluation
+  of the literature followed by a structured discussion of a group of leading experts,
+  members of the Oral Care Study Group of MASCC/ISOO. The information is presented
+  in the form of succinct bullets to generate a short manual about the best standard
+  of care. RESULTS: Studies described a 7-16-fold higher risk of secondary oral cancer
+  (mainly squamous cell carcinoma) in allogeneic HCT (alloHCT) recipients, particularly
+  in those who developed chronic graft versus host disease (cGVHD). Risk increases
+  over time and is influenced by several risk factors. In autologous HCT, oral cancer
+  risk seemed only slightly elevated. CONCLUSION: Clinicians should be aware of the
+  higher oral cancer risk in alloHCT survivors, and emphasize the importance of lifelong
+  oral cancer surveillance (at least every 6-12 months) and avoiding cancer promoting
+  lifestyle factors in an empathic way, particularly of those with (a history of)
+  cGVHD. Post-HCT for Fanconi anemia or dyskeratosis congenita, education and rigorous
+  follow-up is even more crucial. In case of suspected oral lesions in the presence
+  of oral mucosal cGVHD, a GVHD intervention may facilitate diagnosis. Suspected lesions
+  should be biopsied. More research is needed on the role of HPV in oral cancer post-HCT.'
+raw_completion_output: |-
+  primary_disease: secondary oral cancer  
+  medical_actions: lifelong oral cancer surveillance; avoiding cancer promoting lifestyle factors; GVHD intervention; biopsy  
+  symptoms: oral lesions; chronic graft versus host disease (cGVHD)  
+  chemicals: none  
+  action_annotation_relationships: lifelong oral cancer surveillance TREATS symptom (oral lesions) IN disease; avoiding cancer promoting lifestyle factors PREVENTS symptom (oral lesions) IN disease; GVHD intervention TREATS symptom (oral lesions) IN disease; biopsy TREATS symptom (oral lesions) IN disease  
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  biopsy TREATS symptom (oral lesions) IN disease
+
+  ===
+
+extracted_object:
+  primary_disease: secondary oral cancer
+  medical_actions:
+    - lifelong oral cancer surveillance
+    - avoiding cancer promoting lifestyle factors
+    - GVHD intervention
+    - biopsy
+  symptoms:
+    - oral lesions
+    - chronic graft versus host disease (cGVHD)
+  chemicals:
+    - none
+  action_annotation_relationships:
+    - subject: lifelong oral cancer surveillance
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0000001
+      subject_qualifier: lifelong
+      object_qualifier: None
+      subject_extension: oral cancer surveillance
+      object_extension: oral lesions
+    - subject: avoiding cancer promoting lifestyle factors
+      predicate: PREVENTS
+      object: symptom
+      qualifier: MONDO:0000001
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: cancer promoting lifestyle factors
+      object_extension: oral lesions
+    - subject: intervention
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0013730
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: GVHD intervention
+      object_extension: oral lesions
+    - subject: biopsy
+      predicate: TREATS
+      object: oral lesions
+      qualifier: MONDO:0000001
+      subject_extension: biopsy
+      object_extension: oral lesions
+named_entities:
+  - id: MONDO:0013730
+    label: GVHD
+    original_spans:
+      - 986:989
+      - 1426:1429
+      - 1609:1612
+      - 1617:1620

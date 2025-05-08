@@ -1,0 +1,88 @@
+---
+input_text: 'Living donor domino liver transplantation using a maple syrup urine disease
+  donor: A case series of three children - The first report from Japan. As the priority
+  of LD-Domino LT is the safety of the first recipient, limitations and technical
+  difficulties in the second recipient often occur. The most technically challenging
+  part of LD-Domino LT is the reconstruction of the vessels. For the reconstruction
+  of HVs, the native HVs were exteriorized as far as possible using a CUSA because
+  longer extensive HVs are essential for facilitating the reconstruction. At the back
+  table, the HVs of the domino graft were sutured together, and the single cuff of
+  the HVs was anastomosed to the IVC by joining the orifices. The HAs, the presence
+  of insufficient length, and multiple vessels in the whole liver rendered the reconstruction
+  more difficult. We determined the dividing sites of the vessels according to the
+  preoperative 3D-CT findings obtained in two institutions. This is the first case
+  series using grafts in DLT obtained from LDLT for patients with MSUD between two
+  institutions. In conclusion, LD-Domino LT is a safe and feasible therapeutic option
+  to expand the donor pool by technical refinement in the reconstruction of the second
+  recipient. Further studies with a greater accumulation of patients and a longer
+  follow-up will be necessary to establish LD-Domino LT using an MSUD donor.'
+raw_completion_output: |-
+  Here are the extracted entities in the requested format:
+
+  primary_disease: Maple Syrup Urine Disease (MSUD)
+
+  medical_actions: Liver transplantation; Domino liver transplantation; Living donor liver transplantation; Reconstruction of vessels; Anastomosis; Suturing; Exteriorization of native hepatic veins; Preoperative 3D-CT
+
+  symptoms: Insufficient length of hepatic arteries; Multiple vessels in the whole liver; Technical difficulties in reconstruction
+
+  chemicals: None
+
+  action_annotation_relationships: Liver transplantation TREATS MSUD; Domino liver transplantation TREATS MSUD; Reconstruction of vessels TREATS technical difficulties IN MSUD; Anastomosis TREATS technical difficulties IN MSUD; Suturing TREATS technical difficulties IN MSUD; Exteriorization of native hepatic veins TREATS technical difficulties IN MSUD; Preoperative 3D-CT PREVENTS technical difficulties IN MSUD
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Preoperative 3D-CT PREVENTS technical difficulties IN MSUD
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009563
+  medical_actions:
+    - MAXO:0001175
+    - Domino liver transplantation
+    - Living donor liver transplantation
+    - Reconstruction of vessels
+    - Anastomosis
+    - Suturing
+    - Exteriorization of native hepatic veins
+    - Preoperative 3D-CT
+  symptoms:
+    - Insufficient length of hepatic arteries
+    - Multiple vessels in the whole liver
+    - Technical difficulties in reconstruction
+  chemicals:
+    - None
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: MSUD
+    - predicate: TREATS
+      object: MSUD
+      subject_extension: liver transplantation
+    - subject: Reconstruction of vessels
+      predicate: TREATS
+      object: technical difficulties
+      qualifier: MONDO:0009563
+    - predicate: TREATS
+      object: technical difficulties
+      qualifier: MONDO:0009563
+    - subject: Suturing
+      predicate: TREATS
+      object: technical difficulties
+      qualifier: MONDO:0009563
+    - predicate: TREATS
+      object: technical difficulties
+      qualifier: MONDO:0009563
+    - predicate: PREVENTS
+      object: technical difficulties
+      qualifier: MONDO:0009563

@@ -1,0 +1,75 @@
+---
+input_text: 'Domino liver transplants: where do we stand after a quarter-century?
+  A US national analysis. BACKGROUND: Domino liver transplantation (DLT) utilizes
+  a phenotypically normal explant from select recipients as a donor graft in another
+  patient. The procedure is not widely employed and remains restricted to a small
+  number of centers. The purpose of this study was to assess the national profile
+  of DLT in the United States (US) and evaluate current survival outcomes. METHODS:
+  The United Network for Organ Sharing (UNOS) database was queried for all liver transplants
+  (LT) between 1996 and 2020. Outcomes of interest were long-term graft and patient
+  survival. RESULTS: Of 181,976 LTs performed nationally during the study period,
+  185 (0.1%) were DLTs. Amyloidosis and maple syrup urine disease (MSUD) accounted
+  for 83% of dominoed allografts. Out of 210 explants with amyloidosis, 103 (49%)
+  were dominoed into secondary recipients. Only 50 (22%) of all MSUD explants (n =
+  227) were dominoed. Graft survival was 79%, 73% and 53% at 3-, 5- and 10-years,
+  respectively, for DLT recipients. Overall patient survival was 83%, 76% and 57%
+  at 3-, 5- and 10-years. CONCLUSION: Despite excellent long-term survival outcomes,
+  DLT allografts comprise a very small percentage of the liver donor pool. A large
+  proportion of potential DLTs may be unconscionably excluded despite shortages in
+  deceased donor organs.'
+raw_completion_output: |-
+  Here are the extracted entities in the requested format:
+
+  primary_disease: Amyloidosis; Maple Syrup Urine Disease (MSUD)
+
+  medical_actions: Domino liver transplantation (DLT); Liver transplantation (LT)
+
+  symptoms: None
+
+  chemicals: None
+
+  action_annotation_relationships: Domino liver transplantation (DLT) TREATS Amyloidosis; Domino liver transplantation (DLT) TREATS Maple Syrup Urine Disease (MSUD); Liver transplantation (LT) TREATS Amyloidosis; Liver transplantation (LT) TREATS Maple Syrup Urine Disease (MSUD)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Liver transplantation (LT) TREATS Maple Syrup Urine Disease (MSUD)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009563
+  medical_actions:
+    - Domino liver transplantation (DLT)
+    - MAXO:0001175
+  symptoms:
+    - None
+  chemicals:
+    - None
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: HP:0011034
+    - predicate: TREATS
+      object: Maple Syrup Urine Disease (MSUD)
+      subject_extension: liver transplantation
+    - predicate: TREATS
+      object: HP:0011034
+    - predicate: TREATS
+      object: Maple Syrup Urine Disease
+      subject_extension: liver
+named_entities:
+  - id: HP:0011034
+    label: Amyloidosis
+    original_spans:
+      - 749:759
+      - 865:875

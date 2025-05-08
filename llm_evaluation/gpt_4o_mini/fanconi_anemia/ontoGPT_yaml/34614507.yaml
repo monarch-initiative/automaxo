@@ -1,0 +1,99 @@
+---
+input_text: Graft rejection markers in children undergoing hematopoietic cell transplant
+  for bone marrow failure. Graft rejection (GR) is a poorly understood complication
+  of hematopoietic cell transplant (HCT). GR risk factors are well published, but
+  there are no reliable biomarkers or therapies known. Fever is the most common symptom
+  of GR, but no study has evaluated fever kinetics as a diagnostic marker of GR. The
+  objectives of this study were to identify mechanisms, biomarkers, and potential
+  therapies for GR after HCT. Chemokine ligand 9 (CXCL9), B-cell activating factor
+  (BAFF), and complement markers (sC5b-9, C3a, and C5a) were measured in 7 patients
+  with GR and compared with 15 HCT controls. All patients had a diagnosis of aplastic
+  anemia, Fanconi anemia, or genetically undefined chromosomal fragility syndrome.
+  All patients with GR were febrile during GR; therefore, control patients who underwent
+  HCT were matched for diagnosis and early fevers after HCT. Patients withh GR had
+  significantly higher CXCL9, BAFF, and sC5b-9 at the time of fever and GR compared
+  with control patients who underwent HCT at the time of fever. The maximum fever
+  was significantly higher and occurred significantly later in the transplant course
+  in patients with GR compared with febrile HCT controls. These data support the use
+  of CXCL9, BAFF, sC5b-9, and fever kinetics as GR markers. Two patients with GR underwent
+  a second HCT that was complicated by high fevers. Both patients received interferon
+  and complement blockers during their second HCT, and both preserved their graft.
+  These laboratory and clinical findings support larger studies to evaluate the safety
+  and efficacy of interferon, complement, and BAFF inhibitors for the prevention and
+  treatment of GR after HCT.
+raw_completion_output: |-
+  primary_disease: Graft rejection (GR)  
+  medical_actions: hematopoietic cell transplant (HCT); interferon; complement blockers; BAFF inhibitors  
+  symptoms: fever  
+  chemicals: CXCL9; BAFF; sC5b-9; complement; interferon  
+  action_annotation_relationships: interferon TREATS fever IN Graft rejection; complement blockers TREATS fever IN Graft rejection; BAFF inhibitors PREVENT Graft rejection IN Graft rejection; hematopoietic cell transplant (HCT) TREATS Graft rejection IN Graft rejection
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  hematopoietic cell transplant (HCT) TREATS Graft rejection IN Graft rejection
+
+  ===
+
+extracted_object:
+  primary_disease: Graft rejection (GR)
+  medical_actions:
+    - MAXO:0000149
+    - interferon
+    - complement blockers
+    - BAFF inhibitors
+  symptoms:
+    - HP:0001945
+  chemicals:
+    - CHEBI:138154
+    - BAFF
+    - sC5b-9
+    - complement
+    - CHEBI:52999
+  action_annotation_relationships:
+    - subject: TREATS
+      predicate: TREATS
+      object: HP:0001945
+      qualifier: Graft rejection
+      subject_extension: CHEBI:52999
+      object_extension: fever
+    - predicate: TREATS
+      object: HP:0001945
+      qualifier: Graft rejection
+      subject_extension: complement blockers
+    - subject: PREVENT
+      predicate: PREVENTS
+      object: Graft rejection
+      qualifier: Graft rejection
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: BAFF inhibitors
+      object_extension: Graft rejection
+    - subject: hematopoietic cell transplant
+      predicate: TREATS
+      object: Graft rejection
+      qualifier: Graft rejection
+      subject_extension: hematopoietic cell transplant
+      object_extension: Graft rejection
+named_entities:
+  - id: CHEBI:138154
+    label: CXCL9
+    original_spans:
+      - 536:540
+      - 1005:1009
+      - 1315:1319
+  - id: CHEBI:52999
+    label: interferon
+    original_spans:
+      - 1474:1483
+      - 1667:1676

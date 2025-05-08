@@ -1,0 +1,83 @@
+---
+input_text: Natural gene therapy by reverse mosaicism leads to improved hematology
+  in Fanconi anemia patients. Fanconi anemia (FA) is characterized by chromosome fragility,
+  bone marrow failure (BMF) and predisposition to cancer. As reverse genetic mosaicism
+  has been described as "natural gene therapy" in patients with FA, we sought to evaluate
+  the clinical course of a cohort of FA mosaic patients followed at referral centers
+  in Spain over a 30-year period. This cohort includes patients with a majority of
+  T cells without chromosomal aberrations in the DEB-chromosomal breakage test. Relative
+  to non-mosaic FA patients, we observed a higher proportion of adult patients in
+  the cohort of mosaics, with a later age of hematologic onset and a milder evolution
+  of (BMF). Consequently, the requirement for hematopoietic stem cell transplant (HSCT)
+  was also lower. Additional studies allowed us to identify a sub-cohort of mosaic
+  FA patients in whom the reversion was present in bone marrow (BM) progenitor cells
+  leading to multilineage mosaicism. These multilineage mosaic patients are older,
+  have a lower percentage of aberrant cells, have more stable hematology and none
+  of them developed leukemia or myelodysplastic syndrome when compared to non-mosaics.
+  In conclusion, our data indicate that reverse mosaicism is a good prognostic factor
+  in FA and is associated with more favorable long-term clinical outcomes.
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Fanconi anemia
+
+  medical_actions: hematopoietic stem cell transplant (HSCT); natural gene therapy by reverse mosaicism
+
+  symptoms: chromosome fragility; bone marrow failure (BMF); predisposition to cancer; leukemia; myelodysplastic syndrome
+
+  chemicals: 
+
+  action_annotation_relationships: hematopoietic stem cell transplant (HSCT) TREATS bone marrow failure (BMF) IN Fanconi anemia; natural gene therapy by reverse mosaicism TREATS Fanconi anemia; reverse mosaicism PREVENTS leukemia IN Fanconi anemia; reverse mosaicism PREVENTS myelodysplastic syndrome IN Fanconi anemia; reverse mosaicism TREATS chromosome fragility IN Fanconi anemia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  reverse mosaicism TREATS chromosome fragility IN Fanconi anemia
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0019391
+  medical_actions:
+    - MAXO:0000747
+    - natural gene therapy by reverse mosaicism
+  symptoms:
+    - chromosome fragility
+    - HP:0005528
+    - predisposition to cancer
+    - HP:0001909
+    - HP:0002863
+  action_annotation_relationships:
+    - subject: transplant
+      predicate: TREATS
+      object: HP:0005528
+      qualifier: MONDO:0019391
+      subject_qualifier: hematopoietic stem cell
+      object_qualifier: (BMF)
+      subject_extension: hematopoietic stem cell
+      object_extension: (none)
+    - predicate: TREATS
+      object: mosaicism
+      qualifier: MONDO:0019391
+      subject_qualifier: natural
+      object_qualifier: reverse
+      subject_extension: gene therapy
+    - predicate: PREVENTS
+      object: HP:0001909
+      qualifier: MONDO:0019391
+    - predicate: PREVENTS
+      object: HP:0002863
+      qualifier: MONDO:0019391
+    - predicate: TREATS
+      object: chromosome fragility
+      qualifier: MONDO:0019391

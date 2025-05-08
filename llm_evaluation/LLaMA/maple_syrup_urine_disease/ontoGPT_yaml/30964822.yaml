@@ -1,0 +1,88 @@
+---
+input_text: Differential Intraoperative Effect of Liver Transplant in Different Inborn
+  Errors of Metabolism. Liver transplant (LT) is a therapeutic option for a growing
+  number of inborn errors of metabolism (IEM), including some disorders not confined
+  to the liver. Clinical advantages of LT in maple syrup urine disease (MSUD), methylmalonic
+  acidemia (MMA), and argininosuccinic aciduria (ASA) have been reported. However,
+  no information on the early metabolic effect of LT after portal reperfusion is available
+  in these disorders. Here we describe the intraoperative differential metabolic outcome
+  of LT in MSUD, MMA, and ASA. In these IEM, LT promptly cleared toxic metabolites
+  to safe concentrations. In MSUD, leucine concentration reached physiological concentration
+  within 12 hours after portal reperfusion. In MMA and ASA, LT allowed faster clearance
+  of methylmalonate and argininosuccinate, respectively, both dropping by ~90% within
+  the first hour after portal reperfusion. The early biochemical benefits of LT in
+  MSUD, MMA, and ASA demonstrate its immediate effectiveness in protecting patients
+  from intercurrent metabolic decompensations.
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Inborn errors of metabolism (IEM); specifically, maple syrup urine disease (MSUD), methylmalonic acidemia (MMA), and argininosuccinic aciduria (ASA)
+
+  medical_actions: Liver transplant (LT)
+
+  symptoms: toxic metabolites; elevated leucine concentration; elevated methylmalonate; elevated argininosuccinate; intercurrent metabolic decompensations
+
+  chemicals: leucine; methylmalonate; argininosuccinate
+
+  action_annotation_relationships: Liver transplant (LT) TREATS toxic metabolites IN Inborn errors of metabolism (IEM); Liver transplant (LT) TREATS elevated leucine concentration IN maple syrup urine disease (MSUD); Liver transplant (LT) TREATS elevated methylmalonate IN methylmalonic acidemia (MMA); Liver transplant (LT) TREATS elevated argininosuccinate IN argininosuccinic aciduria (ASA); Liver transplant (LT) PREVENTS intercurrent metabolic decompensations IN Inborn errors of metabolism (IEM)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Liver transplant (LT) PREVENTS intercurrent metabolic decompensations IN Inborn errors of metabolism (IEM)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009563
+  medical_actions:
+    - Liver transplant (LT)
+  symptoms:
+    - toxic metabolites
+    - elevated leucine concentration
+    - elevated methylmalonate
+    - elevated argininosuccinate
+    - intercurrent metabolic decompensations
+  chemicals:
+    - CHEBI:25017
+    - CHEBI:17453
+    - argininosuccinate
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: toxic metabolites
+      qualifier: MONDO:0019052
+    - predicate: TREATS
+      object: elevated leucine concentration
+      qualifier: MONDO:0009563
+    - predicate: TREATS
+      object: elevated methylmalonate
+      qualifier: MONDO:0002012
+    - predicate: TREATS
+      object: elevated argininosuccinate
+      qualifier: MONDO:0008815
+    - predicate: PREVENTS
+      object: intercurrent metabolic decompensations
+      qualifier: MONDO:0019052
+named_entities:
+  - id: CHEBI:17453
+    label: methylmalonate
+    original_spans:
+      - 849:862
+  - id: MONDO:0002012
+    label: methylmalonic acidemia (MMA)
+    original_spans:
+      - 317:344
+  - id: MONDO:0008815
+    label: argininosuccinic aciduria (ASA)
+    original_spans:
+      - 351:381

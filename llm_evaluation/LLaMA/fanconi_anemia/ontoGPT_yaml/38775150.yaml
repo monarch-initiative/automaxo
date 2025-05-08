@@ -1,0 +1,95 @@
+---
+input_text: Lentivirus-mediated gene therapy corrects ribosomal biogenesis and shows
+  promise for Diamond Blackfan anemia. This study lays the groundwork for future lentivirus-mediated
+  gene therapy in patients with Diamond Blackfan anemia (DBA) caused by mutations
+  in ribosomal protein S19 (RPS19), showing evidence of a new safe and effective therapy.
+  The data show that, unlike patients with Fanconi anemia (FA), the hematopoietic
+  stem cell (HSC) reservoir of patients with DBA was not significantly reduced, suggesting
+  that collection of these cells should not constitute a remarkable restriction for
+  DBA gene therapy. Subsequently, 2 clinically applicable lentiviral vectors were
+  developed. In the former lentiviral vector, PGK.CoRPS19 LV, a codon-optimized version
+  of RPS19 was driven by the phosphoglycerate kinase promoter (PGK) already used in
+  different gene therapy trials, including FA gene therapy. In the latter one, EF1alpha.CoRPS19
+  LV, RPS19 expression was driven by the elongation factor alpha short promoter, EF1alpha(s).
+  Preclinical experiments showed that transduction of DBA patient CD34+ cells with
+  the PGK.CoRPS19 LV restored erythroid differentiation, and demonstrated the long-term
+  repopulating properties of corrected DBA CD34+ cells, providing evidence of improved
+  erythroid maturation. Concomitantly, long-term restoration of ribosomal biogenesis
+  was verified using a potentially novel method applicable to patients' blood cells,
+  based on ribosomal RNA methylation analyses. Finally, in vivo safety studies and
+  proviral insertion site analyses showed that lentivirus-mediated gene therapy was
+  nontoxic.
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Diamond Blackfan anemia
+
+  medical_actions: lentivirus-mediated gene therapy; gene therapy with PGK.CoRPS19 LV; gene therapy with EF1alpha.CoRPS19 LV
+
+  symptoms: reduced erythroid differentiation; impaired ribosomal biogenesis
+
+  chemicals: 
+
+  action_annotation_relationships: lentivirus-mediated gene therapy TREATS impaired ribosomal biogenesis IN Diamond Blackfan anemia; PGK.CoRPS19 LV TREATS reduced erythroid differentiation IN Diamond Blackfan anemia; EF1alpha.CoRPS19 LV TREATS reduced erythroid differentiation IN Diamond Blackfan anemia; lentivirus-mediated gene therapy TREATS Diamond Blackfan anemia caused by mutations in ribosomal protein S19 (RPS19)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  lentivirus-mediated gene therapy TREATS Diamond Blackfan anemia caused by mutations in ribosomal protein S19 (RPS19)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0015253
+  medical_actions:
+    - lentivirus-mediated gene therapy
+    - gene therapy with PGK.CoRPS19 LV
+    - gene therapy with EF1alpha.CoRPS19 LV
+  symptoms:
+    - reduced erythroid differentiation
+    - impaired ribosomal biogenesis
+  action_annotation_relationships:
+    - subject: lentivirus-mediated gene therapy
+      predicate: TREATS
+      object: impaired ribosomal biogenesis
+      qualifier: MONDO:0015253
+      subject_qualifier: lentivirus-mediated
+      object_qualifier: impaired
+      subject_extension: gene
+      object_extension: ribosomal biogenesis
+    - predicate: TREATS
+      object: reduced erythroid differentiation
+      qualifier: MONDO:0015253
+      subject_qualifier: PGK
+      subject_extension: PGK
+    - predicate: TREATS
+      object: reduced erythroid differentiation
+      qualifier: MONDO:0015253
+    - predicate: TREATS
+      object: HP:0004810
+      qualifier: Diamond Blackfan anemia caused by mutations in ribosomal protein
+        S19 (RPS19)
+      subject_qualifier: lentivirus-mediated
+      object_qualifier: caused by mutations in ribosomal protein S19 (RPS19)
+      subject_extension: gene therapy
+named_entities:
+  - id: MONDO:0015253
+    label: Diamond Blackfan anemia
+    original_spans:
+      - 85:107
+      - 202:224
+  - id: HP:0004810
+    label: Diamond Blackfan anemia
+    original_spans:
+      - 85:107
+      - 202:224

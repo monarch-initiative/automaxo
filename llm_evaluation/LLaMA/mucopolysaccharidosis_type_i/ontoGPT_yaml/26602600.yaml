@@ -1,0 +1,96 @@
+---
+input_text: 'Obstructive sleep apnea syndrome after hematopoietic stem cell transplantation
+  in children with mucopolysaccharidosis type I. BACKGROUND: Obstructive sleep apnea
+  syndrome (OSAS) is very common in mucopolysaccharidosis I (MPS I). Hematopoietic
+  stem cell transplantation (HSCT) is the preferred treatment for patients with severe
+  MPS I diagnosed early in life. The protective effect of HSCT on the development
+  of long term OSAS is not known. METHODS: Overnight polysomnography (PSG) and biomarker
+  data were analyzed during the annual follow-up in consecutive MPS I patients treated
+  with HSCT. RESULTS: The data of 13 patients (6 boys) were analyzed. Median age at
+  HSCT was 17 (range 14-19) months, median age at PSG was 9.0 (4.5-14.5) years, and
+  median time elapsed since HSCT was 7.6 (2.4-13.2) years. A significant correlation
+  was observed between time elapsed since HSCT and the apnea-hypopnea index (AHI,
+  r(2)=0.493, p=+0.003) and the oxygen desaturation index (r(2)=0.424, p=+0.02). Patients
+  older than 10 years of age had a higher mean AHI (25.8/h vs 1.4/h, p=0.0008), a
+  lower mean pulse oximetry (94.7% vs 97.2%, p=0.01) and a higher mean hypopnea index
+  (18.8 vs 0.71/h, p=0.016) as compared to those younger than 10 years of age. No
+  correlation was observed between the AHI and the metabolic clearance, assessed by
+  urine glycosaminoglycan (GAG) excretion and residual enzyme activity, although there
+  was a positive trend for the urinary GAG/higher normal value for age ratio (p=0.09).
+  CONCLUSION: HSCT does not offer long term protection against OSAS in MPS I with
+  OSAS being documented in all patients after a time elapse since HSCT exceeding 10
+  years. The potential benefit of additional enzyme replacement therapy needs to be
+  assessed.'
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Mucopolysaccharidosis type I (MPS I); Obstructive sleep apnea syndrome (OSAS)
+
+  medical_actions: Hematopoietic stem cell transplantation (HSCT); Overnight polysomnography (PSG); Enzyme replacement therapy
+
+  symptoms: Obstructive sleep apnea; Apnea-hypopnea index (AHI); Oxygen desaturation index; Hypopnea; Low pulse oximetry
+
+  chemicals: 
+
+  action_annotation_relationships: HSCT TREATS MPS I; HSCT DOES NOT PREVENT OSAS IN MPS I; Enzyme replacement therapy TREATS MPS I; HSCT TREATS symptoms (AHI, oxygen desaturation index, hypopnea) IN MPS I; Time elapsed since HSCT CORRELATES WITH AHI AND oxygen desaturation index IN MPS I
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Time elapsed since HSCT CORRELATES WITH AHI AND oxygen desaturation index IN MPS I
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:1012617
+  medical_actions:
+    - MAXO:0000747
+    - MAXO:0000915
+    - Enzyme replacement therapy
+  symptoms:
+    - HP:0002870
+    - Apnea-hypopnea index (AHI)
+    - Oxygen desaturation index
+    - HP:0040213
+    - Low pulse oximetry
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: MPS I
+    - predicate: DOES NOT PREVENT
+      object: HP:0002870
+      qualifier: MONDO:1012617
+    - predicate: TREATS
+      object: MPS I
+      subject_extension: replacement
+    - subject: MAXO:0000747
+      predicate: TREATS
+      object: AHI, oxygen desaturation index, hypopnea
+      qualifier: MONDO:1012617
+    - predicate: CORRELATES WITH
+      object: oxygen desaturation index
+      qualifier: MONDO:1012617
+named_entities:
+  - id: MAXO:0000915
+    label: Overnight polysomnography (PSG)
+    original_spans:
+      - 449:479
+  - id: HP:0002870
+    label: Obstructive sleep apnea
+    original_spans:
+      - 0:22
+      - 138:160
+  - id: HP:0040213
+    label: Hypopnea
+    original_spans:
+      - 886:893
+      - 1144:1151

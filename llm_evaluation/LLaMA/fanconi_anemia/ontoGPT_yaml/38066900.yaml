@@ -1,0 +1,117 @@
+---
+input_text: 'Minimal intensity conditioning strategies for bone marrow failure: is
+  it time for "preventative" transplants? Hematopoietic cell transplantation (HCT)
+  can cure blood dyscrasias and reduce the risk of hematologic cancers in patients
+  with inherited bone marrow failure syndromes (IBMFS). However, because of its high
+  mortality rate, HCT is generally reserved until patients with IBMFS manifest life-threatening
+  cytopenias or myeloid malignancy, at which point outcomes are poor. Screening tests
+  that accurately predict transformation and enable timely intervention are lacking.
+  These unknowns and risks limit the use of HCT in patients with IBMFS, sometimes
+  until significant disease-related sequelae have occurred. A major goal for IBMFS
+  is to reduce cellular therapy-related complications to the point that earlier intervention
+  can be considered before significant transfusion exposure, occurrence of comorbidities,
+  or malignant transformation. In recent decades, disease-specific allogeneic HCT
+  trials have yielded significant improvements in outcomes in IBMFS conditions, including
+  Fanconi anemia and dyskeratosis congenita. This is in large part due to marked reductions
+  in conditioning intensity to address the increased sensitivity of these patients
+  to cytotoxic chemotherapy and radiation. The success of these approaches may also
+  indicate an ability to leverage intrinsic fitness defects of hematopoietic stem
+  and progenitor cells across IBMFS disorders. Now with advances in tracking somatic
+  genetic evolution in hematopoiesis and tailored minimal intensity conditioning regimens,
+  this question arises: is it time for preventative HCT for IBMFS?'
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Inherited bone marrow failure syndromes (IBMFS)
+
+  medical_actions: Hematopoietic cell transplantation (HCT); allogeneic HCT; minimal intensity conditioning regimens; preventative HCT; screening tests; tailored minimal intensity conditioning regimens
+
+  symptoms: life-threatening cytopenias; myeloid malignancy; significant transfusion exposure; occurrence of comorbidities; malignant transformation
+
+  chemicals: cytotoxic chemotherapy; radiation
+
+  action_annotation_relationships: HCT TREATS blood dyscrasias IN IBMFS; HCT REDUCES hematologic cancers IN IBMFS; minimal intensity conditioning regimens TREATS IBMFS; preventative HCT PREVENTS life-threatening cytopenias IN IBMFS; preventative HCT PREVENTS myeloid malignancy IN IBMFS; screening tests DETECTS transformation IN IBMFS; tailored minimal intensity conditioning regimens TREATS IBMFS; cytotoxic chemotherapy and radiation TREATS IBMFS but CAUSES increased sensitivity IN patients; HCT (with minimal intensity conditioning regimens) TREATS IBMFS.
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  HCT (with minimal intensity conditioning regimens) TREATS IBMFS.
+
+  ===
+
+extracted_object:
+  primary_disease: Inherited bone marrow failure syndromes (IBMFS)
+  medical_actions:
+    - MAXO:0000149
+    - allogeneic HCT
+    - minimal intensity conditioning regimens
+    - preventative HCT
+    - screening tests
+    - tailored minimal intensity conditioning regimens
+  symptoms:
+    - life-threatening cytopenias
+    - myeloid malignancy
+    - significant transfusion exposure
+    - occurrence of comorbidities
+    - malignant transformation
+  chemicals:
+    - cytotoxic chemotherapy
+    - radiation
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: HP:0001871
+      qualifier: IBMFS
+      subject_extension: HCT
+    - predicate: REDUCES
+      object: HP:0004377
+      qualifier: IBMFS
+      subject_extension: HCT
+    - predicate: TREATS
+      object: IBMFS
+      subject_extension: conditioning
+    - subject: MAXO:0000149
+      predicate: PREVENTS
+      object: cytopenias
+      qualifier: IBMFS
+      subject_qualifier: preventative
+      object_qualifier: life-threatening
+      subject_extension: preventative
+      object_extension: life-threatening
+    - predicate: PREVENTS
+      object: myeloid malignancy
+      qualifier: IBMFS
+      subject_extension: preventative
+    - predicate: DETECTS
+      object: transformation
+      qualifier: IBMFS
+    - predicate: TREATS
+      object: IBMFS
+      subject_extension: minimal intensity conditioning
+    - predicate: TREATS, CAUSES
+      object: IBMFS, increased sensitivity
+      subject_extension: cytotoxic
+    - predicate: TREATS
+      object: IBMFS
+named_entities:
+  - id: MAXO:0000149
+    label: Hematopoietic cell transplantation (HCT)
+    original_spans:
+      - 110:149
+  - id: HP:0001871
+    label: blood dyscrasias
+    original_spans:
+      - 160:175
+  - id: HP:0004377
+    label: hematologic cancers
+    original_spans:
+      - 200:218

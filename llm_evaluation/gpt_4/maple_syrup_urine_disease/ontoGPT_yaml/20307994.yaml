@@ -1,0 +1,89 @@
+---
+input_text: 'Maple syrup urine disease: further evidence that newborn screening may
+  fail to identify variant forms. Newborn screening (NBS) by tandem mass spectrometry
+  (MS/MS) has allowed for early detection and initiation of treatment in many patients
+  with maple syrup urine disease (MSUD) (OMIM 248600), however, a recent report suggests
+  that variants forms may be missed. Information on these patients is limited. We
+  present clinical, biochemical and molecular information on patients with variant
+  forms of MSUD not detected by the California Newborn Screening Program. Between
+  July 2005 and July 2009, 2200,000 newborns were screened in California by MS/MS.
+  Seventeen cases of MSUD were detected and three (two siblings) were missed. Additionally,
+  the NBS cards of two siblings with late onset MSUD, who were born pre-expanded NBS,
+  were retrospectively analyzed. None of the five patients met criteria to be considered
+  presumptive positive for MSUD (leucine>200micromol/L and a ratio of leucine/alanine>or=1.5).
+  Alloisoleucine (allo-ile) was subsequently analyzed in the NBS cards of all five
+  patients, two of whom were found to have elevated levels. The proband in each family
+  was diagnosed following symptoms triggered by an intercurrent illness or increased
+  protein intake. At diagnosis, leucine levels ranged between 561 and >4528micromol/L,
+  and allo-ile ranged from 137 to 239micromol/L. Two affected siblings had normal
+  plasma amino acids when asymptomatic; however, their biochemical profiles were diagnostic
+  of MSUD during intercurrent illnesses. The median age at diagnosis of all patients
+  was one year (range 0.8-6.7). Heterozygous BCKDHB (E1beta) mutations (c.832G>A/c.970C>T)
+  were identified in one family and a homozygous DBT (E2) sequence variant (c.1430
+  T>G) in another. The third family had one identifiable DBT mutation (c.827T>G),
+  however, a second mutation was not detected. This report provides further evidence
+  that NBS by MS/MS is unable to detect all cases of MSUD. Second-tier testing with
+  allo-ile may improve sensitivity; however, some children with variant forms will
+  invariably be missed.'
+raw_completion_output: |-
+  primary_disease: Maple syrup urine disease (MSUD)
+  medical_actions: Newborn screening (NBS); tandem mass spectrometry (MS/MS); dietary management; medical intervention during intercurrent illnesses
+  symptoms: Elevated leucine levels; elevated allo-ile levels
+  chemicals: Leucine; alloisoleucine (allo-ile)
+  action_annotation_relationships: Newborn screening (NBS) with tandem mass spectrometry (MS/MS) FAILS TO DETECT variant forms IN Maple syrup urine disease (MSUD); dietary management PREVENTS symptoms IN Maple syrup urine disease (MSUD); medical intervention during intercurrent illnesses TREATS symptoms IN Maple syrup urine disease (MSUD)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  medical intervention during intercurrent illnesses TREATS symptoms IN Maple syrup urine disease (MSUD)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009563
+  medical_actions:
+    - Newborn screening (NBS)
+    - tandem mass spectrometry (MS/MS)
+    - dietary management
+    - medical intervention during intercurrent illnesses
+  symptoms:
+    - Elevated leucine levels
+    - elevated allo-ile levels
+  chemicals:
+    - CHEBI:25017
+    - CHEBI:22359
+  action_annotation_relationships:
+    - subject: <Newborn screening>
+      predicate: <FAILS TO DETECT>
+      object: <Maple syrup urine disease>
+      qualifier: <MSUD>
+      subject_qualifier: <with tandem mass spectrometry>
+      object_qualifier: <variant forms>
+      subject_extension: <tandem mass spectrometry>
+      object_extension: <variant forms>
+    - subject: dietary management
+      predicate: PREVENTS
+      object: symptoms
+      qualifier: MONDO:0009563
+    - subject: medical intervention
+      predicate: TREATS
+      object: symptoms
+      qualifier: MONDO:0009563
+      subject_qualifier: during intercurrent illnesses
+named_entities:
+  - id: MONDO:0009563
+    label: Maple syrup urine disease (MSUD)
+  - id: CHEBI:25017
+    label: Leucine
+  - id: CHEBI:22359
+    label: alloisoleucine (allo-ile)

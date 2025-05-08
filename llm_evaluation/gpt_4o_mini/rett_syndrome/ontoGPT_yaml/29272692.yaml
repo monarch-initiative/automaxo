@@ -1,0 +1,81 @@
+---
+input_text: 'Recent endeavors in MECP2 gene transfer for gene therapy of Rett syndrome.
+  Rett Syndrome (RTT) is an X chromosome-linked neurodevelopmental disorder caused
+  by inactivating mutations in the transcription regulator methyl CpG-binding protein
+  2 (MeCP2). Multiple studies have independently explored the therapeutic potential
+  of adeno-associated viral (AAV) vector-mediated MECP2 gene transfer in mouse models
+  of RTT. Historically, the primary risk anticipated for viral vector-mediated MECP2
+  gene transfer in vivo has been toxicity caused by supraphysiological expression
+  of exogenous MeCP2. Despite the anticipated risk, early studies examining AAV/MECP2
+  in vivo have, as a whole, supported a generally optimistic assessment of MECP2 gene
+  therapy. More recently, toxicity assessments have identified dose-dependent side
+  effects of AAV9/MECP2 delivered directly to the cerebrospinal fluid (CSF). Ultimately,
+  accurate monitoring and reporting of these side effects will help ensure the development
+  of safe AAV/MECP2 treatment paradigms as researchers explore strategies to improve
+  widespread but properly regulated MECP2 gene transfer in the central nervous system
+  (CNS). Importantly, despite some variability in apparent safety and efficacy, all
+  MECP2 gene therapy studies have been united by a single feat: published treatment
+  paradigms have extended the survival of RTT mice, regardless of injection route,
+  treatment age, or viral genome design. With the possibility of a translatable gene
+  therapy treatment for RTT emerging, a comprehensive overview of the preclinical
+  MECP2 gene therapy studies published thus far is warranted. This review highlights
+  the main findings of these publications and discusses future directions.'
+raw_completion_output: |-
+  primary_disease: Rett Syndrome  
+  medical_actions: gene therapy; MECP2 gene transfer; toxicity assessments; monitoring and reporting side effects  
+  symptoms: neurodevelopmental disorder; dose-dependent side effects  
+  chemicals: MeCP2; AAV9  
+  action_annotation_relationships: gene therapy TREATS neurodevelopmental disorder IN Rett Syndrome; MECP2 gene transfer TREATS neurodevelopmental disorder IN Rett Syndrome; toxicity assessments PREVENT dose-dependent side effects IN Rett Syndrome; monitoring and reporting side effects TREATS dose-dependent side effects IN Rett Syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  monitoring and reporting side effects TREATS dose-dependent side effects IN Rett Syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010726
+  medical_actions:
+    - MAXO:0001001
+    - MECP2 gene transfer
+    - toxicity assessments
+    - monitoring and reporting side effects
+  symptoms:
+    - neurodevelopmental disorder
+    - dose-dependent side effects
+  chemicals:
+    - MeCP2
+    - AAV9
+  action_annotation_relationships:
+    - subject: MAXO:0001001
+      predicate: TREATS
+      object: neurodevelopmental disorder
+      qualifier: MONDO:0010726
+      subject_extension: gene therapy
+      object_extension: neurodevelopmental disorder
+    - subject: MECP2 gene transfer
+      predicate: TREATS
+      object: neurodevelopmental disorder
+      qualifier: MONDO:0010726
+      subject_extension: MECP2 gene transfer
+      object_extension: neurodevelopmental disorder
+    - predicate: PREVENTS
+      object: dose-dependent side effects
+      qualifier: MONDO:0010726
+    - subject: monitoring and reporting
+      predicate: TREATS
+      object: side effects
+      qualifier: MONDO:0010726
+      subject_extension: side effects
+      object_extension: dose-dependent

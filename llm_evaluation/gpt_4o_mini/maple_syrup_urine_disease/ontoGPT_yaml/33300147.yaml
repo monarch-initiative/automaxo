@@ -1,0 +1,115 @@
+---
+input_text: 'Maple syrup urine disease: Clinical outcomes, metabolic control, and
+  genotypes in a screened population after four decades of newborn bloodspot screening
+  in the Republic of Ireland. Since 1972, 18 patients (10 females/8 males) have been
+  detected by newborn bloodspot screening (NBS) with neonatal-onset maple syrup urine
+  disease (MSUD) in Ireland. Patients were stratified into three clusters according
+  to clinical outcome at the time of data collection, including developmental, clinical,
+  and IQ data. A fourth cluster comprised of two early childhood deaths; a third patient
+  died as an adult. We present neuroimaging and electroencephalography together with
+  clinical and biochemical data. Incidence of MSUD (1972-2018) was 1 in 147 975. Overall
+  good clinical outcomes were achieved with 15/18 patients alive and with essentially
+  normal functioning (with only the lowest performing cluster lying beyond a single
+  SD on their full scale intelligence quotient). Molecular genetic analysis revealed
+  genotypes hitherto not reported, including a possible digenic inheritance state
+  for the BCKDHA and DBT genes in one family. Treatment has been based on early implementation
+  of emergency treatment, diet, close monitoring, and even dialysis in the setting
+  of acute metabolic decompensation. A plasma leucine >=400 mumol/L (outside therapeutic
+  range) was more frequently observed in infancy or during adolescence, possibly due
+  to infections, hormonal changes, or noncompliance. Children require careful management
+  during metabolic decompensations in early childhood, and this represented a key
+  risk period in our cohort. A high level of metabolic control can be achieved through
+  diet with early implementation of a "sick day" regime and, in some cases, dialysis
+  as a rescue therapy. The Irish cohort, despite largely classical phenotypes, achieved
+  good outcomes in the NBS era, underlining the importance of early diagnosis and
+  skilled multidisciplinary team management.'
+raw_completion_output: |-
+  primary_disease: Maple syrup urine disease
+  medical_actions: newborn bloodspot screening; early implementation of emergency treatment; diet; close monitoring; dialysis
+  symptoms: neonatal-onset; developmental issues; clinical challenges; IQ variability; acute metabolic decompensation
+  chemicals: leucine
+  action_annotation_relationships: newborn bloodspot screening TREATS neonatal-onset IN Maple syrup urine disease; early implementation of emergency treatment TREATS acute metabolic decompensation IN Maple syrup urine disease; diet TREATS metabolic control IN Maple syrup urine disease; close monitoring TREATS clinical challenges IN Maple syrup urine disease; dialysis TREATS acute metabolic decompensation IN Maple syrup urine disease; diet TREATS developmental issues IN Maple syrup urine disease; dialysis TREATS metabolic control IN Maple syrup urine disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  dialysis TREATS metabolic control IN Maple syrup urine disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009563
+  medical_actions:
+    - newborn bloodspot screening
+    - early implementation of emergency treatment
+    - MAXO:0000088
+    - close monitoring
+    - MAXO:0000601
+  symptoms:
+    - neonatal-onset
+    - developmental issues
+    - clinical challenges
+    - IQ variability
+    - acute metabolic decompensation
+  chemicals:
+    - CHEBI:25017
+  action_annotation_relationships:
+    - subject: newborn bloodspot screening
+      predicate: TREATS
+      object: neonatal-onset
+      qualifier: MONDO:0009563
+      subject_qualifier: newborn
+      subject_extension: bloodspot screening
+      object_extension: neonatal-onset
+    - subject: early implementation of emergency treatment
+      predicate: TREATS
+      object: acute metabolic decompensation
+      qualifier: MONDO:0009563
+      subject_qualifier: early implementation
+      object_qualifier: None
+      subject_extension: emergency treatment
+      object_extension: acute metabolic decompensation
+    - subject: MAXO:0000088
+      predicate: TREATS
+      object: metabolic control
+      qualifier: MONDO:0009563
+      subject_extension: diet
+      object_extension: metabolic control
+    - subject: close monitoring
+      predicate: TREATS
+      object: clinical challenges
+      qualifier: MONDO:0009563
+      subject_qualifier: <none>
+      object_qualifier: <none>
+      subject_extension: <none>
+      object_extension: <none>
+    - subject: MAXO:0000601
+      predicate: TREATS
+      object: acute metabolic decompensation
+      qualifier: MONDO:0009563
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: dialysis
+      object_extension: acute metabolic decompensation
+    - subject: MAXO:0000088
+      predicate: TREATS
+      object: developmental issues
+      qualifier: MONDO:0009563
+      subject_extension: diet
+      object_extension: developmental issues
+    - subject: MAXO:0000601
+      predicate: TREATS
+      object: metabolic control
+      qualifier: MONDO:0009563
+      subject_extension: dialysis
+      object_extension: metabolic control

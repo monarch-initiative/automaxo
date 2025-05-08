@@ -1,0 +1,99 @@
+---
+input_text: 'Obstructive sleep apnea syndrome after hematopoietic stem cell transplantation
+  in children with mucopolysaccharidosis type I. BACKGROUND: Obstructive sleep apnea
+  syndrome (OSAS) is very common in mucopolysaccharidosis I (MPS I). Hematopoietic
+  stem cell transplantation (HSCT) is the preferred treatment for patients with severe
+  MPS I diagnosed early in life. The protective effect of HSCT on the development
+  of long term OSAS is not known. METHODS: Overnight polysomnography (PSG) and biomarker
+  data were analyzed during the annual follow-up in consecutive MPS I patients treated
+  with HSCT. RESULTS: The data of 13 patients (6 boys) were analyzed. Median age at
+  HSCT was 17 (range 14-19) months, median age at PSG was 9.0 (4.5-14.5) years, and
+  median time elapsed since HSCT was 7.6 (2.4-13.2) years. A significant correlation
+  was observed between time elapsed since HSCT and the apnea-hypopnea index (AHI,
+  r(2)=0.493, p=+0.003) and the oxygen desaturation index (r(2)=0.424, p=+0.02). Patients
+  older than 10 years of age had a higher mean AHI (25.8/h vs 1.4/h, p=0.0008), a
+  lower mean pulse oximetry (94.7% vs 97.2%, p=0.01) and a higher mean hypopnea index
+  (18.8 vs 0.71/h, p=0.016) as compared to those younger than 10 years of age. No
+  correlation was observed between the AHI and the metabolic clearance, assessed by
+  urine glycosaminoglycan (GAG) excretion and residual enzyme activity, although there
+  was a positive trend for the urinary GAG/higher normal value for age ratio (p=0.09).
+  CONCLUSION: HSCT does not offer long term protection against OSAS in MPS I with
+  OSAS being documented in all patients after a time elapse since HSCT exceeding 10
+  years. The potential benefit of additional enzyme replacement therapy needs to be
+  assessed.'
+raw_completion_output: |-
+  primary_disease: Obstructive sleep apnea syndrome in mucopolysaccharidosis type I  
+  medical_actions: Hematopoietic stem cell transplantation; enzyme replacement therapy  
+  symptoms: apnea-hypopnea index; oxygen desaturation index; pulse oximetry; hypopnea index  
+  chemicals: glycosaminoglycan  
+  action_annotation_relationships: Hematopoietic stem cell transplantation TREATS apnea-hypopnea index IN Obstructive sleep apnea syndrome in mucopolysaccharidosis type I; Hematopoietic stem cell transplantation TREATS oxygen desaturation index IN Obstructive sleep apnea syndrome in mucopolysaccharidosis type I; enzyme replacement therapy TREATS pulse oximetry IN Obstructive sleep apnea syndrome in mucopolysaccharidosis type I; enzyme replacement therapy TREATS hypopnea index IN Obstructive sleep apnea syndrome in mucopolysaccharidosis type I
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  enzyme replacement therapy TREATS hypopnea index IN Obstructive sleep apnea syndrome in mucopolysaccharidosis type I
+
+  ===
+
+extracted_object:
+  primary_disease: Obstructive sleep apnea syndrome in mucopolysaccharidosis type
+    I
+  medical_actions:
+    - MAXO:0000747
+    - enzyme replacement therapy
+  symptoms:
+    - apnea-hypopnea index
+    - oxygen desaturation index
+    - pulse oximetry
+    - hypopnea index
+  chemicals:
+    - CHEBI:18085
+  action_annotation_relationships:
+    - subject: MAXO:0000747
+      predicate: TREATS
+      object: apnea-hypopnea index
+      qualifier: MONDO:0007147
+      subject_extension: hematopoietic stem cell transplantation
+      object_extension: apnea-hypopnea index
+    - subject: MAXO:0000747
+      predicate: TREATS
+      object: oxygen desaturation index
+      qualifier: MONDO:0001586
+      subject_extension: hematopoietic stem cell transplantation
+      object_extension: oxygen desaturation index
+    - subject: enzyme replacement therapy
+      predicate: TREATS
+      object: pulse oximetry
+      qualifier: MONDO:0001586
+      subject_qualifier: 'null'
+      object_qualifier: 'null'
+      subject_extension: enzyme replacement therapy
+      object_extension: pulse oximetry
+    - subject: enzyme replacement therapy
+      predicate: TREATS
+      object: hypopnea index
+      qualifier: MONDO:0007147
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: enzyme replacement therapy
+      object_extension: None
+named_entities:
+  - id: CHEBI:18085
+    label: glycosaminoglycan
+    original_spans:
+      - 1327:1343
+  - id: MONDO:0007147
+    label: Obstructive sleep apnea syndrome
+    original_spans:
+      - 0:31
+      - 138:169

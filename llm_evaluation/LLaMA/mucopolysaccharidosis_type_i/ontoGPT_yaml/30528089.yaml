@@ -1,0 +1,92 @@
+---
+input_text: ZFN-Mediated In Vivo Genome Editing Corrects Murine Hurler Syndrome. Mucopolysaccharidosis
+  type I (MPS I) is a severe disease due to deficiency of the lysosomal hydrolase
+  alpha-L-iduronidase (IDUA) and the subsequent accumulation of the glycosaminoglycans
+  (GAG), leading to progressive, systemic disease and a shortened lifespan. Current
+  treatment options consist of hematopoietic stem cell transplantation, which carries
+  significant mortality and morbidity risk, and enzyme replacement therapy, which
+  requires lifelong infusions of replacement enzyme; neither provides adequate therapy,
+  even in combination. A novel in vivo genome-editing approach is described in the
+  murine model of Hurler syndrome. A corrective copy of the IDUA gene is inserted
+  at the albumin locus in hepatocytes, leading to sustained enzyme expression, secretion
+  from the liver into circulation, and subsequent uptake systemically at levels sufficient
+  for correction of metabolic disease (GAG substrate accumulation) and prevention
+  of neurobehavioral deficits in MPS I mice. This study serves as a proof-of-concept
+  for this platform-based approach that should be broadly applicable to the treatment
+  of a wide array of monogenic diseases.
+raw_completion_output: |-
+  Here are the extracted entities in the requested format:
+
+  primary_disease: Hurler Syndrome; Mucopolysaccharidosis type I (MPS I)
+
+  medical_actions: hematopoietic stem cell transplantation; enzyme replacement therapy; in vivo genome-editing; insertion of corrective copy of IDUA gene at albumin locus in hepatocytes
+
+  symptoms: progressive, systemic disease; shortened lifespan; metabolic disease (GAG substrate accumulation); neurobehavioral deficits
+
+  chemicals: alpha-L-iduronidase (IDUA); glycosaminoglycans (GAG)
+
+  action_annotation_relationships: hematopoietic stem cell transplantation TREATS Hurler Syndrome; enzyme replacement therapy TREATS Hurler Syndrome; in vivo genome-editing TREATS Hurler Syndrome; insertion of corrective copy of IDUA gene at albumin locus in hepatocytes TREATS metabolic disease IN Hurler Syndrome; insertion of corrective copy of IDUA gene at albumin locus in hepatocytes PREVENTS neurobehavioral deficits IN Hurler Syndrome; alpha-L-iduronidase (IDUA) TREATS Hurler Syndrome
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  alpha-L-iduronidase (IDUA) TREATS Hurler Syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:1012617
+  medical_actions:
+    - MAXO:0000747
+    - enzyme replacement therapy
+    - in vivo genome-editing
+    - insertion of corrective copy of IDUA gene at albumin locus in hepatocytes
+  symptoms:
+    - progressive, systemic disease
+    - shortened lifespan
+    - metabolic disease (GAG substrate accumulation)
+    - neurobehavioral deficits
+  chemicals:
+    - alpha-L-iduronidase (IDUA)
+    - CHEBI:143889
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: HP:0000943
+      qualifier: MONDO:0011758
+    - predicate: TREATS
+      object: HP:0000943
+      subject_extension: enzyme replacement
+    - predicate: TREATS
+    - predicate: TREATS
+      object: metabolic disease
+      qualifier: MONDO:0011758
+      subject_extension: corrective
+    - predicate: PREVENTS
+      object: neurobehavioral deficits
+      qualifier: MONDO:0011758
+      subject_qualifier: at albumin locus in hepatocytes
+      subject_extension: corrective copy of IDUA gene
+    - predicate: TREATS
+      object: HP:0000943
+      qualifier: MONDO:0011758
+      subject_extension: enzyme replacement therapy
+named_entities:
+  - id: CHEBI:143889
+    label: glycosaminoglycans (GAG)
+    original_spans:
+      - 237:260
+  - id: HP:0000943
+    label: Hurler Syndrome
+    original_spans:
+      - 52:66
+      - 685:699

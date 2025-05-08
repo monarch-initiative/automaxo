@@ -1,0 +1,95 @@
+---
+input_text: 'A multicenter, matched case-control analysis comparing burden-of-illness
+  in Dravet syndrome to refractory epilepsy and seizure remission in patients and
+  caregivers in Germany. OBJECTIVE: To compare direct and indirect costs and quality
+  of life (QoL) of pediatric and adult patients with Dravet syndrome (DS), with drug-resistant
+  epilepsy (DRE) and in seizure remission (SR), and their caregivers, in Germany.
+  METHODS: Questionnaire responses from 93 DS patients and their caregivers were matched
+  by age and gender with responses from 93 DRE and 93 SR patients collected in independent
+  studies, and were compared across main components of QoL, direct costs (patient
+  visits, medication use, care level, medical equipment, and ancillary treatments),
+  and indirect costs (quitting job, reduced working hours, missed days). RESULTS:
+  Mean total direct costs were highest for DS patients ($4864 [median $3564] vs $3049
+  [median $1506] for DRE [excluding outliers], P = 0.01; and $1007 [median $311],
+  P < 0.001 for SR). Total lost productivity over 3 months was highest among caregivers
+  of pediatric DS ($4757, median $2841), compared with those of DRE ($1541, P < 0.001;
+  median $0) and SR patients ($891, P < 0.001; median $0). The proportions of caregivers
+  in employment were similar across groups (62% DS, 63% DRE, and 63% SR) but DS caregivers
+  were more likely to experience changes to their working situation, such as quitting
+  their job (40% DS vs 16% DRE and 9% SR, P < 0.001 in both comparisons). KINDL scores
+  were significantly lower for DS patients (62 vs 74 and 72, P < 0.001 in both comparisons),
+  and lower than for the average German population (77). Pediatric caregiver EQ-5D
+  scores across all cohorts were comparable with population norms, but more DS caregivers
+  experienced moderate to severe depressive symptoms (24% vs 11% and 5%). Mean Beck
+  Depression Inventory (BDI-II) score was significantly higher in DS caregivers than
+  either of the other groups (P < 0.001). SIGNIFICANCE: This first comparative study
+  of Dravet syndrome to difficult-to-treat epilepsy and to epilepsy patients in seizure
+  remission emphasizes the excess burden of DS in components of QoL and direct costs.
+  The caregivers of DS patients have a greater impairment of their working lives (indirect
+  costs) and increased depression symptoms.'
+raw_completion_output: |-
+  primary_disease: Dravet syndrome  
+  medical_actions: comparison of direct and indirect costs; assessment of quality of life; evaluation of medication use; analysis of caregiver employment status  
+  symptoms: refractory epilepsy; seizure remission; changes to working situation; moderate to severe depressive symptoms  
+  chemicals: none  
+  action_annotation_relationships: comparison TREATS symptom (refractory epilepsy) IN Dravet syndrome; comparison TREATS symptom (seizure remission) IN Dravet syndrome; assessment TREATS symptom (changes to working situation) IN Dravet syndrome; assessment TREATS symptom (moderate to severe depressive symptoms) IN Dravet syndrome  
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  assessment TREATS symptom (moderate to severe depressive symptoms) IN Dravet syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0100135
+  medical_actions:
+    - comparison of direct and indirect costs
+    - assessment of quality of life
+    - evaluation of medication use
+    - analysis of caregiver employment status
+  symptoms:
+    - refractory epilepsy
+    - seizure remission
+    - changes to working situation
+    - moderate to severe depressive symptoms
+  chemicals:
+    - none
+  action_annotation_relationships:
+    - subject: comparison
+      predicate: TREATS
+      object: refractory epilepsy
+      qualifier: MONDO:0100135
+      subject_qualifier: N/A
+      object_qualifier: N/A
+      subject_extension: N/A
+      object_extension: N/A
+    - predicate: TREATS
+      object: seizure remission
+      qualifier: MONDO:0100135
+    - subject: assessment
+      predicate: TREATS
+      object: symptom (changes to working situation)
+      qualifier: MONDO:0100135
+      subject_qualifier: N/A
+      object_qualifier: N/A
+      subject_extension: N/A
+      object_extension: N/A
+    - subject: assessment
+      predicate: TREATS
+      object: moderate to severe depressive symptoms
+      qualifier: MONDO:0100135
+      subject_qualifier: <n/a>
+      object_qualifier: <n/a>
+      subject_extension: <n/a>
+      object_extension: <n/a>

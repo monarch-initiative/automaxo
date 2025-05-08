@@ -1,0 +1,88 @@
+---
+input_text: 'Domino liver transplantation: how far can we push the paradigm? Domino
+  liver transplantation (DLT) has emerged as a strategy for increasing the number
+  of liver grafts available: morphologically normal livers from donors with metabolic
+  diseases can be used for select recipients with hepatocellular carcinoma (usually
+  outside the Milan criteria). Familial amyloidotic polyneuropathy (FAP) is the most
+  common indication for DLT. When FAP patients are involved in DLT, the indications
+  and outcomes are clear and good, although de novo FAP development within various
+  periods of time has been described in DLT recipients of FAP livers. With the increasing
+  need for organs, livers explanted from patients with rare metabolic diseases, such
+  as primary hyperoxaluria (PH), acute intermittent porphyria (AIP), maple syrup urine
+  disease (MSUD), and homozygous familial hypercholesterolemia (HFHC), are being used
+  for DLT. However, insufficient data about the use of livers from patients with these
+  rare metabolic diseases are available. In this review, we focus on the latter disorders.
+  PH is not a good indication for DLT because recipients of PH livers develop hyperoxaluria
+  and early acute renal failure. AIP also seems to be a debatable indication for DLT
+  because of the rapid development of neurotoxicity in AIP liver recipients. However,
+  the outcomes of DLT with HFHC and MSUD liver grafts (which include the risk of the
+  de novo development of these genetic diseases) are promising. For rare metabolic
+  liver diseases to be established as indications for DLT, more reports and studies
+  are needed.'
+raw_completion_output: |-
+  primary_disease: Familial amyloidotic polyneuropathy (FAP)  
+  medical_actions: Domino liver transplantation (DLT)  
+  symptoms: Hyperoxaluria; Acute renal failure; Neurotoxicity  
+  chemicals: None  
+  action_annotation_relationships: treatment TREATS symptom Hyperoxaluria IN Familial amyloidotic polyneuropathy; treatment TREATS symptom Acute renal failure IN Familial amyloidotic polyneuropathy; treatment TREATS symptom Neurotoxicity IN Familial amyloidotic polyneuropathy
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  treatment TREATS symptom Neurotoxicity IN Familial amyloidotic polyneuropathy
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0021055
+  medical_actions:
+    - Domino liver transplantation (DLT)
+  symptoms:
+    - HP:0003159
+    - HP:0001919
+    - Neurotoxicity
+  chemicals:
+    - None
+  action_annotation_relationships:
+    - subject: treatment
+      predicate: TREATS
+      object: HP:0003159
+      qualifier: Familial amyloidotic polyneuropathy
+      subject_extension: <treatment>
+      object_extension: <symptom>
+    - subject: treatment
+      predicate: TREATS
+      object: HP:0001919
+      qualifier: Familial amyloidotic polyneuropathy
+      subject_extension: treatment
+      object_extension: symptom
+    - subject: treatment
+      predicate: TREATS
+      object: Neurotoxicity
+      qualifier: Familial amyloidotic polyneuropathy
+      subject_extension: treatment
+      object_extension: symptom
+named_entities:
+  - id: MONDO:0021055
+    label: Familial amyloidotic polyneuropathy (FAP)
+    original_spans:
+      - 346:386
+  - id: HP:0003159
+    label: Hyperoxaluria
+    original_spans:
+      - 745:757
+      - 1153:1165
+  - id: HP:0001919
+    label: Acute renal failure
+    original_spans:
+      - 1177:1195

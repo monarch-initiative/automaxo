@@ -4,7 +4,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "automaxo"
-version = "0.1.0"
+version = "0.1.1"
 description = "Using LLM to help in curation of Medical Action Ontology (MaXO)"
 authors = [
     "Enock Niyonkuru <enock.niyonkuru@trincoll.edu>", 
@@ -21,14 +21,15 @@ keywords = ["LLM", "NLP", "MaXO"]
 
 [tool.poetry.dependencies]
 python = ">=3.9,<3.9.7 || >3.9.7,<3.11"
+
 biopython = ">=1.79"
 sparqlwrapper = "^2.0.0"
-ontogpt = {git = "https://github.com/monarch-initiative/ontogpt", rev = "maxo2"}
+#ontogpt = {git = "https://github.com/monarch-initiative/ontogpt", rev = "maxo2"}
+ontogpt = ">=1.0.0"
 fuzzywuzzy = "^0.18.0"
 python-levenshtein = "^0.25.1"
 
-[tool.poetry.dev-dependencies]
-# Add development dependencies here
+
 
 [tool.poetry.scripts]
 automaxo-import-mesh = "automaxo.mesh_importer:main"
@@ -40,3 +41,5 @@ automaxo-rank = "automaxo.triplet_ranking_and_mesh_combiner:main"
 [tool.poetry.group.dev.dependencies]
 ipykernel = "^6.29.3"
 
+
+# add : transfrormers, torch,numpy<2, curategpt

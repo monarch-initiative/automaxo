@@ -1,0 +1,78 @@
+---
+input_text: 'Continuous veno-venous hemodiafiltration in neonates with maple syrup
+  urine disease. INTRODUCTION: Herein, we aimed to discuss our experience in 16 newborn
+  patients with Maple syrup urine disease (MSUD) who were treated with urgent renal
+  replacement therapy (RRT). METHODS: The patients underwent continuous veno-venous
+  hemodiafiltration (CVVHDF) or peritoneal dialysis (PD) as renal replacement therapy.
+  RESULTS: Eleven (68.75%) patients underwent CVVHDF and five (31.25%) underwent peritoneal
+  dialysis. The median leucine reduction rate per hour was 2.56% (1.75-7.6) in the
+  CVVHDF group, 0.78% (0.54-1.83) in the PD group, and was significantly higher in
+  the CVVHDF group (p = 0.001). Posttreatment plasma leucine levels were found to
+  be 198 (20-721) mumol/L in the CVVHDF group and 600 (250-967) mumol/L in the PD
+  group, and CVVHDF was found to be significantly lower (p = 0.08). Complications
+  such as hypotension, electrolyte imbalance, and filter obstruction occurred in the
+  CVVHDF group. CONCLUSION: This study showed that CVVHDF is more effective than PD
+  for rapidly eliminating elevated leucine levels caused by MSUD in the newborn and
+  it is not associated with increased complication rates.'
+raw_completion_output: |-
+  Here are the extracted entities in the requested format:
+
+  primary_disease: Maple syrup urine disease (MSUD)
+
+  medical_actions: continuous veno-venous hemodiafiltration (CVVHDF); peritoneal dialysis (PD); renal replacement therapy (RRT)
+
+  symptoms: elevated leucine levels; hypotension; electrolyte imbalance; filter obstruction
+
+  chemicals: leucine
+
+  action_annotation_relationships: CVVHDF TREATS elevated leucine levels IN Maple syrup urine disease; PD TREATS elevated leucine levels IN Maple syrup urine disease; CVVHDF TREATS hypotension IN Maple syrup urine disease; CVVHDF TREATS electrolyte imbalance IN Maple syrup urine disease; leucine reduction TREATS elevated leucine levels IN Maple syrup urine disease
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  leucine reduction TREATS elevated leucine levels IN Maple syrup urine disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009563
+  medical_actions:
+    - continuous veno-venous hemodiafiltration (CVVHDF)
+    - MAXO:0000603
+    - MAXO:0000600
+  symptoms:
+    - elevated leucine levels
+    - HP:0002615
+    - electrolyte imbalance
+    - filter obstruction
+  chemicals:
+    - CHEBI:25017
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: elevated leucine levels
+      qualifier: MONDO:0009563
+    - predicate: TREATS
+      object: elevated leucine levels
+      qualifier: MONDO:0009563
+    - predicate: TREATS
+      object: HP:0002615
+      qualifier: MONDO:0009563
+    - predicate: TREATS
+      object: electrolyte imbalance
+      qualifier: MONDO:0009563
+    - subject: leucine reduction
+      predicate: TREATS
+      object: elevated leucine levels
+      qualifier: MONDO:0009563
+      subject_extension: reduction
+      object_extension: levels

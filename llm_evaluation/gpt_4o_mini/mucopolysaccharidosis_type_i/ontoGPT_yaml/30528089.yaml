@@ -1,0 +1,80 @@
+---
+input_text: ZFN-Mediated In Vivo Genome Editing Corrects Murine Hurler Syndrome. Mucopolysaccharidosis
+  type I (MPS I) is a severe disease due to deficiency of the lysosomal hydrolase
+  alpha-L-iduronidase (IDUA) and the subsequent accumulation of the glycosaminoglycans
+  (GAG), leading to progressive, systemic disease and a shortened lifespan. Current
+  treatment options consist of hematopoietic stem cell transplantation, which carries
+  significant mortality and morbidity risk, and enzyme replacement therapy, which
+  requires lifelong infusions of replacement enzyme; neither provides adequate therapy,
+  even in combination. A novel in vivo genome-editing approach is described in the
+  murine model of Hurler syndrome. A corrective copy of the IDUA gene is inserted
+  at the albumin locus in hepatocytes, leading to sustained enzyme expression, secretion
+  from the liver into circulation, and subsequent uptake systemically at levels sufficient
+  for correction of metabolic disease (GAG substrate accumulation) and prevention
+  of neurobehavioral deficits in MPS I mice. This study serves as a proof-of-concept
+  for this platform-based approach that should be broadly applicable to the treatment
+  of a wide array of monogenic diseases.
+raw_completion_output: |-
+  primary_disease: Mucopolysaccharidosis type I (MPS I)  
+  medical_actions: hematopoietic stem cell transplantation; enzyme replacement therapy; in vivo genome editing  
+  symptoms: progressive systemic disease; shortened lifespan; neurobehavioral deficits; GAG substrate accumulation  
+  chemicals: alpha-L-iduronidase (IDUA)  
+  action_annotation_relationships: enzyme replacement therapy TREATS symptom (GAG substrate accumulation) IN Mucopolysaccharidosis type I (MPS I); hematopoietic stem cell transplantation TREATS symptom (shortened lifespan) IN Mucopolysaccharidosis type I (MPS I); in vivo genome editing TREATS symptom (neurobehavioral deficits) IN Mucopolysaccharidosis type I (MPS I); in vivo genome editing TREATS symptom (GAG substrate accumulation) IN Mucopolysaccharidosis type I (MPS I)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  in vivo genome editing TREATS symptom (GAG substrate accumulation) IN Mucopolysaccharidosis type I (MPS I)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:1012617
+  medical_actions:
+    - MAXO:0000747
+    - enzyme replacement therapy
+    - in vivo genome editing
+  symptoms:
+    - progressive systemic disease
+    - shortened lifespan
+    - neurobehavioral deficits
+    - GAG substrate accumulation
+  chemicals:
+    - alpha-L-iduronidase (IDUA)
+  action_annotation_relationships:
+    - subject: enzyme replacement therapy
+      predicate: TREATS
+      object: GAG substrate accumulation
+      qualifier: MONDO:0001586
+      subject_extension: enzyme replacement therapy
+      object_extension: GAG substrate accumulation
+    - subject: MAXO:0000747
+      predicate: TREATS
+      object: shortened lifespan
+      qualifier: MONDO:0001586
+      subject_extension: hematopoietic stem cell transplantation
+      object_extension: shortened lifespan
+    - subject: in vivo genome editing
+      predicate: TREATS
+      object: neurobehavioral deficits
+      qualifier: MONDO:0001586
+      subject_extension: genome editing
+      object_extension: neurobehavioral
+    - subject: in vivo genome editing
+      predicate: TREATS
+      object: GAG substrate accumulation
+      qualifier: MONDO:1012617
+      subject_qualifier: N/A
+      object_qualifier: N/A
+      subject_extension: genome editing
+      object_extension: symptom

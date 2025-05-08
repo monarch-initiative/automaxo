@@ -1,0 +1,107 @@
+---
+input_text: 'Treatment of maple syrup urine disease with high flow hemodialysis in
+  a neonate. Aygun F, Kiykim E, Aktuglu-Zeybek C, Zubarioglu T, Cam H. Treatment of
+  maple syrup urine disease with high flow hemodialysis in a neonate. Turk J Pediatr
+  2019; 61: 107-110. Continious renal replacement therapy (CRRT) is a well recognizied
+  treatment of choice in acute renal failure, however CRRT became a preferred treatment
+  of metabolic emergencies with high leucine and ammonia levels like Maple syrup urine
+  disease (MSUD). MSUD is a rare metabolic disorder caused by deficiency in the activity
+  of the branched-chain a-ketoacid dehydrogenase complex. The toxic accumulation of
+  branched chain amino acids during acute metabolic decompensation is associated with
+  the appearance of permanent neurological symptoms. Four patients were admitted to
+  our pediatric intensive care department with complains of poor feeding, vomitting,
+  irratibility and coma. Physical examination of the neonates were similar having
+  stupor, hypotonia and depressed newborn reflexes. The leucine levels were between
+  930-4400 mumol/L. The diagnosis of MSUD was confirmed in all four. They were treated
+  successfully with high flow CRRT having the rates were between 4120 ml/h/1.73m2
+  and 9830 ml/h/1.73m2. Early treatment is essential to prevent neurotoxicity and
+  death. CRRT is a choice of treatment in metabolic crisis of MSUD. Herein, we report
+  the successful treatment of acute metabolic decompensation of MSUD with CRRT in
+  4 neonates.'
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Maple syrup urine disease (MSUD)
+
+  medical_actions: High flow hemodialysis; Continuous renal replacement therapy (CRRT); High flow CRRT
+
+  symptoms: Poor feeding; Vomitting; Irritability; Coma; Stupor; Hypotonia; Depressed newborn reflexes; Permanent neurological symptoms
+
+  chemicals: Leucine; Branched-chain amino acids; Ammonia
+
+  action_annotation_relationships: High flow hemodialysis TREATS acute metabolic decompensation IN Maple syrup urine disease; CRRT TREATS metabolic emergencies IN Maple syrup urine disease; CRRT TREATS high leucine levels IN Maple syrup urine disease; CRRT TREATS high ammonia levels IN Maple syrup urine disease; Early treatment PREVENTS neurotoxicity IN Maple syrup urine disease; Early treatment PREVENTS death IN Maple syrup urine disease
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Early treatment PREVENTS death IN Maple syrup urine disease
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0009563
+  medical_actions:
+    - High flow hemodialysis
+    - Continuous renal replacement therapy (CRRT)
+    - High flow CRRT
+  symptoms:
+    - HP:0011968
+    - Vomitting
+    - HP:0000737
+    - HP:0001259
+    - HP:0001259
+    - HP:0001252
+    - Depressed newborn reflexes
+    - Permanent neurological symptoms
+  chemicals:
+    - CHEBI:25017
+    - CHEBI:22918
+    - CHEBI:28938
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: acute metabolic decompensation
+      qualifier: MONDO:0009563
+      subject_qualifier: high flow
+      subject_extension: hemodialysis
+    - predicate: TREATS
+      object: metabolic emergencies
+      qualifier: MONDO:0009563
+    - predicate: TREATS
+      object: high leucine levels
+      qualifier: MONDO:0009563
+    - predicate: TREATS
+      object: high ammonia levels
+      qualifier: MONDO:0009563
+    - predicate: PREVENTS
+      object: neurotoxicity
+      qualifier: MONDO:0009563
+    - predicate: PREVENTS
+      object: death
+      qualifier: MONDO:0009563
+named_entities:
+  - id: HP:0011968
+    label: Poor feeding
+    original_spans:
+      - 884:895
+  - id: HP:0000737
+    label: Irritability
+  - id: HP:0001259
+    label: Coma
+    original_spans:
+      - 926:929
+  - id: HP:0001252
+    label: Hypotonia
+    original_spans:
+      - 997:1005
+  - id: CHEBI:22918
+    label: Branched-chain amino acids

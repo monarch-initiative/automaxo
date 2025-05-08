@@ -1,0 +1,69 @@
+---
+input_text: "Cancer in buccal mucosa in patients with Fanconi anemia: Report of six
+  cases. INTRODUCTION: Fanconi anemia (FA) is a recessive hereditary disease characterized
+  by bone marrow failure, and the treatment is hematopoietic stem cell transplantation
+  (HSCT). Patients diagnosed with FA are more predisposed to develop oral squamous
+  cell carcinoma (SCC), and this risk increases in transplant patients. The clinical
+  characteristics of the oral manifestations of SCC in this group of patients do not
+  differ from the lesions present in patients without the disease; however, they can
+  be diagnosed in young patients and less common locations, such as, for example,
+  in the buccal mucosa. OBJECTIVE: To report a case series of patients diagnosed with
+  FA with oral SCC. METHOD: Included in this case series are six patients diagnosed
+  with SCC in the buccal mucosa with similar clinical characteristics. FINAL CONSIDERATIONS:
+  There are still difficulties in establishing the natural history of oral lesions
+  in patients with FA. Thus, disclosing a series of cases with similar changes may
+  be relevant to improving and refining the multidisciplinary team's clinical view
+  of suspected SCC or oral potentially malignant disorders (OPMD), providing surveillance
+  and timely management."
+raw_completion_output: |-
+  primary_disease: Fanconi anemia  
+  medical_actions: hematopoietic stem cell transplantation  
+  symptoms: oral squamous cell carcinoma; oral lesions  
+  chemicals: None  
+  action_annotation_relationships: treatment TREATS symptom IN disease; treatment TREATS symptom IN Fanconi anemia  
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  treatment TREATS symptom IN Fanconi anemia
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0019391
+  medical_actions:
+    - MAXO:0000747
+  symptoms:
+    - oral squamous cell carcinoma
+    - oral lesions
+  chemicals:
+    - None
+  action_annotation_relationships:
+    - subject: treatment
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0000001
+      subject_extension: treatment
+      object_extension: symptom
+    - subject: treatment
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0019391
+      subject_extension: treatment
+      object_extension: symptom
+named_entities:
+  - id: MONDO:0000001
+    label: disease
+    original_spans:
+      - 138:144
+      - 548:554

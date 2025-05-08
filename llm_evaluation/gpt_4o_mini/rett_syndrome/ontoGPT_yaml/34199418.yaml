@@ -1,0 +1,110 @@
+---
+input_text: 'Modulation of Serotonin Receptors in Neurodevelopmental Disorders: Focus
+  on 5-HT7 Receptor. Since neurodevelopmental disorders (NDDs) influence more than
+  3% of children worldwide, there has been intense investigation to understand the
+  etiology of disorders and develop treatments. Although there are drugs such as aripiprazole,
+  risperidone, and lurasidone, these medications are not cures for the disorders and
+  can only help people feel better or alleviate their symptoms. Thus, it is required
+  to discover therapeutic targets in order to find the ultimate treatments of neurodevelopmental
+  disorders. It is suggested that abnormal neuronal morphology in the neurodevelopment
+  process is a main cause of NDDs, in which the serotonergic system is emerging as
+  playing a crucial role. From this point of view, we noticed the correlation between
+  serotonin receptor subtype 7 (5-HT7R) and NDDs including autism spectrum disorder
+  (ASD), fragile X syndrome (FXS), and Rett syndrome (RTT). 5-HT7R modulators improved
+  altered behaviors in animal models and also affected neuronal morphology via the
+  5-HT7R/G12 signaling pathway. Through the investigation of recent studies, it is
+  suggested that 5-HT7R could be a potential therapeutic target for the treatment
+  of NDDs.'
+raw_completion_output: |-
+  primary_disease: neurodevelopmental disorders  
+  medical_actions: modulation of serotonin receptors; discovery of therapeutic targets; treatment with aripiprazole; treatment with risperidone; treatment with lurasidone  
+  symptoms: altered behaviors; abnormal neuronal morphology  
+  chemicals: aripiprazole; risperidone; lurasidone  
+  action_annotation_relationships: modulation of serotonin receptors TREATS altered behaviors IN neurodevelopmental disorders; discovery of therapeutic targets TREATS abnormal neuronal morphology IN neurodevelopmental disorders; treatment with aripiprazole TREATS altered behaviors IN neurodevelopmental disorders; treatment with risperidone TREATS altered behaviors IN neurodevelopmental disorders; treatment with lurasidone TREATS altered behaviors IN neurodevelopmental disorders  
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  treatment with lurasidone TREATS altered behaviors IN neurodevelopmental disorders
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0700092
+  medical_actions:
+    - modulation of serotonin receptors
+    - discovery of therapeutic targets
+    - treatment with aripiprazole
+    - treatment with risperidone
+    - treatment with lurasidone
+  symptoms:
+    - altered behaviors
+    - HP:0012757
+  chemicals:
+    - CHEBI:31236
+    - CHEBI:8871
+    - CHEBI:70735
+  action_annotation_relationships:
+    - subject: modulation of serotonin receptors
+      predicate: TREATS
+      object: altered behaviors
+      qualifier: MONDO:0700092
+      subject_qualifier: none
+      object_qualifier: none
+      subject_extension: serotonin receptor modulation
+      object_extension: none
+    - subject: discovery of therapeutic targets
+      predicate: TREATS
+      object: HP:0012757
+      qualifier: MONDO:0700092
+      subject_extension: therapeutic targets
+      object_extension: neuronal morphology
+    - subject: treatment
+      predicate: TREATS
+      object: altered behaviors
+      qualifier: MONDO:0700092
+      subject_qualifier: treatment with
+      object_qualifier: IN
+      subject_extension: CHEBI:31236
+      object_extension: altered behaviors
+    - subject: treatment
+      predicate: TREATS
+      object: altered behaviors
+      qualifier: MONDO:0700092
+      subject_qualifier: treatment with
+      object_qualifier: N/A
+      subject_extension: CHEBI:8871
+      object_extension: altered behaviors
+    - subject: treatment
+      predicate: TREATS
+      object: altered behaviors
+      qualifier: MONDO:0700092
+      subject_extension: CHEBI:70735
+      object_extension: altered behaviors
+named_entities:
+  - id: HP:0012757
+    label: abnormal neuronal morphology
+    original_spans:
+      - 621:648
+  - id: CHEBI:31236
+    label: aripiprazole
+    original_spans:
+      - 314:325
+  - id: CHEBI:8871
+    label: risperidone
+    original_spans:
+      - 328:338
+  - id: CHEBI:70735
+    label: lurasidone
+    original_spans:
+      - 345:354

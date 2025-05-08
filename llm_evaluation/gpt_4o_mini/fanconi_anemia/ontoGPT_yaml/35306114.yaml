@@ -1,0 +1,81 @@
+---
+input_text: 'Association of variations in the Fanconi anemia complementation group
+  and prognosis in Non-small cell lung cancer patients with Platinum-based chemotherapy.
+  PURPOSE: To explore the associations between FANC (FANCA, FANCC, FANCE, FANCF, and
+  FANCJ) single nucleotide polymorphisms (SNPs) and prognosis of non-small cell lung
+  cancer (NSCLC) patients with platinum-based chemotherapy. METHODS: According to
+  the inclusion criteria, we selected 395 DNA samples from NSCLC patients for genotyping
+  and combined with clinical data for Cox regression analysis and stratification analyses
+  to assess relationships between overall survival (OS) and progression free survival
+  (PFS) with SNPs genotypes. RESULTS: The results revealed that patients with FANCE
+  rs6907678 TT genotype have a longer OS than TC and CC genotype (Additive model:
+  P = 0.004, HR = 1.696, 95% CI = 1.186-2.425). In stratification analyses, Longer
+  PFS is found in female, age <= 55 years old and non-smoking patients with FANCE
+  rs6907678 TT genotype, and patients with TT genotypes were significantly had longer
+  OS in male, age >55 years old, non-smoking, squamous cell carcinoma and stage IV
+  stratification. CONCLUSION: Our data demonstrates that patients with FANCE rs6907678
+  TT genotype are contributed to better prognosis. FANCE rs6907678 may be used as
+  a clinical biomarker for predicting the prognosis of NSCLC patients with platinum-based
+  chemotherapy.'
+raw_completion_output: |-
+  primary_disease: Non-small cell lung cancer  
+  medical_actions: Platinum-based chemotherapy  
+  symptoms: Overall survival; Progression free survival  
+  chemicals: Platinum  
+  action_annotation_relationships: treatment (with Platinum) TREATS symptom Overall survival IN Non-small cell lung cancer; treatment (with Platinum) TREATS symptom Progression free survival IN Non-small cell lung cancer
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  treatment (with Platinum) TREATS symptom Progression free survival IN Non-small cell lung cancer
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005233
+  medical_actions:
+    - Platinum-based chemotherapy
+  symptoms:
+    - Overall survival
+    - Progression free survival
+  chemicals:
+    - CHEBI:33364
+  action_annotation_relationships:
+    - subject: treatment
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0005233
+      subject_qualifier: with Platinum
+      object_qualifier: N/A
+      subject_extension: CHEBI:33364
+      object_extension: Overall survival
+    - subject: treatment
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0005233
+      subject_qualifier: with Platinum
+      object_qualifier: N/A
+      subject_extension: CHEBI:33364
+      object_extension: Progression free survival
+named_entities:
+  - id: MONDO:0005233
+    label: Non-small cell lung cancer
+    original_spans:
+      - 87:112
+      - 303:328
+  - id: CHEBI:33364
+    label: Platinum
+    original_spans:
+      - 128:135
+      - 352:359
+      - 1388:1395

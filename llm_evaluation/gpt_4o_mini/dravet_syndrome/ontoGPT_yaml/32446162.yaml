@@ -1,0 +1,82 @@
+---
+input_text: Influence of stiripentol on perampanel serum levels. Stiripentol is an
+  orphan drug successfully used in combination with valproate and clobazam in the
+  treatment of Dravet syndrome. Perampanel has also been added by experts. In this
+  retrospective study, we investigated the influence of stiripentol on perampanel
+  serum levels by using the doses and corresponding perampanel serum levels of 10
+  patients. The impact of stiripentol on the perampanel serum levels was significant
+  as shown in a linear regression analysis, with perampanel serum levels increasing
+  linearly with the stiripentol doses. We conclude that dose adjustments of stiripentol
+  and perampanel when administered together, should be done carefully to avoid side
+  effects or even severe intoxication. Hence, perampanel serum level monitoring seems
+  advisable.
+raw_completion_output: |-
+  primary_disease: Dravet syndrome  
+  medical_actions: treatment with stiripentol; treatment with valproate; treatment with clobazam; monitoring perampanel serum levels; dose adjustments of stiripentol and perampanel  
+  symptoms: side effects; severe intoxication  
+  chemicals: stiripentol; valproate; clobazam; perampanel  
+  action_annotation_relationships: treatment (with stiripentol) TREATS symptom side effects IN Dravet syndrome; treatment (with stiripentol) TREATS symptom severe intoxication IN Dravet syndrome; monitoring perampanel serum levels PREVENTS symptom severe intoxication IN Dravet syndrome; dose adjustments of stiripentol and perampanel PREVENTS symptom side effects IN Dravet syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  dose adjustments of stiripentol and perampanel PREVENTS symptom side effects IN Dravet syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0100135
+  medical_actions:
+    - treatment with stiripentol
+    - treatment with valproate
+    - treatment with clobazam
+    - monitoring perampanel serum levels
+    - dose adjustments of stiripentol and perampanel
+  symptoms:
+    - side effects
+    - severe intoxication
+  chemicals:
+    - CHEBI:228488
+    - CHEBI:60654
+    - CHEBI:31413
+    - CHEBI:71013
+  action_annotation_relationships:
+    - subject: treatment
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0100135
+      subject_qualifier: with
+      subject_extension: CHEBI:228488
+      object_extension: side effects
+    - subject: treatment
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0100135
+      subject_qualifier: with
+      object_qualifier: intoxication
+      subject_extension: CHEBI:228488
+      object_extension: severe
+    - subject: monitoring
+      predicate: PREVENTS
+      object: symptom
+      qualifier: MONDO:0100135
+      subject_qualifier: serum levels
+      object_qualifier: none
+      subject_extension: CHEBI:71013
+      object_extension: severe
+    - subject: dose adjustments
+      predicate: PREVENTS
+      object: symptom side effects
+      qualifier: MONDO:0100135
+      subject_extension: stiripentol, perampanel
+      object_extension: symptom side effects

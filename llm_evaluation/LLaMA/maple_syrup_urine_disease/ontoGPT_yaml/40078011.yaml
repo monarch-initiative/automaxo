@@ -1,0 +1,69 @@
+---
+input_text: 'Short and Long-Term Outcomes of Liver Transplantation in Pediatric Patients
+  With Inborn Errors of Metabolism: A Single-Center Study. BACKGROUND: Inborn errors
+  of metabolism (IEMs) are inherited diseases causing significant morbidity and mortality,
+  particularly in childhood. Liver transplantation (LT) can be curative or partially
+  effective for these diseases. LT for IEMs has increased, making IEMs the second
+  most common reason for pediatric LT after biliary atresia. PATIENTS AND METHODS:
+  Between 2001 and 2023, 50 pediatric patients with IEMs underwent LT at Baskent University,
+  Ankara Hospital. Data collected retrospectively included diagnosis, gender, age
+  of diagnosis, age of LT, LT indication, donor data, graft type, rejection episodes,
+  post-transplant complications, and clinical findings of the IEMs before and after
+  LT. Treatment methods, follow-up duration, and survival time were also recorded.
+  RESULTS: Of the 332 pediatric LT patients, 50 (15.1%) had IEMs, with three requiring
+  re-transplantations. Diagnoses included glycogen storage diseases (n = 11), tyrosinemia
+  type 1 (n = 10), primary hyperoxaluria (n = 6), urea cycle disorders (n = 6), homozygous
+  familial hypercholesterolemia (n = 4), propionic acidemia (n = 4), deoxyguanosine
+  kinase deficiency (n = 3), maple syrup urine disease (n = 2), methylmalonic acidemia
+  (n = 1), Niemann-Pick disease type B (n = 1), alkaptonuria with unknown neonatal
+  cholestasis (n = 1), and bile acid synthesis disorder (n = 1). The parental consanguinity
+  rate was 74%. Living-related donors provided organs for 48 (90.5%) patients. The
+  mean age at LT was 75.3 +- 8.2 months (range: 5-218), with a follow-up period of
+  82.1 +- 10.2 months (range:1 day-229 months). Survival rates at 1, 5, 10, and 15
+  years were 83.7%, 81%, 81%, and 70.9%, respectively. CONCLUSION: LT is an effective
+  solution for children with IEM causing chronic organ failure and difficult to manage
+  with medical treatment, showing a good long-term prognosis.'
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Inborn Errors of Metabolism
+
+  medical_actions: Liver Transplantation; medical treatment
+
+  symptoms: chronic organ failure
+
+  chemicals: 
+
+  action_annotation_relationships: Liver Transplantation TREATS chronic organ failure IN Inborn Errors of Metabolism; medical treatment TREATS Inborn Errors of Metabolism 
+
+  Note that some specific types of Inborn Errors of Metabolism are mentioned in the text, such as glycogen storage diseases, tyrosinemia type 1, primary hyperoxaluria, etc. If you would like me to extract those as separate primary diseases, I can do so. Let me know!
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  medical treatment TREATS Inborn Errors of Metabolism
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0019052
+  medical_actions:
+    - MAXO:0001175
+    - medical treatment
+  symptoms:
+    - chronic organ failure
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: chronic organ failure
+      qualifier: MONDO:0019052
+    - predicate: TREATS

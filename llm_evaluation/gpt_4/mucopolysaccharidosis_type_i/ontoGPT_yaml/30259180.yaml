@@ -1,0 +1,93 @@
+---
+input_text: 'Nasal Administration of Cationic Nanoemulsions as Nucleic Acids Delivery
+  Systems Aiming at Mucopolysaccharidosis Type I Gene Therapy. PURPOSE: This study
+  demonstrates the nasal administration (NA) of nanoemulsions complexed with the plasmid
+  encoding for IDUA protein (pIDUA) as an attempt to reach the brain aiming at MPS
+  I gene therapy. METHODS: Formulations composed of DOPE, DOTAP, MCT (NE), and DSPE-PEG
+  (NE-PEG) were prepared by high-pressure homogenization, and assessed in vitro on
+  human fibroblasts from MPS I patients and in vivo on MPS I mice for IDUA production
+  and gene expression. RESULTS: The physicochemical results showed that the presence
+  of DSPE-PEG in the formulations led to smaller and more stable droplets even when
+  submitted to dilution in simulated nasal medium (SNM). In vitro assays showed that
+  pIDUA/NE-PEG complexes were internalized by cells, and led to a 5% significant increase
+  in IDUA activity, besides promoting a two-fold increase in IDUA expression. The
+  NA of pIDUA/NE-PEG complexes to MPS I mice demonstrated the ability to reach the
+  brain, promoting increased IDUA activity and expression in this tissue, as well
+  as in kidney and spleen tissues after treatment. An increase in serum IL-6 was observed
+  after treatment, although with no signs of tissue inflammatory infiltrate according
+  to histopathology and CD68 assessments. CONCLUSIONS: These findings demonstrated
+  that pIDUA/NE-PEG complexes could efficiently increase IDUA activity in vitro and
+  in vivo after NA, and represent a potential treatment for the neurological impairment
+  present in MPS I patients.'
+raw_completion_output: |-
+  primary_disease: Mucopolysaccharidosis Type I (MPS I)
+
+  medical_actions: nasal administration of nanoemulsions complexed with pIDUA; high-pressure homogenization of formulations; assessment of complexes in vitro on human fibroblasts and in vivo on MPS I mice; measurement of IDUA activity and gene expression; assessment of tissue inflammatory response and histopathology
+
+  symptoms: neurological impairment; increase in serum IL-6 without tissue inflammatory infiltrate
+
+  chemicals: DOPE; DOTAP; MCT; DSPE-PEG; pIDUA
+
+  action_annotation_relationships: nasal administration of nanoemulsions complexed with pIDUA TREATS neurological impairment IN Mucopolysaccharidosis Type I (MPS I); high-pressure homogenization (with DOPE, DOTAP, MCT, DSPE-PEG) PREVENTS instability of droplets IN Mucopolysaccharidosis Type I (MPS I); measurement of IDUA activity and gene expression (with pIDUA) TREATS neurological impairment IN Mucopolysaccharidosis Type I (MPS I)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  measurement of IDUA activity and gene expression (with pIDUA) TREATS neurological impairment IN Mucopolysaccharidosis Type I (MPS I)
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:1012617
+  medical_actions:
+    - nasal administration of nanoemulsions complexed with pIDUA
+    - high-pressure homogenization of formulations
+    - assessment of complexes in vitro on human fibroblasts and in vivo on MPS I mice
+    - measurement of IDUA activity and gene expression
+    - assessment of tissue inflammatory response and histopathology
+  symptoms:
+    - neurological impairment
+    - increase in serum IL-6 without tissue inflammatory infiltrate
+  chemicals:
+    - CHEBI:60285
+    - DOTAP
+    - MCT
+    - DSPE-PEG
+    - pIDUA
+  action_annotation_relationships:
+    - subject: MAXO:0001521
+      predicate: TREATS
+      object: neurological impairment
+      qualifier: MONDO:1012617
+      subject_extension: nanoemulsions complexed with pIDUA
+    - subject: high-pressure homogenization
+      predicate: PREVENTS
+      object: instability of droplets
+      qualifier: MONDO:1012617
+      subject_qualifier: with DOPE, DOTAP, MCT, DSPE-PEG
+      subject_extension: DOPE, DOTAP, MCT, DSPE-PEG
+    - subject: measurement of activity and gene expression
+      predicate: TREATS
+      object: neurological impairment
+      qualifier: MONDO:1012617
+      subject_qualifier: with pIDUA
+      subject_extension: IDUA
+named_entities:
+  - id: MONDO:0001586
+    label: mucopolysaccharidosis type I
+  - id: MONDO:1012617
+    label: Mucopolysaccharidosis Type I (MPS I)
+  - id: CHEBI:60285
+    label: DOPE
+  - id: MAXO:0001521
+    label: nasal administration

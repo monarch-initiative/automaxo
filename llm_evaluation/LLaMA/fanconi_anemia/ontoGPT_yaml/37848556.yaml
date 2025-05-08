@@ -1,0 +1,100 @@
+---
+input_text: Predictors of outcomes in hematopoietic cell transplantation for Fanconi
+  anemia. Allogeneic hematopoietic cell transplantation (HCT) remains the only cure
+  for the hematologic manifestations of Fanconi anemia (FA). We performed retrospective
+  predictor analyses for HCT outcomes in FA for pediatric and young adult patients
+  transplanted between 2007 and 2020 across three large referral institutions. Eighty-nine
+  patients, 70 with bone marrow failure +/- cytogenetic abnormalities, 19 with MDS/AML,
+  were included. Five-year overall survival (OS) was 83.2% and event-free survival
+  (EFS) was 74%. Age >=19, HLA mismatch and year of HCT were multivariable predictors
+  (MVPs) for OS, EFS and treatment-related mortality (TRM). In the pediatric group,
+  TCD was a borderline MVP (P = 0.059) with 5-year OS of 73.0% in TCD vs. 100% for
+  T-replete HCT. The cumulative incidence of day 100 grade II-IV aGvHD and 5-year
+  cGvHD were 5.6% and 4.6%, respectively. Relapse in the MDS/AML subgroup occurred
+  in 4 patients (16%). Graft failure was seen in 9 patients (TCD 6/37 [16%]; T-replete
+  3/52 [5.7%]). Six patients developed malignancy after HCT. Survival chances after
+  HCT for FA are excellent and associated with high engrafted survival and low toxicity.
+  Age >=19, HLA mismatch, year of transplant and 'TCD in the <19 years group' (although
+  borderline) were found to be negative predictors for survival.
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Fanconi anemia
+
+  medical_actions: allogeneic hematopoietic cell transplantation (HCT); T-cell depletion (TCD)
+
+  symptoms: bone marrow failure; cytogenetic abnormalities; MDS/AML; grade II-IV acute graft-versus-host disease (aGvHD); chronic graft-versus-host disease (cGvHD); graft failure; malignancy; treatment-related mortality (TRM)
+
+  chemicals: 
+
+  action_annotation_relationships: allogeneic hematopoietic cell transplantation (HCT) TREATS hematologic manifestations IN Fanconi anemia; T-cell depletion (TCD) TREATS graft-versus-host disease IN Fanconi anemia; allogeneic hematopoietic cell transplantation (HCT) PREVENTS treatment-related mortality IN Fanconi anemia; age >= 19 PREVENTS survival IN Fanconi anemia; HLA mismatch PREVENTS survival IN Fanconi anemia; year of transplant PREVENTS survival IN Fanconi anemia; T-cell depletion (TCD) INCREASES graft failure IN Fanconi anemia
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  T-cell depletion (TCD) INCREASES graft failure IN Fanconi anemia
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0019391
+  medical_actions:
+    - MAXO:0000149
+    - T-cell depletion (TCD)
+  symptoms:
+    - HP:0005528
+    - cytogenetic abnormalities
+    - MDS/AML
+    - grade II-IV acute graft-versus-host disease (aGvHD)
+    - chronic graft-versus-host disease (cGvHD)
+    - graft failure
+    - HP:0011793
+    - treatment-related mortality (TRM)
+  action_annotation_relationships:
+    - subject: MAXO:0000149
+      predicate: TREATS
+      object: manifestations
+      qualifier: MONDO:0019391
+      subject_qualifier: allogeneic
+      object_qualifier: hematologic
+      subject_extension: hematopoietic cell transplantation
+      object_extension: hematologic
+    - subject: T-cell depletion
+      predicate: TREATS
+      object: graft-versus-host disease
+      qualifier: MONDO:0019391
+      subject_extension: T-cell
+      object_extension: depletion
+    - subject: MAXO:0000149
+      predicate: PREVENTS
+      object: mortality
+      qualifier: MONDO:0019391
+      subject_qualifier: allogeneic
+      object_qualifier: treatment-related
+      subject_extension: hematopoietic cell transplantation
+      object_extension: treatment-related
+    - predicate: PREVENTS
+      object: survival
+      qualifier: MONDO:0019391
+      subject_qualifier: to >= 19 years old or above
+    - predicate: PREVENTS
+      object: survival
+      qualifier: MONDO:0019391
+      subject_qualifier: mismatch
+    - predicate: PREVENTS
+      object: survival
+      qualifier: MONDO:0019391
+    - predicate: INCREASES
+      object: graft failure
+      qualifier: MONDO:0019391
+      subject_extension: T-cell depletion

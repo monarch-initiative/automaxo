@@ -1,0 +1,80 @@
+---
+input_text: 'Revaccination outcomes of children with vaccine proximate seizures. BACKGROUND:
+  Seizures, whether febrile or afebrile, occurring within 14 days following vaccination
+  can be considered as vaccine proximate seizures (VPSs). While the attributable risk
+  and clinical severity of first febrile VPS is well known, the risk and clinical
+  outcomes of VPS recurrence is less well defined. METHODS: We conducted a retrospective
+  review of revaccination management and outcomes in children who experienced a VPS
+  as their first seizure seen in Australian Specialist Immunisation Clinics between
+  2013 and 2017. Vaccination outcomes were compared between children who had a VPS
+  as their only seizure (VPS only) and children who had further non-vaccine proximate
+  seizures following their initial VPS (VPS+) prior to review at the clinic. RESULTS:
+  We identified 119 children with a VPS as their first seizure, of which 61 (51%)
+  went on to have other seizures (VPS+). Children with VPS+ were more likely to present
+  at a younger age (6.2 vs 12.5 months, P = 0.03), with afebrile seizures (42.6% vs
+  15.5%, P = 0.002) compared to VPS only children. VPS recurrence on revaccination
+  was uncommon in both groups, but more common in VPS+ children (12.5% vs 2.4%, P
+  = 0.07). Having an epilepsy diagnosis, specifically Dravet syndrome, was associated
+  with VPS recurrence (P < 0.001). Of the four children with Dravet syndrome who had
+  VPS recurrence, all had status epilepticus following revaccination. CONCLUSION:
+  In children who presented with a single VPS as their only seizure, VPS recurrence
+  on revaccination was uncommon. Children who had multiple non-vaccine proximate seizures
+  following their initial VPS (VPS+) were more likely to present with afebrile VPS,
+  at a younger age and have a VPS recurrence with vaccination. In these children,
+  particularly those aged < 12 months, assessment and investigation for diagnosis
+  of Dravet syndrome should be considered and additional precautions for revaccination
+  undertaken as they are at highest risk of VPS recurrence.'
+raw_completion_output: |-
+  primary_disease: Vaccine proximate seizures  
+  medical_actions: Revaccination; Assessment for diagnosis of Dravet syndrome; Additional precautions for revaccination  
+  symptoms: Seizures; Febrile seizures; Afebrile seizures; Status epilepticus  
+  chemicals: None  
+  action_annotation_relationships: Revaccination TREATS symptom Seizures IN Vaccine proximate seizures; Assessment for diagnosis of Dravet syndrome TREATS symptom Seizures IN Vaccine proximate seizures; Additional precautions for revaccination PREVENTS symptom Seizures IN Vaccine proximate seizures
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  Additional precautions for revaccination PREVENTS symptom Seizures IN Vaccine proximate seizures
+
+  ===
+
+extracted_object:
+  primary_disease: Vaccine proximate seizures
+  medical_actions:
+    - Revaccination
+    - Assessment for diagnosis of Dravet syndrome
+    - Additional precautions for revaccination
+  symptoms:
+    - HP:0001250
+    - HP:0002373
+    - Afebrile seizures
+    - HP:0002133
+  chemicals:
+    - None
+  action_annotation_relationships:
+    - subject: Revaccination
+      predicate: TREATS
+      object: HP:0001250
+      qualifier: Vaccine proximate seizures
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: Vaccine
+      object_extension: proximate seizures
+    - predicate: TREATS
+      object: HP:0001250
+      qualifier: MONDO:0100135
+    - subject: revaccination
+      predicate: PREVENTS
+      object: HP:0001250
+      subject_extension: Vaccine
+      object_extension: proximate seizures

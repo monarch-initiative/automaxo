@@ -1,0 +1,105 @@
+---
+input_text: 'Respiratory morbidity in Rett syndrome: an observational study. AIM:
+  Respiratory illness is a major cause of morbidity and mortality in Rett syndrome.
+  This study investigated respiratory morbidity and relationships with age, mutation
+  type, feeding, and walking status. METHOD: Families registered with the InterRett
+  database (n=399) provided data on the health of their child with Rett syndrome (age
+  2-57y). Hospital admissions because of lower respiratory tract infection (LRTI)
+  over a 5-year exposure period were investigated by age, mutation type, enteral feeding,
+  and walking status. RESULTS: A hospital admission for LRTI over the previous 5 years
+  was reported for slightly more than one-fifth (21.4%) of individuals. Age and mutation
+  groups did not seem to influence hospital admissions for LRTI but there was nearly
+  twice the risk of an admission with enteral feeding (adjusted relative risk 1.79,
+  95% confidence interval [CI] 1.21-2.65). Compared with independent walking, being
+  unable to walk was associated with a sixfold increased risk (adjusted relative risk
+  6.73, 95% CI 3.42-13.25), with assisted walking associated with an intermediate
+  risk. INTERPRETATION: Beyond the influence of mutation type, walking seems to have
+  protective effects on respiratory health. Further studies of exercise physiology
+  in Rett syndrome and how this can be influenced by increasing activity levels are
+  indicated. WHAT THIS PAPER ADDS: Rett syndrome is associated with increased vulnerability
+  to lower respiratory tract infection (LRTI) requiring hospitalization. Enteral feeding
+  is associated with a higher risk of hospital admission for LRTI. Assisted walking
+  mitigates the risk of hospital admission for LRTI for those unable to walk independently.'
+raw_completion_output: |-
+  primary_disease: Rett syndrome  
+  medical_actions: observational study; investigation of respiratory morbidity; assess hospital admissions; further studies of exercise physiology  
+  symptoms: respiratory illness; lower respiratory tract infection (LRTI); inability to walk; assisted walking  
+  chemicals: None  
+  action_annotation_relationships: investigation of respiratory morbidity TREATS respiratory illness IN Rett syndrome; assess hospital admissions TREATS lower respiratory tract infection (LRTI) IN Rett syndrome; further studies of exercise physiology TREATS respiratory illness IN Rett syndrome; inability to walk TREATS lower respiratory tract infection (LRTI) IN Rett syndrome; assisted walking TREATS lower respiratory tract infection (LRTI) IN Rett syndrome
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  assisted walking TREATS lower respiratory tract infection (LRTI) IN Rett syndrome
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0010726
+  medical_actions:
+    - observational study
+    - investigation of respiratory morbidity
+    - assess hospital admissions
+    - further studies of exercise physiology
+  symptoms:
+    - respiratory illness
+    - HP:0002783
+    - HP:0002540
+    - assisted walking
+  chemicals:
+    - None
+  action_annotation_relationships:
+    - subject: investigation
+      predicate: TREATS
+      object: respiratory illness
+      qualifier: MONDO:0010726
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: respiratory morbidity
+      object_extension: respiratory illness
+    - subject: assess hospital admissions
+      predicate: TREATS
+      object: HP:0002783
+      qualifier: MONDO:0010726
+      subject_qualifier: None
+      object_qualifier: None
+      subject_extension: assess
+      object_extension: lower respiratory tract infection
+    - subject: exercise physiology
+      predicate: TREATS
+      object: respiratory illness
+      qualifier: MONDO:0010726
+      subject_qualifier: 'null'
+      object_qualifier: 'null'
+      subject_extension: exercise physiology
+      object_extension: respiratory
+    - subject: inability to walk
+      predicate: TREATS
+      object: HP:0002783
+      qualifier: MONDO:0010726
+      subject_qualifier: <none>
+      object_qualifier: <none>
+      subject_extension: <none>
+      object_extension: <lower respiratory tract infection>
+    - subject: assisted walking
+      predicate: TREATS
+      object: HP:0002783
+      qualifier: MONDO:0010726
+      subject_extension: assisted walking
+      object_extension: lower respiratory tract infection
+named_entities:
+  - id: HP:0002783
+    label: lower respiratory tract infection (LRTI)
+    original_spans:
+      - 439:478
+      - 1490:1529

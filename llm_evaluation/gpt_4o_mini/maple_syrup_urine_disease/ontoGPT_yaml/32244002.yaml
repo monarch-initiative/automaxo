@@ -1,0 +1,92 @@
+---
+input_text: Current update in domino liver transplantation. Orthotopic liver transplantation
+  is an established treatment for end stage liver diseases as well as for some severe
+  metabolic disorders. With increasing number of patients on the waiting list and
+  the ongoing shortage of livers available, domino liver transplantation (DLT) became
+  an option to further expand the organ donor pool. DLT utilizes the explanted liver
+  of one liver transplant recipient as a donor graft in another patient. Despite being
+  a surgically, and logistically demanding procedure, excellent results could be achieved
+  in experienced high-volume transplant centers. In this review we present the current
+  world status of DLT.
+raw_completion_output: |-
+  primary_disease: end stage liver diseases; severe metabolic disorders  
+  medical_actions: orthotopic liver transplantation; domino liver transplantation  
+  symptoms: none explicitly mentioned  
+  chemicals: none explicitly mentioned  
+  action_annotation_relationships: orthotopic liver transplantation TREATS symptom IN end stage liver diseases; orthotopic liver transplantation TREATS symptom IN severe metabolic disorders; domino liver transplantation TREATS symptom IN end stage liver diseases; domino liver transplantation TREATS symptom IN severe metabolic disorders  
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  domino liver transplantation TREATS symptom IN severe metabolic disorders
+
+  ===
+
+extracted_object:
+  primary_disease: end stage liver diseases; severe metabolic disorders
+  medical_actions:
+    - orthotopic liver transplantation
+    - domino liver transplantation
+  symptoms:
+    - none explicitly mentioned
+  chemicals:
+    - none explicitly mentioned
+  action_annotation_relationships:
+    - subject: orthotopic liver transplantation
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0005154
+      subject_qualifier: None
+      object_qualifier: end stage
+      subject_extension: orthotopic liver transplantation
+      object_extension: end stage liver diseases
+    - subject: orthotopic liver transplantation
+      predicate: TREATS
+      object: symptom
+      qualifier: severe metabolic disorders
+      subject_extension: orthotopic liver transplantation
+      object_extension: metabolic disorders
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0100193
+      subject_qualifier: none
+      object_qualifier: none
+      subject_extension: liver transplantation
+      object_extension: end stage liver diseases
+    - subject: MAXO:0001175
+      predicate: TREATS
+      object: symptom
+      qualifier: MONDO:0005066
+      subject_qualifier: domino
+      subject_extension: liver transplantation
+      object_extension: severe
+named_entities:
+  - id: MONDO:0005154
+    label: liver diseases
+    original_spans:
+      - 123:136
+  - id: MAXO:0001175
+    label: liver transplantation
+    original_spans:
+      - 25:45
+      - 59:79
+      - 294:314
+  - id: MONDO:0100193
+    label: end stage liver diseases
+    original_spans:
+      - 113:136
+  - id: MONDO:0005066
+    label: metabolic disorders
+    original_spans:
+      - 165:183

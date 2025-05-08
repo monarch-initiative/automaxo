@@ -1,0 +1,108 @@
+---
+input_text: 'Mixed chimerism after allogeneic hematopoietic stem cell transplantation
+  for severe aplastic anemia. A retrospective study on 287 patients with SAA who underwent
+  allo-HSCT between October 2012 and January 2020 was conducted to explore the outcomes,
+  risk factors and treatment options for MC. Among 287 AA patients who excluded Fanconi
+  anemia (FA), Congenital dyskeratosis (DKC), Paroxysmal nocturnal hemoglobinuria
+  (PNH), etc.112 underwent matched sibling donor (MSD)-HSCT, 91 matched unrelated
+  donor-HSCT and 84 haploidentical-HSCT. Patients were divided into the following
+  4 groups: group 1: Donor chimerism (DC); group 2: MC without cytopenia; group 3:
+  MC with cytopenia; group 4: secondary graft failure (SGF). Compared with the other
+  three groups, SGF predicted a poor prognosis of SAA (P< 0.001). In addition, SGF
+  was associated with the early (within 3 months after transplantation) presence of
+  MC and the high levels of MC. Uni- and multivariate logistic regression analysis
+  showed that donor/recipient sex-mismatching and CTX + ATG regimen were high-risk
+  factors for MC. Of note, in MC patients with cytopenia (group 3), the effective
+  response rate reached 55% (6/11) following enhanced immunosuppression combined with
+  cellular therapy, while only one of the four was effective who received enhanced
+  immunosuppression alone. SGF was associated with poor prognosis, early presence
+  of MC and increased levels of recipient chimerism. The donor/recipient sex-mismatching
+  and CTX + ATG regimen based MSD-HSCT were risk factors for MC. Cellular therapy
+  could improve the effective response rate of patients with progressive MC.'
+raw_completion_output: |-
+  primary_disease: severe aplastic anemia  
+  medical_actions: allogeneic hematopoietic stem cell transplantation; enhanced immunosuppression; cellular therapy  
+  symptoms: mixed chimerism; cytopenia; secondary graft failure  
+  chemicals: CTX; ATG  
+  action_annotation_relationships: allogeneic hematopoietic stem cell transplantation TREATS mixed chimerism IN severe aplastic anemia; enhanced immunosuppression TREATS cytopenia IN severe aplastic anemia; cellular therapy TREATS mixed chimerism IN severe aplastic anemia; enhanced immunosuppression (with chemical CTX) TREATS mixed chimerism IN severe aplastic anemia; enhanced immunosuppression (with chemical ATG) TREATS mixed chimerism IN severe aplastic anemia  
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  enhanced immunosuppression (with chemical ATG) TREATS mixed chimerism IN severe aplastic anemia
+
+  ===
+
+extracted_object:
+  primary_disease: severe aplastic anemia
+  medical_actions:
+    - MAXO:0001479
+    - enhanced immunosuppression
+    - MAXO:0000016
+  symptoms:
+    - mixed chimerism
+    - cytopenia
+    - secondary graft failure
+  chemicals:
+    - CHEBI:3498
+    - ATG
+  action_annotation_relationships:
+    - subject: MAXO:0001479
+      predicate: TREATS
+      object: mixed chimerism
+      qualifier: MONDO:0015909
+      subject_qualifier: none
+      object_qualifier: severe
+      subject_extension: stem cell transplantation
+      object_extension: mixed chimerism
+    - subject: enhanced immunosuppression
+      predicate: TREATS
+      object: cytopenia
+      qualifier: MONDO:0015909
+      subject_qualifier: enhanced
+      object_qualifier: severe
+      subject_extension: immunosuppressive therapy
+      object_extension: severe
+    - subject: MAXO:0000016
+      predicate: TREATS
+      object: mixed chimerism
+      qualifier: severe aplastic anemia
+      subject_extension: cellular therapy
+      object_extension: mixed chimerism
+    - subject: enhanced immunosuppression
+      predicate: TREATS
+      object: mixed chimerism
+      qualifier: severe aplastic anemia
+      subject_qualifier: N/A
+      object_qualifier: N/A
+      subject_extension: chemical CTX
+      object_extension: N/A
+    - subject: enhanced immunosuppression
+      predicate: TREATS
+      object: mixed chimerism
+      qualifier: severe aplastic anemia
+      subject_qualifier: with chemical ATG
+      object_qualifier: N/A
+      subject_extension: CHEBI:35705
+      object_extension: N/A
+named_entities:
+  - id: MAXO:0000016
+    label: cellular therapy
+    original_spans:
+      - 1228:1243
+      - 1539:1554
+  - id: CHEBI:3498
+    label: CTX
+    original_spans:
+      - 1031:1033
+      - 1480:1482

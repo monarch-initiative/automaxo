@@ -1,0 +1,101 @@
+---
+input_text: 'In-depth Clinical and Biological Exploration of DNA Damage Immune Response
+  as a Biomarker for Oxaliplatin Use in Colorectal Cancer. PURPOSE: The DNA damage
+  immune response (DDIR) assay was developed in breast cancer based on biology associated
+  with deficiencies in homologous recombination and Fanconi anemia pathways. A positive
+  DDIR call identifies patients likely to respond to platinum-based chemotherapies
+  in breast and esophageal cancers. In colorectal cancer, there is currently no biomarker
+  to predict response to oxaliplatin. We tested the ability of the DDIR assay to predict
+  response to oxaliplatin-based chemotherapy in colorectal cancer and characterized
+  the biology in DDIR-positive colorectal cancer. EXPERIMENTAL DESIGN: Samples and
+  clinical data were assessed according to DDIR status from patients who received
+  either 5-fluorouracil (5-FU) or 5FUFA (bolus and infusion 5-FU with folinic acid)
+  plus oxaliplatin (FOLFOX) within the FOCUS trial (n = 361, stage IV), or neoadjuvant
+  FOLFOX in the FOxTROT trial (n = 97, stage II/III). Whole transcriptome, mutation,
+  and IHC data of these samples were used to interrogate the biology of DDIR in colorectal
+  cancer. RESULTS: Contrary to our hypothesis, DDIR-negative patients displayed a
+  trend toward improved outcome for oxaliplatin-based chemotherapy compared with DDIR-positive
+  patients. DDIR positivity was associated with microsatellite instability (MSI) and
+  colorectal molecular subtype 1. Refinement of the DDIR signature, based on overlapping
+  IFN-related chemokine signaling associated with DDIR positivity across colorectal
+  cancer and breast cancer cohorts, further confirmed that the DDIR assay did not
+  have predictive value for oxaliplatin-based chemotherapy in colorectal cancer. CONCLUSIONS:
+  DDIR positivity does not predict improved response following oxaliplatin treatment
+  in colorectal cancer. However, data presented here suggest the potential of the
+  DDIR assay in identifying immune-rich tumors that may benefit from immune checkpoint
+  blockade, beyond current use of MSI status.'
+raw_completion_output: |-
+  primary_disease: Colorectal Cancer  
+  medical_actions: DDIR assay; oxaliplatin-based chemotherapy; immune checkpoint blockade  
+  symptoms: microsatellite instability (MSI); DDIR positivity  
+  chemicals: oxaliplatin; 5-fluorouracil (5-FU); folinic acid  
+  action_annotation_relationships: DDIR assay TREATS symptom DDIR positivity IN colorectal cancer; oxaliplatin-based chemotherapy TREATS symptom microsatellite instability (MSI) IN colorectal cancer; immune checkpoint blockade TREATS symptom DDIR positivity IN colorectal cancer  
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  immune checkpoint blockade TREATS symptom DDIR positivity IN colorectal cancer
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0005575
+  medical_actions:
+    - DDIR assay
+    - oxaliplatin-based chemotherapy
+    - immune checkpoint blockade
+  symptoms:
+    - microsatellite instability (MSI)
+    - DDIR positivity
+  chemicals:
+    - CHEBI:31941
+    - CHEBI:46345
+    - CHEBI:15640
+  action_annotation_relationships:
+    - subject: DDIR assay
+      predicate: TREATS
+      object: DDIR positivity
+      qualifier: MONDO:0005575
+      subject_extension: DDIR assay
+      object_extension: symptom
+    - predicate: TREATS
+      object: microsatellite instability (MSI)
+      qualifier: MONDO:0005575
+      subject_qualifier: oxaliplatin-based
+      subject_extension: CHEBI:31941
+    - subject: TREATS
+      predicate: TREATS
+      object: DDIR positivity
+      qualifier: MONDO:0005575
+      subject_extension: immune checkpoint blockade
+      object_extension: DDIR positivity
+named_entities:
+  - id: MONDO:0005575
+    label: Colorectal Cancer
+    original_spans:
+      - 113:129
+      - 448:464
+      - 632:648
+      - 697:713
+      - 1157:1173
+      - 1582:1598
+      - 1733:1749
+      - 1851:1867
+  - id: CHEBI:46345
+    label: 5-fluorouracil (5-FU)
+    original_spans:
+      - 836:856
+  - id: CHEBI:15640
+    label: folinic acid
+    original_spans:
+      - 897:908

@@ -1,0 +1,96 @@
+---
+input_text: "[Clinical Analysis of Salvage Treatment of Glucocorticoid Resistant Graft-Versus-Host
+  Disease with Vedolizumab in Children]. OBJECTIVE: To investigate the efficacy and
+  safety of VDZ (Vedolizumab) in the salvage treatment of glucocorticoid resistance
+  to gastrointestinal graft-versus-host disease (GR-GI GVHD) after allogeneic hematopoietic
+  stem cell transplantation (allo-HSCT) in children. METHODS: The clinical data of
+  5 patients with refractory GI GVHD who received allo-HSCT in Wuhan Children's Hospital
+  from December 2020 to December 2021 were retrospectively analyzed with VDZ salvage
+  therapy. RESULTS: Among the 5 children with refractory GI GVHD, there were 1 male
+  and 4 female, including 2 cases of extremely severe aplastic anemia, 1 case of acute
+  myeloid leukemia (M2, high-risk), 1 case of fanconi anemia and 1 case of myelodysplastic
+  syndrome. The median age of transplant recipients was 54.4 (12-164) months. The
+  median treatment time from transplantation to VDZ was 1.4 (0.6-6.8) months. On average,
+  3.5 (2-5) doses of VDZ were received. After receiving treatment, 2 patients achieved
+  a complete response (CR), 2 patients achieved a very good partial response (VGPR),
+  1 patient was non-responsive (NR) after a short-term partial response (PR). Compared
+  with that before VDZ treatment, the amount of diarrhea, stool color, blood and traits
+  of the children after medication were effectively improved. The median follow-up
+  time was 9.3 (7.23-12.83) months. No disseminated or severe bacterial/fungal infections
+  occurred during VDZ treatment and follow-up, and 2 children died of leukemia recurrence
+  and pulmonary bronchiolitis obliterans. CONCLUSION: VDZ salvage treatment of refractory
+  GI GVHD in children has obvious short-term efficacy and good safety."
+raw_completion_output: |-
+  Here are the extracted entities:
+
+  primary_disease: Graft-Versus-Host Disease (GVHD)
+  medical_actions: Vedolizumab (VDZ) salvage therapy; allogeneic hematopoietic stem cell transplantation (allo-HSCT)
+  symptoms: diarrhea; stool color changes; blood in stool 
+  chemicals: Vedolizumab (VDZ); glucocorticoid
+  action_annotation_relationships: Vedolizumab (VDZ) TREATS GVHD IN children; Vedolizumab (VDZ) TREATS diarrhea IN GVHD; Vedolizumab (VDZ) TREATS stool color changes IN GVHD; Vedolizumab (VDZ) TREATS blood in stool IN GVHD; glucocorticoid TREATS GVHD IN children
+prompt: |+
+  Split the following piece of text into fields in the following format:
+
+  subject_extension: <A chemical or drug mentioned in the relationship between the medical action and the symptom, for example, "analgesic agent therapy" has the aspect "analgesic">
+  object_extension: <An optional term describing some specific aspect of the object, e.g. "analgesic agent therapy" has the aspect "analgesic">
+  subject: <The medical action. For example: blood transfusion, radiation therapy, cardiac catheterization, pulse oximetry, otoscopy>
+  predicate: <The relationship type between the medical action and the symptom, usually TREATS or PREVENTS.>
+  object: <A sign or symptom associated with the disease and targeted by the medical action. For example, Low serum calcitriol, hypoplasia of the thymus, chronic cough, aortic stiffness, low pulse pressure>
+  qualifier: <The primary disease the relationship is about, or specifically the disease the symptom is related to. For example, Beck-Fahrner syndrome, hereditary retinoblastoma, progeria, diabetes mellitus, infectious otitis media>
+  subject_qualifier: <An optional qualifier or modifier for the subject of the statement, e.g. "high dose" or "intravenously administered">
+  object_qualifier: <An optional qualifier or modifier for the object of the statement, e.g. "severe" or "with additional complications">
+
+
+  Text:
+  glucocorticoid TREATS GVHD IN children
+
+  ===
+
+extracted_object:
+  primary_disease: MONDO:0013730
+  medical_actions:
+    - Vedolizumab (VDZ) salvage therapy
+    - MAXO:0001479
+  symptoms:
+    - HP:0002014
+    - stool color changes
+    - HP:0025085
+  chemicals:
+    - Vedolizumab (VDZ)
+    - CHEBI:24261
+  action_annotation_relationships:
+    - predicate: TREATS
+      object: GVHD
+      subject_extension: Vedolizumab
+    - predicate: TREATS
+      object: HP:0002014
+      qualifier: MONDO:0013730
+      subject_qualifier: with Vedolizumab
+      object_qualifier: IN
+      subject_extension: Vedolizumab
+    - predicate: TREATS
+      object: stool color changes
+      qualifier: MONDO:0013730
+      subject_extension: Vedolizumab
+    - predicate: TREATS
+      object: HP:0025085
+      qualifier: MONDO:0013730
+      subject_extension: Vedolizumab
+    - predicate: TREATS
+      object: GVHD
+      qualifier: IN children
+      subject_extension: CHEBI:24261
+named_entities:
+  - id: MONDO:0013730
+    label: Graft-Versus-Host Disease (GVHD)
+  - id: HP:0002014
+    label: diarrhea
+    original_spans:
+      - 1314:1321
+  - id: HP:0025085
+    label: blood in stool
+  - id: CHEBI:24261
+    label: glucocorticoid
+    original_spans:
+      - 43:56
+      - 224:237
